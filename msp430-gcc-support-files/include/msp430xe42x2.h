@@ -980,7 +980,7 @@ sfr_w(NMBMEAS_HI);                            /* ESP430 Return Value 31 */
 #define mINIT                  (0x0007)       /* Initialize ESP430 Software */
 #define mTEMP                  (0x0009)       /* Request Temp. Measurement from ESP430 Software */
 #define mSWVERSION             (0x000B)       /* Request software version of ESP430 */
-#define mREAD_PARAM            (0x000D)       /* Request to read the parameter with no. “Parameter No.” */
+#define mREAD_PARAM            (0x000D)       /* Request to read the parameter with no. "Parameter No." */
 
 #define mSET_CTRL0             (0x0200)       /* Set Control Register 0 */
 #define mSET_CTRL1             (0x0202)       /* Set Control Register 1 */

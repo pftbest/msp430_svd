@@ -195,7 +195,7 @@ sfr_b(APIV_H);                                /* A-POOL Interrupt Vector Word */
 #define LCMP                   (0x0010)       /* A-POOL Latch comparator */
 #define CMPON                  (0x0020)       /* A-POOL Comparator enable */
 #define DBON                   (0x0040)       /* A-POOL DAC buffer enable signal */
-#define CONVON                 (0x0080)       /* A-POOL Enable for converter’s resistor ladder */
+#define CONVON                 (0x0080)       /* A-POOL Enable for converter's resistor ladder */
 #define CLKSEL0                (0x0100)       /* A-POOL Conversion clock select Bit: 0 */
 #define CLKSEL1                (0x0200)       /* A-POOL Conversion clock select Bit: 1 */
 #define EOCBU                  (0x0400)       /* A-POOL Enable bit for loading conversion buffer */
@@ -213,7 +213,7 @@ sfr_b(APIV_H);                                /* A-POOL Interrupt Vector Word */
 #define LCMP_L                 (0x0010)       /* A-POOL Latch comparator */
 #define CMPON_L                (0x0020)       /* A-POOL Comparator enable */
 #define DBON_L                 (0x0040)       /* A-POOL DAC buffer enable signal */
-#define CONVON_L               (0x0080)       /* A-POOL Enable for converter’s resistor ladder */
+#define CONVON_L               (0x0080)       /* A-POOL Enable for converter's resistor ladder */
 //#define RESERVED             (0x8000)  /* A-POOL */
 
 /* APCNF Control Bits */
@@ -247,7 +247,7 @@ sfr_b(APIV_H);                                /* A-POOL Interrupt Vector Word */
 #define APNSEL1                (0x0020)       /* A-POOL Neg. Channel Input Select 1 */
 #define APNSEL2                (0x0040)       /* A-POOL Neg. Channel Input Select 2 */
 #define APNSEL3                (0x0080)       /* A-POOL Neg. Channel Input Select 3 */
-#define RUNSTOP                (0x0100)       /* A-POOL Converter’s Run/Stop bit */
+#define RUNSTOP                (0x0100)       /* A-POOL Converter's Run/Stop bit */
 #define SBSTP                  (0x0200)       /* A-POOL Saturation based conversion stop enable */
 #define CBSTP                  (0x0400)       /* A-POOL Comparator based conversion stop enable */
 #define TBSTP                  (0x0800)       /* A-POOL Timer based conversion stop enable for TimerA0 */
@@ -267,7 +267,7 @@ sfr_b(APIV_H);                                /* A-POOL Interrupt Vector Word */
 #define APNSEL3_L              (0x0080)       /* A-POOL Neg. Channel Input Select 3 */
 
 /* APCTL Control Bits */
-#define RUNSTOP_H              (0x0001)       /* A-POOL Converter’s Run/Stop bit */
+#define RUNSTOP_H              (0x0001)       /* A-POOL Converter's Run/Stop bit */
 #define SBSTP_H                (0x0002)       /* A-POOL Saturation based conversion stop enable */
 #define CBSTP_H                (0x0004)       /* A-POOL Comparator based conversion stop enable */
 #define TBSTP_H                (0x0008)       /* A-POOL Timer based conversion stop enable for TimerA0 */
@@ -1040,7 +1040,7 @@ sfr_b(SYSRSTIV_H);                            /* Reset vector generator */
 //#define RESERVED          (0x0040)  /* SYS - Reserved */
 //#define RESERVED          (0x0080)  /* SYS - Reserved */
 #define RAMLCK0                (0x0100)       /* SYS - Write lock enable for configuration RAM */
-#define RAMLCK1                (0x0200)       /* SYS - Write lock enable for application’s code RAM */
+#define RAMLCK1                (0x0200)       /* SYS - Write lock enable for application's code RAM */
 //#define RESERVED          (0x0400)  /* SYS - Reserved */
 //#define RESERVED          (0x0800)  /* SYS - Reserved */
 //#define RESERVED          (0x1000)  /* SYS - Reserved */
@@ -1070,7 +1070,7 @@ sfr_b(SYSRSTIV_H);                            /* Reset vector generator */
 //#define RESERVED          (0x0040)  /* SYS - Reserved */
 //#define RESERVED          (0x0080)  /* SYS - Reserved */
 #define RAMLCK0_H              (0x0001)       /* SYS - Write lock enable for configuration RAM */
-#define RAMLCK1_H              (0x0002)       /* SYS - Write lock enable for application’s code RAM */
+#define RAMLCK1_H              (0x0002)       /* SYS - Write lock enable for application's code RAM */
 //#define RESERVED          (0x0400)  /* SYS - Reserved */
 //#define RESERVED          (0x0800)  /* SYS - Reserved */
 //#define RESERVED          (0x1000)  /* SYS - Reserved */
