@@ -1,0 +1,6 @@
+[package]
+name = "msp430gen"
+version = "0.1.0"
+authors = ["Vadzim Dambrouski <pftbest@gmail.com>"]
+
+[dependencies]
