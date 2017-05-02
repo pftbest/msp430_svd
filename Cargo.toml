@@ -4,3 +4,6 @@ version = "0.1.0"
 authors = ["Vadzim Dambrouski <pftbest@gmail.com>"]
 
 [dependencies]
+#nom = "2.2.1"
+#ldscript-parser = "0.1"
+xmltree = "*"

@@ -1,0 +1,314 @@
+#[macro_use]
+extern crate nom;
+use nom::{space, multispace, hex_digit, digit};
+
+use std::io::Read;
+use std::fs::File;
+
+#[derive(Debug)]
+enum Value<'a> {
+    Number(u64),
+    Ident(&'a str),
+}
+
+#[derive(Debug)]
+struct Define<'a> {
+    name: &'a str,
+    value: Option<Value<'a>>,
+    comment: Option<&'a str>,
+}
+
+#[derive(Debug)]
+enum Item<'a> {
+    ControlBits {
+        name: &'a str,
+        bits: Vec<Define<'a>>,
+    },
+    Register {
+        name: &'a str,
+        width: u8,
+        comment: &'a str,
+    },
+    Define(Define<'a>),
+    Comment(&'a str),
+    Space,
+}
+
+#[derive(Debug)]
+struct Peripheral<'a> {
+    name: &'a str,
+    items: Vec<Item<'a>>,
+}
+
+named!(skip_start<&str, ()>, do_parse!(
+    take_until_and_consume!("\n* PERIPHERAL FILE MAP\n") >>
+    is_a!("*") >> tag!("/") >> multispace >>
+    ()
+));
+
+named!(header<&str, &str>, map!(
+    verify!(
+        block_comment,
+        |x: &str| x.contains("*****")
+    ), trim_header
+));
+
+named!(block_comment<&str, &str>, map!(
+    delimited!(
+        tag!("/*"),
+        take_until!("*/"),
+        tag!("*/\n")
+    ), trim_str
+));
+
+named!(line_comment<&str, &str>, map!(
+    delimited!(
+        tag!("//"),
+        take_until!("\n"),
+        tag!("\n")
+    ), trim_str
+));
+
+named!(simple_comment<&str, &str>, verify!(
+    alt_complete!(line_comment | block_comment),
+    |x: &str| !x.contains("*****")
+));
+
+fn trim_str<'a>(input: &'a str) -> &'a str {
+    input.trim()
+}
+
+fn trim_header<'a>(input: &'a str) -> &'a str {
+    input.trim_matches(&['*', ' ', '\n'][..])
+}
+
+named!(value<&str, Value>, alt_complete!(
+    delimited!(
+        tag!("("),
+        value,
+        tag!(")")
+    ) |
+    map_res!(
+        preceded!(tag!("0x"), hex_digit),
+        |x| u64::from_str_radix(x, 16).map(Value::Number)
+    ) |
+    map_res!(
+        digit,
+        |x| u64::from_str_radix(x, 10).map(Value::Number)
+    ) |
+    is_not!(" ()/\n") => { Value::Ident }
+));
+
+named!(define<&str, Define>, do_parse!(
+    tag!("#define") >> space >>
+    name: take_until_either!(" \n") >> opt!(space) >>
+    value: opt!(value) >> opt!(space) >>
+    comment: opt!(alt_complete!(block_comment | tag!("\n"))) >>
+    (Define {
+        name: name,
+        value: value,
+        comment: comment,
+    })
+));
+
+named!(define_or_comment<&str, Define>, do_parse!(
+    many0!(simple_comment) >>
+    define: define >>
+    many0!(simple_comment) >>
+    (define)
+));
+
+named!(control_bits<&str, Item>, do_parse!(
+    name: verify!(
+        alt_complete!(line_comment | block_comment),
+        |x: &str| {println!("{:?}", x); x.ends_with("Control Bits")}
+    )
+    >>
+    bits: many1!(define_or_comment)
+    >>
+    (Item::ControlBits {
+        name: name,
+        bits: bits,
+    })
+));
+
+named!(register<&str, Item>, do_parse!(
+    tag!("sfr_") >>
+    width: one_of!("ablw") >> tag!("(") >>
+    name: take_until!(")") >> tag!(");") >> space >>
+    comment: block_comment >>
+    (Item::Register {
+        name: name,
+        width: match width {
+            'b' => 1,
+            'w' => 2,
+            'a' | 'l' => 4,
+            _ => panic!("invalid width"),
+        },
+        comment: comment
+    })
+));
+
+named!(comment_item<&str, Item>, map!(
+    simple_comment,
+    Item::Comment
+));
+
+named!(define_item<&str, Item>, map!(
+    define,
+    Item::Define
+));
+
+named!(space_item<&str, Item>, map!(
+    multispace,
+    |_| Item::Space
+));
+
+named!(item<&str, Item>, alt_complete!(
+        control_bits |
+        register |
+        define_item |
+        comment_item |
+        space_item
+));
+
+named!(peripheral<&str, Peripheral>, do_parse!(
+    header: header >>
+    items: many1!(item) >>
+    (Peripheral {
+        name: header,
+        items: items,
+    })
+));
+
+named!(parse_file<&str, Vec<Peripheral>>, do_parse!(
+    skip_start
+    >>
+    peripherals: many1!(
+        peripheral
+    )
+    >>
+    end_of_file
+    >>
+    (peripherals)
+));
+
+named!(end_of_file<&str, ()>, do_parse!(
+    tag!("#ifdef __cplusplus") >>
+    is_not!("\0") >>
+    ()
+));
+
+macro_rules! assert_done {
+    ($res:expr) => (
+        match $res {
+            ::nom::IResult::Done("", _) => {},
+            r @ _ => panic!("fail: {:?}", r),
+        }
+    );
+    ($res:expr, $expected:expr) => (
+        match $res {
+            ::nom::IResult::Done("", v @ _) => {
+                assert_eq!(v, $expected);
+            },
+            r @ _ => panic!("fail: {:?}", r),
+        }
+    );
+}
+
+fn main() {
+    use std::fs;
+    for entry in fs::read_dir("msp430-gcc-support-files/include").unwrap() {
+        let path = entry.unwrap().path();
+        if !(path.ends_with(".h")) {
+            println!("{:?}", path);
+           continue;
+        }
+        println!("testing: {:?}", path);
+        let mut file = File::open(path).unwrap();
+        let mut contents = String::new();
+        file.read_to_string(&mut contents).unwrap();
+        assert_done!(parse_file(&contents));
+    }
+}
+
+#[cfg(test)]
+mod tests {
+    #[test]
+    fn test_one() {
+        assert_done!(::block_comment("/* A */\n"));
+        assert_done!(::simple_comment("/* A */\n"));
+        assert_done!(::simple_comment("//ggg /* A */\n"));
+        assert_done!(::value("R_L"));
+        assert_done!(::value("1000"));
+        assert_done!(::value("(1000)"));
+    }
+
+    #[test]
+    fn test_define() {
+        assert_done!(::define("#define  R1G  R_L  /* A */\n"));
+        assert_done!(::define("#define  R1G  R_L  \n"));
+        assert_done!(::define("#define  R1G  /* A */\n"));
+        assert_done!(::define("#define  R1G  \n"));
+        assert_done!(::define("#define  R1G\n"));
+    }
+
+    #[test]
+    fn test_gg() {
+        let x = r#"/************************************************************
+* ADC10_A
+************************************************************/
+#define __MSP430_HAS_ADC10_A__                /* Definition to show that Module is available */
+#define __MSP430_BASEADDRESS_ADC10_A__ 0x0740
+#define ADC10_A_BASE           __MSP430_BASEADDRESS_ADC10_A__
+
+sfr_w(ADC10CTL0);                             /* ADC10 Control 0 */
+sfr_b(ADC10CTL0_L);                           /* ADC10 Control 0 */
+sfr_b(ADC10CTL0_H);                           /* ADC10 Control 0 */
+sfr_w(ADC10CTL1);                             /* ADC10 Control 1 */
+sfr_b(ADC10CTL1_L);                           /* ADC10 Control 1 */
+sfr_b(ADC10CTL1_H);                           /* ADC10 Control 1 */
+sfr_w(ADC10CTL2);                             /* ADC10 Control 2 */
+sfr_b(ADC10CTL2_L);                           /* ADC10 Control 2 */
+sfr_b(ADC10CTL2_H);                           /* ADC10 Control 2 */
+sfr_w(ADC10LO);                               /* ADC10 Window Comparator High Threshold */
+sfr_b(ADC10LO_L);                             /* ADC10 Window Comparator High Threshold */
+sfr_b(ADC10LO_H);                             /* ADC10 Window Comparator High Threshold */
+sfr_w(ADC10HI);                               /* ADC10 Window Comparator High Threshold */
+sfr_b(ADC10HI_L);                             /* ADC10 Window Comparator High Threshold */
+sfr_b(ADC10HI_H);                             /* ADC10 Window Comparator High Threshold */
+sfr_w(ADC10MCTL0);                            /* ADC10 Memory Control 0 */
+sfr_b(ADC10MCTL0_L);                          /* ADC10 Memory Control 0 */
+sfr_b(ADC10MCTL0_H);                          /* ADC10 Memory Control 0 */
+sfr_w(ADC10MEM0);                             /* ADC10 Conversion Memory 0 */
+sfr_b(ADC10MEM0_L);                           /* ADC10 Conversion Memory 0 */
+sfr_b(ADC10MEM0_H);                           /* ADC10 Conversion Memory 0 */
+sfr_w(ADC10IE);                               /* ADC10 Interrupt Enable */
+sfr_b(ADC10IE_L);                             /* ADC10 Interrupt Enable */
+sfr_b(ADC10IE_H);                             /* ADC10 Interrupt Enable */
+sfr_w(ADC10IFG);                              /* ADC10 Interrupt Flag */
+sfr_b(ADC10IFG_L);                            /* ADC10 Interrupt Flag */
+sfr_b(ADC10IFG_H);                            /* ADC10 Interrupt Flag */
+sfr_w(ADC10IV);                               /* ADC10 Interrupt Vector Word */
+sfr_b(ADC10IV_L);                             /* ADC10 Interrupt Vector Word */
+sfr_b(ADC10IV_H);                             /* ADC10 Interrupt Vector Word */
+
+/* ADC10CTL0 Control Bits */
+#define ADC10SC                (0x0001)       /* ADC10 Start Conversion */
+#define ADC10ENC               (0x0002)       /* ADC10 Enable Conversion */
+#define ADC10ON                (0x0010)       /* ADC10 On/enable */
+#define ADC10MSC               (0x0080)       /* ADC10 Multiple SampleConversion */
+#define ADC10SHT0              (0x0100)       /* ADC10 Sample Hold Select Bit: 0 */
+#define ADC10SHT1              (0x0200)       /* ADC10 Sample Hold Select Bit: 1 */
+#define ADC10SHT2              (0x0400)       /* ADC10 Sample Hold Select Bit: 2 */
+#define ADC10SHT3              (0x0800)       /* ADC10 Sample Hold Select Bit: 3 */
+
+/* ADC10CTL0 Control Bits */
+#define ADC10SC_L              (0x0001)       /* ADC10 Start Conversion */
+#define ADC10ENC_L             (0x0002)       /* ADC10 Enable Conversion */
+#define ADC10ON_L              (0x0010)       /* ADC10 On/enable */
+#define ADC10MSC_L             (0x0080)       /* ADC10 Multiple SampleConversion */
+"#;
+        assert_done!(::peripheral(x));
+    }
+}
