@@ -4,6 +4,7 @@ extern crate svd_parser as svd;
 #[macro_use]
 mod write;
 
+use std::io::Write;
 use xmltree::Element;
 use svd::*;
 
@@ -125,6 +126,24 @@ fn parse_instance(tree: &Element) -> Option<Peripheral> {
     parse_module(&contents)
 }
 
+fn get_addr_info(r: &Register) -> (u32, u32) {
+    match r {
+        &Register::Single(ref ri) => (ri.address_offset, try!(ri.size)),
+        _ => panic!("arrays are not supported"),
+    }
+}
+
+fn format_register(r: &Register) -> String {
+    let mut s = format!("{:?}", r);
+    match s.find("access") {
+        Some(x) => {
+            s.truncate(x);
+        }
+        None => {}
+    }
+    s
+}
+
 fn parse_peripheral(tree: &Element) -> Option<Peripheral> {
     assert_eq!(tree.name, "module");
 
@@ -141,16 +160,42 @@ fn parse_peripheral(tree: &Element) -> Option<Peripheral> {
         .min()
         .unwrap();
 
+    let mut regs = tree.children
+        .iter()
+        .filter_map(|x| parse_register(x, base_address))
+        .collect::<Vec<_>>();
+
+    regs.sort_by_key(|r| {
+                         let (a, _) = get_addr_info(r);
+                         a
+                     });
+
+    regs = regs.iter()
+        .filter_map(|r| {
+            let (r_addr, r_size) = get_addr_info(r);
+
+            for x in &regs {
+                if x == r {
+                    continue;
+                }
+                let (x_addr, x_size) = get_addr_info(x);
+                if x_addr == r_addr && x_size < r_size {
+                    writeln!(std::io::stderr(), "Removing    {}", format_register(r)).ok();
+                    writeln!(std::io::stderr(), "In favor of {}", format_register(x)).ok();
+                    return None;
+                }
+            }
+            Some(r.clone())
+        })
+        .collect::<Vec<_>>();
+
     Some(Peripheral {
              name: try!(tree.get_attribute("id")).fix_id(),
              group_name: tree.get_attribute("id"),
              description: tree.get_attribute("description"),
              base_address: base_address,
              interrupt: vec![],
-             registers: Some(tree.children
-                                 .iter()
-                                 .filter_map(|x| parse_register(x, base_address))
-                                 .collect::<Vec<_>>()),
+             registers: Some(regs),
              derived_from: None,
          })
 }
