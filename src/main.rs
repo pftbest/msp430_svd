@@ -1,8 +1,7 @@
 extern crate xmltree;
+extern crate svd_parser as svd;
 
 #[macro_use]
-mod parse;
-mod svd;
 mod write;
 
 use xmltree::Element;
@@ -11,6 +10,20 @@ use svd::*;
 macro_rules! try {
     ($e:expr) => {
         $e.expect(concat!(file!(), ":", line!(), " ", stringify!($e)))
+    }
+}
+
+fn u32_str(text: &str) -> Option<u32> {
+    let text = text.trim();
+    if text.starts_with("0x") || text.starts_with("0X") {
+        u32::from_str_radix(&text["0x".len()..], 16).ok()
+    } else if text.starts_with('#') {
+        // Handle strings in the binary form of:
+        // #01101x1
+        // along with don't care character x (replaced with 0)
+        u32::from_str_radix(&str::replace(&text["#".len()..], "x", "0"), 2).ok()
+    } else {
+        text.parse().ok()
     }
 }
 
@@ -67,7 +80,7 @@ fn main() {
     let original = parse_device_file(xml);
     let out_svd = write::write_device(&original);
 
-    let parsed = svd::parse_device(&out_svd);
+    let parsed = svd::parse(&out_svd);
 
     println!("{}", out_svd);
 
@@ -122,9 +135,11 @@ fn parse_peripheral(tree: &Element) -> Option<Peripheral> {
         _ => {}
     }
 
-    let base_address = tree.children.iter().map(|x| {
-        try!(parse::u32_str(&try!(x.get_attribute("offset"))))
-    }).min().unwrap();
+    let base_address = tree.children
+        .iter()
+        .map(|x| try!(u32_str(&try!(x.get_attribute("offset")))))
+        .min()
+        .unwrap();
 
     Some(Peripheral {
              name: try!(tree.get_attribute("id")).fix_id(),
@@ -151,8 +166,8 @@ fn parse_register_info(tree: &Element, base_address: u32) -> RegisterInfo {
     RegisterInfo {
         name: try!(tree.get_attribute("acronym")).fix_id(),
         description: try!(tree.get_attribute("description")),
-        address_offset: try!(parse::u32_str(&try!(tree.get_attribute("offset")))) - base_address,
-        size: parse::u32_str(&try!(tree.get_attribute("width"))),
+        address_offset: try!(u32_str(&try!(tree.get_attribute("offset")))) - base_address,
+        size: u32_str(&try!(tree.get_attribute("width"))),
         access: None,
         reset_value: None,
         reset_mask: None,
@@ -176,8 +191,8 @@ fn parse_field(tree: &Element) -> Field {
         name: try!(tree.get_attribute("id")).fix_id(),
         description: tree.get_attribute("description"),
         bit_range: BitRange {
-            offset: try!(parse::u32_str(&try!(tree.get_attribute("begin")))),
-            width: try!(parse::u32_str(&try!(tree.get_attribute("width")))),
+            offset: try!(u32_str(&try!(tree.get_attribute("begin")))),
+            width: try!(u32_str(&try!(tree.get_attribute("width")))),
         },
         access: tree.get_attribute("rwaccess").map(parse_access),
         enumerated_values: match tree.children.len() {
@@ -212,7 +227,7 @@ fn parse_enum(tree: &Element) -> EnumeratedValue {
     EnumeratedValue {
         name: try!(tree.get_attribute("id")).fix_id(),
         description: tree.get_attribute("description"),
-        value: parse::u32_str(&try!(tree.get_attribute("value"))),
+        value: u32_str(&try!(tree.get_attribute("value"))),
         is_default: None,
     }
 }

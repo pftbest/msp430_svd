@@ -1,0 +1,12 @@
+[package]
+authors = ["Jorge Aparicio <japaricious@gmail.com>"]
+description = "A CMSIS-SVD file parser"
+documentation = "https://docs.rs/svd-parser"
+keywords = ["CMSIS", "SVD", "parser"]
+license = "MIT OR Apache-2.0"
+name = "svd-parser"
+repository = "https://github.com/japaric/svd"
+version = "0.5.1"
+
+[dependencies]
+xmltree = "0.3.2"

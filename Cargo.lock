@@ -2,6 +2,7 @@
 name = "msp430gen"
 version = "0.1.0"
 dependencies = [
+ "svd-parser 0.5.1",
  "xmltree 0.4.0 (registry+https://github.com/rust-lang/crates.io-index)",
 ]
 
@@ -11,11 +12,34 @@ version = "0.7.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 
 [[package]]
+name = "svd-parser"
+version = "0.5.1"
+dependencies = [
+ "xmltree 0.3.2 (registry+https://github.com/rust-lang/crates.io-index)",
+]
+
+[[package]]
+name = "xml-rs"
+version = "0.3.6"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+dependencies = [
+ "bitflags 0.7.0 (registry+https://github.com/rust-lang/crates.io-index)",
+]
+
+[[package]]
 name = "xml-rs"
 version = "0.4.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 dependencies = [
  "bitflags 0.7.0 (registry+https://github.com/rust-lang/crates.io-index)",
+]
+
+[[package]]
+name = "xmltree"
+version = "0.3.2"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+dependencies = [
+ "xml-rs 0.3.6 (registry+https://github.com/rust-lang/crates.io-index)",
 ]
 
 [[package]]
@@ -28,5 +52,7 @@ dependencies = [
 
 [metadata]
 "checksum bitflags 0.7.0 (registry+https://github.com/rust-lang/crates.io-index)" = "aad18937a628ec6abcd26d1489012cc0e18c21798210f491af69ded9b881106d"
+"checksum xml-rs 0.3.6 (registry+https://github.com/rust-lang/crates.io-index)" = "7ec6c39eaa68382c8e31e35239402c0a9489d4141a8ceb0c716099a0b515b562"
 "checksum xml-rs 0.4.1 (registry+https://github.com/rust-lang/crates.io-index)" = "b46ee689ba7a669c08a1170c2348d2516c62dc461135c9e86b2f1f476e07be4a"
+"checksum xmltree 0.3.2 (registry+https://github.com/rust-lang/crates.io-index)" = "472a9d37c7c53ab2391161df5b89b1f3bf76dab6ab150d7941ecbdd832282082"
 "checksum xmltree 0.4.0 (registry+https://github.com/rust-lang/crates.io-index)" = "973f1a8be3ef2ce1388e0821093ce67d5eb4c2e897e88866e2ed6dd7a63920ed"
