@@ -87,7 +87,7 @@ fn parse_device(tree: &Element) -> Device {
         defaults: Defaults {
             size: Some(16),
             reset_value: Some(0x0),
-            reset_mask: Some(0xffffffff),
+            reset_mask: Some(0xffff),
             access: Some(Access::ReadWrite),
         },
     }
@@ -122,32 +122,36 @@ fn parse_peripheral(tree: &Element) -> Option<Peripheral> {
         _ => {}
     }
 
+    let base_address = tree.children.iter().map(|x| {
+        try!(parse::u32_str(&try!(x.get_attribute("offset"))))
+    }).min().unwrap();
+
     Some(Peripheral {
              name: try!(tree.get_attribute("id")).fix_id(),
              group_name: tree.get_attribute("id"),
              description: tree.get_attribute("description"),
-             base_address: 0,
+             base_address: base_address,
              interrupt: vec![],
              registers: Some(tree.children
                                  .iter()
-                                 .filter_map(parse_register)
+                                 .filter_map(|x| parse_register(x, base_address))
                                  .collect::<Vec<_>>()),
              derived_from: None,
          })
 }
 
-fn parse_register(tree: &Element) -> Option<Register> {
-    let r = parse_register_info(tree);
+fn parse_register(tree: &Element, base_address: u32) -> Option<Register> {
+    let r = parse_register_info(tree, base_address);
     Some(Register::Single(r))
 }
 
-fn parse_register_info(tree: &Element) -> RegisterInfo {
+fn parse_register_info(tree: &Element, base_address: u32) -> RegisterInfo {
     assert_eq!(tree.name, "register");
 
     RegisterInfo {
         name: try!(tree.get_attribute("acronym")).fix_id(),
         description: try!(tree.get_attribute("description")),
-        address_offset: try!(parse::u32_str(&try!(tree.get_attribute("offset")))),
+        address_offset: try!(parse::u32_str(&try!(tree.get_attribute("offset")))) - base_address,
         size: parse::u32_str(&try!(tree.get_attribute("width"))),
         access: None,
         reset_value: None,
