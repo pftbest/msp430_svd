@@ -1,0 +1,56 @@
+<module HW_revision="" XML_version="1" description="Port 11" id="Port 11">
+<register acronym="P11IN" description="Port 11 Input" id="P11IN" offset=" 0x02A0" width="8">
+<bitfield begin="0" description="P11IN0" end="0" id="P11IN0" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="1" description="P11IN1" end="1" id="P11IN1" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="2" description="P11IN2" end="2" id="P11IN2" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="3" description="P11IN3" end="3" id="P11IN3" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="4" description="P11IN4" end="4" id="P11IN4" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="5" description="P11IN5" end="5" id="P11IN5" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="6" description="P11IN6" end="6" id="P11IN6" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="7" description="P11IN7" end="7" id="P11IN7" range="" resetval="0" rwaccess="RW" width="1"></bitfield></register>
+<register acronym="P11OUT" description="Port 11 Output" id="P11OUT" offset=" 0x02A2" width="8">
+<bitfield begin="0" description="P11OUT0" end="0" id="P11OUT0" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="1" description="P11OUT1" end="1" id="P11OUT1" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="2" description="P11OUT2" end="2" id="P11OUT2" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="3" description="P11OUT3" end="3" id="P11OUT3" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="4" description="P11OUT4" end="4" id="P11OUT4" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="5" description="P11OUT5" end="5" id="P11OUT5" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="6" description="P11OUT6" end="6" id="P11OUT6" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="7" description="P11OUT7" end="7" id="P11OUT7" range="" resetval="0" rwaccess="RW" width="1"></bitfield></register>
+<register acronym="P11DIR" description="Port 11 Direction" id="P11DIR" offset=" 0x02A4" width="8">
+<bitfield begin="0" description="P11DIR0" end="0" id="P11DIR0" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="1" description="P11DIR1" end="1" id="P11DIR1" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="2" description="P11DIR2" end="2" id="P11DIR2" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="3" description="P11DIR3" end="3" id="P11DIR3" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="4" description="P11DIR4" end="4" id="P11DIR4" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="5" description="P11DIR5" end="5" id="P11DIR5" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="6" description="P11DIR6" end="6" id="P11DIR6" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="7" description="P11DIR7" end="7" id="P11DIR7" range="" resetval="0" rwaccess="RW" width="1"></bitfield></register>
+<register acronym="P11REN" description="Port 11 Resistor Enable" id="P11REN" offset=" 0x02A6" width="8">
+<bitfield begin="0" description="P11REN0" end="0" id="P11REN0" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="1" description="P11REN1" end="1" id="P11REN1" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="2" description="P11REN2" end="2" id="P11REN2" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="3" description="P11REN3" end="3" id="P11REN3" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="4" description="P11REN4" end="4" id="P11REN4" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="5" description="P11REN5" end="5" id="P11REN5" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="6" description="P11REN6" end="6" id="P11REN6" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="7" description="P11REN7" end="7" id="P11REN7" range="" resetval="0" rwaccess="RW" width="1"></bitfield></register>
+<register acronym="P11DS" description="Port 11 Drive Strenght" id="P11DS" offset=" 0x02A8" width="8">
+<bitfield begin="0" description="P11DS0" end="0" id="P11DS0" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="1" description="P11DS1" end="1" id="P11DS1" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="2" description="P11DS2" end="2" id="P11DS2" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="3" description="P11DS3" end="3" id="P11DS3" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="4" description="P11DS4" end="4" id="P11DS4" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="5" description="P11DS5" end="5" id="P11DS5" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="6" description="P11DS6" end="6" id="P11DS6" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="7" description="P11DS7" end="7" id="P11DS7" range="" resetval="0" rwaccess="RW" width="1"></bitfield></register>
+<register acronym="P11SEL" description="Port 11 Selection" id="P11SEL" offset=" 0x02AA" width="8">
+<bitfield begin="0" description="P11SEL0" end="0" id="P11SEL0" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="1" description="P11SEL1" end="1" id="P11SEL1" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="2" description="P11SEL2" end="2" id="P11SEL2" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="3" description="P11SEL3" end="3" id="P11SEL3" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="4" description="P11SEL4" end="4" id="P11SEL4" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="5" description="P11SEL5" end="5" id="P11SEL5" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="6" description="P11SEL6" end="6" id="P11SEL6" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="7" description="P11SEL7" end="7" id="P11SEL7" range="" resetval="0" rwaccess="RW" width="1"></bitfield></register>
+</module>

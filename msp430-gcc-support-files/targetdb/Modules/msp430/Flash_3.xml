@@ -1,0 +1,28 @@
+<module HW_revision="" XML_version="1" description="Flash" id="Flash">
+<register acronym="FCTL1" description="FLASH Control 1" id="FCTL1" offset=" 0x0128" width="16">
+<bitfield begin="1" description="Enable bit for Flash segment erase" end="1" id="ERASE" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="2" description="Enable bit for Flash mass erase" end="2" id="MERAS" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="6" description="Enable bit for Flash write" end="6" id="WRT" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="7" description="Enable bit for Flash segment write" end="7" id="BLKWRT" range="" resetval="0" rwaccess="RW" width="1"></bitfield></register>
+<register acronym="FCTL2" description="FLASH Control 2" id="FCTL2" offset=" 0x012A" width="16">
+<bitfield begin="0" description="Divide Flash clock by 1 to 64 using FN0 to FN5 according to:" end="0" id="FN0" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="1" description="32*FN5 + 16*FN4 + 8*FN3 + 4*FN2 + 2*FN1 + FN0 + 1" end="1" id="FN1" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="2" description="FN2" end="2" id="FN2" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="3" description="FN3" end="3" id="FN3" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="4" description="FN4" end="4" id="FN4" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="5" description="FN5" end="5" id="FN5" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="7" description="Flash clock select 0 */        /* to distinguish from USART SSELx" end="6" id="FSSEL" range="" resetval="0" rwaccess="RW" width="2">
+<bitenum description="Flash clock select: 0 - ACLK" id="FSSEL_0" token="FSSEL_0" value="0"></bitenum>
+<bitenum description="Flash clock select: 1 - MCLK" id="FSSEL_1" token="FSSEL_1" value="1"></bitenum>
+<bitenum description="Flash clock select: 2 - SMCLK" id="FSSEL_2" token="FSSEL_2" value="2"></bitenum>
+<bitenum description="Flash clock select: 3 - SMCLK" id="FSSEL_3" token="FSSEL_3" value="3"></bitenum></bitfield></register>
+<register acronym="FCTL3" description="FLASH Control 3" id="FCTL3" offset=" 0x012C" width="16">
+<bitfield begin="0" description="Flash busy: 1" end="0" id="BUSY" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="1" description="Flash Key violation flag" end="1" id="KEYV" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="2" description="Flash Access violation flag" end="2" id="ACCVIFG" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="3" description="Wait flag for segment write" end="3" id="WAIT" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="4" description="Lock bit: 1 - Flash is locked (read only)" end="4" id="LOCK" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="5" description="Flash Emergency Exit" end="5" id="EMEX" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="6" description="Segment A Lock bit: read = 1 - Segment is locked (read only)" end="6" id="LOCKA" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="7" description="Last Program or Erase failed" end="7" id="FAIL" range="" resetval="0" rwaccess="RW" width="1"></bitfield></register>
+</module>

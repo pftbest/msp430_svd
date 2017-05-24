@@ -1,0 +1,35 @@
+<module id="P2" HW_revision="272.0">
+    <register id="P2IV" width="16" offset="0x1E" internal="0" description="Port 2 Interrupt Vector Register">
+        <bitfield id="P2IV" description="Port 2 interrupt vector value" begin="4" end="0" width="5" rwaccess="R">
+            <bitenum id="NONE" value="0x0" description="No interrupt pending"/>
+            <bitenum id="P2IFG0" value="0x2" description="Interrupt Source: Port 2.0 interrupt; Interrupt Flag: P2IFG0; Interrupt Priority: Highest"/>
+            <bitenum id="P2IFG1" value="0x4" description="Interrupt Source: Port 2.1 interrupt; Interrupt Flag: P2IFG1"/>
+            <bitenum id="P2IFG2" value="0x6" description="Interrupt Source: Port 2.2 interrupt; Interrupt Flag: P2IFG2"/>
+            <bitenum id="P2IFG3" value="0x8" description="Interrupt Source: Port 2.3 interrupt; Interrupt Flag: P2IFG3"/>
+            <bitenum id="P2IFG4" value="0xA" description="Interrupt Source: Port 2.4 interrupt; Interrupt Flag: P2IFG4"/>
+            <bitenum id="P2IFG5" value="0xC" description="Interrupt Source: Port 2.5 interrupt; Interrupt Flag: P2IFG5"/>
+            <bitenum id="P2IFG6" value="0xE" description="Interrupt Source: Port 2.6 interrupt; Interrupt Flag: P2IFG6"/>
+            <bitenum id="P2IFG7" value="0x10" description="Interrupt Source: Port 2.7 interrupt; Interrupt Flag: P2IFG7; Interrupt Priority: Lowest"/>
+        </bitfield>
+    </register>
+    <register id="P2IN" width="8" offset="0x1" internal="0" description="Port 2 Input">
+    </register>
+    <register id="P2OUT" width="8" offset="0x3" internal="0" description="Port 2 Output">
+    </register>
+    <register id="P2DIR" width="8" offset="0x5" internal="0" description="Port 2 Direction">
+    </register>
+    <register id="P2REN" width="8" offset="0x7" internal="0" description="Port 2 Resistor Enable">
+    </register>
+    <register id="P2SEL0" width="8" offset="0xB" internal="0" description="Port 2 Select 0">
+    </register>
+    <register id="P2SEL1" width="8" offset="0xD" internal="0" description="Port 2 Select 1">
+    </register>
+    <register id="P2SELC" width="8" offset="0x17" internal="0" description="Port 2 Complement Select">
+    </register>
+    <register id="P2IES" width="8" offset="0x19" internal="0" description="Port 2 Interrupt Edge Select">
+    </register>
+    <register id="P2IE" width="8" offset="0x1B" internal="0" description="Port 2 Interrupt Enable">
+    </register>
+    <register id="P2IFG" width="8" offset="0x1D" internal="0" description="Port 2 Interrupt Flag">
+    </register>
+</module>

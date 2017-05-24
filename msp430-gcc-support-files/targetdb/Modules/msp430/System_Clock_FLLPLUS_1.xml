@@ -1,0 +1,31 @@
+<module HW_revision="" XML_version="1" description="System Clock FLLPLUS" id="System Clock FLLPLUS">
+<register acronym="SCFI0" description="System Clock Frequency Integrator 0" id="SCFI0" offset=" 0x0050" width="8">
+<bitfield begin="2" description="fDCOCLK =   1.4-12MHz" end="2" id="FN_2" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="3" description="fDCOCLK =   2.2-17Mhz" end="3" id="FN_3" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="4" description="fDCOCLK =   3.2-25Mhz" end="4" id="FN_4" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="5" description="fDCOCLK =     5-40Mhz" end="5" id="FN_8" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="7" description="Loop Divider Bit : 0" end="6" id="FLLD" range="" resetval="0" rwaccess="RW" width="2">
+<bitenum description="Multiply Selected Loop Freq. By 1" id="FLLD_1" token="FLLD_1" value="1"></bitenum>
+<bitenum description="Multiply Selected Loop Freq. By 2" id="FLLD_2" token="FLLD_2" value="2"></bitenum>
+<bitenum description="Multiply Selected Loop Freq. By 4" id="FLLD_4" token="FLLD_4" value="4"></bitenum>
+<bitenum description="Multiply Selected Loop Freq. By 8" id="FLLD_8" token="FLLD_8" value="8"></bitenum></bitfield></register>
+<register acronym="SCFI1" description="System Clock Frequency Integrator 1" id="SCFI1" offset=" 0x0051" width="8"></register>
+<register acronym="SCFQCTL" description="System Clock Frequency Control" id="SCFQCTL" offset=" 0x0052" width="8"></register>
+<register acronym="FLL_CTL0" description="FLL+ Control 0" id="FLL_CTL0" offset=" 0x0053" width="8">
+<bitfield begin="0" description="DCO Fault Flag" end="0" id="DCOF" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="1" description="Low Frequency Oscillator Fault Flag" end="1" id="LFOF" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="2" description="High Frequency Oscillator Fault Flag" end="2" id="XT1OF" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="5" description="XIN/XOUT Cap 0" end="4" id="OSCCAP" range="" resetval="0" rwaccess="RW" width="2">
+<bitenum description="XIN Cap = XOUT Cap = 0pf" id="OSCCAP_0" token="OSCCAP_0" value="0"></bitenum>
+<bitenum description="XIN Cap = XOUT Cap = 10pf" id="OSCCAP_1" token="OSCCAP_1" value="1"></bitenum>
+<bitenum description="XIN Cap = XOUT Cap = 14pf" id="OSCCAP_2" token="OSCCAP_2" value="2"></bitenum>
+<bitenum description="XIN Cap = XOUT Cap = 18pf" id="OSCCAP_3" token="OSCCAP_3" value="3"></bitenum></bitfield>
+<bitfield begin="6" description="1: Selects high-freq. oscillator" end="6" id="XTS_FLL" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="7" description="DCO+ Enable" end="7" id="DCOPLUS" range="" resetval="0" rwaccess="RW" width="1"></bitfield></register>
+<register acronym="FLL_CTL1" description="FLL+ Control 1" id="FLL_CTL1" offset=" 0x0054" width="8">
+<bitfield begin="1" description="FLL+ Divide Px.x/ACLK 0" end="0" id="FLL_DIV" range="" resetval="0" rwaccess="RW" width="2">
+<bitenum description="FLL+ Divide Px.x/ACLK By 1" id="FLL_DIV_1" token="FLL_DIV_1" value="1"></bitenum>
+<bitenum description="FLL+ Divide Px.x/ACLK By 2" id="FLL_DIV_2" token="FLL_DIV_2" value="2"></bitenum>
+<bitenum description="FLL+ Divide Px.x/ACLK By 4" id="FLL_DIV_4" token="FLL_DIV_4" value="4"></bitenum>
+<bitenum description="FLL+ Divide Px.x/ACLK By 8" id="FLL_DIV_8" token="FLL_DIV_8" value="8"></bitenum></bitfield></register>
+</module>

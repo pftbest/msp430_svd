@@ -1,0 +1,57 @@
+<module HW_revision="" XML_version="1" description="USART 0  I2C Mode" id="USART 0  I2C Mode">
+<register acronym="I2CIE" description="I2C Interrupt Enable" id="I2CIE" offset=" 0x0050" width="8">
+<bitfield begin="0" description="Arbitration lost" end="0" id="ALIE" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="1" description="No acknowledge" end="1" id="NACKIE" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="2" description="Own address" end="2" id="OAIE" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="3" description="Access ready (opeation complete)" end="3" id="ARDYIE" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="4" description="Receive ready (data received)" end="4" id="RXRDYIE" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="5" description="Transmit ready (transmit register empty)" end="5" id="TXRDYIE" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="6" description="General call" end="6" id="GCIE" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="7" description="Start condition" end="7" id="STTIE" range="" resetval="0" rwaccess="RW" width="1"></bitfield></register>
+<register acronym="I2CIFG" description="I2C Interrupt Flag" id="I2CIFG" offset=" 0x0051" width="8">
+<bitfield begin="0" description="Arbitration lost" end="0" id="ALIFG" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="1" description="No acknowledge" end="1" id="NACKIFG" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="2" description="Own address" end="2" id="OAIFG" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="3" description="Access ready (opeation complete)" end="3" id="ARDYIFG" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="4" description="Receive ready (data received)" end="4" id="RXRDYIFG" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="5" description="Transmit ready (transmit register empty)" end="5" id="TXRDYIFG" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="6" description="General call" end="6" id="GCIFG" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="7" description="Start condition" end="7" id="STTIFG" range="" resetval="0" rwaccess="RW" width="1"></bitfield></register>
+<register acronym="I2CNDAT" description="I2C Data Count" id="I2CNDAT" offset=" 0x0052" width="8"></register>
+<register acronym="U0CTL__I2C" description="USART 0 Control I2C" id="U0CTL__I2C" offset=" 0x0070" width="8">
+<bitfield begin="0" description="I2C enable" end="0" id="I2CEN" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="1" description="I2C master" end="1" id="MST" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="2" description="USART synchronous/asynchronous" end="2" id="SYNC" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="3" description="Loopback" end="3" id="LISTEN" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="4" description="I2C extended addressing" end="4" id="XA" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="5" description="USART I2C" end="5" id="I2C" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="6" description="Transmit DMA enable" end="6" id="TXDMAEN" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="7" description="Receive DMA enable" end="7" id="RXDMAEN" range="" resetval="0" rwaccess="RW" width="1"></bitfield></register>
+<register acronym="I2CTCTL" description="I2C Transfer Control" id="I2CTCTL" offset=" 0x0071" width="8">
+<bitfield begin="0" description="Start bit" end="0" id="I2CSTT" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="1" description="Stop bit" end="1" id="I2CSTP" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="2" description="Start byte mode" end="2" id="I2CSTB" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="3" description="Transmit" end="3" id="I2CTRX" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="5" description="Clock select bit 0" end="4" id="I2CSSEL" range="" resetval="0" rwaccess="RW" width="2">
+<bitenum description="I2C clock select 0: UCLK" id="I2CSSEL_0" token="I2CSSEL_0" value="0"></bitenum>
+<bitenum description="I2C clock select 1: ACLK" id="I2CSSEL_1" token="I2CSSEL_1" value="1"></bitenum>
+<bitenum description="I2C clock select 2: SMCLK" id="I2CSSEL_2" token="I2CSSEL_2" value="2"></bitenum>
+<bitenum description="I2C clock select 3: SMCLK" id="I2CSSEL_3" token="I2CSSEL_3" value="3"></bitenum></bitfield>
+<bitfield begin="6" description="Repeat mode" end="6" id="I2CRM" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="7" description="Word data mode" end="7" id="I2CWORD" range="" resetval="0" rwaccess="RW" width="1"></bitfield></register>
+<register acronym="I2CDCTL" description="I2C Data Control" id="I2CDCTL" offset=" 0x0072" width="8">
+<bitfield begin="0" description="Bus busy" end="0" id="I2CBB" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="1" description="Receiver overrun" end="1" id="I2CRXOVR" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="2" description="Transmit underflow" end="2" id="I2CTXUDF" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="3" description="Received byte" end="3" id="I2CSBD" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="4" description="SCL being held low" end="4" id="I2CSCLLOW" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="5" description="I2C Busy Flag" end="5" id="I2CBUSY" range="" resetval="0" rwaccess="RW" width="1"></bitfield></register>
+<register acronym="I2CPSC" description="I2C Pre-scaler" id="I2CPSC" offset=" 0x0073" width="8"></register>
+<register acronym="I2CSCLH" description="I2C SCL High" id="I2CSCLH" offset=" 0x0074" width="8"></register>
+<register acronym="I2CSCLL" description="I2C SCL Low" id="I2CSCLL" offset=" 0x0075" width="8"></register>
+<register acronym="I2CDRB" description="I2C Data for Byte access" id="I2CDRB" offset=" 0x0076" width="8"></register>
+<register acronym="I2CDRW" description="I2C Data for Word access" id="I2CDRW" offset=" 0x0076" width="16"></register>
+<register acronym="I2COA" description="I2C Own Address" id="I2COA" offset=" 0x0118" width="16"></register>
+<register acronym="I2CSA" description="I2C Slave Address" id="I2CSA" offset=" 0x011A" width="16"></register>
+<register acronym="I2CIV" description="I2C Interrupt Vector" id="I2CIV" offset=" 0x011C" width="16"></register>
+</module>

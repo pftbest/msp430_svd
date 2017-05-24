@@ -1,0 +1,219 @@
+<module id="COMP_E" HW_revision="367.0">
+    <register id="CECTL0" width="16" offset="0x0" internal="0" description="Comparator Control Register 0">
+        <bitfield id="CEIPSEL" description="Channel input selected for the V+ terminal" begin="3" end="0" width="4" rwaccess="R/W">
+            <bitenum id="CEIPSEL_0" value="0x0" description="Channel 0 selected"/>
+            <bitenum id="CEIPSEL_1" value="0x1" description="Channel 1 selected"/>
+            <bitenum id="CEIPSEL_2" value="0x2" description="Channel 2 selected"/>
+            <bitenum id="CEIPSEL_3" value="0x3" description="Channel 3 selected"/>
+            <bitenum id="CEIPSEL_4" value="0x4" description="Channel 4 selected"/>
+            <bitenum id="CEIPSEL_5" value="0x5" description="Channel 5 selected"/>
+            <bitenum id="CEIPSEL_6" value="0x6" description="Channel 6 selected"/>
+            <bitenum id="CEIPSEL_7" value="0x7" description="Channel 7 selected"/>
+            <bitenum id="CEIPSEL_8" value="0x8" description="Channel 8 selected"/>
+            <bitenum id="CEIPSEL_9" value="0x9" description="Channel 9 selected"/>
+            <bitenum id="CEIPSEL_10" value="0xA" description="Channel 10 selected"/>
+            <bitenum id="CEIPSEL_11" value="0xB" description="Channel 11 selected"/>
+            <bitenum id="CEIPSEL_12" value="0xC" description="Channel 12 selected"/>
+            <bitenum id="CEIPSEL_13" value="0xD" description="Channel 13 selected"/>
+            <bitenum id="CEIPSEL_14" value="0xE" description="Channel 14 selected"/>
+            <bitenum id="CEIPSEL_15" value="0xF" description="Channel 15 selected"/>
+        </bitfield>
+        <bitfield id="CEIPEN" description="Channel input enable for the V+ terminal" begin="7" end="7" width="1" rwaccess="R/W">
+            <bitenum id="DISABLE" value="0x0" description="Selected analog input channel for V+ terminal is disabled"/>
+            <bitenum id="ENABLE" value="0x1" description="Selected analog input channel for V+ terminal is enabled"/>
+        </bitfield>
+        <bitfield id="CEIMSEL" description="Channel input selected for the - terminal" begin="11" end="8" width="4" rwaccess="R/W">
+            <bitenum id="CEIMSEL_0" value="0x0" description="Channel 0 selected"/>
+            <bitenum id="CEIMSEL_1" value="0x1" description="Channel 1 selected"/>
+            <bitenum id="CEIMSEL_2" value="0x2" description="Channel 2 selected"/>
+            <bitenum id="CEIMSEL_3" value="0x3" description="Channel 3 selected"/>
+            <bitenum id="CEIMSEL_4" value="0x4" description="Channel 4 selected"/>
+            <bitenum id="CEIMSEL_5" value="0x5" description="Channel 5 selected"/>
+            <bitenum id="CEIMSEL_6" value="0x6" description="Channel 6 selected"/>
+            <bitenum id="CEIMSEL_7" value="0x7" description="Channel 7 selected"/>
+            <bitenum id="CEIMSEL_8" value="0x8" description="Channel 8 selected"/>
+            <bitenum id="CEIMSEL_9" value="0x9" description="Channel 9 selected"/>
+            <bitenum id="CEIMSEL_10" value="0xA" description="Channel 10 selected"/>
+            <bitenum id="CEIMSEL_11" value="0xB" description="Channel 11 selected"/>
+            <bitenum id="CEIMSEL_12" value="0xC" description="Channel 12 selected"/>
+            <bitenum id="CEIMSEL_13" value="0xD" description="Channel 13 selected"/>
+            <bitenum id="CEIMSEL_14" value="0xE" description="Channel 14 selected"/>
+            <bitenum id="CEIMSEL_15" value="0xF" description="Channel 15 selected"/>
+        </bitfield>
+        <bitfield id="CEIMEN" description="Channel input enable for the - terminal" begin="15" end="15" width="1" rwaccess="R/W">
+            <bitenum id="DISABLE" value="0x0" description="Selected analog input channel for V- terminal is disabled"/>
+            <bitenum id="ENABLE" value="0x1" description="Selected analog input channel for V- terminal is enabled"/>
+        </bitfield>
+    </register>
+    <register id="CECTL1" width="16" offset="0x2" internal="0" description="Comparator Control Register 1">
+        <bitfield id="CEOUT" description="Comparator output value" begin="0" end="0" width="1" rwaccess="R/W">
+        </bitfield>
+        <bitfield id="CEOUTPOL" description="Comparator output polarity" begin="1" end="1" width="1" rwaccess="R/W">
+            <bitenum id="CEOUTPOL_0" value="0x0" description="Noninverted"/>
+            <bitenum id="CEOUTPOL_1" value="0x1" description="Inverted"/>
+        </bitfield>
+        <bitfield id="CEF" description="Comparator output filter" begin="2" end="2" width="1" rwaccess="R/W">
+            <bitenum id="CEF_0" value="0x0" description="Comparator output is not filtered"/>
+            <bitenum id="CEF_1" value="0x1" description="Comparator output is filtered"/>
+        </bitfield>
+        <bitfield id="CEIES" description="Interrupt edge select for CEIIFG and CEIFG" begin="3" end="3" width="1" rwaccess="R/W">
+            <bitenum id="CEIES_0" value="0x0" description="Rising edge for CEIFG, falling edge for CEIIFG"/>
+            <bitenum id="CEIES_1" value="0x1" description="Falling edge for CEIFG, rising edge for CEIIFG"/>
+        </bitfield>
+        <bitfield id="CESHORT" description="Input short" begin="4" end="4" width="1" rwaccess="R/W">
+            <bitenum id="CESHORT_0" value="0x0" description="Inputs not shorted"/>
+            <bitenum id="CESHORT_1" value="0x1" description="Inputs shorted"/>
+        </bitfield>
+        <bitfield id="CEEX" description="Exchange" begin="5" end="5" width="1" rwaccess="R/W">
+        </bitfield>
+        <bitfield id="CEFDLY" description="Filter delay" begin="7" end="6" width="2" rwaccess="R/W">
+            <bitenum id="CEFDLY_0" value="0x0" description="Typical filter delay of TBD (450) ns"/>
+            <bitenum id="CEFDLY_1" value="0x1" description="Typical filter delay of TBD (900) ns"/>
+            <bitenum id="CEFDLY_2" value="0x2" description="Typical filter delay of TBD (1800) ns"/>
+            <bitenum id="CEFDLY_3" value="0x3" description="Typical filter delay of TBD (3600) ns"/>
+        </bitfield>
+        <bitfield id="CEPWRMD" description="Power Mode" begin="9" end="8" width="2" rwaccess="R/W">
+            <bitenum id="CEPWRMD_0" value="0x0" description="High-speed mode"/>
+            <bitenum id="CEPWRMD_1" value="0x1" description="Normal mode"/>
+            <bitenum id="CEPWRMD_2" value="0x2" description="Ultra-low power mode"/>
+        </bitfield>
+        <bitfield id="CEON" description="Comparator On" begin="10" end="10" width="1" rwaccess="R/W">
+            <bitenum id="OFF" value="0x0" description="Off"/>
+            <bitenum id="ON" value="0x1" description="On"/>
+        </bitfield>
+        <bitfield id="CEMRVL" description="This bit is valid of CEMRVS is set to 1" begin="11" end="11" width="1" rwaccess="R/W">
+            <bitenum id="VREF0" value="0x0" description="VREF0 is selected if CERS = 00, 01, or 10"/>
+            <bitenum id="VREF1" value="0x1" description="VREF1 is selected if CERS = 00, 01, or 10"/>
+        </bitfield>
+        <bitfield id="CEMRVS" description="This bit defines if the comparator output selects between VREF0 or VREF1 if CERS = 00, 01, or 10." begin="12" end="12" width="1" rwaccess="R/W">
+            <bitenum id="CEMRVS_0" value="0x0" description="Comparator output state selects between VREF0 or VREF1"/>
+            <bitenum id="CEMRVS_1" value="0x1" description="CEMRVL selects between VREF0 or VREF1"/>
+        </bitfield>
+    </register>
+    <register id="CECTL2" width="16" offset="0x4" internal="0" description="Comparator Control Register 2">
+        <bitfield id="CEREF0" description="Reference resistor tap 0" begin="4" end="0" width="5" rwaccess="R/W">
+        </bitfield>
+        <bitfield id="CERSEL" description="Reference select" begin="5" end="5" width="1" rwaccess="R/W">
+            <bitenum id="CERSEL_0" value="0x0" description="When CEEX = 0, VREF is applied to the V+ terminal; When CEEX = 1, VREF is applied to the V- terminal"/>
+            <bitenum id="CERSEL_1" value="0x1" description="When CEEX = 0, VREF is applied to the V- terminal; When CEEX = 1, VREF is applied to the V+ terminal"/>
+        </bitfield>
+        <bitfield id="CERS" description="Reference source" begin="7" end="6" width="2" rwaccess="R/W">
+            <bitenum id="CERS_0" value="0x0" description="No current is drawn by the reference circuitry"/>
+            <bitenum id="CERS_1" value="0x1" description="VCC applied to the resistor ladder"/>
+            <bitenum id="CERS_2" value="0x2" description="Shared reference voltage applied to the resistor ladder"/>
+            <bitenum id="CERS_3" value="0x3" description="Shared reference voltage supplied to V(CREF). Resistor ladder is off"/>
+        </bitfield>
+        <bitfield id="CEREF1" description="Reference resistor tap 1" begin="12" end="8" width="5" rwaccess="R/W">
+        </bitfield>
+        <bitfield id="CEREFL" description="Reference voltage level" begin="14" end="13" width="2" rwaccess="R/W">
+            <bitenum id="OFF" value="0x0" description="Reference amplifier is disabled. No reference voltage is requested"/>
+            <bitenum id="1P2V" value="0x1" description="1.2 V is selected as shared reference voltage input"/>
+            <bitenum id="2P0V" value="0x2" description="2.0 V is selected as shared reference voltage input"/>
+            <bitenum id="2P5V" value="0x3" description="2.5 V is selected as shared reference voltage input"/>
+        </bitfield>
+        <bitfield id="CEREFACC" description="Reference accuracy" begin="15" end="15" width="1" rwaccess="R/W">
+            <bitenum id="STATIC" value="0x0" description="Static mode"/>
+            <bitenum id="CLOCKED" value="0x1" description="Clocked (low power, low accuracy) mode"/>
+        </bitfield>
+    </register>
+    <register id="CECTL3" width="16" offset="0x6" internal="0" description="Comparator Control Register 3">
+        <bitfield id="CEPD0" description="Port disable" begin="0" end="0" width="1" rwaccess="R/W">
+            <bitenum id="CEPD0_0" value="0x0" description="The input buffer is enabled"/>
+            <bitenum id="CEPD0_1" value="0x1" description="The input buffer is disabled"/>
+        </bitfield>
+        <bitfield id="CEPD1" description="Port disable" begin="1" end="1" width="1" rwaccess="R/W">
+            <bitenum id="CEPD1_0" value="0x0" description="The input buffer is enabled"/>
+            <bitenum id="CEPD1_1" value="0x1" description="The input buffer is disabled"/>
+        </bitfield>
+        <bitfield id="CEPD2" description="Port disable" begin="2" end="2" width="1" rwaccess="R/W">
+            <bitenum id="CEPD2_0" value="0x0" description="The input buffer is enabled"/>
+            <bitenum id="CEPD2_1" value="0x1" description="The input buffer is disabled"/>
+        </bitfield>
+        <bitfield id="CEPD3" description="Port disable" begin="3" end="3" width="1" rwaccess="R/W">
+            <bitenum id="CEPD3_0" value="0x0" description="The input buffer is enabled"/>
+            <bitenum id="CEPD3_1" value="0x1" description="The input buffer is disabled"/>
+        </bitfield>
+        <bitfield id="CEPD4" description="Port disable" begin="4" end="4" width="1" rwaccess="R/W">
+            <bitenum id="CEPD4_0" value="0x0" description="The input buffer is enabled"/>
+            <bitenum id="CEPD4_1" value="0x1" description="The input buffer is disabled"/>
+        </bitfield>
+        <bitfield id="CEPD5" description="Port disable" begin="5" end="5" width="1" rwaccess="R/W">
+            <bitenum id="CEPD5_0" value="0x0" description="The input buffer is enabled"/>
+            <bitenum id="CEPD5_1" value="0x1" description="The input buffer is disabled"/>
+        </bitfield>
+        <bitfield id="CEPD6" description="Port disable" begin="6" end="6" width="1" rwaccess="R/W">
+            <bitenum id="CEPD6_0" value="0x0" description="The input buffer is enabled"/>
+            <bitenum id="CEPD6_1" value="0x1" description="The input buffer is disabled"/>
+        </bitfield>
+        <bitfield id="CEPD7" description="Port disable" begin="7" end="7" width="1" rwaccess="R/W">
+            <bitenum id="CEPD7_0" value="0x0" description="The input buffer is enabled"/>
+            <bitenum id="CEPD7_1" value="0x1" description="The input buffer is disabled"/>
+        </bitfield>
+        <bitfield id="CEPD8" description="Port disable" begin="8" end="8" width="1" rwaccess="R/W">
+            <bitenum id="CEPD8_0" value="0x0" description="The input buffer is enabled"/>
+            <bitenum id="CEPD8_1" value="0x1" description="The input buffer is disabled"/>
+        </bitfield>
+        <bitfield id="CEPD9" description="Port disable" begin="9" end="9" width="1" rwaccess="R/W">
+            <bitenum id="CEPD9_0" value="0x0" description="The input buffer is enabled"/>
+            <bitenum id="CEPD9_1" value="0x1" description="The input buffer is disabled"/>
+        </bitfield>
+        <bitfield id="CEPD10" description="Port disable" begin="10" end="10" width="1" rwaccess="R/W">
+            <bitenum id="CEPD10_0" value="0x0" description="The input buffer is enabled"/>
+            <bitenum id="CEPD10_1" value="0x1" description="The input buffer is disabled"/>
+        </bitfield>
+        <bitfield id="CEPD11" description="Port disable" begin="11" end="11" width="1" rwaccess="R/W">
+            <bitenum id="CEPD11_0" value="0x0" description="The input buffer is enabled"/>
+            <bitenum id="CEPD11_1" value="0x1" description="The input buffer is disabled"/>
+        </bitfield>
+        <bitfield id="CEPD12" description="Port disable" begin="12" end="12" width="1" rwaccess="R/W">
+            <bitenum id="CEPD12_0" value="0x0" description="The input buffer is enabled"/>
+            <bitenum id="CEPD12_1" value="0x1" description="The input buffer is disabled"/>
+        </bitfield>
+        <bitfield id="CEPD13" description="Port disable" begin="13" end="13" width="1" rwaccess="R/W">
+            <bitenum id="CEPD13_0" value="0x0" description="The input buffer is enabled"/>
+            <bitenum id="CEPD13_1" value="0x1" description="The input buffer is disabled"/>
+        </bitfield>
+        <bitfield id="CEPD14" description="Port disable" begin="14" end="14" width="1" rwaccess="R/W">
+            <bitenum id="CEPD14_0" value="0x0" description="The input buffer is enabled"/>
+            <bitenum id="CEPD14_1" value="0x1" description="The input buffer is disabled"/>
+        </bitfield>
+        <bitfield id="CEPD15" description="Port disable" begin="15" end="15" width="1" rwaccess="R/W">
+            <bitenum id="CEPD15_0" value="0x0" description="The input buffer is enabled"/>
+            <bitenum id="CEPD15_1" value="0x1" description="The input buffer is disabled"/>
+        </bitfield>
+    </register>
+    <register id="CEINT" width="16" offset="0xC" internal="0" description="Comparator Interrupt Control Register">
+        <bitfield id="CEIFG" description="Comparator output interrupt flag" begin="0" end="0" width="1" rwaccess="R/W">
+            <bitenum id="CEIFG_0" value="0x0" description="No interrupt pending"/>
+            <bitenum id="CEIFG_1" value="0x1" description="Interrupt pending"/>
+        </bitfield>
+        <bitfield id="CEIIFG" description="Comparator output inverted interrupt flag" begin="1" end="1" width="1" rwaccess="R/W">
+            <bitenum id="CEIIFG_0" value="0x0" description="No interrupt pending"/>
+            <bitenum id="CEIIFG_1" value="0x1" description="Interrupt pending"/>
+        </bitfield>
+        <bitfield id="CERDYIFG" description="Comparator ready interrupt flag" begin="4" end="4" width="1" rwaccess="R/W">
+            <bitenum id="CERDYIFG_0" value="0x0" description="No interrupt pending"/>
+            <bitenum id="CERDYIFG_1" value="0x1" description="Interrupt pending"/>
+        </bitfield>
+        <bitfield id="CEIE" description="Comparator output interrupt enable" begin="8" end="8" width="1" rwaccess="R/W">
+            <bitenum id="DISABLE" value="0x0" description="Interrupt disabled"/>
+            <bitenum id="ENABLE" value="0x1" description="Interrupt enabled"/>
+        </bitfield>
+        <bitfield id="CEIIE" description="Comparator output interrupt enable inverted polarity" begin="9" end="9" width="1" rwaccess="R/W">
+            <bitenum id="DISABLE" value="0x0" description="Interrupt disabled"/>
+            <bitenum id="ENABLE" value="0x1" description="Interrupt enabled"/>
+        </bitfield>
+        <bitfield id="CERDYIE" description="Comparator ready interrupt enable" begin="12" end="12" width="1" rwaccess="R/W">
+            <bitenum id="DISABLE" value="0x0" description="Interrupt disabled"/>
+            <bitenum id="ENABLE" value="0x1" description="Interrupt enabled"/>
+        </bitfield>
+    </register>
+    <register id="CEIV" width="16" offset="0xE" internal="0" description="Comparator Interrupt Vector Word Register">
+        <bitfield id="CEIV" description="Comparator interrupt vector word register" begin="15" end="0" width="16" rwaccess="R">
+            <bitenum id="NONE" value="0x0" description="No interrupt pending"/>
+            <bitenum id="CEIFG" value="0x2" description="Interrupt Source: CEOUT interrupt; Interrupt Flag: CEIFG; Interrupt Priority: Highest"/>
+            <bitenum id="CEIIFG" value="0x4" description="Interrupt Source: CEOUT interrupt inverted polarity; Interrupt Flag: CEIIFG"/>
+            <bitenum id="CERDYIFG" value="0xA" description="Interrupt Source: Comparator ready interrupt; Interrupt Flag: CERDYIFG; Interrupt Priority: Lowest"/>
+        </bitfield>
+    </register>
+</module>

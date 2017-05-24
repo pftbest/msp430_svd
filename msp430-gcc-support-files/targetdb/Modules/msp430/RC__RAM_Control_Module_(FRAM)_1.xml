@@ -1,0 +1,23 @@
+<module HW_revision="" XML_version="1" description="RC  RAM Control Module (FRAM)" id="RC  RAM Control Module (FRAM)">
+<register acronym="RCCTL0" description="Ram Controller Control Register" id="RCCTL0" offset=" 0x0158" width="16">
+<bitfield begin="1" description="RAM Controller RAM Sector 0 Off Bit: 0" end="0" id="RCRS0OFF" range="" resetval="0" rwaccess="RW" width="2">
+<bitenum description="RAM Controller RAM Sector 0 Off : 0" id="RCRS0OFF_0" token="RCRS0OFF_0" value="0"></bitenum>
+<bitenum description="RAM Controller RAM Sector 0 Off : 1" id="RCRS0OFF_1" token="RCRS0OFF_1" value="1"></bitenum>
+<bitenum description="RAM Controller RAM Sector 0 Off : 2" id="RCRS0OFF_2" token="RCRS0OFF_2" value="2"></bitenum>
+<bitenum description="RAM Controller RAM Sector 0 Off : 3" id="RCRS0OFF_3" token="RCRS0OFF_3" value="3"></bitenum></bitfield>
+<bitfield begin="3" description="RAM Controller RAM Sector 1 Off Bit: 0" end="2" id="RCRS1OFF" range="" resetval="0" rwaccess="RW" width="2">
+<bitenum description="RAM Controller RAM Sector 1 Off : 0" id="RCRS1OFF_0" token="RCRS1OFF_0" value="0"></bitenum>
+<bitenum description="RAM Controller RAM Sector 1 Off : 1" id="RCRS1OFF_1" token="RCRS1OFF_1" value="1"></bitenum>
+<bitenum description="RAM Controller RAM Sector 1 Off : 2" id="RCRS1OFF_2" token="RCRS1OFF_2" value="2"></bitenum>
+<bitenum description="RAM Controller RAM Sector 1 Off : 3" id="RCRS1OFF_3" token="RCRS1OFF_3" value="3"></bitenum></bitfield>
+<bitfield begin="5" description="RAM Controller RAM Sector 2 Off Bit: 0" end="4" id="RCRS2OFF" range="" resetval="0" rwaccess="RW" width="2">
+<bitenum description="RAM Controller RAM Sector 2 Off : 0" id="RCRS2OFF_0" token="RCRS2OFF_0" value="0"></bitenum>
+<bitenum description="RAM Controller RAM Sector 2 Off : 1" id="RCRS2OFF_1" token="RCRS2OFF_1" value="1"></bitenum>
+<bitenum description="RAM Controller RAM Sector 2 Off : 2" id="RCRS2OFF_2" token="RCRS2OFF_2" value="2"></bitenum>
+<bitenum description="RAM Controller RAM Sector 2 Off : 3" id="RCRS2OFF_3" token="RCRS2OFF_3" value="3"></bitenum></bitfield>
+<bitfield begin="7" description="RAM Controller RAM Sector 3 Off Bit: 0" end="6" id="RCRS3OFF" range="" resetval="0" rwaccess="RW" width="2">
+<bitenum description="RAM Controller RAM Sector 3 Off : 0" id="RCRS3OFF_0" token="RCRS3OFF_0" value="0"></bitenum>
+<bitenum description="RAM Controller RAM Sector 3 Off : 1" id="RCRS3OFF_1" token="RCRS3OFF_1" value="1"></bitenum>
+<bitenum description="RAM Controller RAM Sector 3 Off : 2" id="RCRS3OFF_2" token="RCRS3OFF_2" value="2"></bitenum>
+<bitenum description="RAM Controller RAM Sector 3 Off : 3" id="RCRS3OFF_3" token="RCRS3OFF_3" value="3"></bitenum></bitfield></register>
+</module>

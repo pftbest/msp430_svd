@@ -1,0 +1,23 @@
+<module HW_revision="" XML_version="1" description="FRAM" id="FRAM">
+<register acronym="FRCTL0" description="FRAM Controller Control 0" id="FRCTL0" offset=" 0x01A0" width="16">
+<bitfield begin="6" description="FRAM Wait state control Bit: 0" end="4" id="NWAITS" range="" resetval="0" rwaccess="RW" width="3">
+<bitenum description="FRAM Wait state control: 0" id="NWAITS_0" token="NWAITS_0" value="0"></bitenum>
+<bitenum description="FRAM Wait state control: 1" id="NWAITS_1" token="NWAITS_1" value="1"></bitenum>
+<bitenum description="FRAM Wait state control: 2" id="NWAITS_2" token="NWAITS_2" value="2"></bitenum>
+<bitenum description="FRAM Wait state control: 3" id="NWAITS_3" token="NWAITS_3" value="3"></bitenum>
+<bitenum description="FRAM Wait state control: 4" id="NWAITS_4" token="NWAITS_4" value="4"></bitenum>
+<bitenum description="FRAM Wait state control: 5" id="NWAITS_5" token="NWAITS_5" value="5"></bitenum>
+<bitenum description="FRAM Wait state control: 6" id="NWAITS_6" token="NWAITS_6" value="6"></bitenum>
+<bitenum description="FRAM Wait state control: 7" id="NWAITS_7" token="NWAITS_7" value="7"></bitenum></bitfield></register>
+<register acronym="GCCTL0" description="General Control 0" id="GCCTL0" offset=" 0x01A4" width="16">
+<bitfield begin="1" description="FRAM Enable FRAM auto power up after LPM" end="1" id="FRLPMPWR" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="2" description="FRAM Power Control" end="2" id="FRPWR" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="3" description="RESERVED" end="3" id="ACCTEIE" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="5" description="Enable NMI event if correctable bit error detected" end="5" id="CBDIE" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="6" description="Enable NMI event if uncorrectable bit error detected" end="6" id="UBDIE" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="7" description="Enable Power Up Clear (PUC) reset if FRAM uncorrectable bit error detected" end="7" id="UBDRSTEN" range="" resetval="0" rwaccess="RW" width="1"></bitfield></register>
+<register acronym="GCCTL1" description="General Control 1" id="GCCTL1" offset=" 0x01A6" width="16">
+<bitfield begin="1" description="FRAM correctable bit error flag" end="1" id="CBDIFG" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="2" description="FRAM uncorrectable bit error flag" end="2" id="UBDIFG" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="3" description="Access time error flag" end="3" id="ACCTEIFG" range="" resetval="0" rwaccess="RW" width="1"></bitfield></register>
+</module>

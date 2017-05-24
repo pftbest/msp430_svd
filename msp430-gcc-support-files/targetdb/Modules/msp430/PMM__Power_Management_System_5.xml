@@ -1,0 +1,34 @@
+<module HW_revision="" XML_version="1" description="PMM  Power Management System" id="PMM  Power Management System">
+<register acronym="LPM45CTL" description="PMM Power Mode 4.5 Control Register" id="LPM45CTL" offset=" 0x0060" width="8">
+<bitfield begin="0" description="Lock I/O pin configuration upon entry/exit to/from LPM4.5" end="0" id="LOCKLPM45" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="1" description="LPM4.5 interrupt flag" end="1" id="LPM45IFG" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="4" description="PMM Turn Regulator off" end="4" id="PMMREGOFF" range="" resetval="0" rwaccess="RW" width="1"></bitfield></register>
+<register acronym="VMONCTL" description="PMM Voltage Monitor Control Register" id="VMONCTL" offset=" 0x0061" width="8">
+<bitfield begin="2" description="Voltage monitor level selection Bit 0" end="0" id="VMONLVL" range="" resetval="0" rwaccess="RW" width="3">
+<bitenum description="Voltage monitor level selection: 0" id="VMONLVL_0" token="VMONLVL_0" value="0"></bitenum>
+<bitenum description="Voltage monitor level selection: 1" id="VMONLVL_1" token="VMONLVL_1" value="1"></bitenum>
+<bitenum description="Voltage monitor level selection: 2" id="VMONLVL_2" token="VMONLVL_2" value="2"></bitenum>
+<bitenum description="Voltage monitor level selection: 3" id="VMONLVL_3" token="VMONLVL_3" value="3"></bitenum>
+<bitenum description="Voltage monitor level selection: 4" id="VMONLVL_4" token="VMONLVL_4" value="4"></bitenum>
+<bitenum description="Voltage monitor level selection: 5" id="VMONLVL_5" token="VMONLVL_5" value="5"></bitenum>
+<bitenum description="Voltage monitor level selection: 6" id="VMONLVL_6" token="VMONLVL_6" value="6"></bitenum>
+<bitenum description="Voltage monitor level selection: 7" id="VMONLVL_7" token="VMONLVL_7" value="7"></bitenum></bitfield>
+<bitfield begin="4" description="Voltage monitor interrupt enable" end="4" id="VMONIE" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="5" description="Voltage monitor interrupt flag" end="5" id="VMONIFG" range="" resetval="0" rwaccess="RW" width="1"></bitfield></register>
+<register acronym="REFCAL0" description="PMM Reference Calibration Register 0" id="REFCAL0" offset=" 0x0062" width="8">
+<bitfield begin="0" description="Bandgap voltage fine calibration Bit 0" end="0" id="BGFINE0" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="1" description="Bandgap voltage fine calibration Bit 1" end="1" id="BGFINE1" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="2" description="Bandgap voltage fine calibration Bit 2" end="2" id="BGFINE2" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="3" description="Bandgap voltage fine calibration Bit 3" end="3" id="BGFINE3" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="4" description="Bandgap voltage coarse calibration Bit 0" end="4" id="BGCOARSE0" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="5" description="Bandgap voltage coarse calibration Bit 1" end="5" id="BGCOARSE1" range="" resetval="0" rwaccess="RW" width="1"></bitfield></register>
+<register acronym="REFCAL1" description="PMM Reference Calibration Register 1" id="REFCAL1" offset=" 0x0063" width="8">
+<bitfield begin="0" description="Curvature compensation Bit 0" end="0" id="BGCURVE0" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="1" description="Curvature compensation Bit 1" end="1" id="BGCURVE1" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="2" description="Curvature compensation Bit 2" end="2" id="BGCURVE2" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="3" description="Curvature compensation Bit 3" end="3" id="BGCURVE3" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="4" description="Bandgap bias current calibration Bit 0" end="4" id="BIASCURRENT0" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="5" description="Bandgap bias current calibration Bit 1" end="5" id="BIASCURRENT1" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="6" description="Bandgap bias current calibration Bit 2" end="6" id="BIASCURRENT2" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="7" description="Bandgap bias current calibration Bit 3" end="7" id="BIASCURRENT3" range="" resetval="0" rwaccess="RW" width="1"></bitfield></register>
+</module>

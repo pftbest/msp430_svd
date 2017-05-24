@@ -1,0 +1,104 @@
+<module HW_revision="" XML_version="1" description="Auxilary Supply" id="Auxilary Supply">
+<register acronym="AUXCTL0" description="Auxiliary Supply Control register 0" id="AUXCTL0" offset=" 0x09E0" width="16">
+<bitfield begin="0" description="Lock auxiliary supply system." end="0" id="LOCKAUX" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="1" description="DVCC switch state." end="1" id="AUX0SW" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="2" description="AUX1 switch state." end="2" id="AUX1SW" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="3" description="AUX2 switch state." end="3" id="AUX2SW" range="" resetval="0" rwaccess="RW" width="1"></bitfield></register>
+<register acronym="AUXCTL1" description="Auxiliary Supply Control register 1" id="AUXCTL1" offset=" 0x09E2" width="16">
+<bitfield begin="0" description="DVCC okay flag." end="0" id="AUX0OK" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="1" description="AUX 1 supply okay flag." end="1" id="AUX1OK" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="2" description="AUX 2 supply okay flag." end="2" id="AUX2OK" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="3" description="Auxiliary supply AUX2 priority." end="3" id="AUX2PRIO" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="8" description="DVCC supply mode." end="8" id="AUX0MD" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="9" description="AUX1 supply mode." end="9" id="AUX1MD" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="10" description="AUX2 supply mode." end="10" id="AUX2MD" range="" resetval="0" rwaccess="RW" width="1"></bitfield></register>
+<register acronym="AUXCTL2" description="Auxiliary Supply Control register 2" id="AUXCTL2" offset=" 0x09E4" width="16">
+<bitfield begin="2" description="DVCC supply threshold level Bit: 0" end="0" id="AUX0LVL" range="" resetval="0" rwaccess="RW" width="3">
+<bitenum description="DVCC supply threshold level: 0" id="AUX0LVL_0" token="AUX0LVL_0" value="0"></bitenum>
+<bitenum description="DVCC supply threshold level: 1" id="AUX0LVL_1" token="AUX0LVL_1" value="1"></bitenum>
+<bitenum description="DVCC supply threshold level: 2" id="AUX0LVL_2" token="AUX0LVL_2" value="2"></bitenum>
+<bitenum description="DVCC supply threshold level: 3" id="AUX0LVL_3" token="AUX0LVL_3" value="3"></bitenum>
+<bitenum description="DVCC supply threshold level: 4" id="AUX0LVL_4" token="AUX0LVL_4" value="4"></bitenum>
+<bitenum description="DVCC supply threshold level: 5" id="AUX0LVL_5" token="AUX0LVL_5" value="5"></bitenum>
+<bitenum description="DVCC supply threshold level: 6" id="AUX0LVL_6" token="AUX0LVL_6" value="6"></bitenum>
+<bitenum description="DVCC supply threshold level: 7" id="AUX0LVL_7" token="AUX0LVL_7" value="7"></bitenum></bitfield>
+<bitfield begin="6" description="AUX1 supply threshold level Bit: 0" end="4" id="AUX1LVL" range="" resetval="0" rwaccess="RW" width="3">
+<bitenum description="AUX1 supply threshold level: 0" id="AUX1LVL_0" token="AUX1LVL_0" value="0"></bitenum>
+<bitenum description="AUX1 supply threshold level: 1" id="AUX1LVL_1" token="AUX1LVL_1" value="1"></bitenum>
+<bitenum description="AUX1 supply threshold level: 2" id="AUX1LVL_2" token="AUX1LVL_2" value="2"></bitenum>
+<bitenum description="AUX1 supply threshold level: 3" id="AUX1LVL_3" token="AUX1LVL_3" value="3"></bitenum>
+<bitenum description="AUX1 supply threshold level: 4" id="AUX1LVL_4" token="AUX1LVL_4" value="4"></bitenum>
+<bitenum description="AUX1 supply threshold level: 5" id="AUX1LVL_5" token="AUX1LVL_5" value="5"></bitenum>
+<bitenum description="AUX1 supply threshold level: 6" id="AUX1LVL_6" token="AUX1LVL_6" value="6"></bitenum>
+<bitenum description="AUX1 supply threshold level: 7" id="AUX1LVL_7" token="AUX1LVL_7" value="7"></bitenum></bitfield>
+<bitfield begin="10" description="AUX2 supply threshold level Bit: 0" end="8" id="AUX2LVL" range="" resetval="0" rwaccess="RW" width="3">
+<bitenum description="AUX2 supply threshold level: 0" id="AUX2LVL_0" token="AUX2LVL_0" value="0"></bitenum>
+<bitenum description="AUX2 supply threshold level: 1" id="AUX2LVL_1" token="AUX2LVL_1" value="1"></bitenum>
+<bitenum description="AUX2 supply threshold level: 2" id="AUX2LVL_2" token="AUX2LVL_2" value="2"></bitenum>
+<bitenum description="AUX2 supply threshold level: 3" id="AUX2LVL_3" token="AUX2LVL_3" value="3"></bitenum>
+<bitenum description="AUX2 supply threshold level: 4" id="AUX2LVL_4" token="AUX2LVL_4" value="4"></bitenum>
+<bitenum description="AUX2 supply threshold level: 5" id="AUX2LVL_5" token="AUX2LVL_5" value="5"></bitenum>
+<bitenum description="AUX2 supply threshold level: 6" id="AUX2LVL_6" token="AUX2LVL_6" value="6"></bitenum>
+<bitenum description="AUX2 supply threshold level: 7" id="AUX2LVL_7" token="AUX2LVL_7" value="7"></bitenum></bitfield>
+<bitfield begin="13" description="Auxiliary supply monitoring rate Bit: 0" end="12" id="AUXMR" range="" resetval="0" rwaccess="RW" width="2">
+<bitenum description="Auxiliary supply monitoring rate: 0" id="AUXMR_0" token="AUXMR_0" value="0"></bitenum>
+<bitenum description="Auxiliary supply monitoring rate: 1" id="AUXMR_1" token="AUXMR_1" value="1"></bitenum>
+<bitenum description="Auxiliary supply monitoring rate: 2" id="AUXMR_2" token="AUXMR_2" value="2"></bitenum>
+<bitenum description="Auxiliary supply monitoring rate: 3" id="AUXMR_3" token="AUXMR_3" value="3"></bitenum></bitfield></register>
+<register acronym="AUX2CHCTL" description="AUX2 Charger Control register" id="AUX2CHCTL" offset=" 0x09F2" width="16">
+<bitfield begin="0" description="Lock auxiliary supply system." end="0" id="AUXCHEN" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="2" description="Charger charge current Bit: 0" end="1" id="AUXCHC" range="" resetval="0" rwaccess="RW" width="2">
+<bitenum description="Charger charge current: 0" id="AUXCHC_0" token="AUXCHC_0" value="0"></bitenum>
+<bitenum description="Charger charge current: 1" id="AUXCHC_1" token="AUXCHC_1" value="1"></bitenum>
+<bitenum description="Charger charge current: 2" id="AUXCHC_2" token="AUXCHC_2" value="2"></bitenum>
+<bitenum description="Charger charge current: 3" id="AUXCHC_3" token="AUXCHC_3" value="3"></bitenum></bitfield>
+<bitfield begin="5" description="Charger end voltage Bit: 0" end="4" id="AUXCHV" range="" resetval="0" rwaccess="RW" width="2">
+<bitenum description="Charger end voltage: 0" id="AUXCHV_0" token="AUXCHV_0" value="0"></bitenum>
+<bitenum description="Charger end voltage: 1" id="AUXCHV_1" token="AUXCHV_1" value="1"></bitenum>
+<bitenum description="Charger end voltage: 2" id="AUXCHV_2" token="AUXCHV_2" value="2"></bitenum>
+<bitenum description="Charger end voltage: 3" id="AUXCHV_3" token="AUXCHV_3" value="3"></bitenum></bitfield></register>
+<register acronym="AUX3CHCTL" description="AUX3 Charger Control register" id="AUX3CHCTL" offset=" 0x09F4" width="16">
+<bitfield begin="0" description="Lock auxiliary supply system." end="0" id="AUXCHEN" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="2" description="Charger charge current Bit: 0" end="1" id="AUXCHC" range="" resetval="0" rwaccess="RW" width="2">
+<bitenum description="Charger charge current: 0" id="AUXCHC_0" token="AUXCHC_0" value="0"></bitenum>
+<bitenum description="Charger charge current: 1" id="AUXCHC_1" token="AUXCHC_1" value="1"></bitenum>
+<bitenum description="Charger charge current: 2" id="AUXCHC_2" token="AUXCHC_2" value="2"></bitenum>
+<bitenum description="Charger charge current: 3" id="AUXCHC_3" token="AUXCHC_3" value="3"></bitenum></bitfield>
+<bitfield begin="5" description="Charger end voltage Bit: 0" end="4" id="AUXCHV" range="" resetval="0" rwaccess="RW" width="2">
+<bitenum description="Charger end voltage: 0" id="AUXCHV_0" token="AUXCHV_0" value="0"></bitenum>
+<bitenum description="Charger end voltage: 1" id="AUXCHV_1" token="AUXCHV_1" value="1"></bitenum>
+<bitenum description="Charger end voltage: 2" id="AUXCHV_2" token="AUXCHV_2" value="2"></bitenum>
+<bitenum description="Charger end voltage: 3" id="AUXCHV_3" token="AUXCHV_3" value="3"></bitenum></bitfield></register>
+<register acronym="AUXADCCTL" description="AUX ADC Control" id="AUXADCCTL" offset=" 0x09F6" width="16">
+<bitfield begin="0" description="Auxiliary supplies to ADC" end="0" id="AUXADC" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="2" description="Select supply to be measured with ADC Bit: 0" end="1" id="AUXADCSEL" range="" resetval="0" rwaccess="RW" width="2">
+<bitenum description="Select supply to be measured with ADC: DVCC" id="AUXADCSEL_0" token="AUXADCSEL_0" value="0"></bitenum>
+<bitenum description="Select supply to be measured with ADC: AUXVCC1" id="AUXADCSEL_1" token="AUXADCSEL_1" value="1"></bitenum>
+<bitenum description="Select supply to be measured with ADC: AUXVCC2" id="AUXADCSEL_2" token="AUXADCSEL_2" value="2"></bitenum>
+<bitenum description="Select supply to be measured with ADC: AUXVCC3" id="AUXADCSEL_3" token="AUXADCSEL_3" value="3"></bitenum></bitfield>
+<bitfield begin="5" description="Load resistance Bit: 0" end="4" id="AUXADCR" range="" resetval="0" rwaccess="RW" width="2">
+<bitenum description="Load resistance: 0" id="AUXADCR_0" token="AUXADCR_0" value="0"></bitenum>
+<bitenum description="Load resistance: 1" id="AUXADCR_1" token="AUXADCR_1" value="1"></bitenum>
+<bitenum description="Load resistance: 2" id="AUXADCR_2" token="AUXADCR_2" value="2"></bitenum>
+<bitenum description="Load resistance: 3" id="AUXADCR_3" token="AUXADCR_3" value="3"></bitenum></bitfield></register>
+<register acronym="AUXIFG" description="AUX Interrupt Flag" id="AUXIFG" offset=" 0x09FA" width="16">
+<bitfield begin="0" description="Switched to DVCC interrupt flag" end="0" id="AUX0SWIFG" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="1" description="Switched to AUX1 interrupt flag" end="1" id="AUX1SWIFG" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="2" description="Switched to AUX2 interrupt flag" end="2" id="AUX2SWIFG" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="4" description="DVCC dropped below its threshold interrupt flag" end="4" id="AUX0DRPIFG" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="5" description="AUX1 dropped below its threshold interrupt flag" end="5" id="AUX1DRPIFG" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="6" description="AUX2 dropped below its threshold interrupt flag" end="6" id="AUX2DRPIFG" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="7" description="Supply monitor interrupt flag" end="7" id="AUXMONIFG" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="8" description="Supplies switched (non-)maskable interrupt flag" end="8" id="AUXSWNMIFG" range="" resetval="0" rwaccess="RW" width="1"></bitfield></register>
+<register acronym="AUXIE" description="AUX Interrupt Enable" id="AUXIE" offset=" 0x09FC" width="16">
+<bitfield begin="0" description="Switched to DVCC interrupt enable" end="0" id="AUX0SWIE" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="1" description="Switched to AUX1 interrupt enable" end="1" id="AUX1SWIE" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="2" description="Switched to AUX2 interrupt enable" end="2" id="AUX2SWIE" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="3" description="Global supply switched interrupt enable." end="3" id="AUXSWGIE" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="4" description="DVCC dropped below its threshold interrupt enable" end="4" id="AUX0DRPIE" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="5" description="AUX1 dropped below its threshold interrupt enable" end="5" id="AUX1DRPIE" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="6" description="AUX2 dropped below its threshold interrupt enable" end="6" id="AUX2DRPIE" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="7" description="Supply monitor interrupt enable" end="7" id="AUXMONIE" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="8" description="Supplies switched (non-)maskable interrupt enable" end="8" id="AUXSWNMIE" range="" resetval="0" rwaccess="RW" width="1"></bitfield></register>
+<register acronym="AUXIV" description="AUX Interrupt Vector Word" id="AUXIV" offset=" 0x09FE" width="16"></register>
+</module>

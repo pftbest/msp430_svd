@@ -1,0 +1,101 @@
+<module HW_revision="" XML_version="1" description="MPU" id="MPU">
+<register acronym="MPUCTL0" description="MPU Control Register 0" id="MPUCTL0" offset=" 0x05A0" width="16">
+<bitfield begin="0" description="MPU Enable" end="0" id="MPUENA" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="1" description="MPU Lock" end="1" id="MPULOCK" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="4" description="MPU Enable NMI on Segment violation" end="4" id="MPUSEGIE" range="" resetval="0" rwaccess="RW" width="1"></bitfield></register>
+<register acronym="MPUCTL1" description="MPU Control Register 1" id="MPUCTL1" offset=" 0x05A2" width="16">
+<bitfield begin="0" description="MPU Main Memory Segment 1 violation interupt flag" end="0" id="MPUSEG1IFG" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="1" description="MPU Main Memory Segment 2 violation interupt flag" end="1" id="MPUSEG2IFG" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="2" description="MPU Main Memory Segment 3 violation interupt flag" end="2" id="MPUSEG3IFG" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="3" description="MPU Info Memory Segment violation interupt flag" end="3" id="MPUSEGIIFG" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="4" description="MPU IP Memory Segment violation interupt flag" end="4" id="MPUSEGIPIFG" range="" resetval="0" rwaccess="RW" width="1"></bitfield></register>
+<register acronym="MPUSEGB2" description="MPU Segmentation Border 2 Register" id="MPUSEGB2" offset=" 0x05A4" width="16">
+<bitfield begin="0" description="MPU Segment Border 2 Bit: 0" end="0" id="MPUSEGB20" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="1" description="MPU Segment Border 2 Bit: 1" end="1" id="MPUSEGB21" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="2" description="MPU Segment Border 2 Bit: 2" end="2" id="MPUSEGB22" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="3" description="MPU Segment Border 2 Bit: 3" end="3" id="MPUSEGB23" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="4" description="MPU Segment Border 2 Bit: 4" end="4" id="MPUSEGB24" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="5" description="MPU Segment Border 2 Bit: 5" end="5" id="MPUSEGB25" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="6" description="MPU Segment Border 2 Bit: 6" end="6" id="MPUSEGB26" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="7" description="MPU Segment Border 2 Bit: 7" end="7" id="MPUSEGB27" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="8" description="MPU Segment Border 2 Bit: 8" end="8" id="MPUSEGB28" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="9" description="MPU Segment Border 2 Bit: 9" end="9" id="MPUSEGB29" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="10" description="MPU Segment Border 2 Bit: 10" end="10" id="MPUSEGB210" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="11" description="MPU Segment Border 2 Bit: 11" end="11" id="MPUSEGB211" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="12" description="MPU Segment Border 2 Bit: 12" end="12" id="MPUSEGB212" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="13" description="MPU Segment Border 2 Bit: 13" end="13" id="MPUSEGB213" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="14" description="MPU Segment Border 2 Bit: 14" end="14" id="MPUSEGB214" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="15" description="MPU Segment Border 2 Bit: 15" end="15" id="MPUSEGB215" range="" resetval="0" rwaccess="RW" width="1"></bitfield></register>
+<register acronym="MPUSEGB1" description="MPU Segmentation Border 1 Register" id="MPUSEGB1" offset=" 0x05A6" width="16">
+<bitfield begin="0" description="MPU Segment Border 1 Bit: 0" end="0" id="MPUSEGB10" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="1" description="MPU Segment Border 1 Bit: 1" end="1" id="MPUSEGB11" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="2" description="MPU Segment Border 1 Bit: 2" end="2" id="MPUSEGB12" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="3" description="MPU Segment Border 1 Bit: 3" end="3" id="MPUSEGB13" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="4" description="MPU Segment Border 1 Bit: 4" end="4" id="MPUSEGB14" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="5" description="MPU Segment Border 1 Bit: 5" end="5" id="MPUSEGB15" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="6" description="MPU Segment Border 1 Bit: 6" end="6" id="MPUSEGB16" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="7" description="MPU Segment Border 1 Bit: 7" end="7" id="MPUSEGB17" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="8" description="MPU Segment Border 1 Bit: 8" end="8" id="MPUSEGB18" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="9" description="MPU Segment Border 1 Bit: 9" end="9" id="MPUSEGB19" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="10" description="MPU Segment Border 1 Bit: 10" end="10" id="MPUSEGB110" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="11" description="MPU Segment Border 1 Bit: 11" end="11" id="MPUSEGB111" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="12" description="MPU Segment Border 1 Bit: 12" end="12" id="MPUSEGB112" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="13" description="MPU Segment Border 1 Bit: 13" end="13" id="MPUSEGB113" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="14" description="MPU Segment Border 1 Bit: 14" end="14" id="MPUSEGB114" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="15" description="MPU Segment Border 1 Bit: 15" end="15" id="MPUSEGB115" range="" resetval="0" rwaccess="RW" width="1"></bitfield></register>
+<register acronym="MPUSAM" description="MPU Access Management Register" id="MPUSAM" offset=" 0x05A8" width="16">
+<bitfield begin="0" description="MPU Main memory Segment 1 Read enable" end="0" id="MPUSEG1RE" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="1" description="MPU Main memory Segment 1 Write enable" end="1" id="MPUSEG1WE" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="2" description="MPU Main memory Segment 1 Execute enable" end="2" id="MPUSEG1XE" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="3" description="MPU Main memory Segment 1 Violation select" end="3" id="MPUSEG1VS" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="4" description="MPU Main memory Segment 2 Read enable" end="4" id="MPUSEG2RE" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="5" description="MPU Main memory Segment 2 Write enable" end="5" id="MPUSEG2WE" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="6" description="MPU Main memory Segment 2 Execute enable" end="6" id="MPUSEG2XE" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="7" description="MPU Main memory Segment 2 Violation select" end="7" id="MPUSEG2VS" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="8" description="MPU Main memory Segment 3 Read enable" end="8" id="MPUSEG3RE" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="9" description="MPU Main memory Segment 3 Write enable" end="9" id="MPUSEG3WE" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="10" description="MPU Main memory Segment 3 Execute enable" end="10" id="MPUSEG3XE" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="11" description="MPU Main memory Segment 3 Violation select" end="11" id="MPUSEG3VS" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="12" description="MPU Info memory Segment Read enable" end="12" id="MPUSEGIRE" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="13" description="MPU Info memory Segment Write enable" end="13" id="MPUSEGIWE" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="14" description="MPU Info memory Segment Execute enable" end="14" id="MPUSEGIXE" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="15" description="MPU Info memory Segment Violation select" end="15" id="MPUSEGIVS" range="" resetval="0" rwaccess="RW" width="1"></bitfield></register>
+<register acronym="MPUIPC0" description="MPU IP Control 0 Register" id="MPUIPC0" offset=" 0x05AA" width="16">
+<bitfield begin="5" description="MPU MPU IP protection segment Violation Select" end="5" id="MPUIPVS" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="6" description="MPU MPU IP Protection Enable" end="6" id="MPUIPENA" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="7" description="MPU IP Protection Lock" end="7" id="MPUIPLOCK" range="" resetval="0" rwaccess="RW" width="1"></bitfield></register>
+<register acronym="MPUIPSEGB2" description="MPU IP Segment Border 2 Register" id="MPUIPSEGB2" offset=" 0x05AC" width="16">
+<bitfield begin="0" description="MPU IP Segment Border 2 Bit: 0" end="0" id="MPUIPSEGB20" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="1" description="MPU IP Segment Border 2 Bit: 1" end="1" id="MPUIPSEGB21" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="2" description="MPU IP Segment Border 2 Bit: 2" end="2" id="MPUIPSEGB22" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="3" description="MPU IP Segment Border 2 Bit: 3" end="3" id="MPUIPSEGB23" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="4" description="MPU IP Segment Border 2 Bit: 4" end="4" id="MPUIPSEGB24" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="5" description="MPU IP Segment Border 2 Bit: 5" end="5" id="MPUIPSEGB25" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="6" description="MPU IP Segment Border 2 Bit: 6" end="6" id="MPUIPSEGB26" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="7" description="MPU IP Segment Border 2 Bit: 7" end="7" id="MPUIPSEGB27" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="8" description="MPU IP Segment Border 2 Bit: 8" end="8" id="MPUIPSEGB28" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="9" description="MPU IP Segment Border 2 Bit: 9" end="9" id="MPUIPSEGB29" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="10" description="MPU IP Segment Border 2 Bit: 10" end="10" id="MPUIPSEGB210" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="11" description="MPU IP Segment Border 2 Bit: 11" end="11" id="MPUIPSEGB211" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="12" description="MPU IP Segment Border 2 Bit: 12" end="12" id="MPUIPSEGB212" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="13" description="MPU IP Segment Border 2 Bit: 13" end="13" id="MPUIPSEGB213" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="14" description="MPU IP Segment Border 2 Bit: 14" end="14" id="MPUIPSEGB214" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="15" description="MPU IP Segment Border 2 Bit: 15" end="15" id="MPUIPSEGB215" range="" resetval="0" rwaccess="RW" width="1"></bitfield></register>
+<register acronym="MPUIPSEGB1" description="MPU IP Segment Border 1 Register" id="MPUIPSEGB1" offset=" 0x05AE" width="16">
+<bitfield begin="0" description="MPU IP Segment Border 1 Bit: 0" end="0" id="MPUIPSEGB10" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="1" description="MPU IP Segment Border 1 Bit: 1" end="1" id="MPUIPSEGB11" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="2" description="MPU IP Segment Border 1 Bit: 2" end="2" id="MPUIPSEGB12" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="3" description="MPU IP Segment Border 1 Bit: 3" end="3" id="MPUIPSEGB13" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="4" description="MPU IP Segment Border 1 Bit: 4" end="4" id="MPUIPSEGB14" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="5" description="MPU IP Segment Border 1 Bit: 5" end="5" id="MPUIPSEGB15" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="6" description="MPU IP Segment Border 1 Bit: 6" end="6" id="MPUIPSEGB16" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="7" description="MPU IP Segment Border 1 Bit: 7" end="7" id="MPUIPSEGB17" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="8" description="MPU IP Segment Border 1 Bit: 8" end="8" id="MPUIPSEGB18" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="9" description="MPU IP Segment Border 1 Bit: 9" end="9" id="MPUIPSEGB19" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="10" description="MPU IP Segment Border 1 Bit: 10" end="10" id="MPUIPSEGB110" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="11" description="MPU IP Segment Border 1 Bit: 11" end="11" id="MPUIPSEGB111" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="12" description="MPU IP Segment Border 1 Bit: 12" end="12" id="MPUIPSEGB112" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="13" description="MPU IP Segment Border 1 Bit: 13" end="13" id="MPUIPSEGB113" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="14" description="MPU IP Segment Border 1 Bit: 14" end="14" id="MPUIPSEGB114" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="15" description="MPU IP Segment Border 1 Bit: 15" end="15" id="MPUIPSEGB115" range="" resetval="0" rwaccess="RW" width="1"></bitfield></register>
+</module>

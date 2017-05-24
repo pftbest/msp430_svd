@@ -1,0 +1,55 @@
+<module HW_revision="" XML_version="1" description="USI" id="USI">
+<register acronym="USICTL0" description="USI  Control Register 0" id="USICTL0" offset=" 0x0078" width="8">
+<bitfield begin="0" description="USI  Software Reset" end="0" id="USISWRST" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="1" description="USI  Output Enable" end="1" id="USIOE" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="2" description="USI  General Output Enable Latch" end="2" id="USIGE" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="3" description="USI  Master Select  0:Slave / 1:Master" end="3" id="USIMST" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="4" description="USI  LSB first  1:LSB / 0:MSB" end="4" id="USILSB" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="5" description="USI  Port Enable Px.5" end="5" id="USIPE5" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="6" description="USI  Port Enable Px.6" end="6" id="USIPE6" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="7" description="USI  Port Enable Px.7" end="7" id="USIPE7" range="" resetval="0" rwaccess="RW" width="1"></bitfield></register>
+<register acronym="USICTL1" description="USI  Control Register 1" id="USICTL1" offset=" 0x0079" width="8">
+<bitfield begin="0" description="USI  Counter Interrupt Flag" end="0" id="USIIFG" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="1" description="USI  START Condition interrupt Flag" end="1" id="USISTTIFG" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="2" description="USI  STOP Condition received" end="2" id="USISTP" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="3" description="USI  Arbitration Lost" end="3" id="USIAL" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="4" description="USI  Counter Interrupt enable" end="4" id="USIIE" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="5" description="USI  START Condition interrupt enable" end="5" id="USISTTIE" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="6" description="USI  I2C Mode" end="6" id="USII2C" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="7" description="USI  Sync. Mode: Clock Phase" end="7" id="USICKPH" range="" resetval="0" rwaccess="RW" width="1"></bitfield></register>
+<register acronym="USICKCTL" description="USI  Clock Control Register" id="USICKCTL" offset=" 0x007A" width="8">
+<bitfield begin="0" description="USI  Software Clock" end="0" id="USISWCLK" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="1" description="USI  Clock Polarity 0:Inactive=Low / 1:Inactive=High" end="1" id="USICKPL" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="4" description="USI  Clock Source Select 2" end="2" id="USISSEL" range="" resetval="0" rwaccess="RW" width="3">
+<bitenum description="USI  Clock Source: 0" id="USISSEL_0" token="USISSEL_0" value="0"></bitenum>
+<bitenum description="USI  Clock Source: 1" id="USISSEL_1" token="USISSEL_1" value="1"></bitenum>
+<bitenum description="USI  Clock Source: 2" id="USISSEL_2" token="USISSEL_2" value="2"></bitenum>
+<bitenum description="USI  Clock Source: 3" id="USISSEL_3" token="USISSEL_3" value="3"></bitenum>
+<bitenum description="USI  Clock Source: 4" id="USISSEL_4" token="USISSEL_4" value="4"></bitenum>
+<bitenum description="USI  Clock Source: 5" id="USISSEL_5" token="USISSEL_5" value="5"></bitenum>
+<bitenum description="USI  Clock Source: 6" id="USISSEL_6" token="USISSEL_6" value="6"></bitenum>
+<bitenum description="USI  Clock Source: 7" id="USISSEL_7" token="USISSEL_7" value="7"></bitenum></bitfield>
+<bitfield begin="7" description="USI  Clock Divider 2" end="5" id="USIDIV" range="" resetval="0" rwaccess="RW" width="3">
+<bitenum description="USI  Clock Divider: 0" id="USIDIV_0" token="USIDIV_0" value="0"></bitenum>
+<bitenum description="USI  Clock Divider: 1" id="USIDIV_1" token="USIDIV_1" value="1"></bitenum>
+<bitenum description="USI  Clock Divider: 2" id="USIDIV_2" token="USIDIV_2" value="2"></bitenum>
+<bitenum description="USI  Clock Divider: 3" id="USIDIV_3" token="USIDIV_3" value="3"></bitenum>
+<bitenum description="USI  Clock Divider: 4" id="USIDIV_4" token="USIDIV_4" value="4"></bitenum>
+<bitenum description="USI  Clock Divider: 5" id="USIDIV_5" token="USIDIV_5" value="5"></bitenum>
+<bitenum description="USI  Clock Divider: 6" id="USIDIV_6" token="USIDIV_6" value="6"></bitenum>
+<bitenum description="USI  Clock Divider: 7" id="USIDIV_7" token="USIDIV_7" value="7"></bitenum></bitfield></register>
+<register acronym="USICNT" description="USI  Bit Counter Register" id="USICNT" offset=" 0x007B" width="8">
+<bitfield begin="0" description="USI  Bit Count 0" end="0" id="USICNT0" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="1" description="USI  Bit Count 1" end="1" id="USICNT1" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="2" description="USI  Bit Count 2" end="2" id="USICNT2" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="3" description="USI  Bit Count 3" end="3" id="USICNT3" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="4" description="USI  Bit Count 4" end="4" id="USICNT4" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="5" description="USI  Interrupt Flag Clear Control" end="5" id="USIIFGCC" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="6" description="USI  16 Bit Shift Register Enable" end="6" id="USI16B" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="7" description="USI  SCL Released" end="7" id="USISCLREL" range="" resetval="0" rwaccess="RW" width="1"></bitfield></register>
+<register acronym="USISRL" description="USI  Low Byte Shift Register" id="USISRL" offset=" 0x007C" width="8"></register>
+<register acronym="USISRH" description="USI  High Byte Shift Register" id="USISRH" offset=" 0x007D" width="8"></register>
+<register acronym="USICTL" description="USI  Control Register" id="USICTL" offset=" 0x0078" width="16"></register>
+<register acronym="USICCTL" description="USI  Clock and Counter Control Register" id="USICCTL" offset=" 0x007A" width="16"></register>
+<register acronym="USISR" description="USI  Shift Register" id="USISR" offset=" 0x007C" width="16"></register>
+</module>

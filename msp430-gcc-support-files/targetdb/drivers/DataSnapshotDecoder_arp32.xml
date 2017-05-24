@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<drivers id="TMS700C40XX">
+    <isa id="TMS700C40XX" ProcID="0xaf010010">
+        <driver file="../../DebugServer/bin/libDataSnapshotDecoder.dylib">
+            <connectionType Type="DataSnapshotViewer"/>
+        </driver>
+    </isa>
+</drivers>

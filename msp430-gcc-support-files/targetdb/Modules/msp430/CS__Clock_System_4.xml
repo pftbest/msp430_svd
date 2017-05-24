@@ -1,0 +1,61 @@
+<module HW_revision="" XML_version="1" description="CS  Clock System" id="CS  Clock System">
+<register acronym="CSCTL0" description="CS Control Register 0" id="CSCTL0" offset=" 0x0050" width="8">
+<bitfield begin="0" description="DCO resistor select" end="0" id="DCOR" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="1" description="DCO bypass mode" end="1" id="DCOBYP" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="7" description="DCO fault flag" end="7" id="DCOF" range="" resetval="0" rwaccess="RW" width="1"></bitfield></register>
+<register acronym="CSCTL1" description="CS Control Register 1" id="CSCTL1" offset=" 0x0051" width="8">
+<bitfield begin="2" description="MCLK Divider Bit: 0" end="0" id="DIVM" range="" resetval="0" rwaccess="RW" width="3">
+<bitenum description="MCLK Source Divider 0" id="DIVM_0" token="DIVM_0" value="0"></bitenum>
+<bitenum description="MCLK Source Divider 1" id="DIVM_1" token="DIVM_1" value="1"></bitenum>
+<bitenum description="MCLK Source Divider 2" id="DIVM_2" token="DIVM_2" value="2"></bitenum>
+<bitenum description="MCLK Source Divider 3" id="DIVM_3" token="DIVM_3" value="3"></bitenum>
+<bitenum description="MCLK Source Divider 5" id="DIVM_4" token="DIVM_4" value="4"></bitenum>
+<bitenum description="MCLK Source Divider 6" id="DIVM_5" token="DIVM_5" value="5"></bitenum>
+<bitenum description="MCLK Source Divider 7" id="DIVM_6" token="DIVM_6" value="6"></bitenum>
+<bitenum description="MCLK Source Divider 8" id="DIVM_7" token="DIVM_7" value="7"></bitenum></bitfield>
+<bitfield begin="6" description="SMCLK Divider Bit: 0" end="4" id="DIVS" range="" resetval="0" rwaccess="RW" width="3">
+<bitenum description="SMCLK Source Divider 0" id="DIVS_0" token="DIVS_0" value="0"></bitenum>
+<bitenum description="SMCLK Source Divider 1" id="DIVS_1" token="DIVS_1" value="1"></bitenum>
+<bitenum description="SMCLK Source Divider 2" id="DIVS_2" token="DIVS_2" value="2"></bitenum>
+<bitenum description="SMCLK Source Divider 3" id="DIVS_3" token="DIVS_3" value="3"></bitenum>
+<bitenum description="SMCLK Source Divider 5" id="DIVS_4" token="DIVS_4" value="4"></bitenum>
+<bitenum description="SMCLK Source Divider 6" id="DIVS_5" token="DIVS_5" value="5"></bitenum>
+<bitenum description="SMCLK Source Divider 7" id="DIVS_6" token="DIVS_6" value="6"></bitenum>
+<bitenum description="SMCLK Source Divider 8" id="DIVS_7" token="DIVS_7" value="7"></bitenum></bitfield></register>
+<register acronym="CSIRFCAL" description="CS Internal Resistor Frequency Calibration" id="CSIRFCAL" offset=" 0x0052" width="8">
+<bitfield begin="0" description="DCO internal resistor frequency calibration value Bit 0" end="0" id="IRFCAL0" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="1" description="DCO internal resistor frequency calibration value Bit 1" end="1" id="IRFCAL1" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="2" description="DCO internal resistor frequency calibration value Bit 2" end="2" id="IRFCAL2" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="3" description="DCO internal resistor frequency calibration value Bit 3" end="3" id="IRFCAL3" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="4" description="DCO internal resistor frequency calibration value Bit 4" end="4" id="IRFCAL4" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="5" description="DCO internal resistor frequency calibration value Bit 5" end="5" id="IRFCAL5" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="6" description="DCO internal resistor frequency calibration value Bit 6" end="6" id="IRFCAL6" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="7" description="DCO internal resistor frequency calibration value Bit 7" end="7" id="IRFCAL7" range="" resetval="0" rwaccess="RW" width="1"></bitfield></register>
+<register acronym="CSIRTCAL" description="CS Internal Resistor Temperature Calibration" id="CSIRTCAL" offset=" 0x0053" width="8">
+<bitfield begin="0" description="DCO internal resistor temperature calibration value Bit 0" end="0" id="IRTCAL0" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="1" description="DCO internal resistor temperature calibration value Bit 1" end="1" id="IRTCAL1" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="2" description="DCO internal resistor temperature calibration value Bit 2" end="2" id="IRTCAL2" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="3" description="DCO internal resistor temperature calibration value Bit 3" end="3" id="IRTCAL3" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="4" description="DCO internal resistor temperature calibration value Bit 4" end="4" id="IRTCAL4" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="5" description="DCO internal resistor temperature calibration value Bit 5" end="5" id="IRTCAL5" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="6" description="DCO internal resistor temperature calibration value Bit 6" end="6" id="IRTCAL6" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="7" description="DCO internal resistor temperature calibration value Bit 7" end="7" id="IRTCAL7" range="" resetval="0" rwaccess="RW" width="1"></bitfield></register>
+<register acronym="CSERFCAL" description="CS External Resistor Frequency Calibration" id="CSERFCAL" offset=" 0x0054" width="8">
+<bitfield begin="0" description="DCO external resistor frequency calibration value Bit 0" end="0" id="ERFCAL0" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="1" description="DCO external resistor frequency calibration value Bit 1" end="1" id="ERFCAL1" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="2" description="DCO external resistor frequency calibration value Bit 2" end="2" id="ERFCAL2" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="3" description="DCO external resistor frequency calibration value Bit 3" end="3" id="ERFCAL3" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="4" description="DCO external resistor frequency calibration value Bit 4" end="4" id="ERFCAL4" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="5" description="DCO external resistor frequency calibration value Bit 5" end="5" id="ERFCAL5" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="6" description="DCO external resistor frequency calibration value Bit 6" end="6" id="ERFCAL6" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="7" description="DCO external resistor frequency calibration value Bit 7" end="7" id="ERFCAL7" range="" resetval="0" rwaccess="RW" width="1"></bitfield></register>
+<register acronym="CSERTCAL" description="CS External Resistor Temperature Calibration" id="CSERTCAL" offset=" 0x0055" width="8">
+<bitfield begin="0" description="DCO external resistor temperature calibration value Bit 0" end="0" id="ERTCAL0" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="1" description="DCO external resistor temperature calibration value Bit 1" end="1" id="ERTCAL1" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="2" description="DCO external resistor temperature calibration value Bit 2" end="2" id="ERTCAL2" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="3" description="DCO external resistor temperature calibration value Bit 3" end="3" id="ERTCAL3" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="4" description="DCO external resistor temperature calibration value Bit 4" end="4" id="ERTCAL4" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="5" description="DCO external resistor temperature calibration value Bit 5" end="5" id="ERTCAL5" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="6" description="DCO external resistor temperature calibration value Bit 6" end="6" id="ERTCAL6" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="7" description="DCO external resistor temperature calibration value Bit 7" end="7" id="ERTCAL7" range="" resetval="0" rwaccess="RW" width="1"></bitfield></register>
+</module>

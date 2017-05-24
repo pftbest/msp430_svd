@@ -1,0 +1,60 @@
+<module HW_revision="" XML_version="1" description="CCS  Compact System Clock" id="CCS  Compact System Clock">
+<register acronym="CCSCTL0" description="CCS Control Register 0" id="CCSCTL0" offset=" 0x0160" width="16"></register>
+<register acronym="CCSCTL1" description="CCS Control Register 1" id="CCSCTL1" offset=" 0x0162" width="16">
+<bitfield begin="0" description="Clock division for CLKIN / X-OSC" end="0" id="DIVCLK" range="" resetval="0" rwaccess="RW" width="1"></bitfield></register>
+<register acronym="CCSCTL2" description="CCS Control Register 2" id="CCSCTL2" offset=" 0x0164" width="16">
+<bitfield begin="0" description="Frequency trimming of the HF-OSC Bit: 0" end="0" id="FSEL0" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="1" description="Frequency trimming of the HF-OSC Bit: 1" end="1" id="FSEL1" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="2" description="Frequency trimming of the HF-OSC Bit: 2" end="2" id="FSEL2" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="3" description="Frequency trimming of the HF-OSC Bit: 3" end="3" id="FSEL3" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="4" description="Frequency trimming of the HF-OSC Bit: 4" end="4" id="FSEL4" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="5" description="Frequency trimming of the HF-OSC Bit: 5" end="5" id="FSEL5" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="6" description="Frequency trimming of the HF-OSC Bit: 6" end="6" id="FSEL6" range="" resetval="0" rwaccess="RW" width="1"></bitfield></register>
+<register acronym="CCSCTL4" description="CCS Control Register 4" id="CCSCTL4" offset=" 0x0168" width="16">
+<bitfield begin="1" description="MCLK Source Select Bit: 0" end="0" id="SELM" range="" resetval="0" rwaccess="RW" width="2">
+<bitenum description="MCLK Source Select 0" id="SELM_0" token="SELM_0" value="0"></bitenum>
+<bitenum description="MCLK Source Select 1" id="SELM_1" token="SELM_1" value="1"></bitenum>
+<bitenum description="MCLK Source Select 2" id="SELM_2" token="SELM_2" value="2"></bitenum>
+<bitenum description="MCLK Source Select 3" id="SELM_3" token="SELM_3" value="3"></bitenum></bitfield>
+<bitfield begin="5" description="SMCLK Source Select Bit: 0" end="4" id="SELS" range="" resetval="0" rwaccess="RW" width="2">
+<bitenum description="SMCLK Source Select 0" id="SELS_0" token="SELS_0" value="0"></bitenum>
+<bitenum description="SMCLK Source Select 1" id="SELS_1" token="SELS_1" value="1"></bitenum>
+<bitenum description="SMCLK Source Select 2" id="SELS_2" token="SELS_2" value="2"></bitenum>
+<bitenum description="SMCLK Source Select 3" id="SELS_3" token="SELS_3" value="3"></bitenum></bitfield>
+<bitfield begin="9" description="ACLK Source Select Bit: 0" end="8" id="SELA" range="" resetval="0" rwaccess="RW" width="2">
+<bitenum description="ACLK Source Select 0" id="SELA_0" token="SELA_0" value="0"></bitenum>
+<bitenum description="ACLK Source Select 1" id="SELA_1" token="SELA_1" value="1"></bitenum>
+<bitenum description="ACLK Source Select 2" id="SELA_2" token="SELA_2" value="2"></bitenum>
+<bitenum description="ACLK Source Select 3" id="SELA_3" token="SELA_3" value="3"></bitenum></bitfield></register>
+<register acronym="CCSCTL5" description="CCS Control Register 5" id="CCSCTL5" offset=" 0x016A" width="16">
+<bitfield begin="2" description="MCLK Divider Bit: 0" end="0" id="DIVM" range="" resetval="0" rwaccess="RW" width="3">
+<bitenum description="MCLK Source Divider 0" id="DIVM_0" token="DIVM_0" value="0"></bitenum>
+<bitenum description="MCLK Source Divider 1" id="DIVM_1" token="DIVM_1" value="1"></bitenum>
+<bitenum description="MCLK Source Divider 2" id="DIVM_2" token="DIVM_2" value="2"></bitenum>
+<bitenum description="MCLK Source Divider 3" id="DIVM_3" token="DIVM_3" value="3"></bitenum>
+<bitenum description="MCLK Source Divider 4" id="DIVM_4" token="DIVM_4" value="4"></bitenum>
+<bitenum description="MCLK Source Divider 5" id="DIVM_5" token="DIVM_5" value="5"></bitenum></bitfield>
+<bitfield begin="6" description="SMCLK Divider Bit: 0" end="4" id="DIVS" range="" resetval="0" rwaccess="RW" width="3">
+<bitenum description="SMCLK Source Divider 0" id="DIVS_0" token="DIVS_0" value="0"></bitenum>
+<bitenum description="SMCLK Source Divider 1" id="DIVS_1" token="DIVS_1" value="1"></bitenum>
+<bitenum description="SMCLK Source Divider 2" id="DIVS_2" token="DIVS_2" value="2"></bitenum>
+<bitenum description="SMCLK Source Divider 3" id="DIVS_3" token="DIVS_3" value="3"></bitenum>
+<bitenum description="SMCLK Source Divider 4" id="DIVS_4" token="DIVS_4" value="4"></bitenum>
+<bitenum description="SMCLK Source Divider 5" id="DIVS_5" token="DIVS_5" value="5"></bitenum></bitfield>
+<bitfield begin="10" description="ACLK Divider Bit: 0" end="8" id="DIVA" range="" resetval="0" rwaccess="RW" width="3">
+<bitenum description="ACLK Source Divider 0" id="DIVA_0" token="DIVA_0" value="0"></bitenum>
+<bitenum description="ACLK Source Divider 1" id="DIVA_1" token="DIVA_1" value="1"></bitenum>
+<bitenum description="ACLK Source Divider 2" id="DIVA_2" token="DIVA_2" value="2"></bitenum>
+<bitenum description="ACLK Source Divider 3" id="DIVA_3" token="DIVA_3" value="3"></bitenum>
+<bitenum description="ACLK Source Divider 4" id="DIVA_4" token="DIVA_4" value="4"></bitenum>
+<bitenum description="ACLK Source Divider 5" id="DIVA_5" token="DIVA_5" value="5"></bitenum></bitfield></register>
+<register acronym="CCSCTL6" description="CCS Control Register 6" id="CCSCTL6" offset=" 0x016C" width="16">
+<bitfield begin="0" description="Disable XT oscillator" end="0" id="XTOFF" range="" resetval="0" rwaccess="RW" width="1"></bitfield></register>
+<register acronym="CCSCTL7" description="CCS Control Register 7" id="CCSCTL7" offset=" 0x016E" width="16">
+<bitfield begin="0" description="X-tal Oscillator Fault Flag" end="0" id="XOFFG" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="1" description="High Frequency Oscillator Fault Flag" end="1" id="HFOFFG" range="" resetval="0" rwaccess="RW" width="1"></bitfield></register>
+<register acronym="CCSCTL8" description="CCS Control Register 8" id="CCSCTL8" offset=" 0x0170" width="16">
+<bitfield begin="0" description="ACLK Clock Request Enable" end="0" id="ACLKREQEN" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="1" description="MCLK Clock Request Enable" end="1" id="MCLKREQEN" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="2" description="SMCLK Clock Request Enable" end="2" id="SMCLKREQEN" range="" resetval="0" rwaccess="RW" width="1"></bitfield></register>
+</module>

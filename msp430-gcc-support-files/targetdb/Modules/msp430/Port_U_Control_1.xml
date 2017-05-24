@@ -1,0 +1,20 @@
+<module HW_revision="" XML_version="1" description="Port U Control" id="Port U Control">
+<register acronym="LDOKEYPID" description="LDO Controller peripheral ID and key register" id="LDOKEYPID" offset=" 0x0900" width="16"></register>
+<register acronym="PUCTL" description="PU Control register" id="PUCTL" offset=" 0x0904" width="16">
+<bitfield begin="0" description="PU - PU Output Signal Bit 0" end="0" id="PUOUT0" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="1" description="PU - PU Output Signal Bit 1" end="1" id="PUOUT1" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="2" description="PU - PU0/DP Input Data" end="2" id="PUIN0" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="3" description="PU - PU1/DM Input Data" end="3" id="PUIN1" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="5" description="PU - Port Output Enable" end="5" id="PUOPE" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="8" description="PU - PHY Single Ended Input enable" end="8" id="PUIPE" range="" resetval="0" rwaccess="RW" width="1"></bitfield></register>
+<register acronym="LDOPWRCTL" description="LDO Power control register" id="LDOPWRCTL" offset=" 0x0908" width="16">
+<bitfield begin="0" description="PU - LDOO Overload Interrupt Flag" end="0" id="LDOOVLIFG" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="1" description="PU - LDOI &quot;Coming ON&quot; Interrupt Flag" end="1" id="LDOONIFG" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="2" description="PU - LDOI &quot;Going OFF&quot; Interrupt Flag" end="2" id="LDOOFFIFG" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="3" description="PU - LDO Bandgap and LDOI valid" end="3" id="LDOBGVBV" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="5" description="PU - LDO overload auto off enable" end="5" id="OVLAOFF" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="8" description="PU - Overload indication Interrupt Enable" end="8" id="LDOOVLIE" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="9" description="PU - LDOI &quot;Coming ON&quot; Interrupt Enable" end="9" id="LDOONIE" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="10" description="PU - LDOI &quot;Going OFF&quot; Interrupt Enable" end="10" id="LDOOFFIE" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="11" description="PU - LDO Enable (3.3V)" end="11" id="LDOEN" range="" resetval="0" rwaccess="RW" width="1"></bitfield></register>
+</module>

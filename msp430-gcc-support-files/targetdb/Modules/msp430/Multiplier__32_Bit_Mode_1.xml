@@ -1,0 +1,39 @@
+<module HW_revision="" XML_version="1" description="Multiplier  32 Bit Mode" id="Multiplier  32 Bit Mode">
+<register acronym="MPY32L_B" description="32-bit operand 1 - multiply - low word (Byte Access)" id="MPY32L_B" offset=" 0x0140" width="8"></register>
+<register acronym="MPY32H_B" description="32-bit operand 1 - multiply - high word (Byte Access)" id="MPY32H_B" offset=" 0x0142" width="8"></register>
+<register acronym="MPYS32L_B" description="32-bit operand 1 - signed multiply - low word (Byte Access)" id="MPYS32L_B" offset=" 0x0144" width="8"></register>
+<register acronym="MPYS32H_B" description="32-bit operand 1 - signed multiply - high word (Byte Access)" id="MPYS32H_B" offset=" 0x0146" width="8"></register>
+<register acronym="MAC32L_B" description="32-bit operand 1 - multiply accumulate - low word (Byte Access)" id="MAC32L_B" offset=" 0x0148" width="8"></register>
+<register acronym="MAC32H_B" description="32-bit operand 1 - multiply accumulate - high word (Byte Access)" id="MAC32H_B" offset=" 0x014A" width="8"></register>
+<register acronym="MACS32L_B" description="32-bit operand 1 - signed multiply accumulate - low word (Byte Access)" id="MACS32L_B" offset=" 0x014C" width="8"></register>
+<register acronym="MACS32H_B" description="32-bit operand 1 - signed multiply accumulate - high word (Byte Access)" id="MACS32H_B" offset=" 0x014E" width="8"></register>
+<register acronym="OP2L_B" description="32-bit operand 2 - low word (Byte Access)" id="OP2L_B" offset=" 0x0150" width="8"></register>
+<register acronym="OP2H_B" description="32-bit operand 2 - high word (Byte Access)" id="OP2H_B" offset=" 0x0152" width="8"></register>
+<register acronym="MPY32L" description="32-bit operand 1 - multiply - low word" id="MPY32L" offset=" 0x0140" width="16"></register>
+<register acronym="MPY32H" description="32-bit operand 1 - multiply - high word" id="MPY32H" offset=" 0x0142" width="16"></register>
+<register acronym="MPYS32L" description="32-bit operand 1 - signed multiply - low word" id="MPYS32L" offset=" 0x0144" width="16"></register>
+<register acronym="MPYS32H" description="32-bit operand 1 - signed multiply - high word" id="MPYS32H" offset=" 0x0146" width="16"></register>
+<register acronym="MAC32L" description="32-bit operand 1 - multiply accumulate - low word" id="MAC32L" offset=" 0x0148" width="16"></register>
+<register acronym="MAC32H" description="32-bit operand 1 - multiply accumulate - high word" id="MAC32H" offset=" 0x014A" width="16"></register>
+<register acronym="MACS32L" description="32-bit operand 1 - signed multiply accumulate - low word" id="MACS32L" offset=" 0x014C" width="16"></register>
+<register acronym="MACS32H" description="32-bit operand 1 - signed multiply accumulate - high word" id="MACS32H" offset=" 0x014E" width="16"></register>
+<register acronym="OP2L" description="32-bit operand 2 - low word" id="OP2L" offset=" 0x0150" width="16"></register>
+<register acronym="OP2H" description="32-bit operand 2 - high word" id="OP2H" offset=" 0x0152" width="16"></register>
+<register acronym="RES0" description="32x32-bit result 0 - least significant word" id="RES0" offset=" 0x0154" width="16"></register>
+<register acronym="RES1" description="32x32-bit result 1" id="RES1" offset=" 0x0156" width="16"></register>
+<register acronym="RES2" description="32x32-bit result 2" id="RES2" offset=" 0x0158" width="16"></register>
+<register acronym="RES3" description="32x32-bit result 3 - most significant word" id="RES3" offset=" 0x015A" width="16"></register>
+<register acronym="MPY32CTL0" description="MPY32 Control Register 0" id="MPY32CTL0" offset=" 0x015C" width="16">
+<bitfield begin="0" description="Carry of the multiplier" end="0" id="MPYC" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="2" description="Fractional mode" end="2" id="MPYFRAC" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="3" description="Saturation mode" end="3" id="MPYSAT" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="5" description="Multiplier mode Bit:0" end="4" id="MPYM" range="" resetval="0" rwaccess="RW" width="2">
+<bitenum description="Multiplier mode: MPY" id="MPYM_0" token="MPYM_0" value="0"></bitenum>
+<bitenum description="Multiplier mode: MPYS" id="MPYM_1" token="MPYM_1" value="1"></bitenum>
+<bitenum description="Multiplier mode: MAC" id="MPYM_2" token="MPYM_2" value="2"></bitenum>
+<bitenum description="Multiplier mode: MACS" id="MPYM_3" token="MPYM_3" value="3"></bitenum></bitfield>
+<bitfield begin="6" description="Bit-width of operand 1 0:16Bit / 1:32Bit" end="6" id="OP1_32" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="7" description="Bit-width of operand 2 0:16Bit / 1:32Bit" end="7" id="OP2_32" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="8" description="Delayed write enable" end="8" id="MPYDLYWRTEN" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="9" description="Delayed write mode" end="9" id="MPYDLY32" range="" resetval="0" rwaccess="RW" width="1"></bitfield></register>
+</module>

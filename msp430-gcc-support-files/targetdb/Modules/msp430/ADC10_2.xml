@@ -1,0 +1,82 @@
+<module HW_revision="" XML_version="1" description="ADC10" id="ADC10">
+<register acronym="ADC10DTC0" description="ADC10 Data Transfer Control 0" id="ADC10DTC0" offset=" 0x0048" width="8">
+<bitfield begin="0" description="This bit should normally be reset" end="0" id="ADC10FETCH" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="1" description="ADC10 block one" end="1" id="ADC10B1" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="2" description="ADC10 continuous transfer" end="2" id="ADC10CT" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="3" description="ADC10 two-block mode" end="3" id="ADC10TB" range="" resetval="0" rwaccess="RW" width="1"></bitfield></register>
+<register acronym="ADC10DTC1" description="ADC10 Data Transfer Control 1" id="ADC10DTC1" offset=" 0x0049" width="8"></register>
+<register acronym="ADC10AE0" description="ADC10 Analog Enable 0" id="ADC10AE0" offset=" 0x004A" width="8"></register>
+<register acronym="ADC10CTL0" description="ADC10 Control 0" id="ADC10CTL0" offset=" 0x01B0" width="16">
+<bitfield begin="0" description="ADC10 Start Conversion" end="0" id="ADC10SC" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="1" description="ADC10 Enable Conversion" end="1" id="ENC" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="2" description="ADC10 Interrupt Flag" end="2" id="ADC10IFG" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="3" description="ADC10 Interrupt Enalbe" end="3" id="ADC10IE" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="4" description="ADC10 On/Enable" end="4" id="ADC10ON" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="5" description="ADC10 Reference on" end="5" id="REFON" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="6" description="ADC10 Ref 0:1.5V / 1:2.5V" end="6" id="REF2_5V" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="7" description="ADC10 Multiple SampleConversion" end="7" id="MSC" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="8" description="ADC10 Reference Burst Mode" end="8" id="REFBURST" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="9" description="ADC10 Enalbe output of Ref." end="9" id="REFOUT" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="10" description="ADC10 Sampling Rate 0:200ksps / 1:50ksps" end="10" id="ADC10SR" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="12" description="ADC10 Sample Hold Select Bit: 0" end="11" id="ADC10SHT" range="" resetval="0" rwaccess="RW" width="2">
+<bitenum description="4 x ADC10CLKs" id="ADC10SHT_0" token="ADC10SHT_0" value="0"></bitenum>
+<bitenum description="8 x ADC10CLKs" id="ADC10SHT_1" token="ADC10SHT_1" value="1"></bitenum>
+<bitenum description="16 x ADC10CLKs" id="ADC10SHT_2" token="ADC10SHT_2" value="2"></bitenum>
+<bitenum description="64 x ADC10CLKs" id="ADC10SHT_3" token="ADC10SHT_3" value="3"></bitenum></bitfield>
+<bitfield begin="15" description="ADC10 Reference Select Bit: 0" end="13" id="SREF" range="" resetval="0" rwaccess="RW" width="3">
+<bitenum description="VR+ = AVCC and VR- = AVSS" id="SREF_0" token="SREF_0" value="0"></bitenum>
+<bitenum description="VR+ = VREF+ and VR- = AVSS" id="SREF_1" token="SREF_1" value="1"></bitenum>
+<bitenum description="VR+ = VEREF+ and VR- = AVSS" id="SREF_2" token="SREF_2" value="2"></bitenum>
+<bitenum description="VR+ = VEREF+ and VR- = AVSS" id="SREF_3" token="SREF_3" value="3"></bitenum>
+<bitenum description="VR+ = AVCC and VR- = VREF-/VEREF-" id="SREF_4" token="SREF_4" value="4"></bitenum>
+<bitenum description="VR+ = VREF+ and VR- = VREF-/VEREF-" id="SREF_5" token="SREF_5" value="5"></bitenum>
+<bitenum description="VR+ = VEREF+ and VR- = VREF-/VEREF-" id="SREF_6" token="SREF_6" value="6"></bitenum>
+<bitenum description="VR+ = VEREF+ and VR- = VREF-/VEREF-" id="SREF_7" token="SREF_7" value="7"></bitenum></bitfield></register>
+<register acronym="ADC10CTL1" description="ADC10 Control 1" id="ADC10CTL1" offset=" 0x01B2" width="16">
+<bitfield begin="0" description="ADC10 BUSY" end="0" id="ADC10BUSY" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="2" description="ADC10 Conversion Sequence Select 0" end="1" id="CONSEQ" range="" resetval="0" rwaccess="RW" width="2">
+<bitenum description="Single channel single conversion" id="CONSEQ_0" token="CONSEQ_0" value="0"></bitenum>
+<bitenum description="Sequence of channels" id="CONSEQ_1" token="CONSEQ_1" value="1"></bitenum>
+<bitenum description="Repeat single channel" id="CONSEQ_2" token="CONSEQ_2" value="2"></bitenum>
+<bitenum description="Repeat sequence of channels" id="CONSEQ_3" token="CONSEQ_3" value="3"></bitenum></bitfield>
+<bitfield begin="4" description="ADC10 Clock Source Select Bit: 0" end="3" id="ADC10SSEL" range="" resetval="0" rwaccess="RW" width="2">
+<bitenum description="ADC10OSC" id="ADC10SSEL_0" token="ADC10SSEL_0" value="0"></bitenum>
+<bitenum description="ACLK" id="ADC10SSEL_1" token="ADC10SSEL_1" value="1"></bitenum>
+<bitenum description="MCLK" id="ADC10SSEL_2" token="ADC10SSEL_2" value="2"></bitenum>
+<bitenum description="SMCLK" id="ADC10SSEL_3" token="ADC10SSEL_3" value="3"></bitenum></bitfield>
+<bitfield begin="7" description="ADC10 Clock Divider Select Bit: 0" end="5" id="ADC10DIV" range="" resetval="0" rwaccess="RW" width="3">
+<bitenum description="ADC10 Clock Divider Select 0" id="ADC10DIV_0" token="ADC10DIV_0" value="0"></bitenum>
+<bitenum description="ADC10 Clock Divider Select 1" id="ADC10DIV_1" token="ADC10DIV_1" value="1"></bitenum>
+<bitenum description="ADC10 Clock Divider Select 2" id="ADC10DIV_2" token="ADC10DIV_2" value="2"></bitenum>
+<bitenum description="ADC10 Clock Divider Select 3" id="ADC10DIV_3" token="ADC10DIV_3" value="3"></bitenum>
+<bitenum description="ADC10 Clock Divider Select 4" id="ADC10DIV_4" token="ADC10DIV_4" value="4"></bitenum>
+<bitenum description="ADC10 Clock Divider Select 5" id="ADC10DIV_5" token="ADC10DIV_5" value="5"></bitenum>
+<bitenum description="ADC10 Clock Divider Select 6" id="ADC10DIV_6" token="ADC10DIV_6" value="6"></bitenum>
+<bitenum description="ADC10 Clock Divider Select 7" id="ADC10DIV_7" token="ADC10DIV_7" value="7"></bitenum></bitfield>
+<bitfield begin="8" description="ADC10 Invert Sample Hold Signal" end="8" id="ISSH" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="9" description="ADC10 Data Format 0:binary 1:2's complement" end="9" id="ADC10DF" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="11" description="ADC10 Sample/Hold Source Bit: 0" end="10" id="SHS" range="" resetval="0" rwaccess="RW" width="2">
+<bitenum description="ADC10SC" id="SHS_0" token="SHS_0" value="0"></bitenum>
+<bitenum description="TA3 OUT1" id="SHS_1" token="SHS_1" value="1"></bitenum>
+<bitenum description="TA3 OUT0" id="SHS_2" token="SHS_2" value="2"></bitenum>
+<bitenum description="TA3 OUT2" id="SHS_3" token="SHS_3" value="3"></bitenum></bitfield>
+<bitfield begin="15" description="ADC10 Input Channel Select Bit: 0" end="12" id="INCH" range="" resetval="0" rwaccess="RW" width="4">
+<bitenum description="Selects Channel 0" id="INCH_0" token="INCH_0" value="0"></bitenum>
+<bitenum description="Selects Channel 1" id="INCH_1" token="INCH_1" value="1"></bitenum>
+<bitenum description="Selects Channel 2" id="INCH_2" token="INCH_2" value="2"></bitenum>
+<bitenum description="Selects Channel 3" id="INCH_3" token="INCH_3" value="3"></bitenum>
+<bitenum description="Selects Channel 4" id="INCH_4" token="INCH_4" value="4"></bitenum>
+<bitenum description="Selects Channel 5" id="INCH_5" token="INCH_5" value="5"></bitenum>
+<bitenum description="Selects Channel 6" id="INCH_6" token="INCH_6" value="6"></bitenum>
+<bitenum description="Selects Channel 7" id="INCH_7" token="INCH_7" value="7"></bitenum>
+<bitenum description="Selects Channel 8" id="INCH_8" token="INCH_8" value="8"></bitenum>
+<bitenum description="Selects Channel 9" id="INCH_9" token="INCH_9" value="9"></bitenum>
+<bitenum description="Selects Channel 10" id="INCH_10" token="INCH_10" value="10"></bitenum>
+<bitenum description="Selects Channel 11" id="INCH_11" token="INCH_11" value="11"></bitenum>
+<bitenum description="Selects Channel 12" id="INCH_12" token="INCH_12" value="12"></bitenum>
+<bitenum description="Selects Channel 13" id="INCH_13" token="INCH_13" value="13"></bitenum>
+<bitenum description="Selects Channel 14" id="INCH_14" token="INCH_14" value="14"></bitenum>
+<bitenum description="Selects Channel 15" id="INCH_15" token="INCH_15" value="15"></bitenum></bitfield></register>
+<register acronym="ADC10MEM" description="ADC10 Memory" id="ADC10MEM" offset=" 0x01B4" width="16"></register>
+<register acronym="ADC10SA" description="ADC10 Data Transfer Start Address" id="ADC10SA" offset=" 0x01BC" width="16"></register>
+</module>

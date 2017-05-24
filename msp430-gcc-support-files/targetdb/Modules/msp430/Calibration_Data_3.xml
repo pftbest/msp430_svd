@@ -1,0 +1,6 @@
+<module HW_revision="" XML_version="1" description="Calibration Data" id="Calibration Data">
+<register acronym="CALDCO_12MHZ" description="DCOCTL  Calibration Data for 12MHz" id="CALDCO_12MHZ" offset=" 0x10FA" width="8"></register>
+<register acronym="CALBC1_12MHZ" description="BCSCTL1 Calibration Data for 12MHz" id="CALBC1_12MHZ" offset=" 0x10FB" width="8"></register>
+<register acronym="CALDCO_8MHZ" description="DCOCTL  Calibration Data for 8MHz" id="CALDCO_8MHZ" offset=" 0x10FC" width="8"></register>
+<register acronym="CALBC1_8MHZ" description="BCSCTL1 Calibration Data for 8MHz" id="CALBC1_8MHZ" offset=" 0x10FD" width="8"></register>
+</module>

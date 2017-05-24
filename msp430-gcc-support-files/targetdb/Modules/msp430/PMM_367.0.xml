@@ -1,0 +1,50 @@
+<module id="PMM" HW_revision="367.0">
+    <register id="PMMCTL0" width="16" offset="0x0" internal="0" description="PMM control register 0">
+        <bitfield id="PMMSWBOR" description="Software brownout reset." begin="2" end="2" width="1" rwaccess="R/W">
+            <bitenum id="PMMSWBOR_0" value="0x0" description="Normal operation"/>
+            <bitenum id="PMMSWBOR_1" value="0x1" description="Set to 1 to trigger a BOR"/>
+        </bitfield>
+        <bitfield id="PMMSWPOR" description="Software POR." begin="3" end="3" width="1" rwaccess="R/W">
+            <bitenum id="PMMSWPOR_0" value="0x0" description="Normal operation"/>
+            <bitenum id="PMMSWPOR_1" value="0x1" description="Set to 1 to trigger a POR"/>
+        </bitfield>
+        <bitfield id="PMMREGOFF" description="Regulator off" begin="4" end="4" width="1" rwaccess="R/W">
+            <bitenum id="PMMREGOFF_0" value="0x0" description="Regulator remains on when going into LPM3 or LPM4"/>
+            <bitenum id="PMMREGOFF_1" value="0x1" description="Regulator is turned off when going to LPM3 or LPM4. System enters LPM3.5 or LPM4.5, respectively."/>
+        </bitfield>
+        <bitfield id="SVSHE" description="High-side SVS enable." begin="6" end="6" width="1" rwaccess="R/W">
+            <bitenum id="SVSHE_0" value="0x0" description="High-side SVS (SVSH) is disabled in LPM2, LPM3, LPM4, LPM3.5, and LPM4.5. SVSH is always enabled in active mode, LPM0, and LPM1."/>
+            <bitenum id="SVSHE_1" value="0x1" description="SVSH is always enabled."/>
+        </bitfield>
+        <bitfield id="PMMPW" description="PMM password." begin="15" end="8" width="8" rwaccess="R/W">
+        </bitfield>
+    </register>
+    <register id="PMMIFG" width="16" offset="0xA" internal="0" description="PMM interrupt flag register">
+        <bitfield id="PMMBORIFG" description="PMM software brownout reset interrupt flag." begin="8" end="8" width="1" rwaccess="R/W">
+            <bitenum id="PMMBORIFG_0" value="0x0" description="Reset not due to PMMSWBOR"/>
+            <bitenum id="PMMBORIFG_1" value="0x1" description="Reset due to PMMSWBOR"/>
+        </bitfield>
+        <bitfield id="PMMRSTIFG" description="PMM reset pin interrupt flag." begin="9" end="9" width="1" rwaccess="R/W">
+            <bitenum id="PMMBORIFG_0" value="0x0" description="Reset not due to reset pin"/>
+            <bitenum id="PMMBORIFG_1" value="0x1" description="Reset due to reset pin"/>
+        </bitfield>
+        <bitfield id="PMMPORIFG" description="PMM software POR interrupt flag." begin="10" end="10" width="1" rwaccess="R/W">
+            <bitenum id="PMMBORIFG_0" value="0x0" description="Reset not due to PMMSWPOR"/>
+            <bitenum id="PMMBORIFG_1" value="0x1" description="Reset due to PMMSWPOR"/>
+        </bitfield>
+        <bitfield id="SVSHIFG" description="High-side SVS interrupt flag." begin="13" end="13" width="1" rwaccess="R/W">
+            <bitenum id="SVSHIFG_0" value="0x0" description="Reset not due to SVSH"/>
+            <bitenum id="SVSHIFG_1" value="0x1" description="Reset due to SVSH"/>
+        </bitfield>
+        <bitfield id="PMMLPM5IFG" description="LPMx.5 flag." begin="15" end="15" width="1" rwaccess="R/W">
+            <bitenum id="PMMLPM5IFG_0" value="0x0" description="Reset not due to wake-up from LPMx.5"/>
+            <bitenum id="PMMLPM5IFG_1" value="0x1" description="Reset due to wake-up from LPMx.5"/>
+        </bitfield>
+    </register>
+    <register id="PM5CTL0" width="16" offset="0x10" internal="0" description="Power mode 5 control register 0">
+        <bitfield id="LOCKLPM5" description="LPMx.5 Lock Bit" begin="0" end="0" width="1" rwaccess="R/W">
+            <bitenum id="LOCKLPM5_0" value="0x0" description="LPMx.5 configuration is not locked and defaults to its reset condition."/>
+            <bitenum id="LOCKLPM5_1" value="0x1" description="LPMx.5 configuration remains locked. Pin state is held during LPMx.5 entry and exit."/>
+        </bitfield>
+    </register>
+</module>

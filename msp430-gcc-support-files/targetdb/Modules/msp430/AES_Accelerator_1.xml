@@ -1,0 +1,32 @@
+<module HW_revision="" XML_version="1" description="AES Accelerator" id="AES Accelerator">
+<register acronym="AESACTL0" description="AES accelerator control register 0" id="AESACTL0" offset=" 0x09C0" width="16">
+<bitfield begin="1" description="AES Operation Bit: 0" end="0" id="AESOP" range="" resetval="0" rwaccess="RW" width="2">
+<bitenum description="AES Operation: Encrypt" id="AESOP_0" token="AESOP_0" value="0"></bitenum>
+<bitenum description="AES Operation: Decrypt (same Key)" id="AESOP_1" token="AESOP_1" value="1"></bitenum>
+<bitenum description="AES Operation: Generate first round Key" id="AESOP_2" token="AESOP_2" value="2"></bitenum>
+<bitenum description="AES Operation: Decrypt (first round Key)" id="AESOP_3" token="AESOP_3" value="3"></bitenum></bitfield>
+<bitfield begin="7" description="AES Software Reset" end="7" id="AESSWRST" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="8" description="AES ready interrupt flag" end="8" id="AESRDYIFG" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="11" description="AES Error Flag" end="11" id="AESERRFG" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="12" description="AES ready interrupt enable" end="12" id="AESRDYIE" range="" resetval="0" rwaccess="RW" width="1"></bitfield></register>
+<register acronym="AESASTAT" description="AES accelerator status register" id="AESASTAT" offset=" 0x09C4" width="16">
+<bitfield begin="0" description="AES Busy" end="0" id="AESBUSY" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="1" description="AES All 16 bytes written to AESAKEY" end="1" id="AESKEYWR" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="2" description="AES All 16 bytes written to AESADIN" end="2" id="AESDINWR" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="3" description="AES All 16 bytes read from AESADOUT" end="3" id="AESDOUTRD" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="4" description="AES Bytes written via AESAKEY Bit: 0" end="4" id="AESKEYCNT0" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="5" description="AES Bytes written via AESAKEY Bit: 1" end="5" id="AESKEYCNT1" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="6" description="AES Bytes written via AESAKEY Bit: 2" end="6" id="AESKEYCNT2" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="7" description="AES Bytes written via AESAKEY Bit: 3" end="7" id="AESKEYCNT3" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="8" description="AES Bytes written via AESADIN Bit: 0" end="8" id="AESDINCNT0" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="9" description="AES Bytes written via AESADIN Bit: 1" end="9" id="AESDINCNT1" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="10" description="AES Bytes written via AESADIN Bit: 2" end="10" id="AESDINCNT2" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="11" description="AES Bytes written via AESADIN Bit: 3" end="11" id="AESDINCNT3" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="12" description="AES Bytes read via AESADOUT Bit: 0" end="12" id="AESDOUTCNT0" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="13" description="AES Bytes read via AESADOUT Bit: 1" end="13" id="AESDOUTCNT1" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="14" description="AES Bytes read via AESADOUT Bit: 2" end="14" id="AESDOUTCNT2" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="15" description="AES Bytes read via AESADOUT Bit: 3" end="15" id="AESDOUTCNT3" range="" resetval="0" rwaccess="RW" width="1"></bitfield></register>
+<register acronym="AESAKEY" description="AES accelerator key register" id="AESAKEY" offset=" 0x09C6" width="16"></register>
+<register acronym="AESADIN" description="AES accelerator data in register" id="AESADIN" offset=" 0x09C8" width="16"></register>
+<register acronym="AESADOUT" description="AES accelerator data out register" id="AESADOUT" offset=" 0x09CA" width="16"></register>
+</module>

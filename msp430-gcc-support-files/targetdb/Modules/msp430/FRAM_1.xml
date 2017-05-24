@@ -1,0 +1,34 @@
+<module HW_revision="" XML_version="1" description="FRAM" id="FRAM">
+<register acronym="FRCTL0" description="FRAM Controller Control 0" id="FRCTL0" offset=" 0x0140" width="16">
+<bitfield begin="2" description="FRAM Wait state Generator Precharge Time control Bit: 0" end="0" id="NPRECHG" range="" resetval="0" rwaccess="RW" width="3">
+<bitenum description="FRAM Wait state Generator Precharge Time control: 0" id="NPRECHG_0" token="NPRECHG_0" value="0"></bitenum>
+<bitenum description="FRAM Wait state Generator Precharge Time control: 1" id="NPRECHG_1" token="NPRECHG_1" value="1"></bitenum>
+<bitenum description="FRAM Wait state Generator Precharge Time control: 2" id="NPRECHG_2" token="NPRECHG_2" value="2"></bitenum>
+<bitenum description="FRAM Wait state Generator Precharge Time control: 3" id="NPRECHG_3" token="NPRECHG_3" value="3"></bitenum>
+<bitenum description="FRAM Wait state Generator Precharge Time control: 4" id="NPRECHG_4" token="NPRECHG_4" value="4"></bitenum>
+<bitenum description="FRAM Wait state Generator Precharge Time control: 5" id="NPRECHG_5" token="NPRECHG_5" value="5"></bitenum>
+<bitenum description="FRAM Wait state Generator Precharge Time control: 6" id="NPRECHG_6" token="NPRECHG_6" value="6"></bitenum>
+<bitenum description="FRAM Wait state Generator Precharge Time control: 7" id="NPRECHG_7" token="NPRECHG_7" value="7"></bitenum></bitfield>
+<bitfield begin="3" description="FRAM Disables the wait state generator" end="3" id="NAUTO" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="6" description="FRAM Wait state Generator Access Time control Bit: 0" end="4" id="NACCESS" range="" resetval="0" rwaccess="RW" width="3">
+<bitenum description="FRAM Wait state Generator Access Time control: 0" id="NACCESS_0" token="NACCESS_0" value="0"></bitenum>
+<bitenum description="FRAM Wait state Generator Access Time control: 1" id="NACCESS_1" token="NACCESS_1" value="1"></bitenum>
+<bitenum description="FRAM Wait state Generator Access Time control: 2" id="NACCESS_2" token="NACCESS_2" value="2"></bitenum>
+<bitenum description="FRAM Wait state Generator Access Time control: 3" id="NACCESS_3" token="NACCESS_3" value="3"></bitenum>
+<bitenum description="FRAM Wait state Generator Access Time control: 4" id="NACCESS_4" token="NACCESS_4" value="4"></bitenum>
+<bitenum description="FRAM Wait state Generator Access Time control: 5" id="NACCESS_5" token="NACCESS_5" value="5"></bitenum>
+<bitenum description="FRAM Wait state Generator Access Time control: 6" id="NACCESS_6" token="NACCESS_6" value="6"></bitenum>
+<bitenum description="FRAM Wait state Generator Access Time control: 7" id="NACCESS_7" token="NACCESS_7" value="7"></bitenum></bitfield></register>
+<register acronym="GCCTL0" description="General Control 0" id="GCCTL0" offset=" 0x0144" width="16">
+<bitfield begin="0" description="FRAM is currently busy programming" end="0" id="BUSY" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="3" description="Enable NMI event if Access time error occurs" end="3" id="ACCTEIE" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="4" description="Enable NMI event if Access Violation occurs" end="4" id="ACCVIE" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="5" description="Enable NMI event if correctable bit error detected" end="5" id="CBDIE" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="6" description="Enable NMI event if uncorrectable bit error detected" end="6" id="UBDIE" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="7" description="Enable Power Up Clear on uncorrectable bit error" end="7" id="UBDRSTEN" range="" resetval="0" rwaccess="RW" width="1"></bitfield></register>
+<register acronym="GCCTL1" description="General Control 1" id="GCCTL1" offset=" 0x0146" width="16">
+<bitfield begin="0" description="Access Violation Interrupt Flag" end="0" id="ACCVIFG" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="1" description="FRAM correctable bit error flag" end="1" id="CBDIFG" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="2" description="FRAM uncorrectable bit error flag" end="2" id="UBDIFG" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="3" description="Access time error flag" end="3" id="ACCTEIFG" range="" resetval="0" rwaccess="RW" width="1"></bitfield></register>
+</module>

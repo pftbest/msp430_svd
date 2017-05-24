@@ -1,0 +1,11 @@
+<module HW_revision="" XML_version="1" description="Supply Voltage Supervisor" id="Supply Voltage Supervisor">
+<register acronym="SVSCTL" description="SVS Control" id="SVSCTL" offset=" 0x0055" width="8">
+<bitfield begin="0" description="SVS Flag" end="0" id="SVSFG" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="1" description="SVS output (read only)" end="1" id="SVSOP" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="2" description="Switches the SVS on/off" end="2" id="SVSON" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="3" description="Enable POR Generation if Low Voltage" end="3" id="PORON" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="4" description="VLD0" end="4" id="VLD0" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="5" description="VLD1" end="5" id="VLD1" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="6" description="VLD2" end="6" id="VLD2" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="7" description="VLD3" end="7" id="VLD3" range="" resetval="0" rwaccess="RW" width="1"></bitfield></register>
+</module>

@@ -1,0 +1,410 @@
+<module id="eUSCI_B3" HW_revision="208.0">
+    <register id="UCB3CTLW0" width="16" offset="0x0" internal="0" description="eUSCI_Bx Control Word Register 0">
+        <bitfield id="UCSWRST" description="Software reset enable" begin="0" end="0" width="1" rwaccess="R/W">
+            <bitenum id="DISABLE" value="0x0" description="Disabled. eUSCI_B reset released for operation"/>
+            <bitenum id="ENABLE" value="0x1" description="Enabled. eUSCI_B logic held in reset state"/>
+        </bitfield>
+        <bitfield id="UCTXSTT" description="Transmit START condition in master mode" begin="1" end="1" width="1" rwaccess="R/W">
+            <bitenum id="UCTXSTT_0" value="0x0" description="Do not generate START condition"/>
+            <bitenum id="UCTXSTT_1" value="0x1" description="Generate START condition"/>
+        </bitfield>
+        <bitfield id="UCTXSTP" description="Transmit STOP condition in master mode" begin="2" end="2" width="1" rwaccess="R/W">
+            <bitenum id="UCTXSTP_0" value="0x0" description="No STOP generated"/>
+            <bitenum id="UCTXSTP_1" value="0x1" description="Generate STOP"/>
+        </bitfield>
+        <bitfield id="UCTXNACK" description="Transmit a NACK" begin="3" end="3" width="1" rwaccess="R/W">
+            <bitenum id="UCTXNACK_0" value="0x0" description="Acknowledge normally"/>
+            <bitenum id="UCTXNACK_1" value="0x1" description="Generate NACK"/>
+        </bitfield>
+        <bitfield id="UCTR" description="Transmitter/receiver" begin="4" end="4" width="1" rwaccess="R/W">
+            <bitenum id="RX" value="0x0" description="Receiver"/>
+            <bitenum id="TX" value="0x1" description="Transmitter"/>
+        </bitfield>
+        <bitfield id="UCTXACK" description="Transmit ACK condition in slave mode" begin="5" end="5" width="1" rwaccess="R/W">
+            <bitenum id="UCTXACK_0" value="0x0" description="Do not acknowledge the slave address"/>
+            <bitenum id="UCTXACK_1" value="0x1" description="Acknowledge the slave address"/>
+        </bitfield>
+        <bitfield id="UCSSEL" description="eUSCI_B clock source select" begin="7" end="6" width="2" rwaccess="R/W">
+            <bitenum id="UCLKI" value="0x0" description="UCLKI"/>
+            <bitenum id="ACLK" value="0x1" description="ACLK"/>
+            <bitenum id="SMCLK" value="0x2" description="SMCLK"/>
+            <bitenum id="UCSSEL_3" value="0x3" description="SMCLK"/>
+        </bitfield>
+        <bitfield id="UCSYNC" description="Synchronous mode enable" begin="8" end="8" width="1" rwaccess="R/W">
+            <bitenum id="ASYNC" value="0x0" description="Asynchronous mode"/>
+            <bitenum id="SYNC" value="0x1" description="Synchronous mode"/>
+        </bitfield>
+        <bitfield id="UCMODE" description="eUSCI_B mode" begin="10" end="9" width="2" rwaccess="R/W">
+            <bitenum id="UCMODE_0" value="0x0" description="3-pin SPI"/>
+            <bitenum id="UCMODE_1" value="0x1" description="4-pin SPI (master or slave enabled if STE = 1)"/>
+            <bitenum id="UCMODE_2" value="0x2" description="4-pin SPI (master or slave enabled if STE = 0)"/>
+            <bitenum id="UCMODE_3" value="0x3" description="I2C mode"/>
+        </bitfield>
+        <bitfield id="UCMST" description="Master mode select" begin="11" end="11" width="1" rwaccess="R/W">
+            <bitenum id="SLAVE" value="0x0" description="Slave mode"/>
+            <bitenum id="MASTER" value="0x1" description="Master mode"/>
+        </bitfield>
+        <bitfield id="UCMM" description="Multi-master environment select" begin="13" end="13" width="1" rwaccess="R/W">
+            <bitenum id="SINGLE" value="0x0" description="Single master environment. There is no other master in the system. The address compare unit is disabled."/>
+            <bitenum id="MULTI" value="0x1" description="Multi-master environment"/>
+        </bitfield>
+        <bitfield id="UCSLA10" description="Slave addressing mode select" begin="14" end="14" width="1" rwaccess="R/W">
+            <bitenum id="7BIT" value="0x0" description="Address slave with 7-bit address"/>
+            <bitenum id="10BIT" value="0x1" description="Address slave with 10-bit address"/>
+        </bitfield>
+        <bitfield id="UCA10" description="Own addressing mode select" begin="15" end="15" width="1" rwaccess="R/W">
+            <bitenum id="UCA10_0" value="0x0" description="Own address is a 7-bit address"/>
+            <bitenum id="UCA10_1" value="0x1" description="Own address is a 10-bit address"/>
+        </bitfield>
+    </register>
+    <register id="UCB3CTLW0_SPI" width="16" offset="0x0" internal="0" description="eUSCI_Bx Control Word Register 0">
+        <bitfield id="UCSWRST" description="Software reset enable" begin="0" end="0" width="1" rwaccess="R/W">
+            <bitenum id="DISABLE" value="0x0" description="Disabled. eUSCI_B reset released for operation"/>
+            <bitenum id="ENABLE" value="0x1" description="Enabled. eUSCI_B logic held in reset state"/>
+        </bitfield>
+        <bitfield id="UCSTEM" description="STE mode select in master mode." begin="1" end="1" width="1" rwaccess="R/W">
+            <bitenum id="UCSTEM_0" value="0x0" description="STE pin is used to prevent conflicts with other masters"/>
+            <bitenum id="UCSTEM_1" value="0x1" description="STE pin is used to generate the enable signal for a 4-wire slave"/>
+        </bitfield>
+        <bitfield id="UCSSEL" description="eUSCI_B clock source select" begin="7" end="6" width="2" rwaccess="R/W">
+            <bitenum id="UCSSEL_0" value="0x0" description="Reserved"/>
+            <bitenum id="ACLK" value="0x1" description="ACLK"/>
+            <bitenum id="SMCLK" value="0x2" description="SMCLK"/>
+            <bitenum id="UCSSEL_3" value="0x3" description="SMCLK"/>
+        </bitfield>
+        <bitfield id="UCSYNC" description="Synchronous mode enable" begin="8" end="8" width="1" rwaccess="R/W">
+            <bitenum id="ASYNC" value="0x0" description="Asynchronous mode"/>
+            <bitenum id="SYNC" value="0x1" description="Synchronous mode"/>
+        </bitfield>
+        <bitfield id="UCMODE" description="eUSCI mode" begin="10" end="9" width="2" rwaccess="R/W">
+            <bitenum id="UCMODE_0" value="0x0" description="3-pin SPI"/>
+            <bitenum id="UCMODE_1" value="0x1" description="4-pin SPI with UCxSTE active high: Slave enabled when UCxSTE = 1"/>
+            <bitenum id="UCMODE_2" value="0x2" description="4-pin SPI with UCxSTE active low: Slave enabled when UCxSTE = 0"/>
+            <bitenum id="UCMODE_3" value="0x3" description="I2C mode"/>
+        </bitfield>
+        <bitfield id="UCMST" description="Master mode select" begin="11" end="11" width="1" rwaccess="R/W">
+            <bitenum id="SLAVE" value="0x0" description="Slave mode"/>
+            <bitenum id="MASTER" value="0x1" description="Master mode"/>
+        </bitfield>
+        <bitfield id="UC7BIT" description="Character length" begin="12" end="12" width="1" rwaccess="R/W">
+            <bitenum id="8BIT" value="0x0" description="8-bit data"/>
+            <bitenum id="7BIT" value="0x1" description="7-bit data"/>
+        </bitfield>
+        <bitfield id="UCMSB" description="MSB first select" begin="13" end="13" width="1" rwaccess="R/W">
+            <bitenum id="UCMSB_0" value="0x0" description="LSB first"/>
+            <bitenum id="UCMSB_1" value="0x1" description="MSB first"/>
+        </bitfield>
+        <bitfield id="UCCKPL" description="Clock polarity select" begin="14" end="14" width="1" rwaccess="R/W">
+            <bitenum id="LOW" value="0x0" description="The inactive state is low"/>
+            <bitenum id="HIGH" value="0x1" description="The inactive state is high"/>
+        </bitfield>
+        <bitfield id="UCCKPH" description="Clock phase select" begin="15" end="15" width="1" rwaccess="R/W">
+            <bitenum id="UCCKPH_0" value="0x0" description="Data is changed on the first UCLK edge and captured on the following edge."/>
+            <bitenum id="UCCKPH_1" value="0x1" description="Data is captured on the first UCLK edge and changed on the following edge."/>
+        </bitfield>
+    </register>
+    <register id="UCB3CTLW1" width="16" offset="0x2" internal="0" description="eUSCI_Bx Control Word Register 1">
+        <bitfield id="UCGLIT" description="Deglitch time" begin="1" end="0" width="2" rwaccess="R/W">
+            <bitenum id="UCGLIT_0" value="0x0" description="50 ns"/>
+            <bitenum id="UCGLIT_1" value="0x1" description="25 ns"/>
+            <bitenum id="UCGLIT_2" value="0x2" description="12.5 ns"/>
+            <bitenum id="UCGLIT_3" value="0x3" description="6.25 ns"/>
+        </bitfield>
+        <bitfield id="UCASTP" description="Automatic STOP condition generation" begin="3" end="2" width="2" rwaccess="R/W">
+            <bitenum id="UCASTP_0" value="0x0" description="No automatic STOP generation. The STOP condition is generated after the user sets the UCTXSTP bit. The value in UCBxTBCNT is a don't care."/>
+            <bitenum id="UCASTP_1" value="0x1" description="UCBCNTIFG is set with the byte counter reaches the threshold defined in UCBxTBCNT"/>
+            <bitenum id="UCASTP_2" value="0x2" description="A STOP condition is generated automatically after the byte counter value reached UCBxTBCNT. UCBCNTIFG is set with the byte counter reaching the threshold"/>
+        </bitfield>
+        <bitfield id="UCSWACK" description="SW or HW ACK control" begin="4" end="4" width="1" rwaccess="R/W">
+            <bitenum id="UCSWACK_0" value="0x0" description="The address acknowledge of the slave is controlled by the eUSCI_B module"/>
+            <bitenum id="UCSWACK_1" value="0x1" description="The user needs to trigger the sending of the address ACK by issuing UCTXACK"/>
+        </bitfield>
+        <bitfield id="UCSTPNACK" description="ACK all master bytes" begin="5" end="5" width="1" rwaccess="R/W">
+            <bitenum id="UCSTPNACK_0" value="0x0" description="Send a non-acknowledge before the STOP condition as a master receiver (conform to I2C standard)"/>
+            <bitenum id="UCSTPNACK_1" value="0x1" description="All bytes are acknowledged by the eUSCI_B when configured as master receiver"/>
+        </bitfield>
+        <bitfield id="UCCLTO" description="Clock low timeout select" begin="7" end="6" width="2" rwaccess="R/W">
+            <bitenum id="UCCLTO_0" value="0x0" description="Disable clock low timeout counter"/>
+            <bitenum id="UCCLTO_1" value="0x1" description="135 000 SYSCLK cycles (approximately 28 ms)"/>
+            <bitenum id="UCCLTO_2" value="0x2" description="150 000 SYSCLK cycles (approximately 31 ms)"/>
+            <bitenum id="UCCLTO_3" value="0x3" description="165 000 SYSCLK cycles (approximately 34 ms)"/>
+        </bitfield>
+        <bitfield id="UCETXINT" description="Early UCTXIFG0" begin="8" end="8" width="1" rwaccess="R/W">
+            <bitenum id="UCETXINT_0" value="0x0" description="UCTXIFGx is set after an address match with UCxI2COAx and the direction bit indicating slave transmit"/>
+            <bitenum id="UCETXINT_1" value="0x1" description="UCTXIFG0 is set for each START condition"/>
+        </bitfield>
+    </register>
+    <register id="UCB3BRW" width="16" offset="0x6" internal="0" description="eUSCI_Bx Baud Rate Control Word Register">
+    </register>
+    <register id="UCB3BRW_SPI" width="16" offset="0x6" internal="0" description="eUSCI_Bx Bit Rate Control Register 1">
+    </register>
+    <register id="UCB3STATW" width="16" offset="0x8" internal="0" description="eUSCI_Bx Status Register">
+        <bitfield id="UCBBUSY" description="Bus busy" begin="4" end="4" width="1" rwaccess="R">
+            <bitenum id="IDLE" value="0x0" description="Bus inactive"/>
+            <bitenum id="BUSY" value="0x1" description="Bus busy"/>
+        </bitfield>
+        <bitfield id="UCGC" description="General call address received" begin="5" end="5" width="1" rwaccess="R">
+            <bitenum id="UCGC_0" value="0x0" description="No general call address received"/>
+            <bitenum id="UCGC_1" value="0x1" description="General call address received"/>
+        </bitfield>
+        <bitfield id="UCSCLLOW" description="SCL low" begin="6" end="6" width="1" rwaccess="R">
+            <bitenum id="UCSCLLOW_0" value="0x0" description="SCL is not held low"/>
+            <bitenum id="UCSCLLOW_1" value="0x1" description="SCL is held low"/>
+        </bitfield>
+        <bitfield id="UCBCNT" description="Hardware byte counter value" begin="15" end="8" width="8" rwaccess="R">
+        </bitfield>
+    </register>
+    <register id="UCB3STATW_SPI" width="16" offset="0x8" internal="0" description="">
+        <bitfield id="UCOE" description="Overrun error flag" begin="5" end="5" width="1" rwaccess="R/W">
+            <bitenum id="UCOE_0" value="0x0" description="No error"/>
+            <bitenum id="UCOE_1" value="0x1" description="Overrun error occurred"/>
+        </bitfield>
+        <bitfield id="UCFE" description="Framing error flag" begin="6" end="6" width="1" rwaccess="R/W">
+            <bitenum id="UCFE_0" value="0x0" description="No error"/>
+            <bitenum id="UCFE_1" value="0x1" description="Bus conflict occurred"/>
+        </bitfield>
+        <bitfield id="UCLISTEN" description="Listen enable" begin="7" end="7" width="1" rwaccess="R/W">
+            <bitenum id="UCLISTEN_0" value="0x0" description="Disabled"/>
+            <bitenum id="UCLISTEN_1" value="0x1" description="Enabled. UCBxTXD is internally fed back to the receiver"/>
+        </bitfield>
+    </register>
+    <register id="UCB3TBCNT" width="16" offset="0xA" internal="0" description="eUSCI_Bx Byte Counter Threshold Register">
+        <bitfield id="UCTBCNT" description="Byte counter threshold value" begin="7" end="0" width="8" rwaccess="R/W">
+        </bitfield>
+    </register>
+    <register id="UCB3RXBUF" width="16" offset="0xC" internal="0" description="eUSCI_Bx Receive Buffer Register">
+        <bitfield id="UCRXBUF" description="Receive data buffer" begin="7" end="0" width="8" rwaccess="R">
+        </bitfield>
+    </register>
+    <register id="UCB3RXBUF_SPI" width="16" offset="0xC" internal="0" description="eUSCI_Bx Receive Buffer Register">
+        <bitfield id="UCRXBUF" description="Receive data buffer" begin="7" end="0" width="8" rwaccess="R">
+        </bitfield>
+    </register>
+    <register id="UCB3TXBUF" width="16" offset="0xE" internal="0" description="eUSCI_Bx Transmit Buffer Register">
+        <bitfield id="UCTXBUF" description="Transmit data buffer" begin="7" end="0" width="8" rwaccess="R/W">
+        </bitfield>
+    </register>
+    <register id="UCB3TXBUF_SPI" width="16" offset="0xE" internal="0" description="eUSCI_Bx Transmit Buffer Register">
+        <bitfield id="UCTXBUF" description="Transmit data buffer" begin="7" end="0" width="8" rwaccess="R/W">
+        </bitfield>
+    </register>
+    <register id="UCB3I2COA0" width="16" offset="0x14" internal="0" description="eUSCI_Bx I2C Own Address 0 Register">
+        <bitfield id="I2COA0" description="I2C own address" begin="9" end="0" width="10" rwaccess="R/W">
+        </bitfield>
+        <bitfield id="UCOAEN" description="Own Address enable register" begin="10" end="10" width="1" rwaccess="R/W">
+            <bitenum id="DISABLE" value="0x0" description="The slave address defined in I2COA0 is disabled"/>
+            <bitenum id="ENABLE" value="0x1" description="The slave address defined in I2COA0 is enabled"/>
+        </bitfield>
+        <bitfield id="UCGCEN" description="General call response enable" begin="15" end="15" width="1" rwaccess="R/W">
+            <bitenum id="UCGCEN_0" value="0x0" description="Do not respond to a general call"/>
+            <bitenum id="UCGCEN_1" value="0x1" description="Respond to a general call"/>
+        </bitfield>
+    </register>
+    <register id="UCB3I2COA1" width="16" offset="0x16" internal="0" description="eUSCI_Bx I2C Own Address 1 Register">
+        <bitfield id="I2COA1" description="I2C own address" begin="9" end="0" width="10" rwaccess="R/W">
+        </bitfield>
+        <bitfield id="UCOAEN" description="Own Address enable register" begin="10" end="10" width="1" rwaccess="R/W">
+            <bitenum id="DISABLE" value="0x0" description="The slave address defined in I2COA1 is disabled"/>
+            <bitenum id="ENABLE" value="0x1" description="The slave address defined in I2COA1 is enabled"/>
+        </bitfield>
+    </register>
+    <register id="UCB3I2COA2" width="16" offset="0x18" internal="0" description="eUSCI_Bx I2C Own Address 2 Register">
+        <bitfield id="I2COA2" description="I2C own address" begin="9" end="0" width="10" rwaccess="R/W">
+        </bitfield>
+        <bitfield id="UCOAEN" description="Own Address enable register" begin="10" end="10" width="1" rwaccess="R/W">
+            <bitenum id="DISABLE" value="0x0" description="The slave address defined in I2COA2 is disabled"/>
+            <bitenum id="ENABLE" value="0x1" description="The slave address defined in I2COA2 is enabled"/>
+        </bitfield>
+    </register>
+    <register id="UCB3I2COA3" width="16" offset="0x1A" internal="0" description="eUSCI_Bx I2C Own Address 3 Register">
+        <bitfield id="I2COA3" description="I2C own address" begin="9" end="0" width="10" rwaccess="R/W">
+        </bitfield>
+        <bitfield id="UCOAEN" description="Own Address enable register" begin="10" end="10" width="1" rwaccess="R/W">
+            <bitenum id="DISABLE" value="0x0" description="The slave address defined in I2COA3 is disabled"/>
+            <bitenum id="ENABLE" value="0x1" description="The slave address defined in I2COA3 is enabled"/>
+        </bitfield>
+    </register>
+    <register id="UCB3ADDRX" width="16" offset="0x1C" internal="0" description="eUSCI_Bx I2C Received Address Register">
+        <bitfield id="ADDRX" description="Received Address Register" begin="9" end="0" width="10" rwaccess="R">
+        </bitfield>
+    </register>
+    <register id="UCB3ADDMASK" width="16" offset="0x1E" internal="0" description="eUSCI_Bx I2C Address Mask Register">
+        <bitfield id="ADDMASK" description="Address Mask Register. By clearing the corresponding bit of the own address, this bit is a don't care when comparing the address on the bus to the own address. Using this method, it is possible to react on more than one slave address. When all bits of ADDMASKx are set, the address mask feature is deactivated. Modify only when UCSWRST = 1." begin="9" end="0" width="10" rwaccess="R/W">
+        </bitfield>
+    </register>
+    <register id="UCB3I2CSA" width="16" offset="0x20" internal="0" description="eUSCI_Bx I2C Slave Address Register">
+        <bitfield id="I2CSA" description="I2C slave address" begin="9" end="0" width="10" rwaccess="R/W">
+        </bitfield>
+    </register>
+    <register id="UCB3IE" width="16" offset="0x2A" internal="0" description="eUSCI_Bx Interrupt Enable Register">
+        <bitfield id="UCRXIE0" description="Receive interrupt enable 0" begin="0" end="0" width="1" rwaccess="R/W">
+            <bitenum id="UCRXIE0_0" value="0x0" description="Interrupt disabled"/>
+            <bitenum id="UCRXIE0_1" value="0x1" description="Interrupt enabled"/>
+        </bitfield>
+        <bitfield id="UCTXIE0" description="Transmit interrupt enable 0" begin="1" end="1" width="1" rwaccess="R/W">
+            <bitenum id="UCTXIE0_0" value="0x0" description="Interrupt disabled"/>
+            <bitenum id="UCTXIE0_1" value="0x1" description="Interrupt enabled"/>
+        </bitfield>
+        <bitfield id="UCSTTIE" description="START condition interrupt enable" begin="2" end="2" width="1" rwaccess="R/W">
+            <bitenum id="UCSTTIE_0" value="0x0" description="Interrupt disabled"/>
+            <bitenum id="UCSTTIE_1" value="0x1" description="Interrupt enabled"/>
+        </bitfield>
+        <bitfield id="UCSTPIE" description="STOP condition interrupt enable" begin="3" end="3" width="1" rwaccess="R/W">
+            <bitenum id="UCSTPIE_0" value="0x0" description="Interrupt disabled"/>
+            <bitenum id="UCSTPIE_1" value="0x1" description="Interrupt enabled"/>
+        </bitfield>
+        <bitfield id="UCALIE" description="Arbitration lost interrupt enable" begin="4" end="4" width="1" rwaccess="R/W">
+            <bitenum id="UCALIE_0" value="0x0" description="Interrupt disabled"/>
+            <bitenum id="UCALIE_1" value="0x1" description="Interrupt enabled"/>
+        </bitfield>
+        <bitfield id="UCNACKIE" description="Not-acknowledge interrupt enable" begin="5" end="5" width="1" rwaccess="R/W">
+            <bitenum id="UCNACKIE_0" value="0x0" description="Interrupt disabled"/>
+            <bitenum id="UCNACKIE_1" value="0x1" description="Interrupt enabled"/>
+        </bitfield>
+        <bitfield id="UCBCNTIE" description="Byte counter interrupt enable" begin="6" end="6" width="1" rwaccess="R/W">
+            <bitenum id="UCBCNTIE_0" value="0x0" description="Interrupt disabled"/>
+            <bitenum id="UCBCNTIE_1" value="0x1" description="Interrupt enabled"/>
+        </bitfield>
+        <bitfield id="UCCLTOIE" description="Clock low timeout interrupt enable" begin="7" end="7" width="1" rwaccess="R/W">
+            <bitenum id="UCCLTOIE_0" value="0x0" description="Interrupt disabled"/>
+            <bitenum id="UCCLTOIE_1" value="0x1" description="Interrupt enabled"/>
+        </bitfield>
+        <bitfield id="UCRXIE1" description="Receive interrupt enable 1" begin="8" end="8" width="1" rwaccess="R/W">
+            <bitenum id="UCRXIE1_0" value="0x0" description="Interrupt disabled"/>
+            <bitenum id="UCRXIE1_1" value="0x1" description="Interrupt enabled"/>
+        </bitfield>
+        <bitfield id="UCTXIE1" description="Transmit interrupt enable 1" begin="9" end="9" width="1" rwaccess="R/W">
+            <bitenum id="UCTXIE1_0" value="0x0" description="Interrupt disabled"/>
+            <bitenum id="UCTXIE1_1" value="0x1" description="Interrupt enabled"/>
+        </bitfield>
+        <bitfield id="UCRXIE2" description="Receive interrupt enable 2" begin="10" end="10" width="1" rwaccess="R/W">
+            <bitenum id="UCRXIE2_0" value="0x0" description="Interrupt disabled"/>
+            <bitenum id="UCRXIE2_1" value="0x1" description="Interrupt enabled"/>
+        </bitfield>
+        <bitfield id="UCTXIE2" description="Transmit interrupt enable 2" begin="11" end="11" width="1" rwaccess="R/W">
+            <bitenum id="UCTXIE2_0" value="0x0" description="Interrupt disabled"/>
+            <bitenum id="UCTXIE2_1" value="0x1" description="Interrupt enabled"/>
+        </bitfield>
+        <bitfield id="UCRXIE3" description="Receive interrupt enable 3" begin="12" end="12" width="1" rwaccess="R/W">
+            <bitenum id="UCRXIE3_0" value="0x0" description="Interrupt disabled"/>
+            <bitenum id="UCRXIE3_1" value="0x1" description="Interrupt enabled"/>
+        </bitfield>
+        <bitfield id="UCTXIE3" description="Transmit interrupt enable 3" begin="13" end="13" width="1" rwaccess="R/W">
+            <bitenum id="UCTXIE3_0" value="0x0" description="Interrupt disabled"/>
+            <bitenum id="UCTXIE3_1" value="0x1" description="Interrupt enabled"/>
+        </bitfield>
+        <bitfield id="UCBIT9IE" description="Bit position 9 interrupt enable" begin="14" end="14" width="1" rwaccess="R/W">
+            <bitenum id="UCBIT9IE_0" value="0x0" description="Interrupt disabled"/>
+            <bitenum id="UCBIT9IE_1" value="0x1" description="Interrupt enabled"/>
+        </bitfield>
+    </register>
+    <register id="UCB3IE_SPI" width="16" offset="0x2A" internal="0" description="eUSCI_Bx Interrupt Enable Register">
+        <bitfield id="UCRXIE" description="Receive interrupt enable" begin="0" end="0" width="1" rwaccess="R/W">
+            <bitenum id="UCRXIE_0" value="0x0" description="Interrupt disabled"/>
+            <bitenum id="UCRXIE_1" value="0x1" description="Interrupt enabled"/>
+        </bitfield>
+        <bitfield id="UCTXIE" description="Transmit interrupt enable" begin="1" end="1" width="1" rwaccess="R/W">
+            <bitenum id="UCTXIE_0" value="0x0" description="Interrupt disabled"/>
+            <bitenum id="UCTXIE_1" value="0x1" description="Interrupt enabled"/>
+        </bitfield>
+    </register>
+    <register id="UCB3IFG" width="16" offset="0x2C" internal="0" description="eUSCI_Bx Interrupt Flag Register">
+        <bitfield id="UCRXIFG0" description="eUSCI_B receive interrupt flag 0" begin="0" end="0" width="1" rwaccess="R/W">
+            <bitenum id="UCRXIFG0_0" value="0x0" description="No interrupt pending"/>
+            <bitenum id="UCRXIFG0_1" value="0x1" description="Interrupt pending"/>
+        </bitfield>
+        <bitfield id="UCTXIFG0" description="eUSCI_B transmit interrupt flag 0" begin="1" end="1" width="1" rwaccess="R/W">
+            <bitenum id="UCTXIFG0_0" value="0x0" description="No interrupt pending"/>
+            <bitenum id="UCTXIFG0_1" value="0x1" description="Interrupt pending"/>
+        </bitfield>
+        <bitfield id="UCSTTIFG" description="START condition interrupt flag" begin="2" end="2" width="1" rwaccess="R/W">
+            <bitenum id="UCSTTIFG_0" value="0x0" description="No interrupt pending"/>
+            <bitenum id="UCSTTIFG_1" value="0x1" description="Interrupt pending"/>
+        </bitfield>
+        <bitfield id="UCSTPIFG" description="STOP condition interrupt flag" begin="3" end="3" width="1" rwaccess="R/W">
+            <bitenum id="UCSTPIFG_0" value="0x0" description="No interrupt pending"/>
+            <bitenum id="UCSTPIFG_1" value="0x1" description="Interrupt pending"/>
+        </bitfield>
+        <bitfield id="UCALIFG" description="Arbitration lost interrupt flag" begin="4" end="4" width="1" rwaccess="R/W">
+            <bitenum id="UCALIFG_0" value="0x0" description="No interrupt pending"/>
+            <bitenum id="UCALIFG_1" value="0x1" description="Interrupt pending"/>
+        </bitfield>
+        <bitfield id="UCNACKIFG" description="Not-acknowledge received interrupt flag" begin="5" end="5" width="1" rwaccess="R/W">
+            <bitenum id="UCNACKIFG_0" value="0x0" description="No interrupt pending"/>
+            <bitenum id="UCNACKIFG_1" value="0x1" description="Interrupt pending"/>
+        </bitfield>
+        <bitfield id="UCBCNTIFG" description="Byte counter interrupt flag" begin="6" end="6" width="1" rwaccess="R/W">
+            <bitenum id="UCBCNTIFG_0" value="0x0" description="No interrupt pending"/>
+            <bitenum id="UCBCNTIFG_1" value="0x1" description="Interrupt pending"/>
+        </bitfield>
+        <bitfield id="UCCLTOIFG" description="Clock low timeout interrupt flag" begin="7" end="7" width="1" rwaccess="R/W">
+            <bitenum id="UCCLTOIFG_0" value="0x0" description="No interrupt pending"/>
+            <bitenum id="UCCLTOIFG_1" value="0x1" description="Interrupt pending"/>
+        </bitfield>
+        <bitfield id="UCRXIFG1" description="eUSCI_B receive interrupt flag 1" begin="8" end="8" width="1" rwaccess="R/W">
+            <bitenum id="UCRXIFG1_0" value="0x0" description="No interrupt pending"/>
+            <bitenum id="UCRXIFG1_1" value="0x1" description="Interrupt pending"/>
+        </bitfield>
+        <bitfield id="UCTXIFG1" description="eUSCI_B transmit interrupt flag 1" begin="9" end="9" width="1" rwaccess="R/W">
+            <bitenum id="UCTXIFG1_0" value="0x0" description="No interrupt pending"/>
+            <bitenum id="UCTXIFG1_1" value="0x1" description="Interrupt pending"/>
+        </bitfield>
+        <bitfield id="UCRXIFG2" description="eUSCI_B receive interrupt flag 2" begin="10" end="10" width="1" rwaccess="R/W">
+            <bitenum id="UCRXIFG2_0" value="0x0" description="No interrupt pending"/>
+            <bitenum id="UCRXIFG2_1" value="0x1" description="Interrupt pending"/>
+        </bitfield>
+        <bitfield id="UCTXIFG2" description="eUSCI_B transmit interrupt flag 2" begin="11" end="11" width="1" rwaccess="R/W">
+            <bitenum id="UCTXIFG2_0" value="0x0" description="No interrupt pending"/>
+            <bitenum id="UCTXIFG2_1" value="0x1" description="Interrupt pending"/>
+        </bitfield>
+        <bitfield id="UCRXIFG3" description="eUSCI_B receive interrupt flag 3" begin="12" end="12" width="1" rwaccess="R/W">
+            <bitenum id="UCRXIFG3_0" value="0x0" description="No interrupt pending"/>
+            <bitenum id="UCRXIFG3_1" value="0x1" description="Interrupt pending"/>
+        </bitfield>
+        <bitfield id="UCTXIFG3" description="eUSCI_B transmit interrupt flag 3" begin="13" end="13" width="1" rwaccess="R/W">
+            <bitenum id="UCTXIFG3_0" value="0x0" description="No interrupt pending"/>
+            <bitenum id="UCTXIFG3_1" value="0x1" description="Interrupt pending"/>
+        </bitfield>
+        <bitfield id="UCBIT9IFG" description="Bit position 9 interrupt flag" begin="14" end="14" width="1" rwaccess="R/W">
+            <bitenum id="UCBIT9IFG_0" value="0x0" description="No interrupt pending"/>
+            <bitenum id="UCBIT9IFG_1" value="0x1" description="Interrupt pending"/>
+        </bitfield>
+    </register>
+    <register id="UCB3IFG_SPI" width="16" offset="0x2C" internal="0" description="eUSCI_Bx Interrupt Flag Register">
+        <bitfield id="UCRXIFG" description="Receive interrupt flag" begin="0" end="0" width="1" rwaccess="R/W">
+            <bitenum id="UCRXIFG_0" value="0x0" description="No interrupt pending"/>
+            <bitenum id="UCRXIFG_1" value="0x1" description="Interrupt pending"/>
+        </bitfield>
+        <bitfield id="UCTXIFG" description="Transmit interrupt flag" begin="1" end="1" width="1" rwaccess="R/W">
+            <bitenum id="UCTXIFG_0" value="0x0" description="No interrupt pending"/>
+            <bitenum id="UCTXIFG_1" value="0x1" description="Interrupt pending"/>
+        </bitfield>
+    </register>
+    <register id="UCB3IV" width="16" offset="0x2E" internal="0" description="eUSCI_Bx Interrupt Vector Register">
+        <bitfield id="UCIV" description="eUSCI_B interrupt vector value" begin="15" end="0" width="16" rwaccess="R">
+            <bitenum id="NONE" value="0x0" description="No interrupt pending"/>
+            <bitenum id="UCALIFG" value="0x2" description="Interrupt Source: Arbitration lost; Interrupt Flag: UCALIFG; Interrupt Priority: Highest"/>
+            <bitenum id="UCNACKIFG" value="0x4" description="Interrupt Source: Not acknowledgment; Interrupt Flag: UCNACKIFG"/>
+            <bitenum id="UCSTTIFG" value="0x6" description="Interrupt Source: Start condition received; Interrupt Flag: UCSTTIFG"/>
+            <bitenum id="UCSTPIFG" value="0x8" description="Interrupt Source: Stop condition received; Interrupt Flag: UCSTPIFG"/>
+            <bitenum id="UCRXIFG3" value="0xA" description="Interrupt Source: Slave 3 Data received; Interrupt Flag: UCRXIFG3"/>
+            <bitenum id="UCTXIFG3" value="0xC" description="Interrupt Source: Slave 3 Transmit buffer empty; Interrupt Flag: UCTXIFG3"/>
+            <bitenum id="UCRXIFG2" value="0xE" description="Interrupt Source: Slave 2 Data received; Interrupt Flag: UCRXIFG2"/>
+            <bitenum id="UCTXIFG2" value="0x10" description="Interrupt Source: Slave 2 Transmit buffer empty; Interrupt Flag: UCTXIFG2"/>
+            <bitenum id="UCRXIFG1" value="0x12" description="Interrupt Source: Slave 1 Data received; Interrupt Flag: UCRXIFG1"/>
+            <bitenum id="UCTXIFG1" value="0x14" description="Interrupt Source: Slave 1 Transmit buffer empty; Interrupt Flag: UCTXIFG1"/>
+            <bitenum id="UCRXIFG0" value="0x16" description="Interrupt Source: Data received; Interrupt Flag: UCRXIFG0"/>
+            <bitenum id="UCTXIFG0" value="0x18" description="Interrupt Source: Transmit buffer empty; Interrupt Flag: UCTXIFG0"/>
+            <bitenum id="UCBCNTIFG" value="0x1A" description="Interrupt Source: Byte counter zero; Interrupt Flag: UCBCNTIFG"/>
+            <bitenum id="UCCLTOIFG" value="0x1C" description="Interrupt Source: Clock low timeout; Interrupt Flag: UCCLTOIFG"/>
+            <bitenum id="UCBIT9IFG" value="0x1E" description="Interrupt Source: Nineth bit position; Interrupt Flag: UCBIT9IFG; Priority: Lowest"/>
+        </bitfield>
+    </register>
+    <register id="UCB3IV_SPI" width="16" offset="0x2E" internal="0" description="eUSCI_Bx Interrupt Vector Register">
+        <bitfield id="UCIV" description="eUSCI_B interrupt vector value" begin="15" end="0" width="16" rwaccess="R">
+            <bitenum id="NONE" value="0x0" description="No interrupt pending"/>
+            <bitenum id="UCRXIFG" value="0x2" description="Interrupt Source: Data received; Interrupt Flag: UCRXIFG; Interrupt Priority: Highest"/>
+            <bitenum id="UCTXIFG" value="0x4" description="Interrupt Source: Transmit buffer empty; Interrupt Flag: UCTXIFG; Interrupt Priority: Lowest"/>
+        </bitfield>
+    </register>
+</module>

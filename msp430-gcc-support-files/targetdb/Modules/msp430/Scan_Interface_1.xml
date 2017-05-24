@@ -1,0 +1,140 @@
+<module HW_revision="" XML_version="1" description="Scan Interface" id="Scan Interface">
+<register acronym="SIFDEBUG" description="SIF" id="SIFDEBUG" offset=" 0x01B0" width="16"></register>
+<register acronym="SIFCNT" description="SIF" id="SIFCNT" offset=" 0x01B2" width="16"></register>
+<register acronym="SIFPSMV" description="SIF" id="SIFPSMV" offset=" 0x01B4" width="16"></register>
+<register acronym="SIFCTL1" description="SIF" id="SIFCTL1" offset=" 0x01B6" width="16">
+<bitfield begin="0" description="SIF Enable" end="0" id="SIFEN" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="1" description="SIF 0:Normal / 1:Test Mode" end="1" id="SIFTESTD" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="2" description="SIF Interrupt Flag 0" end="2" id="SIFIFG0" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="3" description="SIF Interrupt Flag 1" end="3" id="SIFIFG1" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="4" description="SIF Interrupt Flag 2" end="4" id="SIFIFG2" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="5" description="SIF Interrupt Flag 3" end="5" id="SIFIFG3" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="6" description="SIF Interrupt Flag 4" end="6" id="SIFIFG4" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="7" description="SIF Interrupt Flag 5" end="7" id="SIFIFG5" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="8" description="SIF Interrupt Flag 6" end="8" id="SIFIFG6" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="9" description="SIF Interrupt Enable 0" end="9" id="SIFIE0" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="10" description="SIF Interrupt Enable 1" end="10" id="SIFIE1" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="11" description="SIF Interrupt Enable 2" end="11" id="SIFIE2" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="12" description="SIF Interrupt Enable 3" end="12" id="SIFIE3" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="13" description="SIF Interrupt Enable 4" end="13" id="SIFIE4" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="14" description="SIF Interrupt Enable 5" end="14" id="SIFIE5" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="15" description="SIF Interrupt Enable 6" end="15" id="SIFIE6" range="" resetval="0" rwaccess="RW" width="1"></bitfield></register>
+<register acronym="SIFCTL2" description="SIF" id="SIFCTL2" offset=" 0x01B8" width="16">
+<bitfield begin="0" description="SIF TCH0 result" end="0" id="SIFTCH0OUT" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="1" description="SIF TCH1 result" end="1" id="SIFTCH1OUT" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="2" description="SIF 1. Channel select 0" end="2" id="SIFTCH00" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="3" description="SIF 1. Channel select 1" end="3" id="SIFTCH01" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="4" description="SIF 2. Channel select 0" end="4" id="SIFTCH10" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="5" description="SIF 2. Channel select 1" end="5" id="SIFTCH11" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="6" description="SIF Enable Transistors" end="6" id="SIFTEN" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="7" description="SIF Sample on/off" end="7" id="SIFSH" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="8" description="SIF VCC/2 Generator off/on" end="8" id="SIFVCC2" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="9" description="SIF Select Terminal for sample Cap." end="9" id="SIFVSS" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="10" description="SIF Selection of SIFCI3" end="10" id="SIFCACI3" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="11" description="SIF Comparator Input Select" end="11" id="SIFCISEL" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="12" description="SIF Select CA Source" end="12" id="SIFCAX" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="13" description="SIF Invert CA Output 0:off/1:on" end="13" id="SIFCAINV" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="14" description="SIF Switch CA on" end="14" id="SIFCAON" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="15" description="SIF Switch DAC on" end="15" id="SIFDACON" range="" resetval="0" rwaccess="RW" width="1"></bitfield></register>
+<register acronym="SIFCTL3" description="SIF" id="SIFCTL3" offset=" 0x01BA" width="16">
+<bitfield begin="0" description="SIF Sensor 0 Out" end="0" id="SIF0OUT" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="1" description="SIF Sensor 1 Out" end="1" id="SIF1OUT" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="2" description="SIF Sensor 2 Out" end="2" id="SIF2OUT" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="3" description="SIF Sensor 3 Out" end="3" id="SIF3OUT" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="4" description="SIF SIFIFG0 level select" end="4" id="SIFIFGSET0" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="5" description="SIF SIFIFG1 level select" end="5" id="SIFIFGSET1" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="6" description="SIF SIFIFG2 level select" end="6" id="SIFIFGSET2" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="7" description="SIF Capture Select" end="7" id="SIFCS" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="9" description="SIF SIFIFG3 Int.Flag Source 0" end="8" id="SIFIS1" range="" resetval="0" rwaccess="RW" width="2">
+<bitenum description="SIF SIFIFG3 set with each count of SIFCNT1" id="SIFIS1_0" token="SIFIS1_0" value="0"></bitenum>
+<bitenum description="SIF SIFIFG3 set if (SIFCNT1 mod  4)=0" id="SIFIS1_1" token="SIFIS1_1" value="1"></bitenum>
+<bitenum description="SIF SIFIFG3 set if (SIFCNT1 mod 64)=0" id="SIFIS1_2" token="SIFIS1_2" value="2"></bitenum>
+<bitenum description="SIF SIFIFG3 set if SIFCNT1 rolls over" id="SIFIS1_3" token="SIFIS1_3" value="3"></bitenum></bitfield>
+<bitfield begin="11" description="SIF SIFIFG4 Int.Flag Source 0" end="10" id="SIFIS2" range="" resetval="0" rwaccess="RW" width="2">
+<bitenum description="SIF SIFIFG4 set with each count of SIFCNT2" id="SIFIS2_0" token="SIFIS2_0" value="0"></bitenum>
+<bitenum description="SIF SIFIFG4 set if (SIFCNT2 mod  4)=0" id="SIFIS2_1" token="SIFIS2_1" value="1"></bitenum>
+<bitenum description="SIF SIFIFG4 set if (SIFCNT2 mod 64)=0" id="SIFIS2_2" token="SIFIS2_2" value="2"></bitenum>
+<bitenum description="SIF SIFIFG4 set if SIFCNT2 rolls over" id="SIFIS2_3" token="SIFIS2_3" value="3"></bitenum></bitfield>
+<bitfield begin="13" description="SIF S1 Source Select 0" end="12" id="SIFS1" range="" resetval="0" rwaccess="RW" width="2">
+<bitenum description="SIF S1 Source : SIF0OUT" id="SIFS1_0" token="SIFS1_0" value="0"></bitenum>
+<bitenum description="SIF S1 Source : SIF1OUT" id="SIFS1_1" token="SIFS1_1" value="1"></bitenum>
+<bitenum description="SIF S1 Source : SIF2OUT" id="SIFS1_2" token="SIFS1_2" value="2"></bitenum>
+<bitenum description="SIF S1 Source : SIF3OUT" id="SIFS1_3" token="SIFS1_3" value="3"></bitenum></bitfield>
+<bitfield begin="15" description="SIF S2 Source Select 0" end="14" id="SIFS2" range="" resetval="0" rwaccess="RW" width="2">
+<bitenum description="SIF S2 Source : SIF0OUT" id="SIFS2_0" token="SIFS2_0" value="0"></bitenum>
+<bitenum description="SIF S2 Source : SIF1OUT" id="SIFS2_1" token="SIFS2_1" value="1"></bitenum>
+<bitenum description="SIF S2 Source : SIF2OUT" id="SIFS2_2" token="SIFS2_2" value="2"></bitenum>
+<bitenum description="SIF S2 Source : SIF3OUT" id="SIFS2_3" token="SIFS2_3" value="3"></bitenum></bitfield></register>
+<register acronym="SIFCTL4" description="SIF" id="SIFCTL4" offset=" 0x01BC" width="16">
+<bitfield begin="1" description="SIF Clock Divider 1.0" end="0" id="SIFDIV1" range="" resetval="0" rwaccess="RW" width="2">
+<bitenum description="SIF Clock Divider 1: /1" id="SIFDIV1_1" token="SIFDIV1_1" value="1"></bitenum>
+<bitenum description="SIF Clock Divider 1: /2" id="SIFDIV1_2" token="SIFDIV1_2" value="2"></bitenum>
+<bitenum description="SIF Clock Divider 1: /4" id="SIFDIV1_4" token="SIFDIV1_4" value="4"></bitenum>
+<bitenum description="SIF Clock Divider 1: /8" id="SIFDIV1_8" token="SIFDIV1_8" value="8"></bitenum></bitfield>
+<bitfield begin="3" description="SIF Clock Divider 2.0" end="2" id="SIFDIV2" range="" resetval="0" rwaccess="RW" width="2">
+<bitenum description="SIF Clock Divider 2: /1" id="SIFDIV2_1" token="SIFDIV2_1" value="1"></bitenum>
+<bitenum description="SIF Clock Divider 2: /2" id="SIFDIV2_2" token="SIFDIV2_2" value="2"></bitenum>
+<bitenum description="SIF Clock Divider 2: /4" id="SIFDIV2_4" token="SIFDIV2_4" value="4"></bitenum>
+<bitenum description="SIF Clock Divider 2: /8" id="SIFDIV2_8" token="SIFDIV2_8" value="8"></bitenum></bitfield>
+<bitfield begin="4" description="SIF Clock Divider 3.0" end="4" id="SIFDIV3A0" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="5" description="SIF Clock Divider 3.1" end="5" id="SIFDIV3A1" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="6" description="SIF Clock Divider 3.2" end="6" id="SIFDIV3A2" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="7" description="SIF Clock Divider 3.3" end="7" id="SIFDIV3B0" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="8" description="SIF Clock Divider 3.4" end="8" id="SIFDIV3B1" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="9" description="SIF Clock Divider 3.5" end="9" id="SIFDIV3B2" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="10" description="SIF Feedback 6 Enable" end="10" id="SIFQ6EN" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="11" description="SIF Feedback 7 Enable" end="11" id="SIFQ7EN" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="12" description="SIF Enable SIFCNT1 up count" end="12" id="SIFCNT1ENP" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="13" description="SIF Enable SIFCNT1 down count" end="13" id="SIFCNT1ENM" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="14" description="SIF Enable SIFCNT2 count" end="14" id="SIFCNT2EN" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="15" description="SIF Enable Counter Reset on Read" end="15" id="SIFCNTRST" range="" resetval="0" rwaccess="RW" width="1"></bitfield></register>
+<register acronym="SIFCTL5" description="SIF" id="SIFCTL5" offset=" 0x01BE" width="16">
+<bitfield begin="0" description="SIF 0:SMCLK for SIFCLK / 1:SIFCLKG for SIFCLK" end="0" id="SIFCLKEN" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="1" description="SIF Switch SIFCLKG on" end="1" id="SIFCLKGON" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="2" description="SIF Select Nominal Frequ. 0:4MHz / 1:1MHz" end="2" id="SIFFNOM" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="3" description="SIF Clock Generator frequency adjust 0" end="3" id="SIFCLKFQ0" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="4" description="SIF Clock Generator frequency adjust 1" end="4" id="SIFCLKFQ1" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="5" description="SIF Clock Generator frequency adjust 2" end="5" id="SIFCLKFQ2" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="6" description="SIF Clock Generator frequency adjust 3" end="6" id="SIFCLKFQ3" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="7" description="SIF Timing State Machine Repeat mode" end="7" id="SIFTSMRP" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="8" description="SIF Counter 3.0" end="8" id="SIFCNT30" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="9" description="SIF Counter 3.1" end="9" id="SIFCNT31" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="10" description="SIF Counter 3.2" end="10" id="SIFCNT32" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="11" description="SIF Counter 3.3" end="11" id="SIFCNT33" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="12" description="SIF Counter 3.4" end="12" id="SIFCNT34" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="13" description="SIF Counter 3.5" end="13" id="SIFCNT35" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="14" description="SIF Counter 3.6" end="14" id="SIFCNT36" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="15" description="SIF Counter 3.7" end="15" id="SIFCNT37" range="" resetval="0" rwaccess="RW" width="1"></bitfield></register>
+<register acronym="SIFDACR0" description="SIF" id="SIFDACR0" offset=" 0x01C0" width="16"></register>
+<register acronym="SIFDACR1" description="SIF" id="SIFDACR1" offset=" 0x01C2" width="16"></register>
+<register acronym="SIFDACR2" description="SIF" id="SIFDACR2" offset=" 0x01C4" width="16"></register>
+<register acronym="SIFDACR3" description="SIF" id="SIFDACR3" offset=" 0x01C6" width="16"></register>
+<register acronym="SIFDACR4" description="SIF" id="SIFDACR4" offset=" 0x01C8" width="16"></register>
+<register acronym="SIFDACR5" description="SIF" id="SIFDACR5" offset=" 0x01CA" width="16"></register>
+<register acronym="SIFDACR6" description="SIF" id="SIFDACR6" offset=" 0x01CC" width="16"></register>
+<register acronym="SIFDACR7" description="SIF" id="SIFDACR7" offset=" 0x01CE" width="16"></register>
+<register acronym="SIFTSM0" description="SIF" id="SIFTSM0" offset=" 0x01D0" width="16"></register>
+<register acronym="SIFTSM1" description="SIF" id="SIFTSM1" offset=" 0x01D2" width="16"></register>
+<register acronym="SIFTSM2" description="SIF" id="SIFTSM2" offset=" 0x01D4" width="16"></register>
+<register acronym="SIFTSM3" description="SIF" id="SIFTSM3" offset=" 0x01D6" width="16"></register>
+<register acronym="SIFTSM4" description="SIF" id="SIFTSM4" offset=" 0x01D8" width="16"></register>
+<register acronym="SIFTSM5" description="SIF" id="SIFTSM5" offset=" 0x01DA" width="16"></register>
+<register acronym="SIFTSM6" description="SIF" id="SIFTSM6" offset=" 0x01DC" width="16"></register>
+<register acronym="SIFTSM7" description="SIF" id="SIFTSM7" offset=" 0x01DE" width="16"></register>
+<register acronym="SIFTSM8" description="SIF" id="SIFTSM8" offset=" 0x01E0" width="16"></register>
+<register acronym="SIFTSM9" description="SIF" id="SIFTSM9" offset=" 0x01E2" width="16"></register>
+<register acronym="SIFTSM10" description="SIF" id="SIFTSM10" offset=" 0x01E4" width="16"></register>
+<register acronym="SIFTSM11" description="SIF" id="SIFTSM11" offset=" 0x01E6" width="16"></register>
+<register acronym="SIFTSM12" description="SIF" id="SIFTSM12" offset=" 0x01E8" width="16"></register>
+<register acronym="SIFTSM13" description="SIF" id="SIFTSM13" offset=" 0x01EA" width="16"></register>
+<register acronym="SIFTSM14" description="SIF" id="SIFTSM14" offset=" 0x01EC" width="16"></register>
+<register acronym="SIFTSM15" description="SIF" id="SIFTSM15" offset=" 0x01EE" width="16"></register>
+<register acronym="SIFTSM16" description="SIF" id="SIFTSM16" offset=" 0x01F0" width="16"></register>
+<register acronym="SIFTSM17" description="SIF" id="SIFTSM17" offset=" 0x01F2" width="16"></register>
+<register acronym="SIFTSM18" description="SIF" id="SIFTSM18" offset=" 0x01F4" width="16"></register>
+<register acronym="SIFTSM19" description="SIF" id="SIFTSM19" offset=" 0x01F6" width="16"></register>
+<register acronym="SIFTSM20" description="SIF" id="SIFTSM20" offset=" 0x01F8" width="16"></register>
+<register acronym="SIFTSM21" description="SIF" id="SIFTSM21" offset=" 0x01FA" width="16"></register>
+<register acronym="SIFTSM22" description="SIF" id="SIFTSM22" offset=" 0x01FC" width="16"></register>
+<register acronym="SIFTSM23" description="SIF" id="SIFTSM23" offset=" 0x01FE" width="16"></register>
+</module>

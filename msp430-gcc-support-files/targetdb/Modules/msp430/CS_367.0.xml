@@ -1,0 +1,149 @@
+<module id="CS" HW_revision="367.0">
+    <register id="CSCTL0" width="16" offset="0x0" internal="0" description="Clock System Control 0">
+        <bitfield id="CSKEY" description="CSKEY password" begin="15" end="8" width="8" rwaccess="R/W">
+        </bitfield>
+    </register>
+    <register id="CSCTL1" width="16" offset="0x2" internal="0" description="Clock System Control 1">
+        <bitfield id="DCOFSEL" description="DCO frequency select" begin="3" end="1" width="3" rwaccess="R/W">
+            <bitenum id="DCOFSEL_0" value="0x0" description="If DCORSEL = 0: 1 MHz; If DCORSEL = 1: 1 MHz"/>
+            <bitenum id="DCOFSEL_1" value="0x1" description="If DCORSEL = 0: 2.67 MHz; If DCORSEL = 1: 5.33 MHz"/>
+            <bitenum id="DCOFSEL_2" value="0x2" description="If DCORSEL = 0: 3.33 MHz; If DCORSEL = 1: 6.67 MHz"/>
+            <bitenum id="DCOFSEL_3" value="0x3" description="If DCORSEL = 0: 4 MHz; If DCORSEL = 1: 8 MHz"/>
+            <bitenum id="DCOFSEL_4" value="0x4" description="If DCORSEL = 0: 5.33 MHz; If DCORSEL = 1: 16 MHz"/>
+            <bitenum id="DCOFSEL_5" value="0x5" description="If DCORSEL = 0: 6.67 MHz; If DCORSEL = 1: 21 MHz"/>
+            <bitenum id="DCOFSEL_6" value="0x6" description="If DCORSEL = 0: 8 MHz; If DCORSEL = 1: 24 MHz"/>
+            <bitenum id="DCOFSEL_7" value="0x7" description="If DCORSEL = 0: Reserved. Defaults to 8. It is not recommended to use this setting; If DCORSEL = 1: Reserved. Defaults to 24. It is not recommended to use this setting"/>
+        </bitfield>
+        <bitfield id="DCORSEL" description="DCO range select" begin="6" end="6" width="1" rwaccess="R/W">
+        </bitfield>
+    </register>
+    <register id="CSCTL2" width="16" offset="0x4" internal="0" description="Clock System Control 2">
+        <bitfield id="SELM" description="Selects the MCLK source" begin="2" end="0" width="3" rwaccess="R/W">
+            <bitenum id="LFXTCLK" value="0x0" description="LFXTCLK when LFXT available, otherwise VLOCLK"/>
+            <bitenum id="VLOCLK" value="0x1" description="VLOCLK"/>
+            <bitenum id="LFMODCLK" value="0x2" description="LFMODCLK"/>
+            <bitenum id="DCOCLK" value="0x3" description="DCOCLK"/>
+            <bitenum id="MODCLK" value="0x4" description="MODCLK"/>
+            <bitenum id="HFXTCLK" value="0x5" description="HFXTCLK when HFXT available, otherwise DCOCLK"/>
+        </bitfield>
+        <bitfield id="SELS" description="Selects the SMCLK source" begin="6" end="4" width="3" rwaccess="R/W">
+            <bitenum id="LFXTCLK" value="0x0" description="LFXTCLK when LFXT available, otherwise VLOCLK."/>
+            <bitenum id="VLOCLK" value="0x1" description="VLOCLK"/>
+            <bitenum id="LFMODCLK" value="0x2" description="LFMODCLK"/>
+            <bitenum id="DCOCLK" value="0x3" description="DCOCLK"/>
+            <bitenum id="MODCLK" value="0x4" description="MODCLK"/>
+            <bitenum id="HFXTCLK" value="0x5" description="HFXTCLK when HFXT available, otherwise DCOCLK."/>
+        </bitfield>
+        <bitfield id="SELA" description="Selects the ACLK source" begin="10" end="8" width="3" rwaccess="R/W">
+            <bitenum id="LFXTCLK" value="0x0" description="LFXTCLK when LFXT available, otherwise VLOCLK."/>
+            <bitenum id="VLOCLK" value="0x1" description="VLOCLK"/>
+            <bitenum id="LFMODCLK" value="0x2" description="LFMODCLK"/>
+        </bitfield>
+    </register>
+    <register id="CSCTL3" width="16" offset="0x6" internal="0" description="Clock System Control 3">
+        <bitfield id="DIVM" description="MCLK source divider" begin="2" end="0" width="3" rwaccess="R/W">
+            <bitenum id="1" value="0x0" description="/1"/>
+            <bitenum id="2" value="0x1" description="/2"/>
+            <bitenum id="4" value="0x2" description="/4"/>
+            <bitenum id="8" value="0x3" description="/8"/>
+            <bitenum id="16" value="0x4" description="/16"/>
+            <bitenum id="32" value="0x5" description="/32"/>
+        </bitfield>
+        <bitfield id="DIVS" description="SMCLK source divider" begin="6" end="4" width="3" rwaccess="R/W">
+            <bitenum id="1" value="0x0" description="/1"/>
+            <bitenum id="2" value="0x1" description="/2"/>
+            <bitenum id="4" value="0x2" description="/4"/>
+            <bitenum id="8" value="0x3" description="/8"/>
+            <bitenum id="16" value="0x4" description="/16"/>
+            <bitenum id="32" value="0x5" description="/32"/>
+        </bitfield>
+        <bitfield id="DIVA" description="ACLK source divider" begin="10" end="8" width="3" rwaccess="R/W">
+            <bitenum id="1" value="0x0" description="/1"/>
+            <bitenum id="2" value="0x1" description="/2"/>
+            <bitenum id="4" value="0x2" description="/4"/>
+            <bitenum id="8" value="0x3" description="/8"/>
+            <bitenum id="16" value="0x4" description="/16"/>
+            <bitenum id="32" value="0x5" description="/32"/>
+        </bitfield>
+    </register>
+    <register id="CSCTL4" width="16" offset="0x8" internal="0" description="Clock System Control 4">
+        <bitfield id="LFXTOFF" description="LFXT off" begin="0" end="0" width="1" rwaccess="R/W">
+            <bitenum id="LFXTOFF_0" value="0x0" description="LFXT is on if LFXT is selected via the port selection and LFXT is not in bypass mode of operation"/>
+            <bitenum id="LFXTOFF_1" value="0x1" description="LFXT is off if it is not used as a source for ACLK, MCLK, or SMCLK"/>
+        </bitfield>
+        <bitfield id="SMCLKOFF" description="SMCLK off" begin="1" end="1" width="1" rwaccess="R/W">
+            <bitenum id="SMCLKOFF_0" value="0x0" description="SMCLK on"/>
+            <bitenum id="SMCLKOFF_1" value="0x1" description="SMCLK off"/>
+        </bitfield>
+        <bitfield id="VLOOFF" description="VLO off" begin="3" end="3" width="1" rwaccess="R/W">
+            <bitenum id="VLOOFF_0" value="0x0" description="VLO is on"/>
+            <bitenum id="VLOOFF_1" value="0x1" description="VLO is off if it is not used as a source for ACLK, MCLK, or SMCLK or if not used as a source for the RTC in LPM3.5"/>
+        </bitfield>
+        <bitfield id="LFXTBYPASS" description="LFXT bypass select" begin="4" end="4" width="1" rwaccess="R/W">
+            <bitenum id="LFXTBYPASS_0" value="0x0" description="LFXT sourced from external crystal"/>
+            <bitenum id="LFXTBYPASS_1" value="0x1" description="LFXT sourced from external clock signal"/>
+        </bitfield>
+        <bitfield id="LFXTDRIVE" description="LFXT oscillator current" begin="7" end="6" width="2" rwaccess="R/W">
+            <bitenum id="LFXTDRIVE_0" value="0x0" description="Lowest drive strength and current consumption LFXT oscillator"/>
+            <bitenum id="LFXTDRIVE_1" value="0x1" description="Increased drive strength LFXT oscillator"/>
+            <bitenum id="LFXTDRIVE_2" value="0x2" description="Increased drive strength LFXT oscillator"/>
+            <bitenum id="LFXTDRIVE_3" value="0x3" description="Maximum drive strength and maximum current consumption LFXT oscillator"/>
+        </bitfield>
+        <bitfield id="HFXTOFF" description="Turns off the HFXT oscillator" begin="8" end="8" width="1" rwaccess="R/W">
+            <bitenum id="HFXTOFF_0" value="0x0" description="HFXT is on if HFXT is selected via the port selection and HFXT is not in bypass mode of operation"/>
+            <bitenum id="HFXTOFF_1" value="0x1" description="HFXT is off if it is not used as a source for ACLK, MCLK, or SMCLK"/>
+        </bitfield>
+        <bitfield id="HFFREQ" description="HFXT frequency selection" begin="11" end="10" width="2" rwaccess="R/W">
+            <bitenum id="HFFREQ_0" value="0x0" description="0 to 4 MHz"/>
+            <bitenum id="HFFREQ_1" value="0x1" description="Greater than 4 MHz to 8 MHz"/>
+            <bitenum id="HFFREQ_2" value="0x2" description="Greater than 8 MHz to 16 MHz"/>
+            <bitenum id="HFFREQ_3" value="0x3" description="Greater than 16 MHz to 24 MHz"/>
+        </bitfield>
+        <bitfield id="HFXTBYPASS" description="HFXT bypass select" begin="12" end="12" width="1" rwaccess="R/W">
+            <bitenum id="HFXTBYPASS_0" value="0x0" description="HFXT sourced from external crystal"/>
+            <bitenum id="HFXTBYPASS_1" value="0x1" description="HFXT sourced from external clock signal"/>
+        </bitfield>
+        <bitfield id="HFXTDRIVE" description="HFXT oscillator current" begin="15" end="14" width="2" rwaccess="R/W">
+            <bitenum id="HFXTDRIVE_0" value="0x0" description="Lowest current consumption"/>
+            <bitenum id="HFXTDRIVE_1" value="0x1" description="Increased drive strength HFXT oscillator"/>
+            <bitenum id="HFXTDRIVE_2" value="0x2" description="Increased drive strength HFXT oscillator"/>
+            <bitenum id="HFXTDRIVE_3" value="0x3" description="Maximum drive strength HFXT oscillator"/>
+        </bitfield>
+    </register>
+    <register id="CSCTL5" width="16" offset="0xA" internal="0" description="Clock System Control 5">
+        <bitfield id="LFXTOFFG" description="LFXT oscillator fault flag" begin="0" end="0" width="1" rwaccess="R/W">
+            <bitenum id="LFXTOFFG_0" value="0x0" description="No fault condition occurred after the last reset"/>
+            <bitenum id="LFXTOFFG_1" value="0x1" description="LFXT fault; an LFXT fault occurred after the last reset"/>
+        </bitfield>
+        <bitfield id="HFXTOFFG" description="HFXT oscillator fault flag" begin="1" end="1" width="1" rwaccess="R/W">
+            <bitenum id="HFXTOFFG_0" value="0x0" description="No fault condition occurred after the last reset"/>
+            <bitenum id="HFXTOFFG_1" value="0x1" description="HFXT fault; an HFXT fault occurred after the last reset"/>
+        </bitfield>
+        <bitfield id="ENSTFCNT1" description="Enable start counter for LFXT" begin="6" end="6" width="1" rwaccess="R/W">
+            <bitenum id="DISABLE" value="0x0" description="Startup fault counter disabled. Counter is cleared."/>
+            <bitenum id="ENABLE" value="0x1" description="Startup fault counter enabled"/>
+        </bitfield>
+        <bitfield id="ENSTFCNT2" description="Enable start counter for HFXT" begin="7" end="7" width="1" rwaccess="R/W">
+            <bitenum id="DISABLE" value="0x0" description="Startup fault counter disabled. Counter is cleared."/>
+            <bitenum id="ENABLE" value="0x1" description="Startup fault counter enabled"/>
+        </bitfield>
+    </register>
+    <register id="CSCTL6" width="16" offset="0xC" internal="0" description="Clock System Control 6">
+        <bitfield id="ACLKREQEN" description="ACLK clock request enable" begin="0" end="0" width="1" rwaccess="R/W">
+            <bitenum id="DISABLE" value="0x0" description="ACLK conditional requests are disabled"/>
+            <bitenum id="ENABLE" value="0x1" description="ACLK conditional requests are enabled"/>
+        </bitfield>
+        <bitfield id="MCLKREQEN" description="MCLK clock request enable" begin="1" end="1" width="1" rwaccess="R/W">
+            <bitenum id="DISABLE" value="0x0" description="MCLK conditional requests are disabled"/>
+            <bitenum id="ENABLE" value="0x1" description="MCLK conditional requests are enabled"/>
+        </bitfield>
+        <bitfield id="SMCLKREQEN" description="SMCLK clock request enable" begin="2" end="2" width="1" rwaccess="R/W">
+            <bitenum id="DISABLE" value="0x0" description="SMCLK conditional requests are disabled"/>
+            <bitenum id="ENABLE" value="0x1" description="SMCLK conditional requests are enabled"/>
+        </bitfield>
+        <bitfield id="MODCLKREQEN" description="MODCLK clock request enable" begin="3" end="3" width="1" rwaccess="R/W">
+            <bitenum id="DISABLE" value="0x0" description="MODCLK conditional requests are disabled"/>
+            <bitenum id="ENABLE" value="0x1" description="MODCLK conditional requests are enabled"/>
+        </bitfield>
+    </register>
+</module>

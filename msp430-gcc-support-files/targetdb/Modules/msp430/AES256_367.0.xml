@@ -1,0 +1,99 @@
+<module id="AES256" HW_revision="367.0">
+    <register id="AESACTL0" width="16" offset="0x0" internal="0" description="AES Accelerator Control Register 0">
+        <bitfield id="AESOP" description="AES operation" begin="1" end="0" width="2" rwaccess="R/W">
+            <bitenum id="AESOP_0" value="0x0" description="Encryption"/>
+            <bitenum id="AESOP_1" value="0x1" description="Decryption. The provided key is the same key used for encryption"/>
+            <bitenum id="AESOP_2" value="0x2" description="Generate first round key required for decryption"/>
+            <bitenum id="AESOP_3" value="0x3" description="Decryption. The provided key is the first round key required for decryption"/>
+        </bitfield>
+        <bitfield id="AESKL" description="AES key length" begin="3" end="2" width="2" rwaccess="R/W">
+            <bitenum id="128" value="0x0" description="AES128. The key size is 128 bit"/>
+            <bitenum id="192" value="0x1" description="AES192. The key size is 192 bit."/>
+            <bitenum id="256" value="0x2" description="AES256. The key size is 256 bit"/>
+        </bitfield>
+        <bitfield id="AESCM" description="AES cipher mode select" begin="6" end="5" width="2" rwaccess="R/W">
+            <bitenum id="ECB" value="0x0" description="ECB"/>
+            <bitenum id="CBC" value="0x1" description="CBC"/>
+            <bitenum id="OFB" value="0x2" description="OFB"/>
+            <bitenum id="CFB" value="0x3" description="CFB"/>
+        </bitfield>
+        <bitfield id="AESSWRST" description="AES software reset" begin="7" end="7" width="1" rwaccess="R/W">
+            <bitenum id="AESSWRST_0" value="0x0" description="No reset"/>
+            <bitenum id="RESET" value="0x1" description="Reset AES accelerator module"/>
+        </bitfield>
+        <bitfield id="AESRDYIFG" description="AES ready interrupt flag" begin="8" end="8" width="1" rwaccess="R/W">
+            <bitenum id="AESRDYIFG_0" value="0x0" description="No interrupt pending"/>
+            <bitenum id="AESRDYIFG_1" value="0x1" description="Interrupt pending"/>
+        </bitfield>
+        <bitfield id="AESERRFG" description="AES error flag" begin="11" end="11" width="1" rwaccess="R/W">
+            <bitenum id="AESERRFG_0" value="0x0" description="No error"/>
+            <bitenum id="AESERRFG_1" value="0x1" description="Error occurred"/>
+        </bitfield>
+        <bitfield id="AESRDYIE" description="AES ready interrupt enable" begin="12" end="12" width="1" rwaccess="R/W">
+            <bitenum id="DISABLE" value="0x0" description="Interrupt disabled"/>
+            <bitenum id="ENABLE" value="0x1" description="Interrupt enabled"/>
+        </bitfield>
+        <bitfield id="AESCMEN" description="AES cipher mode enable" begin="15" end="15" width="1" rwaccess="R/W">
+            <bitenum id="DISABLE" value="0x0" description="No DMA triggers are generated"/>
+            <bitenum id="ENABLE" value="0x1" description="DMA ciphermode support operation is enabled and the corresponding DMA triggers are generated"/>
+        </bitfield>
+    </register>
+    <register id="AESACTL1" width="16" offset="0x2" internal="0" description="AES Accelerator Control Register 1">
+        <bitfield id="AESBLKCNT" description="Cipher Block Counter" begin="7" end="0" width="8" rwaccess="R/W">
+        </bitfield>
+    </register>
+    <register id="AESASTAT" width="16" offset="0x4" internal="0" description="AES Accelerator Status Register">
+        <bitfield id="AESBUSY" description="AES accelerator module busy" begin="0" end="0" width="1" rwaccess="R/W">
+            <bitenum id="IDLE" value="0x0" description="Not busy"/>
+            <bitenum id="BUSY" value="0x1" description="Busy"/>
+        </bitfield>
+        <bitfield id="AESKEYWR" description="All 16 bytes written to AESAKEY" begin="1" end="1" width="1" rwaccess="R/W">
+            <bitenum id="AESKEYWR_0" value="0x0" description="Not all bytes written"/>
+            <bitenum id="AESKEYWR_1" value="0x1" description="All bytes written"/>
+        </bitfield>
+        <bitfield id="AESDINWR" description="All 16 bytes written to AESADIN, AESAXDIN or AESAXIN" begin="2" end="2" width="1" rwaccess="R/W">
+            <bitenum id="AESDINWR_0" value="0x0" description="Not all bytes written"/>
+            <bitenum id="AESDINWR_1" value="0x1" description="All bytes written"/>
+        </bitfield>
+        <bitfield id="AESDOUTRD" description="All 16 bytes read from AESADOUT" begin="3" end="3" width="1" rwaccess="R">
+            <bitenum id="AESDOUTRD_0" value="0x0" description="Not all bytes read"/>
+            <bitenum id="AESDOUTRD_1" value="0x1" description="All bytes read"/>
+        </bitfield>
+        <bitfield id="AESKEYCNT" description="Bytes written via AESAKEY for AESKL=00, half-words written via AESAKEY" begin="7" end="4" width="4" rwaccess="R">
+        </bitfield>
+        <bitfield id="AESDINCNT" description="Bytes written via AESADIN, AESAXDIN or AESAXIN" begin="11" end="8" width="4" rwaccess="R">
+        </bitfield>
+        <bitfield id="AESDOUTCNT" description="Bytes read via AESADOUT" begin="15" end="12" width="4" rwaccess="R">
+        </bitfield>
+    </register>
+    <register id="AESAKEY" width="16" offset="0x6" internal="0" description="AES Accelerator Key Register">
+        <bitfield id="AESKEY0" description="AES key byte n when AESAKEY is written as half-word" begin="7" end="0" width="8" rwaccess="R/W">
+        </bitfield>
+        <bitfield id="AESKEY1" description="AES key byte n+1 when AESAKEY is written as half-word" begin="15" end="8" width="8" rwaccess="R/W">
+        </bitfield>
+    </register>
+    <register id="AESADIN" width="16" offset="0x8" internal="0" description="AES Accelerator Data In Register">
+        <bitfield id="AESDIN0" description="AES data in byte n when AESADIN is written as half-word" begin="7" end="0" width="8" rwaccess="R/W">
+        </bitfield>
+        <bitfield id="AESDIN1" description="AES data in byte n+1 when AESADIN is written as half-word" begin="15" end="8" width="8" rwaccess="R/W">
+        </bitfield>
+    </register>
+    <register id="AESADOUT" width="16" offset="0xA" internal="0" description="AES Accelerator Data Out Register">
+        <bitfield id="AESDOUT0" description="AES data out byte n when AESADOUT is read as half-word" begin="7" end="0" width="8" rwaccess="R/W">
+        </bitfield>
+        <bitfield id="AESDOUT1" description="AES data out byte n+1 when AESADOUT is read as half-word" begin="15" end="8" width="8" rwaccess="R/W">
+        </bitfield>
+    </register>
+    <register id="AESAXDIN" width="16" offset="0xC" internal="0" description="AES Accelerator XORed Data In Register">
+        <bitfield id="AESXDIN0" description="AES data in byte n when AESAXDIN is written as half-word" begin="7" end="0" width="8" rwaccess="R/W">
+        </bitfield>
+        <bitfield id="AESXDIN1" description="AES data in byte n+1 when AESAXDIN is written as half-word" begin="15" end="8" width="8" rwaccess="R/W">
+        </bitfield>
+    </register>
+    <register id="AESAXIN" width="16" offset="0xE" internal="0" description="AES Accelerator XORed Data In Register">
+        <bitfield id="AESXIN0" description="AES data in byte n when AESAXIN is written as half-word" begin="7" end="0" width="8" rwaccess="R/W">
+        </bitfield>
+        <bitfield id="AESXIN1" description="AES data in byte n+1 when AESAXIN is written as half-word" begin="15" end="8" width="8" rwaccess="R/W">
+        </bitfield>
+    </register>
+</module>

@@ -1,0 +1,193 @@
+<module HW_revision="" XML_version="1" description="USCI_B0  I2C Mode" id="USCI_B0  I2C Mode">
+<register acronym="UCB0CTLW0" description="USCI B0 Control Word Register 0" id="UCB0CTLW0" offset=" 0x0540" width="16">
+<bitfield begin="0" description="USCI Software Reset" end="0" id="UCSWRST" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="1" description="Transmit START" end="1" id="UCTXSTT" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="2" description="Transmit STOP" end="2" id="UCTXSTP" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="3" description="Transmit NACK" end="3" id="UCTXNACK" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="4" description="Transmit/Receive Select/Flag" end="4" id="UCTR" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="5" description="Transmit ACK" end="5" id="UCTXACK" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="7" description="USCI 1 Clock Source Select 1" end="6" id="UCSSEL" range="" resetval="0" rwaccess="RW" width="2">
+<bitenum description="USCI 0 Clock Source: 0" id="UCSSEL_0" token="UCSSEL_0" value="0"></bitenum>
+<bitenum description="USCI 0 Clock Source: 1" id="UCSSEL_1" token="UCSSEL_1" value="1"></bitenum>
+<bitenum description="USCI 0 Clock Source: 2" id="UCSSEL_2" token="UCSSEL_2" value="2"></bitenum>
+<bitenum description="USCI 0 Clock Source: 3" id="UCSSEL_3" token="UCSSEL_3" value="3"></bitenum></bitfield>
+<bitfield begin="10" description="Sync. Mode: USCI Mode 1" end="9" id="UCMODE" range="" resetval="0" rwaccess="RW" width="2">
+<bitenum description="Sync. Mode: USCI Mode: 0" id="UCMODE_0" token="UCMODE_0" value="0"></bitenum>
+<bitenum description="Sync. Mode: USCI Mode: 1" id="UCMODE_1" token="UCMODE_1" value="1"></bitenum>
+<bitenum description="Sync. Mode: USCI Mode: 2" id="UCMODE_2" token="UCMODE_2" value="2"></bitenum>
+<bitenum description="Sync. Mode: USCI Mode: 3" id="UCMODE_3" token="UCMODE_3" value="3"></bitenum></bitfield>
+<bitfield begin="11" description="Sync. Mode: Master Select" end="11" id="UCMST" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="13" description="Multi-Master Environment" end="13" id="UCMM" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="14" description="10-bit Slave Address Mode" end="14" id="UCSLA10" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="15" description="10-bit Address Mode" end="15" id="UCA10" range="" resetval="0" rwaccess="RW" width="1"></bitfield></register>
+<register acronym="UCB0CTL0" description="USCI B0 Control Register 0" id="UCB0CTL0" offset=" 0x0541" width="8"></register>
+<register acronym="UCB0CTL1" description="USCI B0 Control Register 1" id="UCB0CTL1" offset=" 0x0540" width="8"></register>
+<register acronym="UCB0CTLW1" description="USCI B0 Control Word Register 1" id="UCB0CTLW1" offset=" 0x0542" width="16">
+<bitfield begin="1" description="USCI Deglitch time Bit: 1" end="0" id="UCGLIT" range="" resetval="0" rwaccess="RW" width="2">
+<bitenum description="USCI Deglitch time: 0" id="UCGLIT_0" token="UCGLIT_0" value="0"></bitenum>
+<bitenum description="USCI Deglitch time: 1" id="UCGLIT_1" token="UCGLIT_1" value="1"></bitenum>
+<bitenum description="USCI Deglitch time: 2" id="UCGLIT_2" token="UCGLIT_2" value="2"></bitenum>
+<bitenum description="USCI Deglitch time: 3" id="UCGLIT_3" token="UCGLIT_3" value="3"></bitenum></bitfield>
+<bitfield begin="3" description="USCI Automatic Stop condition generation Bit: 1" end="2" id="UCASTP" range="" resetval="0" rwaccess="RW" width="2">
+<bitenum description="USCI Automatic Stop condition generation: 0" id="UCASTP_0" token="UCASTP_0" value="0"></bitenum>
+<bitenum description="USCI Automatic Stop condition generation: 1" id="UCASTP_1" token="UCASTP_1" value="1"></bitenum>
+<bitenum description="USCI Automatic Stop condition generation: 2" id="UCASTP_2" token="UCASTP_2" value="2"></bitenum>
+<bitenum description="USCI Automatic Stop condition generation: 3" id="UCASTP_3" token="UCASTP_3" value="3"></bitenum></bitfield>
+<bitfield begin="4" description="USCI Software controlled ACK" end="4" id="UCSWACK" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="5" description="USCI Acknowledge Stop last byte" end="5" id="UCSTPNACK" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="7" description="USCI Clock low timeout Bit: 1" end="6" id="UCCLTO" range="" resetval="0" rwaccess="RW" width="2">
+<bitenum description="USCI Clock low timeout: 0" id="UCCLTO_0" token="UCCLTO_0" value="0"></bitenum>
+<bitenum description="USCI Clock low timeout: 1" id="UCCLTO_1" token="UCCLTO_1" value="1"></bitenum>
+<bitenum description="USCI Clock low timeout: 2" id="UCCLTO_2" token="UCCLTO_2" value="2"></bitenum>
+<bitenum description="USCI Clock low timeout: 3" id="UCCLTO_3" token="UCCLTO_3" value="3"></bitenum></bitfield>
+<bitfield begin="8" description="USCI Early UCTXIFG0" end="8" id="UCETXINT" range="" resetval="0" rwaccess="RW" width="1"></bitfield></register>
+<register acronym="UCB0BRW" description="USCI B0 Baud Word Rate 0" id="UCB0BRW" offset=" 0x0546" width="16"></register>
+<register acronym="UCB0BR0" description="USCI B0 Baud Rate 0" id="UCB0BR0" offset=" 0x0546" width="8"></register>
+<register acronym="UCB0BR1" description="USCI B0 Baud Rate 1" id="UCB0BR1" offset=" 0x0547" width="8"></register>
+<register acronym="UCB0STATW" description="USCI B0 Status Word Register" id="UCB0STATW" offset=" 0x0548" width="16"></register>
+<register acronym="UCB0STATW__I2C" description="USCI B0 Status Register" id="UCB0STATW__I2C" offset=" 0x0548" width="16">
+<bitfield begin="4" description="Bus Busy Flag" end="4" id="UCBBUSY" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="5" description="General Call address received Flag" end="5" id="UCGC" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="6" description="SCL low" end="6" id="UCSCLLOW" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="8" description="USCI Byte Counter Bit 0" end="8" id="UCBCNT0" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="9" description="USCI Byte Counter Bit 1" end="9" id="UCBCNT1" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="10" description="USCI Byte Counter Bit 2" end="10" id="UCBCNT2" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="11" description="USCI Byte Counter Bit 3" end="11" id="UCBCNT3" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="12" description="USCI Byte Counter Bit 4" end="12" id="UCBCNT4" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="13" description="USCI Byte Counter Bit 5" end="13" id="UCBCNT5" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="14" description="USCI Byte Counter Bit 6" end="14" id="UCBCNT6" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="15" description="USCI Byte Counter Bit 7" end="15" id="UCBCNT7" range="" resetval="0" rwaccess="RW" width="1"></bitfield></register>
+<register acronym="UCB0STAT__I2C" description="USCI B0 Status Register" id="UCB0STAT__I2C" offset=" 0x0548" width="8">
+<bitfield begin="4" description="Bus Busy Flag" end="4" id="UCBBUSY" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="5" description="General Call address received Flag" end="5" id="UCGC" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="6" description="SCL low" end="6" id="UCSCLLOW" range="" resetval="0" rwaccess="RW" width="1"></bitfield></register>
+<register acronym="UCB0BCNT__I2C" description="USCI B0 Byte Counter Register" id="UCB0BCNT__I2C" offset=" 0x0549" width="8">
+<bitfield begin="0" description="USCI Byte Counter Bit 0" end="0" id="UCBCNT0" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="1" description="USCI Byte Counter Bit 1" end="1" id="UCBCNT1" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="2" description="USCI Byte Counter Bit 2" end="2" id="UCBCNT2" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="3" description="USCI Byte Counter Bit 3" end="3" id="UCBCNT3" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="4" description="USCI Byte Counter Bit 4" end="4" id="UCBCNT4" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="5" description="USCI Byte Counter Bit 5" end="5" id="UCBCNT5" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="6" description="USCI Byte Counter Bit 6" end="6" id="UCBCNT6" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="7" description="USCI Byte Counter Bit 7" end="7" id="UCBCNT7" range="" resetval="0" rwaccess="RW" width="1"></bitfield></register>
+<register acronym="UCB0TBCNT" description="USCI B0 Byte Counter Threshold Register" id="UCB0TBCNT" offset=" 0x054A" width="16"></register>
+<register acronym="UCB0RXBUF" description="USCI B0 Receive Buffer" id="UCB0RXBUF" offset=" 0x054C" width="16"></register>
+<register acronym="UCB0TXBUF" description="USCI B0 Transmit Buffer" id="UCB0TXBUF" offset=" 0x054E" width="16"></register>
+<register acronym="UCB0I2COA0" description="USCI B0 I2C Own Address 0" id="UCB0I2COA0" offset=" 0x0554" width="16">
+<bitfield begin="0" description="I2C Own Address Bit 0" end="0" id="UCOA0" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="1" description="I2C Own Address Bit 1" end="1" id="UCOA1" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="2" description="I2C Own Address Bit 2" end="2" id="UCOA2" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="3" description="I2C Own Address Bit 3" end="3" id="UCOA3" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="4" description="I2C Own Address Bit 4" end="4" id="UCOA4" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="5" description="I2C Own Address Bit 5" end="5" id="UCOA5" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="6" description="I2C Own Address Bit 6" end="6" id="UCOA6" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="7" description="I2C Own Address Bit 7" end="7" id="UCOA7" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="8" description="I2C Own Address Bit 8" end="8" id="UCOA8" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="9" description="I2C Own Address Bit 9" end="9" id="UCOA9" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="10" description="I2C Own Address enable" end="10" id="UCOAEN" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="15" description="I2C General Call enable" end="15" id="UCGCEN" range="" resetval="0" rwaccess="RW" width="1"></bitfield></register>
+<register acronym="UCB0I2COA1" description="USCI B0 I2C Own Address 1" id="UCB0I2COA1" offset=" 0x0556" width="16">
+<bitfield begin="0" description="I2C Own Address Bit 0" end="0" id="UCOA0" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="1" description="I2C Own Address Bit 1" end="1" id="UCOA1" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="2" description="I2C Own Address Bit 2" end="2" id="UCOA2" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="3" description="I2C Own Address Bit 3" end="3" id="UCOA3" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="4" description="I2C Own Address Bit 4" end="4" id="UCOA4" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="5" description="I2C Own Address Bit 5" end="5" id="UCOA5" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="6" description="I2C Own Address Bit 6" end="6" id="UCOA6" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="7" description="I2C Own Address Bit 7" end="7" id="UCOA7" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="8" description="I2C Own Address Bit 8" end="8" id="UCOA8" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="9" description="I2C Own Address Bit 9" end="9" id="UCOA9" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="10" description="I2C Own Address enable" end="10" id="UCOAEN" range="" resetval="0" rwaccess="RW" width="1"></bitfield></register>
+<register acronym="UCB0I2COA2" description="USCI B0 I2C Own Address 2" id="UCB0I2COA2" offset=" 0x0558" width="16">
+<bitfield begin="0" description="I2C Own Address Bit 0" end="0" id="UCOA0" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="1" description="I2C Own Address Bit 1" end="1" id="UCOA1" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="2" description="I2C Own Address Bit 2" end="2" id="UCOA2" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="3" description="I2C Own Address Bit 3" end="3" id="UCOA3" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="4" description="I2C Own Address Bit 4" end="4" id="UCOA4" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="5" description="I2C Own Address Bit 5" end="5" id="UCOA5" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="6" description="I2C Own Address Bit 6" end="6" id="UCOA6" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="7" description="I2C Own Address Bit 7" end="7" id="UCOA7" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="8" description="I2C Own Address Bit 8" end="8" id="UCOA8" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="9" description="I2C Own Address Bit 9" end="9" id="UCOA9" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="10" description="I2C Own Address enable" end="10" id="UCOAEN" range="" resetval="0" rwaccess="RW" width="1"></bitfield></register>
+<register acronym="UCB0I2COA3" description="USCI B0 I2C Own Address 3" id="UCB0I2COA3" offset=" 0x055A" width="16">
+<bitfield begin="0" description="I2C Own Address Bit 0" end="0" id="UCOA0" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="1" description="I2C Own Address Bit 1" end="1" id="UCOA1" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="2" description="I2C Own Address Bit 2" end="2" id="UCOA2" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="3" description="I2C Own Address Bit 3" end="3" id="UCOA3" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="4" description="I2C Own Address Bit 4" end="4" id="UCOA4" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="5" description="I2C Own Address Bit 5" end="5" id="UCOA5" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="6" description="I2C Own Address Bit 6" end="6" id="UCOA6" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="7" description="I2C Own Address Bit 7" end="7" id="UCOA7" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="8" description="I2C Own Address Bit 8" end="8" id="UCOA8" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="9" description="I2C Own Address Bit 9" end="9" id="UCOA9" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="10" description="I2C Own Address enable" end="10" id="UCOAEN" range="" resetval="0" rwaccess="RW" width="1"></bitfield></register>
+<register acronym="UCB0ADDRX" description="USCI B0 Received Address Register" id="UCB0ADDRX" offset=" 0x055C" width="16">
+<bitfield begin="0" description="I2C Receive Address Bit 0" end="0" id="UCADDRX0" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="1" description="I2C Receive Address Bit 1" end="1" id="UCADDRX1" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="2" description="I2C Receive Address Bit 2" end="2" id="UCADDRX2" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="3" description="I2C Receive Address Bit 3" end="3" id="UCADDRX3" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="4" description="I2C Receive Address Bit 4" end="4" id="UCADDRX4" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="5" description="I2C Receive Address Bit 5" end="5" id="UCADDRX5" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="6" description="I2C Receive Address Bit 6" end="6" id="UCADDRX6" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="7" description="I2C Receive Address Bit 7" end="7" id="UCADDRX7" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="8" description="I2C Receive Address Bit 8" end="8" id="UCADDRX8" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="9" description="I2C Receive Address Bit 9" end="9" id="UCADDRX9" range="" resetval="0" rwaccess="RW" width="1"></bitfield></register>
+<register acronym="UCB0ADDMASK" description="USCI B0 Address Mask Register" id="UCB0ADDMASK" offset=" 0x055E" width="16">
+<bitfield begin="0" description="I2C Address Mask Bit 0" end="0" id="UCADDMASK0" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="1" description="I2C Address Mask Bit 1" end="1" id="UCADDMASK1" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="2" description="I2C Address Mask Bit 2" end="2" id="UCADDMASK2" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="3" description="I2C Address Mask Bit 3" end="3" id="UCADDMASK3" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="4" description="I2C Address Mask Bit 4" end="4" id="UCADDMASK4" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="5" description="I2C Address Mask Bit 5" end="5" id="UCADDMASK5" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="6" description="I2C Address Mask Bit 6" end="6" id="UCADDMASK6" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="7" description="I2C Address Mask Bit 7" end="7" id="UCADDMASK7" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="8" description="I2C Address Mask Bit 8" end="8" id="UCADDMASK8" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="9" description="I2C Address Mask Bit 9" end="9" id="UCADDMASK9" range="" resetval="0" rwaccess="RW" width="1"></bitfield></register>
+<register acronym="UCB0I2CSA" description="USCI B0 I2C Slave Address" id="UCB0I2CSA" offset=" 0x0560" width="16">
+<bitfield begin="0" description="I2C Slave Address Bit 0" end="0" id="UCSA0" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="1" description="I2C Slave Address Bit 1" end="1" id="UCSA1" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="2" description="I2C Slave Address Bit 2" end="2" id="UCSA2" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="3" description="I2C Slave Address Bit 3" end="3" id="UCSA3" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="4" description="I2C Slave Address Bit 4" end="4" id="UCSA4" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="5" description="I2C Slave Address Bit 5" end="5" id="UCSA5" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="6" description="I2C Slave Address Bit 6" end="6" id="UCSA6" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="7" description="I2C Slave Address Bit 7" end="7" id="UCSA7" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="8" description="I2C Slave Address Bit 8" end="8" id="UCSA8" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="9" description="I2C Slave Address Bit 9" end="9" id="UCSA9" range="" resetval="0" rwaccess="RW" width="1"></bitfield></register>
+<register acronym="UCB0IE" description="USCI B0 Interrupt Enable Register" id="UCB0IE" offset=" 0x056A" width="16"></register>
+<register acronym="UCB0IFG" description="USCI B0 Interrupt Flags Register" id="UCB0IFG" offset=" 0x056C" width="16"></register>
+<register acronym="UCB0IE__I2C" description="USCI B0 Interrupt Enable Register" id="UCB0IE__I2C" offset=" 0x056A" width="16">
+<bitfield begin="0" description="I2C Receive Interrupt Enable 0" end="0" id="UCRXIE0" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="1" description="I2C Transmit Interrupt Enable 0" end="1" id="UCTXIE0" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="2" description="I2C START Condition interrupt enable" end="2" id="UCSTTIE" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="3" description="I2C STOP Condition interrupt enable" end="3" id="UCSTPIE" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="4" description="I2C Arbitration Lost interrupt enable" end="4" id="UCALIE" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="5" description="I2C NACK Condition interrupt enable" end="5" id="UCNACKIE" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="6" description="I2C Automatic stop assertion interrupt enable" end="6" id="UCBCNTIE" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="7" description="I2C Clock Low Timeout interrupt enable" end="7" id="UCCLTOIE" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="8" description="I2C Receive Interrupt Enable 1" end="8" id="UCRXIE1" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="9" description="I2C Transmit Interrupt Enable 1" end="9" id="UCTXIE1" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="10" description="I2C Receive Interrupt Enable 2" end="10" id="UCRXIE2" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="11" description="I2C Transmit Interrupt Enable 2" end="11" id="UCTXIE2" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="12" description="I2C Receive Interrupt Enable 3" end="12" id="UCRXIE3" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="13" description="I2C Transmit Interrupt Enable 3" end="13" id="UCTXIE3" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="14" description="I2C Bit 9 Position Interrupt Enable 3" end="14" id="UCBIT9IE" range="" resetval="0" rwaccess="RW" width="1"></bitfield></register>
+<register acronym="UCB0IFG__I2C" description="USCI B0 Interrupt Flags Register" id="UCB0IFG__I2C" offset=" 0x056C" width="16">
+<bitfield begin="0" description="I2C Receive Interrupt Flag 0" end="0" id="UCRXIFG0" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="1" description="I2C Transmit Interrupt Flag 0" end="1" id="UCTXIFG0" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="2" description="I2C START Condition interrupt Flag" end="2" id="UCSTTIFG" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="3" description="I2C STOP Condition interrupt Flag" end="3" id="UCSTPIFG" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="4" description="I2C Arbitration Lost interrupt Flag" end="4" id="UCALIFG" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="5" description="I2C NACK Condition interrupt Flag" end="5" id="UCNACKIFG" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="6" description="I2C Byte counter interrupt flag" end="6" id="UCBCNTIFG" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="7" description="I2C Clock low Timeout interrupt Flag" end="7" id="UCCLTOIFG" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="8" description="I2C Receive Interrupt Flag 1" end="8" id="UCRXIFG1" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="9" description="I2C Transmit Interrupt Flag 1" end="9" id="UCTXIFG1" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="10" description="I2C Receive Interrupt Flag 2" end="10" id="UCRXIFG2" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="11" description="I2C Transmit Interrupt Flag 2" end="11" id="UCTXIFG2" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="12" description="I2C Receive Interrupt Flag 3" end="12" id="UCRXIFG3" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="13" description="I2C Transmit Interrupt Flag 3" end="13" id="UCTXIFG3" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="14" description="I2C Bit 9 Possition Interrupt Flag 3" end="14" id="UCBIT9IFG" range="" resetval="0" rwaccess="RW" width="1"></bitfield></register>
+<register acronym="UCB0IV" description="USCI B0 Interrupt Vector Register" id="UCB0IV" offset=" 0x056E" width="16"></register>
+</module>

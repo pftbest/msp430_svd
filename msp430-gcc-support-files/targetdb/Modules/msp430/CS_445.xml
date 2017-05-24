@@ -1,0 +1,206 @@
+<module id="CS" HW_revision="445">
+    <register id="CSCTL0" width="16" offset="0x0" internal="0" description="Clock System Control 0">
+        <bitfield id="DCO" description="DCO tap selection. These bits select the DCO tap and are modified automatically during FLL operation." begin="8" end="0" width="9" rwaccess="R/W">
+        </bitfield>
+        <bitfield id="MOD" description="Modulation bit counter. These bits select the modulation pattern. All MOD bits are modified automatically during FLL operation. The DCO register value is incremented when the modulation bit counter rolls over from 31 to 0. If the modulation bit counter decrements from 0 to the maximum count, the DCO register value is also decreased." begin="13" end="9" width="5" rwaccess="R/W">
+        </bitfield>
+    </register>
+    <register id="CSCTL1" width="16" offset="0x2" internal="0" description="Clock System Control 1">
+        <bitfield id="DISMOD" description="Modulation. This bit enables/disables the modulation." begin="0" end="0" width="1" rwaccess="R/W">
+            <bitenum id="DISMOD_0" value="0x0" description="Modulation enabled"/>
+            <bitenum id="DISMOD_1" value="0x1" description="Modulation disabled"/>
+        </bitfield>
+        <bitfield id="DCORSEL" description="DCO Range Select" begin="3" end="1" width="3" rwaccess="R/W">
+            <bitenum id="DCORSEL_0" value="0x0" description="1 MHz"/>
+            <bitenum id="DCORSEL_1" value="0x1" description="2 MHz"/>
+            <bitenum id="DCORSEL_2" value="0x2" description="4 MHz"/>
+            <bitenum id="DCORSEL_3" value="0x3" description="8 MHz"/>
+            <bitenum id="DCORSEL_4" value="0x4" description="12 MHz"/>
+            <bitenum id="DCORSEL_5" value="0x5" description="16 MHz"/>
+            <bitenum id="DCORSEL_6" value="0x6" description="Reserved"/>
+            <bitenum id="DCORSEL_7" value="0x7" description="Reserved"/>
+        </bitfield>
+        <bitfield id="DCOFTRIM" description="DCO frequency trim. These bits trims the DCO frequency. By default, it is chipspecific trimmed. These bits can also be trimmed by user code." begin="6" end="4" width="3" rwaccess="R/W">
+        </bitfield>
+        <bitfield id="DCOFTRIMEN" description="DCO Frequency Trim Enable. When this bit is set, DCOFTRIM value is selected to set DCO frequency. Otherwise, DCOFTRIM value is bypassed and DCO applies default settings in manufacture." begin="7" end="7" width="1" rwaccess="R/W">
+            <bitenum id="DCOFTRIMEN_0" value="0x0" description="Disable frequency trim"/>
+            <bitenum id="DCOFTRIMEN_1" value="0x1" description="Enable frequency trim"/>
+        </bitfield>
+    </register>
+    <register id="CSCTL2" width="16" offset="0x4" internal="0" description="Clock System Control 2">
+        <bitfield id="FLLN" description="Multiplier bits. These bits set the multiplier value N of the DCO. N must be greater than 0. Writing zero to FLLN causes N to be set to 1." begin="9" end="0" width="10" rwaccess="R/W">
+        </bitfield>
+        <bitfield id="FLLD" description="FLL loop divider. These bits divide f(DCOCLK) in the FLL feedback loop. This results in an additional multiplier for the multiplier bits. See also multiplier bits." begin="14" end="12" width="3" rwaccess="R/W">
+            <bitenum id="1" value="0x0" description="fDCOCLK / 1"/>
+            <bitenum id="2" value="0x1" description="fDCOCLK / 2"/>
+            <bitenum id="4" value="0x2" description="fDCOCLK / 4"/>
+            <bitenum id="8" value="0x3" description="fDCOCLK / 8"/>
+            <bitenum id="16" value="0x4" description="fDCOCLK / 16"/>
+            <bitenum id="32" value="0x5" description="fDCOCLK / 32"/>
+            <bitenum id="FLLD_6" value="0x6" description="Reserved for future use"/>
+            <bitenum id="FLLD_7" value="0x7" description="Reserved for future use"/>
+        </bitfield>
+    </register>
+    <register id="CSCTL3" width="16" offset="0x6" internal="0" description="Clock System Control 3">
+        <bitfield id="FLLREFDIV" description="FLL reference divider. These bits define the divide factor for f(FLLREFCLK). If XT1 supports high frequency input higher than 32 kHz, the divided frequency is used as the FLL reference frequency. If XT1 only supports 32-kHz clock, FLLREFDIV is always read and written as zero, 000b = fFLLREFCLK / 1" begin="2" end="0" width="3" rwaccess="R/W">
+            <bitenum id="1" value="0x0" description="fFLLREFCLK / 1"/>
+            <bitenum id="32" value="0x1" description="fFLLREFCLK / 32"/>
+            <bitenum id="64" value="0x2" description="fFLLREFCLK / 64"/>
+            <bitenum id="128" value="0x3" description="fFLLREFCLK / 128"/>
+            <bitenum id="256" value="0x4" description="fFLLREFCLK / 256"/>
+            <bitenum id="512" value="0x5" description="fFLLREFCLK / 512"/>
+            <bitenum id="FLLREFDIV_6" value="0x6" description="Reserved for future use"/>
+            <bitenum id="FLLREFDIV_7" value="0x7" description="Reserved for future use"/>
+        </bitfield>
+        <bitfield id="SELREF" description="FLL reference select. These bits select the FLL reference clock source." begin="5" end="4" width="2" rwaccess="R/W">
+            <bitenum id="XT1CLK" value="0x0" description="XT1CLK"/>
+            <bitenum id="REFOCLK" value="0x1" description="REFOCLK"/>
+            <bitenum id="SELREF_2" value="0x2" description="served for future use"/>
+            <bitenum id="SELREF_3" value="0x3" description="served for future use"/>
+        </bitfield>
+    </register>
+    <register id="CSCTL4" width="16" offset="0x8" internal="0" description="Clock System Control 4">
+        <bitfield id="SELMS" description="Selects the MCLK and SMCLK source" begin="2" end="0" width="3" rwaccess="R/W">
+            <bitenum id="DCOCLKDIV" value="0x0" description="DCOCLKDIV"/>
+            <bitenum id="REFOCLK" value="0x1" description="REFOCLK"/>
+            <bitenum id="XT1CLK" value="0x2" description="XT1CLK"/>
+            <bitenum id="VLOCLK" value="0x3" description="VLOCLK"/>
+            <bitenum id="SELMS_4" value="0x4" description="Reserved for future use"/>
+            <bitenum id="SELMS_5" value="0x5" description="Reserved for future use"/>
+            <bitenum id="SELMS_6" value="0x6" description="Reserved for future use"/>
+            <bitenum id="SELMS_7" value="0x7" description="Reserved for future use"/>
+        </bitfield>
+        <bitfield id="SELA" description="Selects the ACLK source" begin="8" end="8" width="1" rwaccess="R/W">
+            <bitenum id="XT1CLK" value="0x0" description="XT1CLK with divider (must be no more than 40 kHz)"/>
+            <bitenum id="REFOCLK" value="0x1" description="REFO (internal 32-kHz clock source)"/>
+        </bitfield>
+    </register>
+    <register id="CSCTL5" width="16" offset="0xA" internal="0" description="Clock System Control 5">
+        <bitfield id="DIVM" description="MCLK source divider" begin="2" end="0" width="3" rwaccess="R/W">
+            <bitenum id="1" value="0x0" description="/1"/>
+            <bitenum id="2" value="0x1" description="/2"/>
+            <bitenum id="4" value="0x2" description="/4"/>
+            <bitenum id="8" value="0x3" description="/8"/>
+            <bitenum id="16" value="0x4" description="/16"/>
+            <bitenum id="32" value="0x5" description="/32"/>
+            <bitenum id="64" value="0x6" description="/64"/>
+            <bitenum id="128" value="0x7" description="/128"/>
+        </bitfield>
+        <bitfield id="DIVS" description="SMCLK source divider. SMCLK directly derives from MCLK. SMCLK frequency is the combination of DIVM and DIVS out of selected clock source." begin="5" end="4" width="2" rwaccess="R/W">
+            <bitenum id="1" value="0x0" description="/1"/>
+            <bitenum id="2" value="0x1" description="/2"/>
+            <bitenum id="4" value="0x2" description="/4"/>
+            <bitenum id="8" value="0x3" description="/8"/>
+        </bitfield>
+        <bitfield id="SMCLKOFF" description="SMCLK off. This bit turns off SMCLK clock" begin="8" end="8" width="1" rwaccess="R/W">
+            <bitenum id="SMCLKOFF_0" value="0x0" description="SMCLK on"/>
+            <bitenum id="SMCLKOFF_1" value="0x1" description="SMCLK off"/>
+        </bitfield>
+        <bitfield id="VLOAUTOOFF" description="VLO automatic off enable. This bit turns off VLO, if VLO is not used." begin="12" end="12" width="1" rwaccess="R/W">
+            <bitenum id="VLOAUTOOFF_0" value="0x0" description="VLO always on"/>
+            <bitenum id="VLOAUTOOFF_1" value="0x1" description="VLO automatically turned off if not used(default)"/>
+        </bitfield>
+    </register>
+    <register id="CSCTL6" width="16" offset="0xC" internal="0" description="Clock System Control 6">
+        <bitfield id="XT1AUTOOFF" description="XT1 automatic off enable. This bit allows XT1 turned turns off when it is not used" begin="0" end="0" width="1" rwaccess="R/W">
+            <bitenum id="XT1AUTOOFF_0" value="0x0" description="XT1 is on if XT1 is selected by the port selection and XT1 is not in bypass mode of operation."/>
+            <bitenum id="XT1AUTOOFF_1" value="0x1" description="XT1 is off if it is not used as a source for ACLK, MCLK, or SMCLK or is not used as a reference source required for FLL operation."/>
+        </bitfield>
+        <bitfield id="XT1AGCOFF" description="Automatic Gain Control (AGC) disable." begin="1" end="1" width="1" rwaccess="R/W">
+            <bitenum id="XT1AGCOFF_0" value="0x0" description="AGC on"/>
+            <bitenum id="XT1AGCOFF_1" value="0x1" description="AGC off"/>
+        </bitfield>
+        <bitfield id="XT1HFFREQ" description="The XT1 High-frequency selection. These bits must be set to appropriate frequency for crystal or bypass modes of operation." begin="3" end="2" width="2" rwaccess="R/W">
+            <bitenum id="XT1HFFREQ_0" value="0x0" description="1 to 4 MHz"/>
+            <bitenum id="XT1HFFREQ_1" value="0x1" description="4 MHz to 6 MHz"/>
+            <bitenum id="XT1HFFREQ_2" value="0x2" description="6 MHz to 16 MHz"/>
+            <bitenum id="XT1HFFREQ_3" value="0x3" description="16 MHz to 24 MHz"/>
+        </bitfield>
+        <bitfield id="XT1BYPASS" description="XT1 bypass select" begin="4" end="4" width="1" rwaccess="R/W">
+            <bitenum id="XT1BYPASS_0" value="0x0" description="XT1 source internally"/>
+            <bitenum id="XT1BYPASS_1" value="0x1" description="XT1 sources externally from pin"/>
+        </bitfield>
+        <bitfield id="XTS" description="XT1 mode select" begin="5" end="5" width="1" rwaccess="R/W">
+            <bitenum id="XTS_0" value="0x0" description="Low-frequency mode."/>
+            <bitenum id="XTS_1" value="0x1" description="High-frequency mode."/>
+        </bitfield>
+        <bitfield id="XT1DRIVE" description="The XT1 oscillator current can be adjusted to its drive needs. Initially, it starts with the highest supply current for reliable and quick startup. If needed, user software can reduce the drive strength. The configuration of these bits is retained during LPM3.5 until LOCKLPM5 is cleared, but not the register bits itself; therefore, reconfiguration after wake-up from LPM3.5 before clearing LOCKLPM5 is required." begin="7" end="6" width="2" rwaccess="R/W">
+            <bitenum id="XT1DRIVE_0" value="0x0" description="Lowest drive strength and current consumption"/>
+            <bitenum id="XT1DRIVE_1" value="0x1" description="Lower drive strength and current consumption"/>
+            <bitenum id="XT1DRIVE_2" value="0x2" description="Higher drive strength and current consumption"/>
+            <bitenum id="XT1DRIVE_3" value="0x3" description="Highest drive strength and current consumption"/>
+        </bitfield>
+        <bitfield id="DIVA" description="ACLK source divider." begin="11" end="8" width="4" rwaccess="R/W">
+            <bitenum id="1" value="0x0" description="/1"/>
+            <bitenum id="16" value="0x1" description="/16"/>
+            <bitenum id="32" value="0x2" description="/32"/>
+            <bitenum id="64" value="0x3" description="/64"/>
+            <bitenum id="128" value="0x4" description="/128"/>
+            <bitenum id="256" value="0x5" description="/256"/>
+            <bitenum id="384" value="0x6" description="/384"/>
+            <bitenum id="512" value="0x7" description="/512"/>
+            <bitenum id="768" value="0x8" description="/768"/>
+            <bitenum id="1024" value="0x9" description="/1024"/>
+            <bitenum id="DIVA_10" value="0xA" description="Reserved"/>
+            <bitenum id="DIVA_11" value="0xB" description="Reserved"/>
+            <bitenum id="DIVA_12" value="0xC" description="Reserved"/>
+            <bitenum id="DIVA_13" value="0xD" description="Reserved"/>
+            <bitenum id="DIVA_14" value="0xE" description="Reserved"/>
+            <bitenum id="DIVA_15" value="0xF" description="Reserved"/>
+        </bitfield>
+    </register>
+    <register id="CSCTL7" width="16" offset="0xE" internal="0" description="Clock System Control Register 7">
+        <bitfield id="DCOFFG" description="DCO fault flag. If this bit is set, the OFIFG flag is also set. The DCOFFG bit is set if DCO = {0} or DCO = {511}. DCOFFG can be cleared by software. If the DCO fault condition still remains, DCOFFG is set. As long as DCOFFG is set, FLLUNLOCK shows the DCOERROR condition." begin="0" end="0" width="1" rwaccess="R/W">
+            <bitenum id="DCOFFG_0" value="0x0" description="No fault condition occurred after the last reset."/>
+            <bitenum id="DCOFFG_1" value="0x1" description="DCO fault. A DCO fault occurred after the last reset."/>
+        </bitfield>
+        <bitfield id="XT1OFFG" description="T1 oscillator fault flag. If this bit is set, the OFIFG flag is also set. XT1OFFG is set if a XT1 fault condition exists. XT1OFFG can be cleared by software. If the XT1 fault condition still remains, XT1OFFG is set." begin="1" end="1" width="1" rwaccess="R/W">
+            <bitenum id="XT1OFFG_0" value="0x0" description="No fault condition occurred after the last reset."/>
+            <bitenum id="XT1OFFG_1" value="0x1" description="XT1 fault. An XT1 fault occurred after the last reset."/>
+        </bitfield>
+        <bitfield id="FLLULIFG" description="FLL unlock interrupt flag. This flag is set when FLLUNLOCK bits equal 10b (DCO too fast). If FLLULPUC is also set, a PUC is triggered when FLLUIFG is set." begin="4" end="4" width="1" rwaccess="R/W">
+            <bitenum id="FLLULIFG_0" value="0x0" description="FLLUNLOCK bits not equal to 10b"/>
+            <bitenum id="FLLULIFG_1" value="0x1" description="FLLUNLOCK bits equal to 10b"/>
+        </bitfield>
+        <bitfield id="ENSTFCNT1" description="Enable start counter for XT1." begin="6" end="6" width="1" rwaccess="R/W">
+            <bitenum id="ENSTFCNT1_0" value="0x0" description="Startup fault counter disabled. Counter is cleared.."/>
+            <bitenum id="ENSTFCNT1_1" value="0x1" description="Startup fault counter enabled."/>
+        </bitfield>
+        <bitfield id="FLLUNLOCK" description="Unlock. These bits indicate the current FLL unlock condition. These bits are both set as long as the DCOFFG flag is set." begin="9" end="8" width="2" rwaccess="R/W">
+            <bitenum id="FLLUNLOCK_0" value="0x0" description="FLL is locked. No unlock condition currently active."/>
+            <bitenum id="FLLUNLOCK_1" value="0x1" description="DCOCLK is currently too slow."/>
+            <bitenum id="FLLUNLOCK_2" value="0x2" description="DCOCLK is currently too fast."/>
+            <bitenum id="FLLUNLOCK_3" value="0x3" description="DCOERROR. DCO out of range."/>
+        </bitfield>
+        <bitfield id="FLLUNLOCKHIS" description="Unlock history bits. These bits indicate the FLL unlock condition history. As soon as any unlock condition happens, the respective bits are set and remain set until cleared by software by writing 0 to it or by a POR." begin="11" end="10" width="2" rwaccess="R/W">
+            <bitenum id="FLLUNLOCKHIS_0" value="0x0" description="FLL is locked. No unlock situation has been detected since the last reset of these bits."/>
+            <bitenum id="FLLUNLOCKHIS_1" value="0x1" description="DCOCLK has been too slow since the bits were cleared."/>
+            <bitenum id="FLLUNLOCKHIS_2" value="0x2" description="DCOCLK has been too fast since the bits were cleared."/>
+            <bitenum id="FLLUNLOCKHIS_3" value="0x3" description="DCOCLK has been both too fast and too slow since the bits were cleared."/>
+        </bitfield>
+        <bitfield id="FLLULPUC" description="FLL unlock PUC enable. If the FLLULPUC bit is set, a reset (PUC) is triggered if FLLULIFG is set. FLLULIFG indicates when FLLUNLOCK bits equal 10 (too fast). FLLULPUC is automatically cleared upon servicing the event. If FLLULPUC is cleared (0), no PUC can be triggered by FLLULIFG." begin="12" end="12" width="1" rwaccess="R/W">
+        </bitfield>
+        <bitfield id="FLLWARNEN" description="Warning enable. If this bit is set, an interrupt is generated based on the FLLUNLOCKHIS bits. If FLLUNLOCKHIS is not equal to 00, an OFIFG is generated." begin="13" end="13" width="1" rwaccess="R/W">
+            <bitenum id="FLLWARNEN_0" value="0x0" description="FLLUNLOCKHIS status cannot set OFIFG."/>
+            <bitenum id="FLLWARNEN_1" value="0x1" description="FLLUNLOCKHIS status can set OFIFG."/>
+        </bitfield>
+    </register>
+    <register id="CSCTL8" width="16" offset="0x10" internal="0" description="Clock System Control Register 8">
+        <bitfield id="ACLKREQEN" description="ACLK clock request enable. Setting this enables conditional module requests for ACLK" begin="0" end="0" width="1" rwaccess="R/W">
+            <bitenum id="ACLKREQEN_0" value="0x0" description="ACLK conditional requests are disabled."/>
+            <bitenum id="ACLKREQEN_1" value="0x1" description="ACLK conditional requests are enabled."/>
+        </bitfield>
+        <bitfield id="MCLKREQEN" description="MCLK clock request enable. Setting this enables conditional module requests for MCLK" begin="1" end="1" width="1" rwaccess="R/W">
+            <bitenum id="MCLKREQEN_0" value="0x0" description="MCLK conditional requests are disabled."/>
+            <bitenum id="MCLKREQEN_1" value="0x1" description="MCLK conditional requests are enabled."/>
+        </bitfield>
+        <bitfield id="SMCLKREQEN" description="SMCLK clock request enable. Setting this enables conditional module requests for SMCLK" begin="2" end="2" width="1" rwaccess="R/W">
+            <bitenum id="SMCLKREQEN_0" value="0x0" description="SMCLK conditional requests are disabled."/>
+            <bitenum id="SMCLKREQEN_1" value="0x1" description="SMCLK conditional requests are enabled."/>
+        </bitfield>
+        <bitfield id="MODOSCREQEN" description="MODOSC clock request enable. Setting this enables conditional module requests for MODOSC." begin="3" end="3" width="1" rwaccess="R/W">
+            <bitenum id="MODOSCREQEN_0" value="0x0" description="MODOSC conditional requests are disabled."/>
+            <bitenum id="MODOSCREQEN_1" value="0x1" description="MODOSC conditional requests are enabled."/>
+        </bitfield>
+    </register>
+</module>

@@ -1,0 +1,4 @@
+<module HW_revision="" XML_version="1" description="Calibration Data" id="Calibration Data">
+<register acronym="CALDCO_1MHZ" description="DCOCTL  Calibration Data for 1MHz" id="CALDCO_1MHZ" offset=" 0x10FE" width="8"></register>
+<register acronym="CALBC1_1MHZ" description="BCSCTL1 Calibration Data for 1MHz" id="CALBC1_1MHZ" offset=" 0x10FF" width="8"></register>
+</module>

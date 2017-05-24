@@ -1,0 +1,133 @@
+<module HW_revision="" XML_version="1" description="CS  Clock System" id="CS  Clock System">
+<register acronym="CSCTL0" description="CS Control Register 0" id="CSCTL0" offset=" 0x0180" width="16">
+<bitfield begin="0" description="DCO TAP Bit : 0" end="0" id="DCO0" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="1" description="DCO TAP Bit : 1" end="1" id="DCO1" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="2" description="DCO TAP Bit : 2" end="2" id="DCO2" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="3" description="DCO TAP Bit : 3" end="3" id="DCO3" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="4" description="DCO TAP Bit : 4" end="4" id="DCO4" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="5" description="DCO TAP Bit : 5" end="5" id="DCO5" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="6" description="DCO TAP Bit : 6" end="6" id="DCO6" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="7" description="DCO TAP Bit : 7" end="7" id="DCO7" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="8" description="DCO TAP Bit : 8" end="8" id="DCO8" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="9" description="Modulation Bit Counter Bit : 0" end="9" id="MOD0" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="10" description="Modulation Bit Counter Bit : 1" end="10" id="MOD1" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="11" description="Modulation Bit Counter Bit : 2" end="11" id="MOD2" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="12" description="Modulation Bit Counter Bit : 3" end="12" id="MOD3" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="13" description="Modulation Bit Counter Bit : 4" end="13" id="MOD4" range="" resetval="0" rwaccess="RW" width="1"></bitfield></register>
+<register acronym="CSCTL1" description="CS Control Register 1" id="CSCTL1" offset=" 0x0182" width="16">
+<bitfield begin="0" description="Disable Modulation" end="0" id="DISMOD" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="3" description="DCO frequency range select Bit: 0" end="1" id="DCORSEL" range="" resetval="0" rwaccess="RW" width="3">
+<bitenum description="DCO frequency range select: 0" id="DCORSEL_0" token="DCORSEL_0" value="0"></bitenum>
+<bitenum description="DCO frequency range select: 1" id="DCORSEL_1" token="DCORSEL_1" value="1"></bitenum>
+<bitenum description="DCO frequency range select: 2" id="DCORSEL_2" token="DCORSEL_2" value="2"></bitenum>
+<bitenum description="DCO frequency range select: 3" id="DCORSEL_3" token="DCORSEL_3" value="3"></bitenum>
+<bitenum description="DCO frequency range select: 4" id="DCORSEL_4" token="DCORSEL_4" value="4"></bitenum>
+<bitenum description="DCO frequency range select: 5" id="DCORSEL_5" token="DCORSEL_5" value="5"></bitenum>
+<bitenum description="DCO frequency range select: 6" id="DCORSEL_6" token="DCORSEL_6" value="6"></bitenum>
+<bitenum description="DCO frequency range select: 7" id="DCORSEL_7" token="DCORSEL_7" value="7"></bitenum></bitfield>
+<bitfield begin="6" description="DCO frequency trim. Bit: 0" end="4" id="DCOFTRIM" range="" resetval="0" rwaccess="RW" width="3">
+<bitenum description="DCO frequency trim: 0" id="DCOFTRIM_0" token="DCOFTRIM_0" value="0"></bitenum>
+<bitenum description="DCO frequency trim: 1" id="DCOFTRIM_1" token="DCOFTRIM_1" value="1"></bitenum>
+<bitenum description="DCO frequency trim: 2" id="DCOFTRIM_2" token="DCOFTRIM_2" value="2"></bitenum>
+<bitenum description="DCO frequency trim: 3" id="DCOFTRIM_3" token="DCOFTRIM_3" value="3"></bitenum>
+<bitenum description="DCO frequency trim: 4" id="DCOFTRIM_4" token="DCOFTRIM_4" value="4"></bitenum>
+<bitenum description="DCO frequency trim: 5" id="DCOFTRIM_5" token="DCOFTRIM_5" value="5"></bitenum>
+<bitenum description="DCO frequency trim: 6" id="DCOFTRIM_6" token="DCOFTRIM_6" value="6"></bitenum>
+<bitenum description="DCO frequency trim: 7" id="DCOFTRIM_7" token="DCOFTRIM_7" value="7"></bitenum></bitfield>
+<bitfield begin="7" description="DCO frequency trim enable" end="7" id="DCOFTRIMEN" range="" resetval="0" rwaccess="RW" width="1"></bitfield></register>
+<register acronym="CSCTL2" description="CS Control Register 2" id="CSCTL2" offset=" 0x0184" width="16">
+<bitfield begin="0" description="FLL Multipier Bit : 0" end="0" id="FLLN0" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="1" description="FLL Multipier Bit : 1" end="1" id="FLLN1" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="2" description="FLL Multipier Bit : 2" end="2" id="FLLN2" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="3" description="FLL Multipier Bit : 3" end="3" id="FLLN3" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="4" description="FLL Multipier Bit : 4" end="4" id="FLLN4" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="5" description="FLL Multipier Bit : 5" end="5" id="FLLN5" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="6" description="FLL Multipier Bit : 6" end="6" id="FLLN6" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="7" description="FLL Multipier Bit : 7" end="7" id="FLLN7" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="8" description="FLL Multipier Bit : 8" end="8" id="FLLN8" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="9" description="FLL Multipier Bit : 9" end="9" id="FLLN9" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="14" description="Loop Divider Bit : 0" end="12" id="FLLD" range="" resetval="0" rwaccess="RW" width="3">
+<bitenum description="Multiply Selected Loop Freq. By 1" id="FLLD_0" token="FLLD_0" value="0"></bitenum>
+<bitenum description="Multiply Selected Loop Freq. By 2" id="FLLD_1" token="FLLD_1" value="1"></bitenum>
+<bitenum description="Multiply Selected Loop Freq. By 4" id="FLLD_2" token="FLLD_2" value="2"></bitenum>
+<bitenum description="Multiply Selected Loop Freq. By 8" id="FLLD_3" token="FLLD_3" value="3"></bitenum>
+<bitenum description="Multiply Selected Loop Freq. By 16" id="FLLD_4" token="FLLD_4" value="4"></bitenum>
+<bitenum description="Multiply Selected Loop Freq. By 32" id="FLLD_5" token="FLLD_5" value="5"></bitenum>
+<bitenum description="Reserved" id="FLLD_6" token="FLLD_6" value="6"></bitenum>
+<bitenum description="Reserved" id="FLLD_7" token="FLLD_7" value="7"></bitenum></bitfield></register>
+<register acronym="CSCTL3" description="CS Control Register 3" id="CSCTL3" offset=" 0x0186" width="16">
+<bitfield begin="2" description="Reference Divider Bit : 0" end="0" id="FLLREFDIV" range="" resetval="0" rwaccess="RW" width="3">
+<bitenum description="Reference Divider: f(LFCLK)/1" id="FLLREFDIV_0" token="FLLREFDIV_0" value="0"></bitenum>
+<bitenum description="Reference Divider: f(LFCLK)/2" id="FLLREFDIV_1" token="FLLREFDIV_1" value="1"></bitenum>
+<bitenum description="Reference Divider: f(LFCLK)/4" id="FLLREFDIV_2" token="FLLREFDIV_2" value="2"></bitenum>
+<bitenum description="Reference Divider: f(LFCLK)/8" id="FLLREFDIV_3" token="FLLREFDIV_3" value="3"></bitenum>
+<bitenum description="Reference Divider: f(LFCLK)/12" id="FLLREFDIV_4" token="FLLREFDIV_4" value="4"></bitenum>
+<bitenum description="Reference Divider: f(LFCLK)/16" id="FLLREFDIV_5" token="FLLREFDIV_5" value="5"></bitenum>
+<bitenum description="Reference Divider: f(LFCLK)/16" id="FLLREFDIV_6" token="FLLREFDIV_6" value="6"></bitenum>
+<bitenum description="Reference Divider: f(LFCLK)/16" id="FLLREFDIV_7" token="FLLREFDIV_7" value="7"></bitenum></bitfield>
+<bitfield begin="5" description="FLL Reference Clock Select Bit : 0" end="4" id="SELREF" range="" resetval="0" rwaccess="RW" width="2">
+<bitenum description="FLL Reference Clock Select 0" id="SELREF_0" token="SELREF_0" value="0"></bitenum>
+<bitenum description="FLL Reference Clock Select 1" id="SELREF_1" token="SELREF_1" value="1"></bitenum>
+<bitenum description="FLL Reference Clock Select 2" id="SELREF_2" token="SELREF_2" value="2"></bitenum>
+<bitenum description="FLL Reference Clock Select 3" id="SELREF_3" token="SELREF_3" value="3"></bitenum></bitfield></register>
+<register acronym="CSCTL4" description="CS Control Register 4" id="CSCTL4" offset=" 0x0188" width="16">
+<bitfield begin="2" description="MCLK and SMCLK Source Select Bit: 0" end="0" id="SELMS" range="" resetval="0" rwaccess="RW" width="3">
+<bitenum description="MCLK and SMCLK Source Select 0" id="SELMS_0" token="SELMS_0" value="0"></bitenum>
+<bitenum description="MCLK and SMCLK Source Select 1" id="SELMS_1" token="SELMS_1" value="1"></bitenum>
+<bitenum description="MCLK and SMCLK Source Select 2" id="SELMS_2" token="SELMS_2" value="2"></bitenum>
+<bitenum description="MCLK and SMCLK Source Select 3" id="SELMS_3" token="SELMS_3" value="3"></bitenum>
+<bitenum description="MCLK and SMCLK Source Select 4" id="SELMS_4" token="SELMS_4" value="4"></bitenum>
+<bitenum description="MCLK and SMCLK Source Select 5" id="SELMS_5" token="SELMS_5" value="5"></bitenum>
+<bitenum description="MCLK and SMCLK Source Select 6" id="SELMS_6" token="SELMS_6" value="6"></bitenum>
+<bitenum description="MCLK and SMCLK Source Select 7" id="SELMS_7" token="SELMS_7" value="7"></bitenum></bitfield>
+<bitfield begin="8" description="ACLK Source Select Bit: 0" end="8" id="SELA" range="" resetval="0" rwaccess="RW" width="1"></bitfield></register>
+<register acronym="CSCTL5" description="CS Control Register 5" id="CSCTL5" offset=" 0x018A" width="16">
+<bitfield begin="2" description="MCLK Divider Bit: 0" end="0" id="DIVM" range="" resetval="0" rwaccess="RW" width="3">
+<bitenum description="MCLK Source Divider 0" id="DIVM_0" token="DIVM_0" value="0"></bitenum>
+<bitenum description="MCLK Source Divider 1" id="DIVM_1" token="DIVM_1" value="1"></bitenum>
+<bitenum description="MCLK Source Divider 2" id="DIVM_2" token="DIVM_2" value="2"></bitenum>
+<bitenum description="MCLK Source Divider 3" id="DIVM_3" token="DIVM_3" value="3"></bitenum>
+<bitenum description="MCLK Source Divider 4" id="DIVM_4" token="DIVM_4" value="4"></bitenum>
+<bitenum description="MCLK Source Divider 5" id="DIVM_5" token="DIVM_5" value="5"></bitenum>
+<bitenum description="MCLK Source Divider 6" id="DIVM_6" token="DIVM_6" value="6"></bitenum>
+<bitenum description="MCLK Source Divider 7" id="DIVM_7" token="DIVM_7" value="7"></bitenum></bitfield>
+<bitfield begin="5" description="SMCLK Divider Bit: 0" end="4" id="DIVS" range="" resetval="0" rwaccess="RW" width="2">
+<bitenum description="SMCLK Source Divider 0" id="DIVS_0" token="DIVS_0" value="0"></bitenum>
+<bitenum description="SMCLK Source Divider 1" id="DIVS_1" token="DIVS_1" value="1"></bitenum>
+<bitenum description="SMCLK Source Divider 2" id="DIVS_2" token="DIVS_2" value="2"></bitenum>
+<bitenum description="SMCLK Source Divider 3" id="DIVS_3" token="DIVS_3" value="3"></bitenum></bitfield>
+<bitfield begin="8" description="SMCLK off" end="8" id="SMCLKOFF" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="12" description="VLO automatic off enable" end="12" id="VLOAUTOOFF" range="" resetval="0" rwaccess="RW" width="1"></bitfield></register>
+<register acronym="CSCTL6" description="CS Control Register 6" id="CSCTL6" offset=" 0x018C" width="16">
+<bitfield begin="0" description="XT1 automatic off enable" end="0" id="XT1AUTOOFF" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="1" description="XT1 Automatic Gain Control (AGC) disable" end="1" id="XT1AGCOFF" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="4" description="XT1 bypass mode : 0: internal 1:sourced from external pin" end="4" id="XT1BYPASS" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="5" description="1: Selects high-freq. oscillator" end="5" id="XTS" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="7" description="XT1 Drive Level mode Bit 0" end="6" id="XT1DRIVE" range="" resetval="0" rwaccess="RW" width="2">
+<bitenum description="XT1 Drive Level mode: 0" id="XT1DRIVE_0" token="XT1DRIVE_0" value="0"></bitenum>
+<bitenum description="XT1 Drive Level mode: 1" id="XT1DRIVE_1" token="XT1DRIVE_1" value="1"></bitenum>
+<bitenum description="XT1 Drive Level mode: 2" id="XT1DRIVE_2" token="XT1DRIVE_2" value="2"></bitenum>
+<bitenum description="XT1 Drive Level mode: 3" id="XT1DRIVE_3" token="XT1DRIVE_3" value="3"></bitenum></bitfield></register>
+<register acronym="CSCTL7" description="CS Control Register 7" id="CSCTL7" offset=" 0x018E" width="16">
+<bitfield begin="0" description="DCO fault flag" end="0" id="DCOFFG" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="1" description="XT1 Low Frequency Oscillator Fault Flag" end="1" id="XT1OFFG" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="4" description="FLL unlock interrupt flag" end="4" id="FLLULIFG" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="6" description="Enable start counter for XT1" end="6" id="ENSTFCNT1" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="9" description="FLL unlock condition Bit: 0" end="8" id="FLLUNLOCK" range="" resetval="0" rwaccess="RW" width="2">
+<bitenum description="FLL unlock condition: 0" id="FLLUNLOCK_0" token="FLLUNLOCK_0" value="0"></bitenum>
+<bitenum description="FLL unlock condition: 1" id="FLLUNLOCK_1" token="FLLUNLOCK_1" value="1"></bitenum>
+<bitenum description="FLL unlock condition: 2" id="FLLUNLOCK_2" token="FLLUNLOCK_2" value="2"></bitenum>
+<bitenum description="FLL unlock condition: 3" id="FLLUNLOCK_3" token="FLLUNLOCK_3" value="3"></bitenum></bitfield>
+<bitfield begin="11" description="Unlock history Bit: 0" end="10" id="FLLUNLOCKHIS" range="" resetval="0" rwaccess="RW" width="2">
+<bitenum description="Unlock history: 0" id="FLLUNLOCKHIS_0" token="FLLUNLOCKHIS_0" value="0"></bitenum>
+<bitenum description="Unlock history: 1" id="FLLUNLOCKHIS_1" token="FLLUNLOCKHIS_1" value="1"></bitenum>
+<bitenum description="Unlock history: 2" id="FLLUNLOCKHIS_2" token="FLLUNLOCKHIS_2" value="2"></bitenum>
+<bitenum description="Unlock history: 3" id="FLLUNLOCKHIS_3" token="FLLUNLOCKHIS_3" value="3"></bitenum></bitfield>
+<bitfield begin="12" description="FLL unlock PUC enable" end="12" id="FLLULPUC" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="13" description="Warning enable" end="13" id="FLLWARNEN" range="" resetval="0" rwaccess="RW" width="1"></bitfield></register>
+<register acronym="CSCTL8" description="CS Control Register 8" id="CSCTL8" offset=" 0x0190" width="16">
+<bitfield begin="0" description="ACLK Clock Request Enable" end="0" id="ACLKREQEN" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="1" description="MCLK Clock Request Enable" end="1" id="MCLKREQEN" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="2" description="SMCLK Clock Request Enable" end="2" id="SMCLKREQEN" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="3" description="MODOSC Clock Request Enable" end="3" id="MODOSCREQEN" range="" resetval="0" rwaccess="RW" width="1"></bitfield></register>
+</module>

@@ -1,0 +1,16 @@
+<module id="PJ" HW_revision="272.0">
+    <register id="PJIN" width="16" offset="0x120" internal="0" description="Port J Input">
+    </register>
+    <register id="PJOUT" width="16" offset="0x122" internal="0" description="Port J Output">
+    </register>
+    <register id="PJDIR" width="16" offset="0x124" internal="0" description="Port J Direction">
+    </register>
+    <register id="PJREN" width="16" offset="0x126" internal="0" description="Port J Resistor Enable">
+    </register>
+    <register id="PJSEL0" width="16" offset="0x12A" internal="0" description="Port J Select 0">
+    </register>
+    <register id="PJSEL1" width="16" offset="0x12C" internal="0" description="Port J Select 1">
+    </register>
+    <register id="PJSELC" width="16" offset="0x136" internal="0" description="Port J Complement Select">
+    </register>
+</module>

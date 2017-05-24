@@ -1,0 +1,77 @@
+<module HW_revision="" XML_version="1" description="LCD_A" id="LCD_A">
+<register acronym="LCDACTL" description="LCD_A Control Register" id="LCDACTL" offset=" 0x0090" width="8">
+<bitfield begin="0" description="LCDON" end="0" id="LCDON" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="2" description="LCDSON" end="2" id="LCDSON" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="3" description="LCDMX0" end="3" id="LCDMX0" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="4" description="LCDMX1" end="4" id="LCDMX1" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="7" description="LCDFREQ" end="5" id="LCDFREQ" range="" resetval="0" rwaccess="RW" width="3">
+<bitenum description="LCD Freq: ACLK divided by 32" id="LCDFREQ_32" token="LCDFREQ_32" value="32"></bitenum>
+<bitenum description="LCD Freq: ACLK divided by 64" id="LCDFREQ_64" token="LCDFREQ_64" value="64"></bitenum>
+<bitenum description="LCD Freq: ACLK divided by 96" id="LCDFREQ_96" token="LCDFREQ_96" value="96"></bitenum>
+<bitenum description="LCD Freq: ACLK divided by 128" id="LCDFREQ_128" token="LCDFREQ_128" value="128"></bitenum>
+<bitenum description="LCD Freq: ACLK divided by 192" id="LCDFREQ_192" token="LCDFREQ_192" value="192"></bitenum>
+<bitenum description="LCD Freq: ACLK divided by 256" id="LCDFREQ_256" token="LCDFREQ_256" value="256"></bitenum>
+<bitenum description="LCD Freq: ACLK divided by 384" id="LCDFREQ_384" token="LCDFREQ_384" value="384"></bitenum>
+<bitenum description="LCD Freq: ACLK divided by 512" id="LCDFREQ_512" token="LCDFREQ_512" value="512"></bitenum></bitfield></register>
+<register acronym="LCDAPCTL0" description="LCD_A Port Control Register 0" id="LCDAPCTL0" offset=" 0x00AC" width="8">
+<bitfield begin="0" description="LCD Segment  0 to  3 Enable." end="0" id="LCDS0" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="1" description="LCD Segment  4 to  7 Enable." end="1" id="LCDS4" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="2" description="LCD Segment  8 to 11 Enable." end="2" id="LCDS8" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="3" description="LCD Segment 12 to 15 Enable." end="3" id="LCDS12" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="4" description="LCD Segment 16 to 19 Enable." end="4" id="LCDS16" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="5" description="LCD Segment 20 to 23 Enable." end="5" id="LCDS20" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="6" description="LCD Segment 24 to 27 Enable." end="6" id="LCDS24" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="7" description="LCD Segment 28 to 31 Enable." end="7" id="LCDS28" range="" resetval="0" rwaccess="RW" width="1"></bitfield></register>
+<register acronym="LCDAPCTL1" description="LCD_A Port Control Register 1" id="LCDAPCTL1" offset=" 0x00AD" width="8">
+<bitfield begin="0" description="LCD Segment 32 to 35 Enable." end="0" id="LCDS32" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="1" description="LCD Segment 36 to 39 Enable." end="1" id="LCDS36" range="" resetval="0" rwaccess="RW" width="1"></bitfield></register>
+<register acronym="LCDAVCTL0" description="LCD_A Voltage Control Register 0" id="LCDAVCTL0" offset=" 0x00AE" width="8">
+<bitfield begin="0" description="Selects 1/2 bias." end="0" id="LCD2B" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="2" description="Selects reference voltage for regulated charge pump: 0" end="1" id="VLCDREF" range="" resetval="0" rwaccess="RW" width="2">
+<bitenum description="Internal" id="VLCDREF_0" token="VLCDREF_0" value="0"></bitenum>
+<bitenum description="External" id="VLCDREF_1" token="VLCDREF_1" value="1"></bitenum>
+<bitenum description="Reserved" id="VLCDREF_2" token="VLCDREF_2" value="2"></bitenum>
+<bitenum description="Reserved" id="VLCDREF_3" token="VLCDREF_3" value="3"></bitenum></bitfield>
+<bitfield begin="3" description="LCD Voltage Charge Pump Enable." end="3" id="LCDCPEN" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="4" description="Select external source for VLCD." end="4" id="VLCDEXT" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="5" description="Selects external connections for LCD mid voltages." end="5" id="LCDREXT" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="6" description="Selects external connection for lowest LCD voltage." end="6" id="LCDR03EXT" range="" resetval="0" rwaccess="RW" width="1"></bitfield></register>
+<register acronym="LCDAVCTL1" description="LCD_A Voltage Control Register 1" id="LCDAVCTL1" offset=" 0x00AF" width="8">
+<bitfield begin="4" description="VLCD select: 0" end="1" id="VLCD" range="" resetval="0" rwaccess="RW" width="4">
+<bitenum description="Charge pump disabled" id="VLCD_0" token="VLCD_0" value="0"></bitenum>
+<bitenum description="VLCD = 2.60V" id="VLCD_1" token="VLCD_1" value="1"></bitenum>
+<bitenum description="VLCD = 2.66V" id="VLCD_2" token="VLCD_2" value="2"></bitenum>
+<bitenum description="VLCD = 2.72V" id="VLCD_3" token="VLCD_3" value="3"></bitenum>
+<bitenum description="VLCD = 2.78V" id="VLCD_4" token="VLCD_4" value="4"></bitenum>
+<bitenum description="VLCD = 2.84V" id="VLCD_5" token="VLCD_5" value="5"></bitenum>
+<bitenum description="VLCD = 2.90V" id="VLCD_6" token="VLCD_6" value="6"></bitenum>
+<bitenum description="VLCD = 2.96V" id="VLCD_7" token="VLCD_7" value="7"></bitenum>
+<bitenum description="VLCD = 3.02V" id="VLCD_8" token="VLCD_8" value="8"></bitenum>
+<bitenum description="VLCD = 3.08V" id="VLCD_9" token="VLCD_9" value="9"></bitenum>
+<bitenum description="VLCD = 3.14V" id="VLCD_10" token="VLCD_10" value="10"></bitenum>
+<bitenum description="VLCD = 3.20V" id="VLCD_11" token="VLCD_11" value="11"></bitenum>
+<bitenum description="VLCD = 3.26V" id="VLCD_12" token="VLCD_12" value="12"></bitenum>
+<bitenum description="VLCD = 3.32V" id="VLCD_13" token="VLCD_13" value="13"></bitenum>
+<bitenum description="VLCD = 3.38V" id="VLCD_14" token="VLCD_14" value="14"></bitenum>
+<bitenum description="VLCD = 3.44V" id="VLCD_15" token="VLCD_15" value="15"></bitenum></bitfield></register>
+<register acronym="LCDM1" description="LCD Memory 1" id="LCDM1" offset=" 0x0091" width="8"></register>
+<register acronym="LCDM2" description="LCD Memory 2" id="LCDM2" offset=" 0x0092" width="8"></register>
+<register acronym="LCDM3" description="LCD Memory 3" id="LCDM3" offset=" 0x0093" width="8"></register>
+<register acronym="LCDM4" description="LCD Memory 4" id="LCDM4" offset=" 0x0094" width="8"></register>
+<register acronym="LCDM5" description="LCD Memory 5" id="LCDM5" offset=" 0x0095" width="8"></register>
+<register acronym="LCDM6" description="LCD Memory 6" id="LCDM6" offset=" 0x0096" width="8"></register>
+<register acronym="LCDM7" description="LCD Memory 7" id="LCDM7" offset=" 0x0097" width="8"></register>
+<register acronym="LCDM8" description="LCD Memory 8" id="LCDM8" offset=" 0x0098" width="8"></register>
+<register acronym="LCDM9" description="LCD Memory 9" id="LCDM9" offset=" 0x0099" width="8"></register>
+<register acronym="LCDM10" description="LCD Memory 10" id="LCDM10" offset=" 0x009A" width="8"></register>
+<register acronym="LCDM11" description="LCD Memory 11" id="LCDM11" offset=" 0x009B" width="8"></register>
+<register acronym="LCDM12" description="LCD Memory 12" id="LCDM12" offset=" 0x009C" width="8"></register>
+<register acronym="LCDM13" description="LCD Memory 13" id="LCDM13" offset=" 0x009D" width="8"></register>
+<register acronym="LCDM14" description="LCD Memory 14" id="LCDM14" offset=" 0x009E" width="8"></register>
+<register acronym="LCDM15" description="LCD Memory 15" id="LCDM15" offset=" 0x009F" width="8"></register>
+<register acronym="LCDM16" description="LCD Memory 16" id="LCDM16" offset=" 0x00A0" width="8"></register>
+<register acronym="LCDM17" description="LCD Memory 17" id="LCDM17" offset=" 0x00A1" width="8"></register>
+<register acronym="LCDM18" description="LCD Memory 18" id="LCDM18" offset=" 0x00A2" width="8"></register>
+<register acronym="LCDM19" description="LCD Memory 19" id="LCDM19" offset=" 0x00A3" width="8"></register>
+<register acronym="LCDM20" description="LCD Memory 20" id="LCDM20" offset=" 0x00A4" width="8"></register>
+</module>

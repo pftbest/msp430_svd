@@ -1,0 +1,35 @@
+<module id="P3" HW_revision="272.0">
+    <register id="P3IV" width="16" offset="0x2E" internal="0" description="Port 3 Interrupt Vector Register">
+        <bitfield id="P3IV" description="Port 3 interrupt vector value" begin="4" end="0" width="5" rwaccess="R">
+            <bitenum id="NONE" value="0x0" description="No interrupt pending"/>
+            <bitenum id="P3IFG0" value="0x2" description="Interrupt Source: Port 3.0 interrupt; Interrupt Flag: P3IFG0; Interrupt Priority: Highest"/>
+            <bitenum id="P3IFG1" value="0x4" description="Interrupt Source: Port 3.1 interrupt; Interrupt Flag: P3IFG1"/>
+            <bitenum id="P3IFG2" value="0x6" description="Interrupt Source: Port 3.2 interrupt; Interrupt Flag: P3IFG2"/>
+            <bitenum id="P3IFG3" value="0x8" description="Interrupt Source: Port 3.3 interrupt; Interrupt Flag: P3IFG3"/>
+            <bitenum id="P3IFG4" value="0xA" description="Interrupt Source: Port 3.4 interrupt; Interrupt Flag: P3IFG4"/>
+            <bitenum id="P3IFG5" value="0xC" description="Interrupt Source: Port 3.5 interrupt; Interrupt Flag: P3IFG5"/>
+            <bitenum id="P3IFG6" value="0xE" description="Interrupt Source: Port 3.6 interrupt; Interrupt Flag: P3IFG6"/>
+            <bitenum id="P3IFG7" value="0x10" description="Interrupt Source: Port 3.7 interrupt; Interrupt Flag: P3IFG7; Interrupt Priority: Lowest"/>
+        </bitfield>
+    </register>
+    <register id="P3IN" width="8" offset="0x20" internal="0" description="Port 3 Input">
+    </register>
+    <register id="P3OUT" width="8" offset="0x22" internal="0" description="Port 3 Output">
+    </register>
+    <register id="P3DIR" width="8" offset="0x24" internal="0" description="Port 3 Direction">
+    </register>
+    <register id="P3REN" width="8" offset="0x26" internal="0" description="Port 3 Resistor Enable">
+    </register>
+    <register id="P3SEL0" width="8" offset="0x2A" internal="0" description="Port 3 Select 0">
+    </register>
+    <register id="P3SEL1" width="8" offset="0x2C" internal="0" description="Port 3 Select 1">
+    </register>
+    <register id="P3SELC" width="8" offset="0x36" internal="0" description="Port 3 Complement Select">
+    </register>
+    <register id="P3IES" width="8" offset="0x38" internal="0" description="Port 3 Interrupt Edge Select">
+    </register>
+    <register id="P3IE" width="8" offset="0x3A" internal="0" description="Port 3 Interrupt Enable">
+    </register>
+    <register id="P3IFG" width="8" offset="0x3C" internal="0" description="Port 3 Interrupt Flag">
+    </register>
+</module>

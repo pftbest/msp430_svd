@@ -1,0 +1,35 @@
+<module id="P4" HW_revision="272.0">
+    <register id="P4IV" width="16" offset="0x3E" internal="0" description="Port 4 Interrupt Vector Register">
+        <bitfield id="P4IV" description="Port 4 interrupt vector value" begin="4" end="0" width="5" rwaccess="R">
+            <bitenum id="NONE" value="0x0" description="No interrupt pending"/>
+            <bitenum id="P4IFG0" value="0x2" description="Interrupt Source: Port 4.0 interrupt; Interrupt Flag: P4IFG0; Interrupt Priority: Highest"/>
+            <bitenum id="P4IFG1" value="0x4" description="Interrupt Source: Port 4.1 interrupt; Interrupt Flag: P4IFG1"/>
+            <bitenum id="P4IFG2" value="0x6" description="Interrupt Source: Port 4.2 interrupt; Interrupt Flag: P4IFG2"/>
+            <bitenum id="P4IFG3" value="0x8" description="Interrupt Source: Port 4.3 interrupt; Interrupt Flag: P4IFG3"/>
+            <bitenum id="P4IFG4" value="0xA" description="Interrupt Source: Port 4.4 interrupt; Interrupt Flag: P4IFG4"/>
+            <bitenum id="P4IFG5" value="0xC" description="Interrupt Source: Port 4.5 interrupt; Interrupt Flag: P4IFG5"/>
+            <bitenum id="P4IFG6" value="0xE" description="Interrupt Source: Port 4.6 interrupt; Interrupt Flag: P4IFG6"/>
+            <bitenum id="P4IFG7" value="0x10" description="Interrupt Source: Port 4.7 interrupt; Interrupt Flag: P4IFG7; Interrupt Priority: Lowest"/>
+        </bitfield>
+    </register>
+    <register id="P4IN" width="8" offset="0x21" internal="0" description="Port 4 Input">
+    </register>
+    <register id="P4OUT" width="8" offset="0x23" internal="0" description="Port 4 Output">
+    </register>
+    <register id="P4DIR" width="8" offset="0x25" internal="0" description="Port 4 Direction">
+    </register>
+    <register id="P4REN" width="8" offset="0x27" internal="0" description="Port 4 Resistor Enable">
+    </register>
+    <register id="P4SEL0" width="8" offset="0x2B" internal="0" description="Port 4 Select 0">
+    </register>
+    <register id="P4SEL1" width="8" offset="0x2D" internal="0" description="Port 4 Select 1">
+    </register>
+    <register id="P4SELC" width="8" offset="0x37" internal="0" description="Port 4 Complement Select">
+    </register>
+    <register id="P4IES" width="8" offset="0x39" internal="0" description="Port 4 Interrupt Edge Select">
+    </register>
+    <register id="P4IE" width="8" offset="0x3B" internal="0" description="Port 4 Interrupt Enable">
+    </register>
+    <register id="P4IFG" width="8" offset="0x3D" internal="0" description="Port 4 Interrupt Flag">
+    </register>
+</module>

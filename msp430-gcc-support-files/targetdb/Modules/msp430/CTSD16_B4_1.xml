@@ -1,0 +1,60 @@
+<module HW_revision="" XML_version="1" description="CTSD16_B4" id="CTSD16_B4">
+<register acronym="CTSD16CTL" description="CTSD16 Control Register 0" id="CTSD16CTL" offset=" 0x0A80" width="16">
+<bitfield begin="2" description="CTSD16 reference select" end="2" id="CTSD16REFS" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="3" description="CTSD16CLK resistor select" end="3" id="CTSD16CLKR" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="4" description="CTSD16 clock fault flag" end="4" id="CTSD16OFFG" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="8" description="Rail-to-rail input charge pump burst mode request" end="8" id="CTSD16RRIBURST" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="9" description="CTSD16 Rail-to-rail input ready" end="9" id="CTSD16RRIRDY" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="10" description="CTSD16 Rail-to-rail input error" end="10" id="CTSD16RRIERR" range="" resetval="0" rwaccess="RW" width="1"></bitfield></register>
+<register acronym="CTSD16IFG" description="CTSD16 Interrupt Flag Register" id="CTSD16IFG" offset=" 0x0AAC" width="16">
+<bitfield begin="0" description="CTSD16 Channel 0 Interrupt Flag" end="0" id="CTSD16IFG0" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="8" description="CTSD16 Channel 0 Overflow Interrupt Flag" end="8" id="CTSD16OVIFG0" range="" resetval="0" rwaccess="RW" width="1"></bitfield></register>
+<register acronym="CTSD16IE" description="CTSD16 Interrupt Enable Register" id="CTSD16IE" offset=" 0x0AAE" width="16">
+<bitfield begin="0" description="CTSD16 Channel 0 Interrupt Enable" end="0" id="CTSD16IE0" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="8" description="CTSD16 Channel 0 Overflow Interrupt Enable" end="8" id="CTSD16OVIE0" range="" resetval="0" rwaccess="RW" width="1"></bitfield></register>
+<register acronym="CTSD16IV" description="CTSD16 Interrupt Vector Register" id="CTSD16IV" offset=" 0x0AB0" width="16"></register>
+<register acronym="CTSD16CCTL0" description="CTSD16 Channel 0 Control Register" id="CTSD16CCTL0" offset=" 0x0A82" width="16">
+<bitfield begin="0" description="CTSD16 group" end="0" id="CTSD16GRP" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="1" description="CTSD16 Start Conversion" end="1" id="CTSD16SC" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="4" description="CTSD16 Data Format" end="4" id="CTSD16DF" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="6" description="CTSD16 LSB access" end="6" id="CTSD16LSBACC" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="7" description="CTSD16 LSB toggle" end="7" id="CTSD16LSBTOG" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="9" description="CTSD16 Channel OverSampling Ratio 0" end="8" id="CTSD16OSR" range="" resetval="0" rwaccess="RW" width="2">
+<bitenum description="CTSD16 Channel OverSampling Ratio 0" id="CTSD16OSR_0" token="CTSD16OSR_0" value="0"></bitenum>
+<bitenum description="CTSD16 Channel OverSampling Ratio 1" id="CTSD16OSR_1" token="CTSD16OSR_1" value="1"></bitenum>
+<bitenum description="CTSD16 Channel OverSampling Ratio 2" id="CTSD16OSR_2" token="CTSD16OSR_2" value="2"></bitenum>
+<bitenum description="CTSD16 Channel OverSampling Ratio 3" id="CTSD16OSR_3" token="CTSD16OSR_3" value="3"></bitenum></bitfield>
+<bitfield begin="10" description="CTSD16 Channel Single Conversion Mode" end="10" id="CTSD16SNGL" range="" resetval="0" rwaccess="RW" width="1"></bitfield></register>
+<register acronym="CTSD16MEM0" description="CTSD16 Channel 0 Conversion Memory" id="CTSD16MEM0" offset=" 0x0AB2" width="16"></register>
+<register acronym="CTSD16INCTL0" description="CTSD16 Channel 0 Input Control Register" id="CTSD16INCTL0" offset=" 0x0A84" width="16">
+<bitfield begin="4" description="CTSD16 Input Channel select 0" end="0" id="CTSD16INCH" range="" resetval="0" rwaccess="RW" width="5">
+<bitenum description="CTSD16 Input Channel select A0" id="CTSD16INCH_0" token="CTSD16INCH_0" value="0"></bitenum>
+<bitenum description="CTSD16 Input Channel select A1" id="CTSD16INCH_1" token="CTSD16INCH_1" value="1"></bitenum>
+<bitenum description="CTSD16 Input Channel select A2" id="CTSD16INCH_2" token="CTSD16INCH_2" value="2"></bitenum>
+<bitenum description="CTSD16 Input Channel select A3" id="CTSD16INCH_3" token="CTSD16INCH_3" value="3"></bitenum>
+<bitenum description="CTSD16 Input Channel select A4" id="CTSD16INCH_4" token="CTSD16INCH_4" value="4"></bitenum>
+<bitenum description="CTSD16 Input Channel select A5" id="CTSD16INCH_5" token="CTSD16INCH_5" value="5"></bitenum>
+<bitenum description="CTSD16 Input Channel select Temp" id="CTSD16INCH_6" token="CTSD16INCH_6" value="6"></bitenum>
+<bitenum description="CTSD16 Input Channel select Vcc" id="CTSD16INCH_7" token="CTSD16INCH_7" value="7"></bitenum>
+<bitenum description="CTSD16 Input Channel select VBat" id="CTSD16INCH_8" token="CTSD16INCH_8" value="8"></bitenum>
+<bitenum description="CTSD16 Input Channel select AD0+ / AD0-" id="CTSD16INCH_9" token="CTSD16INCH_9" value="9"></bitenum>
+<bitenum description="CTSD16 Input Channel select AD0+ / VREF" id="CTSD16INCH_10" token="CTSD16INCH_10" value="10"></bitenum>
+<bitenum description="CTSD16 Input Channel select AD1+ / AD1-" id="CTSD16INCH_11" token="CTSD16INCH_11" value="11"></bitenum>
+<bitenum description="CTSD16 Input Channel select AD1+ / VREF" id="CTSD16INCH_12" token="CTSD16INCH_12" value="12"></bitenum>
+<bitenum description="CTSD16 Input Channel select AD2+ / AD2-" id="CTSD16INCH_13" token="CTSD16INCH_13" value="13"></bitenum>
+<bitenum description="CTSD16 Input Channel select AD2+ / VREF" id="CTSD16INCH_14" token="CTSD16INCH_14" value="14"></bitenum>
+<bitenum description="CTSD16 Input Channel select AD3+ / AD3 -" id="CTSD16INCH_15" token="CTSD16INCH_15" value="15"></bitenum>
+<bitenum description="CTSD16 Input Channel select AD3+ / VREF" id="CTSD16INCH_16" token="CTSD16INCH_16" value="16"></bitenum>
+<bitenum description="CTSD16 Input Channel select AD4x - VREF" id="CTSD16INCH_17" token="CTSD16INCH_17" value="17"></bitenum>
+<bitenum description="CTSD16 Input Channel select AD4x - DAC0" id="CTSD16INCH_18" token="CTSD16INCH_18" value="18"></bitenum></bitfield>
+<bitfield begin="7" description="CTSD16 Input Pre-Amplifier Gain Select 0" end="5" id="CTSD16GAIN" range="" resetval="0" rwaccess="RW" width="3">
+<bitenum description="CTSD16 Input Pre-Amplifier Gain Select *1" id="CTSD16GAIN_1" token="CTSD16GAIN_1" value="1"></bitenum>
+<bitenum description="CTSD16 Input Pre-Amplifier Gain Select *2" id="CTSD16GAIN_2" token="CTSD16GAIN_2" value="2"></bitenum>
+<bitenum description="CTSD16 Input Pre-Amplifier Gain Select *4" id="CTSD16GAIN_4" token="CTSD16GAIN_4" value="4"></bitenum>
+<bitenum description="CTSD16 Input Pre-Amplifier Gain Select *8" id="CTSD16GAIN_8" token="CTSD16GAIN_8" value="8"></bitenum>
+<bitenum description="CTSD16 Input Pre-Amplifier Gain Select *16" id="CTSD16GAIN_16" token="CTSD16GAIN_16" value="16"></bitenum></bitfield>
+<bitfield begin="8" description="CTSD16 Interrupt Delay after 1.Conversion" end="8" id="CTSD16INTDLY" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="10" description="CTSD16 Controls input buffer" end="10" id="CTSD16BUFOFF" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="11" description="CTSD16 Rail-to-rail input enable" end="11" id="CTSD16RRI" range="" resetval="0" rwaccess="RW" width="1"></bitfield></register>
+<register acronym="CTSD16PRE0" description="CTSD16 Channel 0 Preload Register" id="CTSD16PRE0" offset=" 0x0A86" width="16"></register>
+</module>

@@ -1,0 +1,10 @@
+<module HW_revision="" XML_version="1" description="Multiplier" id="Multiplier">
+<register acronym="MPY" description="Multiply Unsigned/Operand 1" id="MPY" offset=" 0x0130" width="16"></register>
+<register acronym="MPYS" description="Multiply Signed/Operand 1" id="MPYS" offset=" 0x0132" width="16"></register>
+<register acronym="MAC" description="Multiply Unsigned and Accumulate/Operand 1" id="MAC" offset=" 0x0134" width="16"></register>
+<register acronym="MACS" description="Multiply Signed and Accumulate/Operand 1" id="MACS" offset=" 0x0136" width="16"></register>
+<register acronym="OP2" description="Operand 2" id="OP2" offset=" 0x0138" width="16"></register>
+<register acronym="RESLO" description="Result Low Word" id="RESLO" offset=" 0x013A" width="16"></register>
+<register acronym="RESHI" description="Result High Word" id="RESHI" offset=" 0x013C" width="16"></register>
+<register acronym="SUMEXT" description="Sum Extend" id="SUMEXT" offset=" 0x013E" width="16"></register>
+</module>

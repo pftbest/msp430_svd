@@ -1,0 +1,42 @@
+<module id="RTC" HW_revision="445">
+    <register id="RTCCTL" width="16" offset="0x0" internal="0" description="RTCCTL0 Register">
+        <bitfield id="RTCIFG" description="Real-time interrupt flag. This bit reports the status of a pending interrupt. This read only bit can be cleared by reading RTCIV register." begin="0" end="0" width="1" rwaccess="R">
+            <bitenum id="RTCIFG_0" value="0x0" description="No interrupt pending"/>
+            <bitenum id="RTCIFG_1" value="0x1" description="Interrupt pending"/>
+        </bitfield>
+        <bitfield id="RTCIE" description="Real-time interrupt enable" begin="1" end="1" width="1" rwaccess="R/W">
+            <bitenum id="RTCIE_0" value="0x0" description="Interrupt disabled"/>
+            <bitenum id="RTCIE_1" value="0x1" description="Interrupt enabled"/>
+        </bitfield>
+        <bitfield id="RTCSR" description="Real-time software reset. This is a write only bit and is always read with logic 0. 0b = Write 0 has no effect" begin="6" end="6" width="1" rwaccess="R/W">
+            <bitenum id="RTCSR_0" value="0x0" description="Write 0 has no effect"/>
+            <bitenum id="RTCSR_1" value="0x1" description="Write 1 to this bit clears the counter value and reloads the shadow register value from the modulo register at the next tick of the selected source clock. No overflow event or interrupt is generated."/>
+        </bitfield>
+        <bitfield id="RTCPS" description="Real-time clock pre-divider select" begin="10" end="8" width="3" rwaccess="R/W">
+            <bitenum id="1" value="0x0" description="/1"/>
+            <bitenum id="10" value="0x1" description="/10"/>
+            <bitenum id="100" value="0x2" description="/100"/>
+            <bitenum id="1000" value="0x3" description="/1000"/>
+            <bitenum id="16" value="0x4" description="/16"/>
+            <bitenum id="64" value="0x5" description="/64"/>
+            <bitenum id="256" value="0x6" description="/256"/>
+            <bitenum id="1024" value="0x7" description="/1024"/>
+        </bitfield>
+        <bitfield id="RTCSS" description="Real-time clock source select" begin="13" end="12" width="2" rwaccess="R/W">
+            <bitenum id="DISABLED" value="0x0" description="Disabled"/>
+            <bitenum id="SMCLK" value="0x1" description="SMCLK"/>
+            <bitenum id="XT1CLK" value="0x2" description="XT1CLK"/>
+            <bitenum id="VLOCLK" value="0x3" description="VLOCLK"/>
+        </bitfield>
+    </register>
+    <register id="RTCIV" width="16" offset="0x4" internal="0" description="Real-Time Clock Interrupt Vector Register">
+        <bitfield id="RTCIV" description="Real-time clock interrupt vector value" begin="15" end="0" width="16" rwaccess="R">
+            <bitenum id="NONE" value="0x0" description="No interrupt pending"/>
+            <bitenum id="RTCIFG" value="0x2" description="upt Source: RTC Counter Overflow; Interrupt Flag: RTCIFG"/>
+        </bitfield>
+    </register>
+    <register id="RTCMOD" width="16" offset="0x8" internal="0" description="RTC Counter Modulo Register">
+    </register>
+    <register id="RTCCNT" width="16" offset="0xC" internal="0" description="RTC Counter Register">
+    </register>
+</module>

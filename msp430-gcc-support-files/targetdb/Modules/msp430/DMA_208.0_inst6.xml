@@ -1,0 +1,611 @@
+<module id="DMA" HW_revision="208.0">
+    <register id="DMACTL0" width="16" offset="0x0" internal="0" description="DMA Control 0">
+        <bitfield id="DMA0TSEL" description="DMA trigger select" begin="4" end="0" width="5" rwaccess="R/W">
+            <bitenum id="DMA0TRIG0" value="0x0" description="DMA0TRIG0"/>
+            <bitenum id="DMA0TRIG1" value="0x1" description="DMA0TRIG1"/>
+            <bitenum id="DMA0TRIG2" value="0x2" description="DMA0TRIG2"/>
+            <bitenum id="DMA0TRIG3" value="0x3" description="DMA0TRIG3"/>
+            <bitenum id="DMA0TRIG4" value="0x4" description="DMA0TRIG4"/>
+            <bitenum id="DMA0TRIG5" value="0x5" description="DMA0TRIG5"/>
+            <bitenum id="DMA0TRIG6" value="0x6" description="DMA0TRIG6"/>
+            <bitenum id="DMA0TRIG7" value="0x7" description="DMA0TRIG7"/>
+            <bitenum id="DMA0TRIG8" value="0x8" description="DMA0TRIG8"/>
+            <bitenum id="DMA0TRIG9" value="0x9" description="DMA0TRIG9"/>
+            <bitenum id="DMA0TRIG10" value="0xA" description="DMA0TRIG10"/>
+            <bitenum id="DMA0TRIG11" value="0xB" description="DMA0TRIG11"/>
+            <bitenum id="DMA0TRIG12" value="0xC" description="DMA0TRIG12"/>
+            <bitenum id="DMA0TRIG13" value="0xD" description="DMA0TRIG13"/>
+            <bitenum id="DMA0TRIG14" value="0xE" description="DMA0TRIG14"/>
+            <bitenum id="DMA0TRIG15" value="0xF" description="DMA0TRIG15"/>
+            <bitenum id="DMA0TRIG16" value="0x10" description="DMA0TRIG16"/>
+            <bitenum id="DMA0TRIG17" value="0x11" description="DMA0TRIG17"/>
+            <bitenum id="DMA0TRIG18" value="0x12" description="DMA0TRIG18"/>
+            <bitenum id="DMA0TRIG19" value="0x13" description="DMA0TRIG19"/>
+            <bitenum id="DMA0TRIG20" value="0x14" description="DMA0TRIG20"/>
+            <bitenum id="DMA0TRIG21" value="0x15" description="DMA0TRIG21"/>
+            <bitenum id="DMA0TRIG22" value="0x16" description="DMA0TRIG22"/>
+            <bitenum id="DMA0TRIG23" value="0x17" description="DMA0TRIG23"/>
+            <bitenum id="DMA0TRIG24" value="0x18" description="DMA0TRIG24"/>
+            <bitenum id="DMA0TRIG25" value="0x19" description="DMA0TRIG25"/>
+            <bitenum id="DMA0TRIG26" value="0x1A" description="DMA0TRIG26"/>
+            <bitenum id="DMA0TRIG27" value="0x1B" description="DMA0TRIG27"/>
+            <bitenum id="DMA0TRIG28" value="0x1C" description="DMA0TRIG28"/>
+            <bitenum id="DMA0TRIG29" value="0x1D" description="DMA0TRIG29"/>
+            <bitenum id="DMA0TRIG30" value="0x1E" description="DMA0TRIG30"/>
+            <bitenum id="DMA0TRIG31" value="0x1F" description="DMA0TRIG31"/>
+        </bitfield>
+        <bitfield id="DMA1TSEL" description="DMA trigger select" begin="12" end="8" width="5" rwaccess="R/W">
+            <bitenum id="DMA1TRIG0" value="0x0" description="DMA1TRIG0"/>
+            <bitenum id="DMA1TRIG1" value="0x1" description="DMA1TRIG1"/>
+            <bitenum id="DMA1TRIG2" value="0x2" description="DMA1TRIG2"/>
+            <bitenum id="DMA1TRIG3" value="0x3" description="DMA1TRIG3"/>
+            <bitenum id="DMA1TRIG4" value="0x4" description="DMA1TRIG4"/>
+            <bitenum id="DMA1TRIG5" value="0x5" description="DMA1TRIG5"/>
+            <bitenum id="DMA1TRIG6" value="0x6" description="DMA1TRIG6"/>
+            <bitenum id="DMA1TRIG7" value="0x7" description="DMA1TRIG7"/>
+            <bitenum id="DMA1TRIG8" value="0x8" description="DMA1TRIG8"/>
+            <bitenum id="DMA1TRIG9" value="0x9" description="DMA1TRIG9"/>
+            <bitenum id="DMA1TRIG10" value="0xA" description="DMA1TRIG10"/>
+            <bitenum id="DMA1TRIG11" value="0xB" description="DMA1TRIG11"/>
+            <bitenum id="DMA1TRIG12" value="0xC" description="DMA1TRIG12"/>
+            <bitenum id="DMA1TRIG13" value="0xD" description="DMA1TRIG13"/>
+            <bitenum id="DMA1TRIG14" value="0xE" description="DMA1TRIG14"/>
+            <bitenum id="DMA1TRIG15" value="0xF" description="DMA1TRIG15"/>
+            <bitenum id="DMA1TRIG16" value="0x10" description="DMA1TRIG16"/>
+            <bitenum id="DMA1TRIG17" value="0x11" description="DMA1TRIG17"/>
+            <bitenum id="DMA1TRIG18" value="0x12" description="DMA1TRIG18"/>
+            <bitenum id="DMA1TRIG19" value="0x13" description="DMA1TRIG19"/>
+            <bitenum id="DMA1TRIG20" value="0x14" description="DMA1TRIG20"/>
+            <bitenum id="DMA1TRIG21" value="0x15" description="DMA1TRIG21"/>
+            <bitenum id="DMA1TRIG22" value="0x16" description="DMA1TRIG22"/>
+            <bitenum id="DMA1TRIG23" value="0x17" description="DMA1TRIG23"/>
+            <bitenum id="DMA1TRIG24" value="0x18" description="DMA1TRIG24"/>
+            <bitenum id="DMA1TRIG25" value="0x19" description="DMA1TRIG25"/>
+            <bitenum id="DMA1TRIG26" value="0x1A" description="DMA1TRIG26"/>
+            <bitenum id="DMA1TRIG27" value="0x1B" description="DMA1TRIG27"/>
+            <bitenum id="DMA1TRIG28" value="0x1C" description="DMA1TRIG28"/>
+            <bitenum id="DMA1TRIG29" value="0x1D" description="DMA1TRIG29"/>
+            <bitenum id="DMA1TRIG30" value="0x1E" description="DMA1TRIG30"/>
+            <bitenum id="DMA1TRIG31" value="0x1F" description="DMA1TRIG31"/>
+        </bitfield>
+    </register>
+    <register id="DMACTL1" width="16" offset="0x2" internal="0" description="DMA Control 1">
+        <bitfield id="DMA2TSEL" description="DMA trigger select" begin="4" end="0" width="5" rwaccess="R/W">
+            <bitenum id="DMA2TRIG0" value="0x0" description="DMA2TRIG0"/>
+            <bitenum id="DMA2TRIG1" value="0x1" description="DMA2TRIG1"/>
+            <bitenum id="DMA2TRIG2" value="0x2" description="DMA2TRIG2"/>
+            <bitenum id="DMA2TRIG3" value="0x3" description="DMA2TRIG3"/>
+            <bitenum id="DMA2TRIG4" value="0x4" description="DMA2TRIG4"/>
+            <bitenum id="DMA2TRIG5" value="0x5" description="DMA2TRIG5"/>
+            <bitenum id="DMA2TRIG6" value="0x6" description="DMA2TRIG6"/>
+            <bitenum id="DMA2TRIG7" value="0x7" description="DMA2TRIG7"/>
+            <bitenum id="DMA2TRIG8" value="0x8" description="DMA2TRIG8"/>
+            <bitenum id="DMA2TRIG9" value="0x9" description="DMA2TRIG9"/>
+            <bitenum id="DMA2TRIG10" value="0xA" description="DMA2TRIG10"/>
+            <bitenum id="DMA2TRIG11" value="0xB" description="DMA2TRIG11"/>
+            <bitenum id="DMA2TRIG12" value="0xC" description="DMA2TRIG12"/>
+            <bitenum id="DMA2TRIG13" value="0xD" description="DMA2TRIG13"/>
+            <bitenum id="DMA2TRIG14" value="0xE" description="DMA2TRIG14"/>
+            <bitenum id="DMA2TRIG15" value="0xF" description="DMA2TRIG15"/>
+            <bitenum id="DMA2TRIG16" value="0x10" description="DMA2TRIG16"/>
+            <bitenum id="DMA2TRIG17" value="0x11" description="DMA2TRIG17"/>
+            <bitenum id="DMA2TRIG18" value="0x12" description="DMA2TRIG18"/>
+            <bitenum id="DMA2TRIG19" value="0x13" description="DMA2TRIG19"/>
+            <bitenum id="DMA2TRIG20" value="0x14" description="DMA2TRIG20"/>
+            <bitenum id="DMA2TRIG21" value="0x15" description="DMA2TRIG21"/>
+            <bitenum id="DMA2TRIG22" value="0x16" description="DMA2TRIG22"/>
+            <bitenum id="DMA2TRIG23" value="0x17" description="DMA2TRIG23"/>
+            <bitenum id="DMA2TRIG24" value="0x18" description="DMA2TRIG24"/>
+            <bitenum id="DMA2TRIG25" value="0x19" description="DMA2TRIG25"/>
+            <bitenum id="DMA2TRIG26" value="0x1A" description="DMA2TRIG26"/>
+            <bitenum id="DMA2TRIG27" value="0x1B" description="DMA2TRIG27"/>
+            <bitenum id="DMA2TRIG28" value="0x1C" description="DMA2TRIG28"/>
+            <bitenum id="DMA2TRIG29" value="0x1D" description="DMA2TRIG29"/>
+            <bitenum id="DMA2TRIG30" value="0x1E" description="DMA2TRIG30"/>
+            <bitenum id="DMA2TRIG31" value="0x1F" description="DMA2TRIG31"/>
+        </bitfield>
+        <bitfield id="DMA3TSEL" description="DMA trigger select" begin="12" end="8" width="5" rwaccess="R/W">
+            <bitenum id="DMA3TRIG0" value="0x0" description="DMA3TRIG0"/>
+            <bitenum id="DMA3TRIG1" value="0x1" description="DMA3TRIG1"/>
+            <bitenum id="DMA3TRIG2" value="0x2" description="DMA3TRIG2"/>
+            <bitenum id="DMA3TRIG3" value="0x3" description="DMA3TRIG3"/>
+            <bitenum id="DMA3TRIG4" value="0x4" description="DMA3TRIG4"/>
+            <bitenum id="DMA3TRIG5" value="0x5" description="DMA3TRIG5"/>
+            <bitenum id="DMA3TRIG6" value="0x6" description="DMA3TRIG6"/>
+            <bitenum id="DMA3TRIG7" value="0x7" description="DMA3TRIG7"/>
+            <bitenum id="DMA3TRIG8" value="0x8" description="DMA3TRIG8"/>
+            <bitenum id="DMA3TRIG9" value="0x9" description="DMA3TRIG9"/>
+            <bitenum id="DMA3TRIG10" value="0xA" description="DMA3TRIG10"/>
+            <bitenum id="DMA3TRIG11" value="0xB" description="DMA3TRIG11"/>
+            <bitenum id="DMA3TRIG12" value="0xC" description="DMA3TRIG12"/>
+            <bitenum id="DMA3TRIG13" value="0xD" description="DMA3TRIG13"/>
+            <bitenum id="DMA3TRIG14" value="0xE" description="DMA3TRIG14"/>
+            <bitenum id="DMA3TRIG15" value="0xF" description="DMA3TRIG15"/>
+            <bitenum id="DMA3TRIG16" value="0x10" description="DMA3TRIG16"/>
+            <bitenum id="DMA3TRIG17" value="0x11" description="DMA3TRIG17"/>
+            <bitenum id="DMA3TRIG18" value="0x12" description="DMA3TRIG18"/>
+            <bitenum id="DMA3TRIG19" value="0x13" description="DMA3TRIG19"/>
+            <bitenum id="DMA3TRIG20" value="0x14" description="DMA3TRIG20"/>
+            <bitenum id="DMA3TRIG21" value="0x15" description="DMA3TRIG21"/>
+            <bitenum id="DMA3TRIG22" value="0x16" description="DMA3TRIG22"/>
+            <bitenum id="DMA3TRIG23" value="0x17" description="DMA3TRIG23"/>
+            <bitenum id="DMA3TRIG24" value="0x18" description="DMA3TRIG24"/>
+            <bitenum id="DMA3TRIG25" value="0x19" description="DMA3TRIG25"/>
+            <bitenum id="DMA3TRIG26" value="0x1A" description="DMA3TRIG26"/>
+            <bitenum id="DMA3TRIG27" value="0x1B" description="DMA3TRIG27"/>
+            <bitenum id="DMA3TRIG28" value="0x1C" description="DMA3TRIG28"/>
+            <bitenum id="DMA3TRIG29" value="0x1D" description="DMA3TRIG29"/>
+            <bitenum id="DMA3TRIG30" value="0x1E" description="DMA3TRIG30"/>
+            <bitenum id="DMA3TRIG31" value="0x1F" description="DMA3TRIG31"/>
+        </bitfield>
+    </register>
+    <register id="DMACTL2" width="16" offset="0x4" internal="0" description="DMA Control 2">
+        <bitfield id="DMA4TSEL" description="DMA trigger select" begin="4" end="0" width="5" rwaccess="R/W">
+            <bitenum id="DMA4TRIG0" value="0x0" description="DMA4TRIG0"/>
+            <bitenum id="DMA4TRIG1" value="0x1" description="DMA4TRIG1"/>
+            <bitenum id="DMA4TRIG2" value="0x2" description="DMA4TRIG2"/>
+            <bitenum id="DMA4TRIG3" value="0x3" description="DMA4TRIG3"/>
+            <bitenum id="DMA4TRIG4" value="0x4" description="DMA4TRIG4"/>
+            <bitenum id="DMA4TRIG5" value="0x5" description="DMA4TRIG5"/>
+            <bitenum id="DMA4TRIG6" value="0x6" description="DMA4TRIG6"/>
+            <bitenum id="DMA4TRIG7" value="0x7" description="DMA4TRIG7"/>
+            <bitenum id="DMA4TRIG8" value="0x8" description="DMA4TRIG8"/>
+            <bitenum id="DMA4TRIG9" value="0x9" description="DMA4TRIG9"/>
+            <bitenum id="DMA4TRIG10" value="0xA" description="DMA4TRIG10"/>
+            <bitenum id="DMA4TRIG11" value="0xB" description="DMA4TRIG11"/>
+            <bitenum id="DMA4TRIG12" value="0xC" description="DMA4TRIG12"/>
+            <bitenum id="DMA4TRIG13" value="0xD" description="DMA4TRIG13"/>
+            <bitenum id="DMA4TRIG14" value="0xE" description="DMA4TRIG14"/>
+            <bitenum id="DMA4TRIG15" value="0xF" description="DMA4TRIG15"/>
+            <bitenum id="DMA4TRIG16" value="0x10" description="DMA4TRIG16"/>
+            <bitenum id="DMA4TRIG17" value="0x11" description="DMA4TRIG17"/>
+            <bitenum id="DMA4TRIG18" value="0x12" description="DMA4TRIG18"/>
+            <bitenum id="DMA4TRIG19" value="0x13" description="DMA4TRIG19"/>
+            <bitenum id="DMA4TRIG20" value="0x14" description="DMA4TRIG20"/>
+            <bitenum id="DMA4TRIG21" value="0x15" description="DMA4TRIG21"/>
+            <bitenum id="DMA4TRIG22" value="0x16" description="DMA4TRIG22"/>
+            <bitenum id="DMA4TRIG23" value="0x17" description="DMA4TRIG23"/>
+            <bitenum id="DMA4TRIG24" value="0x18" description="DMA4TRIG24"/>
+            <bitenum id="DMA4TRIG25" value="0x19" description="DMA4TRIG25"/>
+            <bitenum id="DMA4TRIG26" value="0x1A" description="DMA4TRIG26"/>
+            <bitenum id="DMA4TRIG27" value="0x1B" description="DMA4TRIG27"/>
+            <bitenum id="DMA4TRIG28" value="0x1C" description="DMA4TRIG28"/>
+            <bitenum id="DMA4TRIG29" value="0x1D" description="DMA4TRIG29"/>
+            <bitenum id="DMA4TRIG30" value="0x1E" description="DMA4TRIG30"/>
+            <bitenum id="DMA4TRIG31" value="0x1F" description="DMA4TRIG31"/>
+        </bitfield>
+        <bitfield id="DMA5TSEL" description="DMA trigger select" begin="12" end="8" width="5" rwaccess="R/W">
+            <bitenum id="DMA5TRIG0" value="0x0" description="DMA5TRIG0"/>
+            <bitenum id="DMA5TRIG1" value="0x1" description="DMA5TRIG1"/>
+            <bitenum id="DMA5TRIG2" value="0x2" description="DMA5TRIG2"/>
+            <bitenum id="DMA5TRIG3" value="0x3" description="DMA5TRIG3"/>
+            <bitenum id="DMA5TRIG4" value="0x4" description="DMA5TRIG4"/>
+            <bitenum id="DMA5TRIG5" value="0x5" description="DMA5TRIG5"/>
+            <bitenum id="DMA5TRIG6" value="0x6" description="DMA5TRIG6"/>
+            <bitenum id="DMA5TRIG7" value="0x7" description="DMA5TRIG7"/>
+            <bitenum id="DMA5TRIG8" value="0x8" description="DMA5TRIG8"/>
+            <bitenum id="DMA5TRIG9" value="0x9" description="DMA5TRIG9"/>
+            <bitenum id="DMA5TRIG10" value="0xA" description="DMA5TRIG10"/>
+            <bitenum id="DMA5TRIG11" value="0xB" description="DMA5TRIG11"/>
+            <bitenum id="DMA5TRIG12" value="0xC" description="DMA5TRIG12"/>
+            <bitenum id="DMA5TRIG13" value="0xD" description="DMA5TRIG13"/>
+            <bitenum id="DMA5TRIG14" value="0xE" description="DMA5TRIG14"/>
+            <bitenum id="DMA5TRIG15" value="0xF" description="DMA5TRIG15"/>
+            <bitenum id="DMA5TRIG16" value="0x10" description="DMA5TRIG16"/>
+            <bitenum id="DMA5TRIG17" value="0x11" description="DMA5TRIG17"/>
+            <bitenum id="DMA5TRIG18" value="0x12" description="DMA5TRIG18"/>
+            <bitenum id="DMA5TRIG19" value="0x13" description="DMA5TRIG19"/>
+            <bitenum id="DMA5TRIG20" value="0x14" description="DMA5TRIG20"/>
+            <bitenum id="DMA5TRIG21" value="0x15" description="DMA5TRIG21"/>
+            <bitenum id="DMA5TRIG22" value="0x16" description="DMA5TRIG22"/>
+            <bitenum id="DMA5TRIG23" value="0x17" description="DMA5TRIG23"/>
+            <bitenum id="DMA5TRIG24" value="0x18" description="DMA5TRIG24"/>
+            <bitenum id="DMA5TRIG25" value="0x19" description="DMA5TRIG25"/>
+            <bitenum id="DMA5TRIG26" value="0x1A" description="DMA5TRIG26"/>
+            <bitenum id="DMA5TRIG27" value="0x1B" description="DMA5TRIG27"/>
+            <bitenum id="DMA5TRIG28" value="0x1C" description="DMA5TRIG28"/>
+            <bitenum id="DMA5TRIG29" value="0x1D" description="DMA5TRIG29"/>
+            <bitenum id="DMA5TRIG30" value="0x1E" description="DMA5TRIG30"/>
+            <bitenum id="DMA5TRIG31" value="0x1F" description="DMA5TRIG31"/>
+        </bitfield>
+    </register>
+    <register id="DMACTL4" width="16" offset="0x8" internal="0" description="DMA Control 4">
+        <bitfield id="ENNMI" description="Enable NMI" begin="0" end="0" width="1" rwaccess="R/W">
+            <bitenum id="ENNMI_0" value="0x0" description="NMI does not interrupt DMA transfer"/>
+            <bitenum id="ENNMI_1" value="0x1" description="NMI interrupts a DMA transfer"/>
+        </bitfield>
+        <bitfield id="ROUNDROBIN" description="Round robin" begin="1" end="1" width="1" rwaccess="R/W">
+            <bitenum id="ROUNDROBIN_0" value="0x0" description="DMA channel priority is DMA0-DMA1-DMA2 - ... - DMA7"/>
+            <bitenum id="ROUNDROBIN_1" value="0x1" description="DMA channel priority changes with each transfer"/>
+        </bitfield>
+        <bitfield id="DMARMWDIS" description="Read-modify-write disable" begin="2" end="2" width="1" rwaccess="R/W">
+            <bitenum id="DMARMWDIS_0" value="0x0" description="DMA transfers can occur during read-modify-write CPU operations"/>
+            <bitenum id="DMARMWDIS_1" value="0x1" description="DMA transfers inhibited during read-modify-write CPU operations"/>
+        </bitfield>
+    </register>
+    <register id="DMAIV" width="16" offset="0xE" internal="0" description="DMA Interrupt Vector">
+        <bitfield id="DMAIV" description="DMA interrupt vector value" begin="15" end="0" width="16" rwaccess="R">
+            <bitenum id="NONE" value="0x0" description="No interrupt pending"/>
+            <bitenum id="DMA0IFG" value="0x2" description="Interrupt Source: DMA channel 0; Interrupt Flag: DMA0IFG; Interrupt Priority: Highest"/>
+            <bitenum id="DMA1IFG" value="0x4" description="Interrupt Source: DMA channel 1; Interrupt Flag: DMA1IFG"/>
+            <bitenum id="DMA2IFG" value="0x6" description="Interrupt Source: DMA channel 2; Interrupt Flag: DMA2IFG"/>
+            <bitenum id="DMA3IFG" value="0x8" description="Interrupt Source: DMA channel 3; Interrupt Flag: DMA3IFG"/>
+            <bitenum id="DMA4IFG" value="0xA" description="Interrupt Source: DMA channel 4; Interrupt Flag: DMA4IFG"/>
+            <bitenum id="DMA5IFG" value="0xC" description="Interrupt Source: DMA channel 5; Interrupt Flag: DMA5IFG"/>
+            <bitenum id="DMA6IFG" value="0xE" description="Interrupt Source: DMA channel 6; Interrupt Flag: DMA6IFG"/>
+            <bitenum id="DMA7IFG" value="0x10" description="Interrupt Source: DMA channel 7; Interrupt Flag: DMA7IFG; Interrupt Priority: Lowest"/>
+        </bitfield>
+    </register>
+    <register id="DMA0CTL" width="16" offset="0x10" internal="0" description="DMA Channel 0 Control">
+        <bitfield id="DMAREQ" description="DMA request" begin="0" end="0" width="1" rwaccess="R/W">
+            <bitenum id="DMAREQ_0" value="0x0" description="No DMA start"/>
+            <bitenum id="DMAREQ_1" value="0x1" description="Start DMA"/>
+        </bitfield>
+        <bitfield id="DMAABORT" description="DMA abort" begin="1" end="1" width="1" rwaccess="R/W">
+            <bitenum id="DMAABORT_0" value="0x0" description="DMA transfer not interrupted"/>
+            <bitenum id="DMAABORT_1" value="0x1" description="DMA transfer interrupted by NMI"/>
+        </bitfield>
+        <bitfield id="DMAIE" description="DMA interrupt enable" begin="2" end="2" width="1" rwaccess="R/W">
+            <bitenum id="DISABLE" value="0x0" description="Disabled"/>
+            <bitenum id="ENABLE" value="0x1" description="Enabled"/>
+        </bitfield>
+        <bitfield id="DMAIFG" description="DMA interrupt flag" begin="3" end="3" width="1" rwaccess="R/W">
+            <bitenum id="DMAIFG_0" value="0x0" description="No interrupt pending"/>
+            <bitenum id="DMAIFG_1" value="0x1" description="Interrupt pending"/>
+        </bitfield>
+        <bitfield id="DMAEN" description="DMA enable" begin="4" end="4" width="1" rwaccess="R/W">
+            <bitenum id="DISABLE" value="0x0" description="Disabled"/>
+            <bitenum id="ENABLE" value="0x1" description="Enabled"/>
+        </bitfield>
+        <bitfield id="DMALEVEL" description="DMA level" begin="5" end="5" width="1" rwaccess="R/W">
+            <bitenum id="EDGE" value="0x0" description="Edge sensitive (rising edge)"/>
+            <bitenum id="LEVEL" value="0x1" description="Level sensitive (high level)"/>
+        </bitfield>
+        <bitfield id="DMASRCBYTE" description="DMA source byte" begin="6" end="6" width="1" rwaccess="R/W">
+            <bitenum id="WORD" value="0x0" description="Word"/>
+            <bitenum id="BYTE" value="0x1" description="Byte"/>
+        </bitfield>
+        <bitfield id="DMADSTBYTE" description="DMA destination byte" begin="7" end="7" width="1" rwaccess="R/W">
+            <bitenum id="WORD" value="0x0" description="Word"/>
+            <bitenum id="BYTE" value="0x1" description="Byte"/>
+        </bitfield>
+        <bitfield id="DMASRCINCR" description="DMA source increment" begin="9" end="8" width="2" rwaccess="R/W">
+            <bitenum id="DMASRCINCR_0" value="0x0" description="Source address is unchanged"/>
+            <bitenum id="DMASRCINCR_1" value="0x1" description="Source address is unchanged"/>
+            <bitenum id="DMASRCINCR_2" value="0x2" description="Source address is decremented"/>
+            <bitenum id="DMASRCINCR_3" value="0x3" description="Source address is incremented"/>
+        </bitfield>
+        <bitfield id="DMADSTINCR" description="DMA destination increment" begin="11" end="10" width="2" rwaccess="R/W">
+            <bitenum id="DMADSTINCR_0" value="0x0" description="Destination address is unchanged"/>
+            <bitenum id="DMADSTINCR_1" value="0x1" description="Destination address is unchanged"/>
+            <bitenum id="DMADSTINCR_2" value="0x2" description="Destination address is decremented"/>
+            <bitenum id="DMADSTINCR_3" value="0x3" description="Destination address is incremented"/>
+        </bitfield>
+        <bitfield id="DMADT" description="DMA transfer mode" begin="14" end="12" width="3" rwaccess="R/W">
+            <bitenum id="DMADT_0" value="0x0" description="Single transfer"/>
+            <bitenum id="DMADT_1" value="0x1" description="Block transfer"/>
+            <bitenum id="DMADT_2" value="0x2" description="Burst-block transfer"/>
+            <bitenum id="DMADT_3" value="0x3" description="Burst-block transfer"/>
+            <bitenum id="DMADT_4" value="0x4" description="Repeated single transfer"/>
+            <bitenum id="DMADT_5" value="0x5" description="Repeated block transfer"/>
+            <bitenum id="DMADT_6" value="0x6" description="Repeated burst-block transfer"/>
+            <bitenum id="DMADT_7" value="0x7" description="Repeated burst-block transfer"/>
+        </bitfield>
+    </register>
+    <register id="DMA0SA" width="20" offset="0x12" internal="0" description="DMA Channel 0 Source Address">
+    </register>
+    <register id="DMA0DA" width="20" offset="0x16" internal="0" description="DMA Channel 0 Destination Address">
+    </register>
+    <register id="DMA0SZ" width="16" offset="0x1A" internal="0" description="DMA Channel 0 Transfer Size">
+    </register>
+    <register id="DMA1CTL" width="16" offset="0x20" internal="0" description="DMA Channel 1 Control">
+        <bitfield id="DMAREQ" description="DMA request" begin="0" end="0" width="1" rwaccess="R/W">
+            <bitenum id="DMAREQ_0" value="0x0" description="No DMA start"/>
+            <bitenum id="DMAREQ_1" value="0x1" description="Start DMA"/>
+        </bitfield>
+        <bitfield id="DMAABORT" description="DMA abort" begin="1" end="1" width="1" rwaccess="R/W">
+            <bitenum id="DMAABORT_0" value="0x0" description="DMA transfer not interrupted"/>
+            <bitenum id="DMAABORT_1" value="0x1" description="DMA transfer interrupted by NMI"/>
+        </bitfield>
+        <bitfield id="DMAIE" description="DMA interrupt enable" begin="2" end="2" width="1" rwaccess="R/W">
+            <bitenum id="DISABLE" value="0x0" description="Disabled"/>
+            <bitenum id="ENABLE" value="0x1" description="Enabled"/>
+        </bitfield>
+        <bitfield id="DMAIFG" description="DMA interrupt flag" begin="3" end="3" width="1" rwaccess="R/W">
+            <bitenum id="DMAIFG_0" value="0x0" description="No interrupt pending"/>
+            <bitenum id="DMAIFG_1" value="0x1" description="Interrupt pending"/>
+        </bitfield>
+        <bitfield id="DMAEN" description="DMA enable" begin="4" end="4" width="1" rwaccess="R/W">
+            <bitenum id="DISABLE" value="0x0" description="Disabled"/>
+            <bitenum id="ENABLE" value="0x1" description="Enabled"/>
+        </bitfield>
+        <bitfield id="DMALEVEL" description="DMA level" begin="5" end="5" width="1" rwaccess="R/W">
+            <bitenum id="EDGE" value="0x0" description="Edge sensitive (rising edge)"/>
+            <bitenum id="LEVEL" value="0x1" description="Level sensitive (high level)"/>
+        </bitfield>
+        <bitfield id="DMASRCBYTE" description="DMA source byte" begin="6" end="6" width="1" rwaccess="R/W">
+            <bitenum id="WORD" value="0x0" description="Word"/>
+            <bitenum id="BYTE" value="0x1" description="Byte"/>
+        </bitfield>
+        <bitfield id="DMADSTBYTE" description="DMA destination byte" begin="7" end="7" width="1" rwaccess="R/W">
+            <bitenum id="WORD" value="0x0" description="Word"/>
+            <bitenum id="BYTE" value="0x1" description="Byte"/>
+        </bitfield>
+        <bitfield id="DMASRCINCR" description="DMA source increment" begin="9" end="8" width="2" rwaccess="R/W">
+            <bitenum id="DMASRCINCR_0" value="0x0" description="Source address is unchanged"/>
+            <bitenum id="DMASRCINCR_1" value="0x1" description="Source address is unchanged"/>
+            <bitenum id="DMASRCINCR_2" value="0x2" description="Source address is decremented"/>
+            <bitenum id="DMASRCINCR_3" value="0x3" description="Source address is incremented"/>
+        </bitfield>
+        <bitfield id="DMADSTINCR" description="DMA destination increment" begin="11" end="10" width="2" rwaccess="R/W">
+            <bitenum id="DMADSTINCR_0" value="0x0" description="Destination address is unchanged"/>
+            <bitenum id="DMADSTINCR_1" value="0x1" description="Destination address is unchanged"/>
+            <bitenum id="DMADSTINCR_2" value="0x2" description="Destination address is decremented"/>
+            <bitenum id="DMADSTINCR_3" value="0x3" description="Destination address is incremented"/>
+        </bitfield>
+        <bitfield id="DMADT" description="DMA transfer mode" begin="14" end="12" width="3" rwaccess="R/W">
+            <bitenum id="DMADT_0" value="0x0" description="Single transfer"/>
+            <bitenum id="DMADT_1" value="0x1" description="Block transfer"/>
+            <bitenum id="DMADT_2" value="0x2" description="Burst-block transfer"/>
+            <bitenum id="DMADT_3" value="0x3" description="Burst-block transfer"/>
+            <bitenum id="DMADT_4" value="0x4" description="Repeated single transfer"/>
+            <bitenum id="DMADT_5" value="0x5" description="Repeated block transfer"/>
+            <bitenum id="DMADT_6" value="0x6" description="Repeated burst-block transfer"/>
+            <bitenum id="DMADT_7" value="0x7" description="Repeated burst-block transfer"/>
+        </bitfield>
+    </register>
+    <register id="DMA1SA" width="20" offset="0x22" internal="0" description="DMA Channel 1 Source Address">
+    </register>
+    <register id="DMA1DA" width="20" offset="0x26" internal="0" description="DMA Channel 1 Destination Address">
+    </register>
+    <register id="DMA1SZ" width="16" offset="0x2A" internal="0" description="DMA Channel 1 Transfer Size">
+    </register>
+    <register id="DMA2CTL" width="16" offset="0x30" internal="0" description="DMA Channel 2 Control">
+        <bitfield id="DMAREQ" description="DMA request" begin="0" end="0" width="1" rwaccess="R/W">
+            <bitenum id="DMAREQ_0" value="0x0" description="No DMA start"/>
+            <bitenum id="DMAREQ_1" value="0x1" description="Start DMA"/>
+        </bitfield>
+        <bitfield id="DMAABORT" description="DMA abort" begin="1" end="1" width="1" rwaccess="R/W">
+            <bitenum id="DMAABORT_0" value="0x0" description="DMA transfer not interrupted"/>
+            <bitenum id="DMAABORT_1" value="0x1" description="DMA transfer interrupted by NMI"/>
+        </bitfield>
+        <bitfield id="DMAIE" description="DMA interrupt enable" begin="2" end="2" width="1" rwaccess="R/W">
+            <bitenum id="DISABLE" value="0x0" description="Disabled"/>
+            <bitenum id="ENABLE" value="0x1" description="Enabled"/>
+        </bitfield>
+        <bitfield id="DMAIFG" description="DMA interrupt flag" begin="3" end="3" width="1" rwaccess="R/W">
+            <bitenum id="DMAIFG_0" value="0x0" description="No interrupt pending"/>
+            <bitenum id="DMAIFG_1" value="0x1" description="Interrupt pending"/>
+        </bitfield>
+        <bitfield id="DMAEN" description="DMA enable" begin="4" end="4" width="1" rwaccess="R/W">
+            <bitenum id="DISABLE" value="0x0" description="Disabled"/>
+            <bitenum id="ENABLE" value="0x1" description="Enabled"/>
+        </bitfield>
+        <bitfield id="DMALEVEL" description="DMA level" begin="5" end="5" width="1" rwaccess="R/W">
+            <bitenum id="EDGE" value="0x0" description="Edge sensitive (rising edge)"/>
+            <bitenum id="LEVEL" value="0x1" description="Level sensitive (high level)"/>
+        </bitfield>
+        <bitfield id="DMASRCBYTE" description="DMA source byte" begin="6" end="6" width="1" rwaccess="R/W">
+            <bitenum id="WORD" value="0x0" description="Word"/>
+            <bitenum id="BYTE" value="0x1" description="Byte"/>
+        </bitfield>
+        <bitfield id="DMADSTBYTE" description="DMA destination byte" begin="7" end="7" width="1" rwaccess="R/W">
+            <bitenum id="WORD" value="0x0" description="Word"/>
+            <bitenum id="BYTE" value="0x1" description="Byte"/>
+        </bitfield>
+        <bitfield id="DMASRCINCR" description="DMA source increment" begin="9" end="8" width="2" rwaccess="R/W">
+            <bitenum id="DMASRCINCR_0" value="0x0" description="Source address is unchanged"/>
+            <bitenum id="DMASRCINCR_1" value="0x1" description="Source address is unchanged"/>
+            <bitenum id="DMASRCINCR_2" value="0x2" description="Source address is decremented"/>
+            <bitenum id="DMASRCINCR_3" value="0x3" description="Source address is incremented"/>
+        </bitfield>
+        <bitfield id="DMADSTINCR" description="DMA destination increment" begin="11" end="10" width="2" rwaccess="R/W">
+            <bitenum id="DMADSTINCR_0" value="0x0" description="Destination address is unchanged"/>
+            <bitenum id="DMADSTINCR_1" value="0x1" description="Destination address is unchanged"/>
+            <bitenum id="DMADSTINCR_2" value="0x2" description="Destination address is decremented"/>
+            <bitenum id="DMADSTINCR_3" value="0x3" description="Destination address is incremented"/>
+        </bitfield>
+        <bitfield id="DMADT" description="DMA transfer mode" begin="14" end="12" width="3" rwaccess="R/W">
+            <bitenum id="DMADT_0" value="0x0" description="Single transfer"/>
+            <bitenum id="DMADT_1" value="0x1" description="Block transfer"/>
+            <bitenum id="DMADT_2" value="0x2" description="Burst-block transfer"/>
+            <bitenum id="DMADT_3" value="0x3" description="Burst-block transfer"/>
+            <bitenum id="DMADT_4" value="0x4" description="Repeated single transfer"/>
+            <bitenum id="DMADT_5" value="0x5" description="Repeated block transfer"/>
+            <bitenum id="DMADT_6" value="0x6" description="Repeated burst-block transfer"/>
+            <bitenum id="DMADT_7" value="0x7" description="Repeated burst-block transfer"/>
+        </bitfield>
+    </register>
+    <register id="DMA2SA" width="20" offset="0x32" internal="0" description="DMA Channel 2 Source Address">
+    </register>
+    <register id="DMA2DA" width="20" offset="0x36" internal="0" description="DMA Channel 2 Destination Address">
+    </register>
+    <register id="DMA2SZ" width="16" offset="0x3A" internal="0" description="DMA Channel 2 Transfer Size">
+    </register>
+    <register id="DMA3CTL" width="16" offset="0x40" internal="0" description="DMA Channel 3 Control">
+        <bitfield id="DMAREQ" description="DMA request" begin="0" end="0" width="1" rwaccess="R/W">
+            <bitenum id="DMAREQ_0" value="0x0" description="No DMA start"/>
+            <bitenum id="DMAREQ_1" value="0x1" description="Start DMA"/>
+        </bitfield>
+        <bitfield id="DMAABORT" description="DMA abort" begin="1" end="1" width="1" rwaccess="R/W">
+            <bitenum id="DMAABORT_0" value="0x0" description="DMA transfer not interrupted"/>
+            <bitenum id="DMAABORT_1" value="0x1" description="DMA transfer interrupted by NMI"/>
+        </bitfield>
+        <bitfield id="DMAIE" description="DMA interrupt enable" begin="2" end="2" width="1" rwaccess="R/W">
+            <bitenum id="DISABLE" value="0x0" description="Disabled"/>
+            <bitenum id="ENABLE" value="0x1" description="Enabled"/>
+        </bitfield>
+        <bitfield id="DMAIFG" description="DMA interrupt flag" begin="3" end="3" width="1" rwaccess="R/W">
+            <bitenum id="DMAIFG_0" value="0x0" description="No interrupt pending"/>
+            <bitenum id="DMAIFG_1" value="0x1" description="Interrupt pending"/>
+        </bitfield>
+        <bitfield id="DMAEN" description="DMA enable" begin="4" end="4" width="1" rwaccess="R/W">
+            <bitenum id="DISABLE" value="0x0" description="Disabled"/>
+            <bitenum id="ENABLE" value="0x1" description="Enabled"/>
+        </bitfield>
+        <bitfield id="DMALEVEL" description="DMA level" begin="5" end="5" width="1" rwaccess="R/W">
+            <bitenum id="EDGE" value="0x0" description="Edge sensitive (rising edge)"/>
+            <bitenum id="LEVEL" value="0x1" description="Level sensitive (high level)"/>
+        </bitfield>
+        <bitfield id="DMASRCBYTE" description="DMA source byte" begin="6" end="6" width="1" rwaccess="R/W">
+            <bitenum id="WORD" value="0x0" description="Word"/>
+            <bitenum id="BYTE" value="0x1" description="Byte"/>
+        </bitfield>
+        <bitfield id="DMADSTBYTE" description="DMA destination byte" begin="7" end="7" width="1" rwaccess="R/W">
+            <bitenum id="WORD" value="0x0" description="Word"/>
+            <bitenum id="BYTE" value="0x1" description="Byte"/>
+        </bitfield>
+        <bitfield id="DMASRCINCR" description="DMA source increment" begin="9" end="8" width="2" rwaccess="R/W">
+            <bitenum id="DMASRCINCR_0" value="0x0" description="Source address is unchanged"/>
+            <bitenum id="DMASRCINCR_1" value="0x1" description="Source address is unchanged"/>
+            <bitenum id="DMASRCINCR_2" value="0x2" description="Source address is decremented"/>
+            <bitenum id="DMASRCINCR_3" value="0x3" description="Source address is incremented"/>
+        </bitfield>
+        <bitfield id="DMADSTINCR" description="DMA destination increment" begin="11" end="10" width="2" rwaccess="R/W">
+            <bitenum id="DMADSTINCR_0" value="0x0" description="Destination address is unchanged"/>
+            <bitenum id="DMADSTINCR_1" value="0x1" description="Destination address is unchanged"/>
+            <bitenum id="DMADSTINCR_2" value="0x2" description="Destination address is decremented"/>
+            <bitenum id="DMADSTINCR_3" value="0x3" description="Destination address is incremented"/>
+        </bitfield>
+        <bitfield id="DMADT" description="DMA transfer mode" begin="14" end="12" width="3" rwaccess="R/W">
+            <bitenum id="DMADT_0" value="0x0" description="Single transfer"/>
+            <bitenum id="DMADT_1" value="0x1" description="Block transfer"/>
+            <bitenum id="DMADT_2" value="0x2" description="Burst-block transfer"/>
+            <bitenum id="DMADT_3" value="0x3" description="Burst-block transfer"/>
+            <bitenum id="DMADT_4" value="0x4" description="Repeated single transfer"/>
+            <bitenum id="DMADT_5" value="0x5" description="Repeated block transfer"/>
+            <bitenum id="DMADT_6" value="0x6" description="Repeated burst-block transfer"/>
+            <bitenum id="DMADT_7" value="0x7" description="Repeated burst-block transfer"/>
+        </bitfield>
+    </register>
+    <register id="DMA3SA" width="20" offset="0x42" internal="0" description="DMA Channel 3 Source Address">
+    </register>
+    <register id="DMA3DA" width="20" offset="0x46" internal="0" description="DMA Channel 3 Destination Address">
+    </register>
+    <register id="DMA3SZ" width="16" offset="0x4A" internal="0" description="DMA Channel 3 Transfer Size">
+    </register>
+    <register id="DMA4CTL" width="16" offset="0x50" internal="0" description="DMA Channel 4 Control">
+        <bitfield id="DMAREQ" description="DMA request" begin="0" end="0" width="1" rwaccess="R/W">
+            <bitenum id="DMAREQ_0" value="0x0" description="No DMA start"/>
+            <bitenum id="DMAREQ_1" value="0x1" description="Start DMA"/>
+        </bitfield>
+        <bitfield id="DMAABORT" description="DMA abort" begin="1" end="1" width="1" rwaccess="R/W">
+            <bitenum id="DMAABORT_0" value="0x0" description="DMA transfer not interrupted"/>
+            <bitenum id="DMAABORT_1" value="0x1" description="DMA transfer interrupted by NMI"/>
+        </bitfield>
+        <bitfield id="DMAIE" description="DMA interrupt enable" begin="2" end="2" width="1" rwaccess="R/W">
+            <bitenum id="DISABLE" value="0x0" description="Disabled"/>
+            <bitenum id="ENABLE" value="0x1" description="Enabled"/>
+        </bitfield>
+        <bitfield id="DMAIFG" description="DMA interrupt flag" begin="3" end="3" width="1" rwaccess="R/W">
+            <bitenum id="DMAIFG_0" value="0x0" description="No interrupt pending"/>
+            <bitenum id="DMAIFG_1" value="0x1" description="Interrupt pending"/>
+        </bitfield>
+        <bitfield id="DMAEN" description="DMA enable" begin="4" end="4" width="1" rwaccess="R/W">
+            <bitenum id="DISABLE" value="0x0" description="Disabled"/>
+            <bitenum id="ENABLE" value="0x1" description="Enabled"/>
+        </bitfield>
+        <bitfield id="DMALEVEL" description="DMA level" begin="5" end="5" width="1" rwaccess="R/W">
+            <bitenum id="EDGE" value="0x0" description="Edge sensitive (rising edge)"/>
+            <bitenum id="LEVEL" value="0x1" description="Level sensitive (high level)"/>
+        </bitfield>
+        <bitfield id="DMASRCBYTE" description="DMA source byte" begin="6" end="6" width="1" rwaccess="R/W">
+            <bitenum id="WORD" value="0x0" description="Word"/>
+            <bitenum id="BYTE" value="0x1" description="Byte"/>
+        </bitfield>
+        <bitfield id="DMADSTBYTE" description="DMA destination byte" begin="7" end="7" width="1" rwaccess="R/W">
+            <bitenum id="WORD" value="0x0" description="Word"/>
+            <bitenum id="BYTE" value="0x1" description="Byte"/>
+        </bitfield>
+        <bitfield id="DMASRCINCR" description="DMA source increment" begin="9" end="8" width="2" rwaccess="R/W">
+            <bitenum id="DMASRCINCR_0" value="0x0" description="Source address is unchanged"/>
+            <bitenum id="DMASRCINCR_1" value="0x1" description="Source address is unchanged"/>
+            <bitenum id="DMASRCINCR_2" value="0x2" description="Source address is decremented"/>
+            <bitenum id="DMASRCINCR_3" value="0x3" description="Source address is incremented"/>
+        </bitfield>
+        <bitfield id="DMADSTINCR" description="DMA destination increment" begin="11" end="10" width="2" rwaccess="R/W">
+            <bitenum id="DMADSTINCR_0" value="0x0" description="Destination address is unchanged"/>
+            <bitenum id="DMADSTINCR_1" value="0x1" description="Destination address is unchanged"/>
+            <bitenum id="DMADSTINCR_2" value="0x2" description="Destination address is decremented"/>
+            <bitenum id="DMADSTINCR_3" value="0x3" description="Destination address is incremented"/>
+        </bitfield>
+        <bitfield id="DMADT" description="DMA transfer mode" begin="14" end="12" width="3" rwaccess="R/W">
+            <bitenum id="DMADT_0" value="0x0" description="Single transfer"/>
+            <bitenum id="DMADT_1" value="0x1" description="Block transfer"/>
+            <bitenum id="DMADT_2" value="0x2" description="Burst-block transfer"/>
+            <bitenum id="DMADT_3" value="0x3" description="Burst-block transfer"/>
+            <bitenum id="DMADT_4" value="0x4" description="Repeated single transfer"/>
+            <bitenum id="DMADT_5" value="0x5" description="Repeated block transfer"/>
+            <bitenum id="DMADT_6" value="0x6" description="Repeated burst-block transfer"/>
+            <bitenum id="DMADT_7" value="0x7" description="Repeated burst-block transfer"/>
+        </bitfield>
+    </register>
+    <register id="DMA4SA" width="20" offset="0x52" internal="0" description="DMA Channel 4 Source Address">
+    </register>
+    <register id="DMA4DA" width="20" offset="0x56" internal="0" description="DMA Channel 4 Destination Address">
+    </register>
+    <register id="DMA4SZ" width="16" offset="0x5A" internal="0" description="DMA Channel 4 Transfer Size">
+    </register>
+    <register id="DMA5CTL" width="16" offset="0x60" internal="0" description="DMA Channel 5 Control">
+        <bitfield id="DMAREQ" description="DMA request" begin="0" end="0" width="1" rwaccess="R/W">
+            <bitenum id="DMAREQ_0" value="0x0" description="No DMA start"/>
+            <bitenum id="DMAREQ_1" value="0x1" description="Start DMA"/>
+        </bitfield>
+        <bitfield id="DMAABORT" description="DMA abort" begin="1" end="1" width="1" rwaccess="R/W">
+            <bitenum id="DMAABORT_0" value="0x0" description="DMA transfer not interrupted"/>
+            <bitenum id="DMAABORT_1" value="0x1" description="DMA transfer interrupted by NMI"/>
+        </bitfield>
+        <bitfield id="DMAIE" description="DMA interrupt enable" begin="2" end="2" width="1" rwaccess="R/W">
+            <bitenum id="DISABLE" value="0x0" description="Disabled"/>
+            <bitenum id="ENABLE" value="0x1" description="Enabled"/>
+        </bitfield>
+        <bitfield id="DMAIFG" description="DMA interrupt flag" begin="3" end="3" width="1" rwaccess="R/W">
+            <bitenum id="DMAIFG_0" value="0x0" description="No interrupt pending"/>
+            <bitenum id="DMAIFG_1" value="0x1" description="Interrupt pending"/>
+        </bitfield>
+        <bitfield id="DMAEN" description="DMA enable" begin="4" end="4" width="1" rwaccess="R/W">
+            <bitenum id="DISABLE" value="0x0" description="Disabled"/>
+            <bitenum id="ENABLE" value="0x1" description="Enabled"/>
+        </bitfield>
+        <bitfield id="DMALEVEL" description="DMA level" begin="5" end="5" width="1" rwaccess="R/W">
+            <bitenum id="EDGE" value="0x0" description="Edge sensitive (rising edge)"/>
+            <bitenum id="LEVEL" value="0x1" description="Level sensitive (high level)"/>
+        </bitfield>
+        <bitfield id="DMASRCBYTE" description="DMA source byte" begin="6" end="6" width="1" rwaccess="R/W">
+            <bitenum id="WORD" value="0x0" description="Word"/>
+            <bitenum id="BYTE" value="0x1" description="Byte"/>
+        </bitfield>
+        <bitfield id="DMADSTBYTE" description="DMA destination byte" begin="7" end="7" width="1" rwaccess="R/W">
+            <bitenum id="WORD" value="0x0" description="Word"/>
+            <bitenum id="BYTE" value="0x1" description="Byte"/>
+        </bitfield>
+        <bitfield id="DMASRCINCR" description="DMA source increment" begin="9" end="8" width="2" rwaccess="R/W">
+            <bitenum id="DMASRCINCR_0" value="0x0" description="Source address is unchanged"/>
+            <bitenum id="DMASRCINCR_1" value="0x1" description="Source address is unchanged"/>
+            <bitenum id="DMASRCINCR_2" value="0x2" description="Source address is decremented"/>
+            <bitenum id="DMASRCINCR_3" value="0x3" description="Source address is incremented"/>
+        </bitfield>
+        <bitfield id="DMADSTINCR" description="DMA destination increment" begin="11" end="10" width="2" rwaccess="R/W">
+            <bitenum id="DMADSTINCR_0" value="0x0" description="Destination address is unchanged"/>
+            <bitenum id="DMADSTINCR_1" value="0x1" description="Destination address is unchanged"/>
+            <bitenum id="DMADSTINCR_2" value="0x2" description="Destination address is decremented"/>
+            <bitenum id="DMADSTINCR_3" value="0x3" description="Destination address is incremented"/>
+        </bitfield>
+        <bitfield id="DMADT" description="DMA transfer mode" begin="14" end="12" width="3" rwaccess="R/W">
+            <bitenum id="DMADT_0" value="0x0" description="Single transfer"/>
+            <bitenum id="DMADT_1" value="0x1" description="Block transfer"/>
+            <bitenum id="DMADT_2" value="0x2" description="Burst-block transfer"/>
+            <bitenum id="DMADT_3" value="0x3" description="Burst-block transfer"/>
+            <bitenum id="DMADT_4" value="0x4" description="Repeated single transfer"/>
+            <bitenum id="DMADT_5" value="0x5" description="Repeated block transfer"/>
+            <bitenum id="DMADT_6" value="0x6" description="Repeated burst-block transfer"/>
+            <bitenum id="DMADT_7" value="0x7" description="Repeated burst-block transfer"/>
+        </bitfield>
+    </register>
+    <register id="DMA5SA" width="20" offset="0x62" internal="0" description="DMA Channel 5 Source Address">
+    </register>
+    <register id="DMA5DA" width="20" offset="0x66" internal="0" description="DMA Channel 5 Destination Address">
+    </register>
+    <register id="DMA5SZ" width="16" offset="0x6A" internal="0" description="DMA Channel 5 Transfer Size">
+    </register>
+</module>

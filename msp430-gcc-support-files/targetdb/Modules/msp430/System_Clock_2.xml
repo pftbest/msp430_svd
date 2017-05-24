@@ -1,0 +1,12 @@
+<module HW_revision="" XML_version="1" description="System Clock" id="System Clock">
+<register acronym="SCFI0" description="System Clock Frequency Integrator 0" id="SCFI0" offset=" 0x0050" width="8">
+<bitfield begin="2" description="FN_2" end="2" id="FN_2" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="3" description="FN_3" end="3" id="FN_3" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="4" description="FN_4" end="4" id="FN_4" range="" resetval="0" rwaccess="RW" width="1"></bitfield></register>
+<register acronym="SCFI1" description="System Clock Frequency Integrator 1" id="SCFI1" offset=" 0x0051" width="8"></register>
+<register acronym="SCFQCTL" description="System Clock Frequency Control" id="SCFQCTL" offset=" 0x0052" width="8"></register>
+<register acronym="CBCTL" description="Crystal Buffer Control *** WRITE-ONLY ***" id="CBCTL" offset=" 0x0053" width="8">
+<bitfield begin="0" description="CBE" end="0" id="CBE" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="1" description="CBSEL0" end="1" id="CBSEL0" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="2" description="CBSEL1" end="2" id="CBSEL1" range="" resetval="0" rwaccess="RW" width="1"></bitfield></register>
+</module>

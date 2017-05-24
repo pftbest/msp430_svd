@@ -1,0 +1,17 @@
+<module HW_revision="" XML_version="1" description="CRC32" id="CRC32">
+<register acronym="CRC32DIW0" description="CRC32 Data In" id="CRC32DIW0" offset=" 0x0980" width="16"></register>
+<register acronym="CRC32DIW1" description="CRC32 Data In" id="CRC32DIW1" offset=" 0x0982" width="16"></register>
+<register acronym="CRC32DIRBW1" description="CRC32 Data In Reversed Bit" id="CRC32DIRBW1" offset=" 0x0984" width="16"></register>
+<register acronym="CRC32DIRBW0" description="CRC32 Data In Reversed Bit" id="CRC32DIRBW0" offset=" 0x0986" width="16"></register>
+<register acronym="CRC32INIRESW0" description="CRC32 Initialization and Result" id="CRC32INIRESW0" offset=" 0x0988" width="16"></register>
+<register acronym="CRC32INIRESW1" description="CRC32 Initialization and Result" id="CRC32INIRESW1" offset=" 0x098A" width="16"></register>
+<register acronym="CRC32RESRW1" description="CRC32 Result Reverse" id="CRC32RESRW1" offset=" 0x098C" width="16"></register>
+<register acronym="CRC32RESRW0" description="CRC32 Result Reverse" id="CRC32RESRW0" offset=" 0x098E" width="16"></register>
+<register acronym="CRC16DIW0" description="CRC16 Data Input" id="CRC16DIW0" offset=" 0x0990" width="16"></register>
+<register acronym="CRC16DIW1" description="CRC16 Data Input" id="CRC16DIW1" offset=" 0x0992" width="16"></register>
+<register acronym="CRC16DIRBW1" description="CRC16 Data In Reverse" id="CRC16DIRBW1" offset=" 0x0994" width="16"></register>
+<register acronym="CRC16DIRBW0" description="CRC16 Data In Reverse" id="CRC16DIRBW0" offset=" 0x0996" width="16"></register>
+<register acronym="CRC16INIRESW0" description="CRC16 Init and Result" id="CRC16INIRESW0" offset=" 0x0998" width="16"></register>
+<register acronym="CRC16RESRW0" description="CRC16 Result Reverse" id="CRC16RESRW0" offset=" 0x099E" width="16"></register>
+<register acronym="CRC16RESRW1" description="CRC16 Result Reverse" id="CRC16RESRW1" offset=" 0x099C" width="16"></register>
+</module>

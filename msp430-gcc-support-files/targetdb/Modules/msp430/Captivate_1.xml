@@ -1,0 +1,15 @@
+<module HW_revision="" XML_version="1" description="Captivate" id="Captivate">
+<register acronym="CAPIE" description="Captivate Interrupt Enable Register" id="CAPIE" offset=" 0x0B20" width="16">
+<bitfield begin="0" description="End of conversion interrupt enable" end="0" id="EOCIEN" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="1" description="Captivate detection interrupt enable" end="1" id="CAPDTCTIEN" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="2" description="Captivate Timer interrupt enable" end="2" id="CAPTIEN" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="3" description="Captivate Conversion Counter interrupt enable" end="3" id="CAPCNTRIEN" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="8" description="Captivate maximum count interrupt enable" end="8" id="CAPMAXIEN" range="" resetval="0" rwaccess="RW" width="1"></bitfield></register>
+<register acronym="CAPIFG" description="Captivate Interrupt Flag Register" id="CAPIFG" offset=" 0x0B22" width="16">
+<bitfield begin="0" description="End of conversion interrupt flag" end="0" id="EOCIFG" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="1" description="Captivate detection interrupt flag" end="1" id="CAPDTCTIFG" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="2" description="Captivate Timer interrupt flag" end="2" id="CAPTIFG" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="3" description="Captivate Conversion Counter interrupt flag" end="3" id="CAPCNTRIFG" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="8" description="Captivate maximum count interrupt flag" end="8" id="CAPMAXIFG" range="" resetval="0" rwaccess="RW" width="1"></bitfield></register>
+<register acronym="CAPIV" description="Captivate Interrupt Vector Register" id="CAPIV" offset=" 0x0B24" width="16"></register>
+</module>

@@ -1,0 +1,16 @@
+<module HW_revision="" XML_version="1" description="PMM  Power Management System" id="PMM  Power Management System">
+<register acronym="PMMCTL0" description="PMM Control 0" id="PMMCTL0" offset=" 0x0120" width="16">
+<bitfield begin="2" description="PMM Software BOR" end="2" id="PMMSWBOR" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="3" description="PMM Software POR" end="3" id="PMMSWPOR" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="4" description="PMM Turn Regulator off" end="4" id="PMMREGOFF" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="6" description="SVS high side enable" end="6" id="SVSHE" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="7" description="PMM Low-Power Reset Enable" end="7" id="PMMLPRST" range="" resetval="0" rwaccess="RW" width="1"></bitfield></register>
+<register acronym="PMMIFG" description="PMM Interrupt Flag" id="PMMIFG" offset=" 0x012A" width="16">
+<bitfield begin="8" description="PMM Software BOR interrupt flag" end="8" id="PMMBORIFG" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="9" description="PMM RESET pin interrupt flag" end="9" id="PMMRSTIFG" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="10" description="PMM Software POR interrupt flag" end="10" id="PMMPORIFG" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="13" description="SVS low side interrupt flag" end="13" id="SVSHIFG" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="15" description="LPM5 indication Flag" end="15" id="PMMLPM5IFG" range="" resetval="0" rwaccess="RW" width="1"></bitfield></register>
+<register acronym="PM5CTL0" description="PMM Power Mode 5 Control Register 0" id="PM5CTL0" offset=" 0x0130" width="16">
+<bitfield begin="0" description="Lock I/O pin configuration upon entry/exit to/from LPM5" end="0" id="LOCKLPM5" range="" resetval="0" rwaccess="RW" width="1"></bitfield></register>
+</module>

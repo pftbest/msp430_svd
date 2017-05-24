@@ -1,0 +1,44 @@
+<?xml version="1.0"?> 
+<!-- **************************************************** -->
+<!-- * Revision 1.2                                       -->
+<!-- **************************************************** -->
+<drivers id="TMS320C6XXX">
+   <isa Type="TMS320C620X" ProcID="0x50018B20">
+       <driver file="../../DebugServer/bin/libDataSnapshotDecoder.dylib">
+			<connectionType Type="DataSnapshotViewer"/>
+		</driver>
+   </isa>
+   <isa Type="TMS320C670X" ProcID="0x50019F20">
+       <driver file="../../DebugServer/bin/libDataSnapshotDecoder.dylib">
+			<connectionType Type="DataSnapshotViewer"/>
+		</driver>
+   </isa>
+   <isa Type="TMS320C621X" ProcID="0x50018B28">
+       <driver file="../../DebugServer/bin/libDataSnapshotDecoder.dylib">
+			<connectionType Type="DataSnapshotViewer"/>
+		</driver>
+   </isa>
+   <isa Type="TMS320C671X" ProcID="0x50019F28">
+       <driver file="../../DebugServer/bin/libDataSnapshotDecoder.dylib">
+			<connectionType Type="DataSnapshotViewer"/>
+		</driver>
+   </isa>
+   <isa Type="TMS320C672X" ProcID="0x50019F30">
+      <driver file="../../DebugServer/bin/libDataSnapshotDecoder.dylib">
+			<connectionType Type="DataSnapshotViewer"/>
+		</driver>
+   </isa>
+   
+   <driverProperties>
+		<version number="1.0"/>
+		<choicelist id="Endianness" type="string_list" must="true">
+			<choice value="Little Endian"></choice>
+			<choice value="Big Endian"></choice>
+		</choicelist>
+		<current>
+			<cchoice key="Device" value="C64x+"/>
+			<cchoice key="Endianness" value="Little Endian"/>
+		</current>
+	</driverProperties>
+</drivers>
+

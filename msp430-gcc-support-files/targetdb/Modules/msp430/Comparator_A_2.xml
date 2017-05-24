@@ -1,0 +1,32 @@
+<module HW_revision="" XML_version="1" description="Comparator A" id="Comparator A">
+<register acronym="CACTL1" description="Comparator A Control 1" id="CACTL1" offset=" 0x0059" width="8">
+<bitfield begin="0" description="Comp. A Interrupt Flag" end="0" id="CAIFG" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="1" description="Comp. A Interrupt Enable" end="1" id="CAIE" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="2" description="Comp. A Int. Edge Select: 0:rising / 1:falling" end="2" id="CAIES" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="3" description="Comp. A enable" end="3" id="CAON" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="5" description="Comp. A Internal Reference Select 0" end="4" id="CAREF" range="" resetval="0" rwaccess="RW" width="2">
+<bitenum description="Comp. A Int. Ref. Select 0 : Off" id="CAREF_0" token="CAREF_0" value="0"></bitenum>
+<bitenum description="Comp. A Int. Ref. Select 1 : 0.25*Vcc" id="CAREF_1" token="CAREF_1" value="1"></bitenum>
+<bitenum description="Comp. A Int. Ref. Select 2 : 0.5*Vcc" id="CAREF_2" token="CAREF_2" value="2"></bitenum>
+<bitenum description="Comp. A Int. Ref. Select 3 : Vt" id="CAREF_3" token="CAREF_3" value="3"></bitenum></bitfield>
+<bitfield begin="6" description="Comp. A Internal Reference Enable" end="6" id="CARSEL" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="7" description="Comp. A Exchange Inputs" end="7" id="CAEX" range="" resetval="0" rwaccess="RW" width="1"></bitfield></register>
+<register acronym="CACTL2" description="Comparator A Control 2" id="CACTL2" offset=" 0x005A" width="8">
+<bitfield begin="0" description="Comp. A Output" end="0" id="CAOUT" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="1" description="Comp. A Enable Output Filter" end="1" id="CAF" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="2" description="Comp. A +Terminal Multiplexer" end="2" id="P2CA0" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="3" description="Comp. A -Terminal Multiplexer" end="3" id="P2CA1" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="4" description="Comp. A -Terminal Multiplexer" end="4" id="P2CA2" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="5" description="Comp. A -Terminal Multiplexer" end="5" id="P2CA3" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="6" description="Comp. A +Terminal Multiplexer" end="6" id="P2CA4" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="7" description="Comp. A Short + and - Terminals" end="7" id="CASHORT" range="" resetval="0" rwaccess="RW" width="1"></bitfield></register>
+<register acronym="CAPD" description="Comparator A Port Disable" id="CAPD" offset=" 0x005B" width="8">
+<bitfield begin="0" description="Comp. A Disable Input Buffer of Port Register .0" end="0" id="CAPD0" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="1" description="Comp. A Disable Input Buffer of Port Register .1" end="1" id="CAPD1" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="2" description="Comp. A Disable Input Buffer of Port Register .2" end="2" id="CAPD2" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="3" description="Comp. A Disable Input Buffer of Port Register .3" end="3" id="CAPD3" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="4" description="Comp. A Disable Input Buffer of Port Register .4" end="4" id="CAPD4" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="5" description="Comp. A Disable Input Buffer of Port Register .5" end="5" id="CAPD5" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="6" description="Comp. A Disable Input Buffer of Port Register .6" end="6" id="CAPD6" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="7" description="Comp. A Disable Input Buffer of Port Register .7" end="7" id="CAPD7" range="" resetval="0" rwaccess="RW" width="1"></bitfield></register>
+</module>

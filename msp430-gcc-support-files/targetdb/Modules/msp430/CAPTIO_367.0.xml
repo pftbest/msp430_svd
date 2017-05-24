@@ -1,0 +1,40 @@
+<module id="CAPTIO" HW_revision="367.0">
+    <register id="CAPTIOCTL" width="16" offset="0xE" internal="0" description="Capacitive Touch IO 0 Control Register">
+        <bitfield id="CAPTIOPISEL" description="Capacitive Touch IO pin select" begin="3" end="1" width="3" rwaccess="R/W">
+            <bitenum id="CAPTIOPISEL_0" value="0x0" description="Px.0"/>
+            <bitenum id="CAPTIOPISEL_1" value="0x1" description="Px.1"/>
+            <bitenum id="CAPTIOPISEL_2" value="0x2" description="Px.2"/>
+            <bitenum id="CAPTIOPISEL_3" value="0x3" description="Px.3"/>
+            <bitenum id="CAPTIOPISEL_4" value="0x4" description="Px.4"/>
+            <bitenum id="CAPTIOPISEL_5" value="0x5" description="Px.5"/>
+            <bitenum id="CAPTIOPISEL_6" value="0x6" description="Px.6"/>
+            <bitenum id="CAPTIOPISEL_7" value="0x7" description="Px.7"/>
+        </bitfield>
+        <bitfield id="CAPTIOPOSEL" description="Capacitive Touch IO port select" begin="7" end="4" width="4" rwaccess="R/W">
+            <bitenum id="PJ" value="0x0" description="Px = PJ"/>
+            <bitenum id="P1" value="0x1" description="Px = P1"/>
+            <bitenum id="P2" value="0x2" description="Px = P2"/>
+            <bitenum id="P3" value="0x3" description="Px = P3"/>
+            <bitenum id="P4" value="0x4" description="Px = P4"/>
+            <bitenum id="P5" value="0x5" description="Px = P5"/>
+            <bitenum id="P6" value="0x6" description="Px = P6"/>
+            <bitenum id="P7" value="0x7" description="Px = P7"/>
+            <bitenum id="P8" value="0x8" description="Px = P8"/>
+            <bitenum id="P9" value="0x9" description="Px = P9"/>
+            <bitenum id="P10" value="0xA" description="Px = P10"/>
+            <bitenum id="P11" value="0xB" description="Px = P11"/>
+            <bitenum id="P12" value="0xC" description="Px = P12"/>
+            <bitenum id="P13" value="0xD" description="Px = P13"/>
+            <bitenum id="P14" value="0xE" description="Px = P14"/>
+            <bitenum id="P15" value="0xF" description="Px = P15"/>
+        </bitfield>
+        <bitfield id="CAPTIOEN" description="Capacitive Touch IO enable" begin="8" end="8" width="1" rwaccess="R/W">
+            <bitenum id="OFF" value="0x0" description="All Capacitive Touch IOs are disabled. Signal towards timers is 0."/>
+            <bitenum id="ON" value="0x1" description="Selected Capacitive Touch IO is enabled"/>
+        </bitfield>
+        <bitfield id="CAPTIO" description="Capacitive Touch IO state" begin="9" end="9" width="1" rwaccess="R">
+            <bitenum id="CAPTIO_0" value="0x0" description="Curent state 0 or Capacitive Touch IO is disabled"/>
+            <bitenum id="CAPTIO_1" value="0x1" description="Current state 1"/>
+        </bitfield>
+    </register>
+</module>

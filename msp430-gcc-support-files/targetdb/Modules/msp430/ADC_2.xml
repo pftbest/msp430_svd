@@ -1,0 +1,110 @@
+<module HW_revision="" XML_version="1" description="ADC" id="ADC">
+<register acronym="ADCCTL0" description="ADC Control 0" id="ADCCTL0" offset=" 0x0700" width="16">
+<bitfield begin="0" description="ADC Start Conversion" end="0" id="ADCSC" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="1" description="ADC Enable Conversion" end="1" id="ADCENC" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="4" description="ADC On/enable" end="4" id="ADCON" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="7" description="ADC Multiple SampleConversion" end="7" id="ADCMSC" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="11" description="ADC Sample Hold Select Bit: 0" end="8" id="ADCSHT" range="" resetval="0" rwaccess="RW" width="4">
+<bitenum description="ADC Sample Hold Select 0" id="ADCSHT_0" token="ADCSHT_0" value="0"></bitenum>
+<bitenum description="ADC Sample Hold Select 1" id="ADCSHT_1" token="ADCSHT_1" value="1"></bitenum>
+<bitenum description="ADC Sample Hold Select 2" id="ADCSHT_2" token="ADCSHT_2" value="2"></bitenum>
+<bitenum description="ADC Sample Hold Select 3" id="ADCSHT_3" token="ADCSHT_3" value="3"></bitenum>
+<bitenum description="ADC Sample Hold Select 4" id="ADCSHT_4" token="ADCSHT_4" value="4"></bitenum>
+<bitenum description="ADC Sample Hold Select 5" id="ADCSHT_5" token="ADCSHT_5" value="5"></bitenum>
+<bitenum description="ADC Sample Hold Select 6" id="ADCSHT_6" token="ADCSHT_6" value="6"></bitenum>
+<bitenum description="ADC Sample Hold Select 7" id="ADCSHT_7" token="ADCSHT_7" value="7"></bitenum>
+<bitenum description="ADC Sample Hold Select 8" id="ADCSHT_8" token="ADCSHT_8" value="8"></bitenum>
+<bitenum description="ADC Sample Hold Select 9" id="ADCSHT_9" token="ADCSHT_9" value="9"></bitenum>
+<bitenum description="ADC Sample Hold Select 10" id="ADCSHT_10" token="ADCSHT_10" value="10"></bitenum>
+<bitenum description="ADC Sample Hold Select 11" id="ADCSHT_11" token="ADCSHT_11" value="11"></bitenum>
+<bitenum description="ADC Sample Hold Select 12" id="ADCSHT_12" token="ADCSHT_12" value="12"></bitenum>
+<bitenum description="ADC Sample Hold Select 13" id="ADCSHT_13" token="ADCSHT_13" value="13"></bitenum>
+<bitenum description="ADC Sample Hold Select 14" id="ADCSHT_14" token="ADCSHT_14" value="14"></bitenum>
+<bitenum description="ADC Sample Hold Select 15" id="ADCSHT_15" token="ADCSHT_15" value="15"></bitenum></bitfield></register>
+<register acronym="ADCCTL1" description="ADC Control 1" id="ADCCTL1" offset=" 0x0702" width="16">
+<bitfield begin="0" description="ADC Busy" end="0" id="ADCBUSY" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="2" description="ADC Conversion Sequence Select 0" end="1" id="ADCCONSEQ" range="" resetval="0" rwaccess="RW" width="2">
+<bitenum description="ADC Conversion Sequence Select: 0" id="ADCCONSEQ_0" token="ADCCONSEQ_0" value="0"></bitenum>
+<bitenum description="ADC Conversion Sequence Select: 1" id="ADCCONSEQ_1" token="ADCCONSEQ_1" value="1"></bitenum>
+<bitenum description="ADC Conversion Sequence Select: 2" id="ADCCONSEQ_2" token="ADCCONSEQ_2" value="2"></bitenum>
+<bitenum description="ADC Conversion Sequence Select: 3" id="ADCCONSEQ_3" token="ADCCONSEQ_3" value="3"></bitenum></bitfield>
+<bitfield begin="4" description="ADC Clock Source Select 0" end="3" id="ADCSSEL" range="" resetval="0" rwaccess="RW" width="2">
+<bitenum description="ADC Clock Source Select: 0" id="ADCSSEL_0" token="ADCSSEL_0" value="0"></bitenum>
+<bitenum description="ADC Clock Source Select: 1" id="ADCSSEL_1" token="ADCSSEL_1" value="1"></bitenum>
+<bitenum description="ADC Clock Source Select: 2" id="ADCSSEL_2" token="ADCSSEL_2" value="2"></bitenum>
+<bitenum description="ADC Clock Source Select: 3" id="ADCSSEL_3" token="ADCSSEL_3" value="3"></bitenum></bitfield>
+<bitfield begin="7" description="ADC Clock Divider Select 0" end="5" id="ADCDIV" range="" resetval="0" rwaccess="RW" width="3">
+<bitenum description="ADC Clock Divider Select: 0" id="ADCDIV_0" token="ADCDIV_0" value="0"></bitenum>
+<bitenum description="ADC Clock Divider Select: 1" id="ADCDIV_1" token="ADCDIV_1" value="1"></bitenum>
+<bitenum description="ADC Clock Divider Select: 2" id="ADCDIV_2" token="ADCDIV_2" value="2"></bitenum>
+<bitenum description="ADC Clock Divider Select: 3" id="ADCDIV_3" token="ADCDIV_3" value="3"></bitenum>
+<bitenum description="ADC Clock Divider Select: 4" id="ADCDIV_4" token="ADCDIV_4" value="4"></bitenum>
+<bitenum description="ADC Clock Divider Select: 5" id="ADCDIV_5" token="ADCDIV_5" value="5"></bitenum>
+<bitenum description="ADC Clock Divider Select: 6" id="ADCDIV_6" token="ADCDIV_6" value="6"></bitenum>
+<bitenum description="ADC Clock Divider Select: 7" id="ADCDIV_7" token="ADCDIV_7" value="7"></bitenum></bitfield>
+<bitfield begin="8" description="ADC Invert Sample Hold Signal" end="8" id="ADCISSH" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="9" description="ADC Sample/Hold Pulse Mode" end="9" id="ADCSHP" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="11" description="ADC Sample/Hold Source 0" end="10" id="ADCSHS" range="" resetval="0" rwaccess="RW" width="2">
+<bitenum description="ADC Sample/Hold Source: 0" id="ADCSHS_0" token="ADCSHS_0" value="0"></bitenum>
+<bitenum description="ADC Sample/Hold Source: 1" id="ADCSHS_1" token="ADCSHS_1" value="1"></bitenum>
+<bitenum description="ADC Sample/Hold Source: 2" id="ADCSHS_2" token="ADCSHS_2" value="2"></bitenum>
+<bitenum description="ADC Sample/Hold Source: 3" id="ADCSHS_3" token="ADCSHS_3" value="3"></bitenum></bitfield></register>
+<register acronym="ADCCTL2" description="ADC Control 2" id="ADCCTL2" offset=" 0x0704" width="16">
+<bitfield begin="2" description="ADC Sampling Rate" end="2" id="ADCSR" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="3" description="ADC Data Format" end="3" id="ADCDF" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="5" description="ADC Resolution" end="4" id="ADCRES" range="" resetval="0" rwaccess="RW" width="2">
+<bitenum description="8 bit" id="ADCRES_0" token="ADCRES_0" value="0"></bitenum>
+<bitenum description="10 bit" id="ADCRES_1" token="ADCRES_1" value="1"></bitenum>
+<bitenum description="Reserved" id="ADCRES_2" token="ADCRES_2" value="2"></bitenum>
+<bitenum description="Reserved" id="ADCRES_3" token="ADCRES_3" value="3"></bitenum></bitfield>
+<bitfield begin="9" description="ADC predivider Bit: 0" end="8" id="ADCPDIV" range="" resetval="0" rwaccess="RW" width="2">
+<bitenum description="ADC predivider /1" id="ADCPDIV_0" token="ADCPDIV_0" value="0"></bitenum>
+<bitenum description="ADC predivider /2" id="ADCPDIV_1" token="ADCPDIV_1" value="1"></bitenum>
+<bitenum description="ADC predivider /64" id="ADCPDIV_2" token="ADCPDIV_2" value="2"></bitenum>
+<bitenum description="ADC predivider reserved" id="ADCPDIV_3" token="ADCPDIV_3" value="3"></bitenum></bitfield></register>
+<register acronym="ADCLO" description="ADC Window Comparator High Threshold" id="ADCLO" offset=" 0x0706" width="16"></register>
+<register acronym="ADCHI" description="ADC Window Comparator High Threshold" id="ADCHI" offset=" 0x0708" width="16"></register>
+<register acronym="ADCMCTL0" description="ADC Memory Control 0" id="ADCMCTL0" offset=" 0x070A" width="16">
+<bitfield begin="3" description="ADC Input Channel Select Bit 0" end="0" id="ADCINCH" range="" resetval="0" rwaccess="RW" width="4">
+<bitenum description="ADC Input Channel 0" id="ADCINCH_0" token="ADCINCH_0" value="0"></bitenum>
+<bitenum description="ADC Input Channel 1" id="ADCINCH_1" token="ADCINCH_1" value="1"></bitenum>
+<bitenum description="ADC Input Channel 2" id="ADCINCH_2" token="ADCINCH_2" value="2"></bitenum>
+<bitenum description="ADC Input Channel 3" id="ADCINCH_3" token="ADCINCH_3" value="3"></bitenum>
+<bitenum description="ADC Input Channel 4" id="ADCINCH_4" token="ADCINCH_4" value="4"></bitenum>
+<bitenum description="ADC Input Channel 5" id="ADCINCH_5" token="ADCINCH_5" value="5"></bitenum>
+<bitenum description="ADC Input Channel 6" id="ADCINCH_6" token="ADCINCH_6" value="6"></bitenum>
+<bitenum description="ADC Input Channel 7" id="ADCINCH_7" token="ADCINCH_7" value="7"></bitenum>
+<bitenum description="ADC Input Channel 8" id="ADCINCH_8" token="ADCINCH_8" value="8"></bitenum>
+<bitenum description="ADC Input Channel 9" id="ADCINCH_9" token="ADCINCH_9" value="9"></bitenum>
+<bitenum description="ADC Input Channel 10" id="ADCINCH_10" token="ADCINCH_10" value="10"></bitenum>
+<bitenum description="ADC Input Channel 11" id="ADCINCH_11" token="ADCINCH_11" value="11"></bitenum>
+<bitenum description="ADC Input Channel 12" id="ADCINCH_12" token="ADCINCH_12" value="12"></bitenum>
+<bitenum description="ADC Input Channel 13" id="ADCINCH_13" token="ADCINCH_13" value="13"></bitenum>
+<bitenum description="ADC Input Channel 14" id="ADCINCH_14" token="ADCINCH_14" value="14"></bitenum>
+<bitenum description="ADC Input Channel 15" id="ADCINCH_15" token="ADCINCH_15" value="15"></bitenum></bitfield>
+<bitfield begin="6" description="ADC Select Reference Bit 0" end="4" id="ADCSREF" range="" resetval="0" rwaccess="RW" width="3">
+<bitenum description="ADC Select Reference 0" id="ADCSREF_0" token="ADCSREF_0" value="0"></bitenum>
+<bitenum description="ADC Select Reference 1" id="ADCSREF_1" token="ADCSREF_1" value="1"></bitenum>
+<bitenum description="ADC Select Reference 2" id="ADCSREF_2" token="ADCSREF_2" value="2"></bitenum>
+<bitenum description="ADC Select Reference 3" id="ADCSREF_3" token="ADCSREF_3" value="3"></bitenum>
+<bitenum description="ADC Select Reference 4" id="ADCSREF_4" token="ADCSREF_4" value="4"></bitenum>
+<bitenum description="ADC Select Reference 5" id="ADCSREF_5" token="ADCSREF_5" value="5"></bitenum>
+<bitenum description="ADC Select Reference 6" id="ADCSREF_6" token="ADCSREF_6" value="6"></bitenum>
+<bitenum description="ADC Select Reference 7" id="ADCSREF_7" token="ADCSREF_7" value="7"></bitenum></bitfield></register>
+<register acronym="ADCMEM0" description="ADC Conversion Memory 0" id="ADCMEM0" offset=" 0x0712" width="16"></register>
+<register acronym="ADCIE" description="ADC Interrupt Enable" id="ADCIE" offset=" 0x071A" width="16">
+<bitfield begin="0" description="ADC Interrupt enable" end="0" id="ADCIE0" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="1" description="ADC Interrupt enable for the inside of window of the Window comparator" end="1" id="ADCINIE" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="2" description="ADC Interrupt enable for lower threshold of the Window comparator" end="2" id="ADCLOIE" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="3" description="ADC Interrupt enable for upper threshold of the Window comparator" end="3" id="ADCHIIE" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="4" description="ADC ADCMEM overflow Interrupt enable" end="4" id="ADCOVIE" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="5" description="ADC conversion-time-overflow Interrupt enable" end="5" id="ADCTOVIE" range="" resetval="0" rwaccess="RW" width="1"></bitfield></register>
+<register acronym="ADCIFG" description="ADC Interrupt Flag" id="ADCIFG" offset=" 0x071C" width="16">
+<bitfield begin="0" description="ADC Interrupt Flag" end="0" id="ADCIFG0" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="1" description="ADC Interrupt Flag for the inside of window of the Window comparator" end="1" id="ADCINIFG" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="2" description="ADC Interrupt Flag for lower threshold of the Window comparator" end="2" id="ADCLOIFG" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="3" description="ADC Interrupt Flag for upper threshold of the Window comparator" end="3" id="ADCHIIFG" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="4" description="ADC ADCMEM overflow Interrupt Flag" end="4" id="ADCOVIFG" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="5" description="ADC conversion-time-overflow Interrupt Flag" end="5" id="ADCTOVIFG" range="" resetval="0" rwaccess="RW" width="1"></bitfield></register>
+<register acronym="ADCIV" description="ADC Interrupt Vector Word" id="ADCIV" offset=" 0x071E" width="16"></register>
+</module>

@@ -1,0 +1,163 @@
+<module HW_revision="" XML_version="1" description="Comparator E" id="Comparator E">
+<register acronym="CECTL0" description="Comparator E Control Register 0" id="CECTL0" offset=" 0x08C0" width="16">
+<bitfield begin="3" description="Comp. E Pos. Channel Input Select 0" end="0" id="CEIPSEL" range="" resetval="0" rwaccess="RW" width="4">
+<bitenum description="Comp. E V+ terminal Input Select: Channel 0" id="CEIPSEL_0" token="CEIPSEL_0" value="0"></bitenum>
+<bitenum description="Comp. E V+ terminal Input Select: Channel 1" id="CEIPSEL_1" token="CEIPSEL_1" value="1"></bitenum>
+<bitenum description="Comp. E V+ terminal Input Select: Channel 2" id="CEIPSEL_2" token="CEIPSEL_2" value="2"></bitenum>
+<bitenum description="Comp. E V+ terminal Input Select: Channel 3" id="CEIPSEL_3" token="CEIPSEL_3" value="3"></bitenum>
+<bitenum description="Comp. E V+ terminal Input Select: Channel 4" id="CEIPSEL_4" token="CEIPSEL_4" value="4"></bitenum>
+<bitenum description="Comp. E V+ terminal Input Select: Channel 5" id="CEIPSEL_5" token="CEIPSEL_5" value="5"></bitenum>
+<bitenum description="Comp. E V+ terminal Input Select: Channel 6" id="CEIPSEL_6" token="CEIPSEL_6" value="6"></bitenum>
+<bitenum description="Comp. E V+ terminal Input Select: Channel 7" id="CEIPSEL_7" token="CEIPSEL_7" value="7"></bitenum>
+<bitenum description="Comp. E V+ terminal Input Select: Channel 8" id="CEIPSEL_8" token="CEIPSEL_8" value="8"></bitenum>
+<bitenum description="Comp. E V+ terminal Input Select: Channel 9" id="CEIPSEL_9" token="CEIPSEL_9" value="9"></bitenum>
+<bitenum description="Comp. E V+ terminal Input Select: Channel 10" id="CEIPSEL_10" token="CEIPSEL_10" value="10"></bitenum>
+<bitenum description="Comp. E V+ terminal Input Select: Channel 11" id="CEIPSEL_11" token="CEIPSEL_11" value="11"></bitenum>
+<bitenum description="Comp. E V+ terminal Input Select: Channel 12" id="CEIPSEL_12" token="CEIPSEL_12" value="12"></bitenum>
+<bitenum description="Comp. E V+ terminal Input Select: Channel 13" id="CEIPSEL_13" token="CEIPSEL_13" value="13"></bitenum>
+<bitenum description="Comp. E V+ terminal Input Select: Channel 14" id="CEIPSEL_14" token="CEIPSEL_14" value="14"></bitenum>
+<bitenum description="Comp. E V+ terminal Input Select: Channel 15" id="CEIPSEL_15" token="CEIPSEL_15" value="15"></bitenum></bitfield>
+<bitfield begin="7" description="Comp. E Pos. Channel Input Enable" end="7" id="CEIPEN" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="11" description="Comp. E Neg. Channel Input Select 0" end="8" id="CEIMSEL" range="" resetval="0" rwaccess="RW" width="4">
+<bitenum description="Comp. E V- Terminal Input Select: Channel 0" id="CEIMSEL_0" token="CEIMSEL_0" value="0"></bitenum>
+<bitenum description="Comp. E V- Terminal Input Select: Channel 1" id="CEIMSEL_1" token="CEIMSEL_1" value="1"></bitenum>
+<bitenum description="Comp. E V- Terminal Input Select: Channel 2" id="CEIMSEL_2" token="CEIMSEL_2" value="2"></bitenum>
+<bitenum description="Comp. E V- Terminal Input Select: Channel 3" id="CEIMSEL_3" token="CEIMSEL_3" value="3"></bitenum>
+<bitenum description="Comp. E V- Terminal Input Select: Channel 4" id="CEIMSEL_4" token="CEIMSEL_4" value="4"></bitenum>
+<bitenum description="Comp. E V- Terminal Input Select: Channel 5" id="CEIMSEL_5" token="CEIMSEL_5" value="5"></bitenum>
+<bitenum description="Comp. E V- Terminal Input Select: Channel 6" id="CEIMSEL_6" token="CEIMSEL_6" value="6"></bitenum>
+<bitenum description="Comp. E V- Terminal Input Select: Channel 7" id="CEIMSEL_7" token="CEIMSEL_7" value="7"></bitenum>
+<bitenum description="Comp. E V- terminal Input Select: Channel 8" id="CEIMSEL_8" token="CEIMSEL_8" value="8"></bitenum>
+<bitenum description="Comp. E V- terminal Input Select: Channel 9" id="CEIMSEL_9" token="CEIMSEL_9" value="9"></bitenum>
+<bitenum description="Comp. E V- terminal Input Select: Channel 10" id="CEIMSEL_10" token="CEIMSEL_10" value="10"></bitenum>
+<bitenum description="Comp. E V- terminal Input Select: Channel 11" id="CEIMSEL_11" token="CEIMSEL_11" value="11"></bitenum>
+<bitenum description="Comp. E V- terminal Input Select: Channel 12" id="CEIMSEL_12" token="CEIMSEL_12" value="12"></bitenum>
+<bitenum description="Comp. E V- terminal Input Select: Channel 13" id="CEIMSEL_13" token="CEIMSEL_13" value="13"></bitenum>
+<bitenum description="Comp. E V- terminal Input Select: Channel 14" id="CEIMSEL_14" token="CEIMSEL_14" value="14"></bitenum>
+<bitenum description="Comp. E V- terminal Input Select: Channel 15" id="CEIMSEL_15" token="CEIMSEL_15" value="15"></bitenum></bitfield>
+<bitfield begin="15" description="Comp. E Neg. Channel Input Enable" end="15" id="CEIMEN" range="" resetval="0" rwaccess="RW" width="1"></bitfield></register>
+<register acronym="CECTL1" description="Comparator E Control Register 1" id="CECTL1" offset=" 0x08C2" width="16">
+<bitfield begin="0" description="Comp. E Output" end="0" id="CEOUT" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="1" description="Comp. E Output Polarity" end="1" id="CEOUTPOL" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="2" description="Comp. E Enable Output Filter" end="2" id="CEF" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="3" description="Comp. E Interrupt Edge Select" end="3" id="CEIES" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="4" description="Comp. E Input Short" end="4" id="CESHORT" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="5" description="Comp. E Exchange Inputs" end="5" id="CEEX" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="7" description="Comp. E Filter delay Bit 0" end="6" id="CEFDLY" range="" resetval="0" rwaccess="RW" width="2">
+<bitenum description="Comp. E Filter delay 0 : 450ns" id="CEFDLY_0" token="CEFDLY_0" value="0"></bitenum>
+<bitenum description="Comp. E Filter delay 1 : 900ns" id="CEFDLY_1" token="CEFDLY_1" value="1"></bitenum>
+<bitenum description="Comp. E Filter delay 2 : 1800ns" id="CEFDLY_2" token="CEFDLY_2" value="2"></bitenum>
+<bitenum description="Comp. E Filter delay 3 : 3600ns" id="CEFDLY_3" token="CEFDLY_3" value="3"></bitenum></bitfield>
+<bitfield begin="9" description="Comp. E Power mode Bit 0" end="8" id="CEPWRMD" range="" resetval="0" rwaccess="RW" width="2">
+<bitenum description="Comp. E Power mode 0" id="CEPWRMD_0" token="CEPWRMD_0" value="0"></bitenum>
+<bitenum description="Comp. E Power mode 1" id="CEPWRMD_1" token="CEPWRMD_1" value="1"></bitenum>
+<bitenum description="Comp. E Power mode 2" id="CEPWRMD_2" token="CEPWRMD_2" value="2"></bitenum>
+<bitenum description="Comp. E Power mode 3" id="CEPWRMD_3" token="CEPWRMD_3" value="3"></bitenum></bitfield>
+<bitfield begin="10" description="Comp. E enable" end="10" id="CEON" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="11" description="Comp. E CEMRV Level" end="11" id="CEMRVL" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="12" description="Comp. E Output selects between VREF0 or VREF1" end="12" id="CEMRVS" range="" resetval="0" rwaccess="RW" width="1"></bitfield></register>
+<register acronym="CECTL2" description="Comparator E Control Register 2" id="CECTL2" offset=" 0x08C4" width="16">
+<bitfield begin="4" description="Comp. E Reference 0 Resistor Select Bit : 0" end="0" id="CEREF0" range="" resetval="0" rwaccess="RW" width="5">
+<bitenum description="Comp. E Int. Ref.0 Select 0 : 1/32" id="CEREF0_0" token="CEREF0_0" value="0"></bitenum>
+<bitenum description="Comp. E Int. Ref.0 Select 1 : 2/32" id="CEREF0_1" token="CEREF0_1" value="1"></bitenum>
+<bitenum description="Comp. E Int. Ref.0 Select 2 : 3/32" id="CEREF0_2" token="CEREF0_2" value="2"></bitenum>
+<bitenum description="Comp. E Int. Ref.0 Select 3 : 4/32" id="CEREF0_3" token="CEREF0_3" value="3"></bitenum>
+<bitenum description="Comp. E Int. Ref.0 Select 4 : 5/32" id="CEREF0_4" token="CEREF0_4" value="4"></bitenum>
+<bitenum description="Comp. E Int. Ref.0 Select 5 : 6/32" id="CEREF0_5" token="CEREF0_5" value="5"></bitenum>
+<bitenum description="Comp. E Int. Ref.0 Select 6 : 7/32" id="CEREF0_6" token="CEREF0_6" value="6"></bitenum>
+<bitenum description="Comp. E Int. Ref.0 Select 7 : 8/32" id="CEREF0_7" token="CEREF0_7" value="7"></bitenum>
+<bitenum description="Comp. E Int. Ref.0 Select 0 : 9/32" id="CEREF0_8" token="CEREF0_8" value="8"></bitenum>
+<bitenum description="Comp. E Int. Ref.0 Select 1 : 10/32" id="CEREF0_9" token="CEREF0_9" value="9"></bitenum>
+<bitenum description="Comp. E Int. Ref.0 Select 2 : 11/32" id="CEREF0_10" token="CEREF0_10" value="10"></bitenum>
+<bitenum description="Comp. E Int. Ref.0 Select 3 : 12/32" id="CEREF0_11" token="CEREF0_11" value="11"></bitenum>
+<bitenum description="Comp. E Int. Ref.0 Select 4 : 13/32" id="CEREF0_12" token="CEREF0_12" value="12"></bitenum>
+<bitenum description="Comp. E Int. Ref.0 Select 5 : 14/32" id="CEREF0_13" token="CEREF0_13" value="13"></bitenum>
+<bitenum description="Comp. E Int. Ref.0 Select 6 : 15/32" id="CEREF0_14" token="CEREF0_14" value="14"></bitenum>
+<bitenum description="Comp. E Int. Ref.0 Select 7 : 16/32" id="CEREF0_15" token="CEREF0_15" value="15"></bitenum>
+<bitenum description="Comp. E Int. Ref.0 Select 0 : 17/32" id="CEREF0_16" token="CEREF0_16" value="16"></bitenum>
+<bitenum description="Comp. E Int. Ref.0 Select 1 : 18/32" id="CEREF0_17" token="CEREF0_17" value="17"></bitenum>
+<bitenum description="Comp. E Int. Ref.0 Select 2 : 19/32" id="CEREF0_18" token="CEREF0_18" value="18"></bitenum>
+<bitenum description="Comp. E Int. Ref.0 Select 3 : 20/32" id="CEREF0_19" token="CEREF0_19" value="19"></bitenum>
+<bitenum description="Comp. E Int. Ref.0 Select 4 : 21/32" id="CEREF0_20" token="CEREF0_20" value="20"></bitenum>
+<bitenum description="Comp. E Int. Ref.0 Select 5 : 22/32" id="CEREF0_21" token="CEREF0_21" value="21"></bitenum>
+<bitenum description="Comp. E Int. Ref.0 Select 6 : 23/32" id="CEREF0_22" token="CEREF0_22" value="22"></bitenum>
+<bitenum description="Comp. E Int. Ref.0 Select 7 : 24/32" id="CEREF0_23" token="CEREF0_23" value="23"></bitenum>
+<bitenum description="Comp. E Int. Ref.0 Select 0 : 25/32" id="CEREF0_24" token="CEREF0_24" value="24"></bitenum>
+<bitenum description="Comp. E Int. Ref.0 Select 1 : 26/32" id="CEREF0_25" token="CEREF0_25" value="25"></bitenum>
+<bitenum description="Comp. E Int. Ref.0 Select 2 : 27/32" id="CEREF0_26" token="CEREF0_26" value="26"></bitenum>
+<bitenum description="Comp. E Int. Ref.0 Select 3 : 28/32" id="CEREF0_27" token="CEREF0_27" value="27"></bitenum>
+<bitenum description="Comp. E Int. Ref.0 Select 4 : 29/32" id="CEREF0_28" token="CEREF0_28" value="28"></bitenum>
+<bitenum description="Comp. E Int. Ref.0 Select 5 : 30/32" id="CEREF0_29" token="CEREF0_29" value="29"></bitenum>
+<bitenum description="Comp. E Int. Ref.0 Select 6 : 31/32" id="CEREF0_30" token="CEREF0_30" value="30"></bitenum>
+<bitenum description="Comp. E Int. Ref.0 Select 7 : 32/32" id="CEREF0_31" token="CEREF0_31" value="31"></bitenum></bitfield>
+<bitfield begin="5" description="Comp. E Reference select" end="5" id="CERSEL" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="7" description="Comp. E Reference Source Bit : 0" end="6" id="CERS" range="" resetval="0" rwaccess="RW" width="2">
+<bitenum description="Comp. E Reference Source 0 : Off" id="CERS_0" token="CERS_0" value="0"></bitenum>
+<bitenum description="Comp. E Reference Source 1 : Vcc" id="CERS_1" token="CERS_1" value="1"></bitenum>
+<bitenum description="Comp. E Reference Source 2 : Shared Ref." id="CERS_2" token="CERS_2" value="2"></bitenum>
+<bitenum description="Comp. E Reference Source 3 : Shared Ref. / Off" id="CERS_3" token="CERS_3" value="3"></bitenum></bitfield>
+<bitfield begin="12" description="Comp. E Reference 1 Resistor Select Bit : 0" end="8" id="CEREF1" range="" resetval="0" rwaccess="RW" width="5">
+<bitenum description="Comp. E Int. Ref.1 Select 0 : 1/32" id="CEREF1_0" token="CEREF1_0" value="0"></bitenum>
+<bitenum description="Comp. E Int. Ref.1 Select 1 : 2/32" id="CEREF1_1" token="CEREF1_1" value="1"></bitenum>
+<bitenum description="Comp. E Int. Ref.1 Select 2 : 3/32" id="CEREF1_2" token="CEREF1_2" value="2"></bitenum>
+<bitenum description="Comp. E Int. Ref.1 Select 3 : 4/32" id="CEREF1_3" token="CEREF1_3" value="3"></bitenum>
+<bitenum description="Comp. E Int. Ref.1 Select 4 : 5/32" id="CEREF1_4" token="CEREF1_4" value="4"></bitenum>
+<bitenum description="Comp. E Int. Ref.1 Select 5 : 6/32" id="CEREF1_5" token="CEREF1_5" value="5"></bitenum>
+<bitenum description="Comp. E Int. Ref.1 Select 6 : 7/32" id="CEREF1_6" token="CEREF1_6" value="6"></bitenum>
+<bitenum description="Comp. E Int. Ref.1 Select 7 : 8/32" id="CEREF1_7" token="CEREF1_7" value="7"></bitenum>
+<bitenum description="Comp. E Int. Ref.1 Select 0 : 9/32" id="CEREF1_8" token="CEREF1_8" value="8"></bitenum>
+<bitenum description="Comp. E Int. Ref.1 Select 1 : 10/32" id="CEREF1_9" token="CEREF1_9" value="9"></bitenum>
+<bitenum description="Comp. E Int. Ref.1 Select 2 : 11/32" id="CEREF1_10" token="CEREF1_10" value="10"></bitenum>
+<bitenum description="Comp. E Int. Ref.1 Select 3 : 12/32" id="CEREF1_11" token="CEREF1_11" value="11"></bitenum>
+<bitenum description="Comp. E Int. Ref.1 Select 4 : 13/32" id="CEREF1_12" token="CEREF1_12" value="12"></bitenum>
+<bitenum description="Comp. E Int. Ref.1 Select 5 : 14/32" id="CEREF1_13" token="CEREF1_13" value="13"></bitenum>
+<bitenum description="Comp. E Int. Ref.1 Select 6 : 15/32" id="CEREF1_14" token="CEREF1_14" value="14"></bitenum>
+<bitenum description="Comp. E Int. Ref.1 Select 7 : 16/32" id="CEREF1_15" token="CEREF1_15" value="15"></bitenum>
+<bitenum description="Comp. E Int. Ref.1 Select 0 : 17/32" id="CEREF1_16" token="CEREF1_16" value="16"></bitenum>
+<bitenum description="Comp. E Int. Ref.1 Select 1 : 18/32" id="CEREF1_17" token="CEREF1_17" value="17"></bitenum>
+<bitenum description="Comp. E Int. Ref.1 Select 2 : 19/32" id="CEREF1_18" token="CEREF1_18" value="18"></bitenum>
+<bitenum description="Comp. E Int. Ref.1 Select 3 : 20/32" id="CEREF1_19" token="CEREF1_19" value="19"></bitenum>
+<bitenum description="Comp. E Int. Ref.1 Select 4 : 21/32" id="CEREF1_20" token="CEREF1_20" value="20"></bitenum>
+<bitenum description="Comp. E Int. Ref.1 Select 5 : 22/32" id="CEREF1_21" token="CEREF1_21" value="21"></bitenum>
+<bitenum description="Comp. E Int. Ref.1 Select 6 : 23/32" id="CEREF1_22" token="CEREF1_22" value="22"></bitenum>
+<bitenum description="Comp. E Int. Ref.1 Select 7 : 24/32" id="CEREF1_23" token="CEREF1_23" value="23"></bitenum>
+<bitenum description="Comp. E Int. Ref.1 Select 0 : 25/32" id="CEREF1_24" token="CEREF1_24" value="24"></bitenum>
+<bitenum description="Comp. E Int. Ref.1 Select 1 : 26/32" id="CEREF1_25" token="CEREF1_25" value="25"></bitenum>
+<bitenum description="Comp. E Int. Ref.1 Select 2 : 27/32" id="CEREF1_26" token="CEREF1_26" value="26"></bitenum>
+<bitenum description="Comp. E Int. Ref.1 Select 3 : 28/32" id="CEREF1_27" token="CEREF1_27" value="27"></bitenum>
+<bitenum description="Comp. E Int. Ref.1 Select 4 : 29/32" id="CEREF1_28" token="CEREF1_28" value="28"></bitenum>
+<bitenum description="Comp. E Int. Ref.1 Select 5 : 30/32" id="CEREF1_29" token="CEREF1_29" value="29"></bitenum>
+<bitenum description="Comp. E Int. Ref.1 Select 6 : 31/32" id="CEREF1_30" token="CEREF1_30" value="30"></bitenum>
+<bitenum description="Comp. E Int. Ref.1 Select 7 : 32/32" id="CEREF1_31" token="CEREF1_31" value="31"></bitenum></bitfield>
+<bitfield begin="14" description="Comp. E Reference voltage level Bit : 0" end="13" id="CEREFL" range="" resetval="0" rwaccess="RW" width="2">
+<bitenum description="Comp. E Reference voltage level 0 : None" id="CEREFL_0" token="CEREFL_0" value="0"></bitenum>
+<bitenum description="Comp. E Reference voltage level 1 : 1.2V" id="CEREFL_1" token="CEREFL_1" value="1"></bitenum>
+<bitenum description="Comp. E Reference voltage level 2 : 2.0V" id="CEREFL_2" token="CEREFL_2" value="2"></bitenum>
+<bitenum description="Comp. E Reference voltage level 3 : 2.5V" id="CEREFL_3" token="CEREFL_3" value="3"></bitenum></bitfield>
+<bitfield begin="15" description="Comp. E Reference Accuracy" end="15" id="CEREFACC" range="" resetval="0" rwaccess="RW" width="1"></bitfield></register>
+<register acronym="CECTL3" description="Comparator E Control Register 3" id="CECTL3" offset=" 0x08C6" width="16">
+<bitfield begin="0" description="Comp. E Disable Input Buffer of Port Register .0" end="0" id="CEPD0" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="1" description="Comp. E Disable Input Buffer of Port Register .1" end="1" id="CEPD1" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="2" description="Comp. E Disable Input Buffer of Port Register .2" end="2" id="CEPD2" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="3" description="Comp. E Disable Input Buffer of Port Register .3" end="3" id="CEPD3" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="4" description="Comp. E Disable Input Buffer of Port Register .4" end="4" id="CEPD4" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="5" description="Comp. E Disable Input Buffer of Port Register .5" end="5" id="CEPD5" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="6" description="Comp. E Disable Input Buffer of Port Register .6" end="6" id="CEPD6" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="7" description="Comp. E Disable Input Buffer of Port Register .7" end="7" id="CEPD7" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="8" description="Comp. E Disable Input Buffer of Port Register .8" end="8" id="CEPD8" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="9" description="Comp. E Disable Input Buffer of Port Register .9" end="9" id="CEPD9" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="10" description="Comp. E Disable Input Buffer of Port Register .10" end="10" id="CEPD10" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="11" description="Comp. E Disable Input Buffer of Port Register .11" end="11" id="CEPD11" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="12" description="Comp. E Disable Input Buffer of Port Register .12" end="12" id="CEPD12" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="13" description="Comp. E Disable Input Buffer of Port Register .13" end="13" id="CEPD13" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="14" description="Comp. E Disable Input Buffer of Port Register .14" end="14" id="CEPD14" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="15" description="Comp. E Disable Input Buffer of Port Register .15" end="15" id="CEPD15" range="" resetval="0" rwaccess="RW" width="1"></bitfield></register>
+<register acronym="CEINT" description="Comparator E Interrupt Register" id="CEINT" offset=" 0x08CC" width="16">
+<bitfield begin="0" description="Comp. E Interrupt Flag" end="0" id="CEIFG" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="1" description="Comp. E Interrupt Flag Inverted Polarity" end="1" id="CEIIFG" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="4" description="Comp. E Comparator_E ready interrupt flag" end="4" id="CERDYIFG" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="8" description="Comp. E Interrupt Enable" end="8" id="CEIE" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="9" description="Comp. E Interrupt Enable Inverted Polarity" end="9" id="CEIIE" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="12" description="Comp. E Comparator_E ready interrupt enable" end="12" id="CERDYIE" range="" resetval="0" rwaccess="RW" width="1"></bitfield></register>
+<register acronym="CEIV" description="Comparator E Interrupt Vector Word" id="CEIV" offset=" 0x08CE" width="16"></register>
+</module>

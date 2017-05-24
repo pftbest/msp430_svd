@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<drivers id="tixds560csstm">
+	<isa Type="TMS470R26X" ProcID="0x75809804">
+		<driver file="../../DebugServer/bin/libDataSnapshotDecoder.dylib">
+			<connectionType Type="DataSnapshotViewer"/>
+			<property Name="Address" Type="numericfield" Value="0x0" NumericType="HEX" UpperBound="0xFFFFFFFF" LowerBound="0" ID="device.address"/>
+			<property Name="TraceDeviceId" Type="numericfield" Value="0x0" NumericType="HEX" UpperBound="0xFFFFFFFF" LowerBound="0" ID="device.traceId"/>
+		</driver>
+	</isa>
+</drivers>

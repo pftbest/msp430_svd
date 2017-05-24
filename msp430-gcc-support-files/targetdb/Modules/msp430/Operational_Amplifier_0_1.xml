@@ -1,0 +1,20 @@
+<module HW_revision="" XML_version="1" description="Operational Amplifier 0" id="Operational Amplifier 0">
+<register acronym="OA0CTL0" description="OA0 Control register 0" id="OA0CTL0" offset=" 0x0AE0" width="16">
+<bitfield begin="0" description="Amplifier mode selection" end="0" id="OAM" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="5" description="Rail-to-rail input enable" end="5" id="OARRI" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="6" description="Rail-to-rail input ready status" end="6" id="OARRIRDY" range="" resetval="0" rwaccess="RW" width="1"></bitfield></register>
+<register acronym="OA0PSW" description="OA0 Positive Input Terminal Switches" id="OA0PSW" offset=" 0x0AE2" width="16">
+<bitfield begin="0" description="Positive input terminal switch 0 control" end="0" id="PSW0" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="1" description="Positive input terminal switch 1 control" end="1" id="PSW1" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="2" description="Positive input terminal switch 2 control" end="2" id="PSW2" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="3" description="Positive input terminal switch 3 control" end="3" id="PSW3" range="" resetval="0" rwaccess="RW" width="1"></bitfield></register>
+<register acronym="OA0NSW" description="OA0 Negative Input Terminal Switches" id="OA0NSW" offset=" 0x0AE4" width="16">
+<bitfield begin="0" description="Negative input terminal switch 0 control" end="0" id="NSW0" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="1" description="Negative input terminal switch 1 control" end="1" id="NSW1" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="2" description="Negative input terminal switch 2 control" end="2" id="NSW2" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="3" description="Negative input terminal switch 3 control" end="3" id="NSW3" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="4" description="Negative input terminal switch 4 control" end="4" id="NSW4" range="" resetval="0" rwaccess="RW" width="1"></bitfield></register>
+<register acronym="OA0GSW" description="OA0 Ground Switches" id="OA0GSW" offset=" 0x0AEE" width="16">
+<bitfield begin="0" description="Ground switch 0" end="0" id="GSW0" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="1" description="Ground switch 1" end="1" id="GSW1" range="" resetval="0" rwaccess="RW" width="1"></bitfield></register>
+</module>

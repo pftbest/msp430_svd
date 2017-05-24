@@ -1,0 +1,35 @@
+<module id="P1" HW_revision="272.0">
+    <register id="P1IV" width="16" offset="0xE" internal="0" description="Port 1 Interrupt Vector Register">
+        <bitfield id="P1IV" description="Port 1 interrupt vector value" begin="4" end="0" width="5" rwaccess="R">
+            <bitenum id="NONE" value="0x0" description="No interrupt pending"/>
+            <bitenum id="P1IFG0" value="0x2" description="Interrupt Source: Port 1.0 interrupt; Interrupt Flag: P1IFG0; Interrupt Priority: Highest"/>
+            <bitenum id="P1IFG1" value="0x4" description="Interrupt Source: Port 1.1 interrupt; Interrupt Flag: P1IFG1"/>
+            <bitenum id="P1IFG2" value="0x6" description="Interrupt Source: Port 1.2 interrupt; Interrupt Flag: P1IFG2"/>
+            <bitenum id="P1IFG3" value="0x8" description="Interrupt Source: Port 1.3 interrupt; Interrupt Flag: P1IFG3"/>
+            <bitenum id="P1IFG4" value="0xA" description="Interrupt Source: Port 1.4 interrupt; Interrupt Flag: P1IFG4"/>
+            <bitenum id="P1IFG5" value="0xC" description="Interrupt Source: Port 1.5 interrupt; Interrupt Flag: P1IFG5"/>
+            <bitenum id="P1IFG6" value="0xE" description="Interrupt Source: Port 1.6 interrupt; Interrupt Flag: P1IFG6"/>
+            <bitenum id="P1IFG7" value="0x10" description="Interrupt Source: Port 1.7 interrupt; Interrupt Flag: P1IFG7; Interrupt Priority: Lowest"/>
+        </bitfield>
+    </register>
+    <register id="P1IN" width="8" offset="0x0" internal="0" description="Port 1 Input">
+    </register>
+    <register id="P1OUT" width="8" offset="0x2" internal="0" description="Port 1 Output">
+    </register>
+    <register id="P1DIR" width="8" offset="0x4" internal="0" description="Port 1 Direction">
+    </register>
+    <register id="P1REN" width="8" offset="0x6" internal="0" description="Port 1 Resistor Enable">
+    </register>
+    <register id="P1SEL0" width="8" offset="0xA" internal="0" description="Port 1 Select 0">
+    </register>
+    <register id="P1SEL1" width="8" offset="0xC" internal="0" description="Port 1 Select 1">
+    </register>
+    <register id="P1SELC" width="8" offset="0x16" internal="0" description="Port 1 Complement Select">
+    </register>
+    <register id="P1IES" width="8" offset="0x18" internal="0" description="Port 1 Interrupt Edge Select">
+    </register>
+    <register id="P1IE" width="8" offset="0x1A" internal="0" description="Port 1 Interrupt Enable">
+    </register>
+    <register id="P1IFG" width="8" offset="0x1C" internal="0" description="Port 1 Interrupt Flag">
+    </register>
+</module>

@@ -1,0 +1,60 @@
+<module HW_revision="" XML_version="1" description="Timer_Event_Control" id="Timer_Event_Control">
+<register acronym="TEC0XCTL0" description="Timer Event Control 0 External Control 0" id="TEC0XCTL0" offset=" 0x0C00" width="16">
+<bitfield begin="0" description="TEV Ext. fault signal hold for CE0" end="0" id="TECXFLTHLD0" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="1" description="TEV Ext. fault signal hold for CE1" end="1" id="TECXFLTHLD1" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="2" description="TEV Ext. fault signal hold for CE2" end="2" id="TECXFLTHLD2" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="3" description="TEV Ext. fault signal hold for CE3" end="3" id="TECXFLTHLD3" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="4" description="TEV Ext. fault signal hold for CE4" end="4" id="TECXFLTHLD4" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="5" description="TEV Ext. fault signal hold for CE5" end="5" id="TECXFLTHLD5" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="6" description="TEV Ext. fault signal hold for CE6" end="6" id="TECXFLTHLD6" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="8" description="TEV Ext. fault signal enable for CE0" end="8" id="TECXFLTEN0" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="9" description="TEV Ext. fault signal enable for CE1" end="9" id="TECXFLTEN1" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="10" description="TEV Ext. fault signal enable for CE2" end="10" id="TECXFLTEN2" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="11" description="TEV Ext. fault signal enable for CE3" end="11" id="TECXFLTEN3" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="12" description="TEV Ext. fault signal enable for CE4" end="12" id="TECXFLTEN4" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="13" description="TEV Ext. fault signal enable for CE5" end="13" id="TECXFLTEN5" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="14" description="TEV Ext. fault signal enable for CE6" end="14" id="TECXFLTEN6" range="" resetval="0" rwaccess="RW" width="1"></bitfield></register>
+<register acronym="TEC0XCTL1" description="Timer Event Control 0 External Control 1" id="TEC0XCTL1" offset=" 0x0C02" width="16">
+<bitfield begin="0" description="TEV Polarity Bit of ext. fault 0" end="0" id="TECXFLTPOL0" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="1" description="TEV Polarity Bit of ext. fault 1" end="1" id="TECXFLTPOL1" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="2" description="TEV Polarity Bit of ext. fault 2" end="2" id="TECXFLTPOL2" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="3" description="TEV Polarity Bit of ext. fault 3" end="3" id="TECXFLTPOL3" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="4" description="TEV Polarity Bit of ext. fault 4" end="4" id="TECXFLTPOL4" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="5" description="TEV Polarity Bit of ext. fault 5" end="5" id="TECXFLTPOL5" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="6" description="TEV Polarity Bit of ext. fault 6" end="6" id="TECXFLTPOL6" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="8" description="TEV Signal Type of Ext. fault 0" end="8" id="TECXFLTLVS0" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="9" description="TEV Signal Type of Ext. fault 1" end="9" id="TECXFLTLVS1" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="10" description="TEV Signal Type of Ext. fault 2" end="10" id="TECXFLTLVS2" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="11" description="TEV Signal Type of Ext. fault 3" end="11" id="TECXFLTLVS3" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="12" description="TEV Signal Type of Ext. fault 4" end="12" id="TECXFLTLVS4" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="13" description="TEV Signal Type of Ext. fault 5" end="13" id="TECXFLTLVS5" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="14" description="TEV Signal Type of Ext. fault 6" end="14" id="TECXFLTLVS6" range="" resetval="0" rwaccess="RW" width="1"></bitfield></register>
+<register acronym="TEC0XCTL2" description="Timer Event Control 0 External Control 2" id="TEC0XCTL2" offset=" 0x0C04" width="16">
+<bitfield begin="1" description="TEV Aux. Clock Select Bit: 0" end="0" id="TECCLKSEL" range="" resetval="0" rwaccess="RW" width="2">
+<bitenum description="TEV Aux. Clock Select: CLK0" id="TECCLKSEL_0" token="TECCLKSEL_0" value="0"></bitenum>
+<bitenum description="TEV Aux. Clock Select: CLK1" id="TECCLKSEL_1" token="TECCLKSEL_1" value="1"></bitenum>
+<bitenum description="TEV Aux. Clock Select: CLK2" id="TECCLKSEL_2" token="TECCLKSEL_2" value="2"></bitenum>
+<bitenum description="TEV Aux. Clock Select: CLK3" id="TECCLKSEL_3" token="TECCLKSEL_3" value="3"></bitenum></bitfield>
+<bitfield begin="2" description="TEV Auxilary clear signal control" end="2" id="TECAXCLREN" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="3" description="TEV Ext. clear signal control" end="3" id="TECEXCLREN" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="4" description="TEV External clear signal hold bit" end="4" id="TECEXCLRHLD" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="5" description="TEV Polarity Bit of ext. clear" end="5" id="TECEXCLRPOL" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="6" description="TEV Signal Type of Ext. clear" end="6" id="TECEXCLRLVS" range="" resetval="0" rwaccess="RW" width="1"></bitfield></register>
+<register acronym="TEC0STA" description="Timer Event Control 0 Status" id="TEC0STA" offset=" 0x0C06" width="16">
+<bitfield begin="0" description="TEV External fault status flag for CE0" end="0" id="TECXFLT0STA" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="1" description="TEV External fault status flag for CE1" end="1" id="TECXFLT1STA" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="2" description="TEV External fault status flag for CE2" end="2" id="TECXFLT2STA" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="3" description="TEV External fault status flag for CE3" end="3" id="TECXFLT3STA" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="4" description="TEV External fault status flag for CE4" end="4" id="TECXFLT4STA" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="5" description="TEV External fault status flag for CE5" end="5" id="TECXFLT5STA" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="6" description="TEV External fault status flag for CE6" end="6" id="TECXFLT6STA" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="8" description="TEC External clear status flag" end="8" id="TECXCLRSTA" range="" resetval="0" rwaccess="RW" width="1"></bitfield></register>
+<register acronym="TEC0XINT" description="Timer Event Control 0 External Interrupt" id="TEC0XINT" offset=" 0x0C08" width="16">
+<bitfield begin="0" description="TEC Aux. Clear Interrupt Flag" end="0" id="TECAXCLRIFG" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="1" description="TEC External Clear Interrupt Flag" end="1" id="TECEXCLRIFG" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="2" description="TEC External Fault Interrupt Flag" end="2" id="TECXFLTIFG" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="8" description="TEC Aux. Clear Interrupt Enable" end="8" id="TECAXCLRIE" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="9" description="TEC External Clear Interrupt Enable" end="9" id="TECEXCLRIE" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="10" description="TEC External Fault Interrupt Enable" end="10" id="TECXFLTIE" range="" resetval="0" rwaccess="RW" width="1"></bitfield></register>
+<register acronym="TEC0IV" description="Timer Event Control 0 Interrupt Vector" id="TEC0IV" offset=" 0x0C0A" width="16"></register>
+</module>

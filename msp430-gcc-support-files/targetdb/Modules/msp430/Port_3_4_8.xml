@@ -1,0 +1,56 @@
+<module HW_revision="" XML_version="1" description="Port 3/4" id="Port 3/4">
+<register acronym="P3IN" description="Port 3 Input" id="P3IN" offset=" 0x0018" width="8">
+<bitfield begin="0" description="P0" end="0" id="P0" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="1" description="P1" end="1" id="P1" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="2" description="P2" end="2" id="P2" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="3" description="P3" end="3" id="P3" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="4" description="P4" end="4" id="P4" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="5" description="P5" end="5" id="P5" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="6" description="P6" end="6" id="P6" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="7" description="P7" end="7" id="P7" range="" resetval="0" rwaccess="RW" width="1"></bitfield></register>
+<register acronym="P3OUT" description="Port 3 Output" id="P3OUT" offset=" 0x0019" width="8">
+<bitfield begin="0" description="P0" end="0" id="P0" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="1" description="P1" end="1" id="P1" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="2" description="P2" end="2" id="P2" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="3" description="P3" end="3" id="P3" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="4" description="P4" end="4" id="P4" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="5" description="P5" end="5" id="P5" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="6" description="P6" end="6" id="P6" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="7" description="P7" end="7" id="P7" range="" resetval="0" rwaccess="RW" width="1"></bitfield></register>
+<register acronym="P3DIR" description="Port 3 Direction" id="P3DIR" offset=" 0x001A" width="8">
+<bitfield begin="0" description="P0" end="0" id="P0" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="1" description="P1" end="1" id="P1" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="2" description="P2" end="2" id="P2" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="3" description="P3" end="3" id="P3" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="4" description="P4" end="4" id="P4" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="5" description="P5" end="5" id="P5" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="6" description="P6" end="6" id="P6" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="7" description="P7" end="7" id="P7" range="" resetval="0" rwaccess="RW" width="1"></bitfield></register>
+<register acronym="P3SEL" description="Port 3 Selection" id="P3SEL" offset=" 0x001B" width="8">
+<bitfield begin="0" description="P0" end="0" id="P0" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="1" description="P1" end="1" id="P1" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="2" description="P2" end="2" id="P2" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="3" description="P3" end="3" id="P3" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="4" description="P4" end="4" id="P4" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="5" description="P5" end="5" id="P5" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="6" description="P6" end="6" id="P6" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="7" description="P7" end="7" id="P7" range="" resetval="0" rwaccess="RW" width="1"></bitfield></register>
+<register acronym="P3SEL2" description="Port 3 Selection 2" id="P3SEL2" offset=" 0x0043" width="8">
+<bitfield begin="0" description="P0" end="0" id="P0" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="1" description="P1" end="1" id="P1" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="2" description="P2" end="2" id="P2" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="3" description="P3" end="3" id="P3" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="4" description="P4" end="4" id="P4" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="5" description="P5" end="5" id="P5" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="6" description="P6" end="6" id="P6" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="7" description="P7" end="7" id="P7" range="" resetval="0" rwaccess="RW" width="1"></bitfield></register>
+<register acronym="P3REN" description="Port 3 Resistor Enable" id="P3REN" offset=" 0x0010" width="8">
+<bitfield begin="0" description="P0" end="0" id="P0" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="1" description="P1" end="1" id="P1" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="2" description="P2" end="2" id="P2" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="3" description="P3" end="3" id="P3" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="4" description="P4" end="4" id="P4" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="5" description="P5" end="5" id="P5" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="6" description="P6" end="6" id="P6" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="7" description="P7" end="7" id="P7" range="" resetval="0" rwaccess="RW" width="1"></bitfield></register>
+</module>

@@ -1,0 +1,37 @@
+<module HW_revision="" XML_version="1" description="MPU" id="MPU">
+<register acronym="MPUCTL0" description="MPU Control Register 0" id="MPUCTL0" offset=" 0x05A0" width="16">
+<bitfield begin="0" description="MPU Enable" end="0" id="MPUENA" range="" resetval="0" rwaccess="RW" width="1"></bitfield></register>
+<register acronym="MPUCTL1" description="MPU Control Register 1" id="MPUCTL1" offset=" 0x05A2" width="16">
+<bitfield begin="0" description="MPU Main Memory Segment 1 violation interupt flag" end="0" id="MPUSEG1IFG" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="1" description="MPU Main Memory Segment 2 violation interupt flag" end="1" id="MPUSEG2IFG" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="2" description="MPU Main Memory Segment 3 violation interupt flag" end="2" id="MPUSEG3IFG" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="3" description="MPU Info Memory Segment violation interupt flag" end="3" id="MPUSEGIIFG" range="" resetval="0" rwaccess="RW" width="1"></bitfield></register>
+<register acronym="MPUSEG" description="MPU Segmentation Register" id="MPUSEG" offset=" 0x05A4" width="16">
+<bitfield begin="0" description="MPU Segment Border 1 Bit: 0" end="0" id="MPUSB10" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="1" description="MPU Segment Border 1 Bit: 1" end="1" id="MPUSB11" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="2" description="MPU Segment Border 1 Bit: 2" end="2" id="MPUSB12" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="3" description="MPU Segment Border 1 Bit: 3" end="3" id="MPUSB13" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="4" description="MPU Segment Border 1 Bit: 4" end="4" id="MPUSB14" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="8" description="MPU Segment Border 2 Bit: 0" end="8" id="MPUSB20" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="9" description="MPU Segment Border 2 Bit: 1" end="9" id="MPUSB21" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="10" description="MPU Segment Border 2 Bit: 2" end="10" id="MPUSB22" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="11" description="MPU Segment Border 2 Bit: 3" end="11" id="MPUSB23" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="12" description="MPU Segment Border 2 Bit: 4" end="12" id="MPUSB24" range="" resetval="0" rwaccess="RW" width="1"></bitfield></register>
+<register acronym="MPUSAM" description="MPU Access Management Register" id="MPUSAM" offset=" 0x05A6" width="16">
+<bitfield begin="0" description="MPU Main memory Segment 1 Read enable" end="0" id="MPUSEG1RE" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="1" description="MPU Main memory Segment 1 Write enable" end="1" id="MPUSEG1WE" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="2" description="MPU Main memory Segment 1 Execute enable" end="2" id="MPUSEG1XE" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="3" description="MPU Main memory Segment 1 Violation select" end="3" id="MPUSEG1VS" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="4" description="MPU Main memory Segment 2 Read enable" end="4" id="MPUSEG2RE" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="5" description="MPU Main memory Segment 2 Write enable" end="5" id="MPUSEG2WE" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="6" description="MPU Main memory Segment 2 Execute enable" end="6" id="MPUSEG2XE" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="7" description="MPU Main memory Segment 2 Violation select" end="7" id="MPUSEG2VS" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="8" description="MPU Main memory Segment 3 Read enable" end="8" id="MPUSEG3RE" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="9" description="MPU Main memory Segment 3 Write enable" end="9" id="MPUSEG3WE" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="10" description="MPU Main memory Segment 3 Execute enable" end="10" id="MPUSEG3XE" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="11" description="MPU Main memory Segment 3 Violation select" end="11" id="MPUSEG3VS" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="12" description="MPU Info memory Segment Read enable" end="12" id="MPUSEGIRE" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="13" description="MPU Info memory Segment Write enable" end="13" id="MPUSEGIWE" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="14" description="MPU Info memory Segment Execute enable" end="14" id="MPUSEGIXE" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="15" description="MPU Info memory Segment Violation select" end="15" id="MPUSEGIVS" range="" resetval="0" rwaccess="RW" width="1"></bitfield></register>
+</module>

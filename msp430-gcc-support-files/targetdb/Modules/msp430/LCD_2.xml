@@ -1,0 +1,30 @@
+<module HW_revision="" XML_version="1" description="LCD" id="LCD">
+<register acronym="LCDCTL" description="LCD Control" id="LCDCTL" offset=" 0x0090" width="8">
+<bitfield begin="0" description="LCDON" end="0" id="LCDON" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="2" description="LCDSON" end="2" id="LCDSON" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="3" description="LCDMX0" end="3" id="LCDMX0" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="4" description="LCDMX1" end="4" id="LCDMX1" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="5" description="LCDP0" end="5" id="LCDP0" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="6" description="LCDP1" end="6" id="LCDP1" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="7" description="LCDP2" end="7" id="LCDP2" range="" resetval="0" rwaccess="RW" width="1"></bitfield></register>
+<register acronym="LCDM1" description="LCD Memory 1" id="LCDM1" offset=" 0x0091" width="8"></register>
+<register acronym="LCDM2" description="LCD Memory 2" id="LCDM2" offset=" 0x0092" width="8"></register>
+<register acronym="LCDM3" description="LCD Memory 3" id="LCDM3" offset=" 0x0093" width="8"></register>
+<register acronym="LCDM4" description="LCD Memory 4" id="LCDM4" offset=" 0x0094" width="8"></register>
+<register acronym="LCDM5" description="LCD Memory 5" id="LCDM5" offset=" 0x0095" width="8"></register>
+<register acronym="LCDM6" description="LCD Memory 6" id="LCDM6" offset=" 0x0096" width="8"></register>
+<register acronym="LCDM7" description="LCD Memory 7" id="LCDM7" offset=" 0x0097" width="8"></register>
+<register acronym="LCDM8" description="LCD Memory 8" id="LCDM8" offset=" 0x0098" width="8"></register>
+<register acronym="LCDM9" description="LCD Memory 9" id="LCDM9" offset=" 0x0099" width="8"></register>
+<register acronym="LCDM10" description="LCD Memory 10" id="LCDM10" offset=" 0x009A" width="8"></register>
+<register acronym="LCDM11" description="LCD Memory 11" id="LCDM11" offset=" 0x009B" width="8"></register>
+<register acronym="LCDM12" description="LCD Memory 12" id="LCDM12" offset=" 0x009C" width="8"></register>
+<register acronym="LCDM13" description="LCD Memory 13" id="LCDM13" offset=" 0x009D" width="8"></register>
+<register acronym="LCDM14" description="LCD Memory 14" id="LCDM14" offset=" 0x009E" width="8"></register>
+<register acronym="LCDM15" description="LCD Memory 15" id="LCDM15" offset=" 0x009F" width="8"></register>
+<register acronym="LCDM16" description="LCD Memory 16" id="LCDM16" offset=" 0x00A0" width="8"></register>
+<register acronym="LCDM17" description="LCD Memory 17" id="LCDM17" offset=" 0x00A1" width="8"></register>
+<register acronym="LCDM18" description="LCD Memory 18" id="LCDM18" offset=" 0x00A2" width="8"></register>
+<register acronym="LCDM19" description="LCD Memory 19" id="LCDM19" offset=" 0x00A3" width="8"></register>
+<register acronym="LCDM20" description="LCD Memory 20" id="LCDM20" offset=" 0x00A4" width="8"></register>
+</module>

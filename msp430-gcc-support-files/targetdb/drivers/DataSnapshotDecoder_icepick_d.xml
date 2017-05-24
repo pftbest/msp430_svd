@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<drivers id="ICEPICK_D">
+	<isa Type="ICEPICK_D" ProcID="0x3C000C05">
+		<driver file="../../DebugServer/bin/libDataSnapshotDecoder.dylib">
+			<connectionType Type="DataSnapshotViewer"/>
+			<property Name="Port Number" Type="numericfield" Value="0x0" NumericType="HEX" UpperBound="0x1F" LowerBound="0x0" SubPath="true" ID="subpath.address"/>
+			<property Name="Initial Configuration" Type="choicelist" Value="1" SubPath="true" ID="subpath.initial">
+				<choice Name="Yes" value="1"/>
+				<choice Name="No" value="0"/>
+			</property>
+			<property Name="Custom Configuration" Type="choicelist" Value="1" SubPath="true" ID="subpath.custom">
+				<choice Name="Yes" value="1"/>
+				<choice Name="No" value="0"/>
+
+			</property>
+			<property Name="Force Configuration" Type="choicelist" Value="0" SubPath="true" ID="subpath.force">
+				<choice Name="Yes" value="1"/>
+				<choice Name="No" value="0"/>
+			</property>
+			<property Name="Pseudo Address" Type="choicelist" Value="1" SubPath="true" ID="subpath.pseudo">
+				<choice Name="Yes" value="1"/>
+				<choice Name="No" value="0"/>
+
+			</property>
+			<property Name="Type" Type="choicelist" Value="0x1" SubPath="true" ID="subpath.type">
+				<choice Name="Test" value="test"/>
+				<choice Name="Debug" value="debug"/>
+			</property>
+		</driver>
+	</isa>
+</drivers>

@@ -1,0 +1,23 @@
+<module HW_revision="" XML_version="1" description="Special Function" id="Special Function">
+<register acronym="IE1" description="Interrupt Enable 1" id="IE1" offset=" 0x0000" width="8">
+<bitfield begin="0" description="Watchdog Interrupt Enable" end="0" id="WDTIE" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="1" description="Osc. Fault  Interrupt Enable" end="1" id="OFIE" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="4" description="NMI Interrupt Enable" end="4" id="NMIIE" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="5" description="Flash Access Violation Interrupt Enable" end="5" id="ACCVIE" range="" resetval="0" rwaccess="RW" width="1"></bitfield></register>
+<register acronym="IFG1" description="Interrupt Flag 1" id="IFG1" offset=" 0x0002" width="8">
+<bitfield begin="0" description="Watchdog Interrupt Flag" end="0" id="WDTIFG" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="1" description="Osc. Fault Interrupt Flag" end="1" id="OFIFG" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="2" description="Power On Interrupt Flag" end="2" id="PORIFG" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="3" description="Reset Interrupt Flag" end="3" id="RSTIFG" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="4" description="NMI Interrupt Flag" end="4" id="NMIIFG" range="" resetval="0" rwaccess="RW" width="1"></bitfield></register>
+<register acronym="IE2" description="Interrupt Enable 2" id="IE2" offset=" 0x0001" width="8">
+<bitfield begin="0" description="UCA0RXIE" end="0" id="UCA0RXIE" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="1" description="UCA0TXIE" end="1" id="UCA0TXIE" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="2" description="UCB0RXIE" end="2" id="UCB0RXIE" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="3" description="UCB0TXIE" end="3" id="UCB0TXIE" range="" resetval="0" rwaccess="RW" width="1"></bitfield></register>
+<register acronym="IFG2" description="Interrupt Flag 2" id="IFG2" offset=" 0x0003" width="8">
+<bitfield begin="0" description="UCA0RXIFG" end="0" id="UCA0RXIFG" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="1" description="UCA0TXIFG" end="1" id="UCA0TXIFG" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="2" description="UCB0RXIFG" end="2" id="UCB0RXIFG" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="3" description="UCB0TXIFG" end="3" id="UCB0TXIFG" range="" resetval="0" rwaccess="RW" width="1"></bitfield></register>
+</module>

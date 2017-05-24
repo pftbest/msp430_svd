@@ -1,0 +1,110 @@
+<module HW_revision="" XML_version="1" description="Analog Pool" id="Analog Pool">
+<register acronym="APCNF" description="A-POOL Configuration Register" id="APCNF" offset=" 0x01A0" width="16">
+<bitfield begin="0" description="A-POOL TimerA0 trigger enable" end="0" id="TA0EN" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="1" description="A-POOL TimerA1 trigger enable" end="1" id="TA1EN" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="3" description="A-POOL Deglitch Filter Bit: 0" end="2" id="DFSET" range="" resetval="0" rwaccess="RW" width="2">
+<bitenum description="A-POOL Deglitch Filter select: 0" id="DFSET_0" token="DFSET_0" value="0"></bitenum>
+<bitenum description="A-POOL Deglitch Filter select: 1" id="DFSET_1" token="DFSET_1" value="1"></bitenum>
+<bitenum description="A-POOL Deglitch Filter select: 2" id="DFSET_2" token="DFSET_2" value="2"></bitenum>
+<bitenum description="A-POOL Deglitch Filter select: 3" id="DFSET_3" token="DFSET_3" value="3"></bitenum></bitfield>
+<bitfield begin="4" description="A-POOL Latch comparator" end="4" id="LCMP" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="5" description="A-POOL Comparator enable" end="5" id="CMPON" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="6" description="A-POOL DAC buffer enable signal" end="6" id="DBON" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="7" description="A-POOL Enable for convertergnal" end="7" id="CONVON" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="9" description="A-POOL Conversion clock select Bit: 0" end="8" id="CLKSEL" range="" resetval="0" rwaccess="RW" width="2">
+<bitenum description="A-POOL Conversion clock select: 0" id="CLKSEL_0" token="CLKSEL_0" value="0"></bitenum>
+<bitenum description="A-POOL Conversion clock select: 1" id="CLKSEL_1" token="CLKSEL_1" value="1"></bitenum>
+<bitenum description="A-POOL Conversion clock select: 2" id="CLKSEL_2" token="CLKSEL_2" value="2"></bitenum></bitfield>
+<bitfield begin="10" description="A-POOL Enable bit for loading conversion buffer" end="10" id="EOCBU" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="11" description="A-POOL Automatic update of conversion register" end="11" id="ATBU" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="12" description="A-POOL Analog input A3 access Bit" end="12" id="A3PSEL" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="13" description="A-POOL Internal voltage reference enable" end="13" id="APREFON" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="14" description="A-POOL Reference voltage pin enable" end="14" id="VREFEN" range="" resetval="0" rwaccess="RW" width="1"></bitfield></register>
+<register acronym="APCTL" description="A-POOL Control Register 1" id="APCTL" offset=" 0x01A2" width="16">
+<bitfield begin="0" description="A-POOL Output driver enable" end="0" id="ODEN" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="1" description="A-POOL Output swap" end="1" id="OSWP" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="2" description="A-POOL Output buffer select" end="2" id="OSEL" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="3" description="A-POOL Slope select of converter" end="3" id="SLOPE" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="7" description="A-POOL Neg. Channel Input Select 0" end="4" id="APNSEL" range="" resetval="0" rwaccess="RW" width="4">
+<bitenum description="A-POOL V- terminal Input Select: Channel 0" id="APNSEL_0" token="APNSEL_0" value="0"></bitenum>
+<bitenum description="A-POOL V- terminal Input Select: Channel 1" id="APNSEL_1" token="APNSEL_1" value="1"></bitenum>
+<bitenum description="A-POOL V- terminal Input Select: Channel 2" id="APNSEL_2" token="APNSEL_2" value="2"></bitenum>
+<bitenum description="A-POOL V- terminal Input Select: Channel 3" id="APNSEL_3" token="APNSEL_3" value="3"></bitenum>
+<bitenum description="A-POOL V- terminal Input Select: Channel 4" id="APNSEL_4" token="APNSEL_4" value="4"></bitenum>
+<bitenum description="A-POOL V- terminal Input Select: Channel 5" id="APNSEL_5" token="APNSEL_5" value="5"></bitenum>
+<bitenum description="A-POOL V- terminal Input Select: Channel 6" id="APNSEL_6" token="APNSEL_6" value="6"></bitenum>
+<bitenum description="A-POOL V- terminal Input Select: Channel 7" id="APNSEL_7" token="APNSEL_7" value="7"></bitenum></bitfield>
+<bitfield begin="8" description="A-POOL Converteral Input Select: Channel 7" end="8" id="RUNSTOP" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="9" description="A-POOL Saturation based conversion stop enable" end="9" id="SBSTP" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="10" description="A-POOL Comparator based conversion stop enable" end="10" id="CBSTP" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="11" description="A-POOL Timer based conversion stop enable for TimerA0" end="11" id="TBSTP" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="15" description="A-POOL Pos. Channel Input Select 0" end="12" id="APPSEL" range="" resetval="0" rwaccess="RW" width="4">
+<bitenum description="A-POOL V+ Terminal Input Select: Channel 0" id="APPSEL_0" token="APPSEL_0" value="0"></bitenum>
+<bitenum description="A-POOL V+ Terminal Input Select: Channel 1" id="APPSEL_1" token="APPSEL_1" value="1"></bitenum>
+<bitenum description="A-POOL V+ Terminal Input Select: Channel 2" id="APPSEL_2" token="APPSEL_2" value="2"></bitenum>
+<bitenum description="A-POOL V+ Terminal Input Select: Channel 3" id="APPSEL_3" token="APPSEL_3" value="3"></bitenum>
+<bitenum description="A-POOL V+ Terminal Input Select: Channel 4" id="APPSEL_4" token="APPSEL_4" value="4"></bitenum>
+<bitenum description="A-POOL V+ Terminal Input Select: Channel 5" id="APPSEL_5" token="APPSEL_5" value="5"></bitenum>
+<bitenum description="A-POOL V+ Terminal Input Select: Channel 6" id="APPSEL_6" token="APPSEL_6" value="6"></bitenum>
+<bitenum description="A-POOL V+ Terminal Input Select: Channel 7" id="APPSEL_7" token="APPSEL_7" value="7"></bitenum>
+<bitenum description="A-POOL V+ Terminal Input Select: Channel 8" id="APPSEL_8" token="APPSEL_8" value="8"></bitenum></bitfield></register>
+<register acronym="APOMR" description="A-POOL Operation Mode Register 2" id="APOMR" offset=" 0x01A4" width="16">
+<bitfield begin="2" description="A-POOL Prescaler Control Bit: 0" end="0" id="CLKDIV" range="" resetval="0" rwaccess="RW" width="3">
+<bitenum description="A-POOL Prescaler Control 0 : /1" id="CLKDIV_0" token="CLKDIV_0" value="0"></bitenum>
+<bitenum description="A-POOL Prescaler Control 1 : /2" id="CLKDIV_1" token="CLKDIV_1" value="1"></bitenum>
+<bitenum description="A-POOL Prescaler Control 2 : /4" id="CLKDIV_2" token="CLKDIV_2" value="2"></bitenum>
+<bitenum description="A-POOL Prescaler Control 3 : /8" id="CLKDIV_3" token="CLKDIV_3" value="3"></bitenum>
+<bitenum description="A-POOL Prescaler Control 4 : /16" id="CLKDIV_4" token="CLKDIV_4" value="4"></bitenum>
+<bitenum description="A-POOL Prescaler Control 5 : /32" id="CLKDIV_5" token="CLKDIV_5" value="5"></bitenum></bitfield>
+<bitfield begin="3" description="A-POOL SAR conversion enable" end="3" id="SAREN" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="8" description="A-POOL Continuous time mode of comparator" end="8" id="CTEN" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="9" description="A-POOL Clocked zero compensated long term comparison" end="9" id="AZCMP" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="10" description="A-POOL SW request for Auto Zero Phase" end="10" id="AZSWREQ" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="11" description="A-POOL Suppress the generation of an SVM interrupt event." end="11" id="SVMINH" range="" resetval="0" rwaccess="RW" width="1"></bitfield></register>
+<register acronym="APVDIV" description="A-POOL Voltage Divider Register 3" id="APVDIV" offset=" 0x01A6" width="16">
+<bitfield begin="0" description="A-POOL Analog channel #0 voltage divider control" end="0" id="A0DIV" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="1" description="A-POOL Analog channel #1 voltage divider control" end="1" id="A1DIV" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="3" description="A-POOL Analog channel #2 voltage divider control Bit : 0" end="2" id="A2DIV" range="" resetval="0" rwaccess="RW" width="2">
+<bitenum description="A-POOL Analog channel #2 voltage divider control: 0" id="A2DIV_0" token="A2DIV_0" value="0"></bitenum>
+<bitenum description="A-POOL Analog channel #2 voltage divider control: 1" id="A2DIV_1" token="A2DIV_1" value="1"></bitenum>
+<bitenum description="A-POOL Analog channel #2 voltage divider control: 2" id="A2DIV_2" token="A2DIV_2" value="2"></bitenum>
+<bitenum description="A-POOL Analog channel #2 voltage divider control: 3" id="A2DIV_3" token="A2DIV_3" value="3"></bitenum></bitfield>
+<bitfield begin="5" description="A-POOL Analog channel #3 voltage divider control Bit : 0" end="4" id="A3DIV" range="" resetval="0" rwaccess="RW" width="2">
+<bitenum description="A-POOL Analog channel #3 voltage divider control: 0" id="A3DIV_0" token="A3DIV_0" value="0"></bitenum>
+<bitenum description="A-POOL Analog channel #3 voltage divider control: 1" id="A3DIV_1" token="A3DIV_1" value="1"></bitenum>
+<bitenum description="A-POOL Analog channel #3 voltage divider control: 2" id="A3DIV_2" token="A3DIV_2" value="2"></bitenum>
+<bitenum description="A-POOL Analog channel #3 voltage divider control: 3" id="A3DIV_3" token="A3DIV_3" value="3"></bitenum></bitfield>
+<bitfield begin="6" description="A-POOL Temperature sensor enable" end="6" id="TMPSEN" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="7" description="A-POOL VCC voltage divider enable" end="7" id="VCCDIVEN" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="11" description="A-POOL Clock trimming Bit : 0" end="10" id="CLKTRIM" range="" resetval="0" rwaccess="RW" width="2">
+<bitenum description="A-POOL Clock trimming: 0" id="CLKTRIM_0" token="CLKTRIM_0" value="0"></bitenum>
+<bitenum description="A-POOL Clock trimming: 1" id="CLKTRIM_1" token="CLKTRIM_1" value="1"></bitenum>
+<bitenum description="A-POOL Clock trimming: 2" id="CLKTRIM_2" token="CLKTRIM_2" value="2"></bitenum>
+<bitenum description="A-POOL Clock trimming: 3" id="CLKTRIM_3" token="CLKTRIM_3" value="3"></bitenum></bitfield></register>
+<register acronym="APTRIM" description="A-POOL trimming register" id="APTRIM" offset=" 0x01A8" width="16">
+<bitfield begin="0" description="A-POOL Register bank used for the reference trimming" end="0" id="REFTSEL" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="15" description="A-POOL Reference trimming bit: 0" end="12" id="REFTRIM" range="" resetval="0" rwaccess="RW" width="4">
+<bitenum description="A-POOL Reference trimming: 0" id="REFTRIM_0" token="REFTRIM_0" value="0"></bitenum>
+<bitenum description="A-POOL Reference trimming: 1" id="REFTRIM_1" token="REFTRIM_1" value="1"></bitenum>
+<bitenum description="A-POOL Reference trimming: 2" id="REFTRIM_2" token="REFTRIM_2" value="2"></bitenum>
+<bitenum description="A-POOL Reference trimming: 3" id="REFTRIM_3" token="REFTRIM_3" value="3"></bitenum>
+<bitenum description="A-POOL Reference trimming: 4" id="REFTRIM_4" token="REFTRIM_4" value="4"></bitenum>
+<bitenum description="A-POOL Reference trimming: 5" id="REFTRIM_5" token="REFTRIM_5" value="5"></bitenum>
+<bitenum description="A-POOL Reference trimming: 6" id="REFTRIM_6" token="REFTRIM_6" value="6"></bitenum>
+<bitenum description="A-POOL Reference trimming: 7" id="REFTRIM_7" token="REFTRIM_7" value="7"></bitenum></bitfield></register>
+<register acronym="APINT" description="A-POOL Integer Conversion Register" id="APINT" offset=" 0x01B0" width="16"></register>
+<register acronym="APINTB" description="A-POOL Integer Conversion Buffer Register" id="APINTB" offset=" 0x01B2" width="16"></register>
+<register acronym="APFRACT" description="A-POOL Fractional Conversion Register" id="APFRACT" offset=" 0x01B4" width="16"></register>
+<register acronym="APFRACTB" description="A-POOL Fractional Conversion Buffer Register" id="APFRACTB" offset=" 0x01B6" width="16"></register>
+<register acronym="APIFG" description="A-POOL Interrupt Flag Register" id="APIFG" offset=" 0x01BA" width="16">
+<bitfield begin="0" description="A-POOL End of conversion interrupt flag" end="0" id="EOCIFG" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="1" description="A-POOL Comparator falling edge interrupt flag" end="1" id="CFIFG" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="2" description="A-POOL Comparator rising edge interrupt flag" end="2" id="CRIFG" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="3" description="A-POOL Reference voltage ready interrupt flag" end="3" id="REFOKIFG" range="" resetval="0" rwaccess="RW" width="1"></bitfield></register>
+<register acronym="APIE" description="A-POOL Interrupt Enable Register" id="APIE" offset=" 0x01BC" width="16">
+<bitfield begin="0" description="A-POOL End of conversion interrupt enable" end="0" id="EOCIE" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="1" description="A-POOL Comparator falling edge interrupt enable" end="1" id="CFIE" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="2" description="A-POOL Comparator rising edge interrupt enable" end="2" id="CRIE" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="3" description="A-POOL Reference voltage ready interrupt enable" end="3" id="REFIKIE" range="" resetval="0" rwaccess="RW" width="1"></bitfield></register>
+<register acronym="APIV" description="A-POOL Interrupt Vector Word" id="APIV" offset=" 0x01BE" width="16"></register>
+</module>

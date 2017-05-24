@@ -1,0 +1,10 @@
+<module id="CRC" HW_revision="208.0">
+    <register id="CRCDI" width="16" offset="0x0" internal="0" description="CRC Data In">
+    </register>
+    <register id="CRCDIRB" width="16" offset="0x2" internal="0" description="CRC Data In Reverse Byte">
+    </register>
+    <register id="CRCINIRES" width="16" offset="0x4" internal="0" description="CRC Initialization and Result">
+    </register>
+    <register id="CRCRESR" width="16" offset="0x6" internal="0" description="CRC Result Reverse">
+    </register>
+</module>

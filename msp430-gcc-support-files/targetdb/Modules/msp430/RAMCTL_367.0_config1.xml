@@ -1,0 +1,26 @@
+<module id="RAMCTL" HW_revision="367.0_config1">
+    <register id="RCCTL0" width="16" offset="0x0" internal="0" description="RAM Controller Control 0">
+        <bitfield id="RCRS0OFF" description="RAM controller RAM sector 0 off" begin="1" end="0" width="2" rwaccess="R/W">
+            <bitenum id="RCRS0OFF_0" value="0x0" description="Contents of this RAM sector are retained in LPM3 and LPM4."/>
+            <bitenum id="RCRS0OFF_1" value="0x1" description="Turns off this RAM sector in LPM3 and LPM4, re-activates it on wake-up. All data of this RAM sector is lost after wakeup from LPM3 and LPM4. See the device-specific data sheet to find the number of available sectors, the address range, and the size of each RAM sector."/>
+            <bitenum id="RCRS0OFF_2" value="0x2" description="Turns off this RAM sector entering LPM3 and LPM4, the RAM sector remains off after wake-up. All data of this RAM sector is lost. See the devicespecific data sheet to find the number of available sectors, the address range, and the size of each RAM sector."/>
+        </bitfield>
+        <bitfield id="RCKEY" description="RAM controller key. Always reads as 69h. Must be written as 5Ah; any other write is is ignored." begin="15" end="8" width="8" rwaccess="R/W">
+        </bitfield>
+        <bitfield id="RCRS1OFF" description="RAM controller RAM sector 0 off" begin="3" end="2" width="2" rwaccess="R/W">
+            <bitenum id="RCRS0OFF_0" value="0x0" description="Contents of this RAM sector are retained in LPM3 and LPM4."/>
+            <bitenum id="RCRS0OFF_1" value="0x1" description="Turns off this RAM sector in LPM3 and LPM4, re-activates it on wake-up. All data of this RAM sector is lost after wakeup from LPM3 and LPM4. See the device-specific data sheet to find the number of available sectors, the address range, and the size of each RAM sector."/>
+            <bitenum id="RCRS0OFF_2" value="0x2" description="Turns off this RAM sector entering LPM3 and LPM4, the RAM sector remains off after wake-up. All data of this RAM sector is lost. See the devicespecific data sheet to find the number of available sectors, the address range, and the size of each RAM sector."/>
+        </bitfield>
+        <bitfield id="RCRS3OFF" description="RAM controller RAM sector 3 off" begin="7" end="6" width="2" rwaccess="R/W">
+            <bitenum id="RCRS0OFF_0" value="0x0" description="Contents of this RAM sector are retained in LPM3 and LPM4."/>
+            <bitenum id="RCRS0OFF_1" value="0x1" description="Turns off this RAM sector in LPM3 and LPM4, re-activates it on wake-up. All data of this RAM sector is lost after wakeup from LPM3 and LPM4. See the device-specific data sheet to find the number of available sectors, the address range, and the size of each RAM sector."/>
+            <bitenum id="RCRS0OFF_2" value="0x2" description="Turns off this RAM sector entering LPM3 and LPM4, the RAM sector remains off after wake-up. All data of this RAM sector is lost. See the devicespecific data sheet to find the number of available sectors, the address range, and the size of each RAM sector."/>
+        </bitfield>
+        <bitfield id="RCRS2OFF" description="RAM controller RAM sector 0 off" begin="5" end="4" width="2" rwaccess="R/W">
+            <bitenum id="RCRS0OFF_0" value="0x0" description="Contents of this RAM sector are retained in LPM3 and LPM4."/>
+            <bitenum id="RCRS0OFF_1" value="0x1" description="Turns off this RAM sector in LPM3 and LPM4, re-activates it on wake-up. All data of this RAM sector is lost after wakeup from LPM3 and LPM4. See the device-specific data sheet to find the number of available sectors, the address range, and the size of each RAM sector."/>
+            <bitenum id="RCRS0OFF_2" value="0x2" description="Turns off this RAM sector entering LPM3 and LPM4, the RAM sector remains off after wake-up. All data of this RAM sector is lost. See the devicespecific data sheet to find the number of available sectors, the address range, and the size of each RAM sector."/>
+        </bitfield>
+    </register>
+</module>

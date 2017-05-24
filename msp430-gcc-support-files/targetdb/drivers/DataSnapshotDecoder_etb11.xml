@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+	<drivers id="tixds560etb11">	
+		<isa Type="ETB11" ProcID="0x75801004">		
+			<driver file="../../DebugServer/bin/libDataSnapshotDecoder.dylib">
+			<connectionType Type="DataSnapshotViewer"/>
+				<property Name="TraceDeviceId" Type="numericfield" Value="0x0" NumericType="HEX" UpperBound="0xFFFFFFFF" LowerBound="0" ID="device.traceId"/>	
+			</driver>	
+		</isa>
+	</drivers>

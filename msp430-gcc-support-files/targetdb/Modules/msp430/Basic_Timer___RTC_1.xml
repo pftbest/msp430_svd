@@ -1,0 +1,40 @@
+<module HW_revision="" XML_version="1" description="Basic Timer / RTC" id="Basic Timer / RTC">
+<register acronym="BTCTL" description="Basic Timer Control" id="BTCTL" offset=" 0x0040" width="8">
+<bitfield begin="0" description="BTIP0" end="0" id="BTIP0" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="1" description="BTIP1" end="1" id="BTIP1" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="2" description="BTIP2" end="2" id="BTIP2" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="5" description="fCLK2 = ACLK:256" end="5" id="BTDIV" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="6" description="BT1 is held if this bit is set" end="6" id="BTHOLD" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="7" description="fBT = fMCLK (main clock)" end="7" id="BTSSEL" range="" resetval="0" rwaccess="RW" width="1"></bitfield></register>
+<register acronym="RTCCTL" description="Real Time Clock Control" id="RTCCTL" offset=" 0x0041" width="8">
+<bitfield begin="0" description="RTC Event Flag" end="0" id="RTCFG" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="1" description="RTC Interrupt Enable" end="1" id="RTCIE" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="3" description="RTC Time Event 1" end="2" id="RTCTEV" range="" resetval="0" rwaccess="RW" width="2">
+<bitenum description="RTC Time Event: 0" id="RTCTEV_0" token="RTCTEV_0" value="0"></bitenum>
+<bitenum description="RTC Time Event: 1" id="RTCTEV_1" token="RTCTEV_1" value="1"></bitenum>
+<bitenum description="RTC Time Event: 2" id="RTCTEV_2" token="RTCTEV_2" value="2"></bitenum>
+<bitenum description="RTC Time Event: 3" id="RTCTEV_3" token="RTCTEV_3" value="3"></bitenum></bitfield>
+<bitfield begin="5" description="RTC Mode 1" end="4" id="RTCMODE" range="" resetval="0" rwaccess="RW" width="2">
+<bitenum description="RTC Mode: 0" id="RTCMODE_0" token="RTCMODE_0" value="0"></bitenum>
+<bitenum description="RTC Mode: 1" id="RTCMODE_1" token="RTCMODE_1" value="1"></bitenum>
+<bitenum description="RTC Mode: 2" id="RTCMODE_2" token="RTCMODE_2" value="2"></bitenum>
+<bitenum description="RTC Mode: 3" id="RTCMODE_3" token="RTCMODE_3" value="3"></bitenum></bitfield>
+<bitfield begin="6" description="RTC Hold" end="6" id="RTCHOLD" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="7" description="RTC BCD Select" end="7" id="RTCBCD" range="" resetval="0" rwaccess="RW" width="1"></bitfield></register>
+<register acronym="RTCNT1" description="Real Time Counter 1" id="RTCNT1" offset=" 0x0042" width="8"></register>
+<register acronym="RTCNT2" description="Real Time Counter 2" id="RTCNT2" offset=" 0x0043" width="8"></register>
+<register acronym="RTCNT3" description="Real Time Counter 3" id="RTCNT3" offset=" 0x0044" width="8"></register>
+<register acronym="RTCNT4" description="Real Time Counter 4" id="RTCNT4" offset=" 0x0045" width="8"></register>
+<register acronym="BTCNT1" description="Basic Timer Count 1" id="BTCNT1" offset=" 0x0046" width="8"></register>
+<register acronym="BTCNT2" description="Basic Timer Count 2" id="BTCNT2" offset=" 0x0047" width="8"></register>
+<register acronym="RTCDAY" description="Real Time Clock Day" id="RTCDAY" offset=" 0x004C" width="8"></register>
+<register acronym="RTCMON" description="Real Time Clock Month" id="RTCMON" offset=" 0x004D" width="8"></register>
+<register acronym="RTCYEARL" description="Real Time Clock Year (Low Byte)" id="RTCYEARL" offset=" 0x004E" width="8"></register>
+<register acronym="RTCYEARH" description="Real Time Clock Year (High Byte)" id="RTCYEARH" offset=" 0x004F" width="8"></register>
+<register acronym="RTCTL" description="Basic/Real Timer Control" id="RTCTL" offset=" 0x0040" width="16"></register>
+<register acronym="RTCTIM0" description="Real Time Clock Time 0" id="RTCTIM0" offset=" 0x0042" width="16"></register>
+<register acronym="RTCTIM1" description="Real Time Clock Time 1" id="RTCTIM1" offset=" 0x0044" width="16"></register>
+<register acronym="BTCNT12" description="Basic Timer Count 1/2" id="BTCNT12" offset=" 0x0046" width="16"></register>
+<register acronym="RTCDATE" description="Real Time Clock Date" id="RTCDATE" offset=" 0x004C" width="16"></register>
+<register acronym="RTCYEAR" description="Real Time Clock Year" id="RTCYEAR" offset=" 0x004E" width="16"></register>
+</module>

@@ -1,0 +1,12 @@
+<module HW_revision="" XML_version="1" description="Capacitive_Touch_IO 0" id="Capacitive_Touch_IO 0">
+<register acronym="CAPTIO0CTL" description="Capacitive_Touch_IO 0 control register" id="CAPTIO0CTL" offset=" 0x043E" width="16">
+<bitfield begin="1" description="CapTouchIO Pin Select Bit: 0" end="1" id="CAPTIOPISEL0" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="2" description="CapTouchIO Pin Select Bit: 1" end="2" id="CAPTIOPISEL1" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="3" description="CapTouchIO Pin Select Bit: 2" end="3" id="CAPTIOPISEL2" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="4" description="CapTouchIO Port Select Bit: 0" end="4" id="CAPTIOPOSEL0" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="5" description="CapTouchIO Port Select Bit: 1" end="5" id="CAPTIOPOSEL1" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="6" description="CapTouchIO Port Select Bit: 2" end="6" id="CAPTIOPOSEL2" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="7" description="CapTouchIO Port Select Bit: 3" end="7" id="CAPTIOPOSEL3" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="8" description="CapTouchIO Enable" end="8" id="CAPTIOEN" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="9" description="CapTouchIO state" end="9" id="CAPTIO" range="" resetval="0" rwaccess="RW" width="1"></bitfield></register>
+</module>

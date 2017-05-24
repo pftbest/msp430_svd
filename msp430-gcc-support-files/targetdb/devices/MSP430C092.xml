@@ -1,0 +1,43 @@
+<device HW_revision="1.0" XML_version="1.0" description="MSP430C092" id="MSP430C092" partnum="MSP430L092">
+
+<property Type="stringfield" Value="MSP430x0xx Family" id="FilterString"></property>
+<property Type="stringfield" Value="-lc -lgcc -L ${CCS_BASE_ROOT}/msp430/include_gcc " id="GNULinkerBuildOptions"></property>
+<property Type="stringfield" Value="../include_gcc/msp430c092.ld" id="GNUFilesToCopy"></property>
+<property Type="stringfield" Value="-D=__MSP430C092__   --use_hw_mpy=none --silicon_errata=CPU21 --silicon_errata=CPU22 --silicon_errata=CPU40" id="CompilerBuildOptions"></property>
+<property Type="stringfield" Value="-mmcu=msp430c092 -I${CCS_BASE_ROOT}/msp430/include_gcc -Os -mhwmult=none" id="GNUCompilerBuildOptions"></property>
+<property Type="stringfield" Value=" --use_hw_mpy=none" id="LinkerBuildOptions"></property>
+<property Type="numericfield" Value="80" id="HeapDefaultSize"></property>
+<property Type="stringfield" Value="minimal" id="PrintfDefault_support"></property>
+<property Type="numericfield" Value="80" id="StackDefaultSize"></property>
+<property Type="numericfield" Value="2" id="breakpoints"></property>
+<property Type="stringfield" Value="EXTENDED" id="clockcontrol"></property>
+<property Type="stringfield" Value="MSP430" id="cpu_family"></property>
+<property Type="stringfield" Value="EMEX_EXTRA_SMALL_5XX" id="eem"></property>
+<property Type="numericfield" Value="0" id="hw_mpy"></property>
+<property Type="stringfield" Value="true" id="IsElfDefault"></property>
+<property Type="numericfield" Value="3300" id="target_vcc_default"></property>
+<property Type="numericfield" Value="1" id="jtag"></property>
+<property Type="stringfield" Value="true" id="Make Device Secure"></property>
+<property Type="numericfield" Value="0" id="spybiwire"></property>
+<property Type="numericfield" Value="1" id="cycleCounter"></property>
+<property Type="stringfield" Value="0xFFE0" id="iv_base"></property>
+<property Type="stringfield" Value="8" id="Password"></property>
+<property Type="stringfield" Value="true" id="supportINFOMemory"></property>
+<property Type="stringfield" Value="choicelist(emuType[Emulation mode], Normal{@linkerCmd=lnk_msp430l092.cmd @ccxml:MSP430.emuType=Normal}, ROM{@linkerCmd=lnk_msp430c092.cmd @ccxml:MSP430.emuType=ROM});" id="ProjectOptions"></property>
+<property Type="stringfield" Value="-romwidth=8 -memwidth=8" id="HexBuildOptions"></property>
+
+
+<instance desc="MSP430" href="../cpus/MSP430.xml" id="MSP430" xml="MSP430.xml" xmlpath="../cpus/"></instance>
+<cpu HW_revision="1.0" XML_version="2.0" description="MSP430 CPU" id="MSP430" isa="MSP430C09x">
+
+<instance HW_revision="1.0" accessnumbytes="2" baseaddr="0x0000" description="" href="../Modules/msp430/Analog_Pool_1.xml" id="Analog_Pool" permissions="p" requestor="MSP430" size="10" xml="Analog_Pool_1.xml" xmlpath="../Modules/msp430/"></instance>
+<instance HW_revision="1.0" accessnumbytes="2" baseaddr="0x0000" description="" href="../Modules/msp430/CCS__Compact_System_Clock_1.xml" id="CCS__Compact_System_Clock" permissions="p" requestor="MSP430" size="10" xml="CCS__Compact_System_Clock_1.xml" xmlpath="../Modules/msp430/"></instance>
+<instance HW_revision="1.0" accessnumbytes="2" baseaddr="0x0000" description="" href="../Modules/msp430/Port_A_2.xml" id="Port_A" permissions="p" requestor="MSP430" size="10" xml="Port_A_2.xml" xmlpath="../Modules/msp430/"></instance>
+<instance HW_revision="1.0" accessnumbytes="2" baseaddr="0x0000" description="" href="../Modules/msp430/Port_1_2_6.xml" id="Port_1_2" permissions="p" requestor="MSP430" size="10" xml="Port_1_2_6.xml" xmlpath="../Modules/msp430/"></instance>
+<instance HW_revision="1.0" accessnumbytes="2" baseaddr="0x0000" description="" href="../Modules/msp430/SFR__Special_Function_Registers_2.xml" id="SFR__Special_Function_Registers" permissions="p" requestor="MSP430" size="10" xml="SFR__Special_Function_Registers_2.xml" xmlpath="../Modules/msp430/"></instance>
+<instance HW_revision="1.0" accessnumbytes="2" baseaddr="0x0000" description="" href="../Modules/msp430/CSYS__Compact_System_Module_1.xml" id="CSYS__Compact_System_Module" permissions="p" requestor="MSP430" size="10" xml="CSYS__Compact_System_Module_1.xml" xmlpath="../Modules/msp430/"></instance>
+<instance HW_revision="1.0" accessnumbytes="2" baseaddr="0x0000" description="" href="../Modules/msp430/Timer0_A3_2.xml" id="Timer0_A3" permissions="p" requestor="MSP430" size="10" xml="Timer0_A3_2.xml" xmlpath="../Modules/msp430/"></instance>
+<instance HW_revision="1.0" accessnumbytes="2" baseaddr="0x0000" description="" href="../Modules/msp430/Timer1_A3_1.xml" id="Timer1_A3" permissions="p" requestor="MSP430" size="10" xml="Timer1_A3_1.xml" xmlpath="../Modules/msp430/"></instance>
+<instance HW_revision="1.0" accessnumbytes="2" baseaddr="0x0000" description="" href="../Modules/msp430/Watchdog_Timer_2.xml" id="Watchdog_Timer" permissions="p" requestor="MSP430" size="10" xml="Watchdog_Timer_2.xml" xmlpath="../Modules/msp430/"></instance>
+<instance HW_revision="1.0" accessnumbytes="4" baseaddr="0x0000" description="" href="../Modules/msp430/MSP430_NotVisible.xml" id="" permissions="p" requestor="MSP430" size="00" xml="MSP430_NotVisible.xml" xmlpath="../Modules/msp430/"></instance>
+</cpu></device>

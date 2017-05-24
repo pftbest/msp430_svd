@@ -1,0 +1,129 @@
+<module id="SYS" HW_revision="208.0">
+    <register id="SYSCTL" width="16" offset="0x0" internal="0" description="System Control">
+        <bitfield id="SYSRIVECT" description="RAM-based interrupt vectors" begin="0" end="0" width="1" rwaccess="R/W">
+            <bitenum id="FRAM" value="0x0" description="Interrupt vectors generated with end address TOP of lower 64K FRAM FFFFh"/>
+            <bitenum id="RAM" value="0x1" description="Interrupt vectors generated with end address TOP of RAM, when RAM available"/>
+        </bitfield>
+        <bitfield id="SYSPMMPE" description="PMM access protect" begin="2" end="2" width="1" rwaccess="R/W">
+            <bitenum id="SYSPMMPE_0" value="0x0" description="Access from anywhere in memory"/>
+            <bitenum id="SYSPMMPE_1" value="0x1" description="Access only from the BSL segments"/>
+        </bitfield>
+        <bitfield id="SYSBSLIND" description="BSL entry indication" begin="4" end="4" width="1" rwaccess="R">
+            <bitenum id="SYSBSLIND_0" value="0x0" description="No BSL entry sequence detected"/>
+            <bitenum id="SYSBSLIND_1" value="0x1" description="BSL entry sequence detected"/>
+        </bitfield>
+        <bitfield id="SYSJTAGPIN" description="Dedicated JTAG pins enable" begin="5" end="5" width="1" rwaccess="R/W">
+            <bitenum id="SHARED" value="0x0" description="Shared JTAG pins (JTAG mode selectable using SBW sequence)"/>
+            <bitenum id="DEDICATED" value="0x1" description="Dedicated JTAG pins (explicit 4-wire JTAG mode selection)"/>
+        </bitfield>
+    </register>
+    <register id="SYSJMBC" width="16" offset="0x6" internal="0" description="JTAG Mailbox Control">
+        <bitfield id="JMBIN0FG" description="Incoming JTAG Mailbox 0 flag" begin="0" end="0" width="1" rwaccess="R/W">
+            <bitenum id="JMBIN0FG_0" value="0x0" description="JMBI0 has no new data"/>
+            <bitenum id="JMBIN0FG_1" value="0x1" description="JMBI0 has new data available"/>
+        </bitfield>
+        <bitfield id="JMBIN1FG" description="Incoming JTAG Mailbox 1 flag" begin="1" end="1" width="1" rwaccess="R/W">
+            <bitenum id="JMBIN1FG_0" value="0x0" description="JMBI1 has no new data"/>
+            <bitenum id="JMBIN1FG_1" value="0x1" description="JMBI1 has new data available"/>
+        </bitfield>
+        <bitfield id="JMBOUT0FG" description="Outgoing JTAG Mailbox 0 flag" begin="2" end="2" width="1" rwaccess="R">
+            <bitenum id="JMBOUT0FG_0" value="0x0" description="JMBO0 is not ready to receive new data"/>
+            <bitenum id="JMBOUT0FG_1" value="0x1" description="JMBO0 is ready to receive new data"/>
+        </bitfield>
+        <bitfield id="JMBOUT1FG" description="Outgoing JTAG Mailbox 1 flag" begin="3" end="3" width="1" rwaccess="R">
+            <bitenum id="JMBOUT1FG_0" value="0x0" description="JMBO1 is not ready to receive new data"/>
+            <bitenum id="JMBOUT1FG_1" value="0x1" description="JMBO1 is ready to receive new data"/>
+        </bitfield>
+        <bitfield id="JMBMODE" description="Operation mode of JMB" begin="4" end="4" width="1" rwaccess="R/W">
+            <bitenum id="16BIT" value="0x0" description="16-bit transfers using JMBO0 and JMBI0 only"/>
+            <bitenum id="32BIT" value="0x1" description="32-bit transfers using JMBO0 with JMBO1 and JMBI0 with JMBI1"/>
+        </bitfield>
+        <bitfield id="JMBCLR0OFF" description="Incoming JTAG Mailbox 0 flag auto-clear disable" begin="6" end="6" width="1" rwaccess="R/W">
+            <bitenum id="JMBCLR0OFF_0" value="0x0" description="JMBIN0FG cleared on read of JMB0IN register"/>
+            <bitenum id="JMBCLR0OFF_1" value="0x1" description="JMBIN0FG cleared by software"/>
+        </bitfield>
+        <bitfield id="JMBCLR1OFF" description="Incoming JTAG Mailbox 1 flag auto-clear disable" begin="7" end="7" width="1" rwaccess="R/W">
+            <bitenum id="JMBCLR1OFF_0" value="0x0" description="JMBIN1FG cleared on read of JMB1IN register"/>
+            <bitenum id="JMBCLR1OFF_1" value="0x1" description="JMBIN1FG cleared by software"/>
+        </bitfield>
+    </register>
+    <register id="SYSJMBI0" width="16" offset="0x8" internal="0" description="JTAG Mailbox Input">
+        <bitfield id="MSGLO" description="JTAG mailbox incoming message low byte" begin="7" end="0" width="8" rwaccess="R/W">
+        </bitfield>
+        <bitfield id="MSGHI" description="JTAG mailbox incoming message high byte" begin="15" end="8" width="8" rwaccess="R/W">
+        </bitfield>
+    </register>
+    <register id="SYSJMBI1" width="16" offset="0xA" internal="0" description="JTAG Mailbox Input">
+        <bitfield id="MSGLO" description="JTAG mailbox incoming message low byte" begin="7" end="0" width="8" rwaccess="R/W">
+        </bitfield>
+        <bitfield id="MSGHI" description="JTAG mailbox incoming message high byte" begin="15" end="8" width="8" rwaccess="R/W">
+        </bitfield>
+    </register>
+    <register id="SYSJMBO0" width="16" offset="0xC" internal="0" description="JTAG Mailbox Output">
+        <bitfield id="MSGLO" description="JTAG mailbox outgoing message low byte" begin="7" end="0" width="8" rwaccess="R/W">
+        </bitfield>
+        <bitfield id="MSGHI" description="JTAG mailbox outgoing message high byte" begin="15" end="8" width="8" rwaccess="R/W">
+        </bitfield>
+    </register>
+    <register id="SYSJMBO1" width="16" offset="0xE" internal="0" description="JTAG Mailbox Output">
+        <bitfield id="MSGLO" description="JTAG mailbox outgoing message low byte" begin="7" end="0" width="8" rwaccess="R/W">
+        </bitfield>
+        <bitfield id="MSGHI" description="JTAG mailbox outgoing message high byte" begin="15" end="8" width="8" rwaccess="R/W">
+        </bitfield>
+    </register>
+    <register id="SYSUNIV" width="16" offset="0x1A" internal="0" description="User NMI Vector Generator">
+        <bitfield id="SYSUNIV" description="User NMI vector" begin="15" end="0" width="16" rwaccess="R">
+            <bitenum id="NONE" value="0x0" description="No interrupt pending"/>
+            <bitenum id="NMIIFG" value="0x2" description="NMIIFG NMI pin"/>
+            <bitenum id="OFIFG" value="0x4" description="OFIFG oscillator fault"/>
+        </bitfield>
+    </register>
+    <register id="SYSSNIV" width="16" offset="0x1C" internal="0" description="System NMI Vector Generator">
+        <bitfield id="SYSSNIV" description="System NMI vector" begin="15" end="0" width="16" rwaccess="R">
+            <bitenum id="NONE" value="0x0" description="No interrupt pending"/>
+            <bitenum id="SYSSNIV_2" value="0x2" description="Reserved"/>
+            <bitenum id="UBDIFG" value="0x4" description="Uncorrectable FRAM bit error detection"/>
+            <bitenum id="ACCTEIFG" value="0x6" description="FRAM Access Time Error"/>
+            <bitenum id="MPUSEGPIFG" value="0x8" description="MPUSEGPIFG encapsulated IP memory segment violation"/>
+            <bitenum id="MPUSEGIIFG" value="0xA" description="MPUSEGIIFG information memory segment violation"/>
+            <bitenum id="MPUSEG1IFG" value="0xC" description="MPUSEG1IFG segment 1 memory violation"/>
+            <bitenum id="MPUSEG2IFG" value="0xE" description="MPUSEG2IFG segment 2 memory violation"/>
+            <bitenum id="MPUSEG3IFG" value="0x10" description="MPUSEG3IFG segment 3 memory violation"/>
+            <bitenum id="VMAIFG" value="0x12" description="VMAIFG Vacant memory access"/>
+            <bitenum id="JMBINIFG" value="0x14" description="JMBINIFG JTAG mailbox input"/>
+            <bitenum id="JMBOUTIFG" value="0x16" description="JMBOUTIFG JTAG mailbox output"/>
+            <bitenum id="CBDIFG" value="0x18" description="Correctable FRAM bit error detection"/>
+            <bitenum id="WPROT" value="0x1A" description="FRAM write protection detection"/>
+            <bitenum id="LEATO" value="0x1C" description="LEA time-out fault"/>
+            <bitenum id="LEACMD" value="0x1E" description="LEA command fault"/>
+        </bitfield>
+    </register>
+    <register id="SYSRSTIV" width="16" offset="0x1E" internal="0" description="Reset Vector Generator">
+        <bitfield id="SYSRSTIV" description="Reset interrupt vector" begin="15" end="0" width="16" rwaccess="R">
+            <bitenum id="NONE" value="0x0" description="No interrupt pending"/>
+            <bitenum id="BOR" value="0x2" description="Brownout"/>
+            <bitenum id="RSTNMI" value="0x4" description="RSTIFG RST/NMI"/>
+            <bitenum id="PMMSWBOR" value="0x6" description="PMMSWBOR software BOR"/>
+            <bitenum id="LPM5WU" value="0x8" description="LPMx.5 wakeup"/>
+            <bitenum id="SECYV" value="0xA" description="Security violation"/>
+            <bitenum id="SYSRSTIV_12" value="0xC" description="Reserved"/>
+            <bitenum id="SVSHIFG" value="0xE" description="SVSHIFG SVSH event"/>
+            <bitenum id="SYSRSTIV_16" value="0x10" description="Reserved"/>
+            <bitenum id="SYSRSTIV_18" value="0x12" description="Reserved"/>
+            <bitenum id="PMMSWPOR" value="0x14" description="PMMSWPOR software POR"/>
+            <bitenum id="WDTIFG" value="0x16" description="WDTIFG watchdog timeout"/>
+            <bitenum id="WDTPW" value="0x18" description="WDTPW watchdog password violation"/>
+            <bitenum id="FRCTLPW" value="0x1A" description="FRCTLPW password violation"/>
+            <bitenum id="UBDIFG" value="0x1C" description="Uncorrectable FRAM bit error detection"/>
+            <bitenum id="PERF" value="0x1E" description="Peripheral area fetch"/>
+            <bitenum id="PMMPW" value="0x20" description="PMM password violation"/>
+            <bitenum id="MPUPW" value="0x22" description="MPU password violation"/>
+            <bitenum id="CSPW" value="0x24" description="CS password violation"/>
+            <bitenum id="MPUSEGPIFG" value="0x26" description="MPUSEGPIFG encapsulated IP memory segment violation"/>
+            <bitenum id="MPUSEGIIFG" value="0x28" description="MPUSEGIIFG information memory segment violation"/>
+            <bitenum id="MPUSEG1IFG" value="0x2A" description="MPUSEG1IFG segment 1 memory violation"/>
+            <bitenum id="MPUSEG2IFG" value="0x2C" description="MPUSEG2IFG segment 2 memory violation"/>
+            <bitenum id="MPUSEG3IFG" value="0x2E" description="MPUSEG3IFG segment 3 memory violation"/>
+        </bitfield>
+    </register>
+</module>

@@ -1,0 +1,34 @@
+<module id="SAC0" HW_revision="455.0.8_config1">
+    <register id="SAC0OA" width="16" offset="0x0" internal="0" description="SAC OA Control Register">
+        <bitfield id="PSEL" description="SAC OA Positive input source selection" begin="1" end="0" width="2" rwaccess="R/W">
+            <bitenum id="PSEL_0" value="0x0" description="External source selected"/>
+            <bitenum id="PSEL_1" value="0x1" description="12-bit reference DAC source selected"/>
+            <bitenum id="PSEL_2" value="0x2" description="Pair OA source selected"/>
+        </bitfield>
+        <bitfield id="PMUXEN" description="SAC Positive input MUX control." begin="3" end="3" width="1" rwaccess="R/W">
+            <bitenum id="PMUXEN_0" value="0x0" description="All positive input sources are disconnected to OA positive port"/>
+            <bitenum id="PMUXEN_1" value="0x1" description="All positive input sources are connected to OA positive port"/>
+        </bitfield>
+        <bitfield id="NSEL" description="SAC OA Negative input source selection" begin="5" end="4" width="2" rwaccess="R/W">
+            <bitenum id="NSEL_0" value="0x0" description="External source selected"/>
+            <bitenum id="NSEL_1" value="0x1" description="PGA source selected"/>
+            <bitenum id="NSEL_2" value="0x2" description="Device Specific"/>
+        </bitfield>
+        <bitfield id="NMUXEN" description="SAC Negative input MUX controL" begin="7" end="7" width="1" rwaccess="R/W">
+            <bitenum id="NMUXEN_0" value="0x0" description="All negative input sources are disconnected to OA negative port"/>
+            <bitenum id="NMUXEN_1" value="0x1" description="All negative input sources are connected to OA negative port"/>
+        </bitfield>
+        <bitfield id="OAEN" description="SAC OA Enable selection" begin="8" end="8" width="1" rwaccess="R/W">
+            <bitenum id="OAEN_0" value="0x0" description="SAC OA is disabled, then the SAC OA output high impedance"/>
+            <bitenum id="OAEN_1" value="0x1" description="SAC OA is enabled, normal mode"/>
+        </bitfield>
+        <bitfield id="OAPM" description="SAC OA power mode selection" begin="9" end="9" width="1" rwaccess="R/W">
+            <bitenum id="OAPM_0" value="0x0" description="High speed and high power"/>
+            <bitenum id="OAPM_1" value="0x1" description="Llow speed and low power"/>
+        </bitfield>
+        <bitfield id="SACEN" description="SAC Enable selection" begin="10" end="10" width="1" rwaccess="R/W">
+            <bitenum id="SACEN_0" value="0x0" description="SAC all modules are disabled, then the SAC output high impedance"/>
+            <bitenum id="SACEN_1" value="0x1" description="SAC all modules are enabled, normal mode"/>
+        </bitfield>
+    </register>
+</module>

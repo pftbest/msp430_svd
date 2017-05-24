@@ -1,0 +1,294 @@
+<module id="RTC_C" HW_revision="208.0">
+    <register id="RTCCTL0" width="16" offset="0x0" internal="0" description="RTCCTL0 Register">
+        <bitfield id="RTCRDYIFG" description="Real-time clock ready interrupt flag" begin="0" end="0" width="1" rwaccess="R/W">
+        </bitfield>
+        <bitfield id="RTCAIFG" description="Real-time clock alarm interrupt flag" begin="1" end="1" width="1" rwaccess="R/W">
+        </bitfield>
+        <bitfield id="RTCTEVIFG" description="Real-time clock time event interrupt flag" begin="2" end="2" width="1" rwaccess="R/W">
+        </bitfield>
+        <bitfield id="RTCOFIFG" description="32-kHz crystal oscillator fault interrupt flag" begin="3" end="3" width="1" rwaccess="R/W">
+        </bitfield>
+        <bitfield id="RTCRDYIE" description="Real-time clock ready interrupt enable" begin="4" end="4" width="1" rwaccess="R/W">
+        </bitfield>
+        <bitfield id="RTCAIE" description="Real-time clock alarm interrupt enable" begin="5" end="5" width="1" rwaccess="R/W">
+        </bitfield>
+        <bitfield id="RTCTEVIE" description="Real-time clock time event interrupt enable" begin="6" end="6" width="1" rwaccess="R/W">
+        </bitfield>
+        <bitfield id="RTCOFIE" description="32-kHz crystal oscillator fault interrupt enable" begin="7" end="7" width="1" rwaccess="R/W">
+        </bitfield>
+        <bitfield id="RTCKEY" description="Real-time clock key" begin="15" end="8" width="8" rwaccess="R/W">
+        </bitfield>
+    </register>
+    <register id="RTCCTL13" width="16" offset="0x2" internal="0" description="RTCCTL13 Register">
+        <bitfield id="RTCTEV" description="Real-time clock time event" begin="1" end="0" width="2" rwaccess="R/W">
+            <bitenum id="MIN" value="0x0" description="Minute changed"/>
+            <bitenum id="HOUR" value="0x1" description="Hour changed"/>
+            <bitenum id="0000" value="0x2" description="Every day at midnight (00:00)"/>
+            <bitenum id="1200" value="0x3" description="Every day at noon (12:00)"/>
+        </bitfield>
+        <bitfield id="RTCSSEL" description="Real-time clock source select" begin="3" end="2" width="2" rwaccess="R/W">
+            <bitenum id="LFXT" value="0x0" description="32-kHz crystal oscillator clock"/>
+            <bitenum id="LFXT" value="0x1" description="32-kHz crystal oscillator clock"/>
+            <bitenum id="RT1PS" value="0x2" description="Output from RT1PS"/>
+            <bitenum id="RT1PS" value="0x3" description="Output from RT1PS"/>
+        </bitfield>
+        <bitfield id="RTCRDY" description="Real-time clock ready" begin="4" end="4" width="1" rwaccess="R">
+            <bitenum id="RTCRDY_0" value="0x0" description="RTC time values in transition"/>
+            <bitenum id="RTCRDY_1" value="0x1" description="RTC time values safe for reading. This bit indicates when the real-time clock time values are safe for reading."/>
+        </bitfield>
+        <bitfield id="RTCMODE" description="" begin="5" end="5" width="1" rwaccess="R">
+            <bitenum id="RTCMODE_1" value="0x1" description="Calendar mode. Always reads a value of 1."/>
+        </bitfield>
+        <bitfield id="RTCHOLD" description="Real-time clock hold" begin="6" end="6" width="1" rwaccess="R/W">
+            <bitenum id="RTCHOLD_0" value="0x0" description="Real-time clock is operational"/>
+            <bitenum id="RTCHOLD_1" value="0x1" description="When set, the calendar is stopped as well as the prescale counters, RT0PS and RT1PS are don't care"/>
+        </bitfield>
+        <bitfield id="RTCBCD" description="Real-time clock BCD select" begin="7" end="7" width="1" rwaccess="R/W">
+            <bitenum id="HEX" value="0x0" description="Binary (hexadecimal) code selected"/>
+            <bitenum id="BCD" value="0x1" description="Binary coded decimal (BCD) code selected"/>
+        </bitfield>
+        <bitfield id="RTCCALF" description="Real-time clock calibration frequency" begin="9" end="8" width="2" rwaccess="R/W">
+            <bitenum id="NONE" value="0x0" description="No frequency output to RTCCLK pin"/>
+            <bitenum id="512" value="0x1" description="512 Hz"/>
+            <bitenum id="256" value="0x2" description="256 Hz"/>
+            <bitenum id="1" value="0x3" description="1 Hz"/>
+        </bitfield>
+    </register>
+    <register id="RTCOCAL" width="16" offset="0x4" internal="0" description="RTCOCAL Register">
+        <bitfield id="RTCOCAL" description="Real-time clock offset error calibration" begin="7" end="0" width="8" rwaccess="R/W">
+        </bitfield>
+        <bitfield id="RTCOCALS" description="Real-time clock offset error calibration sign" begin="15" end="15" width="1" rwaccess="R/W">
+            <bitenum id="DOWN" value="0x0" description="Down calibration. Frequency adjusted down."/>
+            <bitenum id="UP" value="0x1" description="Up calibration. Frequency adjusted up."/>
+        </bitfield>
+    </register>
+    <register id="RTCTCMP" width="16" offset="0x6" internal="0" description="RTCTCMP Register">
+        <bitfield id="RTCTCMP" description="Real-time clock temperature compensation" begin="7" end="0" width="8" rwaccess="R/W">
+        </bitfield>
+        <bitfield id="RTCTCOK" description="Real-time clock temperature compensation write OK" begin="13" end="13" width="1" rwaccess="R">
+            <bitenum id="RTCTCOK_0" value="0x0" description="Write to RTCTCMPx is unsuccessful"/>
+            <bitenum id="RTCTCOK_1" value="0x1" description="Write to RTCTCMPx is successful"/>
+        </bitfield>
+        <bitfield id="RTCTCRDY" description="Real-time clock temperature compensation ready" begin="14" end="14" width="1" rwaccess="R">
+        </bitfield>
+        <bitfield id="RTCTCMPS" description="Real-time clock temperature compensation sign" begin="15" end="15" width="1" rwaccess="R/W">
+            <bitenum id="DOWN" value="0x0" description="Down calibration. Frequency adjusted down"/>
+            <bitenum id="UP" value="0x1" description="Up calibration. Frequency adjusted up"/>
+        </bitfield>
+    </register>
+    <register id="RTCPS0CTL" width="16" offset="0x8" internal="0" description="Real-Time Clock Prescale Timer 0 Control Register">
+        <bitfield id="RT0PSIFG" description="Prescale timer 0 interrupt flag" begin="0" end="0" width="1" rwaccess="R/W">
+            <bitenum id="RT0PSIFG_0" value="0x0" description="No time event occurred"/>
+            <bitenum id="RT0PSIFG_1" value="0x1" description="Time event occurred"/>
+        </bitfield>
+        <bitfield id="RT0PSIE" description="Prescale timer 0 interrupt enable" begin="1" end="1" width="1" rwaccess="R/W">
+            <bitenum id="DISABLE" value="0x0" description="Interrupt not enabled"/>
+            <bitenum id="ENABLE" value="0x1" description="Interrupt enabled"/>
+        </bitfield>
+        <bitfield id="RT0IP" description="Prescale timer 0 interrupt interval" begin="4" end="2" width="3" rwaccess="R/W">
+            <bitenum id="2" value="0x0" description="Divide by 2"/>
+            <bitenum id="4" value="0x1" description="Divide by 4"/>
+            <bitenum id="8" value="0x2" description="Divide by 8"/>
+            <bitenum id="16" value="0x3" description="Divide by 16"/>
+            <bitenum id="32" value="0x4" description="Divide by 32"/>
+            <bitenum id="64" value="0x5" description="Divide by 64"/>
+            <bitenum id="128" value="0x6" description="Divide by 128"/>
+            <bitenum id="256" value="0x7" description="Divide by 256"/>
+        </bitfield>
+        <bitfield id="RT0PSHOLD" description="Prescale timer 0 hold" begin="8" end="8" width="1" rwaccess="R/W">
+            <bitenum id="RT0PSHOLD_0" value="0x0" description="RT0PS is operational"/>
+            <bitenum id="RT0PSHOLD_1" value="0x1" description="RT0PS is held"/>
+        </bitfield>
+        <bitfield id="RT0PSDIV" description="Prescale timer 0 clock divide" begin="13" end="11" width="3" rwaccess="R/W">
+            <bitenum id="2" value="0x0" description="Divide by 2"/>
+            <bitenum id="4" value="0x1" description="Divide by 4"/>
+            <bitenum id="8" value="0x2" description="Divide by 8"/>
+            <bitenum id="16" value="0x3" description="Divide by 16"/>
+            <bitenum id="32" value="0x4" description="Divide by 32"/>
+            <bitenum id="64" value="0x5" description="Divide by 64"/>
+            <bitenum id="128" value="0x6" description="Divide by 128"/>
+            <bitenum id="256" value="0x7" description="Divide by 256"/>
+        </bitfield>
+    </register>
+    <register id="RTCPS1CTL" width="16" offset="0xA" internal="0" description="Real-Time Clock Prescale Timer 1 Control Register">
+        <bitfield id="RT1PSIFG" description="Prescale timer 1 interrupt flag" begin="0" end="0" width="1" rwaccess="R/W">
+            <bitenum id="RT1PSIFG_0" value="0x0" description="No time event occurred"/>
+            <bitenum id="RT1PSIFG_1" value="0x1" description="Time event occurred"/>
+        </bitfield>
+        <bitfield id="RT1PSIE" description="Prescale timer 1 interrupt enable" begin="1" end="1" width="1" rwaccess="R/W">
+            <bitenum id="DISABLE" value="0x0" description="Interrupt not enabled"/>
+            <bitenum id="ENABLE" value="0x1" description="Interrupt enabled (LPM3/LPM3.5 wake-up enabled)"/>
+        </bitfield>
+        <bitfield id="RT1IP" description="Prescale timer 1 interrupt interval" begin="4" end="2" width="3" rwaccess="R/W">
+            <bitenum id="2" value="0x0" description="Divide by 2"/>
+            <bitenum id="4" value="0x1" description="Divide by 4"/>
+            <bitenum id="8" value="0x2" description="Divide by 8"/>
+            <bitenum id="16" value="0x3" description="Divide by 16"/>
+            <bitenum id="32" value="0x4" description="Divide by 32"/>
+            <bitenum id="64" value="0x5" description="Divide by 64"/>
+            <bitenum id="128" value="0x6" description="Divide by 128"/>
+            <bitenum id="256" value="0x7" description="Divide by 256"/>
+        </bitfield>
+        <bitfield id="RT1PSHOLD" description="Prescale timer 1 hold" begin="8" end="8" width="1" rwaccess="R/W">
+            <bitenum id="RT1PSHOLD_0" value="0x0" description="RT1PS is operational"/>
+            <bitenum id="RT1PSHOLD_1" value="0x1" description="RT1PS is held"/>
+        </bitfield>
+        <bitfield id="RT1PSDIV" description="Prescale timer 1 clock divide" begin="13" end="11" width="3" rwaccess="R/W">
+            <bitenum id="2" value="0x0" description="Divide by 2"/>
+            <bitenum id="4" value="0x1" description="Divide by 4"/>
+            <bitenum id="8" value="0x2" description="Divide by 8"/>
+            <bitenum id="16" value="0x3" description="Divide by 16"/>
+            <bitenum id="32" value="0x4" description="Divide by 32"/>
+            <bitenum id="64" value="0x5" description="Divide by 64"/>
+            <bitenum id="128" value="0x6" description="Divide by 128"/>
+            <bitenum id="256" value="0x7" description="Divide by 256"/>
+        </bitfield>
+        <bitfield id="RT1SSEL" description="Prescale timer 1 clock source select" begin="15" end="14" width="2" rwaccess="R/W">
+            <bitenum id="RT1SSEL_0" value="0x0" description="32-kHz crystal oscillator clock"/>
+            <bitenum id="RT1SSEL_1" value="0x1" description="32-kHz crystal oscillator clock"/>
+            <bitenum id="RT0PS" value="0x2" description="Output from RT0PS"/>
+            <bitenum id="RT0PS" value="0x3" description="Output from RT0PS"/>
+        </bitfield>
+    </register>
+    <register id="RTCPS" width="16" offset="0xC" internal="0" description="Real-Time Clock Prescale Timer Counter Register">
+    </register>
+    <register id="RTCIV" width="16" offset="0xE" internal="0" description="Real-Time Clock Interrupt Vector Register">
+        <bitfield id="RTCIV" description="Real-time clock interrupt vector value" begin="15" end="0" width="16" rwaccess="R">
+            <bitenum id="NONE" value="0x0" description="No interrupt pending"/>
+            <bitenum id="RTCOFIFG" value="0x2" description="Interrupt Source: RTC oscillator failure; Interrupt Flag: RTCOFIFG; Interrupt Priority: Highest"/>
+            <bitenum id="RTCRDYIFG" value="0x4" description="Interrupt Source: RTC ready; Interrupt Flag: RTCRDYIFG"/>
+            <bitenum id="RTCTEVIFG" value="0x6" description="Interrupt Source: RTC interval timer; Interrupt Flag: RTCTEVIFG"/>
+            <bitenum id="RTCAIFG" value="0x8" description="Interrupt Source: RTC user alarm; Interrupt Flag: RTCAIFG"/>
+            <bitenum id="RT0PSIFG" value="0xA" description="Interrupt Source: RTC prescaler 0; Interrupt Flag: RT0PSIFG"/>
+            <bitenum id="RT1PSIFG" value="0xC" description="Interrupt Source: RTC prescaler 1; Interrupt Flag: RT1PSIFG"/>
+        </bitfield>
+    </register>
+    <register id="RTCTIM0" width="16" offset="0x10" internal="0" description="RTCTIM0 Register  Hexadecimal Format">
+        <bitfield id="SECONDS" description="Seconds (0 to 59)" begin="5" end="0" width="6" rwaccess="R/W">
+        </bitfield>
+        <bitfield id="MINUTES" description="Minutes (0 to 59)" begin="13" end="8" width="6" rwaccess="R/W">
+        </bitfield>
+    </register>
+    <register id="RTCTIM0_BCD" width="16" offset="0x10" internal="0" description="Real-Time Clock Seconds, Minutes Register - BCD Format">
+        <bitfield id="SECONDSLOWDIGIT" description="Seconds  low digit (0 to 9)" begin="3" end="0" width="4" rwaccess="R/W">
+        </bitfield>
+        <bitfield id="SECONDSHIGHDIGIT" description="Seconds  high digit (0 to 5)" begin="6" end="4" width="3" rwaccess="R/W">
+        </bitfield>
+        <bitfield id="MINUTESLOWDIGIT" description="Minutes  low digit (0 to 9)" begin="11" end="8" width="4" rwaccess="R/W">
+        </bitfield>
+        <bitfield id="MINUTESHIGHDIGIT" description="Minutes  high digit (0 to 5)" begin="14" end="12" width="3" rwaccess="R/W">
+        </bitfield>
+    </register>
+    <register id="RTCCNT12" width="16" offset="0x10" internal="0" description="Real-Time Clock Counter 1 and 2  Register  Counter Mode">
+    </register>
+    <register id="RTCTIM1" width="16" offset="0x12" internal="0" description="Real-Time Clock Hour, Day of Week">
+        <bitfield id="HOURS" description="Hours (0 to 23)" begin="4" end="0" width="5" rwaccess="R/W">
+        </bitfield>
+        <bitfield id="DAYOFWEEK" description="Day of week (0 to 6)" begin="10" end="8" width="3" rwaccess="R/W">
+        </bitfield>
+    </register>
+    <register id="RTCTIM1_BCD" width="16" offset="0x12" internal="0" description="Real-Time Clock Hour, Day of Week - BCD Format">
+        <bitfield id="HOURSLOWDIGIT" description="Hours  low digit (0 to 9)" begin="3" end="0" width="4" rwaccess="R/W">
+        </bitfield>
+        <bitfield id="HOURSHIGHDIGIT" description="Hours  high digit (0 to 2)" begin="5" end="4" width="2" rwaccess="R/W">
+        </bitfield>
+        <bitfield id="DAYOFWEEK" description="Day of week (0 to 6)" begin="10" end="8" width="3" rwaccess="R/W">
+        </bitfield>
+    </register>
+    <register id="RTCCNT34" width="16" offset="0x12" internal="0" description="Real-Time Clock Counter 3 and 4  Register  Counter Mode">
+    </register>
+    <register id="RTCDATE" width="16" offset="0x14" internal="0" description="RTCDATE - Hexadecimal Format">
+        <bitfield id="DAY" description="Day of month (1 to 28, 29, 30, 31)" begin="4" end="0" width="5" rwaccess="R/W">
+        </bitfield>
+        <bitfield id="MONTH" description="Month (1 to 12)" begin="11" end="8" width="4" rwaccess="R/W">
+        </bitfield>
+    </register>
+    <register id="RTCDATE_BCD" width="16" offset="0x14" internal="0" description="Real-Time Clock Date - BCD Format">
+        <bitfield id="DAYLOWDIGIT" description="Day of month  low digit (0 to 9)" begin="3" end="0" width="4" rwaccess="R/W">
+        </bitfield>
+        <bitfield id="DAYHIGHDIGIT" description="Day of month  high digit (0 to 3)" begin="5" end="4" width="2" rwaccess="R/W">
+        </bitfield>
+        <bitfield id="MONTHLOWDIGIT" description="Month  low digit (0 to 9)" begin="11" end="8" width="4" rwaccess="R/W">
+        </bitfield>
+        <bitfield id="MONTHHIGHDIGIT" description="Month  high digit (0 or 1)" begin="12" end="12" width="1" rwaccess="R/W">
+        </bitfield>
+    </register>
+    <register id="RTCYEAR" width="16" offset="0x16" internal="0" description="RTCYEAR Register  Hexadecimal Format">
+        <bitfield id="YEARLOWBYTE" description="Year  low byte. Valid values for Year are 0 to 4095." begin="7" end="0" width="8" rwaccess="R/W">
+        </bitfield>
+        <bitfield id="YEARHIGHBYTE" description="Year  high byte. Valid values for Year are 0 to 4095." begin="11" end="8" width="4" rwaccess="R/W">
+        </bitfield>
+    </register>
+    <register id="RTCYEAR_BCD" width="16" offset="0x16" internal="0" description="Real-Time Clock Year Register - BCD Format">
+        <bitfield id="YEAR" description="Year  lowest digit (0 to 9)" begin="3" end="0" width="4" rwaccess="R/W">
+        </bitfield>
+        <bitfield id="DECADE" description="Decade (0 to 9)" begin="7" end="4" width="4" rwaccess="R/W">
+        </bitfield>
+        <bitfield id="CENTURYLOWDIGIT" description="Century  low digit (0 to 9)" begin="11" end="8" width="4" rwaccess="R/W">
+        </bitfield>
+        <bitfield id="CENTURYHIGHDIGIT" description="Century  high digit (0 to 4)" begin="14" end="12" width="3" rwaccess="R/W">
+        </bitfield>
+    </register>
+    <register id="RTCAMINHR" width="16" offset="0x18" internal="0" description="RTCMINHR - Hexadecimal Format">
+        <bitfield id="MIN" description="Minutes (0 to 59)" begin="5" end="0" width="6" rwaccess="R/W">
+        </bitfield>
+        <bitfield id="MINAE" description="Alarm enable" begin="7" end="7" width="1" rwaccess="R/W">
+        </bitfield>
+        <bitfield id="HOUR" description="Hours (0 to 23)" begin="12" end="8" width="5" rwaccess="R/W">
+        </bitfield>
+        <bitfield id="HOURAE" description="Alarm enable" begin="15" end="15" width="1" rwaccess="R/W">
+        </bitfield>
+    </register>
+    <register id="RTCAMINHR_BCD" width="16" offset="0x18" internal="0" description="Real-Time Clock Minutes, Hour Alarm - BCD Format">
+        <bitfield id="MINUTESLOWDIGIT" description="Minutes  low digit (0 to 9)" begin="3" end="0" width="4" rwaccess="R/W">
+        </bitfield>
+        <bitfield id="MINUTESHIGHDIGIT" description="Minutes  high digit (0 to 5)" begin="6" end="4" width="3" rwaccess="R/W">
+        </bitfield>
+        <bitfield id="MINAE" description="Alarm enable" begin="7" end="7" width="1" rwaccess="R/W">
+        </bitfield>
+        <bitfield id="HOURSLOWDIGIT" description="Hours  low digit (0 to 9)" begin="11" end="8" width="4" rwaccess="R/W">
+        </bitfield>
+        <bitfield id="HOURSHIGHDIGIT" description="Hours  high digit (0 to 2)" begin="13" end="12" width="2" rwaccess="R/W">
+        </bitfield>
+        <bitfield id="HOURAE" description="Alarm enable" begin="15" end="15" width="1" rwaccess="R/W">
+        </bitfield>
+    </register>
+    <register id="RTCADOWDAY" width="16" offset="0x1A" internal="0" description="RTCADOWDAY - Hexadecimal Format">
+        <bitfield id="DOW" description="Day of week (0 to 6)" begin="2" end="0" width="3" rwaccess="R/W">
+        </bitfield>
+        <bitfield id="DOWAE" description="Alarm enable" begin="7" end="7" width="1" rwaccess="R/W">
+        </bitfield>
+        <bitfield id="DAY" description="Day of month (1 to 28, 29, 30, 31)" begin="12" end="8" width="5" rwaccess="R/W">
+        </bitfield>
+        <bitfield id="DAYAE" description="Alarm enable" begin="15" end="15" width="1" rwaccess="R/W">
+        </bitfield>
+    </register>
+    <register id="RTCADOWDAY_BCD" width="16" offset="0x1A" internal="0" description="Real-Time Clock Day of Week, Day of Month Alarm - BCD Format">
+        <bitfield id="DOW" description="Day of week (0 to 6)" begin="2" end="0" width="3" rwaccess="R/W">
+        </bitfield>
+        <bitfield id="DOWAE" description="Alarm enable" begin="7" end="7" width="1" rwaccess="R/W">
+        </bitfield>
+        <bitfield id="DAY_LD" description="Day of month  low digit (0 to 9)" begin="11" end="8" width="4" rwaccess="R/W">
+        </bitfield>
+        <bitfield id="DAY_HD" description="Day of month  high digit (0 to 3)" begin="13" end="12" width="2" rwaccess="R/W">
+        </bitfield>
+        <bitfield id="DAYAE" description="Alarm enable" begin="15" end="15" width="1" rwaccess="R/W">
+        </bitfield>
+    </register>
+    <register id="BIN2BCD" width="16" offset="0x1C" internal="0" description="Binary-to-BCD Conversion Register">
+    </register>
+    <register id="BCD2BIN" width="16" offset="0x1E" internal="0" description="BCD-to-Binary Conversion Register">
+    </register>
+    <register id="RT0PS" width="8" offset="0xC" internal="0" description="Prescale timer 0 counter value">
+    </register>
+    <register id="RT1PS" width="8" offset="0xD" internal="0" description="Prescale timer 1 counter value">
+    </register>
+    <register id="RTCCNT1" width="8" offset="0x10" internal="0" description="The RTCCNT1 register is the count of RTCCNT1">
+    </register>
+    <register id="RTCCNT2" width="8" offset="0x11" internal="0" description="The RTCCNT2 register is the count of RTCCNT2">
+    </register>
+    <register id="RTCCNT3" width="8" offset="0x12" internal="0" description="The RTCCNT3 register is the count of RTCCNT3">
+    </register>
+    <register id="RTCCNT4" width="8" offset="0x13" internal="0" description="The RTCCNT4 register is the count of RTCCNT4">
+    </register>
+</module>

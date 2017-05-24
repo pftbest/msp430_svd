@@ -1,0 +1,376 @@
+<module id="LEA" HW_revision="367.0">
+    <register id="LEACAP" width="32" offset="0x0" internal="0" description="LEA Capability Register">
+        <bitfield id="LEAMSIZ" description="LEA Code Memory Size. This register identifies the size of available code RAM." begin="3" end="0" width="4" rwaccess="R">
+            <bitenum id="LEAMSIZ_0" value="0x0" description="no code RAM"/>
+            <bitenum id="LEAMSIZ_1" value="0x1" description="1KB Code RAM"/>
+        </bitfield>
+    </register>
+    <register id="LEACNF0" width="32" offset="0x4" internal="0" description="Configuration Register 0">
+        <bitfield id="LEASWRST" description="LEA module software restart. Setting this bit to one restarts the LEA module. As long this bit remains set to one the LEA is held in Restart. (The LEA accessible memory behaves as system RAM)" begin="0" end="0" width="1" rwaccess="R/W">
+        </bitfield>
+        <bitfield id="LEAFTHOLD" description="Hold on faults and NMIs for all pending LEA operations transfers.This is for all system wide fault/NMI cases (for our first implementation we may just consider local LEA triggered fault cases)" begin="1" end="1" width="1" rwaccess="R/W">
+            <bitenum id="LEAFTHOLD_0" value="0x0" description="LEA transfers continue on faults/NMIs"/>
+            <bitenum id="LEAFTHOLD_1" value="0x1" description="LEA transfers enter HOLD on faults/NMIs"/>
+        </bitfield>
+        <bitfield id="LEALPR" description="This bit defined if command execution shall be continued in LPM modes" begin="8" end="8" width="1" rwaccess="R/W">
+            <bitenum id="LEALPR_0" value="0x0" description="LEA command execution stops in deep low power modes"/>
+            <bitenum id="LEALPR_1" value="0x1" description="LEA command execution continues in deep low power modes"/>
+        </bitfield>
+        <bitfield id="LEAILPM" description="This bit defines if a &quot;Command done interrupt&quot; shall be triggered in LPM mode" begin="10" end="10" width="1" rwaccess="R/W">
+            <bitenum id="LEAILPM_0" value="0x0" description="Interrupt of LEA is suppressed in LPM mode until AM is entered then the LEA interrupt is triggered as well"/>
+            <bitenum id="LEAILPM_1" value="0x1" description="Interrupt of LEA is always triggered on completion of an LEA command"/>
+        </bitfield>
+        <bitfield id="LEAILB" description="LEA instruction loop buffer disable. Debugging function for LEA (leave it zero)." begin="11" end="11" width="1" rwaccess="R">
+        </bitfield>
+        <bitfield id="LEATIMFLTE" description="LEA module timer fault enable." begin="13" end="13" width="1" rwaccess="R/W">
+            <bitenum id="LEATIMFLT_0" value="0x0" description="LEA module timer timeout will not cause a fault indication"/>
+            <bitenum id="LEATIMFLTE_1" value="0x1" description="LEA module timer timeout will cause a fault indication. LEA stops operation and enters &quot;Ready-state&quot;."/>
+        </bitfield>
+        <bitfield id="LEACFLT" description="LEAHPCFLTE when hardware trigger available later Enable bit on peripheral mapped command faults and hardware triggered command faults." begin="14" end="14" width="1" rwaccess="R/W">
+            <bitenum id="LEACFLT_0" value="0x0" description="LEAHPCFLT is disabled"/>
+            <bitenum id="LEACFLT_1" value="0x1" description="LEAHPCFLT is enabled"/>
+        </bitfield>
+        <bitfield id="LEAMEMFLTE" description="Enable bit on memory faults." begin="15" end="15" width="1" rwaccess="R/W">
+            <bitenum id="LEAMEMFLTE_0" value="0x0" description="LEA memory faults are disabled"/>
+            <bitenum id="LEAMEMFLTE_1" value="0x1" description="LEA memory faults are enabled"/>
+        </bitfield>
+        <bitfield id="LEADONES" description="LEA done event indication and set flag. This bit indicated the done event for LEA. This bit can be set by writing a one to it. Writing a zero has no effect." begin="16" end="16" width="1" rwaccess="R/W">
+        </bitfield>
+        <bitfield id="LEAFREES" description="LEA free event indication and set flag. This bit indicated the free event for LEA. This bit can be set by writing a one to it. Writing a zero has no effect." begin="17" end="17" width="1" rwaccess="R/W">
+        </bitfield>
+        <bitfield id="LEATIMFLTS" description="LEA timeout fault indication and set flag; This bits indicates that timer timeout occurred. This fault may also be set by writing a one to it. Writing a zero has no effect.The corresponding terminal is connected to one of the UNMI inputs of the SYS module (A package option)" begin="21" end="21" width="1" rwaccess="R/W">
+        </bitfield>
+        <bitfield id="LEACFLTS" description="LEAHPCFLTS when hardware trigger enabled later LEA command fault on peripheral interface or hardware triggered indication and set flag; This bits indicates that a command was invoked that is not implemented. This fault is also signaled to the SYS module as a &quot;User-NMI&quot; when enabled. Only one fault condition is signaled until this bit is cleared. Leaving this bit set will not cause any further faults. This fault may also be set by writing a one to it. Writing a zero has no effect.The corresponding terminal is connected to one of the UNMI inputs of the SYS module." begin="22" end="22" width="1" rwaccess="R/W">
+            <bitenum id="LEACFLTS_0" value="0x0" description="No command fault occurred since this bit was cleared"/>
+            <bitenum id="LEACFLTS_1" value="0x1" description="At least one command fault occurred since this bit was cleared"/>
+        </bitfield>
+        <bitfield id="LEAMEMFLTS" description="LEA memory fault indication and set flag. This bit indicates that a fault in the memory VBUS interface occurred. The exact fault reason may be identified by checking LEACNF1. LEAWRSTAT and LEACNF1.LEARDSTAT." begin="23" end="23" width="1" rwaccess="R/W">
+            <bitenum id="LEAMEMFLTS_0" value="0x0" description="No memory fault occurred since this bit was cleared"/>
+            <bitenum id="LEAMEMFLTS_1" value="0x1" description="At least one memory fault since this bit was cleared"/>
+        </bitfield>
+        <bitfield id="LEATRST" description="LEA module timer reset. Setting this bit to one clears LEA module timer. This bit is self clearing and will always be read as zero." begin="24" end="24" width="1" rwaccess="R/W">
+        </bitfield>
+        <bitfield id="LEATEN" description="LEA timer enable; writing a one to this bit enables LEA timer operations." begin="25" end="25" width="1" rwaccess="R/W">
+        </bitfield>
+        <bitfield id="LEATISEL" description="LEA timer interval select. These bits select LEA timer interval. t#sub#CLK#/sub# = 1 / f#sub#CLK#/sub# f#sub#CLK#/sub# = MCLK" begin="31" end="28" width="4" rwaccess="R/W">
+            <bitenum id="LEATISEL_0" value="0x0" description="Timeout period: 128 x t#sub#CLK#/sub# (16 us at 8 MHz); Interval period: 256 x t#sub#CLK#/sub# (32 us at 8 MHz)"/>
+            <bitenum id="LEATISEL_1" value="0x1" description="Timeout period: 256 x t#sub#CLK#/sub# (32 us at 8 MHz); Interval period: 512 x t#sub#CLK#/sub# (64 us at 8 MHz)"/>
+            <bitenum id="LEATISEL_2" value="0x2" description="Timeout period: 512 x t#sub#CLK#/sub# (64 us at 8 MHz); Interval period: 1024 x t#sub#CLK#/sub# (128 us at 8 MHz)"/>
+            <bitenum id="LEATISEL_3" value="0x3" description="Timeout period: 1024 x t#sub#CLK#/sub# (128 us at 8 MHz); Interval period: 2048 x t#sub#CLK#/sub# (256 us at 8 MHz)"/>
+            <bitenum id="LEATISEL_4" value="0x4" description="Timeout period: 2048 x t#sub#CLK#/sub# (256 us at 8 MHz); Interval period: 4096 x t#sub#CLK#/sub# (512 us at 8 MHz)"/>
+            <bitenum id="LEATISEL_5" value="0x5" description="Timeout period: 4096 x t#sub#CLK#/sub# (512 us at 8 MHz); Interval period: 8192 x t#sub#CLK#/sub# (1ms at 8 MHz)"/>
+            <bitenum id="LEATISEL_6" value="0x6" description="Timeout period: 8192 x t#sub#CLK#/sub# (1 ms at 8 MHz); Interval period: 16384 x t#sub#CLK#/sub# (2 ms at 8 MHz)"/>
+            <bitenum id="LEATISEL_7" value="0x7" description="Timeout period: 16384 x t#sub#CLK#/sub# (2 ms at 8 MHz); Interval period: 32768 x t#sub#CLK#/sub# (4 ms at 8 MHz)"/>
+            <bitenum id="LEATISEL_8" value="0x8" description="Timeout period: 32768 x t#sub#CLK#/sub# (4ms at 8 MHz); Interval period: 65536 x t#sub#CLK#/sub# (8 ms at 8 MHz)"/>
+            <bitenum id="LEATISEL_9" value="0x9" description="Timeout period: 65536 x t#sub#CLK#/sub# (8 ms at 8 MHz); Interval period: 131072 x t#sub#CLK#/sub# (16 ms at 8 MHz)"/>
+            <bitenum id="LEATISEL_10" value="0xA" description="Timeout period: 131072 x t#sub#CLK#/sub# (16 ms at 8 MHz); Interval period: 262144 x t#sub#CLK#/sub# (32 ms at 8 MHz)"/>
+            <bitenum id="LEATISEL_11" value="0xB" description="Timeout period: 524288 x t#sub#CLK#/sub# (65 ms at 8 MHz); Interval period: 1048576 x t#sub#CLK#/sub# (131 ms at 8 MHz)"/>
+            <bitenum id="LEATISEL_12" value="0xC" description="Timeout period: 1048576 x t#sub#CLK#/sub# (131 ms at 8 MHz); Interval period: 2097152 x t#sub#CLK#/sub# (262 ms at 8 MHz)"/>
+            <bitenum id="LEATISEL_13" value="0xD" description="Timeout period: 2097152 x t#sub#CLK#/sub# (262 ms at 8 MHz); Interval period: 4194304 x t#sub#CLK#/sub# (524 ms at 8 MHz)"/>
+            <bitenum id="LEATISEL_14" value="0xE" description="Timeout period: 4194304 x t#sub#CLK#/sub# (524 ms at 8 MHz); Interval period: 8388608 x t#sub#CLK#/sub# (1.05 s at 8 MHz)"/>
+            <bitenum id="LEATISEL_15" value="0xF" description="Timeout period: 8388608 x t#sub#CLK#/sub# (1.05 s at 8 MHz); Interval period: 16777216 x t#sub#CLK#/sub# (2.1 s at 8 MHz)"/>
+        </bitfield>
+    </register>
+    <register id="LEACNF1" width="32" offset="0x8" internal="0" description="Configuration Register 1">
+        <bitfield id="LEABUSY" description="This bit indicate if LEA is able to accept new Commands (SUSPEND is always accepted)" begin="0" end="0" width="1" rwaccess="R">
+            <bitenum id="READY" value="0x0" description="LEA is in Ready can accept new commands"/>
+            <bitenum id="BUSY" value="0x1" description="LEA is busy right now and cannot accept any commands"/>
+        </bitfield>
+        <bitfield id="LEAMODE" description="These Bits indicate the actual operation mode LEA is in.  Other = Reserved" begin="7" end="4" width="4" rwaccess="R">
+            <bitenum id="OFF" value="0x0" description="Off (implicit)"/>
+            <bitenum id="READY" value="0x1" description="Ready"/>
+            <bitenum id="RUNS" value="0x2" description="RunS (SUSPEND)"/>
+            <bitenum id="RUNR" value="0x3" description="RunR (RESUME)"/>
+            <bitenum id="RUNA" value="0x4" description="RunA (regular command operation )"/>
+            <bitenum id="NOTIFY" value="0x5" description="Notify"/>
+            <bitenum id="SLEEP" value="0x6" description="Sleep"/>
+            <bitenum id="RUNL" value="0x7" description="RunL"/>
+        </bitfield>
+        <bitfield id="LEAPWST" description="These bits indicate the current power consumption as a relative value. The value zero indicated only static operation (usually clock less). This register might be read out for statistical power estimation of an application. These bits are also reflected in J-STATE when debugging" begin="11" end="8" width="4" rwaccess="R">
+        </bitfield>
+        <bitfield id="LEAASST" description="These bits are used to store the internal state of the application specific processor (ASIP) inside the accelerator core. The specific meaning of those bit patterns is not shown in this document." begin="15" end="12" width="4" rwaccess="R">
+        </bitfield>
+        <bitfield id="LEADONEC" description="LEA done event indication and clear flag. This bit indicated the done event for LEA. This bit is cleared by writing a one to it. Writing a zero has no effect." begin="16" end="16" width="1" rwaccess="R/W">
+        </bitfield>
+        <bitfield id="LEAFREEC" description="LEA free event indication and clear flag. This bit indicated the free event for LEA. This bit is cleared by writing a one to it. Writing a zero has no effect." begin="17" end="17" width="1" rwaccess="R/W">
+        </bitfield>
+        <bitfield id="LEATIMFLTC" description="LEA timeout fault indication and clear flag; This bits indicates that a timer timeout occurred. This fault is cleared by writing a one to it. Writing a zero has no effect.." begin="21" end="21" width="1" rwaccess="R/W">
+        </bitfield>
+        <bitfield id="LEACFLTC" description="LEA command fault" begin="22" end="22" width="1" rwaccess="R/W">
+            <bitenum id="LEACFLTC_0" value="0x0" description="No command fault occurred since this bit was cleared"/>
+            <bitenum id="LEACFLTC_1" value="0x1" description="At least one command fault occurred since this bit was cleared"/>
+        </bitfield>
+        <bitfield id="LEAMEMFLTC" description="LEA memory fault indication and clear flag. This bit indicates that a fault in the memory VBUS interface occurred. The exact fault reason may be identified by checking LEAWRSTAT and LEARDSTAT. This fault is also signaled to the SYS-module as bus error when enabled (LEACNF0.LEAMEMFLTE=1). Only one fault condition is signaled until this bit is cleared. Leaving this bit set will not cause any further faults. This fault is cleared by writing a one to it. Writing a zero has no effect." begin="23" end="23" width="1" rwaccess="R/W">
+            <bitenum id="LEAMEMFLTC_0" value="0x0" description="No memory fault occurred since this bit was cleared"/>
+            <bitenum id="LEAMEMFLTC_1" value="0x1" description="At least one memory fault since this bit was cleared"/>
+        </bitfield>
+        <bitfield id="LEARDSTAT" description="Read Status. This bit field keeps the VBUS read status lines from the last bus error condition." begin="27" end="24" width="4" rwaccess="R">
+        </bitfield>
+        <bitfield id="LEAWRSTAT" description="Write Status. This bit field keeps the VBUS write status lines from the last bus error condition." begin="31" end="28" width="4" rwaccess="R">
+        </bitfield>
+    </register>
+    <register id="LEACNF2" width="32" offset="0xC" internal="0" description="Configuration Register 2">
+        <bitfield id="LEASPTR" description="LEA stack pointer value (byte units). 64 lower kB is physical limit for LEA application complexity" begin="15" end="0" width="16" rwaccess="R/W">
+        </bitfield>
+    </register>
+    <register id="LEAMB" width="32" offset="0x10" internal="0" description="Memory Bottom Register">
+        <bitfield id="LEAMB" description="LEA memory bottom address boundary in byte address units" begin="15" end="0" width="16" rwaccess="R">
+        </bitfield>
+    </register>
+    <register id="LEAMT" width="32" offset="0x14" internal="0" description="Memory Top Register">
+        <bitfield id="LEAMT" description="LEA memory top address boundary in byte address units" begin="15" end="0" width="16" rwaccess="R">
+        </bitfield>
+    </register>
+    <register id="LEACMA" width="32" offset="0x18" internal="0" description="Code Memory Access Register">
+    </register>
+    <register id="LEACMCTL" width="32" offset="0x1C" internal="0" description="Code Memory Control Register">
+        <bitfield id="LEACMAE" description="This bit controls access to LEA code memory." begin="0" end="0" width="1" rwaccess="R/W">
+            <bitenum id="LEACMAE_0" value="0x0" description="Code memory access disabled. Accesses to LEA code memory are not possible. LEA does accept commands for execution. Reads to LEA code memory will return zeroes and writes are ignored."/>
+            <bitenum id="LEACMAE_1" value="0x1" description="Code memory access enabled. Accesses to LEA code memory are possible. LEA does not accept commands during this mode (command is ignored). Coprocessor interface accesses by the CPU cause a Coprocessor not available indication."/>
+        </bitfield>
+        <bitfield id="LEAINC" description="This bit when set causes the code memory address port field LEACMAP to increment each time after an access to LEACMDP is performed.The decrement is by value two on 16B accesses on lower word of LEACMA.The decrement is by value two on 32B accesses on LEACMA.#b#Note:#/b# A double increment is performed when read modify write accesses are done on LEACMDP." begin="2" end="2" width="1" rwaccess="R/W">
+        </bitfield>
+        <bitfield id="LEADEC" description="This bit when set causes the code memory address port field LEACMAP to decrement each time after an access to LEACMDP is performed.The decrement is by value two on 16B accesses on lower word of LEACMA.The decrement is by value two on 32B accesses on LEACMA.#b#Note:#/b# A double decrement is performed when read modify write accesses are done on LEACMDP." begin="3" end="3" width="1" rwaccess="R/W">
+        </bitfield>
+        <bitfield id="LEACROFF" description="Control bits only available if LEA code RAM is available. Otherwise reserved. Reserved. Read back as 0" begin="5" end="4" width="2" rwaccess="R/W">
+            <bitenum id="LEACROFF_0" value="0x0" description="Contents of LEA code RAM are retained in LPM3/LPM4."/>
+            <bitenum id="LEACROFF_1" value="0x1" description="Turns off the LEA code RAM in LPM3/LPM4, re-activates it on wake-up. All data of the code RAM is lost after wakeup from LPM3/LPM4. See the device specific data sheet for presence and size of Code RAM."/>
+            <bitenum id="LEACROFF_2" value="0x2" description="Turns off the code RAM entering LPM3/LPM4, the code RAM sector remains off after wake-up. All data of the code RAM is lost. See the device-specific data sheet for presence and size of Code RAM."/>
+            <bitenum id="LEACROFF_3" value="0x3" description="Reserved (Future: Turns off the code RAM immediately. All data of the Code RAM is lost. See the device-specific data sheet for presence and size of Code RAM.)"/>
+        </bitfield>
+        <bitfield id="LEACRACTION" description="Code RAM action" begin="6" end="6" width="1" rwaccess="R/W">
+        </bitfield>
+        <bitfield id="LEACMAP" description="LEA code memory address port. This bit field points to the memory location that is accessible via LEACMDP" begin="31" end="16" width="16" rwaccess="R/W">
+        </bitfield>
+    </register>
+    <register id="LEACMDSTAT" width="32" offset="0x28" internal="0" description="LEA Command Status Register">
+        <bitfield id="LEAITFLG" description="LEA instruction handshake synchronization type flags" begin="1" end="0" width="2" rwaccess="R">
+            <bitenum id="LEAITFLG_0" value="0x0" description="LEA command without any further indication"/>
+            <bitenum id="LEAITFLG_1" value="0x1" description="LEA command with explicit result update"/>
+            <bitenum id="LEAITFLG_2" value="0x2" description="LEA command with interrupt upon completion"/>
+            <bitenum id="LEAITFLG_3" value="0x3" description="LEA command with interrupt and explicit result update"/>
+        </bitfield>
+        <bitfield id="LEACMD" description="These bits represent the LEA command to be invoked. See also the command table" begin="9" end="2" width="8" rwaccess="R">
+            <bitenum id="SUSPEND" value="0x0" description="Suspends ongoing action an enters Ready"/>
+            <bitenum id="RESUME" value="0x2" description="Resumes an previously suspended command execution"/>
+            <bitenum id="FFTCOMPLEXFIXEDSCALING" value="0x4" description="Complex FFT on 16 bit fractional numbers fix scaling"/>
+            <bitenum id="FIR" value="0x6" description="Real FIR on 16 bit fractional numbers"/>
+            <bitenum id="POLYNOMIAL" value="0x8" description="Real vector polynomial calculations 16 args all fractional"/>
+            <bitenum id="FFT" value="0xA" description="Real FFT-extension on 16 bit fractional numbers"/>
+            <bitenum id="POLYNOMIALLONG" value="0xC" description="Real vector polynomial calculations 32 bit args all fractional"/>
+            <bitenum id="MPYMATRIXROW" value="0xD" description="Real row oriented matrix multiply"/>
+            <bitenum id="MPYMATRIX" value="0xF" description="Real matrix multiply 16 with 16 to 16 bit fractional"/>
+            <bitenum id="ADDMATRIX" value="0x10" description="Real point wise matrix add of 16 and 16 to 16 bit number vector"/>
+            <bitenum id="MAXMATRIX" value="0x11" description="Real maximum value and position of 16 bit matrices"/>
+            <bitenum id="MINMATRIX" value="0x12" description="Real minimum value and position of 16 bit matrices"/>
+            <bitenum id="IIRBQ1" value="0x13" description="Real second order biquad using DF1 with 16 bit fractional"/>
+            <bitenum id="MAC" value="0x15" description="Real matrix MAC short with 16Bt to 16B fract"/>
+            <bitenum id="DEINTERLEAVEEVENEVEN" value="0x16" description="Split 16B vector even to even words"/>
+            <bitenum id="DEINTERLEAVEEVENODD" value="0x17" description="Split 16Bt vector even to odd words"/>
+            <bitenum id="DEINTERLEAVEODDEVEN" value="0x18" description="Split 16B vector odd to even words"/>
+            <bitenum id="DEINTERLEAVEODDODD" value="0x19" description="Split 16B vector odd to odd words"/>
+            <bitenum id="MACCOMPLEXMATRIX" value="0x1A" description="Complex Dot Product"/>
+            <bitenum id="MACCOMPLEXCONJUGATEMATRIX" value="0x1B" description="Complex conjugate Dot Product"/>
+            <bitenum id="SUBMATRIX" value="0x1C" description="Real point wise matrix Subtraction of 16 and 16 to 16 bit"/>
+            <bitenum id="MPYLONGMATRIX" value="0x1D" description="Real point wise matrix multiply 32 with 32 to 32 bit fractional"/>
+            <bitenum id="MPYCOMPLEXMATRIX" value="0x1E" description="Complex point wise matrix multiply complex with complex"/>
+            <bitenum id="ADDLONGMATRIX" value="0x1F" description="Real point wise matrix add of 32 and 32 to 32 bit number"/>
+            <bitenum id="MOVELONGLIST" value="0x20" description="List move 32 to 32 bit"/>
+            <bitenum id="BITREVERSECOMPLEXEVEN" value="0x21" description="Complex bit reversal for 16 bit fractional numbers even"/>
+            <bitenum id="BITREVERSECOMPLEXODD" value="0x22" description="Complex bit reversal for 16 bit fractional Numbers odd"/>
+            <bitenum id="IIRBQ2EXTENDED" value="0x24" description="Real second order biquad using DF2 with 16 bit fractional, extended to include bias and intermediate state min/max"/>
+            <bitenum id="FFTCOMPLEXLONG" value="0x27" description="Complex FFT on 32B bit fractional numbers, fix scaling"/>
+            <bitenum id="FFTLONG" value="0x29" description="Real FFT-extension on 32 bit fractional numbers"/>
+            <bitenum id="BITREVERSECOMPLEXLONGEVEN" value="0x2B" description="Complex bit reversal for 32 bit fractional numbers even"/>
+            <bitenum id="BITREVERSECOMPLEXLONGODD" value="0x2D" description="Complex bit reversal for 16 bit fractional numbers odd"/>
+            <bitenum id="POLYNOMIALSCALAR" value="0x2F" description="Scalar Polynomial for math on 32bit fractional"/>
+            <bitenum id="FFTCOMPLEXAUTOSCALING" value="0x30" description="Complex FFT on 16B bit fractional numbers with auto scaling for enhanced accuracy"/>
+            <bitenum id="FIRLONG" value="0x32" description="Real FIR on 32 bit fractional numbers"/>
+            <bitenum id="MACLONGMATRIX" value="0x34" description="Real block MAC on 32B fractional numbers"/>
+            <bitenum id="SUBLONGMATRIX" value="0x35" description="Real point wise matrix Subtraction of 32 and 32 to 32 bit"/>
+            <bitenum id="MAXLONGMATRIX" value="0x36" description="Real maximum value and position of signed 32B matrices"/>
+            <bitenum id="MINLONGMATRIX" value="0x37" description="Real minimum value and position of signed 32B matrices"/>
+            <bitenum id="FIRCOMPLEX" value="0x38" description="Complex FIR on 16B fractional numbers"/>
+            <bitenum id="MAXUNSIGNEDMATRIX" value="0x3A" description="Real maximum value and position of unsigned 16B matrices"/>
+            <bitenum id="MINUNSIGNEDMATRIX" value="0x3B" description="Real minimum value and position of unsigned 32B matrices"/>
+            <bitenum id="MACMATRIX" value="0x40" description="Real Matrix MAC on 16B fractional"/>
+            <bitenum id="MAX" value="0x41" description="Vector maximum on 16B signed numbers"/>
+            <bitenum id="MIN" value="0x42" description="Vector minimum on 16B signed numbers"/>
+            <bitenum id="MAXUNSIGNED" value="0x43" description="Vector maximum on 16B unsigned numbers"/>
+            <bitenum id="MINUNSIGNED" value="0x44" description="Vector minimum on 16B unsigned numbers"/>
+            <bitenum id="MAXUNSIGNEDLONGMATRIX" value="0x45" description="Matrix maximum on 32B unsigned numbers"/>
+            <bitenum id="MINUNSIGNEDLONGMATRIX" value="0x46" description="Matrix minimum on 32B unsigned numbers"/>
+            <bitenum id="IIRBQ2" value="0x47" description="Real second order biquad using DF2 with 16 bit fractional"/>
+            <bitenum id="FIRCOMPLEXLONG" value="0x49" description="Complex FIR on 32B fractional numbers"/>
+            <bitenum id="DEINTERLEAVELONG" value="0x4B" description="Split Function on 32B Vectors/Matrices"/>
+            <bitenum id="WINDOW" value="0x4C" description="In-place symmetrical window on 16B fractional numbers"/>
+            <bitenum id="MAC3" value="0x4D" description="Vector MAC at three points, real 16-bit with 32-bit result"/>
+            <bitenum id="SCALEDMAC" value="0x4E" description="Scaled vector multiply and accumulate (MAC)"/>
+            <bitenum id="SCALEDFIR" value="0x4F" description="Scaled FIR, 16-bit real fractional numbers"/>
+        </bitfield>
+    </register>
+    <register id="LEAS1STAT" width="32" offset="0x2C" internal="0" description="LEA Source 1 Status Register">
+    </register>
+    <register id="LEAS0STAT" width="32" offset="0x30" internal="0" description="LEA Source 0 Status Register">
+    </register>
+    <register id="LEADSTSTAT" width="32" offset="0x34" internal="0" description="LEA Result Status Register">
+    </register>
+    <register id="LEAPMCTL" width="32" offset="0x40" internal="0" description="PM Control Register">
+        <bitfield id="LEACMDEN" description="Command enable" begin="0" end="0" width="1" rwaccess="R/W">
+            <bitenum id="LEACMDEN_0" value="0x0" description="Command triggering by writing to LEAPMCB is disabled"/>
+            <bitenum id="LEACMDEN_1" value="0x1" description="Command triggering by writing to LEAPMCB is enabled"/>
+        </bitfield>
+        <bitfield id="LEATRG" description="Command trigger" begin="7" end="7" width="1" rwaccess="R">
+        </bitfield>
+    </register>
+    <register id="LEAPMDST" width="32" offset="0x44" internal="0" description="PM Result Register">
+    </register>
+    <register id="LEAPMS1" width="32" offset="0x48" internal="0" description="PM Source 1 Register">
+    </register>
+    <register id="LEAPMS0" width="32" offset="0x4C" internal="0" description="PM Source 0 Register">
+    </register>
+    <register id="LEAPMCB" width="32" offset="0x50" internal="0" description="PM Command Buffer Register">
+        <bitfield id="LEAITFLG" description="LEA instruction handshake synchronization type flag" begin="1" end="0" width="2" rwaccess="R/W">
+            <bitenum id="LEAITFLG_0" value="0x0" description="LEA command without any further indication"/>
+            <bitenum id="LEAITFLG_1" value="0x1" description="LEA command with explicit result update"/>
+            <bitenum id="LEAITFLG_2" value="0x2" description="LEA command with interrupt upon completion"/>
+            <bitenum id="LEAITFLG_3" value="0x3" description="LEA command with interrupt and explicit result update"/>
+        </bitfield>
+        <bitfield id="LEACMD" description="These bits represent the LEA command to be invoked. See also the command table" begin="9" end="2" width="8" rwaccess="R/W">
+            <bitenum id="SUSPEND" value="0x0" description="Suspends ongoing action an enters Ready"/>
+            <bitenum id="RESUME" value="0x2" description="Resumes an previously suspended command execution"/>
+            <bitenum id="FFTCOMPLEXFIXEDSCALING" value="0x4" description="Complex FFT on 16 bit fractional numbers fix scaling"/>
+            <bitenum id="FIR" value="0x6" description="Real FIR on 16 bit fractional numbers"/>
+            <bitenum id="POLYNOMIAL" value="0x8" description="Real vector polynomial calculations 16 args all fractional"/>
+            <bitenum id="FFT" value="0xA" description="Real FFT-extension on 16 bit fractional numbers"/>
+            <bitenum id="POLYNOMIALLONG" value="0xC" description="Real vector polynomial calculations 32 bit args all fractional"/>
+            <bitenum id="MPYMATRIXROW" value="0xD" description="Real row oriented matrix multiply"/>
+            <bitenum id="MPYMATRIX" value="0xF" description="Real matrix multiply 16 with 16 to 16 bit fractional"/>
+            <bitenum id="ADDMATRIX" value="0x10" description="Real point wise matrix add of 16 and 16 to 16 bit number vector"/>
+            <bitenum id="MAXMATRIX" value="0x11" description="Real maximum value and position of 16 bit matrices"/>
+            <bitenum id="MINMATRIX" value="0x12" description="Real minimum value and position of 16 bit matrices"/>
+            <bitenum id="IIRBQ1" value="0x13" description="Real second order biquad using DF1 with 16 bit fractional"/>
+            <bitenum id="MAC" value="0x15" description="Real matrix MAC short with 16Bt to 16B fract"/>
+            <bitenum id="DEINTERLEAVEEVENEVEN" value="0x16" description="Split 16B vector even to even words"/>
+            <bitenum id="DEINTERLEAVEEVENODD" value="0x17" description="Split 16Bt vector even to odd words"/>
+            <bitenum id="DEINTERLEAVEODDEVEN" value="0x18" description="Split 16B vector odd to even words"/>
+            <bitenum id="DEINTERLEAVEODDODD" value="0x19" description="Split 16B vector odd to odd words"/>
+            <bitenum id="MACCOMPLEXMATRIX" value="0x1A" description="Complex Dot Product"/>
+            <bitenum id="MACCOMPLEXCONJUGATEMATRIX" value="0x1B" description="Complex conjugate Dot Product"/>
+            <bitenum id="SUBMATRIX" value="0x1C" description="Real point wise matrix Subtraction of 16 and 16 to 16 bit"/>
+            <bitenum id="MPYLONGMATRIX" value="0x1D" description="Real point wise matrix multiply 32 with 32 to 32 bit fractional"/>
+            <bitenum id="MPYCOMPLEXMATRIX" value="0x1E" description="Complex point wise matrix multiply complex with complex"/>
+            <bitenum id="ADDLONGMATRIX" value="0x1F" description="Real point wise matrix add of 32 and 32 to 32 bit number"/>
+            <bitenum id="MOVELONGLIST" value="0x20" description="List move 32 to 32 bit"/>
+            <bitenum id="BITREVERSECOMPLEXEVEN" value="0x21" description="Complex bit reversal for 16 bit fractional numbers even"/>
+            <bitenum id="BITREVERSECOMPLEXODD" value="0x22" description="Complex bit reversal for 16 bit fractional Numbers odd"/>
+            <bitenum id="IIRBQ2EXTENDED" value="0x24" description="Real second order biquad using DF2 with 16 bit fractional, extended to include bias and intermediate state min/max"/>
+            <bitenum id="FFTCOMPLEXLONG" value="0x27" description="Complex FFT on 32B bit fractional numbers, fix scaling"/>
+            <bitenum id="FFTLONG" value="0x29" description="Real FFT-extension on 32 bit fractional numbers"/>
+            <bitenum id="BITREVERSECOMPLEXLONGEVEN" value="0x2B" description="Complex bit reversal for 32 bit fractional numbers even"/>
+            <bitenum id="BITREVERSECOMPLEXLONGODD" value="0x2D" description="Complex bit reversal for 16 bit fractional numbers odd"/>
+            <bitenum id="POLYNOMIALSCALAR" value="0x2F" description="Scalar Polynomial for math on 32bit fractional"/>
+            <bitenum id="FFTCOMPLEXAUTOSCALING" value="0x30" description="Complex FFT on 16B bit fractional numbers with auto scaling for enhanced accuracy"/>
+            <bitenum id="FIRLONG" value="0x32" description="Real FIR on 32 bit fractional numbers"/>
+            <bitenum id="MACLONGMATRIX" value="0x34" description="Real block MAC on 32B fractional numbers"/>
+            <bitenum id="SUBLONGMATRIX" value="0x35" description="Real point wise matrix Subtraction of 32 and 32 to 32 bit"/>
+            <bitenum id="MAXLONGMATRIX" value="0x36" description="Real maximum value and position of signed 32B matrices"/>
+            <bitenum id="MINLONGMATRIX" value="0x37" description="Real minimum value and position of signed 32B matrices"/>
+            <bitenum id="FIRCOMPLEX" value="0x38" description="Complex FIR on 16B fractional numbers"/>
+            <bitenum id="MAXUNSIGNEDMATRIX" value="0x3A" description="Real maximum value and position of unsigned 16B matrices"/>
+            <bitenum id="MINUNSIGNEDMATRIX" value="0x3B" description="Real minimum value and position of unsigned 32B matrices"/>
+            <bitenum id="MACMATRIX" value="0x40" description="Real Matrix MAC on 16B fractional"/>
+            <bitenum id="MAX" value="0x41" description="Vector maximum on 16B signed numbers"/>
+            <bitenum id="MIN" value="0x42" description="Vector minimum on 16B signed numbers"/>
+            <bitenum id="MAXUNSIGNED" value="0x43" description="Vector maximum on 16B unsigned numbers"/>
+            <bitenum id="MINUNSIGNED" value="0x44" description="Vector minimum on 16B unsigned numbers"/>
+            <bitenum id="MAXUNSIGNEDLONGMATRIX" value="0x45" description="Matrix maximum on 32B unsigned numbers"/>
+            <bitenum id="MINUNSIGNEDLONGMATRIX" value="0x46" description="Matrix minimum on 32B unsigned numbers"/>
+            <bitenum id="IIRBQ2" value="0x47" description="Real second order biquad using DF2 with 16 bit fractional"/>
+            <bitenum id="FIRCOMPLEXLONG" value="0x49" description="Complex FIR on 32B fractional numbers"/>
+            <bitenum id="DEINTERLEAVELONG" value="0x4B" description="Split Function on 32B Vectors/Matrices"/>
+            <bitenum id="WINDOW" value="0x4C" description="In-place symmetrical window on 16B fractional numbers"/>
+            <bitenum id="MAC3" value="0x4D" description="Vector MAC at three points, real 16-bit with 32-bit result"/>
+            <bitenum id="SCALEDMAC" value="0x4E" description="Scaled vector multiply and accumulate (MAC)"/>
+            <bitenum id="SCALEDFIR" value="0x4F" description="Scaled FIR, 16-bit real fractional numbers"/>
+        </bitfield>
+        <bitfield id="LEACTX" description="Command context: This bit field may be set by the user together with invoking a command. This bit field is saved on SUSPEND; and restored from LEA Stack on RESUME. This bit field is used by SW to associate or synchronize LEA commands to a certain tasks and IDs." begin="31" end="20" width="12" rwaccess="R/W">
+        </bitfield>
+    </register>
+    <register id="LEAIFGSET" width="32" offset="0x70" internal="0" description="Interrupt Flag and Set Register">
+        <bitfield id="LEACOVLIS" description="LEA command overflow interrupt flag" begin="0" end="0" width="1" rwaccess="R/W">
+            <bitenum id="LEACOVLIS_0" value="0x0" description="No interrupt pending"/>
+            <bitenum id="LEACOVLIS_1" value="0x1" description="Interrupt pending"/>
+        </bitfield>
+        <bitfield id="LEATIS" description="LEA timer interrupt flag" begin="1" end="1" width="1" rwaccess="R/W">
+            <bitenum id="LEATIS_0" value="0x0" description="No interrupt pending"/>
+            <bitenum id="LEATIS_1" value="0x1" description="Interrupt pending"/>
+        </bitfield>
+        <bitfield id="LEAOORIS" description="LEA out of address range interrupt flag." begin="2" end="2" width="1" rwaccess="R/W">
+            <bitenum id="LEAOORIS_0" value="0x0" description="No interrupt pending"/>
+            <bitenum id="LEAOORIS_1" value="0x1" description="Interrupt pending"/>
+        </bitfield>
+        <bitfield id="LEASDIIS" description="LEA scalar data inconsistency interrupt flag" begin="3" end="3" width="1" rwaccess="R/W">
+            <bitenum id="LEASDIIS_0" value="0x0" description="No interrupt pending"/>
+            <bitenum id="LEASDIIS_1" value="0x1" description="Interrupt pending"/>
+        </bitfield>
+        <bitfield id="LEAPMCMDIS" description="PMCMD as soon hardware trigger is avail. Peripheral memory triggered Command completed interrupt flag." begin="4" end="4" width="1" rwaccess="R/W">
+            <bitenum id="LEAPMCMDIS_0" value="0x0" description="No interrupt pending"/>
+            <bitenum id="LEAPMCMDIS_1" value="0x1" description="Interrupt pending"/>
+        </bitfield>
+    </register>
+    <register id="LEAIE" width="32" offset="0x74" internal="0" description="Interrupt Enable Register">
+        <bitfield id="LEACOVLIE" description="LEA command overflow interrupt enable" begin="0" end="0" width="1" rwaccess="R/W">
+            <bitenum id="LEACOVLIE_0" value="0x0" description="Interrupt disabled"/>
+            <bitenum id="LEACOVLIE_1" value="0x1" description="Interrupt enabled"/>
+        </bitfield>
+        <bitfield id="LEATIE" description="LEA timer event interrupt enable" begin="1" end="1" width="1" rwaccess="R/W">
+            <bitenum id="LEATIE_0" value="0x0" description="Interrupt disabled"/>
+            <bitenum id="LEATIE_1" value="0x1" description="Interrupt enabled"/>
+        </bitfield>
+        <bitfield id="LEAOORIE" description="LEA out of address range interrupt enable." begin="2" end="2" width="1" rwaccess="R/W">
+            <bitenum id="LEAOORIE_0" value="0x0" description="Interrupt disabled"/>
+            <bitenum id="LEAOORIE_1" value="0x1" description="Interrupt enabled"/>
+        </bitfield>
+        <bitfield id="LEASDIIE" description="LEA scalar data inconsistency interrupt enable" begin="3" end="3" width="1" rwaccess="R/W">
+            <bitenum id="LEASDIIE_0" value="0x0" description="Interrupt disabled"/>
+            <bitenum id="LEASDIIE_1" value="0x1" description="Interrupt enabled"/>
+        </bitfield>
+        <bitfield id="LEAPMCMDIE" description="PMCMD as soon hardware trigger is avail. Peripheral memory triggered Command completed interrupt enable." begin="4" end="4" width="1" rwaccess="R/W">
+            <bitenum id="LEAPMCMDIE_0" value="0x0" description="Interrupt disabled"/>
+            <bitenum id="LEAPMCMDIE_1" value="0x1" description="Interrupt enabled"/>
+        </bitfield>
+    </register>
+    <register id="LEAIFG" width="32" offset="0x78" internal="0" description="Interrupt Flag and Clear Register">
+        <bitfield id="LEACOVLIFG" description="LEA command overflow interrupt flag" begin="0" end="0" width="1" rwaccess="R/W">
+            <bitenum id="LEACOVLIFG_0" value="0x0" description="No interrupt pending"/>
+            <bitenum id="LEACOVLIFG_1" value="0x1" description="Interrupt pending"/>
+        </bitfield>
+        <bitfield id="LEATIFG" description="LEA timer interrupt flag" begin="1" end="1" width="1" rwaccess="R/W">
+            <bitenum id="LEATIFG_0" value="0x0" description="No interrupt pending"/>
+            <bitenum id="LEATIFG_1" value="0x1" description="Interrupt pending"/>
+        </bitfield>
+        <bitfield id="LEAOORIFG" description="LEA out of address range interrupt flag." begin="2" end="2" width="1" rwaccess="R/W">
+            <bitenum id="LEAOORIFG_0" value="0x0" description="No interrupt pending"/>
+            <bitenum id="LEAOORIFG_1" value="0x1" description="Interrupt pending"/>
+        </bitfield>
+        <bitfield id="LEASDIIFG" description="LEA scalar data inconsistency interrupt flag" begin="3" end="3" width="1" rwaccess="R/W">
+            <bitenum id="LEASDIIFG_0" value="0x0" description="No interrupt pending"/>
+            <bitenum id="LEASDIIFG_1" value="0x1" description="Interrupt pending"/>
+        </bitfield>
+        <bitfield id="LEAPMCMDIFG" description="PMCMD when hardware trigger is available. Peripheral memory triggered Command completed interrupt flag." begin="4" end="4" width="1" rwaccess="R/W">
+            <bitenum id="LEAPMCMDIFG_0" value="0x0" description="No interrupt pending"/>
+            <bitenum id="LEAPMCMDIFG_1" value="0x1" description="Interrupt pending"/>
+        </bitfield>
+    </register>
+    <register id="LEAIV" width="32" offset="0x7C" internal="0" description="Interrupt Vector Register">
+        <bitfield id="LEAIV" description="LEA interrupt vector. This is a generated value that can be used as address offset for fast interrupt service routine handling. Reading this register clears the highest pending LEA interrupt (displaying this register with an IDE does not affect its content). Writing to this register clears al pending interrupt flags.This value is always aligned to a 20 bit address offset boundary" begin="7" end="0" width="8" rwaccess="R/W">
+            <bitenum id="NONE" value="0x0" description="No interrupt pending"/>
+            <bitenum id="COVLIFG" value="0x2" description="LEA command overflow"/>
+            <bitenum id="TIFG" value="0x4" description="LEA timer interrupt"/>
+            <bitenum id="OORIFG" value="0x6" description="LEA out of range interrupt"/>
+            <bitenum id="SDIIFG" value="0x8" description="LEA scalar data inconsistency"/>
+            <bitenum id="PMCMDIFG" value="0xA" description="PMCMD complete interrupt"/>
+        </bitfield>
+    </register>
+</module>

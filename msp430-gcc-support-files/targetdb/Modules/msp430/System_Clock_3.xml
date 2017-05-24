@@ -1,0 +1,58 @@
+<module HW_revision="" XML_version="1" description="System Clock" id="System Clock">
+<register acronym="DCOCTL" description="DCO Clock Frequency Control" id="DCOCTL" offset=" 0x0056" width="8">
+<bitfield begin="0" description="Modulation Bit 0" end="0" id="MOD0" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="1" description="Modulation Bit 1" end="1" id="MOD1" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="2" description="Modulation Bit 2" end="2" id="MOD2" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="3" description="Modulation Bit 3" end="3" id="MOD3" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="4" description="Modulation Bit 4" end="4" id="MOD4" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="5" description="DCO Select Bit 0" end="5" id="DCO0" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="6" description="DCO Select Bit 1" end="6" id="DCO1" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="7" description="DCO Select Bit 2" end="7" id="DCO2" range="" resetval="0" rwaccess="RW" width="1"></bitfield></register>
+<register acronym="BCSCTL1" description="Basic Clock System Control 1" id="BCSCTL1" offset=" 0x0057" width="8">
+<bitfield begin="0" description="Range Select Bit 0" end="0" id="RSEL0" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="1" description="Range Select Bit 1" end="1" id="RSEL1" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="2" description="Range Select Bit 2" end="2" id="RSEL2" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="3" description="Range Select Bit 3" end="3" id="RSEL3" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="5" description="ACLK Divider 0" end="4" id="DIVA" range="" resetval="0" rwaccess="RW" width="2">
+<bitenum description="ACLK Divider 0: /1" id="DIVA_0" token="DIVA_0" value="0"></bitenum>
+<bitenum description="ACLK Divider 1: /2" id="DIVA_1" token="DIVA_1" value="1"></bitenum>
+<bitenum description="ACLK Divider 2: /4" id="DIVA_2" token="DIVA_2" value="2"></bitenum>
+<bitenum description="ACLK Divider 3: /8" id="DIVA_3" token="DIVA_3" value="3"></bitenum></bitfield>
+<bitfield begin="6" description="LFXTCLK 0:Low Freq. / 1: High Freq." end="6" id="XTS" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="7" description="Enable XT2CLK" end="7" id="XT2OFF" range="" resetval="0" rwaccess="RW" width="1"></bitfield></register>
+<register acronym="BCSCTL2" description="Basic Clock System Control 2" id="BCSCTL2" offset=" 0x0058" width="8">
+<bitfield begin="2" description="SMCLK Divider 0" end="1" id="DIVS" range="" resetval="0" rwaccess="RW" width="2">
+<bitenum description="SMCLK Divider 0: /1" id="DIVS_0" token="DIVS_0" value="0"></bitenum>
+<bitenum description="SMCLK Divider 1: /2" id="DIVS_1" token="DIVS_1" value="1"></bitenum>
+<bitenum description="SMCLK Divider 2: /4" id="DIVS_2" token="DIVS_2" value="2"></bitenum>
+<bitenum description="SMCLK Divider 3: /8" id="DIVS_3" token="DIVS_3" value="3"></bitenum></bitfield>
+<bitfield begin="3" description="SMCLK Source Select 0:DCOCLK / 1:XT2CLK/LFXTCLK" end="3" id="SELS" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="5" description="MCLK Divider 0" end="4" id="DIVM" range="" resetval="0" rwaccess="RW" width="2">
+<bitenum description="MCLK Divider 0: /1" id="DIVM_0" token="DIVM_0" value="0"></bitenum>
+<bitenum description="MCLK Divider 1: /2" id="DIVM_1" token="DIVM_1" value="1"></bitenum>
+<bitenum description="MCLK Divider 2: /4" id="DIVM_2" token="DIVM_2" value="2"></bitenum>
+<bitenum description="MCLK Divider 3: /8" id="DIVM_3" token="DIVM_3" value="3"></bitenum></bitfield>
+<bitfield begin="7" description="MCLK Source Select 0" end="6" id="SELM" range="" resetval="0" rwaccess="RW" width="2">
+<bitenum description="MCLK Source Select 0: DCOCLK" id="SELM_0" token="SELM_0" value="0"></bitenum>
+<bitenum description="MCLK Source Select 1: DCOCLK" id="SELM_1" token="SELM_1" value="1"></bitenum>
+<bitenum description="MCLK Source Select 2: XT2CLK/LFXTCLK" id="SELM_2" token="SELM_2" value="2"></bitenum>
+<bitenum description="MCLK Source Select 3: LFXTCLK" id="SELM_3" token="SELM_3" value="3"></bitenum></bitfield></register>
+<register acronym="BCSCTL3" description="Basic Clock System Control 3" id="BCSCTL3" offset=" 0x0053" width="8">
+<bitfield begin="0" description="Low/high Frequency Oscillator Fault Flag" end="0" id="LFXT1OF" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="1" description="High frequency oscillator 2 fault flag" end="1" id="XT2OF" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="3" description="XIN/XOUT Cap 0" end="2" id="XCAP" range="" resetval="0" rwaccess="RW" width="2">
+<bitenum description="XIN/XOUT Cap : 0 pF" id="XCAP_0" token="XCAP_0" value="0"></bitenum>
+<bitenum description="XIN/XOUT Cap : 6 pF" id="XCAP_1" token="XCAP_1" value="1"></bitenum>
+<bitenum description="XIN/XOUT Cap : 10 pF" id="XCAP_2" token="XCAP_2" value="2"></bitenum>
+<bitenum description="XIN/XOUT Cap : 12.5 pF" id="XCAP_3" token="XCAP_3" value="3"></bitenum></bitfield>
+<bitfield begin="5" description="Mode 0 for LFXT1 (XTS = 0)" end="4" id="LFXT1S" range="" resetval="0" rwaccess="RW" width="2">
+<bitenum description="Mode 0 for LFXT1 : Normal operation" id="LFXT1S_0" token="LFXT1S_0" value="0"></bitenum>
+<bitenum description="Mode 1 for LFXT1 : Reserved" id="LFXT1S_1" token="LFXT1S_1" value="1"></bitenum>
+<bitenum description="Mode 2 for LFXT1 : VLO" id="LFXT1S_2" token="LFXT1S_2" value="2"></bitenum>
+<bitenum description="Mode 3 for LFXT1 : Digital input signal" id="LFXT1S_3" token="LFXT1S_3" value="3"></bitenum></bitfield>
+<bitfield begin="7" description="Mode 0 for XT2" end="6" id="XT2S" range="" resetval="0" rwaccess="RW" width="2">
+<bitenum description="Mode 0 for XT2 : 0.4 - 1 MHz" id="XT2S_0" token="XT2S_0" value="0"></bitenum>
+<bitenum description="Mode 1 for XT2 : 1 - 4 MHz" id="XT2S_1" token="XT2S_1" value="1"></bitenum>
+<bitenum description="Mode 2 for XT2 : 2 - 16 MHz" id="XT2S_2" token="XT2S_2" value="2"></bitenum>
+<bitenum description="Mode 3 for XT2 : Digital input signal" id="XT2S_3" token="XT2S_3" value="3"></bitenum></bitfield></register>
+</module>

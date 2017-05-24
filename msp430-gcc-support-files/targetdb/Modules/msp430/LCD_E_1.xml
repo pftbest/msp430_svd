@@ -1,0 +1,232 @@
+<module HW_revision="" XML_version="1" description="LCD_E" id="LCD_E">
+<register acronym="LCDCTL0" description="LCD_E Control Register 0" id="LCDCTL0" offset=" 0x0600" width="16">
+<bitfield begin="0" description="LCD_E LCD On" end="0" id="LCDON" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="1" description="LCD_E Low Power Waveform" end="1" id="LCDLP" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="2" description="LCD_E LCD Segments On" end="2" id="LCDSON" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="3" description="LCD_E Mux Rate Bit: 0" end="3" id="LCDMX0" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="4" description="LCD_E Mux Rate Bit: 1" end="4" id="LCDMX1" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="5" description="LCD_E Mux Rate Bit: 2" end="5" id="LCDMX2" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="7" description="LCD_E Clock Select Bit: 0" end="6" id="LCDSSEL" range="" resetval="0" rwaccess="RW" width="2">
+<bitenum description="LCD_E Clock Select: 0" id="LCDSSEL_0" token="LCDSSEL_0" value="0"></bitenum>
+<bitenum description="LCD_E Clock Select: 1" id="LCDSSEL_1" token="LCDSSEL_1" value="1"></bitenum>
+<bitenum description="LCD_E Clock Select: 2" id="LCDSSEL_2" token="LCDSSEL_2" value="2"></bitenum>
+<bitenum description="LCD_E Clock Select: 3" id="LCDSSEL_3" token="LCDSSEL_3" value="3"></bitenum></bitfield>
+<bitfield begin="15" description="LCD_E LCD frequency divider Bit: 0" end="11" id="LCDDIV" range="" resetval="0" rwaccess="RW" width="5">
+<bitenum description="LCD_E LCD frequency divider: /1" id="LCDDIV_0" token="LCDDIV_0" value="0"></bitenum>
+<bitenum description="LCD_E LCD frequency divider: /2" id="LCDDIV_1" token="LCDDIV_1" value="1"></bitenum>
+<bitenum description="LCD_E LCD frequency divider: /3" id="LCDDIV_2" token="LCDDIV_2" value="2"></bitenum>
+<bitenum description="LCD_E LCD frequency divider: /4" id="LCDDIV_3" token="LCDDIV_3" value="3"></bitenum>
+<bitenum description="LCD_E LCD frequency divider: /5" id="LCDDIV_4" token="LCDDIV_4" value="4"></bitenum>
+<bitenum description="LCD_E LCD frequency divider: /6" id="LCDDIV_5" token="LCDDIV_5" value="5"></bitenum>
+<bitenum description="LCD_E LCD frequency divider: /7" id="LCDDIV_6" token="LCDDIV_6" value="6"></bitenum>
+<bitenum description="LCD_E LCD frequency divider: /8" id="LCDDIV_7" token="LCDDIV_7" value="7"></bitenum>
+<bitenum description="LCD_E LCD frequency divider: /9" id="LCDDIV_8" token="LCDDIV_8" value="8"></bitenum>
+<bitenum description="LCD_E LCD frequency divider: /10" id="LCDDIV_9" token="LCDDIV_9" value="9"></bitenum>
+<bitenum description="LCD_E LCD frequency divider: /11" id="LCDDIV_10" token="LCDDIV_10" value="10"></bitenum>
+<bitenum description="LCD_E LCD frequency divider: /12" id="LCDDIV_11" token="LCDDIV_11" value="11"></bitenum>
+<bitenum description="LCD_E LCD frequency divider: /13" id="LCDDIV_12" token="LCDDIV_12" value="12"></bitenum>
+<bitenum description="LCD_E LCD frequency divider: /14" id="LCDDIV_13" token="LCDDIV_13" value="13"></bitenum>
+<bitenum description="LCD_E LCD frequency divider: /15" id="LCDDIV_14" token="LCDDIV_14" value="14"></bitenum>
+<bitenum description="LCD_E LCD frequency divider: /16" id="LCDDIV_15" token="LCDDIV_15" value="15"></bitenum>
+<bitenum description="LCD_E LCD frequency divider: /17" id="LCDDIV_16" token="LCDDIV_16" value="16"></bitenum>
+<bitenum description="LCD_E LCD frequency divider: /18" id="LCDDIV_17" token="LCDDIV_17" value="17"></bitenum>
+<bitenum description="LCD_E LCD frequency divider: /19" id="LCDDIV_18" token="LCDDIV_18" value="18"></bitenum>
+<bitenum description="LCD_E LCD frequency divider: /20" id="LCDDIV_19" token="LCDDIV_19" value="19"></bitenum>
+<bitenum description="LCD_E LCD frequency divider: /21" id="LCDDIV_20" token="LCDDIV_20" value="20"></bitenum>
+<bitenum description="LCD_E LCD frequency divider: /22" id="LCDDIV_21" token="LCDDIV_21" value="21"></bitenum>
+<bitenum description="LCD_E LCD frequency divider: /23" id="LCDDIV_22" token="LCDDIV_22" value="22"></bitenum>
+<bitenum description="LCD_E LCD frequency divider: /24" id="LCDDIV_23" token="LCDDIV_23" value="23"></bitenum>
+<bitenum description="LCD_E LCD frequency divider: /25" id="LCDDIV_24" token="LCDDIV_24" value="24"></bitenum>
+<bitenum description="LCD_E LCD frequency divider: /26" id="LCDDIV_25" token="LCDDIV_25" value="25"></bitenum>
+<bitenum description="LCD_E LCD frequency divider: /27" id="LCDDIV_26" token="LCDDIV_26" value="26"></bitenum>
+<bitenum description="LCD_E LCD frequency divider: /28" id="LCDDIV_27" token="LCDDIV_27" value="27"></bitenum>
+<bitenum description="LCD_E LCD frequency divider: /29" id="LCDDIV_28" token="LCDDIV_28" value="28"></bitenum>
+<bitenum description="LCD_E LCD frequency divider: /30" id="LCDDIV_29" token="LCDDIV_29" value="29"></bitenum>
+<bitenum description="LCD_E LCD frequency divider: /31" id="LCDDIV_30" token="LCDDIV_30" value="30"></bitenum>
+<bitenum description="LCD_E LCD frequency divider: /32" id="LCDDIV_31" token="LCDDIV_31" value="31"></bitenum></bitfield></register>
+<register acronym="LCDCTL1" description="LCD_E Control Register 1" id="LCDCTL1" offset=" 0x0602" width="16">
+<bitfield begin="0" description="LCD_E LCD frame interrupt flag" end="0" id="LCDFRMIFG" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="1" description="LCD_E LCD blinking off interrupt flag" end="1" id="LCDBLKOFFIFG" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="2" description="LCD_E LCD blinking on interrupt flag" end="2" id="LCDBLKONIFG" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="8" description="LCD_E LCD frame interrupt enable" end="8" id="LCDFRMIE" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="9" description="LCD_E LCD blinking off interrupt flag" end="9" id="LCDBLKOFFIE" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="10" description="LCD_E LCD blinking on interrupt flag" end="10" id="LCDBLKONIE" range="" resetval="0" rwaccess="RW" width="1"></bitfield></register>
+<register acronym="LCDBLKCTL" description="LCD_E blinking control register" id="LCDBLKCTL" offset=" 0x0604" width="16">
+<bitfield begin="1" description="LCD_E Blinking mode Bit: 0" end="0" id="LCDBLKMOD" range="" resetval="0" rwaccess="RW" width="2">
+<bitenum description="LCD_E Blinking mode: Off" id="LCDBLKMOD_0" token="LCDBLKMOD_0" value="0"></bitenum>
+<bitenum description="LCD_E Blinking mode: Individual" id="LCDBLKMOD_1" token="LCDBLKMOD_1" value="1"></bitenum>
+<bitenum description="LCD_E Blinking mode: All" id="LCDBLKMOD_2" token="LCDBLKMOD_2" value="2"></bitenum>
+<bitenum description="LCD_E Blinking mode: Switching" id="LCDBLKMOD_3" token="LCDBLKMOD_3" value="3"></bitenum></bitfield>
+<bitfield begin="4" description="LCD_E Clock pre-scaler for blinking frequency Bit: 0" end="2" id="LCDBLKPRE" range="" resetval="0" rwaccess="RW" width="3">
+<bitenum description="LCD_E Clock pre-scaler for blinking frequency: 0" id="LCDBLKPRE_0" token="LCDBLKPRE_0" value="0"></bitenum>
+<bitenum description="LCD_E Clock pre-scaler for blinking frequency: 1" id="LCDBLKPRE_1" token="LCDBLKPRE_1" value="1"></bitenum>
+<bitenum description="LCD_E Clock pre-scaler for blinking frequency: 2" id="LCDBLKPRE_2" token="LCDBLKPRE_2" value="2"></bitenum>
+<bitenum description="LCD_E Clock pre-scaler for blinking frequency: 3" id="LCDBLKPRE_3" token="LCDBLKPRE_3" value="3"></bitenum>
+<bitenum description="LCD_E Clock pre-scaler for blinking frequency: 4" id="LCDBLKPRE_4" token="LCDBLKPRE_4" value="4"></bitenum>
+<bitenum description="LCD_E Clock pre-scaler for blinking frequency: 5" id="LCDBLKPRE_5" token="LCDBLKPRE_5" value="5"></bitenum>
+<bitenum description="LCD_E Clock pre-scaler for blinking frequency: 6" id="LCDBLKPRE_6" token="LCDBLKPRE_6" value="6"></bitenum>
+<bitenum description="LCD_E Clock pre-scaler for blinking frequency: 7" id="LCDBLKPRE_7" token="LCDBLKPRE_7" value="7"></bitenum></bitfield></register>
+<register acronym="LCDMEMCTL" description="LCD_E memory control register" id="LCDMEMCTL" offset=" 0x0606" width="16">
+<bitfield begin="0" description="LCD_E LCD memory registers for display" end="0" id="LCDDISP" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="1" description="LCD_E Clear LCD memory" end="1" id="LCDCLRM" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="2" description="LCD_E Clear LCD blinking memory" end="2" id="LCDCLRBM" range="" resetval="0" rwaccess="RW" width="1"></bitfield></register>
+<register acronym="LCDVCTL" description="LCD_E Voltage Control Register" id="LCDVCTL" offset=" 0x0608" width="16">
+<bitfield begin="0" description="Selects wether R13 voltage is switched or in static mode" end="0" id="LCDREFMODE" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="5" description="selects if R33 is supplied either from Vcc internally or from charge pump" end="5" id="LCDSELVDD" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="6" description="Internal reference voltage enable on R13" end="6" id="LCDREFEN" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="7" description="Charge pump enable" end="7" id="LCDCPEN" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="11" description="VLCD select: 0" end="8" id="VLCD" range="" resetval="0" rwaccess="RW" width="4">
+<bitenum description="VLCD = 2.60V" id="VLCD_0" token="VLCD_0" value="0"></bitenum>
+<bitenum description="VLCD = 2.66V" id="VLCD_1" token="VLCD_1" value="1"></bitenum>
+<bitenum description="VLCD = 2.72V" id="VLCD_2" token="VLCD_2" value="2"></bitenum>
+<bitenum description="VLCD = 2.78V" id="VLCD_3" token="VLCD_3" value="3"></bitenum>
+<bitenum description="VLCD = 2.84V" id="VLCD_4" token="VLCD_4" value="4"></bitenum>
+<bitenum description="VLCD = 2.90V" id="VLCD_5" token="VLCD_5" value="5"></bitenum>
+<bitenum description="VLCD = 2.96V" id="VLCD_6" token="VLCD_6" value="6"></bitenum>
+<bitenum description="VLCD = 3.02V" id="VLCD_7" token="VLCD_7" value="7"></bitenum>
+<bitenum description="VLCD = 3.08V" id="VLCD_8" token="VLCD_8" value="8"></bitenum>
+<bitenum description="VLCD = 3.14V" id="VLCD_9" token="VLCD_9" value="9"></bitenum>
+<bitenum description="VLCD = 3.20V" id="VLCD_10" token="VLCD_10" value="10"></bitenum>
+<bitenum description="VLCD = 3.26V" id="VLCD_11" token="VLCD_11" value="11"></bitenum>
+<bitenum description="VLCD = 3.32V" id="VLCD_12" token="VLCD_12" value="12"></bitenum>
+<bitenum description="VLCD = 3.38V" id="VLCD_13" token="VLCD_13" value="13"></bitenum>
+<bitenum description="VLCD = 3.44V" id="VLCD_14" token="VLCD_14" value="14"></bitenum>
+<bitenum description="VLCD = 3.50V" id="VLCD_15" token="VLCD_15" value="15"></bitenum></bitfield>
+<bitfield begin="12" description="Charge pump frequency selection Bit: 0" end="12" id="LCDCPFSEL0" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="13" description="Charge pump frequency selection Bit: 1" end="13" id="LCDCPFSEL1" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="14" description="Charge pump frequency selection Bit: 2" end="14" id="LCDCPFSEL2" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="15" description="Charge pump frequency selection Bit: 3" end="15" id="LCDCPFSEL3" range="" resetval="0" rwaccess="RW" width="1"></bitfield></register>
+<register acronym="LCDPCTL0" description="LCD_E Port Control Register 0" id="LCDPCTL0" offset=" 0x060A" width="16">
+<bitfield begin="0" description="LCD Segment  0 enable." end="0" id="LCDS0" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="1" description="LCD Segment  1 enable." end="1" id="LCDS1" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="2" description="LCD Segment  2 enable." end="2" id="LCDS2" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="3" description="LCD Segment  3 enable." end="3" id="LCDS3" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="4" description="LCD Segment  4 enable." end="4" id="LCDS4" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="5" description="LCD Segment  5 enable." end="5" id="LCDS5" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="6" description="LCD Segment  6 enable." end="6" id="LCDS6" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="7" description="LCD Segment  7 enable." end="7" id="LCDS7" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="8" description="LCD Segment  8 enable." end="8" id="LCDS8" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="9" description="LCD Segment  9 enable." end="9" id="LCDS9" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="10" description="LCD Segment 10 enable." end="10" id="LCDS10" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="11" description="LCD Segment 11 enable." end="11" id="LCDS11" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="12" description="LCD Segment 12 enable." end="12" id="LCDS12" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="13" description="LCD Segment 13 enable." end="13" id="LCDS13" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="14" description="LCD Segment 14 enable." end="14" id="LCDS14" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="15" description="LCD Segment 15 enable." end="15" id="LCDS15" range="" resetval="0" rwaccess="RW" width="1"></bitfield></register>
+<register acronym="LCDPCTL1" description="LCD_E Port Control Register 1" id="LCDPCTL1" offset=" 0x060C" width="16">
+<bitfield begin="0" description="LCD Segment 16 enable." end="0" id="LCDS16" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="1" description="LCD Segment 17 enable." end="1" id="LCDS17" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="2" description="LCD Segment 18 enable." end="2" id="LCDS18" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="3" description="LCD Segment 19 enable." end="3" id="LCDS19" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="4" description="LCD Segment 20 enable." end="4" id="LCDS20" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="5" description="LCD Segment 21 enable." end="5" id="LCDS21" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="6" description="LCD Segment 22 enable." end="6" id="LCDS22" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="7" description="LCD Segment 23 enable." end="7" id="LCDS23" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="8" description="LCD Segment 24 enable." end="8" id="LCDS24" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="9" description="LCD Segment 25 enable." end="9" id="LCDS25" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="10" description="LCD Segment 26 enable." end="10" id="LCDS26" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="11" description="LCD Segment 27 enable." end="11" id="LCDS27" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="12" description="LCD Segment 28 enable." end="12" id="LCDS28" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="13" description="LCD Segment 29 enable." end="13" id="LCDS29" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="14" description="LCD Segment 30 enable." end="14" id="LCDS30" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="15" description="LCD Segment 31 enable." end="15" id="LCDS31" range="" resetval="0" rwaccess="RW" width="1"></bitfield></register>
+<register acronym="LCDPCTL2" description="LCD_E Port Control Register 2" id="LCDPCTL2" offset=" 0x060E" width="16">
+<bitfield begin="0" description="LCD Segment 32 enable." end="0" id="LCDS32" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="1" description="LCD Segment 33 enable." end="1" id="LCDS33" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="2" description="LCD Segment 34 enable." end="2" id="LCDS34" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="3" description="LCD Segment 35 enable." end="3" id="LCDS35" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="4" description="LCD Segment 36 enable." end="4" id="LCDS36" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="5" description="LCD Segment 37 enable." end="5" id="LCDS37" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="6" description="LCD Segment 38 enable." end="6" id="LCDS38" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="7" description="LCD Segment 39 enable." end="7" id="LCDS39" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="8" description="LCD Segment 40 enable." end="8" id="LCDS40" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="9" description="LCD Segment 41 enable." end="9" id="LCDS41" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="10" description="LCD Segment 42 enable." end="10" id="LCDS42" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="11" description="LCD Segment 43 enable." end="11" id="LCDS43" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="12" description="LCD Segment 44 enable." end="12" id="LCDS44" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="13" description="LCD Segment 45 enable." end="13" id="LCDS45" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="14" description="LCD Segment 46 enable." end="14" id="LCDS46" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="15" description="LCD Segment 47 enable." end="15" id="LCDS47" range="" resetval="0" rwaccess="RW" width="1"></bitfield></register>
+<register acronym="LCDCSSEL0" description="LCD_E COM/SEG select register 0" id="LCDCSSEL0" offset=" 0x0614" width="16">
+<bitfield begin="0" description="Selects pin L0  as either common or segment line" end="0" id="LCDCSS0" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="1" description="Selects pin L1  as either common or segment line" end="1" id="LCDCSS1" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="2" description="Selects pin L2  as either common or segment line" end="2" id="LCDCSS2" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="3" description="Selects pin L3  as either common or segment line" end="3" id="LCDCSS3" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="4" description="Selects pin L4  as either common or segment line" end="4" id="LCDCSS4" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="5" description="Selects pin L5  as either common or segment line" end="5" id="LCDCSS5" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="6" description="Selects pin L6  as either common or segment line" end="6" id="LCDCSS6" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="7" description="Selects pin L7  as either common or segment line" end="7" id="LCDCSS7" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="8" description="Selects pin L8  as either common or segment line" end="8" id="LCDCSS8" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="9" description="Selects pin L9  as either common or segment line" end="9" id="LCDCSS9" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="10" description="Selects pin L10 as either common or segment line" end="10" id="LCDCSS10" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="11" description="Selects pin L11 as either common or segment line" end="11" id="LCDCSS11" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="12" description="Selects pin L12 as either common or segment line" end="12" id="LCDCSS12" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="13" description="Selects pin L13 as either common or segment line" end="13" id="LCDCSS13" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="14" description="Selects pin L14 as either common or segment line" end="14" id="LCDCSS14" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="15" description="Selects pin L15 as either common or segment line" end="15" id="LCDCSS15" range="" resetval="0" rwaccess="RW" width="1"></bitfield></register>
+<register acronym="LCDCSSEL1" description="LCD_E COM/SEG select register 1" id="LCDCSSEL1" offset=" 0x0616" width="16">
+<bitfield begin="0" description="Selects pin L16 as either common or segment line" end="0" id="LCDCSS16" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="1" description="Selects pin L17 as either common or segment line" end="1" id="LCDCSS17" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="2" description="Selects pin L18 as either common or segment line" end="2" id="LCDCSS18" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="3" description="Selects pin L19 as either common or segment line" end="3" id="LCDCSS19" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="4" description="Selects pin L20 as either common or segment line" end="4" id="LCDCSS20" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="5" description="Selects pin L21 as either common or segment line" end="5" id="LCDCSS21" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="6" description="Selects pin L22 as either common or segment line" end="6" id="LCDCSS22" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="7" description="Selects pin L23 as either common or segment line" end="7" id="LCDCSS23" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="8" description="Selects pin L24 as either common or segment line" end="8" id="LCDCSS24" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="9" description="Selects pin L25 as either common or segment line" end="9" id="LCDCSS25" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="10" description="Selects pin L26 as either common or segment line" end="10" id="LCDCSS26" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="11" description="Selects pin L27 as either common or segment line" end="11" id="LCDCSS27" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="12" description="Selects pin L28 as either common or segment line" end="12" id="LCDCSS28" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="13" description="Selects pin L29 as either common or segment line" end="13" id="LCDCSS29" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="14" description="Selects pin L30 as either common or segment line" end="14" id="LCDCSS30" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="15" description="Selects pin L31 as either common or segment line" end="15" id="LCDCSS31" range="" resetval="0" rwaccess="RW" width="1"></bitfield></register>
+<register acronym="LCDCSSEL2" description="LCD_E COM/SEG select register 2" id="LCDCSSEL2" offset=" 0x0618" width="16">
+<bitfield begin="0" description="Selects pin L32 as either common or segment line" end="0" id="LCDCSS32" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="1" description="Selects pin L33 as either common or segment line" end="1" id="LCDCSS33" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="2" description="Selects pin L34 as either common or segment line" end="2" id="LCDCSS34" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="3" description="Selects pin L35 as either common or segment line" end="3" id="LCDCSS35" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="4" description="Selects pin L36 as either common or segment line" end="4" id="LCDCSS36" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="5" description="Selects pin L37 as either common or segment line" end="5" id="LCDCSS37" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="6" description="Selects pin L38 as either common or segment line" end="6" id="LCDCSS38" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="7" description="Selects pin L39 as either common or segment line" end="7" id="LCDCSS39" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="8" description="Selects pin L40 as either common or segment line" end="8" id="LCDCSS40" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="9" description="Selects pin L41 as either common or segment line" end="9" id="LCDCSS41" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="10" description="Selects pin L42 as either common or segment line" end="10" id="LCDCSS42" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="11" description="Selects pin L43 as either common or segment line" end="11" id="LCDCSS43" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="12" description="Selects pin L44 as either common or segment line" end="12" id="LCDCSS44" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="13" description="Selects pin L45 as either common or segment line" end="13" id="LCDCSS45" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="14" description="Selects pin L46 as either common or segment line" end="14" id="LCDCSS46" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="15" description="Selects pin L47 as either common or segment line" end="15" id="LCDCSS47" range="" resetval="0" rwaccess="RW" width="1"></bitfield></register>
+<register acronym="LCDIV" description="LCD_E Interrupt Vector Register" id="LCDIV" offset=" 0x061E" width="16"></register>
+<register acronym="LCDM0W" description="LCD Memory 0/1" id="LCDM0W" offset=" 0x0620" width="16"></register>
+<register acronym="LCDM2W" description="LCD Memory 2/3" id="LCDM2W" offset=" 0x0622" width="16"></register>
+<register acronym="LCDM4W" description="LCD Memory 4/5" id="LCDM4W" offset=" 0x0624" width="16"></register>
+<register acronym="LCDM6W" description="LCD Memory 6/7" id="LCDM6W" offset=" 0x0626" width="16"></register>
+<register acronym="LCDM8W" description="LCD Memory 8/9" id="LCDM8W" offset=" 0x0628" width="16"></register>
+<register acronym="LCDM10W" description="LCD Memory 10/11" id="LCDM10W" offset=" 0x062A" width="16"></register>
+<register acronym="LCDM12W" description="LCD Memory 12/13" id="LCDM12W" offset=" 0x062C" width="16"></register>
+<register acronym="LCDM14W" description="LCD Memory 14/15" id="LCDM14W" offset=" 0x062E" width="16"></register>
+<register acronym="LCDM16W" description="LCD Memory 16/17" id="LCDM16W" offset=" 0x0630" width="16"></register>
+<register acronym="LCDM18W" description="LCD Memory 18/19" id="LCDM18W" offset=" 0x0632" width="16"></register>
+<register acronym="LCDM20W" description="LCD Memory 20/21" id="LCDM20W" offset=" 0x0634" width="16"></register>
+<register acronym="LCDM22W" description="LCD Memory 22/23" id="LCDM22W" offset=" 0x0636" width="16"></register>
+<register acronym="LCDM24W" description="LCD Memory 24/25" id="LCDM24W" offset=" 0x0638" width="16"></register>
+<register acronym="LCDM26W" description="LCD Memory 26/27" id="LCDM26W" offset=" 0x063A" width="16"></register>
+<register acronym="LCDM28W" description="LCD Memory 28/29" id="LCDM28W" offset=" 0x063C" width="16"></register>
+<register acronym="LCDM30W" description="LCD Memory 30/31" id="LCDM30W" offset=" 0x063E" width="16"></register>
+<register acronym="LCDM32W" description="LCD Memory 32/33" id="LCDM32W" offset=" 0x0640" width="16"></register>
+<register acronym="LCDM34W" description="LCD Memory 34/35" id="LCDM34W" offset=" 0x0642" width="16"></register>
+<register acronym="LCDM36W" description="LCD Memory 36/37" id="LCDM36W" offset=" 0x0644" width="16"></register>
+<register acronym="LCDM38W" description="LCD Memory 38/39" id="LCDM38W" offset=" 0x0646" width="16"></register>
+<register acronym="LCDBM0W" description="LCD Blinking Memory 0/1" id="LCDBM0W" offset=" 0x0640" width="16"></register>
+<register acronym="LCDBM2W" description="LCD Blinking Memory 2/3" id="LCDBM2W" offset=" 0x0642" width="16"></register>
+<register acronym="LCDBM4W" description="LCD Blinking Memory 4/5" id="LCDBM4W" offset=" 0x0644" width="16"></register>
+<register acronym="LCDBM6W" description="LCD Blinking Memory 6/7" id="LCDBM6W" offset=" 0x0646" width="16"></register>
+<register acronym="LCDBM8W" description="LCD Blinking Memory 8/9" id="LCDBM8W" offset=" 0x0648" width="16"></register>
+<register acronym="LCDBM10W" description="LCD Blinking Memory 10/11" id="LCDBM10W" offset=" 0x064A" width="16"></register>
+<register acronym="LCDBM12W" description="LCD Blinking Memory 12/13" id="LCDBM12W" offset=" 0x064C" width="16"></register>
+<register acronym="LCDBM14W" description="LCD Blinking Memory 14/15" id="LCDBM14W" offset=" 0x064E" width="16"></register>
+<register acronym="LCDBM16W" description="LCD Blinking Memory 16/17" id="LCDBM16W" offset=" 0x0650" width="16"></register>
+<register acronym="LCDBM18W" description="LCD Blinking Memory 18/19" id="LCDBM18W" offset=" 0x0652" width="16"></register>
+</module>

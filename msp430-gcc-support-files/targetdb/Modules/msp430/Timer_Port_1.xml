@@ -1,0 +1,31 @@
+<module HW_revision="" XML_version="1" description="Timer/Port" id="Timer/Port">
+<register acronym="TPCTL" description="Timer/Port Control" id="TPCTL" offset=" 0x004B" width="8">
+<bitfield begin="0" description="EN1FG" end="0" id="EN1FG" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="1" description="RC1FG" end="1" id="RC1FG" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="2" description="RC2FG" end="2" id="RC2FG" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="3" description="EN1" end="3" id="EN1" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="4" description="ENA" end="4" id="ENA" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="5" description="ENB" end="5" id="ENB" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="6" description="TPSSEL0" end="6" id="TPSSEL0" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="7" description="TPSSEL1" end="7" id="TPSSEL1" range="" resetval="0" rwaccess="RW" width="1"></bitfield></register>
+<register acronym="TPCNT1" description="Timer/Port Counter 1" id="TPCNT1" offset=" 0x004C" width="8"></register>
+<register acronym="TPCNT2" description="Timer/Port Counter 2" id="TPCNT2" offset=" 0x004D" width="8"></register>
+<register acronym="TPD" description="Timer/Port Data" id="TPD" offset=" 0x004E" width="8">
+<bitfield begin="0" description="TPD_0" end="0" id="TPD_0" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="1" description="TPD_1" end="1" id="TPD_1" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="2" description="TPD_2" end="2" id="TPD_2" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="3" description="TPD_3" end="3" id="TPD_3" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="4" description="TPD_4" end="4" id="TPD_4" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="5" description="TPD_5" end="5" id="TPD_5" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="6" description="CPON" end="6" id="CPON" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="7" description="B16" end="7" id="B16" range="" resetval="0" rwaccess="RW" width="1"></bitfield></register>
+<register acronym="TPE" description="Timer/Port Enable" id="TPE" offset=" 0x004F" width="8">
+<bitfield begin="0" description="TPE_0" end="0" id="TPE_0" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="1" description="TPE_1" end="1" id="TPE_1" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="2" description="TPE_2" end="2" id="TPE_2" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="3" description="TPE_3" end="3" id="TPE_3" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="4" description="TPE_4" end="4" id="TPE_4" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="5" description="TPE_5" end="5" id="TPE_5" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="6" description="TPSSEL2" end="6" id="TPSSEL2" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="7" description="TPSSEL3" end="7" id="TPSSEL3" range="" resetval="0" rwaccess="RW" width="1"></bitfield></register>
+</module>

@@ -1,0 +1,54 @@
+<module HW_revision="" XML_version="1" description="AES Accelerator" id="AES Accelerator">
+<register acronym="AESACTL0" description="AES accelerator control register 0" id="AESACTL0" offset=" 0x09C0" width="16">
+<bitfield begin="1" description="AES Operation Bit: 0" end="0" id="AESOP" range="" resetval="0" rwaccess="RW" width="2">
+<bitenum description="AES Operation: Encrypt" id="AESOP_0" token="AESOP_0" value="0"></bitenum>
+<bitenum description="AES Operation: Decrypt (same Key)" id="AESOP_1" token="AESOP_1" value="1"></bitenum>
+<bitenum description="AES Operation: Generate first round Key" id="AESOP_2" token="AESOP_2" value="2"></bitenum>
+<bitenum description="AES Operation: Decrypt (first round Key)" id="AESOP_3" token="AESOP_3" value="3"></bitenum></bitfield>
+<bitfield begin="3" description="AES Key length Bit: 0" end="2" id="AESKL" range="" resetval="0" rwaccess="RW" width="2">
+<bitenum description="AES Key length: AES128" id="AESKL_0" token="AESKL_0" value="0"></bitenum>
+<bitenum description="AES Key length: AES192" id="AESKL_1" token="AESKL_1" value="1"></bitenum>
+<bitenum description="AES Key length: AES256" id="AESKL_2" token="AESKL_2" value="2"></bitenum></bitfield>
+<bitfield begin="4" description="AES Trigger Select" end="4" id="AESTRIG" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="6" description="AES Cipher mode select Bit: 0" end="5" id="AESCM" range="" resetval="0" rwaccess="RW" width="2">
+<bitenum description="AES Cipher mode select: ECB" id="AESCM_0" token="AESCM_0" value="0"></bitenum>
+<bitenum description="AES Cipher mode select: CBC" id="AESCM_1" token="AESCM_1" value="1"></bitenum>
+<bitenum description="AES Cipher mode select: OFB" id="AESCM_2" token="AESCM_2" value="2"></bitenum>
+<bitenum description="AES Cipher mode select: CFB" id="AESCM_3" token="AESCM_3" value="3"></bitenum></bitfield>
+<bitfield begin="7" description="AES Software Reset" end="7" id="AESSWRST" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="8" description="AES ready interrupt flag" end="8" id="AESRDYIFG" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="11" description="AES Error Flag" end="11" id="AESERRFG" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="12" description="AES ready interrupt enable" end="12" id="AESRDYIE" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="15" description="AES DMA cipher mode enable" end="15" id="AESCMEN" range="" resetval="0" rwaccess="RW" width="1"></bitfield></register>
+<register acronym="AESACTL1" description="AES accelerator control register 1" id="AESACTL1" offset=" 0x09C2" width="16">
+<bitfield begin="0" description="AES Cipher Block Counter Bit: 0" end="0" id="AESBLKCNT0" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="1" description="AES Cipher Block Counter Bit: 1" end="1" id="AESBLKCNT1" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="2" description="AES Cipher Block Counter Bit: 2" end="2" id="AESBLKCNT2" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="3" description="AES Cipher Block Counter Bit: 3" end="3" id="AESBLKCNT3" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="4" description="AES Cipher Block Counter Bit: 4" end="4" id="AESBLKCNT4" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="5" description="AES Cipher Block Counter Bit: 5" end="5" id="AESBLKCNT5" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="6" description="AES Cipher Block Counter Bit: 6" end="6" id="AESBLKCNT6" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="7" description="AES Cipher Block Counter Bit: 7" end="7" id="AESBLKCNT7" range="" resetval="0" rwaccess="RW" width="1"></bitfield></register>
+<register acronym="AESASTAT" description="AES accelerator status register" id="AESASTAT" offset=" 0x09C4" width="16">
+<bitfield begin="0" description="AES Busy" end="0" id="AESBUSY" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="1" description="AES All 16 bytes written to AESAKEY" end="1" id="AESKEYWR" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="2" description="AES All 16 bytes written to AESADIN" end="2" id="AESDINWR" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="3" description="AES All 16 bytes read from AESADOUT" end="3" id="AESDOUTRD" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="4" description="AES Bytes written via AESAKEY Bit: 0" end="4" id="AESKEYCNT0" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="5" description="AES Bytes written via AESAKEY Bit: 1" end="5" id="AESKEYCNT1" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="6" description="AES Bytes written via AESAKEY Bit: 2" end="6" id="AESKEYCNT2" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="7" description="AES Bytes written via AESAKEY Bit: 3" end="7" id="AESKEYCNT3" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="8" description="AES Bytes written via AESADIN Bit: 0" end="8" id="AESDINCNT0" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="9" description="AES Bytes written via AESADIN Bit: 1" end="9" id="AESDINCNT1" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="10" description="AES Bytes written via AESADIN Bit: 2" end="10" id="AESDINCNT2" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="11" description="AES Bytes written via AESADIN Bit: 3" end="11" id="AESDINCNT3" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="12" description="AES Bytes read via AESADOUT Bit: 0" end="12" id="AESDOUTCNT0" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="13" description="AES Bytes read via AESADOUT Bit: 1" end="13" id="AESDOUTCNT1" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="14" description="AES Bytes read via AESADOUT Bit: 2" end="14" id="AESDOUTCNT2" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="15" description="AES Bytes read via AESADOUT Bit: 3" end="15" id="AESDOUTCNT3" range="" resetval="0" rwaccess="RW" width="1"></bitfield></register>
+<register acronym="AESAKEY" description="AES accelerator key register" id="AESAKEY" offset=" 0x09C6" width="16"></register>
+<register acronym="AESADIN" description="AES accelerator data in register" id="AESADIN" offset=" 0x09C8" width="16"></register>
+<register acronym="AESADOUT" description="AES accelerator data out register" id="AESADOUT" offset=" 0x09CA" width="16"></register>
+<register acronym="AESAXDIN" description="AES accelerator XORed data in register" id="AESAXDIN" offset=" 0x09CC" width="16"></register>
+<register acronym="AESAXIN" description="AES accelerator XORed data in register (no trigger)" id="AESAXIN" offset=" 0x09CE" width="16"></register>
+</module>

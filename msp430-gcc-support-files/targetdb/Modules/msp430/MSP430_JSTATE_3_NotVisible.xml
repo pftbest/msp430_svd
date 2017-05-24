@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module HW_revision="2.0" XML_version="1" description="JSTATE decoding" id="Hidden" hidden="true">
+
+   <!-- JSTATE register definition for the following devices
+   MSP430FR5878
+   MSP430FR5879
+   MSP430FR5977
+   MSP430FR5978
+   MSP430FR5979
+   MSP430FR5888
+   MSP430FR5889
+   MSP430FR5988
+   MSP430FR5989
+   MSP430FR6928
+   MSP430FR6929
+   MSP430FR6977
+   MSP430FR6978
+   MSP430FR6979
+   MSP430FR6887
+   MSP430FR6888
+   MSP430FR6889
+   MSP430FR6987
+   MSP430FR6988
+   MSP430FR6989
+  -->
+   <register acronym="JSTATE2" description="Digital JTAG State Register" id="JSTATE2" offset="0x0" width="64">
+
+    <!-- Next bits show peripheral activity. Bits with description="NA" are not associated to a peripheral. -->
+      <bitfield begin="31" description="FRAM" end="31" id="MODACT0" range="" resetval="0" rwaccess="R" width="1" />
+      <bitfield begin="30" description="MPY"  end="30" id="MODACT1" range="" resetval="0" rwaccess="R" width="1" />
+      <bitfield begin="29" description="WDT"  end="29" id="MODACT2" range="" resetval="0" rwaccess="R" width="1" />
+      <bitfield begin="28" description="RTC"  end="28" id="MODACT3" range="" resetval="0" rwaccess="R" width="1" />
+      <bitfield begin="27" description="ADC"  end="27" id="MODACT4" range="" resetval="0" rwaccess="R" width="1" />
+      <bitfield begin="26" description="REF"  end="26" id="MODACT5" range="" resetval="0" rwaccess="R" width="1" />
+      <bitfield begin="25" description="COMP" end="25" id="MODACT6" range="" resetval="0" rwaccess="R" width="1" />
+      <bitfield begin="24" description="AES"  end="24" id="MODACT7" range="" resetval="0" rwaccess="R" width="1" />
+      <bitfield begin="23" description="eUSCI_A0" end="23" id="MODACT8" range="" resetval="0" rwaccess="R" width="1" />
+      <bitfield begin="22" description="eUSCI_A1" end="22" id="MODACT9" range="" resetval="0" rwaccess="R" width="1" />
+      <bitfield begin="21" description="eUSCI_B0" end="21" id="MODACT10" range="" resetval="0" rwaccess="R" width="1" />
+      <bitfield begin="20" description="eUSCI_B1" end="20" id="MODACT11" range="" resetval="0" rwaccess="R" width="1" />
+      <bitfield begin="19" description="TB0"  end="19" id="MODACT12" range="" resetval="0" rwaccess="R" width="1" />
+      <bitfield begin="18" description="TA0"  end="18" id="MODACT13" range="" resetval="0" rwaccess="R" width="1" />
+      <bitfield begin="17" description="TA1"  end="17" id="MODACT14" range="" resetval="0" rwaccess="R" width="1" />
+      <bitfield begin="16" description="TA2"  end="16" id="MODACT15" range="" resetval="0" rwaccess="R" width="1" />
+      <bitfield begin="15" description="TA3"  end="15" id="MODACT16" range="" resetval="0" rwaccess="R" width="1" />
+      <bitfield begin="14" description="LCD"   end="14" id="MODACT17" range="" resetval="0" rwaccess="R" width="1" />
+      <bitfield begin="13" description="SCANIF_LF"   end="13" id="MODACT18" range="" resetval="0" rwaccess="R" width="1" />
+      <bitfield begin="12" description="SCANIF_HF"   end="12" id="MODACT19" range="" resetval="0" rwaccess="R" width="1" />
+      <bitfield begin="8" description="DMA"   end="8" id="MODDMA" range="" resetval="0" rwaccess="R" width="1" />
+
+   </register>
+</module>

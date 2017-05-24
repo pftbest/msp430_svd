@@ -1,0 +1,156 @@
+<module HW_revision="" XML_version="1" description="Comparator D" id="Comparator D">
+<register acronym="CDCTL0" description="Comparator D Control Register 0" id="CDCTL0" offset=" 0x08C0" width="16">
+<bitfield begin="3" description="Comp. D Pos. Channel Input Select 0" end="0" id="CDIPSEL" range="" resetval="0" rwaccess="RW" width="4">
+<bitenum description="Comp. D V+ terminal Input Select: Channel 0" id="CDIPSEL_0" token="CDIPSEL_0" value="0"></bitenum>
+<bitenum description="Comp. D V+ terminal Input Select: Channel 1" id="CDIPSEL_1" token="CDIPSEL_1" value="1"></bitenum>
+<bitenum description="Comp. D V+ terminal Input Select: Channel 2" id="CDIPSEL_2" token="CDIPSEL_2" value="2"></bitenum>
+<bitenum description="Comp. D V+ terminal Input Select: Channel 3" id="CDIPSEL_3" token="CDIPSEL_3" value="3"></bitenum>
+<bitenum description="Comp. D V+ terminal Input Select: Channel 4" id="CDIPSEL_4" token="CDIPSEL_4" value="4"></bitenum>
+<bitenum description="Comp. D V+ terminal Input Select: Channel 5" id="CDIPSEL_5" token="CDIPSEL_5" value="5"></bitenum>
+<bitenum description="Comp. D V+ terminal Input Select: Channel 6" id="CDIPSEL_6" token="CDIPSEL_6" value="6"></bitenum>
+<bitenum description="Comp. D V+ terminal Input Select: Channel 7" id="CDIPSEL_7" token="CDIPSEL_7" value="7"></bitenum>
+<bitenum description="Comp. D V+ terminal Input Select: Channel 8" id="CDIPSEL_8" token="CDIPSEL_8" value="8"></bitenum>
+<bitenum description="Comp. D V+ terminal Input Select: Channel 9" id="CDIPSEL_9" token="CDIPSEL_9" value="9"></bitenum>
+<bitenum description="Comp. D V+ terminal Input Select: Channel 10" id="CDIPSEL_10" token="CDIPSEL_10" value="10"></bitenum>
+<bitenum description="Comp. D V+ terminal Input Select: Channel 11" id="CDIPSEL_11" token="CDIPSEL_11" value="11"></bitenum>
+<bitenum description="Comp. D V+ terminal Input Select: Channel 12" id="CDIPSEL_12" token="CDIPSEL_12" value="12"></bitenum>
+<bitenum description="Comp. D V+ terminal Input Select: Channel 13" id="CDIPSEL_13" token="CDIPSEL_13" value="13"></bitenum>
+<bitenum description="Comp. D V+ terminal Input Select: Channel 14" id="CDIPSEL_14" token="CDIPSEL_14" value="14"></bitenum>
+<bitenum description="Comp. D V+ terminal Input Select: Channel 15" id="CDIPSEL_15" token="CDIPSEL_15" value="15"></bitenum></bitfield>
+<bitfield begin="7" description="Comp. D Pos. Channel Input Enable" end="7" id="CDIPEN" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="11" description="Comp. D Neg. Channel Input Select 0" end="8" id="CDIMSEL" range="" resetval="0" rwaccess="RW" width="4">
+<bitenum description="Comp. D V- Terminal Input Select: Channel 0" id="CDIMSEL_0" token="CDIMSEL_0" value="0"></bitenum>
+<bitenum description="Comp. D V- Terminal Input Select: Channel 1" id="CDIMSEL_1" token="CDIMSEL_1" value="1"></bitenum>
+<bitenum description="Comp. D V- Terminal Input Select: Channel 2" id="CDIMSEL_2" token="CDIMSEL_2" value="2"></bitenum>
+<bitenum description="Comp. D V- Terminal Input Select: Channel 3" id="CDIMSEL_3" token="CDIMSEL_3" value="3"></bitenum>
+<bitenum description="Comp. D V- Terminal Input Select: Channel 4" id="CDIMSEL_4" token="CDIMSEL_4" value="4"></bitenum>
+<bitenum description="Comp. D V- Terminal Input Select: Channel 5" id="CDIMSEL_5" token="CDIMSEL_5" value="5"></bitenum>
+<bitenum description="Comp. D V- Terminal Input Select: Channel 6" id="CDIMSEL_6" token="CDIMSEL_6" value="6"></bitenum>
+<bitenum description="Comp. D V- Terminal Input Select: Channel 7" id="CDIMSEL_7" token="CDIMSEL_7" value="7"></bitenum>
+<bitenum description="Comp. D V- terminal Input Select: Channel 8" id="CDIMSEL_8" token="CDIMSEL_8" value="8"></bitenum>
+<bitenum description="Comp. D V- terminal Input Select: Channel 9" id="CDIMSEL_9" token="CDIMSEL_9" value="9"></bitenum>
+<bitenum description="Comp. D V- terminal Input Select: Channel 10" id="CDIMSEL_10" token="CDIMSEL_10" value="10"></bitenum>
+<bitenum description="Comp. D V- terminal Input Select: Channel 11" id="CDIMSEL_11" token="CDIMSEL_11" value="11"></bitenum>
+<bitenum description="Comp. D V- terminal Input Select: Channel 12" id="CDIMSEL_12" token="CDIMSEL_12" value="12"></bitenum>
+<bitenum description="Comp. D V- terminal Input Select: Channel 13" id="CDIMSEL_13" token="CDIMSEL_13" value="13"></bitenum>
+<bitenum description="Comp. D V- terminal Input Select: Channel 14" id="CDIMSEL_14" token="CDIMSEL_14" value="14"></bitenum>
+<bitenum description="Comp. D V- terminal Input Select: Channel 15" id="CDIMSEL_15" token="CDIMSEL_15" value="15"></bitenum></bitfield>
+<bitfield begin="15" description="Comp. D Neg. Channel Input Enable" end="15" id="CDIMEN" range="" resetval="0" rwaccess="RW" width="1"></bitfield></register>
+<register acronym="CDCTL1" description="Comparator D Control Register 1" id="CDCTL1" offset=" 0x08C2" width="16">
+<bitfield begin="0" description="Comp. D Output" end="0" id="CDOUT" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="1" description="Comp. D Output Polarity" end="1" id="CDOUTPOL" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="2" description="Comp. D Enable Output Filter" end="2" id="CDF" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="3" description="Comp. D Interrupt Edge Select" end="3" id="CDIES" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="4" description="Comp. D Input Short" end="4" id="CDSHORT" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="5" description="Comp. D Exchange Inputs" end="5" id="CDEX" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="7" description="Comp. D Filter delay Bit 0" end="6" id="CDFDLY" range="" resetval="0" rwaccess="RW" width="2">
+<bitenum description="Comp. D Filter delay 0 : 450ns" id="CDFDLY_0" token="CDFDLY_0" value="0"></bitenum>
+<bitenum description="Comp. D Filter delay 1 : 900ns" id="CDFDLY_1" token="CDFDLY_1" value="1"></bitenum>
+<bitenum description="Comp. D Filter delay 2 : 1800ns" id="CDFDLY_2" token="CDFDLY_2" value="2"></bitenum>
+<bitenum description="Comp. D Filter delay 3 : 3600ns" id="CDFDLY_3" token="CDFDLY_3" value="3"></bitenum></bitfield>
+<bitfield begin="10" description="Comp. D enable" end="10" id="CDON" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="11" description="Comp. D CDMRV Level" end="11" id="CDMRVL" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="12" description="Comp. D Output selects between VREF0 or VREF1" end="12" id="CDMRVS" range="" resetval="0" rwaccess="RW" width="1"></bitfield></register>
+<register acronym="CDCTL2" description="Comparator D Control Register 2" id="CDCTL2" offset=" 0x08C4" width="16">
+<bitfield begin="4" description="Comp. D Reference 0 Resistor Select Bit : 0" end="0" id="CDREF0" range="" resetval="0" rwaccess="RW" width="5">
+<bitenum description="Comp. D Int. Ref.0 Select 0 : 1/32" id="CDREF0_0" token="CDREF0_0" value="0"></bitenum>
+<bitenum description="Comp. D Int. Ref.0 Select 1 : 2/32" id="CDREF0_1" token="CDREF0_1" value="1"></bitenum>
+<bitenum description="Comp. D Int. Ref.0 Select 2 : 3/32" id="CDREF0_2" token="CDREF0_2" value="2"></bitenum>
+<bitenum description="Comp. D Int. Ref.0 Select 3 : 4/32" id="CDREF0_3" token="CDREF0_3" value="3"></bitenum>
+<bitenum description="Comp. D Int. Ref.0 Select 4 : 5/32" id="CDREF0_4" token="CDREF0_4" value="4"></bitenum>
+<bitenum description="Comp. D Int. Ref.0 Select 5 : 6/32" id="CDREF0_5" token="CDREF0_5" value="5"></bitenum>
+<bitenum description="Comp. D Int. Ref.0 Select 6 : 7/32" id="CDREF0_6" token="CDREF0_6" value="6"></bitenum>
+<bitenum description="Comp. D Int. Ref.0 Select 7 : 8/32" id="CDREF0_7" token="CDREF0_7" value="7"></bitenum>
+<bitenum description="Comp. D Int. Ref.0 Select 0 : 9/32" id="CDREF0_8" token="CDREF0_8" value="8"></bitenum>
+<bitenum description="Comp. D Int. Ref.0 Select 1 : 10/32" id="CDREF0_9" token="CDREF0_9" value="9"></bitenum>
+<bitenum description="Comp. D Int. Ref.0 Select 2 : 11/32" id="CDREF0_10" token="CDREF0_10" value="10"></bitenum>
+<bitenum description="Comp. D Int. Ref.0 Select 3 : 12/32" id="CDREF0_11" token="CDREF0_11" value="11"></bitenum>
+<bitenum description="Comp. D Int. Ref.0 Select 4 : 13/32" id="CDREF0_12" token="CDREF0_12" value="12"></bitenum>
+<bitenum description="Comp. D Int. Ref.0 Select 5 : 14/32" id="CDREF0_13" token="CDREF0_13" value="13"></bitenum>
+<bitenum description="Comp. D Int. Ref.0 Select 6 : 15/32" id="CDREF0_14" token="CDREF0_14" value="14"></bitenum>
+<bitenum description="Comp. D Int. Ref.0 Select 7 : 16/32" id="CDREF0_15" token="CDREF0_15" value="15"></bitenum>
+<bitenum description="Comp. D Int. Ref.0 Select 0 : 17/32" id="CDREF0_16" token="CDREF0_16" value="16"></bitenum>
+<bitenum description="Comp. D Int. Ref.0 Select 1 : 18/32" id="CDREF0_17" token="CDREF0_17" value="17"></bitenum>
+<bitenum description="Comp. D Int. Ref.0 Select 2 : 19/32" id="CDREF0_18" token="CDREF0_18" value="18"></bitenum>
+<bitenum description="Comp. D Int. Ref.0 Select 3 : 20/32" id="CDREF0_19" token="CDREF0_19" value="19"></bitenum>
+<bitenum description="Comp. D Int. Ref.0 Select 4 : 21/32" id="CDREF0_20" token="CDREF0_20" value="20"></bitenum>
+<bitenum description="Comp. D Int. Ref.0 Select 5 : 22/32" id="CDREF0_21" token="CDREF0_21" value="21"></bitenum>
+<bitenum description="Comp. D Int. Ref.0 Select 6 : 23/32" id="CDREF0_22" token="CDREF0_22" value="22"></bitenum>
+<bitenum description="Comp. D Int. Ref.0 Select 7 : 24/32" id="CDREF0_23" token="CDREF0_23" value="23"></bitenum>
+<bitenum description="Comp. D Int. Ref.0 Select 0 : 25/32" id="CDREF0_24" token="CDREF0_24" value="24"></bitenum>
+<bitenum description="Comp. D Int. Ref.0 Select 1 : 26/32" id="CDREF0_25" token="CDREF0_25" value="25"></bitenum>
+<bitenum description="Comp. D Int. Ref.0 Select 2 : 27/32" id="CDREF0_26" token="CDREF0_26" value="26"></bitenum>
+<bitenum description="Comp. D Int. Ref.0 Select 3 : 28/32" id="CDREF0_27" token="CDREF0_27" value="27"></bitenum>
+<bitenum description="Comp. D Int. Ref.0 Select 4 : 29/32" id="CDREF0_28" token="CDREF0_28" value="28"></bitenum>
+<bitenum description="Comp. D Int. Ref.0 Select 5 : 30/32" id="CDREF0_29" token="CDREF0_29" value="29"></bitenum>
+<bitenum description="Comp. D Int. Ref.0 Select 6 : 31/32" id="CDREF0_30" token="CDREF0_30" value="30"></bitenum>
+<bitenum description="Comp. D Int. Ref.0 Select 7 : 32/32" id="CDREF0_31" token="CDREF0_31" value="31"></bitenum></bitfield>
+<bitfield begin="5" description="Comp. D Reference select" end="5" id="CDRSEL" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="7" description="Comp. D Reference Source Bit : 0" end="6" id="CDRS" range="" resetval="0" rwaccess="RW" width="2">
+<bitenum description="Comp. D Reference Source 0 : Off" id="CDRS_0" token="CDRS_0" value="0"></bitenum>
+<bitenum description="Comp. D Reference Source 1 : Vcc" id="CDRS_1" token="CDRS_1" value="1"></bitenum>
+<bitenum description="Comp. D Reference Source 2 : Shared Ref." id="CDRS_2" token="CDRS_2" value="2"></bitenum>
+<bitenum description="Comp. D Reference Source 3 : Shared Ref. / Off" id="CDRS_3" token="CDRS_3" value="3"></bitenum></bitfield>
+<bitfield begin="12" description="Comp. D Reference 1 Resistor Select Bit : 0" end="8" id="CDREF1" range="" resetval="0" rwaccess="RW" width="5">
+<bitenum description="Comp. D Int. Ref.1 Select 0 : 1/32" id="CDREF1_0" token="CDREF1_0" value="0"></bitenum>
+<bitenum description="Comp. D Int. Ref.1 Select 1 : 2/32" id="CDREF1_1" token="CDREF1_1" value="1"></bitenum>
+<bitenum description="Comp. D Int. Ref.1 Select 2 : 3/32" id="CDREF1_2" token="CDREF1_2" value="2"></bitenum>
+<bitenum description="Comp. D Int. Ref.1 Select 3 : 4/32" id="CDREF1_3" token="CDREF1_3" value="3"></bitenum>
+<bitenum description="Comp. D Int. Ref.1 Select 4 : 5/32" id="CDREF1_4" token="CDREF1_4" value="4"></bitenum>
+<bitenum description="Comp. D Int. Ref.1 Select 5 : 6/32" id="CDREF1_5" token="CDREF1_5" value="5"></bitenum>
+<bitenum description="Comp. D Int. Ref.1 Select 6 : 7/32" id="CDREF1_6" token="CDREF1_6" value="6"></bitenum>
+<bitenum description="Comp. D Int. Ref.1 Select 7 : 8/32" id="CDREF1_7" token="CDREF1_7" value="7"></bitenum>
+<bitenum description="Comp. D Int. Ref.1 Select 0 : 9/32" id="CDREF1_8" token="CDREF1_8" value="8"></bitenum>
+<bitenum description="Comp. D Int. Ref.1 Select 1 : 10/32" id="CDREF1_9" token="CDREF1_9" value="9"></bitenum>
+<bitenum description="Comp. D Int. Ref.1 Select 2 : 11/32" id="CDREF1_10" token="CDREF1_10" value="10"></bitenum>
+<bitenum description="Comp. D Int. Ref.1 Select 3 : 12/32" id="CDREF1_11" token="CDREF1_11" value="11"></bitenum>
+<bitenum description="Comp. D Int. Ref.1 Select 4 : 13/32" id="CDREF1_12" token="CDREF1_12" value="12"></bitenum>
+<bitenum description="Comp. D Int. Ref.1 Select 5 : 14/32" id="CDREF1_13" token="CDREF1_13" value="13"></bitenum>
+<bitenum description="Comp. D Int. Ref.1 Select 6 : 15/32" id="CDREF1_14" token="CDREF1_14" value="14"></bitenum>
+<bitenum description="Comp. D Int. Ref.1 Select 7 : 16/32" id="CDREF1_15" token="CDREF1_15" value="15"></bitenum>
+<bitenum description="Comp. D Int. Ref.1 Select 0 : 17/32" id="CDREF1_16" token="CDREF1_16" value="16"></bitenum>
+<bitenum description="Comp. D Int. Ref.1 Select 1 : 18/32" id="CDREF1_17" token="CDREF1_17" value="17"></bitenum>
+<bitenum description="Comp. D Int. Ref.1 Select 2 : 19/32" id="CDREF1_18" token="CDREF1_18" value="18"></bitenum>
+<bitenum description="Comp. D Int. Ref.1 Select 3 : 20/32" id="CDREF1_19" token="CDREF1_19" value="19"></bitenum>
+<bitenum description="Comp. D Int. Ref.1 Select 4 : 21/32" id="CDREF1_20" token="CDREF1_20" value="20"></bitenum>
+<bitenum description="Comp. D Int. Ref.1 Select 5 : 22/32" id="CDREF1_21" token="CDREF1_21" value="21"></bitenum>
+<bitenum description="Comp. D Int. Ref.1 Select 6 : 23/32" id="CDREF1_22" token="CDREF1_22" value="22"></bitenum>
+<bitenum description="Comp. D Int. Ref.1 Select 7 : 24/32" id="CDREF1_23" token="CDREF1_23" value="23"></bitenum>
+<bitenum description="Comp. D Int. Ref.1 Select 0 : 25/32" id="CDREF1_24" token="CDREF1_24" value="24"></bitenum>
+<bitenum description="Comp. D Int. Ref.1 Select 1 : 26/32" id="CDREF1_25" token="CDREF1_25" value="25"></bitenum>
+<bitenum description="Comp. D Int. Ref.1 Select 2 : 27/32" id="CDREF1_26" token="CDREF1_26" value="26"></bitenum>
+<bitenum description="Comp. D Int. Ref.1 Select 3 : 28/32" id="CDREF1_27" token="CDREF1_27" value="27"></bitenum>
+<bitenum description="Comp. D Int. Ref.1 Select 4 : 29/32" id="CDREF1_28" token="CDREF1_28" value="28"></bitenum>
+<bitenum description="Comp. D Int. Ref.1 Select 5 : 30/32" id="CDREF1_29" token="CDREF1_29" value="29"></bitenum>
+<bitenum description="Comp. D Int. Ref.1 Select 6 : 31/32" id="CDREF1_30" token="CDREF1_30" value="30"></bitenum>
+<bitenum description="Comp. D Int. Ref.1 Select 7 : 32/32" id="CDREF1_31" token="CDREF1_31" value="31"></bitenum></bitfield>
+<bitfield begin="14" description="Comp. D Reference voltage level Bit : 0" end="13" id="CDREFL" range="" resetval="0" rwaccess="RW" width="2">
+<bitenum description="Comp. D Reference voltage level 0 : None" id="CDREFL_0" token="CDREFL_0" value="0"></bitenum>
+<bitenum description="Comp. D Reference voltage level 1 : 1.5V" id="CDREFL_1" token="CDREFL_1" value="1"></bitenum>
+<bitenum description="Comp. D Reference voltage level 2 : 2.0V" id="CDREFL_2" token="CDREFL_2" value="2"></bitenum>
+<bitenum description="Comp. D Reference voltage level 3 : 2.5V" id="CDREFL_3" token="CDREFL_3" value="3"></bitenum></bitfield>
+<bitfield begin="15" description="Comp. D Reference Accuracy" end="15" id="CDREFACC" range="" resetval="0" rwaccess="RW" width="1"></bitfield></register>
+<register acronym="CDCTL3" description="Comparator D Control Register 3" id="CDCTL3" offset=" 0x08C6" width="16">
+<bitfield begin="0" description="Comp. D Disable Input Buffer of Port Register .0" end="0" id="CDPD0" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="1" description="Comp. D Disable Input Buffer of Port Register .1" end="1" id="CDPD1" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="2" description="Comp. D Disable Input Buffer of Port Register .2" end="2" id="CDPD2" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="3" description="Comp. D Disable Input Buffer of Port Register .3" end="3" id="CDPD3" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="4" description="Comp. D Disable Input Buffer of Port Register .4" end="4" id="CDPD4" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="5" description="Comp. D Disable Input Buffer of Port Register .5" end="5" id="CDPD5" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="6" description="Comp. D Disable Input Buffer of Port Register .6" end="6" id="CDPD6" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="7" description="Comp. D Disable Input Buffer of Port Register .7" end="7" id="CDPD7" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="8" description="Comp. D Disable Input Buffer of Port Register .8" end="8" id="CDPD8" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="9" description="Comp. D Disable Input Buffer of Port Register .9" end="9" id="CDPD9" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="10" description="Comp. D Disable Input Buffer of Port Register .10" end="10" id="CDPD10" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="11" description="Comp. D Disable Input Buffer of Port Register .11" end="11" id="CDPD11" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="12" description="Comp. D Disable Input Buffer of Port Register .12" end="12" id="CDPD12" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="13" description="Comp. D Disable Input Buffer of Port Register .13" end="13" id="CDPD13" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="14" description="Comp. D Disable Input Buffer of Port Register .14" end="14" id="CDPD14" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="15" description="Comp. D Disable Input Buffer of Port Register .15" end="15" id="CDPD15" range="" resetval="0" rwaccess="RW" width="1"></bitfield></register>
+<register acronym="CDINT" description="Comparator D Interrupt Register" id="CDINT" offset=" 0x08CC" width="16">
+<bitfield begin="0" description="Comp. D Interrupt Flag" end="0" id="CDIFG" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="1" description="Comp. D Interrupt Flag Inverted Polarity" end="1" id="CDIIFG" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="8" description="Comp. D Interrupt Enable" end="8" id="CDIE" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="9" description="Comp. D Interrupt Enable Inverted Polarity" end="9" id="CDIIE" range="" resetval="0" rwaccess="RW" width="1"></bitfield></register>
+<register acronym="CDIV" description="Comparator D Interrupt Vector Word" id="CDIV" offset=" 0x08CE" width="16"></register>
+</module>

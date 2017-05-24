@@ -1,0 +1,199 @@
+<module HW_revision="" XML_version="1" description="Timer0_D3" id="Timer0_D3">
+<register acronym="TD0CTL0" description="Timer0_D3 Control 0" id="TD0CTL0" offset=" 0x0B00" width="16">
+<bitfield begin="0" description="Timer0_D3 interrupt flag" end="0" id="TDIFG" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="1" description="Timer0_D3 interrupt enable" end="1" id="TDIE" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="2" description="Timer0_D3 counter clear" end="2" id="TDCLR" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="5" description="Timer0_D3 mode control 1" end="4" id="MC" range="" resetval="0" rwaccess="RW" width="2">
+<bitenum description="Timer A mode control: 0 - Stop" id="MC_0" token="MC_0" value="0"></bitenum>
+<bitenum description="Timer A mode control: 1 - Up to CCR0" id="MC_1" token="MC_1" value="1"></bitenum>
+<bitenum description="Timer A mode control: 2 - Continuous up" id="MC_2" token="MC_2" value="2"></bitenum>
+<bitenum description="Timer A mode control: 3 - Up/Down" id="MC_3" token="MC_3" value="3"></bitenum></bitfield>
+<bitfield begin="7" description="Timer0_D3 clock input divider 1" end="6" id="ID" range="" resetval="0" rwaccess="RW" width="2">
+<bitenum description="Timer A input divider: 0 - /1" id="ID_0" token="ID_0" value="0"></bitenum>
+<bitenum description="Timer A input divider: 1 - /2" id="ID_1" token="ID_1" value="1"></bitenum>
+<bitenum description="Timer A input divider: 2 - /4" id="ID_2" token="ID_2" value="2"></bitenum>
+<bitenum description="Timer A input divider: 3 - /8" id="ID_3" token="ID_3" value="3"></bitenum></bitfield>
+<bitfield begin="9" description="Clock source 1" end="8" id="TDSSEL" range="" resetval="0" rwaccess="RW" width="2">
+<bitenum description="Clock Source: TDCLK" id="TDSSEL_0" token="TDSSEL_0" value="0"></bitenum>
+<bitenum description="Clock Source: ACLK" id="TDSSEL_1" token="TDSSEL_1" value="1"></bitenum>
+<bitenum description="Clock Source: SMCLK" id="TDSSEL_2" token="TDSSEL_2" value="2"></bitenum>
+<bitenum description="Clock Source: INCLK" id="TDSSEL_3" token="TDSSEL_3" value="3"></bitenum></bitfield>
+<bitfield begin="12" description="Counter lenght 1" end="11" id="CNTL" range="" resetval="0" rwaccess="RW" width="2">
+<bitenum description="Counter lenght: 16 bit" id="CNTL_0" token="CNTL_0" value="0"></bitenum>
+<bitenum description="Counter lenght: 12 bit" id="CNTL_1" token="CNTL_1" value="1"></bitenum>
+<bitenum description="Counter lenght: 10 bit" id="CNTL_2" token="CNTL_2" value="2"></bitenum>
+<bitenum description="Counter lenght:  8 bit" id="CNTL_3" token="CNTL_3" value="3"></bitenum></bitfield>
+<bitfield begin="14" description="Timer0_D3 Compare latch load group 1" end="13" id="TDCLGRP" range="" resetval="0" rwaccess="RW" width="2">
+<bitenum description="Timer0_D3 Group: 0 - individually" id="TDCLGRP_0" token="TDCLGRP_0" value="0"></bitenum>
+<bitenum description="Timer0_D3 Group: 1 - 3 groups (1-2" id="TDCLGRP_1" token="TDCLGRP_1" value="1"></bitenum>
+<bitenum description="Timer0_D3 Group: 2 - 2 groups (1-3" id="TDCLGRP_2" token="TDCLGRP_2" value="2"></bitenum>
+<bitenum description="Timer0_D3 Group: 3 - 1 group (all)" id="TDCLGRP_3" token="TDCLGRP_3" value="3"></bitenum></bitfield></register>
+<register acronym="TD0CTL1" description="Timer0_D3 Control 1" id="TD0CTL1" offset=" 0x0B02" width="16">
+<bitfield begin="1" description="Timer0_D3 Clocking Mode Bit: 0" end="0" id="TDCLKM" range="" resetval="0" rwaccess="RW" width="2">
+<bitenum description="Timer0_D3 Clocking Mode: External" id="TDCLKM_0" token="TDCLKM_0" value="0"></bitenum>
+<bitenum description="Timer0_D3 Clocking Mode: High-Res. local clock" id="TDCLKM_1" token="TDCLKM_1" value="1"></bitenum>
+<bitenum description="Timer0_D3 Clocking Mode: Aux Clock" id="TDCLKM_2" token="TDCLKM_2" value="2"></bitenum></bitfield>
+<bitfield begin="4" description="Timer0_D3 TD0CCR Combination in TD2" end="4" id="TD2CMB" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="5" description="Timer0_D3 TD0CCR Combination in TD4" end="5" id="TD4CMB" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="6" description="Timer0_D3 TD0CCR Combination in TD6" end="6" id="TD6CMB" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="10" description="Timer0_D3 Input divider expansion Bit: 0" end="8" id="TDIDEX" range="" resetval="0" rwaccess="RW" width="3">
+<bitenum description="Timer0_D3 Input divider expansion : /1" id="TDIDEX_0" token="TDIDEX_0" value="0"></bitenum>
+<bitenum description="Timer0_D3 Input divider expansion : /2" id="TDIDEX_1" token="TDIDEX_1" value="1"></bitenum>
+<bitenum description="Timer0_D3 Input divider expansion : /3" id="TDIDEX_2" token="TDIDEX_2" value="2"></bitenum>
+<bitenum description="Timer0_D3 Input divider expansion : /4" id="TDIDEX_3" token="TDIDEX_3" value="3"></bitenum>
+<bitenum description="Timer0_D3 Input divider expansion : /5" id="TDIDEX_4" token="TDIDEX_4" value="4"></bitenum>
+<bitenum description="Timer0_D3 Input divider expansion : /6" id="TDIDEX_5" token="TDIDEX_5" value="5"></bitenum>
+<bitenum description="Timer0_D3 Input divider expansion : /7" id="TDIDEX_6" token="TDIDEX_6" value="6"></bitenum>
+<bitenum description="Timer0_D3 Input divider expansion : /8" id="TDIDEX_7" token="TDIDEX_7" value="7"></bitenum></bitfield></register>
+<register acronym="TD0CTL2" description="Timer0_D3 Control 2" id="TD0CTL2" offset=" 0x0B04" width="16">
+<bitfield begin="0" description="Timer0_D3 Capture Mode of Channel 0" end="0" id="TDCAPM0" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="1" description="Timer0_D3 Capture Mode of Channel 1" end="1" id="TDCAPM1" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="2" description="Timer0_D3 Capture Mode of Channel 2" end="2" id="TDCAPM2" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="3" description="Timer0_D3 Capture Mode of Channel 3" end="3" id="TDCAPM3" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="4" description="Timer0_D3 Capture Mode of Channel 4" end="4" id="TDCAPM4" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="5" description="Timer0_D3 Capture Mode of Channel 5" end="5" id="TDCAPM5" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="6" description="Timer0_D3 Capture Mode of Channel 6" end="6" id="TDCAPM6" range="" resetval="0" rwaccess="RW" width="1"></bitfield></register>
+<register acronym="TD0R" description="Timer0_D3 Counter" id="TD0R" offset=" 0x0B06" width="16"></register>
+<register acronym="TD0CCTL0" description="Timer0_D3 Capture/Compare Control 0" id="TD0CCTL0" offset=" 0x0B08" width="16">
+<bitfield begin="0" description="Capture/compare interrupt flag" end="0" id="CCIFG" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="1" description="Capture/compare overflow flag" end="1" id="COV" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="2" description="PWM Output signal if output mode 0" end="2" id="OUT" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="3" description="Capture input signal (read)" end="3" id="CCI" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="4" description="Capture/compare interrupt enable" end="4" id="CCIE" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="7" description="Output mode 2" end="5" id="OUTMOD" range="" resetval="0" rwaccess="RW" width="3">
+<bitenum description="PWM output mode: 0 - output only" id="OUTMOD_0" token="OUTMOD_0" value="0"></bitenum>
+<bitenum description="PWM output mode: 1 - set" id="OUTMOD_1" token="OUTMOD_1" value="1"></bitenum>
+<bitenum description="PWM output mode: 2 - PWM toggle/reset" id="OUTMOD_2" token="OUTMOD_2" value="2"></bitenum>
+<bitenum description="PWM output mode: 3 - PWM set/reset" id="OUTMOD_3" token="OUTMOD_3" value="3"></bitenum>
+<bitenum description="PWM output mode: 4 - toggle" id="OUTMOD_4" token="OUTMOD_4" value="4"></bitenum>
+<bitenum description="PWM output mode: 5 - Reset" id="OUTMOD_5" token="OUTMOD_5" value="5"></bitenum>
+<bitenum description="PWM output mode: 6 - PWM toggle/set" id="OUTMOD_6" token="OUTMOD_6" value="6"></bitenum>
+<bitenum description="PWM output mode: 7 - PWM reset/set" id="OUTMOD_7" token="OUTMOD_7" value="7"></bitenum></bitfield>
+<bitfield begin="8" description="Capture mode: 1 /Compare mode : 0" end="8" id="CAP" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="10" description="Compare latch load source 1" end="9" id="CLLD" range="" resetval="0" rwaccess="RW" width="2">
+<bitenum description="Compare latch load sourec : 0 - immediate" id="CLLD_0" token="CLLD_0" value="0"></bitenum>
+<bitenum description="Compare latch load sourec : 1 - TDR counts to 0" id="CLLD_1" token="CLLD_1" value="1"></bitenum>
+<bitenum description="Compare latch load sourec : 2 - up/down" id="CLLD_2" token="CLLD_2" value="2"></bitenum>
+<bitenum description="Compare latch load sourec : 3 - TDR counts to TDCTL0" id="CLLD_3" token="CLLD_3" value="3"></bitenum></bitfield>
+<bitfield begin="11" description="Capture sychronize" end="11" id="SCS" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="13" description="Capture input select 1" end="12" id="CCIS" range="" resetval="0" rwaccess="RW" width="2">
+<bitenum description="Capture input select: 0 - CCIxA" id="CCIS_0" token="CCIS_0" value="0"></bitenum>
+<bitenum description="Capture input select: 1 - CCIxB" id="CCIS_1" token="CCIS_1" value="1"></bitenum>
+<bitenum description="Capture input select: 2 - GND" id="CCIS_2" token="CCIS_2" value="2"></bitenum>
+<bitenum description="Capture input select: 3 - Vcc" id="CCIS_3" token="CCIS_3" value="3"></bitenum></bitfield>
+<bitfield begin="15" description="Capture mode 1" end="14" id="CM" range="" resetval="0" rwaccess="RW" width="2">
+<bitenum description="Capture mode: 0 - disabled" id="CM_0" token="CM_0" value="0"></bitenum>
+<bitenum description="Capture mode: 1 - pos. edge" id="CM_1" token="CM_1" value="1"></bitenum>
+<bitenum description="Capture mode: 1 - neg. edge" id="CM_2" token="CM_2" value="2"></bitenum>
+<bitenum description="Capture mode: 1 - both edges" id="CM_3" token="CM_3" value="3"></bitenum></bitfield></register>
+<register acronym="TD0CCR0" description="Timer0_D3 Capture/Compare 0" id="TD0CCR0" offset=" 0x0B0A" width="16"></register>
+<register acronym="TD0CL0" description="Timer0_D3 Capture/Compare Latch 0" id="TD0CL0" offset=" 0x0B0C" width="16"></register>
+<register acronym="TD0CCTL1" description="Timer0_D3 Capture/Compare Control 1" id="TD0CCTL1" offset=" 0x0B0E" width="16">
+<bitfield begin="0" description="Capture/compare interrupt flag" end="0" id="CCIFG" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="1" description="Capture/compare overflow flag" end="1" id="COV" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="2" description="PWM Output signal if output mode 0" end="2" id="OUT" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="3" description="Capture input signal (read)" end="3" id="CCI" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="4" description="Capture/compare interrupt enable" end="4" id="CCIE" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="7" description="Output mode 2" end="5" id="OUTMOD" range="" resetval="0" rwaccess="RW" width="3">
+<bitenum description="PWM output mode: 0 - output only" id="OUTMOD_0" token="OUTMOD_0" value="0"></bitenum>
+<bitenum description="PWM output mode: 1 - set" id="OUTMOD_1" token="OUTMOD_1" value="1"></bitenum>
+<bitenum description="PWM output mode: 2 - PWM toggle/reset" id="OUTMOD_2" token="OUTMOD_2" value="2"></bitenum>
+<bitenum description="PWM output mode: 3 - PWM set/reset" id="OUTMOD_3" token="OUTMOD_3" value="3"></bitenum>
+<bitenum description="PWM output mode: 4 - toggle" id="OUTMOD_4" token="OUTMOD_4" value="4"></bitenum>
+<bitenum description="PWM output mode: 5 - Reset" id="OUTMOD_5" token="OUTMOD_5" value="5"></bitenum>
+<bitenum description="PWM output mode: 6 - PWM toggle/set" id="OUTMOD_6" token="OUTMOD_6" value="6"></bitenum>
+<bitenum description="PWM output mode: 7 - PWM reset/set" id="OUTMOD_7" token="OUTMOD_7" value="7"></bitenum></bitfield>
+<bitfield begin="8" description="Capture mode: 1 /Compare mode : 0" end="8" id="CAP" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="10" description="Compare latch load source 1" end="9" id="CLLD" range="" resetval="0" rwaccess="RW" width="2">
+<bitenum description="Compare latch load sourec : 0 - immediate" id="CLLD_0" token="CLLD_0" value="0"></bitenum>
+<bitenum description="Compare latch load sourec : 1 - TDR counts to 0" id="CLLD_1" token="CLLD_1" value="1"></bitenum>
+<bitenum description="Compare latch load sourec : 2 - up/down" id="CLLD_2" token="CLLD_2" value="2"></bitenum>
+<bitenum description="Compare latch load sourec : 3 - TDR counts to TDCTL0" id="CLLD_3" token="CLLD_3" value="3"></bitenum></bitfield>
+<bitfield begin="11" description="Capture sychronize" end="11" id="SCS" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="13" description="Capture input select 1" end="12" id="CCIS" range="" resetval="0" rwaccess="RW" width="2">
+<bitenum description="Capture input select: 0 - CCIxA" id="CCIS_0" token="CCIS_0" value="0"></bitenum>
+<bitenum description="Capture input select: 1 - CCIxB" id="CCIS_1" token="CCIS_1" value="1"></bitenum>
+<bitenum description="Capture input select: 2 - GND" id="CCIS_2" token="CCIS_2" value="2"></bitenum>
+<bitenum description="Capture input select: 3 - Vcc" id="CCIS_3" token="CCIS_3" value="3"></bitenum></bitfield>
+<bitfield begin="15" description="Capture mode 1" end="14" id="CM" range="" resetval="0" rwaccess="RW" width="2">
+<bitenum description="Capture mode: 0 - disabled" id="CM_0" token="CM_0" value="0"></bitenum>
+<bitenum description="Capture mode: 1 - pos. edge" id="CM_1" token="CM_1" value="1"></bitenum>
+<bitenum description="Capture mode: 1 - neg. edge" id="CM_2" token="CM_2" value="2"></bitenum>
+<bitenum description="Capture mode: 1 - both edges" id="CM_3" token="CM_3" value="3"></bitenum></bitfield></register>
+<register acronym="TD0CCR1" description="Timer0_D3 Capture/Compare 1" id="TD0CCR1" offset=" 0x0B10" width="16"></register>
+<register acronym="TD0CL1" description="Timer0_D3 Capture/Compare Latch 1" id="TD0CL1" offset=" 0x0B12" width="16"></register>
+<register acronym="TD0CCTL2" description="Timer0_D3 Capture/Compare Control 2" id="TD0CCTL2" offset=" 0x0B14" width="16">
+<bitfield begin="0" description="Capture/compare interrupt flag" end="0" id="CCIFG" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="1" description="Capture/compare overflow flag" end="1" id="COV" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="2" description="PWM Output signal if output mode 0" end="2" id="OUT" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="3" description="Capture input signal (read)" end="3" id="CCI" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="4" description="Capture/compare interrupt enable" end="4" id="CCIE" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="7" description="Output mode 2" end="5" id="OUTMOD" range="" resetval="0" rwaccess="RW" width="3">
+<bitenum description="PWM output mode: 0 - output only" id="OUTMOD_0" token="OUTMOD_0" value="0"></bitenum>
+<bitenum description="PWM output mode: 1 - set" id="OUTMOD_1" token="OUTMOD_1" value="1"></bitenum>
+<bitenum description="PWM output mode: 2 - PWM toggle/reset" id="OUTMOD_2" token="OUTMOD_2" value="2"></bitenum>
+<bitenum description="PWM output mode: 3 - PWM set/reset" id="OUTMOD_3" token="OUTMOD_3" value="3"></bitenum>
+<bitenum description="PWM output mode: 4 - toggle" id="OUTMOD_4" token="OUTMOD_4" value="4"></bitenum>
+<bitenum description="PWM output mode: 5 - Reset" id="OUTMOD_5" token="OUTMOD_5" value="5"></bitenum>
+<bitenum description="PWM output mode: 6 - PWM toggle/set" id="OUTMOD_6" token="OUTMOD_6" value="6"></bitenum>
+<bitenum description="PWM output mode: 7 - PWM reset/set" id="OUTMOD_7" token="OUTMOD_7" value="7"></bitenum></bitfield>
+<bitfield begin="8" description="Capture mode: 1 /Compare mode : 0" end="8" id="CAP" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="10" description="Compare latch load source 1" end="9" id="CLLD" range="" resetval="0" rwaccess="RW" width="2">
+<bitenum description="Compare latch load sourec : 0 - immediate" id="CLLD_0" token="CLLD_0" value="0"></bitenum>
+<bitenum description="Compare latch load sourec : 1 - TDR counts to 0" id="CLLD_1" token="CLLD_1" value="1"></bitenum>
+<bitenum description="Compare latch load sourec : 2 - up/down" id="CLLD_2" token="CLLD_2" value="2"></bitenum>
+<bitenum description="Compare latch load sourec : 3 - TDR counts to TDCTL0" id="CLLD_3" token="CLLD_3" value="3"></bitenum></bitfield>
+<bitfield begin="11" description="Capture sychronize" end="11" id="SCS" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="13" description="Capture input select 1" end="12" id="CCIS" range="" resetval="0" rwaccess="RW" width="2">
+<bitenum description="Capture input select: 0 - CCIxA" id="CCIS_0" token="CCIS_0" value="0"></bitenum>
+<bitenum description="Capture input select: 1 - CCIxB" id="CCIS_1" token="CCIS_1" value="1"></bitenum>
+<bitenum description="Capture input select: 2 - GND" id="CCIS_2" token="CCIS_2" value="2"></bitenum>
+<bitenum description="Capture input select: 3 - Vcc" id="CCIS_3" token="CCIS_3" value="3"></bitenum></bitfield>
+<bitfield begin="15" description="Capture mode 1" end="14" id="CM" range="" resetval="0" rwaccess="RW" width="2">
+<bitenum description="Capture mode: 0 - disabled" id="CM_0" token="CM_0" value="0"></bitenum>
+<bitenum description="Capture mode: 1 - pos. edge" id="CM_1" token="CM_1" value="1"></bitenum>
+<bitenum description="Capture mode: 1 - neg. edge" id="CM_2" token="CM_2" value="2"></bitenum>
+<bitenum description="Capture mode: 1 - both edges" id="CM_3" token="CM_3" value="3"></bitenum></bitfield></register>
+<register acronym="TD0CCR2" description="Timer0_D3 Capture/Compare 2" id="TD0CCR2" offset=" 0x0B16" width="16"></register>
+<register acronym="TD0CL2" description="Timer0_D3 Capture/Compare Latch 2" id="TD0CL2" offset=" 0x0B18" width="16"></register>
+<register acronym="TD0HCTL0" description="Timer0_D3 High-resolution Control Register 0" id="TD0HCTL0" offset=" 0x0B38" width="16">
+<bitfield begin="0" description="Timer0_D3 High-Resolution Enable" end="0" id="TDHEN" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="1" description="Timer0_D3 High-Resolution Regulated Mode" end="1" id="TDHREGEN" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="2" description="Timer0_D3 High-Resolution clock error accum. enable" end="2" id="TDHEAEN" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="3" description="Timer0_D3 High-Resolution Generator forced on" end="3" id="TDHRON" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="5" description="Timer0_D3 High-Resoltuion Clock Mult. Bit: 0" end="4" id="TDHM" range="" resetval="0" rwaccess="RW" width="2">
+<bitenum description="Timer0_D3 High-Resoltuion Clock Mult.: 8x TimerD clock" id="TDHM_0" token="TDHM_0" value="0"></bitenum>
+<bitenum description="Timer0_D3 High-Resoltuion Clock Mult.: 16x TimerD clock" id="TDHM_1" token="TDHM_1" value="1"></bitenum></bitfield>
+<bitfield begin="7" description="Timer0_D3 High-Resolution clock divider Bit: 0" end="6" id="TDHD" range="" resetval="0" rwaccess="RW" width="2">
+<bitenum description="Timer0_D3 High-Resolution clock divider: /1" id="TDHD_0" token="TDHD_0" value="0"></bitenum>
+<bitenum description="Timer0_D3 High-Resolution clock divider: /2" id="TDHD_1" token="TDHD_1" value="1"></bitenum>
+<bitenum description="Timer0_D3 High-Resolution clock divider: /4" id="TDHD_2" token="TDHD_2" value="2"></bitenum>
+<bitenum description="Timer0_D3 High-Resolution clock divider: /8" id="TDHD_3" token="TDHD_3" value="3"></bitenum></bitfield>
+<bitfield begin="8" description="Timer0_D7 High-resolution generator fast wakeup enable" end="8" id="TDHFW" range="" resetval="0" rwaccess="RW" width="1"></bitfield></register>
+<register acronym="TD0HCTL1" description="Timer0_D3 High-resolution Control Register 1" id="TD0HCTL1" offset=" 0x0B3A" width="16">
+<bitfield begin="1" description="Timer0_D3 High-Resolution Clock Trim Bit: 0" end="1" id="TDHCLKTRIM0" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="2" description="Timer0_D3 High-Resolution Clock Trim Bit: 1" end="2" id="TDHCLKTRIM1" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="3" description="Timer0_D3 High-Resolution Clock Trim Bit: 2" end="3" id="TDHCLKTRIM2" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="4" description="Timer0_D3 High-Resolution Clock Trim Bit: 3" end="4" id="TDHCLKTRIM3" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="5" description="Timer0_D3 High-Resolution Clock Trim Bit: 4" end="5" id="TDHCLKTRIM4" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="6" description="Timer0_D3 High-Resolution Clock Trim Bit: 5" end="6" id="TDHCLKTRIM5" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="7" description="Timer0_D3 High-Resolution Clock Trim Bit: 6" end="7" id="TDHCLKTRIM6" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="8" description="Timer0_D3 High-Resolution Clock Sub-Range Bit: 0" end="8" id="TDHCLKSR0" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="9" description="Timer0_D3 High-Resolution Clock Sub-Range Bit: 1" end="9" id="TDHCLKSR1" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="10" description="Timer0_D3 High-Resolution Clock Sub-Range Bit: 2" end="10" id="TDHCLKSR2" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="11" description="Timer0_D3 High-Resolution Clock Sub-Range Bit: 3" end="11" id="TDHCLKSR3" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="12" description="Timer0_D3 High-Resolution Clock Sub-Range Bit: 4" end="12" id="TDHCLKSR4" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="13" description="Timer0_D3 High-Resolution Clock Range Bit: 0" end="13" id="TDHCLKR0" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="14" description="Timer0_D3 High-Resolution Clock Range Bit: 1" end="14" id="TDHCLKR1" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="15" description="Timer0_D3 High-Resolution Coarse Clock Range" end="15" id="TDHCLKCR" range="" resetval="0" rwaccess="RW" width="1"></bitfield></register>
+<register acronym="TD0HINT" description="Timer0_D3 High-resolution Interrupt Register" id="TD0HINT" offset=" 0x0B3C" width="16">
+<bitfield begin="0" description="Timer0_D3 High-Res. fail low Interrupt Flag" end="0" id="TDHFLIFG" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="1" description="Timer0_D3 High-Res. fail high Interrupt Flag" end="1" id="TDHFHIFG" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="2" description="Timer0_D3 High-Res. frequency lock Interrupt Flag" end="2" id="TDHLKIFG" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="3" description="Timer0_D3 High-Res. frequency unlock Interrupt Flag" end="3" id="TDHUNLKIFG" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="8" description="Timer0_D3 High-Res. fail low Interrupt Enable" end="8" id="TDHFLIE" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="9" description="Timer0_D3 High-Res. fail high Interrupt Enable" end="9" id="TDHFHIE" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="10" description="Timer0_D3 High-Res. frequency lock Interrupt Enable" end="10" id="TDHLKIE" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="11" description="Timer0_D3 High-Res. frequency unlock Interrupt Enable" end="11" id="TDHUNLKIE" range="" resetval="0" rwaccess="RW" width="1"></bitfield></register>
+<register acronym="TD0IV" description="Timer0_D3 Interrupt Vector Word" id="TD0IV" offset=" 0x0B3E" width="16"></register>
+</module>

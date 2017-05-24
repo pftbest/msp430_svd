@@ -1,0 +1,55 @@
+<module HW_revision="" XML_version="1" description="ESPCTL" id="ESPCTL">
+<register acronym="ESPCTL" description="ESP430 Control Register" id="ESPCTL" offset=" 0x0150" width="16">
+<bitfield begin="0" description="ESP430 Module enable" end="0" id="ESPEN" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="1" description="ESP430 Module suspend" end="1" id="ESPSUSP" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="2" description="NOT supported by current ESP430 Software" end="2" id="IREQ" range="" resetval="0" rwaccess="RW" width="1"></bitfield></register>
+<register acronym="MBCTL" description="Mailbox Control Register" id="MBCTL" offset=" 0x0152" width="16">
+<bitfield begin="0" description="Incoming Mail 0 Interrupt Flag" end="0" id="IN0IFG" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="1" description="Incoming Mail 1 Interrupt Flag" end="1" id="IN1IFG" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="2" description="Outgoing Mail 0 Flag" end="2" id="OUT0FG" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="3" description="Outgoing Mail 1 Flag" end="3" id="OUT1FG" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="4" description="Incoming Mail 0 Interrupt Enable" end="4" id="IN0IE" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="5" description="Incoming Mail 1 Interrupt Enable" end="5" id="IN1IE" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="6" description="Switch off automatic clear of IN0IFG" end="6" id="CLR0OFF" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="7" description="Switch off automatic clear of IN1IFG" end="7" id="CLR1OFF" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="8" description="Outgoing Mail 0 Interrupt Flag" end="8" id="OUT0IFG" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="9" description="Outgoing Mail 1 Interrupt Flag" end="9" id="OUT1IFG" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="10" description="Outgoing Mail 0 Interrupt Enable" end="10" id="OUT0IE" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="11" description="Outgoing Mail 1 Interrupt Enable" end="11" id="OUT1IE" range="" resetval="0" rwaccess="RW" width="1"></bitfield></register>
+<register acronym="MBIN0" description="Incoming Mailbox 0 Register" id="MBIN0" offset=" 0x0154" width="16"></register>
+<register acronym="MBIN1" description="Incoming Mailbox 1 Register" id="MBIN1" offset=" 0x0156" width="16"></register>
+<register acronym="MBOUT0" description="Outgoing Mailbox 0 Register" id="MBOUT0" offset=" 0x0158" width="16"></register>
+<register acronym="MBOUT1" description="Outgoing Mailbox 1 Register" id="MBOUT1" offset=" 0x015A" width="16"></register>
+<register acronym="ESP430_STAT0" description="ESP430 Return Value 0" id="ESP430_STAT0" offset=" 0x01C0" width="16"></register>
+<register acronym="ESP430_STAT1" description="ESP430 Return Value 1" id="ESP430_STAT1" offset=" 0x01C2" width="16"></register>
+<register acronym="WAVEFSV1" description="ESP430 Return Value 2" id="WAVEFSV1" offset=" 0x01C4" width="16"></register>
+<register acronym="RET3" description="ESP430 Return Value 3" id="RET3" offset=" 0x01C6" width="16"></register>
+<register acronym="RET4" description="ESP430 Return Value 4" id="RET4" offset=" 0x01C8" width="16"></register>
+<register acronym="WAVEFSI1" description="ESP430 Return Value 5" id="WAVEFSI1" offset=" 0x01CA" width="16"></register>
+<register acronym="WAVEFSI2" description="ESP430 Return Value 6" id="WAVEFSI2" offset=" 0x01CC" width="16"></register>
+<register acronym="RET7" description="ESP430 Return Value 7" id="RET7" offset=" 0x01CE" width="16"></register>
+<register acronym="ACTENERGY1_LO" description="ESP430 Return Value 8" id="ACTENERGY1_LO" offset=" 0x01D0" width="16"></register>
+<register acronym="ACTENERGY1_HI" description="ESP430 Return Value 9" id="ACTENERGY1_HI" offset=" 0x01D2" width="16"></register>
+<register acronym="ACTENERGY2_LO" description="ESP430 Return Value 10" id="ACTENERGY2_LO" offset=" 0x01D4" width="16"></register>
+<register acronym="ACTENERGY2_HI" description="ESP430 Return Value 11" id="ACTENERGY2_HI" offset=" 0x01D6" width="16"></register>
+<register acronym="REACTENERGY_LO" description="ESP430 Return Value 12" id="REACTENERGY_LO" offset=" 0x01D8" width="16"></register>
+<register acronym="REACTENERGY_HI" description="ESP430 Return Value 13" id="REACTENERGY_HI" offset=" 0x01DA" width="16"></register>
+<register acronym="APPENERGY_LO" description="ESP430 Return Value 14" id="APPENERGY_LO" offset=" 0x01DC" width="16"></register>
+<register acronym="APPENERGY_HI" description="ESP430 Return Value 15" id="APPENERGY_HI" offset=" 0x01DE" width="16"></register>
+<register acronym="ACTENSPER1_LO" description="ESP430 Return Value 16" id="ACTENSPER1_LO" offset=" 0x01E0" width="16"></register>
+<register acronym="ACTENSPER1_HI" description="ESP430 Return Value 17" id="ACTENSPER1_HI" offset=" 0x01E2" width="16"></register>
+<register acronym="ACTENSPER2_LO" description="ESP430 Return Value 18" id="ACTENSPER2_LO" offset=" 0x01E4" width="16"></register>
+<register acronym="ACTENSPER2_HI" description="ESP430 Return Value 19" id="ACTENSPER2_HI" offset=" 0x01E6" width="16"></register>
+<register acronym="POWERFCT" description="ESP430 Return Value 20" id="POWERFCT" offset=" 0x01E8" width="16"></register>
+<register acronym="CAPIND" description="ESP430 Return Value 21" id="CAPIND" offset=" 0x01EA" width="16"></register>
+<register acronym="MAINSPERIOD" description="ESP430 Return Value 22" id="MAINSPERIOD" offset=" 0x01EC" width="16"></register>
+<register acronym="V1RMS" description="ESP430 Return Value 23" id="V1RMS" offset=" 0x01EE" width="16"></register>
+<register acronym="IRMS_LO" description="ESP430 Return Value 24" id="IRMS_LO" offset=" 0x01F0" width="16"></register>
+<register acronym="IRMS_HI" description="ESP430 Return Value 25" id="IRMS_HI" offset=" 0x01F2" width="16"></register>
+<register acronym="VPEAK" description="ESP430 Return Value 26" id="VPEAK" offset=" 0x01F4" width="16"></register>
+<register acronym="IPEAK" description="ESP430 Return Value 27" id="IPEAK" offset=" 0x01F6" width="16"></register>
+<register acronym="LINECYCLCNT_LO" description="ESP430 Return Value 28" id="LINECYCLCNT_LO" offset=" 0x01F8" width="16"></register>
+<register acronym="LINECYCLCNT_HI" description="ESP430 Return Value 29" id="LINECYCLCNT_HI" offset=" 0x01FA" width="16"></register>
+<register acronym="NMBMEAS_LO" description="ESP430 Return Value 30" id="NMBMEAS_LO" offset=" 0x01FC" width="16"></register>
+<register acronym="NMBMEAS_HI" description="ESP430 Return Value 31" id="NMBMEAS_HI" offset=" 0x01FE" width="16"></register>
+</module>

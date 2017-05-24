@@ -1,0 +1,26 @@
+<module id="CRC32" HW_revision="367.0">
+    <register id="CRC32DIW0" width="16" offset="0x0" internal="0" description="CRC32 Data Input Word 0">
+    </register>
+    <register id="CRC32DIW1" width="16" offset="0x2" internal="0" description="CRC32 Data Input Word 1">
+    </register>
+    <register id="CRC32DIRBW1" width="16" offset="0x4" internal="0" description="CRC32 Data In Reverse Word 1">
+    </register>
+    <register id="CRC32DIRBW0" width="16" offset="0x6" internal="0" description="CRC32 Data In Reverse Word 0">
+    </register>
+    <register id="CRC32INIRESW0" width="16" offset="0x8" internal="0" description="CRC32 Initialization and Result Word 0">
+    </register>
+    <register id="CRC32INIRESW1" width="16" offset="0xA" internal="0" description="CRC32 Initialization and Result Word 1">
+    </register>
+    <register id="CRC32RESRW1" width="16" offset="0xC" internal="0" description="CRC32 Result Reverse Word 1">
+    </register>
+    <register id="CRC32RESRW0" width="16" offset="0xE" internal="0" description="CRC32 Result Reverse Word 0">
+    </register>
+    <register id="CRC16DIW0" width="16" offset="0x10" internal="0" description="CRC16 Data Input">
+    </register>
+    <register id="CRC16DIRBW0" width="16" offset="0x16" internal="0" description="CRC16 Data In Reverse">
+    </register>
+    <register id="CRC16INIRESW0" width="16" offset="0x18" internal="0" description="CRC16 Init and Result">
+    </register>
+    <register id="CRC16RESRW0" width="16" offset="0x1E" internal="0" description="CRC16 Result Reverse">
+    </register>
+</module>

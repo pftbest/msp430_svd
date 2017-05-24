@@ -1,0 +1,13 @@
+<module HW_revision="" XML_version="1" description="8BIT TIMER/COUNTER" id="8BIT TIMER/COUNTER">
+<register acronym="TCCTL" description="Timer/Counter Control" id="TCCTL" offset=" 0x0042" width="8">
+<bitfield begin="0" description="TCRXD" end="0" id="TCRXD" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="1" description="TCTXD" end="1" id="TCTXD" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="2" description="TCRXACT" end="2" id="TCRXACT" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="3" description="TCENCNT" end="3" id="TCENCNT" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="4" description="TCTXE" end="4" id="TCTXE" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="5" description="TCISCTL" end="5" id="TCISCTL" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="6" description="TCSSEL0" end="6" id="TCSSEL0" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="7" description="TCSSEL1" end="7" id="TCSSEL1" range="" resetval="0" rwaccess="RW" width="1"></bitfield></register>
+<register acronym="TCPLD" description="Timer/Counter Preload" id="TCPLD" offset=" 0x0043" width="8"></register>
+<register acronym="TCDAT" description="Timer/Counter Data" id="TCDAT" offset=" 0x0044" width="8"></register>
+</module>

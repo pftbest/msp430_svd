@@ -1,0 +1,34 @@
+<module id="BKMEM" HW_revision="445.0.8">
+    <register id="BAKMEM0" width="16" offset="0x0" internal="0" description="Backup Memory registers. Backup Memory 0.">
+    </register>
+    <register id="BAKMEM1" width="16" offset="0x2" internal="0" description="Backup Memory 1.">
+    </register>
+    <register id="BAKMEM2" width="16" offset="0x4" internal="0" description="Backup Memory 2.">
+    </register>
+    <register id="BAKMEM3" width="16" offset="0x6" internal="0" description="Backup Memory 3.">
+    </register>
+    <register id="BAKMEM4" width="16" offset="0x8" internal="0" description="Backup Memory 4.">
+    </register>
+    <register id="BAKMEM5" width="16" offset="0xA" internal="0" description="Backup Memory 5.">
+    </register>
+    <register id="BAKMEM6" width="16" offset="0xC" internal="0" description="Backup Memory 6.">
+    </register>
+    <register id="BAKMEM7" width="16" offset="0xE" internal="0" description="Backup Memory 7.">
+    </register>
+    <register id="BAKMEM8" width="16" offset="0x10" internal="0" description="Backup Memory 8.">
+    </register>
+    <register id="BAKMEM9" width="16" offset="0x12" internal="0" description="Backup Memory 9.">
+    </register>
+    <register id="BAKMEM10" width="16" offset="0x14" internal="0" description="Backup Memory registers. Backup Memory 10.">
+    </register>
+    <register id="BAKMEM11" width="16" offset="0x16" internal="0" description="Backup Memory 11.">
+    </register>
+    <register id="BAKMEM12" width="16" offset="0x18" internal="0" description="Backup Memory 12.">
+    </register>
+    <register id="BAKMEM13" width="16" offset="0x1A" internal="0" description="Backup Memory 13.">
+    </register>
+    <register id="BAKMEM14" width="16" offset="0x1C" internal="0" description="Backup Memory 14.">
+    </register>
+    <register id="BAKMEM15" width="16" offset="0x1E" internal="0" description="Backup Memory 15.">
+    </register>
+</module>

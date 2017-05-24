@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<drivers id="ICEPICK_C">
+	<isa Type="ICEPICK_C" ProcID="0x3C000805">
+		<driver file="../../DebugServer/bin/libDataSnapshotDecoder.dylib">
+			<connectionType Type="DataSnapshotViewer"/>
+			<property Name="Port Number" Type="numericfield" Value="0x10" NumericType="HEX" UpperBound="0xFFFF" LowerBound="0x0" SubPath="true" ID="subpath.address"/>
+			<property Name="Initial Configuration" Type="choicelist" Value="1" SubPath="true" ID="subpath.initial">
+				<choice Name="Yes" value="1"/>
+				<choice Name="No" value="0"/>
+			</property>
+			<property Name="Custom Configuration" Type="choicelist" Value="1" SubPath="true" ID="subpath.custom">
+				<choice Name="Yes" value="1"/>
+				<choice Name="No" value="0"/>
+			</property>
+			<property Name="Force Configuration" Type="choicelist" Value="0" SubPath="true" ID="subpath.force">
+				<choice Name="Yes" value="1"/>
+				<choice Name="No" value="0"/>
+			</property>
+		</driver>
+	</isa>
+</drivers>

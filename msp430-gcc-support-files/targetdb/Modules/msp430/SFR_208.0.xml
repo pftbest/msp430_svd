@@ -1,0 +1,72 @@
+<module id="SFR" HW_revision="208.0">
+    <register id="SFRIE1" width="16" offset="0x0" internal="0" description="Interrupt Enable">
+        <bitfield id="WDTIE" description="Watchdog timer interrupt enable" begin="0" end="0" width="1" rwaccess="R/W">
+            <bitenum id="DISABLE" value="0x0" description="Interrupts disabled"/>
+            <bitenum id="ENABLE" value="0x1" description="Interrupts enabled"/>
+        </bitfield>
+        <bitfield id="OFIE" description="Oscillator fault interrupt enable" begin="1" end="1" width="1" rwaccess="R/W">
+            <bitenum id="DISABLE" value="0x0" description="Interrupts disabled"/>
+            <bitenum id="ENABLE" value="0x1" description="Interrupts enabled"/>
+        </bitfield>
+        <bitfield id="VMAIE" description="Vacant memory access interrupt enable" begin="3" end="3" width="1" rwaccess="R/W">
+            <bitenum id="DISABLE" value="0x0" description="Interrupts disabled"/>
+            <bitenum id="ENABLE" value="0x1" description="Interrupts enabled"/>
+        </bitfield>
+        <bitfield id="NMIIE" description="NMI pin interrupt enable" begin="4" end="4" width="1" rwaccess="R/W">
+            <bitenum id="DISABLE" value="0x0" description="Interrupts disabled"/>
+            <bitenum id="ENABLE" value="0x1" description="Interrupts enabled"/>
+        </bitfield>
+        <bitfield id="JMBINIE" description="JTAG mailbox input interrupt enable" begin="6" end="6" width="1" rwaccess="R/W">
+            <bitenum id="DISABLE" value="0x0" description="Interrupts disabled"/>
+            <bitenum id="ENABLE" value="0x1" description="Interrupts enabled"/>
+        </bitfield>
+        <bitfield id="JMBOUTIE" description="JTAG mailbox output interrupt enable" begin="7" end="7" width="1" rwaccess="R/W">
+            <bitenum id="DISABLE" value="0x0" description="Interrupts disabled"/>
+            <bitenum id="ENABLE" value="0x1" description="Interrupts enabled"/>
+        </bitfield>
+    </register>
+    <register id="SFRIFG1" width="16" offset="0x2" internal="0" description="Interrupt Flag">
+        <bitfield id="OFIFG" description="Oscillator fault interrupt flag" begin="1" end="1" width="1" rwaccess="R/W">
+            <bitenum id="OFIFG_0" value="0x0" description="No interrupt pending"/>
+            <bitenum id="OFIFG_1" value="0x1" description="Interrupt pending"/>
+        </bitfield>
+        <bitfield id="VMAIFG" description="Vacant memory access interrupt flag" begin="3" end="3" width="1" rwaccess="R/W">
+            <bitenum id="VMAIFG_0" value="0x0" description="No interrupt pending"/>
+            <bitenum id="VMAIFG_1" value="0x1" description="Interrupt pending"/>
+        </bitfield>
+        <bitfield id="NMIIFG" description="NMI pin interrupt flag" begin="4" end="4" width="1" rwaccess="R/W">
+            <bitenum id="NMIIFG_0" value="0x0" description="No interrupt pending"/>
+            <bitenum id="NMIIFG_1" value="0x1" description="Interrupt pending"/>
+        </bitfield>
+        <bitfield id="WDTIFG" description="Watchdog timer interrupt flag" begin="0" end="0" width="1" rwaccess="R/W">
+            <bitenum id="WDTIFG_0" value="0x0" description="No interrupt pending"/>
+            <bitenum id="WDTIFG_1" value="0x1" description="Interrupt pending"/>
+        </bitfield>
+        <bitfield id="JMBINIFG" description="JTAG mailbox input interrupt flag" begin="6" end="6" width="1" rwaccess="R/W">
+            <bitenum id="JMBINIFG_0" value="0x0" description="No interrupt pending. When in 16-bit mode (JMBMODE = 0), this bit is cleared automatically when JMBI0 is read by the CPU. When in 32-bit mode (JMBMODE = 1), this bit is cleared automatically when both JMBI0 and JMBI1 have been read by the CPU. This bit is also cleared when the associated vector in SYSUNIV has been read"/>
+            <bitenum id="JMBINIFG_1" value="0x1" description="Interrupt pending. A message is waiting in the JMBIN registers. In 16-bit mode (JMBMODE = 0) when JMBI0 has been written by the JTAG module. In 32-bit mode (JMBMODE = 1) when JMBI0 and JMBI1 have been written by the JTAG module."/>
+        </bitfield>
+        <bitfield id="JMBOUTIFG" description="JTAG mailbox output interrupt flag" begin="7" end="7" width="1" rwaccess="R/W">
+            <bitenum id="JMBOUTIFG_0" value="0x0" description="No interrupt pending. When in 16-bit mode (JMBMODE = 0), this bit is cleared automatically when JMBO0 has been written with a new message to the JTAG module by the CPU. When in 32-bit mode (JMBMODE = 1), this bit is cleared automatically when both JMBO0 and JMBO1 have been written with new messages to the JTAG module by the CPU. This bit is also cleared when the associated vector in SYSUNIV has been read."/>
+            <bitenum id="JMBOUTIFG_1" value="0x1" description="Interrupt pending. JMBO registers are ready for new messages. In 16-bit mode (JMBMODE = 0), JMBO0 has been received by the JTAG module and is ready for a new message from the CPU. In 32-bit mode (JMBMODE = 1), JMBO0 and JMBO1 have been received by the JTAG module and are ready for new messages from the CPU."/>
+        </bitfield>
+    </register>
+    <register id="SFRRPCR" width="16" offset="0x4" internal="0" description="Reset Pin Control">
+        <bitfield id="SYSNMI" description="NMI select" begin="0" end="0" width="1" rwaccess="R/W">
+            <bitenum id="RESET" value="0x0" description="Reset function"/>
+            <bitenum id="NMI" value="0x1" description="NMI function"/>
+        </bitfield>
+        <bitfield id="SYSNMIIES" description="NMI edge select" begin="1" end="1" width="1" rwaccess="R/W">
+            <bitenum id="RISING" value="0x0" description="NMI on rising edge"/>
+            <bitenum id="FALLING" value="0x1" description="NMI on falling edge"/>
+        </bitfield>
+        <bitfield id="SYSRSTUP" description="Reset resistor pin pullup or pulldown" begin="2" end="2" width="1" rwaccess="R/W">
+            <bitenum id="PULLDOWN" value="0x0" description="Pulldown is selected"/>
+            <bitenum id="PULLUP" value="0x1" description="Pullup is selected"/>
+        </bitfield>
+        <bitfield id="SYSRSTRE" description="Reset pin resistor enable" begin="3" end="3" width="1" rwaccess="R/W">
+            <bitenum id="DISABLE" value="0x0" description="Pullup or pulldown resistor at the RST/NMI pin is disabled"/>
+            <bitenum id="ENABLE" value="0x1" description="Pullup or pulldown resistor at the RST/NMI pin is enabled"/>
+        </bitfield>
+    </register>
+</module>

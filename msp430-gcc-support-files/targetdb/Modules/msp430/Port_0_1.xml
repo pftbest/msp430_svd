@@ -1,0 +1,52 @@
+<module HW_revision="" XML_version="1" description="Port 0" id="Port 0">
+<register acronym="P0IN" description="Port 0 Input" id="P0IN" offset=" 0x0010" width="8">
+<bitfield begin="0" description="P0IN_0" end="0" id="P0IN_0" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="1" description="P0IN_1" end="1" id="P0IN_1" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="2" description="P0IN_2" end="2" id="P0IN_2" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="3" description="P0IN_3" end="3" id="P0IN_3" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="4" description="P0IN_4" end="4" id="P0IN_4" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="5" description="P0IN_5" end="5" id="P0IN_5" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="6" description="P0IN_6" end="6" id="P0IN_6" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="7" description="P0IN_7" end="7" id="P0IN_7" range="" resetval="0" rwaccess="RW" width="1"></bitfield></register>
+<register acronym="P0OUT" description="Port 0 Output" id="P0OUT" offset=" 0x0011" width="8">
+<bitfield begin="0" description="P0OUT_0" end="0" id="P0OUT_0" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="1" description="P0OUT_1" end="1" id="P0OUT_1" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="2" description="P0OUT_2" end="2" id="P0OUT_2" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="3" description="P0OUT_3" end="3" id="P0OUT_3" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="4" description="P0OUT_4" end="4" id="P0OUT_4" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="5" description="P0OUT_5" end="5" id="P0OUT_5" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="6" description="P0OUT_6" end="6" id="P0OUT_6" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="7" description="P0OUT_7" end="7" id="P0OUT_7" range="" resetval="0" rwaccess="RW" width="1"></bitfield></register>
+<register acronym="P0DIR" description="Port 0 Direction" id="P0DIR" offset=" 0x0012" width="8">
+<bitfield begin="0" description="P0DIR_0" end="0" id="P0DIR_0" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="1" description="P0DIR_1" end="1" id="P0DIR_1" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="2" description="P0DIR_2" end="2" id="P0DIR_2" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="3" description="P0DIR_3" end="3" id="P0DIR_3" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="4" description="P0DIR_4" end="4" id="P0DIR_4" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="5" description="P0DIR_5" end="5" id="P0DIR_5" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="6" description="P0DIR_6" end="6" id="P0DIR_6" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="7" description="P0DIR_7" end="7" id="P0DIR_7" range="" resetval="0" rwaccess="RW" width="1"></bitfield></register>
+<register acronym="P0IFG" description="Port 0 Interrupt Flag" id="P0IFG" offset=" 0x0013" width="8">
+<bitfield begin="2" description="P0IFG_2" end="2" id="P0IFG_2" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="3" description="P0IFG_3" end="3" id="P0IFG_3" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="4" description="P0IFG_4" end="4" id="P0IFG_4" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="5" description="P0IFG_5" end="5" id="P0IFG_5" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="6" description="P0IFG_6" end="6" id="P0IFG_6" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="7" description="P0IFG_7" end="7" id="P0IFG_7" range="" resetval="0" rwaccess="RW" width="1"></bitfield></register>
+<register acronym="P0IES" description="Port 0 Interrupt Edge Select" id="P0IES" offset=" 0x0014" width="8">
+<bitfield begin="0" description="P0IES_0" end="0" id="P0IES_0" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="1" description="P0IES_1" end="1" id="P0IES_1" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="2" description="P0IES_2" end="2" id="P0IES_2" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="3" description="P0IES_3" end="3" id="P0IES_3" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="4" description="P0IES_4" end="4" id="P0IES_4" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="5" description="P0IES_5" end="5" id="P0IES_5" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="6" description="P0IES_6" end="6" id="P0IES_6" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="7" description="P0IES_7" end="7" id="P0IES_7" range="" resetval="0" rwaccess="RW" width="1"></bitfield></register>
+<register acronym="P0IE" description="Port 0 Interrupt Enable" id="P0IE" offset=" 0x0015" width="8">
+<bitfield begin="2" description="P0IE_2" end="2" id="P0IE_2" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="3" description="P0IE_3" end="3" id="P0IE_3" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="4" description="P0IE_4" end="4" id="P0IE_4" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="5" description="P0IE_5" end="5" id="P0IE_5" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="6" description="P0IE_6" end="6" id="P0IE_6" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="7" description="P0IE_7" end="7" id="P0IE_7" range="" resetval="0" rwaccess="RW" width="1"></bitfield></register>
+</module>

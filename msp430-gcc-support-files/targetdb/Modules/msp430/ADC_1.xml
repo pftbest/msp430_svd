@@ -1,0 +1,19 @@
+<module HW_revision="" XML_version="1" description="ADC" id="ADC">
+<register acronym="AIN" description="ADC Input" id="AIN" offset=" 0x0110" width="16"></register>
+<register acronym="AEN" description="ADC Input Enable" id="AEN" offset=" 0x0112" width="16"></register>
+<register acronym="ACTL" description="ADC Control" id="ACTL" offset=" 0x0114" width="16">
+<bitfield begin="0" description="ADSOC" end="0" id="ADSOC" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="1" description="ADSVCC" end="1" id="ADSVCC" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="2" description="ADIN0" end="2" id="ADIN0" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="3" description="ADIN1" end="3" id="ADIN1" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="4" description="ADIN2" end="4" id="ADIN2" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="5" description="ADINOFF" end="5" id="ADINOFF" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="6" description="ADCSRC0" end="6" id="ADCSRC0" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="7" description="ADCSRC1" end="7" id="ADCSRC1" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="8" description="ADCSRCOFF" end="8" id="ADCSRCOFF" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="9" description="ADRNG0" end="9" id="ADRNG0" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="10" description="ADRNG1" end="10" id="ADRNG1" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="11" description="ADAUTO" end="11" id="ADAUTO" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="12" description="ADPD" end="12" id="ADPD" range="" resetval="0" rwaccess="RW" width="1"></bitfield></register>
+<register acronym="ADAT" description="ADC Data" id="ADAT" offset=" 0x0118" width="16"></register>
+</module>

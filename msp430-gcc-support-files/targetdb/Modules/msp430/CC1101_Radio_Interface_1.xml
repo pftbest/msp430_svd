@@ -1,0 +1,45 @@
+<module HW_revision="" XML_version="1" description="CC1101 Radio Interface" id="CC1101 Radio Interface">
+<register acronym="RF1AIFCTL0" description="Radio interface control register 0" id="RF1AIFCTL0" offset=" 0x0F00" width="16">
+<bitfield begin="0" description="CC1101 Direct FIFO access enable" end="0" id="RFFIFOEN" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="1" description="CC1101 Disable endianness conversion" end="1" id="RFENDIAN" range="" resetval="0" rwaccess="RW" width="1"></bitfield></register>
+<register acronym="RF1AIFCTL1" description="Radio interface control register 1" id="RF1AIFCTL1" offset=" 0x0F02" width="16">
+<bitfield begin="0" description="Radio interface direct FIFO access receive interrupt flag" end="0" id="RFRXIFG" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="1" description="Radio interface direct FIFO access transmit interrupt flag" end="1" id="RFTXIFG" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="2" description="Radio interface error interrupt flag" end="2" id="RFERRIFG" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="4" description="Radio interface instruction interrupt flag" end="4" id="RFINSTRIFG" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="5" description="Radio interface data in interrupt flag" end="5" id="RFDINIFG" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="6" description="Radio interface status interrupt flag" end="6" id="RFSTATIFG" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="7" description="Radio interface data out interrupt flag" end="7" id="RFDOUTIFG" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="8" description="Radio interface direct FIFO access receive interrupt enable" end="8" id="RFRXIE" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="9" description="Radio interface direct FIFO access transmit interrupt enable" end="9" id="RFTXIE" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="10" description="Radio interface error interrupt enable" end="10" id="RFERRIE" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="12" description="Radio interface instruction interrupt enable" end="12" id="RFINSTRIE" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="13" description="Radio interface data in interrupt enable" end="13" id="RFDINIE" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="14" description="Radio interface status interrupt enable" end="14" id="RFSTATIE" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="15" description="Radio interface data out interrupt enable" end="15" id="RFDOUTIE" range="" resetval="0" rwaccess="RW" width="1"></bitfield></register>
+<register acronym="RF1AIFCTL2" description="(Radio interface control register 2)" id="RF1AIFCTL2" offset=" 0x0F04" width="16"></register>
+<register acronym="RF1AIFERR" description="Radio interface error flag register" id="RF1AIFERR" offset=" 0x0F06" width="16">
+<bitfield begin="0" description="Low Core Voltage Error Flag" end="0" id="LVERR" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="1" description="Operand Error Flag" end="1" id="OPERR" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="2" description="Output data not available Error Flag" end="2" id="OUTERR" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="3" description="Operand Overwrite Error Flag" end="3" id="OPOVERR" range="" resetval="0" rwaccess="RW" width="1"></bitfield></register>
+<register acronym="RF1AIFERRV" description="Radio interface error vector word register" id="RF1AIFERRV" offset=" 0x0F0C" width="16"></register>
+<register acronym="RF1AIFIV" description="Radio interface interrupt vector word register" id="RF1AIFIV" offset=" 0x0F0E" width="16"></register>
+<register acronym="RF1AINSTRW" description="Radio instruction word register" id="RF1AINSTRW" offset=" 0x0F10" width="16"></register>
+<register acronym="RF1AINSTR1W" description="Radio instruction 1-byte register with autoread" id="RF1AINSTR1W" offset=" 0x0F12" width="16"></register>
+<register acronym="RF1AINSTR2W" description="Radio instruction 2-byte register with autoread" id="RF1AINSTR2W" offset=" 0x0F14" width="16"></register>
+<register acronym="RF1ADINW" description="Radio word data in register" id="RF1ADINW" offset=" 0x0F16" width="16"></register>
+<register acronym="RF1ASTAT0W" description="Radio status word register without auto-read" id="RF1ASTAT0W" offset=" 0x0F20" width="16"></register>
+<register acronym="RF1ASTAT1W" description="Radio status word register with 1-byte auto-read" id="RF1ASTAT1W" offset=" 0x0F22" width="16"></register>
+<register acronym="RF1ASTAT2W" description="Radio status word register with 2-byte auto-read" id="RF1ASTAT2W" offset=" 0x0F24" width="16"></register>
+<register acronym="RF1ADOUT0W" description="Radio core word data out register without auto-read" id="RF1ADOUT0W" offset=" 0x0F28" width="16"></register>
+<register acronym="RF1ADOUT1W" description="Radio core word data out register with 1-byte auto-read" id="RF1ADOUT1W" offset=" 0x0F2A" width="16"></register>
+<register acronym="RF1ADOUT2W" description="Radio core word data out register with 2-byte auto-read" id="RF1ADOUT2W" offset=" 0x0F2C" width="16"></register>
+<register acronym="RF1AIN" description="Radio core signal input register" id="RF1AIN" offset=" 0x0F30" width="16"></register>
+<register acronym="RF1AIFG" description="Radio core interrupt flag register" id="RF1AIFG" offset=" 0x0F32" width="16"></register>
+<register acronym="RF1AIES" description="Radio core interrupt edge select register" id="RF1AIES" offset=" 0x0F34" width="16"></register>
+<register acronym="RF1AIE" description="Radio core interrupt enable register" id="RF1AIE" offset=" 0x0F36" width="16"></register>
+<register acronym="RF1AIV" description="Radio core interrupt vector word register" id="RF1AIV" offset=" 0x0F38" width="16"></register>
+<register acronym="RF1ARXFIFO" description="Direct receive FIFO access register" id="RF1ARXFIFO" offset=" 0x0F3C" width="16"></register>
+<register acronym="RF1ATXFIFO" description="Direct transmit FIFO access register" id="RF1ATXFIFO" offset=" 0x0F3E" width="16"></register>
+</module>

@@ -1,0 +1,34 @@
+<module HW_revision="" XML_version="1" description="USART 1" id="USART 1">
+<register acronym="U1CTL" description="USART 1 Control" id="U1CTL" offset=" 0x0078" width="8">
+<bitfield begin="0" description="USART Software Reset" end="0" id="SWRST" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="1" description="Master Mode off/on" end="1" id="MM" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="2" description="UART / SPI mode" end="2" id="SYNC" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="3" description="Listen mode" end="3" id="LISTEN" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="4" description="Data 0:7-bits / 1:8-bits" end="4" id="CHAR" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="5" description="Stop Bits 0:one / 1: two" end="5" id="SPB" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="6" description="Parity 0:odd / 1:even" end="6" id="PEV" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="7" description="Parity enable" end="7" id="PENA" range="" resetval="0" rwaccess="RW" width="1"></bitfield></register>
+<register acronym="U1TCTL" description="USART 1 Transmit Control" id="U1TCTL" offset=" 0x0079" width="8">
+<bitfield begin="0" description="TX Buffer empty" end="0" id="TXEPT" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="1" description="SPI: STC enable 0:on / 1:off" end="1" id="STC" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="2" description="TX Wake up mode" end="2" id="TXWAKE" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="3" description="Receive Start edge select" end="3" id="URXSE" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="4" description="Clock Source Select 0" end="4" id="SSEL0" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="5" description="Clock Source Select 1" end="5" id="SSEL1" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="6" description="Clock Polarity" end="6" id="CKPL" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="7" description="SPI: Clock Phase" end="7" id="CKPH" range="" resetval="0" rwaccess="RW" width="1"></bitfield></register>
+<register acronym="U1RCTL" description="USART 1 Receive Control" id="U1RCTL" offset=" 0x007A" width="8">
+<bitfield begin="0" description="RX Error Error" end="0" id="RXERR" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="1" description="RX Wake up detect" end="1" id="RXWAKE" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="2" description="RX Wake up interrupt enable" end="2" id="URXWIE" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="3" description="RX Error interrupt enable" end="3" id="URXEIE" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="4" description="Break detected" end="4" id="BRK" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="5" description="Overrun Error" end="5" id="OE" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="6" description="Parity Error" end="6" id="PE" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="7" description="Frame Error" end="7" id="FE" range="" resetval="0" rwaccess="RW" width="1"></bitfield></register>
+<register acronym="U1MCTL" description="USART 1 Modulation Control" id="U1MCTL" offset=" 0x007B" width="8"></register>
+<register acronym="U1BR0" description="USART 1 Baud Rate 0" id="U1BR0" offset=" 0x007C" width="8"></register>
+<register acronym="U1BR1" description="USART 1 Baud Rate 1" id="U1BR1" offset=" 0x007D" width="8"></register>
+<register acronym="U1RXBUF" description="USART 1 Receive Buffer" id="U1RXBUF" offset=" 0x007E" width="8"></register>
+<register acronym="U1TXBUF" description="USART 1 Transmit Buffer" id="U1TXBUF" offset=" 0x007F" width="8"></register>
+</module>

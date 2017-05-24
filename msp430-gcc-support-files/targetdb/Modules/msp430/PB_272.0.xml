@@ -1,0 +1,22 @@
+<module id="PB" HW_revision="272.0">
+    <register id="PBIN" width="16" offset="0x20" internal="0" description="Port B Input">
+    </register>
+    <register id="PBOUT" width="16" offset="0x22" internal="0" description="Port B Output">
+    </register>
+    <register id="PBDIR" width="16" offset="0x24" internal="0" description="Port B Direction">
+    </register>
+    <register id="PBREN" width="16" offset="0x26" internal="0" description="Port B Resistor Enable">
+    </register>
+    <register id="PBSEL0" width="16" offset="0x2A" internal="0" description="Port B Select 0">
+    </register>
+    <register id="PBSEL1" width="16" offset="0x2C" internal="0" description="Port B Select 1">
+    </register>
+    <register id="PBSELC" width="16" offset="0x36" internal="0" description="Port B Complement Select">
+    </register>
+    <register id="PBIES" width="16" offset="0x38" internal="0" description="Port B Interrupt Edge Select">
+    </register>
+    <register id="PBIE" width="16" offset="0x3A" internal="0" description="Port B Interrupt Enable">
+    </register>
+    <register id="PBIFG" width="16" offset="0x3C" internal="0" description="Port B Interrupt Flag">
+    </register>
+</module>

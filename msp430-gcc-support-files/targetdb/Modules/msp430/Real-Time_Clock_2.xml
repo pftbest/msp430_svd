@@ -1,0 +1,23 @@
+<module HW_revision="" XML_version="1" description="Real-Time Clock" id="Real-Time Clock">
+<register acronym="RTCCTL" description="RTC control Register" id="RTCCTL" offset=" 0x0300" width="16">
+<bitfield begin="0" description="Low-Power-Counter Interrupt Flag" end="0" id="RTCIF" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="1" description="Low-Power-Counter Interrupt Enable" end="1" id="RTCIE" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="6" description="Low-Power-Counter Software Reset" end="6" id="RTCSR" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="10" description="Low-Power-Counter Clock Pre-divider Select Bit: 0" end="8" id="RTCPS" range="" resetval="0" rwaccess="RW" width="3">
+<bitenum description="Low-Power-Counter Clock Pre-divider Select: 0" id="RTCPS_0" token="RTCPS_0" value="0"></bitenum>
+<bitenum description="Low-Power-Counter Clock Pre-divider Select: 1" id="RTCPS_1" token="RTCPS_1" value="1"></bitenum>
+<bitenum description="Low-Power-Counter Clock Pre-divider Select: 2" id="RTCPS_2" token="RTCPS_2" value="2"></bitenum>
+<bitenum description="Low-Power-Counter Clock Pre-divider Select: 3" id="RTCPS_3" token="RTCPS_3" value="3"></bitenum>
+<bitenum description="Low-Power-Counter Clock Pre-divider Select: 4" id="RTCPS_4" token="RTCPS_4" value="4"></bitenum>
+<bitenum description="Low-Power-Counter Clock Pre-divider Select: 5" id="RTCPS_5" token="RTCPS_5" value="5"></bitenum>
+<bitenum description="Low-Power-Counter Clock Pre-divider Select: 6" id="RTCPS_6" token="RTCPS_6" value="6"></bitenum>
+<bitenum description="Low-Power-Counter Clock Pre-divider Select: 7" id="RTCPS_7" token="RTCPS_7" value="7"></bitenum></bitfield>
+<bitfield begin="13" description="Low-Power-Counter Clock Source Select Bit: 0" end="12" id="RTCSS" range="" resetval="0" rwaccess="RW" width="2">
+<bitenum description="Low-Power-Counter Clock Source Select: 0" id="RTCSS_0" token="RTCSS_0" value="0"></bitenum>
+<bitenum description="Low-Power-Counter Clock Source Select: 1" id="RTCSS_1" token="RTCSS_1" value="1"></bitenum>
+<bitenum description="Low-Power-Counter Clock Source Select: 2" id="RTCSS_2" token="RTCSS_2" value="2"></bitenum>
+<bitenum description="Low-Power-Counter Clock Source Select: 3" id="RTCSS_3" token="RTCSS_3" value="3"></bitenum></bitfield></register>
+<register acronym="RTCIV" description="RTC interrupt vector" id="RTCIV" offset=" 0x0304" width="16"></register>
+<register acronym="RTCMOD" description="RTC moduloRegister" id="RTCMOD" offset=" 0x0308" width="16"></register>
+<register acronym="RTCCNT" description="RTC counter Register" id="RTCCNT" offset=" 0x030C" width="16"></register>
+</module>

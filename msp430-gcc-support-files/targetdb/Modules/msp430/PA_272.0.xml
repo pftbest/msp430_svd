@@ -1,0 +1,22 @@
+<module id="PA" HW_revision="272.0">
+    <register id="PAIN" width="16" offset="0x0" internal="0" description="Port A Input">
+    </register>
+    <register id="PAOUT" width="16" offset="0x2" internal="0" description="Port A Output">
+    </register>
+    <register id="PADIR" width="16" offset="0x4" internal="0" description="Port A Direction">
+    </register>
+    <register id="PAREN" width="16" offset="0x6" internal="0" description="Port A Resistor Enable">
+    </register>
+    <register id="PASEL0" width="16" offset="0xA" internal="0" description="Port A Select 0">
+    </register>
+    <register id="PASEL1" width="16" offset="0xC" internal="0" description="Port A Select 1">
+    </register>
+    <register id="PASELC" width="16" offset="0x16" internal="0" description="Port A Complement Select">
+    </register>
+    <register id="PAIES" width="16" offset="0x18" internal="0" description="Port A Interrupt Edge Select">
+    </register>
+    <register id="PAIE" width="16" offset="0x1A" internal="0" description="Port A Interrupt Enable">
+    </register>
+    <register id="PAIFG" width="16" offset="0x1C" internal="0" description="Port A Interrupt Flag">
+    </register>
+</module>

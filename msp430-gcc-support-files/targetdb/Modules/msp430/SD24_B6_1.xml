@@ -1,0 +1,443 @@
+<module HW_revision="" XML_version="1" description="SD24_B6" id="SD24_B6">
+<register acronym="SD24BCTL0" description="SD24B Control Register 0" id="SD24BCTL0" offset=" 0x0800" width="16">
+<bitfield begin="1" description="SD24B Overflow Control" end="1" id="SD24OV32" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="2" description="SD24B Reference Select" end="2" id="SD24REFS" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="5" description="SD24B Clock Source Select 0" end="4" id="SD24SSEL" range="" resetval="0" rwaccess="RW" width="2">
+<bitenum description="SD24B Clock Source Select MCLK" id="SD24SSEL_0" token="SD24SSEL_0" value="0"></bitenum>
+<bitenum description="SD24B Clock Source Select SMCLK" id="SD24SSEL_1" token="SD24SSEL_1" value="1"></bitenum>
+<bitenum description="SD24B Clock Source Select ACLK" id="SD24SSEL_2" token="SD24SSEL_2" value="2"></bitenum>
+<bitenum description="SD24B Clock Source Select TACLK" id="SD24SSEL_3" token="SD24SSEL_3" value="3"></bitenum></bitfield>
+<bitfield begin="6" description="SD24B Modulator clock to Manchester decoder clock ratio" end="6" id="SD24M4" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="7" description="SD24B Clock Output Select" end="7" id="SD24CLKOS" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="10" description="SD24B Frequency pre-scaler Bit 0" end="8" id="SD24PDIV" range="" resetval="0" rwaccess="RW" width="3">
+<bitenum description="SD24B Frequency pre-scaler  /1" id="SD24PDIV_0" token="SD24PDIV_0" value="0"></bitenum>
+<bitenum description="SD24B Frequency pre-scaler  /2" id="SD24PDIV_1" token="SD24PDIV_1" value="1"></bitenum>
+<bitenum description="SD24B Frequency pre-scaler  /4" id="SD24PDIV_2" token="SD24PDIV_2" value="2"></bitenum>
+<bitenum description="SD24B Frequency pre-scaler  /8" id="SD24PDIV_3" token="SD24PDIV_3" value="3"></bitenum>
+<bitenum description="SD24B Frequency pre-scaler  /16" id="SD24PDIV_4" token="SD24PDIV_4" value="4"></bitenum>
+<bitenum description="SD24B Frequency pre-scaler  /32" id="SD24PDIV_5" token="SD24PDIV_5" value="5"></bitenum>
+<bitenum description="SD24B Frequency pre-scaler  /64" id="SD24PDIV_6" token="SD24PDIV_6" value="6"></bitenum>
+<bitenum description="SD24B Frequency pre-scaler  /128" id="SD24PDIV_7" token="SD24PDIV_7" value="7"></bitenum></bitfield>
+<bitfield begin="11" description="SD24B Frequency Divider Bit 0" end="11" id="SD24DIV0" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="12" description="SD24B Frequency Divider Bit 1" end="12" id="SD24DIV1" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="13" description="SD24B Frequency Divider Bit 2" end="13" id="SD24DIV2" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="14" description="SD24B Frequency Divider Bit 3" end="14" id="SD24DIV3" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="15" description="SD24B Frequency Divider Bit 4" end="15" id="SD24DIV4" range="" resetval="0" rwaccess="RW" width="1"></bitfield></register>
+<register acronym="SD24BCTL1" description="SD24B Control Register 1" id="SD24BCTL1" offset=" 0x0802" width="16">
+<bitfield begin="0" description="SD24B Group 0 Start Conversion" end="0" id="SD24GRP0SC" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="1" description="SD24B Group 1 Start Conversion" end="1" id="SD24GRP1SC" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="2" description="SD24B Group 2 Start Conversion" end="2" id="SD24GRP2SC" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="3" description="SD24B Group 3 Start Conversion" end="3" id="SD24GRP3SC" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="11" description="SD24B DMA Trigger Select Bit 0" end="8" id="SD24DMA" range="" resetval="0" rwaccess="RW" width="4">
+<bitenum description="SD24B DMA Trigger: 0" id="SD24DMA_0" token="SD24DMA_0" value="0"></bitenum>
+<bitenum description="SD24B DMA Trigger: 1" id="SD24DMA_1" token="SD24DMA_1" value="1"></bitenum>
+<bitenum description="SD24B DMA Trigger: 2" id="SD24DMA_2" token="SD24DMA_2" value="2"></bitenum>
+<bitenum description="SD24B DMA Trigger: 3" id="SD24DMA_3" token="SD24DMA_3" value="3"></bitenum>
+<bitenum description="SD24B DMA Trigger: 4" id="SD24DMA_4" token="SD24DMA_4" value="4"></bitenum>
+<bitenum description="SD24B DMA Trigger: 5" id="SD24DMA_5" token="SD24DMA_5" value="5"></bitenum>
+<bitenum description="SD24B DMA Trigger: 6" id="SD24DMA_6" token="SD24DMA_6" value="6"></bitenum>
+<bitenum description="SD24B DMA Trigger: 7" id="SD24DMA_7" token="SD24DMA_7" value="7"></bitenum>
+<bitenum description="SD24B DMA Trigger: 8" id="SD24DMA_8" token="SD24DMA_8" value="8"></bitenum></bitfield></register>
+<register acronym="SD24BTRGCTL" description="SD24B Trigger Control Register" id="SD24BTRGCTL" offset=" 0x0804" width="16">
+<bitfield begin="0" description="SD24B Start Conversion" end="0" id="SD24SC" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="3" description="SD24B Start Conversion Select Bit 0" end="1" id="SD24SCS" range="" resetval="0" rwaccess="RW" width="3">
+<bitenum description="SD24B Start Conversion Select: 0" id="SD24SCS_0" token="SD24SCS_0" value="0"></bitenum>
+<bitenum description="SD24B Start Conversion Select: 1" id="SD24SCS_1" token="SD24SCS_1" value="1"></bitenum>
+<bitenum description="SD24B Start Conversion Select: 2" id="SD24SCS_2" token="SD24SCS_2" value="2"></bitenum>
+<bitenum description="SD24B Start Conversion Select: 3" id="SD24SCS_3" token="SD24SCS_3" value="3"></bitenum>
+<bitenum description="SD24B Start Conversion Select: 4" id="SD24SCS_4" token="SD24SCS_4" value="4"></bitenum>
+<bitenum description="SD24B Start Conversion Select: 5" id="SD24SCS_5" token="SD24SCS_5" value="5"></bitenum>
+<bitenum description="SD24B Start Conversion Select: 6" id="SD24SCS_6" token="SD24SCS_6" value="6"></bitenum>
+<bitenum description="SD24B Start Conversion Select: 7" id="SD24SCS_7" token="SD24SCS_7" value="7"></bitenum></bitfield>
+<bitfield begin="8" description="SD24B Single Trigger Mode" end="8" id="SD24SNGL" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="10" description="SD24B Trigger Interrupt Flag" end="10" id="SD24TRGIFG" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="11" description="SD24B Trigger Interrupt Enable" end="11" id="SD24TRGIE" range="" resetval="0" rwaccess="RW" width="1"></bitfield></register>
+<register acronym="SD24BTRGOSR" description="SD24B Trigger OSR Control Register" id="SD24BTRGOSR" offset=" 0x0806" width="16">
+<bitfield begin="0" description="SD24B Oversampling Rate Bit: 0" end="0" id="OSR0" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="1" description="SD24B Oversampling Rate Bit: 1" end="1" id="OSR1" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="2" description="SD24B Oversampling Rate Bit: 2" end="2" id="OSR2" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="3" description="SD24B Oversampling Rate Bit: 3" end="3" id="OSR3" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="4" description="SD24B Oversampling Rate Bit: 4" end="4" id="OSR4" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="5" description="SD24B Oversampling Rate Bit: 5" end="5" id="OSR5" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="6" description="SD24B Oversampling Rate Bit: 6" end="6" id="OSR6" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="7" description="SD24B Oversampling Rate Bit: 7" end="7" id="OSR7" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="8" description="SD24B Oversampling Rate Bit: 8" end="8" id="OSR8" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="9" description="SD24B Oversampling Rate Bit: 9" end="9" id="OSR9" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="10" description="SD24B Oversampling Rate Bit: 10" end="10" id="OSR10" range="" resetval="0" rwaccess="RW" width="1"></bitfield></register>
+<register acronym="SD24BTRGPRE" description="SD24B Trigger Preload Register" id="SD24BTRGPRE" offset=" 0x0808" width="16"></register>
+<register acronym="SD24BIFG" description="SD24B Interrupt Flag Register" id="SD24BIFG" offset=" 0x080A" width="16">
+<bitfield begin="0" description="SD24B Channel 0 Interrupt Flag" end="0" id="SD24IFG0" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="1" description="SD24B Channel 1 Interrupt Flag" end="1" id="SD24IFG1" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="2" description="SD24B Channel 2 Interrupt Flag" end="2" id="SD24IFG2" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="3" description="SD24B Channel 3 Interrupt Flag" end="3" id="SD24IFG3" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="4" description="SD24B Channel 4 Interrupt Flag" end="4" id="SD24IFG4" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="5" description="SD24B Channel 5 Interrupt Flag" end="5" id="SD24IFG5" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="8" description="SD24B Channel 0 Overflow Interrupt Flag" end="8" id="SD24OVIFG0" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="9" description="SD24B Channel 1 Overflow Interrupt Flag" end="9" id="SD24OVIFG1" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="10" description="SD24B Channel 2 Overflow Interrupt Flag" end="10" id="SD24OVIFG2" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="11" description="SD24B Channel 3 Overflow Interrupt Flag" end="11" id="SD24OVIFG3" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="12" description="SD24B Channel 4 Overflow Interrupt Flag" end="12" id="SD24OVIFG4" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="13" description="SD24B Channel 5 Overflow Interrupt Flag" end="13" id="SD24OVIFG5" range="" resetval="0" rwaccess="RW" width="1"></bitfield></register>
+<register acronym="SD24BIE" description="SD24B Interrupt Enable Register" id="SD24BIE" offset=" 0x080C" width="16">
+<bitfield begin="0" description="SD24B Channel 0 Interrupt Enable" end="0" id="SD24IE0" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="1" description="SD24B Channel 1 Interrupt Enable" end="1" id="SD24IE1" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="2" description="SD24B Channel 2 Interrupt Enable" end="2" id="SD24IE2" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="3" description="SD24B Channel 3 Interrupt Enable" end="3" id="SD24IE3" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="4" description="SD24B Channel 4 Interrupt Enable" end="4" id="SD24IE4" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="5" description="SD24B Channel 5 Interrupt Enable" end="5" id="SD24IE5" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="8" description="SD24B Channel 0 Overflow Interrupt Enable" end="8" id="SD24OVIE0" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="9" description="SD24B Channel 1 Overflow Interrupt Enable" end="9" id="SD24OVIE1" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="10" description="SD24B Channel 2 Overflow Interrupt Enable" end="10" id="SD24OVIE2" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="11" description="SD24B Channel 3 Overflow Interrupt Enable" end="11" id="SD24OVIE3" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="12" description="SD24B Channel 4 Overflow Interrupt Enable" end="12" id="SD24OVIE4" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="13" description="SD24B Channel 5 Overflow Interrupt Enable" end="13" id="SD24OVIE5" range="" resetval="0" rwaccess="RW" width="1"></bitfield></register>
+<register acronym="SD24BIV" description="SD24B Interrupt Vector Register" id="SD24BIV" offset=" 0x080E" width="16"></register>
+<register acronym="SD24BCCTL0" description="SD24B Channel 0 Control Register" id="SD24BCCTL0" offset=" 0x0810" width="16">
+<bitfield begin="0" description="SD24B Start Conversion" end="0" id="SD24SC" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="3" description="SD24B Start Conversion Select Bit 0" end="1" id="SD24SCS" range="" resetval="0" rwaccess="RW" width="3">
+<bitenum description="SD24B Start Conversion Select: 0" id="SD24SCS_0" token="SD24SCS_0" value="0"></bitenum>
+<bitenum description="SD24B Start Conversion Select: 1" id="SD24SCS_1" token="SD24SCS_1" value="1"></bitenum>
+<bitenum description="SD24B Start Conversion Select: 2" id="SD24SCS_2" token="SD24SCS_2" value="2"></bitenum>
+<bitenum description="SD24B Start Conversion Select: 3" id="SD24SCS_3" token="SD24SCS_3" value="3"></bitenum>
+<bitenum description="SD24B Start Conversion Select: 4" id="SD24SCS_4" token="SD24SCS_4" value="4"></bitenum>
+<bitenum description="SD24B Start Conversion Select: 5" id="SD24SCS_5" token="SD24SCS_5" value="5"></bitenum>
+<bitenum description="SD24B Start Conversion Select: 6" id="SD24SCS_6" token="SD24SCS_6" value="6"></bitenum>
+<bitenum description="SD24B Start Conversion Select: 7" id="SD24SCS_7" token="SD24SCS_7" value="7"></bitenum></bitfield>
+<bitfield begin="5" description="SD24B Data Format Bit: 0" end="4" id="SD24DF" range="" resetval="0" rwaccess="RW" width="2">
+<bitenum description="SD24B Data Format: Offset Binary" id="SD24DF_0" token="SD24DF_0" value="0"></bitenum>
+<bitenum description="SD24B Data Format: 2's complement" id="SD24DF_1" token="SD24DF_1" value="1"></bitenum></bitfield>
+<bitfield begin="6" description="SD24B Data Alignment" end="6" id="SD24ALGN" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="8" description="SD24B Single Trigger Mode" end="8" id="SD24SNGL" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="9" description="SD24B Calibration" end="9" id="SD24CAL" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="11" description="SD24B Digital Filter Bit: 0" end="10" id="SD24DFS" range="" resetval="0" rwaccess="RW" width="2">
+<bitenum description="SD24B Digital Filter 0" id="SD24DFS_0" token="SD24DFS_0" value="0"></bitenum>
+<bitenum description="SD24B Digital Filter 1" id="SD24DFS_1" token="SD24DFS_1" value="1"></bitenum>
+<bitenum description="SD24B Digital Filter 2" id="SD24DFS_2" token="SD24DFS_2" value="2"></bitenum>
+<bitenum description="SD24B Digital Filter 3" id="SD24DFS_3" token="SD24DFS_3" value="3"></bitenum></bitfield>
+<bitfield begin="12" description="SD24B Digital Bitstream Input" end="12" id="SD24DI" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="14" description="SD24B Manchaster Encoding Bit: 0" end="13" id="SD24MC" range="" resetval="0" rwaccess="RW" width="2">
+<bitenum description="SD24B Manchaster Encoding 0" id="SD24MC_0" token="SD24MC_0" value="0"></bitenum>
+<bitenum description="SD24B Manchaster Encoding 1" id="SD24MC_1" token="SD24MC_1" value="1"></bitenum>
+<bitenum description="SD24B Manchaster Encoding 2" id="SD24MC_2" token="SD24MC_2" value="2"></bitenum>
+<bitenum description="SD24B Manchaster Encoding 3" id="SD24MC_3" token="SD24MC_3" value="3"></bitenum></bitfield></register>
+<register acronym="SD24BINCTL0" description="SD24B Channel 0 Input Control Register" id="SD24BINCTL0" offset=" 0x0812" width="16">
+<bitfield begin="5" description="SD24B Input Pre-Amplifier Gain Select 0" end="3" id="SD24GAIN" range="" resetval="0" rwaccess="RW" width="3">
+<bitenum description="SD24B Input Pre-Amplifier Gain Select *1" id="SD24GAIN_1" token="SD24GAIN_1" value="1"></bitenum>
+<bitenum description="SD24B Input Pre-Amplifier Gain Select *2" id="SD24GAIN_2" token="SD24GAIN_2" value="2"></bitenum>
+<bitenum description="SD24B Input Pre-Amplifier Gain Select *4" id="SD24GAIN_4" token="SD24GAIN_4" value="4"></bitenum>
+<bitenum description="SD24B Input Pre-Amplifier Gain Select *8" id="SD24GAIN_8" token="SD24GAIN_8" value="8"></bitenum>
+<bitenum description="SD24B Input Pre-Amplifier Gain Select *16" id="SD24GAIN_16" token="SD24GAIN_16" value="16"></bitenum>
+<bitenum description="SD24B Input Pre-Amplifier Gain Select *32" id="SD24GAIN_32" token="SD24GAIN_32" value="32"></bitenum>
+<bitenum description="SD24B Input Pre-Amplifier Gain Select *64" id="SD24GAIN_64" token="SD24GAIN_64" value="64"></bitenum>
+<bitenum description="SD24B Input Pre-Amplifier Gain Select *128" id="SD24GAIN_128" token="SD24GAIN_128" value="128"></bitenum></bitfield>
+<bitfield begin="7" description="SD24B Interrupt Delay after 1.Conversion 0" end="6" id="SD24INTDLY" range="" resetval="0" rwaccess="RW" width="2">
+<bitenum description="SD24B Interrupt Delay: Int. after 4.Conversion" id="SD24INTDLY_0" token="SD24INTDLY_0" value="0"></bitenum>
+<bitenum description="SD24B Interrupt Delay: Int. after 3.Conversion" id="SD24INTDLY_1" token="SD24INTDLY_1" value="1"></bitenum>
+<bitenum description="SD24B Interrupt Delay: Int. after 2.Conversion" id="SD24INTDLY_2" token="SD24INTDLY_2" value="2"></bitenum>
+<bitenum description="SD24B Interrupt Delay: Int. after 1.Conversion" id="SD24INTDLY_3" token="SD24INTDLY_3" value="3"></bitenum></bitfield></register>
+<register acronym="SD24BOSR0" description="SD24B Channel 0 OSR Control Register" id="SD24BOSR0" offset=" 0x0814" width="16">
+<bitfield begin="0" description="SD24B Oversampling Rate Bit: 0" end="0" id="OSR0" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="1" description="SD24B Oversampling Rate Bit: 1" end="1" id="OSR1" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="2" description="SD24B Oversampling Rate Bit: 2" end="2" id="OSR2" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="3" description="SD24B Oversampling Rate Bit: 3" end="3" id="OSR3" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="4" description="SD24B Oversampling Rate Bit: 4" end="4" id="OSR4" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="5" description="SD24B Oversampling Rate Bit: 5" end="5" id="OSR5" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="6" description="SD24B Oversampling Rate Bit: 6" end="6" id="OSR6" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="7" description="SD24B Oversampling Rate Bit: 7" end="7" id="OSR7" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="8" description="SD24B Oversampling Rate Bit: 8" end="8" id="OSR8" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="9" description="SD24B Oversampling Rate Bit: 9" end="9" id="OSR9" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="10" description="SD24B Oversampling Rate Bit: 10" end="10" id="OSR10" range="" resetval="0" rwaccess="RW" width="1"></bitfield></register>
+<register acronym="SD24BPRE0" description="SD24B Channel 0 Preload Register" id="SD24BPRE0" offset=" 0x0816" width="16"></register>
+<register acronym="SD24BCCTL1" description="SD24B Channel 1 Control Register" id="SD24BCCTL1" offset=" 0x0818" width="16">
+<bitfield begin="0" description="SD24B Start Conversion" end="0" id="SD24SC" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="3" description="SD24B Start Conversion Select Bit 0" end="1" id="SD24SCS" range="" resetval="0" rwaccess="RW" width="3">
+<bitenum description="SD24B Start Conversion Select: 0" id="SD24SCS_0" token="SD24SCS_0" value="0"></bitenum>
+<bitenum description="SD24B Start Conversion Select: 1" id="SD24SCS_1" token="SD24SCS_1" value="1"></bitenum>
+<bitenum description="SD24B Start Conversion Select: 2" id="SD24SCS_2" token="SD24SCS_2" value="2"></bitenum>
+<bitenum description="SD24B Start Conversion Select: 3" id="SD24SCS_3" token="SD24SCS_3" value="3"></bitenum>
+<bitenum description="SD24B Start Conversion Select: 4" id="SD24SCS_4" token="SD24SCS_4" value="4"></bitenum>
+<bitenum description="SD24B Start Conversion Select: 5" id="SD24SCS_5" token="SD24SCS_5" value="5"></bitenum>
+<bitenum description="SD24B Start Conversion Select: 6" id="SD24SCS_6" token="SD24SCS_6" value="6"></bitenum>
+<bitenum description="SD24B Start Conversion Select: 7" id="SD24SCS_7" token="SD24SCS_7" value="7"></bitenum></bitfield>
+<bitfield begin="5" description="SD24B Data Format Bit: 0" end="4" id="SD24DF" range="" resetval="0" rwaccess="RW" width="2">
+<bitenum description="SD24B Data Format: Offset Binary" id="SD24DF_0" token="SD24DF_0" value="0"></bitenum>
+<bitenum description="SD24B Data Format: 2's complement" id="SD24DF_1" token="SD24DF_1" value="1"></bitenum></bitfield>
+<bitfield begin="6" description="SD24B Data Alignment" end="6" id="SD24ALGN" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="8" description="SD24B Single Trigger Mode" end="8" id="SD24SNGL" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="9" description="SD24B Calibration" end="9" id="SD24CAL" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="11" description="SD24B Digital Filter Bit: 0" end="10" id="SD24DFS" range="" resetval="0" rwaccess="RW" width="2">
+<bitenum description="SD24B Digital Filter 0" id="SD24DFS_0" token="SD24DFS_0" value="0"></bitenum>
+<bitenum description="SD24B Digital Filter 1" id="SD24DFS_1" token="SD24DFS_1" value="1"></bitenum>
+<bitenum description="SD24B Digital Filter 2" id="SD24DFS_2" token="SD24DFS_2" value="2"></bitenum>
+<bitenum description="SD24B Digital Filter 3" id="SD24DFS_3" token="SD24DFS_3" value="3"></bitenum></bitfield>
+<bitfield begin="12" description="SD24B Digital Bitstream Input" end="12" id="SD24DI" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="14" description="SD24B Manchaster Encoding Bit: 0" end="13" id="SD24MC" range="" resetval="0" rwaccess="RW" width="2">
+<bitenum description="SD24B Manchaster Encoding 0" id="SD24MC_0" token="SD24MC_0" value="0"></bitenum>
+<bitenum description="SD24B Manchaster Encoding 1" id="SD24MC_1" token="SD24MC_1" value="1"></bitenum>
+<bitenum description="SD24B Manchaster Encoding 2" id="SD24MC_2" token="SD24MC_2" value="2"></bitenum>
+<bitenum description="SD24B Manchaster Encoding 3" id="SD24MC_3" token="SD24MC_3" value="3"></bitenum></bitfield></register>
+<register acronym="SD24BINCTL1" description="SD24B Channel 1 Input Control Register" id="SD24BINCTL1" offset=" 0x081A" width="16">
+<bitfield begin="5" description="SD24B Input Pre-Amplifier Gain Select 0" end="3" id="SD24GAIN" range="" resetval="0" rwaccess="RW" width="3">
+<bitenum description="SD24B Input Pre-Amplifier Gain Select *1" id="SD24GAIN_1" token="SD24GAIN_1" value="1"></bitenum>
+<bitenum description="SD24B Input Pre-Amplifier Gain Select *2" id="SD24GAIN_2" token="SD24GAIN_2" value="2"></bitenum>
+<bitenum description="SD24B Input Pre-Amplifier Gain Select *4" id="SD24GAIN_4" token="SD24GAIN_4" value="4"></bitenum>
+<bitenum description="SD24B Input Pre-Amplifier Gain Select *8" id="SD24GAIN_8" token="SD24GAIN_8" value="8"></bitenum>
+<bitenum description="SD24B Input Pre-Amplifier Gain Select *16" id="SD24GAIN_16" token="SD24GAIN_16" value="16"></bitenum>
+<bitenum description="SD24B Input Pre-Amplifier Gain Select *32" id="SD24GAIN_32" token="SD24GAIN_32" value="32"></bitenum>
+<bitenum description="SD24B Input Pre-Amplifier Gain Select *64" id="SD24GAIN_64" token="SD24GAIN_64" value="64"></bitenum>
+<bitenum description="SD24B Input Pre-Amplifier Gain Select *128" id="SD24GAIN_128" token="SD24GAIN_128" value="128"></bitenum></bitfield>
+<bitfield begin="7" description="SD24B Interrupt Delay after 1.Conversion 0" end="6" id="SD24INTDLY" range="" resetval="0" rwaccess="RW" width="2">
+<bitenum description="SD24B Interrupt Delay: Int. after 4.Conversion" id="SD24INTDLY_0" token="SD24INTDLY_0" value="0"></bitenum>
+<bitenum description="SD24B Interrupt Delay: Int. after 3.Conversion" id="SD24INTDLY_1" token="SD24INTDLY_1" value="1"></bitenum>
+<bitenum description="SD24B Interrupt Delay: Int. after 2.Conversion" id="SD24INTDLY_2" token="SD24INTDLY_2" value="2"></bitenum>
+<bitenum description="SD24B Interrupt Delay: Int. after 1.Conversion" id="SD24INTDLY_3" token="SD24INTDLY_3" value="3"></bitenum></bitfield></register>
+<register acronym="SD24BOSR1" description="SD24B Channel 1 OSR Control Register" id="SD24BOSR1" offset=" 0x081C" width="16">
+<bitfield begin="0" description="SD24B Oversampling Rate Bit: 0" end="0" id="OSR0" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="1" description="SD24B Oversampling Rate Bit: 1" end="1" id="OSR1" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="2" description="SD24B Oversampling Rate Bit: 2" end="2" id="OSR2" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="3" description="SD24B Oversampling Rate Bit: 3" end="3" id="OSR3" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="4" description="SD24B Oversampling Rate Bit: 4" end="4" id="OSR4" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="5" description="SD24B Oversampling Rate Bit: 5" end="5" id="OSR5" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="6" description="SD24B Oversampling Rate Bit: 6" end="6" id="OSR6" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="7" description="SD24B Oversampling Rate Bit: 7" end="7" id="OSR7" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="8" description="SD24B Oversampling Rate Bit: 8" end="8" id="OSR8" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="9" description="SD24B Oversampling Rate Bit: 9" end="9" id="OSR9" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="10" description="SD24B Oversampling Rate Bit: 10" end="10" id="OSR10" range="" resetval="0" rwaccess="RW" width="1"></bitfield></register>
+<register acronym="SD24BPRE1" description="SD24B Channel 1 Preload Register" id="SD24BPRE1" offset=" 0x081E" width="16"></register>
+<register acronym="SD24BCCTL2" description="SD24B Channel 2 Control Register" id="SD24BCCTL2" offset=" 0x0820" width="16">
+<bitfield begin="0" description="SD24B Start Conversion" end="0" id="SD24SC" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="3" description="SD24B Start Conversion Select Bit 0" end="1" id="SD24SCS" range="" resetval="0" rwaccess="RW" width="3">
+<bitenum description="SD24B Start Conversion Select: 0" id="SD24SCS_0" token="SD24SCS_0" value="0"></bitenum>
+<bitenum description="SD24B Start Conversion Select: 1" id="SD24SCS_1" token="SD24SCS_1" value="1"></bitenum>
+<bitenum description="SD24B Start Conversion Select: 2" id="SD24SCS_2" token="SD24SCS_2" value="2"></bitenum>
+<bitenum description="SD24B Start Conversion Select: 3" id="SD24SCS_3" token="SD24SCS_3" value="3"></bitenum>
+<bitenum description="SD24B Start Conversion Select: 4" id="SD24SCS_4" token="SD24SCS_4" value="4"></bitenum>
+<bitenum description="SD24B Start Conversion Select: 5" id="SD24SCS_5" token="SD24SCS_5" value="5"></bitenum>
+<bitenum description="SD24B Start Conversion Select: 6" id="SD24SCS_6" token="SD24SCS_6" value="6"></bitenum>
+<bitenum description="SD24B Start Conversion Select: 7" id="SD24SCS_7" token="SD24SCS_7" value="7"></bitenum></bitfield>
+<bitfield begin="5" description="SD24B Data Format Bit: 0" end="4" id="SD24DF" range="" resetval="0" rwaccess="RW" width="2">
+<bitenum description="SD24B Data Format: Offset Binary" id="SD24DF_0" token="SD24DF_0" value="0"></bitenum>
+<bitenum description="SD24B Data Format: 2's complement" id="SD24DF_1" token="SD24DF_1" value="1"></bitenum></bitfield>
+<bitfield begin="6" description="SD24B Data Alignment" end="6" id="SD24ALGN" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="8" description="SD24B Single Trigger Mode" end="8" id="SD24SNGL" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="9" description="SD24B Calibration" end="9" id="SD24CAL" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="11" description="SD24B Digital Filter Bit: 0" end="10" id="SD24DFS" range="" resetval="0" rwaccess="RW" width="2">
+<bitenum description="SD24B Digital Filter 0" id="SD24DFS_0" token="SD24DFS_0" value="0"></bitenum>
+<bitenum description="SD24B Digital Filter 1" id="SD24DFS_1" token="SD24DFS_1" value="1"></bitenum>
+<bitenum description="SD24B Digital Filter 2" id="SD24DFS_2" token="SD24DFS_2" value="2"></bitenum>
+<bitenum description="SD24B Digital Filter 3" id="SD24DFS_3" token="SD24DFS_3" value="3"></bitenum></bitfield>
+<bitfield begin="12" description="SD24B Digital Bitstream Input" end="12" id="SD24DI" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="14" description="SD24B Manchaster Encoding Bit: 0" end="13" id="SD24MC" range="" resetval="0" rwaccess="RW" width="2">
+<bitenum description="SD24B Manchaster Encoding 0" id="SD24MC_0" token="SD24MC_0" value="0"></bitenum>
+<bitenum description="SD24B Manchaster Encoding 1" id="SD24MC_1" token="SD24MC_1" value="1"></bitenum>
+<bitenum description="SD24B Manchaster Encoding 2" id="SD24MC_2" token="SD24MC_2" value="2"></bitenum>
+<bitenum description="SD24B Manchaster Encoding 3" id="SD24MC_3" token="SD24MC_3" value="3"></bitenum></bitfield></register>
+<register acronym="SD24BINCTL2" description="SD24B Channel 2 Input Control Register" id="SD24BINCTL2" offset=" 0x0822" width="16">
+<bitfield begin="5" description="SD24B Input Pre-Amplifier Gain Select 0" end="3" id="SD24GAIN" range="" resetval="0" rwaccess="RW" width="3">
+<bitenum description="SD24B Input Pre-Amplifier Gain Select *1" id="SD24GAIN_1" token="SD24GAIN_1" value="1"></bitenum>
+<bitenum description="SD24B Input Pre-Amplifier Gain Select *2" id="SD24GAIN_2" token="SD24GAIN_2" value="2"></bitenum>
+<bitenum description="SD24B Input Pre-Amplifier Gain Select *4" id="SD24GAIN_4" token="SD24GAIN_4" value="4"></bitenum>
+<bitenum description="SD24B Input Pre-Amplifier Gain Select *8" id="SD24GAIN_8" token="SD24GAIN_8" value="8"></bitenum>
+<bitenum description="SD24B Input Pre-Amplifier Gain Select *16" id="SD24GAIN_16" token="SD24GAIN_16" value="16"></bitenum>
+<bitenum description="SD24B Input Pre-Amplifier Gain Select *32" id="SD24GAIN_32" token="SD24GAIN_32" value="32"></bitenum>
+<bitenum description="SD24B Input Pre-Amplifier Gain Select *64" id="SD24GAIN_64" token="SD24GAIN_64" value="64"></bitenum>
+<bitenum description="SD24B Input Pre-Amplifier Gain Select *128" id="SD24GAIN_128" token="SD24GAIN_128" value="128"></bitenum></bitfield>
+<bitfield begin="7" description="SD24B Interrupt Delay after 1.Conversion 0" end="6" id="SD24INTDLY" range="" resetval="0" rwaccess="RW" width="2">
+<bitenum description="SD24B Interrupt Delay: Int. after 4.Conversion" id="SD24INTDLY_0" token="SD24INTDLY_0" value="0"></bitenum>
+<bitenum description="SD24B Interrupt Delay: Int. after 3.Conversion" id="SD24INTDLY_1" token="SD24INTDLY_1" value="1"></bitenum>
+<bitenum description="SD24B Interrupt Delay: Int. after 2.Conversion" id="SD24INTDLY_2" token="SD24INTDLY_2" value="2"></bitenum>
+<bitenum description="SD24B Interrupt Delay: Int. after 1.Conversion" id="SD24INTDLY_3" token="SD24INTDLY_3" value="3"></bitenum></bitfield></register>
+<register acronym="SD24BOSR2" description="SD24B Channel 2 OSR Control Register" id="SD24BOSR2" offset=" 0x0824" width="16">
+<bitfield begin="0" description="SD24B Oversampling Rate Bit: 0" end="0" id="OSR0" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="1" description="SD24B Oversampling Rate Bit: 1" end="1" id="OSR1" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="2" description="SD24B Oversampling Rate Bit: 2" end="2" id="OSR2" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="3" description="SD24B Oversampling Rate Bit: 3" end="3" id="OSR3" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="4" description="SD24B Oversampling Rate Bit: 4" end="4" id="OSR4" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="5" description="SD24B Oversampling Rate Bit: 5" end="5" id="OSR5" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="6" description="SD24B Oversampling Rate Bit: 6" end="6" id="OSR6" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="7" description="SD24B Oversampling Rate Bit: 7" end="7" id="OSR7" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="8" description="SD24B Oversampling Rate Bit: 8" end="8" id="OSR8" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="9" description="SD24B Oversampling Rate Bit: 9" end="9" id="OSR9" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="10" description="SD24B Oversampling Rate Bit: 10" end="10" id="OSR10" range="" resetval="0" rwaccess="RW" width="1"></bitfield></register>
+<register acronym="SD24BPRE2" description="SD24B Channel 2 Preload Register" id="SD24BPRE2" offset=" 0x0826" width="16"></register>
+<register acronym="SD24BCCTL3" description="SD24B Channel 3 Control Register" id="SD24BCCTL3" offset=" 0x0828" width="16">
+<bitfield begin="0" description="SD24B Start Conversion" end="0" id="SD24SC" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="3" description="SD24B Start Conversion Select Bit 0" end="1" id="SD24SCS" range="" resetval="0" rwaccess="RW" width="3">
+<bitenum description="SD24B Start Conversion Select: 0" id="SD24SCS_0" token="SD24SCS_0" value="0"></bitenum>
+<bitenum description="SD24B Start Conversion Select: 1" id="SD24SCS_1" token="SD24SCS_1" value="1"></bitenum>
+<bitenum description="SD24B Start Conversion Select: 2" id="SD24SCS_2" token="SD24SCS_2" value="2"></bitenum>
+<bitenum description="SD24B Start Conversion Select: 3" id="SD24SCS_3" token="SD24SCS_3" value="3"></bitenum>
+<bitenum description="SD24B Start Conversion Select: 4" id="SD24SCS_4" token="SD24SCS_4" value="4"></bitenum>
+<bitenum description="SD24B Start Conversion Select: 5" id="SD24SCS_5" token="SD24SCS_5" value="5"></bitenum>
+<bitenum description="SD24B Start Conversion Select: 6" id="SD24SCS_6" token="SD24SCS_6" value="6"></bitenum>
+<bitenum description="SD24B Start Conversion Select: 7" id="SD24SCS_7" token="SD24SCS_7" value="7"></bitenum></bitfield>
+<bitfield begin="5" description="SD24B Data Format Bit: 0" end="4" id="SD24DF" range="" resetval="0" rwaccess="RW" width="2">
+<bitenum description="SD24B Data Format: Offset Binary" id="SD24DF_0" token="SD24DF_0" value="0"></bitenum>
+<bitenum description="SD24B Data Format: 2's complement" id="SD24DF_1" token="SD24DF_1" value="1"></bitenum></bitfield>
+<bitfield begin="6" description="SD24B Data Alignment" end="6" id="SD24ALGN" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="8" description="SD24B Single Trigger Mode" end="8" id="SD24SNGL" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="9" description="SD24B Calibration" end="9" id="SD24CAL" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="11" description="SD24B Digital Filter Bit: 0" end="10" id="SD24DFS" range="" resetval="0" rwaccess="RW" width="2">
+<bitenum description="SD24B Digital Filter 0" id="SD24DFS_0" token="SD24DFS_0" value="0"></bitenum>
+<bitenum description="SD24B Digital Filter 1" id="SD24DFS_1" token="SD24DFS_1" value="1"></bitenum>
+<bitenum description="SD24B Digital Filter 2" id="SD24DFS_2" token="SD24DFS_2" value="2"></bitenum>
+<bitenum description="SD24B Digital Filter 3" id="SD24DFS_3" token="SD24DFS_3" value="3"></bitenum></bitfield>
+<bitfield begin="12" description="SD24B Digital Bitstream Input" end="12" id="SD24DI" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="14" description="SD24B Manchaster Encoding Bit: 0" end="13" id="SD24MC" range="" resetval="0" rwaccess="RW" width="2">
+<bitenum description="SD24B Manchaster Encoding 0" id="SD24MC_0" token="SD24MC_0" value="0"></bitenum>
+<bitenum description="SD24B Manchaster Encoding 1" id="SD24MC_1" token="SD24MC_1" value="1"></bitenum>
+<bitenum description="SD24B Manchaster Encoding 2" id="SD24MC_2" token="SD24MC_2" value="2"></bitenum>
+<bitenum description="SD24B Manchaster Encoding 3" id="SD24MC_3" token="SD24MC_3" value="3"></bitenum></bitfield></register>
+<register acronym="SD24BINCTL3" description="SD24B Channel 3 Input Control Register" id="SD24BINCTL3" offset=" 0x082A" width="16">
+<bitfield begin="5" description="SD24B Input Pre-Amplifier Gain Select 0" end="3" id="SD24GAIN" range="" resetval="0" rwaccess="RW" width="3">
+<bitenum description="SD24B Input Pre-Amplifier Gain Select *1" id="SD24GAIN_1" token="SD24GAIN_1" value="1"></bitenum>
+<bitenum description="SD24B Input Pre-Amplifier Gain Select *2" id="SD24GAIN_2" token="SD24GAIN_2" value="2"></bitenum>
+<bitenum description="SD24B Input Pre-Amplifier Gain Select *4" id="SD24GAIN_4" token="SD24GAIN_4" value="4"></bitenum>
+<bitenum description="SD24B Input Pre-Amplifier Gain Select *8" id="SD24GAIN_8" token="SD24GAIN_8" value="8"></bitenum>
+<bitenum description="SD24B Input Pre-Amplifier Gain Select *16" id="SD24GAIN_16" token="SD24GAIN_16" value="16"></bitenum>
+<bitenum description="SD24B Input Pre-Amplifier Gain Select *32" id="SD24GAIN_32" token="SD24GAIN_32" value="32"></bitenum>
+<bitenum description="SD24B Input Pre-Amplifier Gain Select *64" id="SD24GAIN_64" token="SD24GAIN_64" value="64"></bitenum>
+<bitenum description="SD24B Input Pre-Amplifier Gain Select *128" id="SD24GAIN_128" token="SD24GAIN_128" value="128"></bitenum></bitfield>
+<bitfield begin="7" description="SD24B Interrupt Delay after 1.Conversion 0" end="6" id="SD24INTDLY" range="" resetval="0" rwaccess="RW" width="2">
+<bitenum description="SD24B Interrupt Delay: Int. after 4.Conversion" id="SD24INTDLY_0" token="SD24INTDLY_0" value="0"></bitenum>
+<bitenum description="SD24B Interrupt Delay: Int. after 3.Conversion" id="SD24INTDLY_1" token="SD24INTDLY_1" value="1"></bitenum>
+<bitenum description="SD24B Interrupt Delay: Int. after 2.Conversion" id="SD24INTDLY_2" token="SD24INTDLY_2" value="2"></bitenum>
+<bitenum description="SD24B Interrupt Delay: Int. after 1.Conversion" id="SD24INTDLY_3" token="SD24INTDLY_3" value="3"></bitenum></bitfield></register>
+<register acronym="SD24BOSR3" description="SD24B Channel 3 OSR Control Register" id="SD24BOSR3" offset=" 0x082C" width="16">
+<bitfield begin="0" description="SD24B Oversampling Rate Bit: 0" end="0" id="OSR0" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="1" description="SD24B Oversampling Rate Bit: 1" end="1" id="OSR1" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="2" description="SD24B Oversampling Rate Bit: 2" end="2" id="OSR2" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="3" description="SD24B Oversampling Rate Bit: 3" end="3" id="OSR3" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="4" description="SD24B Oversampling Rate Bit: 4" end="4" id="OSR4" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="5" description="SD24B Oversampling Rate Bit: 5" end="5" id="OSR5" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="6" description="SD24B Oversampling Rate Bit: 6" end="6" id="OSR6" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="7" description="SD24B Oversampling Rate Bit: 7" end="7" id="OSR7" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="8" description="SD24B Oversampling Rate Bit: 8" end="8" id="OSR8" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="9" description="SD24B Oversampling Rate Bit: 9" end="9" id="OSR9" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="10" description="SD24B Oversampling Rate Bit: 10" end="10" id="OSR10" range="" resetval="0" rwaccess="RW" width="1"></bitfield></register>
+<register acronym="SD24BPRE3" description="SD24B Channel 3 Preload Register" id="SD24BPRE3" offset=" 0x082E" width="16"></register>
+<register acronym="SD24BCCTL4" description="SD24B Channel 4 Control Register" id="SD24BCCTL4" offset=" 0x0830" width="16">
+<bitfield begin="0" description="SD24B Start Conversion" end="0" id="SD24SC" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="3" description="SD24B Start Conversion Select Bit 0" end="1" id="SD24SCS" range="" resetval="0" rwaccess="RW" width="3">
+<bitenum description="SD24B Start Conversion Select: 0" id="SD24SCS_0" token="SD24SCS_0" value="0"></bitenum>
+<bitenum description="SD24B Start Conversion Select: 1" id="SD24SCS_1" token="SD24SCS_1" value="1"></bitenum>
+<bitenum description="SD24B Start Conversion Select: 2" id="SD24SCS_2" token="SD24SCS_2" value="2"></bitenum>
+<bitenum description="SD24B Start Conversion Select: 3" id="SD24SCS_3" token="SD24SCS_3" value="3"></bitenum>
+<bitenum description="SD24B Start Conversion Select: 4" id="SD24SCS_4" token="SD24SCS_4" value="4"></bitenum>
+<bitenum description="SD24B Start Conversion Select: 5" id="SD24SCS_5" token="SD24SCS_5" value="5"></bitenum>
+<bitenum description="SD24B Start Conversion Select: 6" id="SD24SCS_6" token="SD24SCS_6" value="6"></bitenum>
+<bitenum description="SD24B Start Conversion Select: 7" id="SD24SCS_7" token="SD24SCS_7" value="7"></bitenum></bitfield>
+<bitfield begin="5" description="SD24B Data Format Bit: 0" end="4" id="SD24DF" range="" resetval="0" rwaccess="RW" width="2">
+<bitenum description="SD24B Data Format: Offset Binary" id="SD24DF_0" token="SD24DF_0" value="0"></bitenum>
+<bitenum description="SD24B Data Format: 2's complement" id="SD24DF_1" token="SD24DF_1" value="1"></bitenum></bitfield>
+<bitfield begin="6" description="SD24B Data Alignment" end="6" id="SD24ALGN" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="8" description="SD24B Single Trigger Mode" end="8" id="SD24SNGL" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="9" description="SD24B Calibration" end="9" id="SD24CAL" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="11" description="SD24B Digital Filter Bit: 0" end="10" id="SD24DFS" range="" resetval="0" rwaccess="RW" width="2">
+<bitenum description="SD24B Digital Filter 0" id="SD24DFS_0" token="SD24DFS_0" value="0"></bitenum>
+<bitenum description="SD24B Digital Filter 1" id="SD24DFS_1" token="SD24DFS_1" value="1"></bitenum>
+<bitenum description="SD24B Digital Filter 2" id="SD24DFS_2" token="SD24DFS_2" value="2"></bitenum>
+<bitenum description="SD24B Digital Filter 3" id="SD24DFS_3" token="SD24DFS_3" value="3"></bitenum></bitfield>
+<bitfield begin="12" description="SD24B Digital Bitstream Input" end="12" id="SD24DI" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="14" description="SD24B Manchaster Encoding Bit: 0" end="13" id="SD24MC" range="" resetval="0" rwaccess="RW" width="2">
+<bitenum description="SD24B Manchaster Encoding 0" id="SD24MC_0" token="SD24MC_0" value="0"></bitenum>
+<bitenum description="SD24B Manchaster Encoding 1" id="SD24MC_1" token="SD24MC_1" value="1"></bitenum>
+<bitenum description="SD24B Manchaster Encoding 2" id="SD24MC_2" token="SD24MC_2" value="2"></bitenum>
+<bitenum description="SD24B Manchaster Encoding 3" id="SD24MC_3" token="SD24MC_3" value="3"></bitenum></bitfield></register>
+<register acronym="SD24BINCTL4" description="SD24B Channel 4 Input Control Register" id="SD24BINCTL4" offset=" 0x0832" width="16">
+<bitfield begin="5" description="SD24B Input Pre-Amplifier Gain Select 0" end="3" id="SD24GAIN" range="" resetval="0" rwaccess="RW" width="3">
+<bitenum description="SD24B Input Pre-Amplifier Gain Select *1" id="SD24GAIN_1" token="SD24GAIN_1" value="1"></bitenum>
+<bitenum description="SD24B Input Pre-Amplifier Gain Select *2" id="SD24GAIN_2" token="SD24GAIN_2" value="2"></bitenum>
+<bitenum description="SD24B Input Pre-Amplifier Gain Select *4" id="SD24GAIN_4" token="SD24GAIN_4" value="4"></bitenum>
+<bitenum description="SD24B Input Pre-Amplifier Gain Select *8" id="SD24GAIN_8" token="SD24GAIN_8" value="8"></bitenum>
+<bitenum description="SD24B Input Pre-Amplifier Gain Select *16" id="SD24GAIN_16" token="SD24GAIN_16" value="16"></bitenum>
+<bitenum description="SD24B Input Pre-Amplifier Gain Select *32" id="SD24GAIN_32" token="SD24GAIN_32" value="32"></bitenum>
+<bitenum description="SD24B Input Pre-Amplifier Gain Select *64" id="SD24GAIN_64" token="SD24GAIN_64" value="64"></bitenum>
+<bitenum description="SD24B Input Pre-Amplifier Gain Select *128" id="SD24GAIN_128" token="SD24GAIN_128" value="128"></bitenum></bitfield>
+<bitfield begin="7" description="SD24B Interrupt Delay after 1.Conversion 0" end="6" id="SD24INTDLY" range="" resetval="0" rwaccess="RW" width="2">
+<bitenum description="SD24B Interrupt Delay: Int. after 4.Conversion" id="SD24INTDLY_0" token="SD24INTDLY_0" value="0"></bitenum>
+<bitenum description="SD24B Interrupt Delay: Int. after 3.Conversion" id="SD24INTDLY_1" token="SD24INTDLY_1" value="1"></bitenum>
+<bitenum description="SD24B Interrupt Delay: Int. after 2.Conversion" id="SD24INTDLY_2" token="SD24INTDLY_2" value="2"></bitenum>
+<bitenum description="SD24B Interrupt Delay: Int. after 1.Conversion" id="SD24INTDLY_3" token="SD24INTDLY_3" value="3"></bitenum></bitfield></register>
+<register acronym="SD24BOSR4" description="SD24B Channel 4 OSR Control Register" id="SD24BOSR4" offset=" 0x0834" width="16">
+<bitfield begin="0" description="SD24B Oversampling Rate Bit: 0" end="0" id="OSR0" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="1" description="SD24B Oversampling Rate Bit: 1" end="1" id="OSR1" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="2" description="SD24B Oversampling Rate Bit: 2" end="2" id="OSR2" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="3" description="SD24B Oversampling Rate Bit: 3" end="3" id="OSR3" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="4" description="SD24B Oversampling Rate Bit: 4" end="4" id="OSR4" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="5" description="SD24B Oversampling Rate Bit: 5" end="5" id="OSR5" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="6" description="SD24B Oversampling Rate Bit: 6" end="6" id="OSR6" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="7" description="SD24B Oversampling Rate Bit: 7" end="7" id="OSR7" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="8" description="SD24B Oversampling Rate Bit: 8" end="8" id="OSR8" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="9" description="SD24B Oversampling Rate Bit: 9" end="9" id="OSR9" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="10" description="SD24B Oversampling Rate Bit: 10" end="10" id="OSR10" range="" resetval="0" rwaccess="RW" width="1"></bitfield></register>
+<register acronym="SD24BPRE4" description="SD24B Channel 4 Preload Register" id="SD24BPRE4" offset=" 0x0836" width="16"></register>
+<register acronym="SD24BCCTL5" description="SD24B Channel 5 Control Register" id="SD24BCCTL5" offset=" 0x0838" width="16">
+<bitfield begin="0" description="SD24B Start Conversion" end="0" id="SD24SC" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="3" description="SD24B Start Conversion Select Bit 0" end="1" id="SD24SCS" range="" resetval="0" rwaccess="RW" width="3">
+<bitenum description="SD24B Start Conversion Select: 0" id="SD24SCS_0" token="SD24SCS_0" value="0"></bitenum>
+<bitenum description="SD24B Start Conversion Select: 1" id="SD24SCS_1" token="SD24SCS_1" value="1"></bitenum>
+<bitenum description="SD24B Start Conversion Select: 2" id="SD24SCS_2" token="SD24SCS_2" value="2"></bitenum>
+<bitenum description="SD24B Start Conversion Select: 3" id="SD24SCS_3" token="SD24SCS_3" value="3"></bitenum>
+<bitenum description="SD24B Start Conversion Select: 4" id="SD24SCS_4" token="SD24SCS_4" value="4"></bitenum>
+<bitenum description="SD24B Start Conversion Select: 5" id="SD24SCS_5" token="SD24SCS_5" value="5"></bitenum>
+<bitenum description="SD24B Start Conversion Select: 6" id="SD24SCS_6" token="SD24SCS_6" value="6"></bitenum>
+<bitenum description="SD24B Start Conversion Select: 7" id="SD24SCS_7" token="SD24SCS_7" value="7"></bitenum></bitfield>
+<bitfield begin="5" description="SD24B Data Format Bit: 0" end="4" id="SD24DF" range="" resetval="0" rwaccess="RW" width="2">
+<bitenum description="SD24B Data Format: Offset Binary" id="SD24DF_0" token="SD24DF_0" value="0"></bitenum>
+<bitenum description="SD24B Data Format: 2's complement" id="SD24DF_1" token="SD24DF_1" value="1"></bitenum></bitfield>
+<bitfield begin="6" description="SD24B Data Alignment" end="6" id="SD24ALGN" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="8" description="SD24B Single Trigger Mode" end="8" id="SD24SNGL" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="9" description="SD24B Calibration" end="9" id="SD24CAL" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="11" description="SD24B Digital Filter Bit: 0" end="10" id="SD24DFS" range="" resetval="0" rwaccess="RW" width="2">
+<bitenum description="SD24B Digital Filter 0" id="SD24DFS_0" token="SD24DFS_0" value="0"></bitenum>
+<bitenum description="SD24B Digital Filter 1" id="SD24DFS_1" token="SD24DFS_1" value="1"></bitenum>
+<bitenum description="SD24B Digital Filter 2" id="SD24DFS_2" token="SD24DFS_2" value="2"></bitenum>
+<bitenum description="SD24B Digital Filter 3" id="SD24DFS_3" token="SD24DFS_3" value="3"></bitenum></bitfield>
+<bitfield begin="12" description="SD24B Digital Bitstream Input" end="12" id="SD24DI" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="14" description="SD24B Manchaster Encoding Bit: 0" end="13" id="SD24MC" range="" resetval="0" rwaccess="RW" width="2">
+<bitenum description="SD24B Manchaster Encoding 0" id="SD24MC_0" token="SD24MC_0" value="0"></bitenum>
+<bitenum description="SD24B Manchaster Encoding 1" id="SD24MC_1" token="SD24MC_1" value="1"></bitenum>
+<bitenum description="SD24B Manchaster Encoding 2" id="SD24MC_2" token="SD24MC_2" value="2"></bitenum>
+<bitenum description="SD24B Manchaster Encoding 3" id="SD24MC_3" token="SD24MC_3" value="3"></bitenum></bitfield></register>
+<register acronym="SD24BINCTL5" description="SD24B Channel 5 Input Control Register" id="SD24BINCTL5" offset=" 0x083A" width="16">
+<bitfield begin="5" description="SD24B Input Pre-Amplifier Gain Select 0" end="3" id="SD24GAIN" range="" resetval="0" rwaccess="RW" width="3">
+<bitenum description="SD24B Input Pre-Amplifier Gain Select *1" id="SD24GAIN_1" token="SD24GAIN_1" value="1"></bitenum>
+<bitenum description="SD24B Input Pre-Amplifier Gain Select *2" id="SD24GAIN_2" token="SD24GAIN_2" value="2"></bitenum>
+<bitenum description="SD24B Input Pre-Amplifier Gain Select *4" id="SD24GAIN_4" token="SD24GAIN_4" value="4"></bitenum>
+<bitenum description="SD24B Input Pre-Amplifier Gain Select *8" id="SD24GAIN_8" token="SD24GAIN_8" value="8"></bitenum>
+<bitenum description="SD24B Input Pre-Amplifier Gain Select *16" id="SD24GAIN_16" token="SD24GAIN_16" value="16"></bitenum>
+<bitenum description="SD24B Input Pre-Amplifier Gain Select *32" id="SD24GAIN_32" token="SD24GAIN_32" value="32"></bitenum>
+<bitenum description="SD24B Input Pre-Amplifier Gain Select *64" id="SD24GAIN_64" token="SD24GAIN_64" value="64"></bitenum>
+<bitenum description="SD24B Input Pre-Amplifier Gain Select *128" id="SD24GAIN_128" token="SD24GAIN_128" value="128"></bitenum></bitfield>
+<bitfield begin="7" description="SD24B Interrupt Delay after 1.Conversion 0" end="6" id="SD24INTDLY" range="" resetval="0" rwaccess="RW" width="2">
+<bitenum description="SD24B Interrupt Delay: Int. after 4.Conversion" id="SD24INTDLY_0" token="SD24INTDLY_0" value="0"></bitenum>
+<bitenum description="SD24B Interrupt Delay: Int. after 3.Conversion" id="SD24INTDLY_1" token="SD24INTDLY_1" value="1"></bitenum>
+<bitenum description="SD24B Interrupt Delay: Int. after 2.Conversion" id="SD24INTDLY_2" token="SD24INTDLY_2" value="2"></bitenum>
+<bitenum description="SD24B Interrupt Delay: Int. after 1.Conversion" id="SD24INTDLY_3" token="SD24INTDLY_3" value="3"></bitenum></bitfield></register>
+<register acronym="SD24BOSR5" description="SD24B Channel 5 OSR Control Register" id="SD24BOSR5" offset=" 0x083C" width="16">
+<bitfield begin="0" description="SD24B Oversampling Rate Bit: 0" end="0" id="OSR0" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="1" description="SD24B Oversampling Rate Bit: 1" end="1" id="OSR1" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="2" description="SD24B Oversampling Rate Bit: 2" end="2" id="OSR2" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="3" description="SD24B Oversampling Rate Bit: 3" end="3" id="OSR3" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="4" description="SD24B Oversampling Rate Bit: 4" end="4" id="OSR4" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="5" description="SD24B Oversampling Rate Bit: 5" end="5" id="OSR5" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="6" description="SD24B Oversampling Rate Bit: 6" end="6" id="OSR6" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="7" description="SD24B Oversampling Rate Bit: 7" end="7" id="OSR7" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="8" description="SD24B Oversampling Rate Bit: 8" end="8" id="OSR8" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="9" description="SD24B Oversampling Rate Bit: 9" end="9" id="OSR9" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="10" description="SD24B Oversampling Rate Bit: 10" end="10" id="OSR10" range="" resetval="0" rwaccess="RW" width="1"></bitfield></register>
+<register acronym="SD24BPRE5" description="SD24B Channel 5 Preload Register" id="SD24BPRE5" offset=" 0x083E" width="16"></register>
+<register acronym="SD24BMEML0" description="SD24B Channel 0 Conversion Memory Low word" id="SD24BMEML0" offset=" 0x0850" width="16"></register>
+<register acronym="SD24BMEMH0" description="SD24B Channel 0 Conversion Memory High Word" id="SD24BMEMH0" offset=" 0x0852" width="16"></register>
+<register acronym="SD24BMEML1" description="SD24B Channel 1 Conversion Memory Low word" id="SD24BMEML1" offset=" 0x0854" width="16"></register>
+<register acronym="SD24BMEMH1" description="SD24B Channel 1 Conversion Memory High Word" id="SD24BMEMH1" offset=" 0x0856" width="16"></register>
+<register acronym="SD24BMEML2" description="SD24B Channel 2 Conversion Memory Low word" id="SD24BMEML2" offset=" 0x0858" width="16"></register>
+<register acronym="SD24BMEMH2" description="SD24B Channel 2 Conversion Memory High Word" id="SD24BMEMH2" offset=" 0x085A" width="16"></register>
+<register acronym="SD24BMEML3" description="SD24B Channel 3 Conversion Memory Low word" id="SD24BMEML3" offset=" 0x085C" width="16"></register>
+<register acronym="SD24BMEMH3" description="SD24B Channel 3 Conversion Memory High Word" id="SD24BMEMH3" offset=" 0x085E" width="16"></register>
+<register acronym="SD24BMEML4" description="SD24B Channel 4 Conversion Memory Low word" id="SD24BMEML4" offset=" 0x0860" width="16"></register>
+<register acronym="SD24BMEMH4" description="SD24B Channel 4 Conversion Memory High Word" id="SD24BMEMH4" offset=" 0x0862" width="16"></register>
+<register acronym="SD24BMEML5" description="SD24B Channel 5 Conversion Memory Low word" id="SD24BMEML5" offset=" 0x0864" width="16"></register>
+<register acronym="SD24BMEMH5" description="SD24B Channel 5 Conversion Memory High Word" id="SD24BMEMH5" offset=" 0x0866" width="16"></register>
+</module>

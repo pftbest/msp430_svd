@@ -1,0 +1,80 @@
+<module HW_revision="" XML_version="1" description="Operational Amplifier" id="Operational Amplifier">
+<register acronym="OA0CTL0" description="OA0 Control register 0" id="OA0CTL0" offset=" 0x00C0" width="8">
+<bitfield begin="0" description="OAx output to ADC12 input channel select 0" end="0" id="OAADC0" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="1" description="OAx output to ADC12 input channel select 1" end="1" id="OAADC1" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="3" description="OAx Power mode select 0" end="2" id="OAPM" range="" resetval="0" rwaccess="RW" width="2">
+<bitenum description="OAx Power mode select: off" id="OAPM_0" token="OAPM_0" value="0"></bitenum>
+<bitenum description="OAx Power mode select: slow" id="OAPM_1" token="OAPM_1" value="1"></bitenum>
+<bitenum description="OAx Power mode select: meduim" id="OAPM_2" token="OAPM_2" value="2"></bitenum>
+<bitenum description="OAx Power mode select: fast" id="OAPM_3" token="OAPM_3" value="3"></bitenum></bitfield>
+<bitfield begin="5" description="OAx Non-inverting input select 0" end="4" id="OAP" range="" resetval="0" rwaccess="RW" width="2">
+<bitenum description="OAx Non-inverting input select 00" id="OAP_0" token="OAP_0" value="0"></bitenum>
+<bitenum description="OAx Non-inverting input select 01" id="OAP_1" token="OAP_1" value="1"></bitenum>
+<bitenum description="OAx Non-inverting input select 10" id="OAP_2" token="OAP_2" value="2"></bitenum>
+<bitenum description="OAx Non-inverting input select 11" id="OAP_3" token="OAP_3" value="3"></bitenum></bitfield>
+<bitfield begin="7" description="OAx Inverting input select 0" end="6" id="OAN" range="" resetval="0" rwaccess="RW" width="2">
+<bitenum description="OAx Inverting input select 00" id="OAN_0" token="OAN_0" value="0"></bitenum>
+<bitenum description="OAx Inverting input select 01" id="OAN_1" token="OAN_1" value="1"></bitenum>
+<bitenum description="OAx Inverting input select 10" id="OAN_2" token="OAN_2" value="2"></bitenum>
+<bitenum description="OAx Inverting input select 11" id="OAN_3" token="OAN_3" value="3"></bitenum></bitfield></register>
+<register acronym="OA0CTL1" description="OA0 Control register 1" id="OA0CTL1" offset=" 0x00C1" width="8">
+<bitfield begin="0" description="OAx Rail-to-Rail Input off" end="0" id="OARRIP" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="1" description="OAx Inverting input external" end="1" id="OANEXT" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="4" description="OAx Function control 0" end="2" id="OAFC" range="" resetval="0" rwaccess="RW" width="3">
+<bitenum description="OAx Function: Gen. Purpose" id="OAFC_0" token="OAFC_0" value="0"></bitenum>
+<bitenum description="OAx Function: Unity gain buffer" id="OAFC_1" token="OAFC_1" value="1"></bitenum>
+<bitenum description="OAx Function: Reserved" id="OAFC_2" token="OAFC_2" value="2"></bitenum>
+<bitenum description="OAx Function: Comparator" id="OAFC_3" token="OAFC_3" value="3"></bitenum>
+<bitenum description="OAx Function: Non-inverting PGA" id="OAFC_4" token="OAFC_4" value="4"></bitenum>
+<bitenum description="OAx Function: Cascaded non-inverting PGA" id="OAFC_5" token="OAFC_5" value="5"></bitenum>
+<bitenum description="OAx Function: Inverting PGA" id="OAFC_6" token="OAFC_6" value="6"></bitenum>
+<bitenum description="OAx Function: Differential amplifier" id="OAFC_7" token="OAFC_7" value="7"></bitenum></bitfield>
+<bitfield begin="7" description="OAx Feedback resistor select 0" end="5" id="OAFBR" range="" resetval="0" rwaccess="RW" width="3">
+<bitenum description="OAx Feedback resistor: Tap 0" id="OAFBR_0" token="OAFBR_0" value="0"></bitenum>
+<bitenum description="OAx Feedback resistor: Tap 1" id="OAFBR_1" token="OAFBR_1" value="1"></bitenum>
+<bitenum description="OAx Feedback resistor: Tap 2" id="OAFBR_2" token="OAFBR_2" value="2"></bitenum>
+<bitenum description="OAx Feedback resistor: Tap 3" id="OAFBR_3" token="OAFBR_3" value="3"></bitenum>
+<bitenum description="OAx Feedback resistor: Tap 4" id="OAFBR_4" token="OAFBR_4" value="4"></bitenum>
+<bitenum description="OAx Feedback resistor: Tap 5" id="OAFBR_5" token="OAFBR_5" value="5"></bitenum>
+<bitenum description="OAx Feedback resistor: Tap 6" id="OAFBR_6" token="OAFBR_6" value="6"></bitenum>
+<bitenum description="OAx Feedback resistor: Tap 7" id="OAFBR_7" token="OAFBR_7" value="7"></bitenum></bitfield></register>
+<register acronym="OA1CTL0" description="OA1 Control register 0" id="OA1CTL0" offset=" 0x00C2" width="8">
+<bitfield begin="0" description="OAx output to ADC12 input channel select 0" end="0" id="OAADC0" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="1" description="OAx output to ADC12 input channel select 1" end="1" id="OAADC1" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="3" description="OAx Power mode select 0" end="2" id="OAPM" range="" resetval="0" rwaccess="RW" width="2">
+<bitenum description="OAx Power mode select: off" id="OAPM_0" token="OAPM_0" value="0"></bitenum>
+<bitenum description="OAx Power mode select: slow" id="OAPM_1" token="OAPM_1" value="1"></bitenum>
+<bitenum description="OAx Power mode select: meduim" id="OAPM_2" token="OAPM_2" value="2"></bitenum>
+<bitenum description="OAx Power mode select: fast" id="OAPM_3" token="OAPM_3" value="3"></bitenum></bitfield>
+<bitfield begin="5" description="OAx Non-inverting input select 0" end="4" id="OAP" range="" resetval="0" rwaccess="RW" width="2">
+<bitenum description="OAx Non-inverting input select 00" id="OAP_0" token="OAP_0" value="0"></bitenum>
+<bitenum description="OAx Non-inverting input select 01" id="OAP_1" token="OAP_1" value="1"></bitenum>
+<bitenum description="OAx Non-inverting input select 10" id="OAP_2" token="OAP_2" value="2"></bitenum>
+<bitenum description="OAx Non-inverting input select 11" id="OAP_3" token="OAP_3" value="3"></bitenum></bitfield>
+<bitfield begin="7" description="OAx Inverting input select 0" end="6" id="OAN" range="" resetval="0" rwaccess="RW" width="2">
+<bitenum description="OAx Inverting input select 00" id="OAN_0" token="OAN_0" value="0"></bitenum>
+<bitenum description="OAx Inverting input select 01" id="OAN_1" token="OAN_1" value="1"></bitenum>
+<bitenum description="OAx Inverting input select 10" id="OAN_2" token="OAN_2" value="2"></bitenum>
+<bitenum description="OAx Inverting input select 11" id="OAN_3" token="OAN_3" value="3"></bitenum></bitfield></register>
+<register acronym="OA1CTL1" description="OA1 Control register 1" id="OA1CTL1" offset=" 0x00C3" width="8">
+<bitfield begin="0" description="OAx Rail-to-Rail Input off" end="0" id="OARRIP" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="1" description="OAx Inverting input external" end="1" id="OANEXT" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="4" description="OAx Function control 0" end="2" id="OAFC" range="" resetval="0" rwaccess="RW" width="3">
+<bitenum description="OAx Function: Gen. Purpose" id="OAFC_0" token="OAFC_0" value="0"></bitenum>
+<bitenum description="OAx Function: Unity gain buffer" id="OAFC_1" token="OAFC_1" value="1"></bitenum>
+<bitenum description="OAx Function: Reserved" id="OAFC_2" token="OAFC_2" value="2"></bitenum>
+<bitenum description="OAx Function: Comparator" id="OAFC_3" token="OAFC_3" value="3"></bitenum>
+<bitenum description="OAx Function: Non-inverting PGA" id="OAFC_4" token="OAFC_4" value="4"></bitenum>
+<bitenum description="OAx Function: Cascaded non-inverting PGA" id="OAFC_5" token="OAFC_5" value="5"></bitenum>
+<bitenum description="OAx Function: Inverting PGA" id="OAFC_6" token="OAFC_6" value="6"></bitenum>
+<bitenum description="OAx Function: Differential amplifier" id="OAFC_7" token="OAFC_7" value="7"></bitenum></bitfield>
+<bitfield begin="7" description="OAx Feedback resistor select 0" end="5" id="OAFBR" range="" resetval="0" rwaccess="RW" width="3">
+<bitenum description="OAx Feedback resistor: Tap 0" id="OAFBR_0" token="OAFBR_0" value="0"></bitenum>
+<bitenum description="OAx Feedback resistor: Tap 1" id="OAFBR_1" token="OAFBR_1" value="1"></bitenum>
+<bitenum description="OAx Feedback resistor: Tap 2" id="OAFBR_2" token="OAFBR_2" value="2"></bitenum>
+<bitenum description="OAx Feedback resistor: Tap 3" id="OAFBR_3" token="OAFBR_3" value="3"></bitenum>
+<bitenum description="OAx Feedback resistor: Tap 4" id="OAFBR_4" token="OAFBR_4" value="4"></bitenum>
+<bitenum description="OAx Feedback resistor: Tap 5" id="OAFBR_5" token="OAFBR_5" value="5"></bitenum>
+<bitenum description="OAx Feedback resistor: Tap 6" id="OAFBR_6" token="OAFBR_6" value="6"></bitenum>
+<bitenum description="OAx Feedback resistor: Tap 7" id="OAFBR_7" token="OAFBR_7" value="7"></bitenum></bitfield></register>
+</module>

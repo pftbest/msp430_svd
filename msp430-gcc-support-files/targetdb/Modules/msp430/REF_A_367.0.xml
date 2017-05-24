@@ -1,0 +1,54 @@
+<module id="REF_A" HW_revision="367.0">
+    <register id="REFCTL0" width="16" offset="0x0" internal="0" description="REF Control Register 0">
+        <bitfield id="REFON" description="Reference enable" begin="0" end="0" width="1" rwaccess="R/W">
+            <bitenum id="REFON_0" value="0x0" description="Disables reference if no other reference requests are pending"/>
+            <bitenum id="REFON_1" value="0x1" description="Enables reference in static mode"/>
+        </bitfield>
+        <bitfield id="REFOUT" description="Reference output buffer" begin="1" end="1" width="1" rwaccess="R/W">
+            <bitenum id="REFOUT_0" value="0x0" description="Reference output not available externally"/>
+            <bitenum id="REFOUT_1" value="0x1" description="Reference output available externally. If ADC14REFBURST = 0, output is available continuously. If ADC14REFBURST = 1, output is available only during an ADC14 conversion."/>
+        </bitfield>
+        <bitfield id="REFTCOFF" description="Temperature sensor disabled" begin="3" end="3" width="1" rwaccess="R/W">
+            <bitenum id="REFTCOFF_0" value="0x0" description="Temperature sensor enabled"/>
+            <bitenum id="REFTCOFF_1" value="0x1" description="Temperature sensor disabled to save power"/>
+        </bitfield>
+        <bitfield id="REFVSEL" description="Reference voltage level select" begin="5" end="4" width="2" rwaccess="R/W">
+            <bitenum id="REFVSEL_0" value="0x0" description="1.2 V available when reference requested or REFON = 1"/>
+            <bitenum id="REFVSEL_1" value="0x1" description="2.0 V available when reference requested or REFON = 1"/>
+            <bitenum id="REFVSEL_2" value="0x2" description="2.5 V available when reference requested or REFON = 1"/>
+            <bitenum id="REFVSEL_3" value="0x3" description="2.5 V available when reference requested or REFON = 1"/>
+        </bitfield>
+        <bitfield id="REFGENOT" description="Reference generator one-time trigger" begin="6" end="6" width="1" rwaccess="R/W">
+            <bitenum id="REFGENOT_0" value="0x0" description="No trigger"/>
+            <bitenum id="REFGENOT_1" value="0x1" description="Generation of the reference voltage is started by writing 1 or by a hardware trigger"/>
+        </bitfield>
+        <bitfield id="REFBGOT" description="Bandgap and bandgap buffer one-time trigger" begin="7" end="7" width="1" rwaccess="R/W">
+            <bitenum id="REFBGOT_0" value="0x0" description="No trigger"/>
+            <bitenum id="REFBGOT_1" value="0x1" description="Generation of the bandgap voltage is started by writing 1 or by a hardware trigger"/>
+        </bitfield>
+        <bitfield id="REFGENACT" description="Reference generator active" begin="8" end="8" width="1" rwaccess="R">
+            <bitenum id="REFGENACT_0" value="0x0" description="Reference generator not active"/>
+            <bitenum id="REFGENACT_1" value="0x1" description="Reference generator active"/>
+        </bitfield>
+        <bitfield id="REFBGACT" description="Reference bandgap active" begin="9" end="9" width="1" rwaccess="R">
+            <bitenum id="REFBGACT_0" value="0x0" description="Reference bandgap buffer not active"/>
+            <bitenum id="REFBGACT_1" value="0x1" description="Reference bandgap buffer active"/>
+        </bitfield>
+        <bitfield id="REFGENBUSY" description="Reference generator busy" begin="10" end="10" width="1" rwaccess="R">
+            <bitenum id="REFGENBUSY_0" value="0x0" description="Reference generator not busy"/>
+            <bitenum id="REFGENBUSY_1" value="0x1" description="Reference generator busy"/>
+        </bitfield>
+        <bitfield id="BGMODE" description="Bandgap mode" begin="11" end="11" width="1" rwaccess="R">
+            <bitenum id="BGMODE_0" value="0x0" description="Static mode"/>
+            <bitenum id="BGMODE_1" value="0x1" description="Sampled mode"/>
+        </bitfield>
+        <bitfield id="REFGENRDY" description="Variable reference voltage ready status" begin="12" end="12" width="1" rwaccess="R">
+            <bitenum id="REFGENRDY_0" value="0x0" description="Reference voltage output is not ready to be used"/>
+            <bitenum id="REFGENRDY_1" value="0x1" description="Reference voltage output is ready to be used"/>
+        </bitfield>
+        <bitfield id="REFBGRDY" description="Buffered bandgap voltage ready status" begin="13" end="13" width="1" rwaccess="R">
+            <bitenum id="REFBGRDY_0" value="0x0" description="Buffered bandgap voltage is not ready to be used"/>
+            <bitenum id="REFBGRDY_1" value="0x1" description="Buffered bandgap voltage is ready to be used"/>
+        </bitfield>
+    </register>
+</module>

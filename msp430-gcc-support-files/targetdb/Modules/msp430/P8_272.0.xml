@@ -1,0 +1,35 @@
+<module id="P8" HW_revision="272.0">
+    <register id="P8IV" width="16" offset="0x7E" internal="0" description="Port 8 Interrupt Vector Register">
+        <bitfield id="P8IV" description="Port 8 interrupt vector value" begin="4" end="0" width="5" rwaccess="R">
+            <bitenum id="NONE" value="0x0" description="No interrupt pending"/>
+            <bitenum id="P8IFG0" value="0x2" description="Interrupt Source: Port 8.0 interrupt; Interrupt Flag: P8IFG0; Interrupt Priority: Highest"/>
+            <bitenum id="P8IFG1" value="0x4" description="Interrupt Source: Port 8.1 interrupt; Interrupt Flag: P8IFG1"/>
+            <bitenum id="P8IFG2" value="0x6" description="Interrupt Source: Port 8.2 interrupt; Interrupt Flag: P8IFG2"/>
+            <bitenum id="P8IFG3" value="0x8" description="Interrupt Source: Port 8.3 interrupt; Interrupt Flag: P8IFG3"/>
+            <bitenum id="P8IFG4" value="0xA" description="Interrupt Source: Port 8.4 interrupt; Interrupt Flag: P8IFG4"/>
+            <bitenum id="P8IFG5" value="0xC" description="Interrupt Source: Port 8.5 interrupt; Interrupt Flag: P8IFG5"/>
+            <bitenum id="P8IFG6" value="0xE" description="Interrupt Source: Port 8.6 interrupt; Interrupt Flag: P8IFG6"/>
+            <bitenum id="P8IFG7" value="0x10" description="Interrupt Source: Port 8.7 interrupt; Interrupt Flag: P8IFG7; Interrupt Priority: Lowest"/>
+        </bitfield>
+    </register>
+    <register id="P8IN" width="8" offset="0x61" internal="0" description="Port 8 Input">
+    </register>
+    <register id="P8OUT" width="8" offset="0x63" internal="0" description="Port 8 Output">
+    </register>
+    <register id="P8DIR" width="8" offset="0x65" internal="0" description="Port 8 Direction">
+    </register>
+    <register id="P8REN" width="8" offset="0x67" internal="0" description="Port 8 Resistor Enable">
+    </register>
+    <register id="P8SEL0" width="8" offset="0x6B" internal="0" description="Port 8 Select 0">
+    </register>
+    <register id="P8SEL1" width="8" offset="0x6D" internal="0" description="Port 8 Select 1">
+    </register>
+    <register id="P8SELC" width="8" offset="0x77" internal="0" description="Port 8 Complement Select">
+    </register>
+    <register id="P8IES" width="8" offset="0x79" internal="0" description="Port 8 Interrupt Edge Select">
+    </register>
+    <register id="P8IE" width="8" offset="0x7B" internal="0" description="Port 8 Interrupt Enable">
+    </register>
+    <register id="P8IFG" width="8" offset="0x7D" internal="0" description="Port 8 Interrupt Flag">
+    </register>
+</module>

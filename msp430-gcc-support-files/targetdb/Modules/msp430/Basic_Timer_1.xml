@@ -1,0 +1,13 @@
+<module HW_revision="" XML_version="1" description="Basic Timer" id="Basic Timer">
+<register acronym="BTCTL" description="Basic Timer Control" id="BTCTL" offset=" 0x0040" width="8">
+<bitfield begin="0" description="BTIP0" end="0" id="BTIP0" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="1" description="BTIP1" end="1" id="BTIP1" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="2" description="BTIP2" end="2" id="BTIP2" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="3" description="BTFRFQ0" end="3" id="BTFRFQ0" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="4" description="BTFRFQ1" end="4" id="BTFRFQ1" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="5" description="fCLK2 = ACLK:256" end="5" id="BTDIV" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="6" description="BT1 is held if this bit is set" end="6" id="BTHOLD" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="7" description="fBT = fMCLK (main clock)" end="7" id="BTSSEL" range="" resetval="0" rwaccess="RW" width="1"></bitfield></register>
+<register acronym="BTCNT1" description="Basic Timer Count 1" id="BTCNT1" offset=" 0x0046" width="8"></register>
+<register acronym="BTCNT2" description="Basic Timer Count 2" id="BTCNT2" offset=" 0x0047" width="8"></register>
+</module>

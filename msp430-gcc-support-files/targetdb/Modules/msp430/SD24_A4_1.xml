@@ -1,0 +1,124 @@
+<module HW_revision="" XML_version="1" description="SD24_A4" id="SD24_A4">
+<register acronym="SD24INCTL0" description="SD24 Input Control Register Channel 0" id="SD24INCTL0" offset=" 0x00B0" width="8">
+<bitfield begin="2" description="SD24 Input Channel select 0" end="0" id="SD24INCH" range="" resetval="0" rwaccess="RW" width="3">
+<bitenum description="SD24 Input Channel select input" id="SD24INCH_0" token="SD24INCH_0" value="0"></bitenum>
+<bitenum description="SD24 Input Channel select input" id="SD24INCH_1" token="SD24INCH_1" value="1"></bitenum>
+<bitenum description="SD24 Input Channel select input" id="SD24INCH_2" token="SD24INCH_2" value="2"></bitenum>
+<bitenum description="SD24 Input Channel select input" id="SD24INCH_3" token="SD24INCH_3" value="3"></bitenum>
+<bitenum description="SD24 Input Channel select input" id="SD24INCH_4" token="SD24INCH_4" value="4"></bitenum>
+<bitenum description="SD24 Input Channel select Vcc divider" id="SD24INCH_5" token="SD24INCH_5" value="5"></bitenum>
+<bitenum description="SD24 Input Channel select Temp" id="SD24INCH_6" token="SD24INCH_6" value="6"></bitenum>
+<bitenum description="SD24 Input Channel select Offset" id="SD24INCH_7" token="SD24INCH_7" value="7"></bitenum></bitfield>
+<bitfield begin="3" description="SD24 Input Pre-Amplifier Gain Select 0" end="3" id="SD24GAIN0" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="4" description="SD24 Input Pre-Amplifier Gain Select 1" end="4" id="SD24GAIN1" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="5" description="SD24 Input Pre-Amplifier Gain Select 2" end="5" id="SD24GAIN2" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="6" description="SD24 Interrupt Delay after 1.Conversion" end="6" id="SD24INTDLY" range="" resetval="0" rwaccess="RW" width="1"></bitfield></register>
+<register acronym="SD24INCTL1" description="SD24 Input Control Register Channel 1" id="SD24INCTL1" offset=" 0x00B1" width="8">
+<bitfield begin="2" description="SD24 Input Channel select 0" end="0" id="SD24INCH" range="" resetval="0" rwaccess="RW" width="3">
+<bitenum description="SD24 Input Channel select input" id="SD24INCH_0" token="SD24INCH_0" value="0"></bitenum>
+<bitenum description="SD24 Input Channel select input" id="SD24INCH_1" token="SD24INCH_1" value="1"></bitenum>
+<bitenum description="SD24 Input Channel select input" id="SD24INCH_2" token="SD24INCH_2" value="2"></bitenum>
+<bitenum description="SD24 Input Channel select input" id="SD24INCH_3" token="SD24INCH_3" value="3"></bitenum>
+<bitenum description="SD24 Input Channel select input" id="SD24INCH_4" token="SD24INCH_4" value="4"></bitenum>
+<bitenum description="SD24 Input Channel select Vcc divider" id="SD24INCH_5" token="SD24INCH_5" value="5"></bitenum>
+<bitenum description="SD24 Input Channel select Temp" id="SD24INCH_6" token="SD24INCH_6" value="6"></bitenum>
+<bitenum description="SD24 Input Channel select Offset" id="SD24INCH_7" token="SD24INCH_7" value="7"></bitenum></bitfield>
+<bitfield begin="3" description="SD24 Input Pre-Amplifier Gain Select 0" end="3" id="SD24GAIN0" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="4" description="SD24 Input Pre-Amplifier Gain Select 1" end="4" id="SD24GAIN1" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="5" description="SD24 Input Pre-Amplifier Gain Select 2" end="5" id="SD24GAIN2" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="6" description="SD24 Interrupt Delay after 1.Conversion" end="6" id="SD24INTDLY" range="" resetval="0" rwaccess="RW" width="1"></bitfield></register>
+<register acronym="SD24INCTL2" description="SD24 Input Control Register Channel 2" id="SD24INCTL2" offset=" 0x00B2" width="8">
+<bitfield begin="2" description="SD24 Input Channel select 0" end="0" id="SD24INCH" range="" resetval="0" rwaccess="RW" width="3">
+<bitenum description="SD24 Input Channel select input" id="SD24INCH_0" token="SD24INCH_0" value="0"></bitenum>
+<bitenum description="SD24 Input Channel select input" id="SD24INCH_1" token="SD24INCH_1" value="1"></bitenum>
+<bitenum description="SD24 Input Channel select input" id="SD24INCH_2" token="SD24INCH_2" value="2"></bitenum>
+<bitenum description="SD24 Input Channel select input" id="SD24INCH_3" token="SD24INCH_3" value="3"></bitenum>
+<bitenum description="SD24 Input Channel select input" id="SD24INCH_4" token="SD24INCH_4" value="4"></bitenum>
+<bitenum description="SD24 Input Channel select Vcc divider" id="SD24INCH_5" token="SD24INCH_5" value="5"></bitenum>
+<bitenum description="SD24 Input Channel select Temp" id="SD24INCH_6" token="SD24INCH_6" value="6"></bitenum>
+<bitenum description="SD24 Input Channel select Offset" id="SD24INCH_7" token="SD24INCH_7" value="7"></bitenum></bitfield>
+<bitfield begin="3" description="SD24 Input Pre-Amplifier Gain Select 0" end="3" id="SD24GAIN0" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="4" description="SD24 Input Pre-Amplifier Gain Select 1" end="4" id="SD24GAIN1" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="5" description="SD24 Input Pre-Amplifier Gain Select 2" end="5" id="SD24GAIN2" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="6" description="SD24 Interrupt Delay after 1.Conversion" end="6" id="SD24INTDLY" range="" resetval="0" rwaccess="RW" width="1"></bitfield></register>
+<register acronym="SD24INCTL3" description="SD24 Input Control Register Channel 3" id="SD24INCTL3" offset=" 0x00B3" width="8">
+<bitfield begin="2" description="SD24 Input Channel select 0" end="0" id="SD24INCH" range="" resetval="0" rwaccess="RW" width="3">
+<bitenum description="SD24 Input Channel select input" id="SD24INCH_0" token="SD24INCH_0" value="0"></bitenum>
+<bitenum description="SD24 Input Channel select input" id="SD24INCH_1" token="SD24INCH_1" value="1"></bitenum>
+<bitenum description="SD24 Input Channel select input" id="SD24INCH_2" token="SD24INCH_2" value="2"></bitenum>
+<bitenum description="SD24 Input Channel select input" id="SD24INCH_3" token="SD24INCH_3" value="3"></bitenum>
+<bitenum description="SD24 Input Channel select input" id="SD24INCH_4" token="SD24INCH_4" value="4"></bitenum>
+<bitenum description="SD24 Input Channel select Vcc divider" id="SD24INCH_5" token="SD24INCH_5" value="5"></bitenum>
+<bitenum description="SD24 Input Channel select Temp" id="SD24INCH_6" token="SD24INCH_6" value="6"></bitenum>
+<bitenum description="SD24 Input Channel select Offset" id="SD24INCH_7" token="SD24INCH_7" value="7"></bitenum></bitfield>
+<bitfield begin="3" description="SD24 Input Pre-Amplifier Gain Select 0" end="3" id="SD24GAIN0" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="4" description="SD24 Input Pre-Amplifier Gain Select 1" end="4" id="SD24GAIN1" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="5" description="SD24 Input Pre-Amplifier Gain Select 2" end="5" id="SD24GAIN2" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="6" description="SD24 Interrupt Delay after 1.Conversion" end="6" id="SD24INTDLY" range="" resetval="0" rwaccess="RW" width="1"></bitfield></register>
+<register acronym="SD24PRE0" description="SD24 Preload Register Channel 0" id="SD24PRE0" offset=" 0x00B8" width="8"></register>
+<register acronym="SD24PRE1" description="SD24 Preload Register Channel 1" id="SD24PRE1" offset=" 0x00B9" width="8"></register>
+<register acronym="SD24PRE2" description="SD24 Preload Register Channel 2" id="SD24PRE2" offset=" 0x00BA" width="8"></register>
+<register acronym="SD24PRE3" description="SD24 Preload Register Channel 3" id="SD24PRE3" offset=" 0x00BB" width="8"></register>
+<register acronym="SD24TRIM" description="SD24 Trim Register 1" id="SD24TRIM" offset=" 0x00BF" width="8">
+<bitfield begin="0" description="SD24 Trimming of bias current Bit: 0" end="0" id="SD24IBTRIM0" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="1" description="SD24 Trimming of bias current Bit: 1" end="1" id="SD24IBTRIM1" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="2" description="SD24 Trimming of bias current Bit: 2" end="2" id="SD24IBTRIM2" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="3" description="SD24 Trimming of reference voltage buffer start up delay Bit: 0" end="3" id="SD24REFDLYTRIM0" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="4" description="SD24 Trimming of reference voltage buffer start up delay Bit: 1" end="4" id="SD24REFDLYTRIM1" range="" resetval="0" rwaccess="RW" width="1"></bitfield></register>
+<register acronym="SD24CTL" description="Sigma Delta ADC 24 Control Register" id="SD24CTL" offset=" 0x0100" width="16">
+<bitfield begin="1" description="SD24 Overflow Interupt Enable" end="1" id="SD24OVIE" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="2" description="SD24 Reference Select" end="2" id="SD24REFS" range="" resetval="0" rwaccess="RW" width="1"></bitfield></register>
+<register acronym="SD24CCTL0" description="SD24 Channel 0 Control Register" id="SD24CCTL0" offset=" 0x0102" width="16">
+<bitfield begin="0" description="SD24 Grouping of Channels: 0:Off/1:On" end="0" id="SD24GRP" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="1" description="SD24 Start Conversion" end="1" id="SD24SC" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="2" description="SD24 Channel x Interrupt Flag" end="2" id="SD24IFG" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="3" description="SD24 Channel x Interrupt Enable" end="3" id="SD24IE" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="4" description="SD24 Channel x Data Format: 0:Unipolar/1:Bipolar" end="4" id="SD24DF" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="5" description="SD24 Channel x Overflow Interrupt Flag" end="5" id="SD24OVIFG" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="6" description="SD24 Channel x Access LSB of ADC" end="6" id="SD24LSBACC" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="7" description="SD24 Channel x Toggle LSB Output of ADC" end="7" id="SD24LSBTOG" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="8" description="SD24 Channel x OverSampling Ratio 0" end="8" id="SD24OSR0" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="9" description="SD24 Channel x OverSampling Ratio 1" end="9" id="SD24OSR1" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="10" description="SD24 Channel x Single Conversion On/Off" end="10" id="SD24SNGL" range="" resetval="0" rwaccess="RW" width="1"></bitfield></register>
+<register acronym="SD24CCTL1" description="SD24 Channel 1 Control Register" id="SD24CCTL1" offset=" 0x0104" width="16">
+<bitfield begin="0" description="SD24 Grouping of Channels: 0:Off/1:On" end="0" id="SD24GRP" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="1" description="SD24 Start Conversion" end="1" id="SD24SC" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="2" description="SD24 Channel x Interrupt Flag" end="2" id="SD24IFG" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="3" description="SD24 Channel x Interrupt Enable" end="3" id="SD24IE" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="4" description="SD24 Channel x Data Format: 0:Unipolar/1:Bipolar" end="4" id="SD24DF" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="5" description="SD24 Channel x Overflow Interrupt Flag" end="5" id="SD24OVIFG" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="6" description="SD24 Channel x Access LSB of ADC" end="6" id="SD24LSBACC" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="7" description="SD24 Channel x Toggle LSB Output of ADC" end="7" id="SD24LSBTOG" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="8" description="SD24 Channel x OverSampling Ratio 0" end="8" id="SD24OSR0" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="9" description="SD24 Channel x OverSampling Ratio 1" end="9" id="SD24OSR1" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="10" description="SD24 Channel x Single Conversion On/Off" end="10" id="SD24SNGL" range="" resetval="0" rwaccess="RW" width="1"></bitfield></register>
+<register acronym="SD24CCTL2" description="SD24 Channel 2 Control Register" id="SD24CCTL2" offset=" 0x0106" width="16">
+<bitfield begin="0" description="SD24 Grouping of Channels: 0:Off/1:On" end="0" id="SD24GRP" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="1" description="SD24 Start Conversion" end="1" id="SD24SC" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="2" description="SD24 Channel x Interrupt Flag" end="2" id="SD24IFG" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="3" description="SD24 Channel x Interrupt Enable" end="3" id="SD24IE" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="4" description="SD24 Channel x Data Format: 0:Unipolar/1:Bipolar" end="4" id="SD24DF" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="5" description="SD24 Channel x Overflow Interrupt Flag" end="5" id="SD24OVIFG" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="6" description="SD24 Channel x Access LSB of ADC" end="6" id="SD24LSBACC" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="7" description="SD24 Channel x Toggle LSB Output of ADC" end="7" id="SD24LSBTOG" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="8" description="SD24 Channel x OverSampling Ratio 0" end="8" id="SD24OSR0" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="9" description="SD24 Channel x OverSampling Ratio 1" end="9" id="SD24OSR1" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="10" description="SD24 Channel x Single Conversion On/Off" end="10" id="SD24SNGL" range="" resetval="0" rwaccess="RW" width="1"></bitfield></register>
+<register acronym="SD24CCTL3" description="SD24 Channel 3 Control Register" id="SD24CCTL3" offset=" 0x0108" width="16">
+<bitfield begin="0" description="SD24 Grouping of Channels: 0:Off/1:On" end="0" id="SD24GRP" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="1" description="SD24 Start Conversion" end="1" id="SD24SC" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="2" description="SD24 Channel x Interrupt Flag" end="2" id="SD24IFG" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="3" description="SD24 Channel x Interrupt Enable" end="3" id="SD24IE" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="4" description="SD24 Channel x Data Format: 0:Unipolar/1:Bipolar" end="4" id="SD24DF" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="5" description="SD24 Channel x Overflow Interrupt Flag" end="5" id="SD24OVIFG" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="6" description="SD24 Channel x Access LSB of ADC" end="6" id="SD24LSBACC" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="7" description="SD24 Channel x Toggle LSB Output of ADC" end="7" id="SD24LSBTOG" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="8" description="SD24 Channel x OverSampling Ratio 0" end="8" id="SD24OSR0" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="9" description="SD24 Channel x OverSampling Ratio 1" end="9" id="SD24OSR1" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="10" description="SD24 Channel x Single Conversion On/Off" end="10" id="SD24SNGL" range="" resetval="0" rwaccess="RW" width="1"></bitfield></register>
+<register acronym="SD24MEM0" description="SD24 Channel 0 Conversion Memory" id="SD24MEM0" offset=" 0x0110" width="16"></register>
+<register acronym="SD24MEM1" description="SD24 Channel 1 Conversion Memory" id="SD24MEM1" offset=" 0x0112" width="16"></register>
+<register acronym="SD24MEM2" description="SD24 Channel 2 Conversion Memory" id="SD24MEM2" offset=" 0x0114" width="16"></register>
+<register acronym="SD24MEM3" description="SD24 Channel 3 Conversion Memory" id="SD24MEM3" offset=" 0x0116" width="16"></register>
+<register acronym="SD24IV" description="SD24 Interrupt Vector Register" id="SD24IV" offset=" 0x01F0" width="16"></register>
+</module>

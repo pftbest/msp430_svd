@@ -1,0 +1,125 @@
+<module HW_revision="" XML_version="1" description="SD16_A3" id="SD16_A3">
+<register acronym="SD16INCTL0" description="SD16 Input Control Register Channel 0" id="SD16INCTL0" offset=" 0x00B0" width="8">
+<bitfield begin="2" description="SD16 Input Channel select 0" end="0" id="SD16INCH" range="" resetval="0" rwaccess="RW" width="3">
+<bitenum description="SD16 Input Channel select input" id="SD16INCH_0" token="SD16INCH_0" value="0"></bitenum>
+<bitenum description="SD16 Input Channel select input" id="SD16INCH_1" token="SD16INCH_1" value="1"></bitenum>
+<bitenum description="SD16 Input Channel select input" id="SD16INCH_2" token="SD16INCH_2" value="2"></bitenum>
+<bitenum description="SD16 Input Channel select input" id="SD16INCH_3" token="SD16INCH_3" value="3"></bitenum>
+<bitenum description="SD16 Input Channel select input" id="SD16INCH_4" token="SD16INCH_4" value="4"></bitenum>
+<bitenum description="SD16 Input Channel select Vcc divider" id="SD16INCH_5" token="SD16INCH_5" value="5"></bitenum>
+<bitenum description="SD16 Input Channel select Temp" id="SD16INCH_6" token="SD16INCH_6" value="6"></bitenum>
+<bitenum description="SD16 Input Channel select Offset" id="SD16INCH_7" token="SD16INCH_7" value="7"></bitenum></bitfield>
+<bitfield begin="3" description="SD16 Input Pre-Amplifier Gain Select 0" end="3" id="SD16GAIN0" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="4" description="SD16 Input Pre-Amplifier Gain Select 1" end="4" id="SD16GAIN1" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="5" description="SD16 Input Pre-Amplifier Gain Select 2" end="5" id="SD16GAIN2" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="7" description="SD16 Interrupt Delay after 1.Conversion 0" end="6" id="SD16INTDLY" range="" resetval="0" rwaccess="RW" width="2">
+<bitenum description="SD16 Interrupt Delay: Int. after 4.Conversion" id="SD16INTDLY_0" token="SD16INTDLY_0" value="0"></bitenum>
+<bitenum description="SD16 Interrupt Delay: Int. after 3.Conversion" id="SD16INTDLY_1" token="SD16INTDLY_1" value="1"></bitenum>
+<bitenum description="SD16 Interrupt Delay: Int. after 2.Conversion" id="SD16INTDLY_2" token="SD16INTDLY_2" value="2"></bitenum>
+<bitenum description="SD16 Interrupt Delay: Int. after 1.Conversion" id="SD16INTDLY_3" token="SD16INTDLY_3" value="3"></bitenum></bitfield></register>
+<register acronym="SD16INCTL1" description="SD16 Input Control Register Channel 1" id="SD16INCTL1" offset=" 0x00B1" width="8">
+<bitfield begin="2" description="SD16 Input Channel select 0" end="0" id="SD16INCH" range="" resetval="0" rwaccess="RW" width="3">
+<bitenum description="SD16 Input Channel select input" id="SD16INCH_0" token="SD16INCH_0" value="0"></bitenum>
+<bitenum description="SD16 Input Channel select input" id="SD16INCH_1" token="SD16INCH_1" value="1"></bitenum>
+<bitenum description="SD16 Input Channel select input" id="SD16INCH_2" token="SD16INCH_2" value="2"></bitenum>
+<bitenum description="SD16 Input Channel select input" id="SD16INCH_3" token="SD16INCH_3" value="3"></bitenum>
+<bitenum description="SD16 Input Channel select input" id="SD16INCH_4" token="SD16INCH_4" value="4"></bitenum>
+<bitenum description="SD16 Input Channel select Vcc divider" id="SD16INCH_5" token="SD16INCH_5" value="5"></bitenum>
+<bitenum description="SD16 Input Channel select Temp" id="SD16INCH_6" token="SD16INCH_6" value="6"></bitenum>
+<bitenum description="SD16 Input Channel select Offset" id="SD16INCH_7" token="SD16INCH_7" value="7"></bitenum></bitfield>
+<bitfield begin="3" description="SD16 Input Pre-Amplifier Gain Select 0" end="3" id="SD16GAIN0" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="4" description="SD16 Input Pre-Amplifier Gain Select 1" end="4" id="SD16GAIN1" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="5" description="SD16 Input Pre-Amplifier Gain Select 2" end="5" id="SD16GAIN2" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="7" description="SD16 Interrupt Delay after 1.Conversion 0" end="6" id="SD16INTDLY" range="" resetval="0" rwaccess="RW" width="2">
+<bitenum description="SD16 Interrupt Delay: Int. after 4.Conversion" id="SD16INTDLY_0" token="SD16INTDLY_0" value="0"></bitenum>
+<bitenum description="SD16 Interrupt Delay: Int. after 3.Conversion" id="SD16INTDLY_1" token="SD16INTDLY_1" value="1"></bitenum>
+<bitenum description="SD16 Interrupt Delay: Int. after 2.Conversion" id="SD16INTDLY_2" token="SD16INTDLY_2" value="2"></bitenum>
+<bitenum description="SD16 Interrupt Delay: Int. after 1.Conversion" id="SD16INTDLY_3" token="SD16INTDLY_3" value="3"></bitenum></bitfield></register>
+<register acronym="SD16INCTL2" description="SD16 Input Control Register Channel 2" id="SD16INCTL2" offset=" 0x00B2" width="8">
+<bitfield begin="2" description="SD16 Input Channel select 0" end="0" id="SD16INCH" range="" resetval="0" rwaccess="RW" width="3">
+<bitenum description="SD16 Input Channel select input" id="SD16INCH_0" token="SD16INCH_0" value="0"></bitenum>
+<bitenum description="SD16 Input Channel select input" id="SD16INCH_1" token="SD16INCH_1" value="1"></bitenum>
+<bitenum description="SD16 Input Channel select input" id="SD16INCH_2" token="SD16INCH_2" value="2"></bitenum>
+<bitenum description="SD16 Input Channel select input" id="SD16INCH_3" token="SD16INCH_3" value="3"></bitenum>
+<bitenum description="SD16 Input Channel select input" id="SD16INCH_4" token="SD16INCH_4" value="4"></bitenum>
+<bitenum description="SD16 Input Channel select Vcc divider" id="SD16INCH_5" token="SD16INCH_5" value="5"></bitenum>
+<bitenum description="SD16 Input Channel select Temp" id="SD16INCH_6" token="SD16INCH_6" value="6"></bitenum>
+<bitenum description="SD16 Input Channel select Offset" id="SD16INCH_7" token="SD16INCH_7" value="7"></bitenum></bitfield>
+<bitfield begin="3" description="SD16 Input Pre-Amplifier Gain Select 0" end="3" id="SD16GAIN0" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="4" description="SD16 Input Pre-Amplifier Gain Select 1" end="4" id="SD16GAIN1" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="5" description="SD16 Input Pre-Amplifier Gain Select 2" end="5" id="SD16GAIN2" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="7" description="SD16 Interrupt Delay after 1.Conversion 0" end="6" id="SD16INTDLY" range="" resetval="0" rwaccess="RW" width="2">
+<bitenum description="SD16 Interrupt Delay: Int. after 4.Conversion" id="SD16INTDLY_0" token="SD16INTDLY_0" value="0"></bitenum>
+<bitenum description="SD16 Interrupt Delay: Int. after 3.Conversion" id="SD16INTDLY_1" token="SD16INTDLY_1" value="1"></bitenum>
+<bitenum description="SD16 Interrupt Delay: Int. after 2.Conversion" id="SD16INTDLY_2" token="SD16INTDLY_2" value="2"></bitenum>
+<bitenum description="SD16 Interrupt Delay: Int. after 1.Conversion" id="SD16INTDLY_3" token="SD16INTDLY_3" value="3"></bitenum></bitfield></register>
+<register acronym="SD16PRE0" description="SD16 Preload Register Channel 0" id="SD16PRE0" offset=" 0x00B8" width="8"></register>
+<register acronym="SD16PRE1" description="SD16 Preload Register Channel 1" id="SD16PRE1" offset=" 0x00B9" width="8"></register>
+<register acronym="SD16PRE2" description="SD16 Preload Register Channel 2" id="SD16PRE2" offset=" 0x00BA" width="8"></register>
+<register acronym="SD16CTL" description="Sigma Delta ADC 16 Control Register" id="SD16CTL" offset=" 0x0100" width="16">
+<bitfield begin="1" description="SD16 Overflow Interupt Enable" end="1" id="SD16OVIE" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="2" description="SD16 Switch internal Reference on" end="2" id="SD16REFON" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="3" description="SD16 Switch Vmid Buffer on" end="3" id="SD16VMIDON" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="5" description="SD16 Clock Source Select 0" end="4" id="SD16SSEL" range="" resetval="0" rwaccess="RW" width="2">
+<bitenum description="SD16 Clock Source Select MCLK" id="SD16SSEL_0" token="SD16SSEL_0" value="0"></bitenum>
+<bitenum description="SD16 Clock Source Select SMCLK" id="SD16SSEL_1" token="SD16SSEL_1" value="1"></bitenum>
+<bitenum description="SD16 Clock Source Select ACLK" id="SD16SSEL_2" token="SD16SSEL_2" value="2"></bitenum>
+<bitenum description="SD16 Clock Source Select TACLK" id="SD16SSEL_3" token="SD16SSEL_3" value="3"></bitenum></bitfield>
+<bitfield begin="7" description="SD16 Clock Divider Select 0" end="6" id="SD16DIV" range="" resetval="0" rwaccess="RW" width="2">
+<bitenum description="SD16 Clock Divider Select /1" id="SD16DIV_0" token="SD16DIV_0" value="0"></bitenum>
+<bitenum description="SD16 Clock Divider Select /2" id="SD16DIV_1" token="SD16DIV_1" value="1"></bitenum>
+<bitenum description="SD16 Clock Divider Select /4" id="SD16DIV_2" token="SD16DIV_2" value="2"></bitenum>
+<bitenum description="SD16 Clock Divider Select /8" id="SD16DIV_3" token="SD16DIV_3" value="3"></bitenum></bitfield>
+<bitfield begin="8" description="SD16 Low Power Mode Enable" end="8" id="SD16LP" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="11" description="SD16 2.Clock Divider Select 0" end="9" id="SD16XDIV" range="" resetval="0" rwaccess="RW" width="3">
+<bitenum description="SD16 2.Clock Divider Select /1" id="SD16XDIV_0" token="SD16XDIV_0" value="0"></bitenum>
+<bitenum description="SD16 2.Clock Divider Select /3" id="SD16XDIV_1" token="SD16XDIV_1" value="1"></bitenum>
+<bitenum description="SD16 2.Clock Divider Select /16" id="SD16XDIV_2" token="SD16XDIV_2" value="2"></bitenum>
+<bitenum description="SD16 2.Clock Divider Select /48" id="SD16XDIV_3" token="SD16XDIV_3" value="3"></bitenum></bitfield></register>
+<register acronym="SD16CCTL0" description="SD16 Channel 0 Control Register" id="SD16CCTL0" offset=" 0x0102" width="16">
+<bitfield begin="0" description="SD16 Grouping of Channels: 0:Off/1:On" end="0" id="SD16GRP" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="1" description="SD16 Start Conversion" end="1" id="SD16SC" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="2" description="SD16 Channel x Interrupt Flag" end="2" id="SD16IFG" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="3" description="SD16 Channel x Interrupt Enable" end="3" id="SD16IE" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="4" description="SD16 Channel x Data Format: 0:Unipolar/1:Bipolar" end="4" id="SD16DF" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="5" description="SD16 Channel x Overflow Interrupt Flag" end="5" id="SD16OVIFG" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="6" description="SD16 Channel x Access LSB of ADC" end="6" id="SD16LSBACC" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="7" description="SD16 Channel x Toggle LSB Output of ADC" end="7" id="SD16LSBTOG" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="8" description="SD16 Channel x OverSampling Ratio 0" end="8" id="SD16OSR0" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="9" description="SD16 Channel x OverSampling Ratio 1" end="9" id="SD16OSR1" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="10" description="SD16 Channel x Single Conversion On/Off" end="10" id="SD16SNGL" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="11" description="SD16 Channel x Extended OverSampling Ratio" end="11" id="SD16XOSR" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="12" description="SD16 Channel x Bipolar(0) / Unipolar(1) Mode" end="12" id="SD16UNI" range="" resetval="0" rwaccess="RW" width="1"></bitfield></register>
+<register acronym="SD16CCTL1" description="SD16 Channel 1 Control Register" id="SD16CCTL1" offset=" 0x0104" width="16">
+<bitfield begin="0" description="SD16 Grouping of Channels: 0:Off/1:On" end="0" id="SD16GRP" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="1" description="SD16 Start Conversion" end="1" id="SD16SC" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="2" description="SD16 Channel x Interrupt Flag" end="2" id="SD16IFG" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="3" description="SD16 Channel x Interrupt Enable" end="3" id="SD16IE" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="4" description="SD16 Channel x Data Format: 0:Unipolar/1:Bipolar" end="4" id="SD16DF" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="5" description="SD16 Channel x Overflow Interrupt Flag" end="5" id="SD16OVIFG" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="6" description="SD16 Channel x Access LSB of ADC" end="6" id="SD16LSBACC" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="7" description="SD16 Channel x Toggle LSB Output of ADC" end="7" id="SD16LSBTOG" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="8" description="SD16 Channel x OverSampling Ratio 0" end="8" id="SD16OSR0" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="9" description="SD16 Channel x OverSampling Ratio 1" end="9" id="SD16OSR1" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="10" description="SD16 Channel x Single Conversion On/Off" end="10" id="SD16SNGL" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="11" description="SD16 Channel x Extended OverSampling Ratio" end="11" id="SD16XOSR" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="12" description="SD16 Channel x Bipolar(0) / Unipolar(1) Mode" end="12" id="SD16UNI" range="" resetval="0" rwaccess="RW" width="1"></bitfield></register>
+<register acronym="SD16CCTL2" description="SD16 Channel 2 Control Register" id="SD16CCTL2" offset=" 0x0106" width="16">
+<bitfield begin="0" description="SD16 Grouping of Channels: 0:Off/1:On" end="0" id="SD16GRP" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="1" description="SD16 Start Conversion" end="1" id="SD16SC" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="2" description="SD16 Channel x Interrupt Flag" end="2" id="SD16IFG" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="3" description="SD16 Channel x Interrupt Enable" end="3" id="SD16IE" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="4" description="SD16 Channel x Data Format: 0:Unipolar/1:Bipolar" end="4" id="SD16DF" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="5" description="SD16 Channel x Overflow Interrupt Flag" end="5" id="SD16OVIFG" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="6" description="SD16 Channel x Access LSB of ADC" end="6" id="SD16LSBACC" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="7" description="SD16 Channel x Toggle LSB Output of ADC" end="7" id="SD16LSBTOG" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="8" description="SD16 Channel x OverSampling Ratio 0" end="8" id="SD16OSR0" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="9" description="SD16 Channel x OverSampling Ratio 1" end="9" id="SD16OSR1" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="10" description="SD16 Channel x Single Conversion On/Off" end="10" id="SD16SNGL" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="11" description="SD16 Channel x Extended OverSampling Ratio" end="11" id="SD16XOSR" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="12" description="SD16 Channel x Bipolar(0) / Unipolar(1) Mode" end="12" id="SD16UNI" range="" resetval="0" rwaccess="RW" width="1"></bitfield></register>
+<register acronym="SD16IV" description="SD16 Interrupt Vector Register" id="SD16IV" offset=" 0x01AE" width="16"></register>
+<register acronym="SD16MEM0" description="SD16 Channel 0 Conversion Memory" id="SD16MEM0" offset=" 0x0110" width="16"></register>
+<register acronym="SD16MEM1" description="SD16 Channel 1 Conversion Memory" id="SD16MEM1" offset=" 0x0112" width="16"></register>
+<register acronym="SD16MEM2" description="SD16 Channel 2 Conversion Memory" id="SD16MEM2" offset=" 0x0114" width="16"></register>
+</module>

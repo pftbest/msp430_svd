@@ -1,0 +1,43 @@
+<device HW_revision="1.0" XML_version="1.0" description="MSP430C325" id="MSP430C325" partnum="MSP430C325">
+
+<property Type="stringfield" Value="MSP430x3xx Family" id="FilterString"></property>
+<property Type="stringfield" Value="-lc -lgcc -L ${CCS_BASE_ROOT}/msp430/include_gcc " id="GNULinkerBuildOptions"></property>
+<property Type="stringfield" Value="../include_gcc/msp430c325.ld" id="GNUFilesToCopy"></property>
+<property Type="stringfield" Value="-D=__MSP430C325__   --use_hw_mpy=none" id="CompilerBuildOptions"></property>
+<property Type="stringfield" Value="-mmcu=msp430c325 -I${CCS_BASE_ROOT}/msp430/include_gcc -Os -mhwmult=none" id="GNUCompilerBuildOptions"></property>
+<property Type="stringfield" Value=" --use_hw_mpy=none" id="LinkerBuildOptions"></property>
+<property Type="numericfield" Value="80" id="HeapDefaultSize"></property>
+<property Type="stringfield" Value="minimal" id="PrintfDefault_support"></property>
+<property Type="numericfield" Value="80" id="StackDefaultSize"></property>
+<property Type="numericfield" Value="0" id="breakpoints"></property>
+<property Type="stringfield" Value="NONE" id="clockcontrol"></property>
+<property Type="stringfield" Value="MSP430" id="cpu_family"></property>
+<property Type="stringfield" Value="NONE" id="eem"></property>
+<property Type="numericfield" Value="0" id="hw_mpy"></property>
+<property Type="stringfield" Value="true" id="IsElfDefault"></property>
+<property Type="numericfield" Value="3300" id="target_vcc_default"></property>
+<property Type="numericfield" Value="1" id="jtag"></property>
+<property Type="stringfield" Value="true" id="Make Device Secure"></property>
+<property Type="numericfield" Value="0" id="spybiwire"></property>
+<property Type="numericfield" Value="0" id="cycleCounter"></property>
+<property Type="stringfield" Value="0xFFE0" id="iv_base"></property>
+<property Type="stringfield" Value="false" id="supportINFOMemory"></property>
+<property Type="stringfield" Value="com.ti.ccstudio.project.templates.blink_msp430:templates/msp430_noport1/blink.c;" id="TemplateFileOverrides"></property>
+<property Type="stringfield" Value="-romwidth=8 -memwidth=8" id="HexBuildOptions"></property>
+
+
+<instance desc="MSP430" href="../cpus/MSP430.xml" id="MSP430" xml="MSP430.xml" xmlpath="../cpus/"></instance>
+<cpu HW_revision="1.0" XML_version="2.0" description="MSP430 CPU" id="MSP430" isa="MSP430">
+
+<instance HW_revision="1.0" accessnumbytes="2" baseaddr="0x0000" description="" href="../Modules/msp430/Special_Function_4.xml" id="Special_Function" permissions="p" requestor="MSP430" size="10" xml="Special_Function_4.xml" xmlpath="../Modules/msp430/"></instance>
+<instance HW_revision="1.0" accessnumbytes="2" baseaddr="0x0000" description="" href="../Modules/msp430/Watchdog_Timer_1.xml" id="Watchdog_Timer" permissions="p" requestor="MSP430" size="10" xml="Watchdog_Timer_1.xml" xmlpath="../Modules/msp430/"></instance>
+<instance HW_revision="1.0" accessnumbytes="2" baseaddr="0x0000" description="" href="../Modules/msp430/Port_0_1.xml" id="Port_0" permissions="p" requestor="MSP430" size="10" xml="Port_0_1.xml" xmlpath="../Modules/msp430/"></instance>
+<instance HW_revision="1.0" accessnumbytes="2" baseaddr="0x0000" description="" href="../Modules/msp430/LCD_1.xml" id="LCD" permissions="p" requestor="MSP430" size="10" xml="LCD_1.xml" xmlpath="../Modules/msp430/"></instance>
+<instance HW_revision="1.0" accessnumbytes="2" baseaddr="0x0000" description="" href="../Modules/msp430/Basic_Timer_1.xml" id="Basic_Timer" permissions="p" requestor="MSP430" size="10" xml="Basic_Timer_1.xml" xmlpath="../Modules/msp430/"></instance>
+<instance HW_revision="1.0" accessnumbytes="2" baseaddr="0x0000" description="" href="../Modules/msp430/System_Clock_2.xml" id="System_Clock" permissions="p" requestor="MSP430" size="10" xml="System_Clock_2.xml" xmlpath="../Modules/msp430/"></instance>
+<instance HW_revision="1.0" accessnumbytes="2" baseaddr="0x0000" description="" href="../Modules/msp430/8BIT_TIMER_COUNTER_1.xml" id="8BIT_TIMER_COUNTER" permissions="p" requestor="MSP430" size="10" xml="8BIT_TIMER_COUNTER_1.xml" xmlpath="../Modules/msp430/"></instance>
+<instance HW_revision="1.0" accessnumbytes="2" baseaddr="0x0000" description="" href="../Modules/msp430/Timer_Port_1.xml" id="Timer_Port" permissions="p" requestor="MSP430" size="10" xml="Timer_Port_1.xml" xmlpath="../Modules/msp430/"></instance>
+<instance HW_revision="1.0" accessnumbytes="2" baseaddr="0x0000" description="" href="../Modules/msp430/ADC_1.xml" id="ADC" permissions="p" requestor="MSP430" size="10" xml="ADC_1.xml" xmlpath="../Modules/msp430/"></instance>
+<instance HW_revision="1.0" accessnumbytes="2" baseaddr="0x0000" description="" href="../Modules/msp430/EPROM_1.xml" id="EPROM" permissions="p" requestor="MSP430" size="10" xml="EPROM_1.xml" xmlpath="../Modules/msp430/"></instance>
+<instance HW_revision="1.0" accessnumbytes="4" baseaddr="0x0000" description="" href="../Modules/msp430/MSP430_NotVisible.xml" id="" permissions="p" requestor="MSP430" size="00" xml="MSP430_NotVisible.xml" xmlpath="../Modules/msp430/"></instance>
+</cpu></device>

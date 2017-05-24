@@ -1,0 +1,62 @@
+<module HW_revision="" XML_version="1" description="SD14 Module" id="SD14 Module">
+<register acronym="SD14CTL0" description="SD14 Control Register 0" id="SD14CTL0" offset=" 0x0700" width="16">
+<bitfield begin="0" description="SD14 Module enable" end="0" id="SD14EN" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="2" description="SD14 Enable transmission of uplink" end="2" id="SD14SC" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="3" description="SD14 Conversion mode select" end="3" id="SD14SGL" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="5" description="SD14 Sigma-Delta Clock source Bit: 0" end="4" id="SD14SSEL" range="" resetval="0" rwaccess="RW" width="2">
+<bitenum description="SD14 Sigma-Delta Clock select: 0" id="SD14SSEL_0" token="SD14SSEL_0" value="0"></bitenum>
+<bitenum description="SD14 Sigma-Delta Clock select: 1" id="SD14SSEL_1" token="SD14SSEL_1" value="1"></bitenum>
+<bitenum description="SD14 Sigma-Delta Clock select: 2" id="SD14SSEL_2" token="SD14SSEL_2" value="2"></bitenum>
+<bitenum description="SD14 Sigma-Delta Clock select: 3" id="SD14SSEL_3" token="SD14SSEL_3" value="3"></bitenum></bitfield>
+<bitfield begin="7" description="SD14 Sigma-Delta Clock divider Bit: 0" end="6" id="SD14DIV" range="" resetval="0" rwaccess="RW" width="2">
+<bitenum description="SD14 Sigma-Delta Clock divider select: 0" id="SD14DIV_0" token="SD14DIV_0" value="0"></bitenum>
+<bitenum description="SD14 Sigma-Delta Clock divider select: 1" id="SD14DIV_1" token="SD14DIV_1" value="1"></bitenum>
+<bitenum description="SD14 Sigma-Delta Clock divider select: 2" id="SD14DIV_2" token="SD14DIV_2" value="2"></bitenum>
+<bitenum description="SD14 Sigma-Delta Clock divider select: 3" id="SD14DIV_3" token="SD14DIV_3" value="3"></bitenum></bitfield>
+<bitfield begin="8" description="SD14 interrupt enable" end="8" id="SD14IE" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="9" description="SD14 interrupt flag" end="9" id="SD14IFG" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="10" description="SD14 overflow interrupt enable" end="10" id="SD14OVIE" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="11" description="SD14 overflow interrupt flag" end="11" id="SD14OVIFG" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="12" description="Defines virtual ground" end="12" id="VIRTGND" range="" resetval="0" rwaccess="RW" width="1"></bitfield></register>
+<register acronym="SD14CTL1" description="SD14 Control Register 1" id="SD14CTL1" offset=" 0x0702" width="16">
+<bitfield begin="2" description="SD14 channel input selection Bit: 0" end="0" id="SD14INCH" range="" resetval="0" rwaccess="RW" width="3">
+<bitenum description="SD14 channel input select: 0" id="SD14INCH_0" token="SD14INCH_0" value="0"></bitenum>
+<bitenum description="SD14 channel input select: 1" id="SD14INCH_1" token="SD14INCH_1" value="1"></bitenum>
+<bitenum description="SD14 channel input select: 2" id="SD14INCH_2" token="SD14INCH_2" value="2"></bitenum>
+<bitenum description="SD14 channel input select: 3" id="SD14INCH_3" token="SD14INCH_3" value="3"></bitenum>
+<bitenum description="SD14 channel input select: 4" id="SD14INCH_4" token="SD14INCH_4" value="4"></bitenum>
+<bitenum description="SD14 channel input select: 5" id="SD14INCH_5" token="SD14INCH_5" value="5"></bitenum>
+<bitenum description="SD14 channel input select: 6" id="SD14INCH_6" token="SD14INCH_6" value="6"></bitenum>
+<bitenum description="SD14 channel input select: 7" id="SD14INCH_7" token="SD14INCH_7" value="7"></bitenum></bitfield>
+<bitfield begin="4" description="SD14 preamplifier gain Bit: 0" end="3" id="SD14GAIN" range="" resetval="0" rwaccess="RW" width="2">
+<bitenum description="SD14 preamplifier gain select: 0" id="SD14GAIN_0" token="SD14GAIN_0" value="0"></bitenum>
+<bitenum description="SD14 preamplifier gain select: 1" id="SD14GAIN_1" token="SD14GAIN_1" value="1"></bitenum>
+<bitenum description="SD14 preamplifier gain select: 2" id="SD14GAIN_2" token="SD14GAIN_2" value="2"></bitenum>
+<bitenum description="SD14 preamplifier gain select: 3" id="SD14GAIN_3" token="SD14GAIN_3" value="3"></bitenum></bitfield>
+<bitfield begin="7" description="SD14 Interrupt delay Bit: 0" end="6" id="SD14INTDLY" range="" resetval="0" rwaccess="RW" width="2">
+<bitenum description="SD14 Interrupt delay select: 0" id="SD14INTDLY_0" token="SD14INTDLY_0" value="0"></bitenum>
+<bitenum description="SD14 Interrupt delay select: 1" id="SD14INTDLY_1" token="SD14INTDLY_1" value="1"></bitenum>
+<bitenum description="SD14 Interrupt delay select: 2" id="SD14INTDLY_2" token="SD14INTDLY_2" value="2"></bitenum>
+<bitenum description="SD14 Interrupt delay select: 3" id="SD14INTDLY_3" token="SD14INTDLY_3" value="3"></bitenum></bitfield>
+<bitfield begin="8" description="SD14 digital filter selection" end="8" id="SD14FILT" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="11" description="SD14 rate change factor selection Bit: 0" end="9" id="SD14RATE" range="" resetval="0" rwaccess="RW" width="3">
+<bitenum description="SD14 rate change factor: 0" id="SD14RATE_0" token="SD14RATE_0" value="0"></bitenum>
+<bitenum description="SD14 rate change factor: 1" id="SD14RATE_1" token="SD14RATE_1" value="1"></bitenum>
+<bitenum description="SD14 rate change factor: 2" id="SD14RATE_2" token="SD14RATE_2" value="2"></bitenum>
+<bitenum description="SD14 rate change factor: 3" id="SD14RATE_3" token="SD14RATE_3" value="3"></bitenum>
+<bitenum description="SD14 rate change factor: 4" id="SD14RATE_4" token="SD14RATE_4" value="4"></bitenum>
+<bitenum description="SD14 rate change factor: 5" id="SD14RATE_5" token="SD14RATE_5" value="5"></bitenum>
+<bitenum description="SD14 rate change factor: 6" id="SD14RATE_6" token="SD14RATE_6" value="6"></bitenum>
+<bitenum description="SD14 rate change factor: 7" id="SD14RATE_7" token="SD14RATE_7" value="7"></bitenum></bitfield>
+<bitfield begin="12" description="SD14 Unipolar format enable Bit: 0" end="12" id="SD14UNI" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="13" description="SD14 Two's complement format enable Bit: 0" end="13" id="SD14TC" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="14" description="SD14 Resistive bias on TEMP1 enable" end="14" id="SD14RBEN0" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="15" description="SD14 Resistive bias on TEMP2 enable" end="15" id="SD14RBEN1" range="" resetval="0" rwaccess="RW" width="1"></bitfield></register>
+<register acronym="SD14MEM0" description="SD14 Conversion Result" id="SD14MEM0" offset=" 0x0704" width="16"></register>
+<register acronym="SD14MEM1" description="SD14 Intermediate Conversion Result" id="SD14MEM1" offset=" 0x0706" width="16"></register>
+<register acronym="SD14MEM2" description="SD14 Intermediate Conversion Result" id="SD14MEM2" offset=" 0x0708" width="16"></register>
+<register acronym="SD14MEM3" description="SD14 Intermediate Conversion Result" id="SD14MEM3" offset=" 0x070A" width="16"></register>
+<register acronym="SD14IV" description="SD14 Interrupt Vector" id="SD14IV" offset=" 0x070C" width="16">
+<bitfield begin="1" description="SD14IV Interrupt vector value bit: 0" end="1" id="SD14IV0" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="2" description="SD14IV Interrupt vector value bit: 1" end="2" id="SD14IV1" range="" resetval="0" rwaccess="RW" width="1"></bitfield></register>
+</module>

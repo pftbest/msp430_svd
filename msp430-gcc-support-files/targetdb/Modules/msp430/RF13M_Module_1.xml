@@ -1,0 +1,42 @@
+<module HW_revision="" XML_version="1" description="RF13M Module" id="RF13M Module">
+<register acronym="RF13MCTL" description="RF13M Control register" id="RF13MCTL" offset=" 0x0800" width="16">
+<bitfield begin="0" description="RF13M Enable reception of downlink" end="0" id="RF13MRXEN" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="1" description="RF13M Enable transmission of uplink" end="1" id="RF13MTXEN" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="2" description="RF13M Enable RF Field timeout detection" end="2" id="RF13MRFTOEN" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="4" description="RF13M Manually select uplink subcarrier setting" end="4" id="RF13MSC" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="5" description="RF13M Manually select uplink data rate" end="5" id="RF13MDR" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="7" description="RF13M Enable manual configuration of ISO15693 uplink parameters" end="7" id="RF13MMCFG" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="8" description="RF13M CRC valued correct or not flag" end="8" id="RF13MCRCOK" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="9" description="RF13M Indicates if a HF field was detected since last readout" end="9" id="RF13MHFD" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="13" description="RF13M Gate RX interrupt with CRC OK" end="13" id="RF13MRXIWOC" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="14" description="RF13M Select between big or little endian mode" end="14" id="RF13MBE" range="" resetval="0" rwaccess="RW" width="1"></bitfield></register>
+<register acronym="RF13MINT" description="RF13M Interrupt Enable/Flag register" id="RF13MINT" offset=" 0x0802" width="16">
+<bitfield begin="0" description="RF13M Receive downlink done interrupt flag" end="0" id="RF13MRXIFG" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="1" description="RF13M Uplink transmission done interrupt flag" end="1" id="RF13MTXIFG" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="2" description="RF13M RX FIFO high watermark reached interrupt flag" end="2" id="RF13MRXWMIFG" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="3" description="RF13M TX FIFO low watermark reached interrupt flag" end="3" id="RF13MTXWMIFG" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="4" description="RF13M RX Slot marker interrupt flag" end="4" id="RF13MSLIFG" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="5" description="RF13M Over-/Under-flow condition detected" end="5" id="RF13MOUFLIFG" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="6" description="RF13M RX Error detected" end="6" id="RF13MRXEIFG" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="7" description="RF13M RF Timeout detected" end="7" id="RF13MRFTOIFG" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="8" description="RF13M RX done interrupt enable" end="8" id="RF13MRXIE" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="9" description="RF13M TX done interrupt enable" end="9" id="RF13MTXIE" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="10" description="RF13M RX FIFO high watermark interrupt enable" end="10" id="RF13MRXWMIE" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="11" description="RF13M TX FIFO low watermark interrupt enable" end="11" id="RF13MTXWMIE" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="12" description="RF13M ISO15693 Slot marker interrupt enable" end="12" id="RF13MSLIE" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="13" description="RF13M Over-/Under-flow interrupt enable" end="13" id="RX13MOUFLIE" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="14" description="RF13M RX Error interrupt enable" end="14" id="RX13MRXEIE" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="15" description="RF13M RF Timeout detected interrupt enable" end="15" id="RX13MRFTOIE" range="" resetval="0" rwaccess="RW" width="1"></bitfield></register>
+<register acronym="RF13MIV" description="RF13M Interrupt Vector register" id="RF13MIV" offset=" 0x0804" width="16">
+<bitfield begin="1" description="RF13M Interrupt vector value bit: 0" end="1" id="RF13MIV0" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="2" description="RF13M Interrupt vector value bit: 1" end="2" id="RF13MIV1" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="3" description="RF13M Interrupt vector value bit: 2" end="3" id="RF13MIV2" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="4" description="RF13M Interrupt vector value bit: 3" end="4" id="RF13MIV3" range="" resetval="0" rwaccess="RW" width="1"></bitfield></register>
+<register acronym="RF13MRXF" description="RF13M Receive Data FIFO register" id="RF13MRXF" offset=" 0x0806" width="16"></register>
+<register acronym="RF13MTXF" description="RF13M Transmit Data FIFO register" id="RF13MTXF" offset=" 0x0808" width="16"></register>
+<register acronym="RF13MCRC" description="RF13M CRC accumulator register" id="RF13MCRC" offset=" 0x080A" width="16"></register>
+<register acronym="RF13MFIFOFL" description="RF13M Receive/Transmit Data FIFO Fill Level register" id="RF13MFIFOFL" offset=" 0x080C" width="16"></register>
+<register acronym="RF13MWMCFG" description="RF13M Receive High/Transmit Low Watermark configuration register" id="RF13MWMCFG" offset=" 0x080E" width="16"></register>
+<register acronym="RF13MRXBUF" description="RF13M Receive data buffer" id="RF13MRXBUF" offset=" 0x0820" width="16"></register>
+<register acronym="RF13MTXBUF" description="RF13M Transmit data buffer" id="RF13MTXBUF" offset=" 0x0840" width="16"></register>
+</module>

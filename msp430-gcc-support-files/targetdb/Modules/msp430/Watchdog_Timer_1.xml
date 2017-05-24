@@ -1,0 +1,11 @@
+<module HW_revision="" XML_version="1" description="Watchdog Timer" id="Watchdog Timer">
+<register acronym="WDTCTL" description="Watchdog Timer Control" id="WDTCTL" offset=" 0x0120" width="16">
+<bitfield begin="0" description="WDTIS0" end="0" id="WDTIS0" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="1" description="WDTIS1" end="1" id="WDTIS1" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="2" description="WDTSSEL" end="2" id="WDTSSEL" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="3" description="WDTCNTCL" end="3" id="WDTCNTCL" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="4" description="WDTTMSEL" end="4" id="WDTTMSEL" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="5" description="WDTNMI" end="5" id="WDTNMI" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="6" description="WDTNMIES" end="6" id="WDTNMIES" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="7" description="WDTHOLD" end="7" id="WDTHOLD" range="" resetval="0" rwaccess="RW" width="1"></bitfield></register>
+</module>

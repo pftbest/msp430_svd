@@ -1,0 +1,34 @@
+<module HW_revision="" XML_version="1" description="UART" id="UART">
+<register acronym="UCTL" description="USART Control" id="UCTL" offset=" 0x0070" width="8">
+<bitfield begin="0" description="SWRST" end="0" id="SWRST" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="1" description="MM" end="1" id="MM" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="2" description="SYNC" end="2" id="SYNC" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="3" description="LISTEN" end="3" id="LISTEN" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="4" description="CHAR" end="4" id="CHAR" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="5" description="to distinguish from stackpointer SP" end="5" id="SPB" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="6" description="PEV" end="6" id="PEV" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="7" description="UCTL" end="7" id="PENA" range="" resetval="0" rwaccess="RW" width="1"></bitfield></register>
+<register acronym="UTCTL" description="USART Transmit Control" id="UTCTL" offset=" 0x0071" width="8">
+<bitfield begin="0" description="TXEPT" end="0" id="TXEPT" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="1" description="STC" end="1" id="STC" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="2" description="TXWAKE" end="2" id="TXWAKE" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="3" description="URXSE" end="3" id="URXSE" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="4" description="SSEL0" end="4" id="SSEL0" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="5" description="SSEL1" end="5" id="SSEL1" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="6" description="CKPL" end="6" id="CKPL" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="7" description="UTCTL" end="7" id="CKPH" range="" resetval="0" rwaccess="RW" width="1"></bitfield></register>
+<register acronym="URCTL" description="USART Receive Control" id="URCTL" offset=" 0x0072" width="8">
+<bitfield begin="0" description="RXERR" end="0" id="RXERR" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="1" description="RXWAKE" end="1" id="RXWAKE" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="2" description="URXWIE" end="2" id="URXWIE" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="3" description="URXEIE" end="3" id="URXEIE" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="4" description="BRK" end="4" id="BRK" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="5" description="OE" end="5" id="OE" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="6" description="PE" end="6" id="PE" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="7" description="URCTL" end="7" id="FE" range="" resetval="0" rwaccess="RW" width="1"></bitfield></register>
+<register acronym="UMCTL" description="USART Modulation Control" id="UMCTL" offset=" 0x0073" width="8"></register>
+<register acronym="UBR0" description="USART Baud Rate 0" id="UBR0" offset=" 0x0074" width="8"></register>
+<register acronym="UBR1" description="USART Buad Rate 1" id="UBR1" offset=" 0x0075" width="8"></register>
+<register acronym="RXBUF" description="USART Receive Buffer" id="RXBUF" offset=" 0x0076" width="8"></register>
+<register acronym="TXBUF" description="USART Transmit Buffer" id="TXBUF" offset=" 0x0077" width="8"></register>
+</module>

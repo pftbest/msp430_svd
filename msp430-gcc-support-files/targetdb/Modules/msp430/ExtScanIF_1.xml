@@ -1,0 +1,1740 @@
+<module HW_revision="" XML_version="1" description="ExtScanIF" id="ExtScanIF">
+<register acronym="ESIDEBUG1" description="ESI debug register 1" id="ESIDEBUG1" offset=" 0x0D00" width="16"></register>
+<register acronym="ESIDEBUG2" description="ESI debug register 2" id="ESIDEBUG2" offset=" 0x0D02" width="16"></register>
+<register acronym="ESIDEBUG3" description="ESI debug register 3" id="ESIDEBUG3" offset=" 0x0D04" width="16"></register>
+<register acronym="ESIDEBUG4" description="ESI debug register 4" id="ESIDEBUG4" offset=" 0x0D06" width="16"></register>
+<register acronym="ESIDEBUG5" description="ESI debug register 5" id="ESIDEBUG5" offset=" 0x0D08" width="16"></register>
+<register acronym="ESICNT0" description="ESI PSM counter 0" id="ESICNT0" offset=" 0x0D10" width="16"></register>
+<register acronym="ESICNT1" description="ESI PSM counter 1" id="ESICNT1" offset=" 0x0D12" width="16"></register>
+<register acronym="ESICNT2" description="ESI PSM counter 2" id="ESICNT2" offset=" 0x0D14" width="16"></register>
+<register acronym="ESICNT3" description="ESI oscillator counter register" id="ESICNT3" offset=" 0x0D16" width="16"></register>
+<register acronym="ESIIV" description="ESI interrupt vector" id="ESIIV" offset=" 0x0D1A" width="16"></register>
+<register acronym="ESIINT1" description="ESI interrupt register 1" id="ESIINT1" offset=" 0x0D1C" width="16">
+<bitfield begin="0" description="Interrupt enable" end="0" id="ESIIE0" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="1" description="Interrupt enable" end="1" id="ESIIE1" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="2" description="Interrupt enable" end="2" id="ESIIE2" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="3" description="Interrupt enable" end="3" id="ESIIE3" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="4" description="Interrupt enable" end="4" id="ESIIE4" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="5" description="Interrupt enable" end="5" id="ESIIE5" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="6" description="Interrupt enable" end="6" id="ESIIE6" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="7" description="Interrupt enable" end="7" id="ESIIE7" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="8" description="Interrupt enable" end="8" id="ESIIE8" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="12" description="ESIIFG0 interrupt flag source" end="10" id="ESIIFGSET1" range="" resetval="0" rwaccess="RW" width="3">
+<bitenum description="ESIIFG0 is set when ESIOUT0 is set" id="ESIIFGSET1_0" token="ESIIFGSET1_0" value="0"></bitenum>
+<bitenum description="ESIIFG0 is set when ESIOUT0 is reset" id="ESIIFGSET1_1" token="ESIIFGSET1_1" value="1"></bitenum>
+<bitenum description="ESIIFG0 is set when ESIOUT1 is set" id="ESIIFGSET1_2" token="ESIIFGSET1_2" value="2"></bitenum>
+<bitenum description="ESIIFG0 is set when ESIOUT1 is reset" id="ESIIFGSET1_3" token="ESIIFGSET1_3" value="3"></bitenum>
+<bitenum description="ESIIFG0 is set when ESIOUT2 is set" id="ESIIFGSET1_4" token="ESIIFGSET1_4" value="4"></bitenum>
+<bitenum description="ESIIFG0 is set when ESIOUT2 is reset" id="ESIIFGSET1_5" token="ESIIFGSET1_5" value="5"></bitenum>
+<bitenum description="ESIIFG0 is set when ESIOUT3 is set" id="ESIIFGSET1_6" token="ESIIFGSET1_6" value="6"></bitenum>
+<bitenum description="ESIIFG0 is set when ESIOUT3 is reset" id="ESIIFGSET1_7" token="ESIIFGSET1_7" value="7"></bitenum></bitfield>
+<bitfield begin="15" description="ESIIFG8 interrupt flag source" end="13" id="ESIIFGSET2" range="" resetval="0" rwaccess="RW" width="3">
+<bitenum description="ESIIFG8 is set when ESIOUT4 is set" id="ESIIFGSET2_0" token="ESIIFGSET2_0" value="0"></bitenum>
+<bitenum description="ESIIFG8 is set when ESIOUT4 is reset" id="ESIIFGSET2_1" token="ESIIFGSET2_1" value="1"></bitenum>
+<bitenum description="ESIIFG8 is set when ESIOUT5 is set" id="ESIIFGSET2_2" token="ESIIFGSET2_2" value="2"></bitenum>
+<bitenum description="ESIIFG8 is set when ESIOUT5 is reset" id="ESIIFGSET2_3" token="ESIIFGSET2_3" value="3"></bitenum>
+<bitenum description="ESIIFG8 is set when ESIOUT6 is set" id="ESIIFGSET2_4" token="ESIIFGSET2_4" value="4"></bitenum>
+<bitenum description="ESIIFG8 is set when ESIOUT6 is reset" id="ESIIFGSET2_5" token="ESIIFGSET2_5" value="5"></bitenum>
+<bitenum description="ESIIFG8 is set when ESIOUT7 is set" id="ESIIFGSET2_6" token="ESIIFGSET2_6" value="6"></bitenum>
+<bitenum description="ESIIFG8 is set when ESIOUT7 is reset" id="ESIIFGSET2_7" token="ESIIFGSET2_7" value="7"></bitenum></bitfield></register>
+<register acronym="ESIINT2" description="ESI interrupt register 2" id="ESIINT2" offset=" 0x0D1E" width="16">
+<bitfield begin="0" description="ESIIFG0 interrupt pending" end="0" id="ESIIFG0" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="1" description="ESIIFG1 interrupt pending" end="1" id="ESIIFG1" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="2" description="ESIIFG2 interrupt pending" end="2" id="ESIIFG2" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="3" description="ESIIFG3 interrupt pending" end="3" id="ESIIFG3" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="4" description="ESIIFG4 interrupt pending" end="4" id="ESIIFG4" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="5" description="ESIIFG5 interrupt pending" end="5" id="ESIIFG5" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="6" description="ESIIFG6 interrupt pending" end="6" id="ESIIFG6" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="7" description="ESIIFG7 interrupt pending" end="7" id="ESIIFG7" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="8" description="ESIIFG8 interrupt pending" end="8" id="ESIIFG8" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="11" description="SIFIFG7 interrupt flag source" end="10" id="ESIIS0" range="" resetval="0" rwaccess="RW" width="2">
+<bitenum description="SIFIFG7 interrupt flag source: SIFCNT0" id="ESIIS0_0" token="ESIIS0_0" value="0"></bitenum>
+<bitenum description="SIFIFG7 interrupt flag source: SIFCNT0 MOD 4" id="ESIIS0_1" token="ESIIS0_1" value="1"></bitenum>
+<bitenum description="SIFIFG7 interrupt flag source: SIFCNT0 MOD 256" id="ESIIS0_2" token="ESIIS0_2" value="2"></bitenum>
+<bitenum description="SIFIFG7 interrupt flag source: SIFCNT0 increments from FFFFh to 00h" id="ESIIS0_3" token="ESIIS0_3" value="3"></bitenum></bitfield>
+<bitfield begin="14" description="SIFIFG4 interrupt flag source" end="13" id="ESIIS2" range="" resetval="0" rwaccess="RW" width="2">
+<bitenum description="SIFIFG4 interrupt flag source: SIFCNT2" id="ESIIS2_0" token="ESIIS2_0" value="0"></bitenum>
+<bitenum description="SIFIFG4 interrupt flag source: SIFCNT2 MOD 4" id="ESIIS2_1" token="ESIIS2_1" value="1"></bitenum>
+<bitenum description="SIFIFG4 interrupt flag source: SIFCNT2 MOD 256" id="ESIIS2_2" token="ESIIS2_2" value="2"></bitenum>
+<bitenum description="SIFIFG4 interrupt flag source: SIFCNT2 decrements from 01h to 00h" id="ESIIS2_3" token="ESIIS2_3" value="3"></bitenum></bitfield></register>
+<register acronym="ESIAFE" description="ESI AFE control register" id="ESIAFE" offset=" 0x0D20" width="16">
+<bitfield begin="0" description="Excitation enable" end="0" id="ESITEN" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="1" description="Sample-and-hold enable" end="1" id="ESISH" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="2" description="Mid-voltage generator" end="2" id="ESIVMIDEN" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="3" description="Sample-and-hold ESIVSS select" end="3" id="ESISHTSM" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="4" description="Comparator input select for AFE1 only" end="4" id="ESICACI3" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="5" description="Comparator input select for AFE1 only" end="5" id="ESICISEL" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="6" description="AFE1's comparator input select" end="6" id="ESICA1X" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="7" description="AFE2's comparator input select" end="7" id="ESICA2X" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="8" description="Invert AFE1's comparator output" end="8" id="ESICA1INV" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="9" description="Invert AFE2's comparator output" end="9" id="ESICA2INV" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="10" description="Enable ESICA(tsm) control for comparator in AFE2" end="10" id="ESICA2EN" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="11" description="Enable ESIDAC(tsm) control for DAC in AFE2" end="11" id="ESIDAC2EN" range="" resetval="0" rwaccess="RW" width="1"></bitfield></register>
+<register acronym="ESIPPU" description="ESI PPU control register" id="ESIPPU" offset=" 0x0D22" width="16">
+<bitfield begin="0" description="Latched AFE1 comparator output when ESICH0 input is selected" end="0" id="ESIOUT0" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="1" description="Latched AFE1 comparator output when ESICH1 input is selected" end="1" id="ESIOUT1" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="2" description="Latched AFE1 comparator output when ESICH2 input is selected" end="2" id="ESIOUT2" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="3" description="Latched AFE1 comparator output when ESICH3 input is selected" end="3" id="ESIOUT3" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="4" description="Latched AFE2 comparator output when ESICH0 input is selected" end="4" id="ESIOUT4" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="5" description="Latched AFE2 comparator output when ESICH1 input is selected" end="5" id="ESIOUT5" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="6" description="Latched AFE2 comparator output when ESICH2 input is selected" end="6" id="ESIOUT6" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="7" description="Latched AFE2 comparator output when ESICH3 input is selected" end="7" id="ESIOUT7" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="8" description="Lachted AFE1 comparator output for test channel 0" end="8" id="ESITCHOUT0" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="9" description="Latched AFE1 comparator output for test channel 1" end="9" id="ESITCHOUT1" range="" resetval="0" rwaccess="RW" width="1"></bitfield></register>
+<register acronym="ESITSM" description="ESI TSM control register" id="ESITSM" offset=" 0x0D24" width="16">
+<bitfield begin="1" description="TSM SMCLK divider" end="0" id="ESIDIV1" range="" resetval="0" rwaccess="RW" width="2">
+<bitenum description="TSM SMCLK/ESIOSC divider mode: 0" id="ESIDIV1_0" token="ESIDIV1_0" value="0"></bitenum>
+<bitenum description="TSM SMCLK/ESIOSC divider mode: 1" id="ESIDIV1_1" token="ESIDIV1_1" value="1"></bitenum>
+<bitenum description="TSM SMCLK/ESIOSC divider mode: 2" id="ESIDIV1_2" token="ESIDIV1_2" value="2"></bitenum>
+<bitenum description="TSM SMCLK/ESIOSC divider mode: 3" id="ESIDIV1_3" token="ESIDIV1_3" value="3"></bitenum></bitfield>
+<bitfield begin="3" description="ACLK divider" end="2" id="ESIDIV2" range="" resetval="0" rwaccess="RW" width="2">
+<bitenum description="ACLK divider mode: 0" id="ESIDIV2_0" token="ESIDIV2_0" value="0"></bitenum>
+<bitenum description="ACLK divider mode: 1" id="ESIDIV2_1" token="ESIDIV2_1" value="1"></bitenum>
+<bitenum description="ACLK divider mode: 2" id="ESIDIV2_2" token="ESIDIV2_2" value="2"></bitenum>
+<bitenum description="ACLK divider mode: 3" id="ESIDIV2_3" token="ESIDIV2_3" value="3"></bitenum></bitfield>
+<bitfield begin="6" description="TSM start trigger ACLK divider" end="4" id="ESIDIV3A" range="" resetval="0" rwaccess="RW" width="3">
+<bitenum description="TSM start trigger ACLK divider" id="ESIDIV3A_0" token="ESIDIV3A_0" value="0"></bitenum>
+<bitenum description="TSM start trigger ACLK divider" id="ESIDIV3A_1" token="ESIDIV3A_1" value="1"></bitenum>
+<bitenum description="TSM start trigger ACLK divider" id="ESIDIV3A_2" token="ESIDIV3A_2" value="2"></bitenum>
+<bitenum description="TSM start trigger ACLK divider" id="ESIDIV3A_3" token="ESIDIV3A_3" value="3"></bitenum>
+<bitenum description="TSM start trigger ACLK divider" id="ESIDIV3A_4" token="ESIDIV3A_4" value="4"></bitenum>
+<bitenum description="TSM start trigger ACLK divider" id="ESIDIV3A_5" token="ESIDIV3A_5" value="5"></bitenum>
+<bitenum description="TSM start trigger ACLK divider" id="ESIDIV3A_6" token="ESIDIV3A_6" value="6"></bitenum>
+<bitenum description="TSM start trigger ACLK divider" id="ESIDIV3A_7" token="ESIDIV3A_7" value="7"></bitenum></bitfield>
+<bitfield begin="9" description="TSM start trigger ACLK divider" end="7" id="ESIDIV3B" range="" resetval="0" rwaccess="RW" width="3">
+<bitenum description="TSM start trigger ACLK divider" id="ESIDIV3B_0" token="ESIDIV3B_0" value="0"></bitenum>
+<bitenum description="TSM start trigger ACLK divider" id="ESIDIV3B_1" token="ESIDIV3B_1" value="1"></bitenum>
+<bitenum description="TSM start trigger ACLK divider" id="ESIDIV3B_2" token="ESIDIV3B_2" value="2"></bitenum>
+<bitenum description="TSM start trigger ACLK divider" id="ESIDIV3B_3" token="ESIDIV3B_3" value="3"></bitenum>
+<bitenum description="TSM start trigger ACLK divider" id="ESIDIV3B_4" token="ESIDIV3B_4" value="4"></bitenum>
+<bitenum description="TSM start trigger ACLK divider" id="ESIDIV3B_5" token="ESIDIV3B_5" value="5"></bitenum>
+<bitenum description="TSM start trigger ACLK divider" id="ESIDIV3B_6" token="ESIDIV3B_6" value="6"></bitenum>
+<bitenum description="TSM start trigger ACLK divider" id="ESIDIV3B_7" token="ESIDIV3B_7" value="7"></bitenum></bitfield>
+<bitfield begin="10" description="TSM repeat modee" end="10" id="ESITSMRP" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="11" description="TSM software start trigger" end="11" id="ESISTART" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="13" description="TSM start trigger selection" end="12" id="ESITSMTRG" range="" resetval="0" rwaccess="RW" width="2">
+<bitenum description="Halt mode" id="ESITSMTRG_0" token="ESITSMTRG_0" value="0"></bitenum>
+<bitenum description="TSM start trigger ACLK divider" id="ESITSMTRG_1" token="ESITSMTRG_1" value="1"></bitenum>
+<bitenum description="Software trigger for TSM" id="ESITSMTRG_2" token="ESITSMTRG_2" value="2"></bitenum>
+<bitenum description="Either the ACLK divider or the ESISTART biT" id="ESITSMTRG_3" token="ESITSMTRG_3" value="3"></bitenum></bitfield>
+<bitfield begin="14" description="Functionality selection of ESITSMx bit5" end="14" id="ESICLKAZSEL" range="" resetval="0" rwaccess="RW" width="1"></bitfield></register>
+<register acronym="ESIPSM" description="ESI PSM control register" id="ESIPSM" offset=" 0x0D26" width="16">
+<bitfield begin="0" description="Q6 enable" end="0" id="ESIQ6EN" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="2" description="Enabling to use Q7 as trigger for a TSM sequence" end="2" id="ESIQ7TRG" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="3" description="ESICNT0 enable (up counter)" end="3" id="ESICNT0EN" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="4" description="ESICNT1 enable (up/down counter)" end="4" id="ESICNT1EN" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="5" description="ESICNT2 enable (down counter)" end="5" id="ESICNT2EN" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="7" description="Source Selection for V2 bit" end="7" id="ESIV2SEL" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="9" description="Output signal selection for SIFTEST4 pin" end="8" id="ESITEST4SEL" range="" resetval="0" rwaccess="RW" width="2">
+<bitenum description="Q1 signal from PSM table" id="ESITEST4SEL_0" token="ESITEST4SEL_0" value="0"></bitenum>
+<bitenum description="Q2 signal from PSM table" id="ESITEST4SEL_1" token="ESITEST4SEL_1" value="1"></bitenum>
+<bitenum description="TSM clock signal from Timing State Machine" id="ESITEST4SEL_2" token="ESITEST4SEL_2" value="2"></bitenum>
+<bitenum description="AFE1's comparator output signal Comp1Out" id="ESITEST4SEL_3" token="ESITEST4SEL_3" value="3"></bitenum></bitfield>
+<bitfield begin="13" description="ESI Counter 0 reset" end="13" id="ESICNT0RST" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="14" description="ESI Counter 1 reset" end="14" id="ESICNT1RST" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="15" description="ESI Counter 2 reset" end="15" id="ESICNT2RST" range="" resetval="0" rwaccess="RW" width="1"></bitfield></register>
+<register acronym="ESIOSC" description="ESI oscillator control register" id="ESIOSC" offset=" 0x0D28" width="16">
+<bitfield begin="0" description="Internal oscillator enable" end="0" id="ESIHFSEL" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="1" description="Internal oscillator control" end="1" id="ESICLKGON" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="8" description="Internal oscillator frequency adjust" end="8" id="ESICLKFQ0" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="9" description="Internal oscillator frequency adjust" end="9" id="ESICLKFQ1" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="10" description="Internal oscillator frequency adjust" end="10" id="ESICLKFQ2" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="11" description="Internal oscillator frequency adjust" end="11" id="ESICLKFQ3" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="12" description="Internal oscillator frequency adjust" end="12" id="ESICLKFQ4" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="13" description="Internal oscillator frequency adjust" end="13" id="ESICLKFQ5" range="" resetval="0" rwaccess="RW" width="1"></bitfield></register>
+<register acronym="ESICTL" description="ESI control register" id="ESICTL" offset=" 0x0D2A" width="16">
+<bitfield begin="0" description="Extended Scan interface enable" end="0" id="ESIEN" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="1" description="Test cycle insertion" end="1" id="ESITESTD" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="2" description="Comparator output/Timer_A input selection" end="2" id="ESICS" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="4" description="select the comparator input for test channel 0" end="3" id="ESITCH0" range="" resetval="0" rwaccess="RW" width="2">
+<bitenum description="Comparator input is ESICH0 when ESICAX = 0; Comparator input is ESICI0 when ESICAX = 1" id="ESITCH0_0" token="ESITCH0_0" value="0"></bitenum>
+<bitenum description="Comparator input is ESICH1 when ESICAX = 0; Comparator input is ESICI1 when ESICAX = 1" id="ESITCH0_1" token="ESITCH0_1" value="1"></bitenum>
+<bitenum description="Comparator input is ESICH2 when ESICAX = 0; Comparator input is ESICI2 when ESICAX = 1" id="ESITCH0_2" token="ESITCH0_2" value="2"></bitenum>
+<bitenum description="Comparator input is ESICH3 when ESICAX = 0; Comparator input is ESICI3 when ESICAX = 1" id="ESITCH0_3" token="ESITCH0_3" value="3"></bitenum></bitfield>
+<bitfield begin="6" description="select the comparator input for test channel 1" end="5" id="ESITCH1" range="" resetval="0" rwaccess="RW" width="2">
+<bitenum description="Comparator input is ESICH0 when ESICAX = 0; Comparator input is ESICI0 when ESICAX = 1" id="ESITCH1_0" token="ESITCH1_0" value="0"></bitenum>
+<bitenum description="Comparator input is ESICH1 when ESICAX = 0; Comparator input is ESICI1 when ESICAX = 1" id="ESITCH1_1" token="ESITCH1_1" value="1"></bitenum>
+<bitenum description="Comparator input is ESICH2 when ESICAX = 0; Comparator input is ESICI2 when ESICAX = 1" id="ESITCH1_2" token="ESITCH1_2" value="2"></bitenum>
+<bitenum description="Comparator input is ESICH3 when ESICAX = 0; Comparator input is ESICI3 when ESICAX = 1" id="ESITCH1_3" token="ESITCH1_3" value="3"></bitenum></bitfield>
+<bitfield begin="9" description="PPUS1 source select" end="7" id="ESIS1SEL" range="" resetval="0" rwaccess="RW" width="3">
+<bitenum description="ESIOUT0 is the PPUS1 source" id="ESIS1SEL_0" token="ESIS1SEL_0" value="0"></bitenum>
+<bitenum description="ESIOUT1 is the PPUS1 source" id="ESIS1SEL_1" token="ESIS1SEL_1" value="1"></bitenum>
+<bitenum description="ESIOUT2 is the PPUS1 source" id="ESIS1SEL_2" token="ESIS1SEL_2" value="2"></bitenum>
+<bitenum description="ESIOUT3 is the PPUS1 source" id="ESIS1SEL_3" token="ESIS1SEL_3" value="3"></bitenum>
+<bitenum description="ESIOUT4 is the PPUS1 source" id="ESIS1SEL_4" token="ESIS1SEL_4" value="4"></bitenum>
+<bitenum description="ESIOUT5 is the PPUS1 source" id="ESIS1SEL_5" token="ESIS1SEL_5" value="5"></bitenum>
+<bitenum description="ESIOUT6 is the PPUS1 source" id="ESIS1SEL_6" token="ESIS1SEL_6" value="6"></bitenum>
+<bitenum description="ESIOUT7 is the PPUS1 source" id="ESIS1SEL_7" token="ESIS1SEL_7" value="7"></bitenum></bitfield>
+<bitfield begin="12" description="PPUS2 source select" end="10" id="ESIS2SEL" range="" resetval="0" rwaccess="RW" width="3">
+<bitenum description="ESIOUT0 is the PPUS2 source" id="ESIS2SEL_0" token="ESIS2SEL_0" value="0"></bitenum>
+<bitenum description="ESIOUT1 is the PPUS2 source" id="ESIS2SEL_1" token="ESIS2SEL_1" value="1"></bitenum>
+<bitenum description="ESIOUT2 is the PPUS2 source" id="ESIS2SEL_2" token="ESIS2SEL_2" value="2"></bitenum>
+<bitenum description="ESIOUT3 is the PPUS2 source" id="ESIS2SEL_3" token="ESIS2SEL_3" value="3"></bitenum>
+<bitenum description="ESIOUT4 is the PPUS2 source" id="ESIS2SEL_4" token="ESIS2SEL_4" value="4"></bitenum>
+<bitenum description="ESIOUT5 is the PPUS2 source" id="ESIS2SEL_5" token="ESIS2SEL_5" value="5"></bitenum>
+<bitenum description="ESIOUT6 is the PPUS2 source" id="ESIS2SEL_6" token="ESIS2SEL_6" value="6"></bitenum>
+<bitenum description="ESIOUT7 is the PPUS2 source" id="ESIS2SEL_7" token="ESIS2SEL_7" value="7"></bitenum></bitfield>
+<bitfield begin="15" description="PPUS3 source select" end="13" id="ESIS3SEL" range="" resetval="0" rwaccess="RW" width="3">
+<bitenum description="ESIOUT0 is the PPUS3 source" id="ESIS3SEL_0" token="ESIS3SEL_0" value="0"></bitenum>
+<bitenum description="ESIOUT1 is the PPUS3 source" id="ESIS3SEL_1" token="ESIS3SEL_1" value="1"></bitenum>
+<bitenum description="ESIOUT2 is the PPUS3 source" id="ESIS3SEL_2" token="ESIS3SEL_2" value="2"></bitenum>
+<bitenum description="ESIOUT3 is the PPUS3 source" id="ESIS3SEL_3" token="ESIS3SEL_3" value="3"></bitenum>
+<bitenum description="ESIOUT4 is the PPUS3 source" id="ESIS3SEL_4" token="ESIS3SEL_4" value="4"></bitenum>
+<bitenum description="ESIOUT5 is the PPUS3 source" id="ESIS3SEL_5" token="ESIS3SEL_5" value="5"></bitenum>
+<bitenum description="ESIOUT6 is the PPUS3 source" id="ESIS3SEL_6" token="ESIS3SEL_6" value="6"></bitenum>
+<bitenum description="ESIOUT7 is the PPUS3 source" id="ESIS3SEL_7" token="ESIS3SEL_7" value="7"></bitenum></bitfield></register>
+<register acronym="ESITHR1" description="ESI PSM Counter Threshold 1 register" id="ESITHR1" offset=" 0x0D2C" width="16"></register>
+<register acronym="ESITHR2" description="ESI PSM Counter Threshold 2 register" id="ESITHR2" offset=" 0x0D2E" width="16"></register>
+<register acronym="ESIDAC1R0" description="ESI DAC1 register 0" id="ESIDAC1R0" offset=" 0x0D40" width="16"></register>
+<register acronym="ESIDAC1R1" description="ESI DAC1 register 1" id="ESIDAC1R1" offset=" 0x0D42" width="16"></register>
+<register acronym="ESIDAC1R2" description="ESI DAC1 register 2" id="ESIDAC1R2" offset=" 0x0D44" width="16"></register>
+<register acronym="ESIDAC1R3" description="ESI DAC1 register 3" id="ESIDAC1R3" offset=" 0x0D46" width="16"></register>
+<register acronym="ESIDAC1R4" description="ESI DAC1 register 4" id="ESIDAC1R4" offset=" 0x0D48" width="16"></register>
+<register acronym="ESIDAC1R5" description="ESI DAC1 register 5" id="ESIDAC1R5" offset=" 0x0D4A" width="16"></register>
+<register acronym="ESIDAC1R6" description="ESI DAC1 register 6" id="ESIDAC1R6" offset=" 0x0D4C" width="16"></register>
+<register acronym="ESIDAC1R7" description="ESI DAC1 register 7" id="ESIDAC1R7" offset=" 0x0D4E" width="16"></register>
+<register acronym="ESIDAC2R0" description="ESI DAC2 register 0" id="ESIDAC2R0" offset=" 0x0D50" width="16"></register>
+<register acronym="ESIDAC2R1" description="ESI DAC2 register 1" id="ESIDAC2R1" offset=" 0x0D52" width="16"></register>
+<register acronym="ESIDAC2R2" description="ESI DAC2 register 2" id="ESIDAC2R2" offset=" 0x0D54" width="16"></register>
+<register acronym="ESIDAC2R3" description="ESI DAC2 register 3" id="ESIDAC2R3" offset=" 0x0D56" width="16"></register>
+<register acronym="ESIDAC2R4" description="ESI DAC2 register 4" id="ESIDAC2R4" offset=" 0x0D58" width="16"></register>
+<register acronym="ESIDAC2R5" description="ESI DAC2 register 5" id="ESIDAC2R5" offset=" 0x0D5A" width="16"></register>
+<register acronym="ESIDAC2R6" description="ESI DAC2 register 6" id="ESIDAC2R6" offset=" 0x0D5C" width="16"></register>
+<register acronym="ESIDAC2R7" description="ESI DAC2 register 7" id="ESIDAC2R7" offset=" 0x0D5E" width="16"></register>
+<register acronym="ESITSM0" description="ESI TSM 0" id="ESITSM0" offset=" 0x0D60" width="16">
+<bitfield begin="1" description="Input channel select" end="0" id="ESICH" range="" resetval="0" rwaccess="RW" width="2">
+<bitenum description="Input channel select: ESICH0" id="ESICH_0" token="ESICH_0" value="0"></bitenum>
+<bitenum description="Input channel select: ESICH1" id="ESICH_1" token="ESICH_1" value="1"></bitenum>
+<bitenum description="Input channel select: ESICH2" id="ESICH_2" token="ESICH_2" value="2"></bitenum>
+<bitenum description="Input channel select: ESICH3" id="ESICH_3" token="ESICH_3" value="3"></bitenum></bitfield>
+<bitfield begin="2" description="LC enable" end="2" id="ESILCEN" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="3" description="Excitation and sample-and-hold" end="3" id="ESIEX" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="4" description="TSM comparator on" end="4" id="ESICA" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="5" description="High-frequency clock on" end="5" id="ESICLKON" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="6" description="Internal output latches enabled" end="6" id="ESIRSON" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="7" description="TSM test cycle control" end="7" id="ESITESTS1" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="8" description="TSM DAC on" end="8" id="ESIDAC" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="9" description="This bit indicates the end of the TSM sequence" end="9" id="ESISTOP" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="10" description="This bit selects the clock source for the TSM" end="10" id="ESICLK" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="15" description="These bits together with the ESICLK bit configure the duration of this state" end="11" id="ESIREPEAT" range="" resetval="0" rwaccess="RW" width="5">
+<bitenum description="These bits configure the duration of this state" id="ESIREPEAT_0" token="ESIREPEAT_0" value="0"></bitenum>
+<bitenum description="ESIREPEATx selects the number of clock cycles for this state. The number of clock cycles = ESIREPEATx + 1" id="ESIREPEAT_1" token="ESIREPEAT_1" value="1"></bitenum>
+<bitenum description="" id="ESIREPEAT_2" token="ESIREPEAT_2" value="2"></bitenum>
+<bitenum description="" id="ESIREPEAT_3" token="ESIREPEAT_3" value="3"></bitenum>
+<bitenum description="" id="ESIREPEAT_4" token="ESIREPEAT_4" value="4"></bitenum>
+<bitenum description="" id="ESIREPEAT_5" token="ESIREPEAT_5" value="5"></bitenum>
+<bitenum description="" id="ESIREPEAT_6" token="ESIREPEAT_6" value="6"></bitenum>
+<bitenum description="" id="ESIREPEAT_7" token="ESIREPEAT_7" value="7"></bitenum>
+<bitenum description="" id="ESIREPEAT_8" token="ESIREPEAT_8" value="8"></bitenum>
+<bitenum description="" id="ESIREPEAT_9" token="ESIREPEAT_9" value="9"></bitenum>
+<bitenum description="" id="ESIREPEAT_10" token="ESIREPEAT_10" value="10"></bitenum>
+<bitenum description="" id="ESIREPEAT_11" token="ESIREPEAT_11" value="11"></bitenum>
+<bitenum description="" id="ESIREPEAT_12" token="ESIREPEAT_12" value="12"></bitenum>
+<bitenum description="" id="ESIREPEAT_13" token="ESIREPEAT_13" value="13"></bitenum>
+<bitenum description="" id="ESIREPEAT_14" token="ESIREPEAT_14" value="14"></bitenum>
+<bitenum description="" id="ESIREPEAT_15" token="ESIREPEAT_15" value="15"></bitenum>
+<bitenum description="" id="ESIREPEAT_16" token="ESIREPEAT_16" value="16"></bitenum>
+<bitenum description="" id="ESIREPEAT_17" token="ESIREPEAT_17" value="17"></bitenum>
+<bitenum description="" id="ESIREPEAT_18" token="ESIREPEAT_18" value="18"></bitenum>
+<bitenum description="" id="ESIREPEAT_19" token="ESIREPEAT_19" value="19"></bitenum>
+<bitenum description="" id="ESIREPEAT_20" token="ESIREPEAT_20" value="20"></bitenum>
+<bitenum description="" id="ESIREPEAT_21" token="ESIREPEAT_21" value="21"></bitenum>
+<bitenum description="" id="ESIREPEAT_22" token="ESIREPEAT_22" value="22"></bitenum>
+<bitenum description="" id="ESIREPEAT_23" token="ESIREPEAT_23" value="23"></bitenum>
+<bitenum description="" id="ESIREPEAT_24" token="ESIREPEAT_24" value="24"></bitenum>
+<bitenum description="" id="ESIREPEAT_25" token="ESIREPEAT_25" value="25"></bitenum>
+<bitenum description="" id="ESIREPEAT_26" token="ESIREPEAT_26" value="26"></bitenum>
+<bitenum description="" id="ESIREPEAT_27" token="ESIREPEAT_27" value="27"></bitenum>
+<bitenum description="" id="ESIREPEAT_28" token="ESIREPEAT_28" value="28"></bitenum>
+<bitenum description="" id="ESIREPEAT_29" token="ESIREPEAT_29" value="29"></bitenum>
+<bitenum description="" id="ESIREPEAT_30" token="ESIREPEAT_30" value="30"></bitenum>
+<bitenum description="" id="ESIREPEAT_31" token="ESIREPEAT_31" value="31"></bitenum></bitfield></register>
+<register acronym="ESITSM1" description="ESI TSM 1" id="ESITSM1" offset=" 0x0D62" width="16">
+<bitfield begin="1" description="Input channel select" end="0" id="ESICH" range="" resetval="0" rwaccess="RW" width="2">
+<bitenum description="Input channel select: ESICH0" id="ESICH_0" token="ESICH_0" value="0"></bitenum>
+<bitenum description="Input channel select: ESICH1" id="ESICH_1" token="ESICH_1" value="1"></bitenum>
+<bitenum description="Input channel select: ESICH2" id="ESICH_2" token="ESICH_2" value="2"></bitenum>
+<bitenum description="Input channel select: ESICH3" id="ESICH_3" token="ESICH_3" value="3"></bitenum></bitfield>
+<bitfield begin="2" description="LC enable" end="2" id="ESILCEN" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="3" description="Excitation and sample-and-hold" end="3" id="ESIEX" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="4" description="TSM comparator on" end="4" id="ESICA" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="5" description="High-frequency clock on" end="5" id="ESICLKON" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="6" description="Internal output latches enabled" end="6" id="ESIRSON" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="7" description="TSM test cycle control" end="7" id="ESITESTS1" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="8" description="TSM DAC on" end="8" id="ESIDAC" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="9" description="This bit indicates the end of the TSM sequence" end="9" id="ESISTOP" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="10" description="This bit selects the clock source for the TSM" end="10" id="ESICLK" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="15" description="These bits together with the ESICLK bit configure the duration of this state" end="11" id="ESIREPEAT" range="" resetval="0" rwaccess="RW" width="5">
+<bitenum description="These bits configure the duration of this state" id="ESIREPEAT_0" token="ESIREPEAT_0" value="0"></bitenum>
+<bitenum description="ESIREPEATx selects the number of clock cycles for this state. The number of clock cycles = ESIREPEATx + 1" id="ESIREPEAT_1" token="ESIREPEAT_1" value="1"></bitenum>
+<bitenum description="" id="ESIREPEAT_2" token="ESIREPEAT_2" value="2"></bitenum>
+<bitenum description="" id="ESIREPEAT_3" token="ESIREPEAT_3" value="3"></bitenum>
+<bitenum description="" id="ESIREPEAT_4" token="ESIREPEAT_4" value="4"></bitenum>
+<bitenum description="" id="ESIREPEAT_5" token="ESIREPEAT_5" value="5"></bitenum>
+<bitenum description="" id="ESIREPEAT_6" token="ESIREPEAT_6" value="6"></bitenum>
+<bitenum description="" id="ESIREPEAT_7" token="ESIREPEAT_7" value="7"></bitenum>
+<bitenum description="" id="ESIREPEAT_8" token="ESIREPEAT_8" value="8"></bitenum>
+<bitenum description="" id="ESIREPEAT_9" token="ESIREPEAT_9" value="9"></bitenum>
+<bitenum description="" id="ESIREPEAT_10" token="ESIREPEAT_10" value="10"></bitenum>
+<bitenum description="" id="ESIREPEAT_11" token="ESIREPEAT_11" value="11"></bitenum>
+<bitenum description="" id="ESIREPEAT_12" token="ESIREPEAT_12" value="12"></bitenum>
+<bitenum description="" id="ESIREPEAT_13" token="ESIREPEAT_13" value="13"></bitenum>
+<bitenum description="" id="ESIREPEAT_14" token="ESIREPEAT_14" value="14"></bitenum>
+<bitenum description="" id="ESIREPEAT_15" token="ESIREPEAT_15" value="15"></bitenum>
+<bitenum description="" id="ESIREPEAT_16" token="ESIREPEAT_16" value="16"></bitenum>
+<bitenum description="" id="ESIREPEAT_17" token="ESIREPEAT_17" value="17"></bitenum>
+<bitenum description="" id="ESIREPEAT_18" token="ESIREPEAT_18" value="18"></bitenum>
+<bitenum description="" id="ESIREPEAT_19" token="ESIREPEAT_19" value="19"></bitenum>
+<bitenum description="" id="ESIREPEAT_20" token="ESIREPEAT_20" value="20"></bitenum>
+<bitenum description="" id="ESIREPEAT_21" token="ESIREPEAT_21" value="21"></bitenum>
+<bitenum description="" id="ESIREPEAT_22" token="ESIREPEAT_22" value="22"></bitenum>
+<bitenum description="" id="ESIREPEAT_23" token="ESIREPEAT_23" value="23"></bitenum>
+<bitenum description="" id="ESIREPEAT_24" token="ESIREPEAT_24" value="24"></bitenum>
+<bitenum description="" id="ESIREPEAT_25" token="ESIREPEAT_25" value="25"></bitenum>
+<bitenum description="" id="ESIREPEAT_26" token="ESIREPEAT_26" value="26"></bitenum>
+<bitenum description="" id="ESIREPEAT_27" token="ESIREPEAT_27" value="27"></bitenum>
+<bitenum description="" id="ESIREPEAT_28" token="ESIREPEAT_28" value="28"></bitenum>
+<bitenum description="" id="ESIREPEAT_29" token="ESIREPEAT_29" value="29"></bitenum>
+<bitenum description="" id="ESIREPEAT_30" token="ESIREPEAT_30" value="30"></bitenum>
+<bitenum description="" id="ESIREPEAT_31" token="ESIREPEAT_31" value="31"></bitenum></bitfield></register>
+<register acronym="ESITSM2" description="ESI TSM 2" id="ESITSM2" offset=" 0x0D64" width="16">
+<bitfield begin="1" description="Input channel select" end="0" id="ESICH" range="" resetval="0" rwaccess="RW" width="2">
+<bitenum description="Input channel select: ESICH0" id="ESICH_0" token="ESICH_0" value="0"></bitenum>
+<bitenum description="Input channel select: ESICH1" id="ESICH_1" token="ESICH_1" value="1"></bitenum>
+<bitenum description="Input channel select: ESICH2" id="ESICH_2" token="ESICH_2" value="2"></bitenum>
+<bitenum description="Input channel select: ESICH3" id="ESICH_3" token="ESICH_3" value="3"></bitenum></bitfield>
+<bitfield begin="2" description="LC enable" end="2" id="ESILCEN" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="3" description="Excitation and sample-and-hold" end="3" id="ESIEX" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="4" description="TSM comparator on" end="4" id="ESICA" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="5" description="High-frequency clock on" end="5" id="ESICLKON" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="6" description="Internal output latches enabled" end="6" id="ESIRSON" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="7" description="TSM test cycle control" end="7" id="ESITESTS1" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="8" description="TSM DAC on" end="8" id="ESIDAC" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="9" description="This bit indicates the end of the TSM sequence" end="9" id="ESISTOP" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="10" description="This bit selects the clock source for the TSM" end="10" id="ESICLK" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="15" description="These bits together with the ESICLK bit configure the duration of this state" end="11" id="ESIREPEAT" range="" resetval="0" rwaccess="RW" width="5">
+<bitenum description="These bits configure the duration of this state" id="ESIREPEAT_0" token="ESIREPEAT_0" value="0"></bitenum>
+<bitenum description="ESIREPEATx selects the number of clock cycles for this state. The number of clock cycles = ESIREPEATx + 1" id="ESIREPEAT_1" token="ESIREPEAT_1" value="1"></bitenum>
+<bitenum description="" id="ESIREPEAT_2" token="ESIREPEAT_2" value="2"></bitenum>
+<bitenum description="" id="ESIREPEAT_3" token="ESIREPEAT_3" value="3"></bitenum>
+<bitenum description="" id="ESIREPEAT_4" token="ESIREPEAT_4" value="4"></bitenum>
+<bitenum description="" id="ESIREPEAT_5" token="ESIREPEAT_5" value="5"></bitenum>
+<bitenum description="" id="ESIREPEAT_6" token="ESIREPEAT_6" value="6"></bitenum>
+<bitenum description="" id="ESIREPEAT_7" token="ESIREPEAT_7" value="7"></bitenum>
+<bitenum description="" id="ESIREPEAT_8" token="ESIREPEAT_8" value="8"></bitenum>
+<bitenum description="" id="ESIREPEAT_9" token="ESIREPEAT_9" value="9"></bitenum>
+<bitenum description="" id="ESIREPEAT_10" token="ESIREPEAT_10" value="10"></bitenum>
+<bitenum description="" id="ESIREPEAT_11" token="ESIREPEAT_11" value="11"></bitenum>
+<bitenum description="" id="ESIREPEAT_12" token="ESIREPEAT_12" value="12"></bitenum>
+<bitenum description="" id="ESIREPEAT_13" token="ESIREPEAT_13" value="13"></bitenum>
+<bitenum description="" id="ESIREPEAT_14" token="ESIREPEAT_14" value="14"></bitenum>
+<bitenum description="" id="ESIREPEAT_15" token="ESIREPEAT_15" value="15"></bitenum>
+<bitenum description="" id="ESIREPEAT_16" token="ESIREPEAT_16" value="16"></bitenum>
+<bitenum description="" id="ESIREPEAT_17" token="ESIREPEAT_17" value="17"></bitenum>
+<bitenum description="" id="ESIREPEAT_18" token="ESIREPEAT_18" value="18"></bitenum>
+<bitenum description="" id="ESIREPEAT_19" token="ESIREPEAT_19" value="19"></bitenum>
+<bitenum description="" id="ESIREPEAT_20" token="ESIREPEAT_20" value="20"></bitenum>
+<bitenum description="" id="ESIREPEAT_21" token="ESIREPEAT_21" value="21"></bitenum>
+<bitenum description="" id="ESIREPEAT_22" token="ESIREPEAT_22" value="22"></bitenum>
+<bitenum description="" id="ESIREPEAT_23" token="ESIREPEAT_23" value="23"></bitenum>
+<bitenum description="" id="ESIREPEAT_24" token="ESIREPEAT_24" value="24"></bitenum>
+<bitenum description="" id="ESIREPEAT_25" token="ESIREPEAT_25" value="25"></bitenum>
+<bitenum description="" id="ESIREPEAT_26" token="ESIREPEAT_26" value="26"></bitenum>
+<bitenum description="" id="ESIREPEAT_27" token="ESIREPEAT_27" value="27"></bitenum>
+<bitenum description="" id="ESIREPEAT_28" token="ESIREPEAT_28" value="28"></bitenum>
+<bitenum description="" id="ESIREPEAT_29" token="ESIREPEAT_29" value="29"></bitenum>
+<bitenum description="" id="ESIREPEAT_30" token="ESIREPEAT_30" value="30"></bitenum>
+<bitenum description="" id="ESIREPEAT_31" token="ESIREPEAT_31" value="31"></bitenum></bitfield></register>
+<register acronym="ESITSM3" description="ESI TSM 3" id="ESITSM3" offset=" 0x0D66" width="16">
+<bitfield begin="1" description="Input channel select" end="0" id="ESICH" range="" resetval="0" rwaccess="RW" width="2">
+<bitenum description="Input channel select: ESICH0" id="ESICH_0" token="ESICH_0" value="0"></bitenum>
+<bitenum description="Input channel select: ESICH1" id="ESICH_1" token="ESICH_1" value="1"></bitenum>
+<bitenum description="Input channel select: ESICH2" id="ESICH_2" token="ESICH_2" value="2"></bitenum>
+<bitenum description="Input channel select: ESICH3" id="ESICH_3" token="ESICH_3" value="3"></bitenum></bitfield>
+<bitfield begin="2" description="LC enable" end="2" id="ESILCEN" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="3" description="Excitation and sample-and-hold" end="3" id="ESIEX" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="4" description="TSM comparator on" end="4" id="ESICA" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="5" description="High-frequency clock on" end="5" id="ESICLKON" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="6" description="Internal output latches enabled" end="6" id="ESIRSON" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="7" description="TSM test cycle control" end="7" id="ESITESTS1" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="8" description="TSM DAC on" end="8" id="ESIDAC" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="9" description="This bit indicates the end of the TSM sequence" end="9" id="ESISTOP" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="10" description="This bit selects the clock source for the TSM" end="10" id="ESICLK" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="15" description="These bits together with the ESICLK bit configure the duration of this state" end="11" id="ESIREPEAT" range="" resetval="0" rwaccess="RW" width="5">
+<bitenum description="These bits configure the duration of this state" id="ESIREPEAT_0" token="ESIREPEAT_0" value="0"></bitenum>
+<bitenum description="ESIREPEATx selects the number of clock cycles for this state. The number of clock cycles = ESIREPEATx + 1" id="ESIREPEAT_1" token="ESIREPEAT_1" value="1"></bitenum>
+<bitenum description="" id="ESIREPEAT_2" token="ESIREPEAT_2" value="2"></bitenum>
+<bitenum description="" id="ESIREPEAT_3" token="ESIREPEAT_3" value="3"></bitenum>
+<bitenum description="" id="ESIREPEAT_4" token="ESIREPEAT_4" value="4"></bitenum>
+<bitenum description="" id="ESIREPEAT_5" token="ESIREPEAT_5" value="5"></bitenum>
+<bitenum description="" id="ESIREPEAT_6" token="ESIREPEAT_6" value="6"></bitenum>
+<bitenum description="" id="ESIREPEAT_7" token="ESIREPEAT_7" value="7"></bitenum>
+<bitenum description="" id="ESIREPEAT_8" token="ESIREPEAT_8" value="8"></bitenum>
+<bitenum description="" id="ESIREPEAT_9" token="ESIREPEAT_9" value="9"></bitenum>
+<bitenum description="" id="ESIREPEAT_10" token="ESIREPEAT_10" value="10"></bitenum>
+<bitenum description="" id="ESIREPEAT_11" token="ESIREPEAT_11" value="11"></bitenum>
+<bitenum description="" id="ESIREPEAT_12" token="ESIREPEAT_12" value="12"></bitenum>
+<bitenum description="" id="ESIREPEAT_13" token="ESIREPEAT_13" value="13"></bitenum>
+<bitenum description="" id="ESIREPEAT_14" token="ESIREPEAT_14" value="14"></bitenum>
+<bitenum description="" id="ESIREPEAT_15" token="ESIREPEAT_15" value="15"></bitenum>
+<bitenum description="" id="ESIREPEAT_16" token="ESIREPEAT_16" value="16"></bitenum>
+<bitenum description="" id="ESIREPEAT_17" token="ESIREPEAT_17" value="17"></bitenum>
+<bitenum description="" id="ESIREPEAT_18" token="ESIREPEAT_18" value="18"></bitenum>
+<bitenum description="" id="ESIREPEAT_19" token="ESIREPEAT_19" value="19"></bitenum>
+<bitenum description="" id="ESIREPEAT_20" token="ESIREPEAT_20" value="20"></bitenum>
+<bitenum description="" id="ESIREPEAT_21" token="ESIREPEAT_21" value="21"></bitenum>
+<bitenum description="" id="ESIREPEAT_22" token="ESIREPEAT_22" value="22"></bitenum>
+<bitenum description="" id="ESIREPEAT_23" token="ESIREPEAT_23" value="23"></bitenum>
+<bitenum description="" id="ESIREPEAT_24" token="ESIREPEAT_24" value="24"></bitenum>
+<bitenum description="" id="ESIREPEAT_25" token="ESIREPEAT_25" value="25"></bitenum>
+<bitenum description="" id="ESIREPEAT_26" token="ESIREPEAT_26" value="26"></bitenum>
+<bitenum description="" id="ESIREPEAT_27" token="ESIREPEAT_27" value="27"></bitenum>
+<bitenum description="" id="ESIREPEAT_28" token="ESIREPEAT_28" value="28"></bitenum>
+<bitenum description="" id="ESIREPEAT_29" token="ESIREPEAT_29" value="29"></bitenum>
+<bitenum description="" id="ESIREPEAT_30" token="ESIREPEAT_30" value="30"></bitenum>
+<bitenum description="" id="ESIREPEAT_31" token="ESIREPEAT_31" value="31"></bitenum></bitfield></register>
+<register acronym="ESITSM4" description="ESI TSM 4" id="ESITSM4" offset=" 0x0D68" width="16">
+<bitfield begin="1" description="Input channel select" end="0" id="ESICH" range="" resetval="0" rwaccess="RW" width="2">
+<bitenum description="Input channel select: ESICH0" id="ESICH_0" token="ESICH_0" value="0"></bitenum>
+<bitenum description="Input channel select: ESICH1" id="ESICH_1" token="ESICH_1" value="1"></bitenum>
+<bitenum description="Input channel select: ESICH2" id="ESICH_2" token="ESICH_2" value="2"></bitenum>
+<bitenum description="Input channel select: ESICH3" id="ESICH_3" token="ESICH_3" value="3"></bitenum></bitfield>
+<bitfield begin="2" description="LC enable" end="2" id="ESILCEN" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="3" description="Excitation and sample-and-hold" end="3" id="ESIEX" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="4" description="TSM comparator on" end="4" id="ESICA" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="5" description="High-frequency clock on" end="5" id="ESICLKON" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="6" description="Internal output latches enabled" end="6" id="ESIRSON" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="7" description="TSM test cycle control" end="7" id="ESITESTS1" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="8" description="TSM DAC on" end="8" id="ESIDAC" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="9" description="This bit indicates the end of the TSM sequence" end="9" id="ESISTOP" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="10" description="This bit selects the clock source for the TSM" end="10" id="ESICLK" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="15" description="These bits together with the ESICLK bit configure the duration of this state" end="11" id="ESIREPEAT" range="" resetval="0" rwaccess="RW" width="5">
+<bitenum description="These bits configure the duration of this state" id="ESIREPEAT_0" token="ESIREPEAT_0" value="0"></bitenum>
+<bitenum description="ESIREPEATx selects the number of clock cycles for this state. The number of clock cycles = ESIREPEATx + 1" id="ESIREPEAT_1" token="ESIREPEAT_1" value="1"></bitenum>
+<bitenum description="" id="ESIREPEAT_2" token="ESIREPEAT_2" value="2"></bitenum>
+<bitenum description="" id="ESIREPEAT_3" token="ESIREPEAT_3" value="3"></bitenum>
+<bitenum description="" id="ESIREPEAT_4" token="ESIREPEAT_4" value="4"></bitenum>
+<bitenum description="" id="ESIREPEAT_5" token="ESIREPEAT_5" value="5"></bitenum>
+<bitenum description="" id="ESIREPEAT_6" token="ESIREPEAT_6" value="6"></bitenum>
+<bitenum description="" id="ESIREPEAT_7" token="ESIREPEAT_7" value="7"></bitenum>
+<bitenum description="" id="ESIREPEAT_8" token="ESIREPEAT_8" value="8"></bitenum>
+<bitenum description="" id="ESIREPEAT_9" token="ESIREPEAT_9" value="9"></bitenum>
+<bitenum description="" id="ESIREPEAT_10" token="ESIREPEAT_10" value="10"></bitenum>
+<bitenum description="" id="ESIREPEAT_11" token="ESIREPEAT_11" value="11"></bitenum>
+<bitenum description="" id="ESIREPEAT_12" token="ESIREPEAT_12" value="12"></bitenum>
+<bitenum description="" id="ESIREPEAT_13" token="ESIREPEAT_13" value="13"></bitenum>
+<bitenum description="" id="ESIREPEAT_14" token="ESIREPEAT_14" value="14"></bitenum>
+<bitenum description="" id="ESIREPEAT_15" token="ESIREPEAT_15" value="15"></bitenum>
+<bitenum description="" id="ESIREPEAT_16" token="ESIREPEAT_16" value="16"></bitenum>
+<bitenum description="" id="ESIREPEAT_17" token="ESIREPEAT_17" value="17"></bitenum>
+<bitenum description="" id="ESIREPEAT_18" token="ESIREPEAT_18" value="18"></bitenum>
+<bitenum description="" id="ESIREPEAT_19" token="ESIREPEAT_19" value="19"></bitenum>
+<bitenum description="" id="ESIREPEAT_20" token="ESIREPEAT_20" value="20"></bitenum>
+<bitenum description="" id="ESIREPEAT_21" token="ESIREPEAT_21" value="21"></bitenum>
+<bitenum description="" id="ESIREPEAT_22" token="ESIREPEAT_22" value="22"></bitenum>
+<bitenum description="" id="ESIREPEAT_23" token="ESIREPEAT_23" value="23"></bitenum>
+<bitenum description="" id="ESIREPEAT_24" token="ESIREPEAT_24" value="24"></bitenum>
+<bitenum description="" id="ESIREPEAT_25" token="ESIREPEAT_25" value="25"></bitenum>
+<bitenum description="" id="ESIREPEAT_26" token="ESIREPEAT_26" value="26"></bitenum>
+<bitenum description="" id="ESIREPEAT_27" token="ESIREPEAT_27" value="27"></bitenum>
+<bitenum description="" id="ESIREPEAT_28" token="ESIREPEAT_28" value="28"></bitenum>
+<bitenum description="" id="ESIREPEAT_29" token="ESIREPEAT_29" value="29"></bitenum>
+<bitenum description="" id="ESIREPEAT_30" token="ESIREPEAT_30" value="30"></bitenum>
+<bitenum description="" id="ESIREPEAT_31" token="ESIREPEAT_31" value="31"></bitenum></bitfield></register>
+<register acronym="ESITSM5" description="ESI TSM 5" id="ESITSM5" offset=" 0x0D6A" width="16">
+<bitfield begin="1" description="Input channel select" end="0" id="ESICH" range="" resetval="0" rwaccess="RW" width="2">
+<bitenum description="Input channel select: ESICH0" id="ESICH_0" token="ESICH_0" value="0"></bitenum>
+<bitenum description="Input channel select: ESICH1" id="ESICH_1" token="ESICH_1" value="1"></bitenum>
+<bitenum description="Input channel select: ESICH2" id="ESICH_2" token="ESICH_2" value="2"></bitenum>
+<bitenum description="Input channel select: ESICH3" id="ESICH_3" token="ESICH_3" value="3"></bitenum></bitfield>
+<bitfield begin="2" description="LC enable" end="2" id="ESILCEN" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="3" description="Excitation and sample-and-hold" end="3" id="ESIEX" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="4" description="TSM comparator on" end="4" id="ESICA" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="5" description="High-frequency clock on" end="5" id="ESICLKON" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="6" description="Internal output latches enabled" end="6" id="ESIRSON" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="7" description="TSM test cycle control" end="7" id="ESITESTS1" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="8" description="TSM DAC on" end="8" id="ESIDAC" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="9" description="This bit indicates the end of the TSM sequence" end="9" id="ESISTOP" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="10" description="This bit selects the clock source for the TSM" end="10" id="ESICLK" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="15" description="These bits together with the ESICLK bit configure the duration of this state" end="11" id="ESIREPEAT" range="" resetval="0" rwaccess="RW" width="5">
+<bitenum description="These bits configure the duration of this state" id="ESIREPEAT_0" token="ESIREPEAT_0" value="0"></bitenum>
+<bitenum description="ESIREPEATx selects the number of clock cycles for this state. The number of clock cycles = ESIREPEATx + 1" id="ESIREPEAT_1" token="ESIREPEAT_1" value="1"></bitenum>
+<bitenum description="" id="ESIREPEAT_2" token="ESIREPEAT_2" value="2"></bitenum>
+<bitenum description="" id="ESIREPEAT_3" token="ESIREPEAT_3" value="3"></bitenum>
+<bitenum description="" id="ESIREPEAT_4" token="ESIREPEAT_4" value="4"></bitenum>
+<bitenum description="" id="ESIREPEAT_5" token="ESIREPEAT_5" value="5"></bitenum>
+<bitenum description="" id="ESIREPEAT_6" token="ESIREPEAT_6" value="6"></bitenum>
+<bitenum description="" id="ESIREPEAT_7" token="ESIREPEAT_7" value="7"></bitenum>
+<bitenum description="" id="ESIREPEAT_8" token="ESIREPEAT_8" value="8"></bitenum>
+<bitenum description="" id="ESIREPEAT_9" token="ESIREPEAT_9" value="9"></bitenum>
+<bitenum description="" id="ESIREPEAT_10" token="ESIREPEAT_10" value="10"></bitenum>
+<bitenum description="" id="ESIREPEAT_11" token="ESIREPEAT_11" value="11"></bitenum>
+<bitenum description="" id="ESIREPEAT_12" token="ESIREPEAT_12" value="12"></bitenum>
+<bitenum description="" id="ESIREPEAT_13" token="ESIREPEAT_13" value="13"></bitenum>
+<bitenum description="" id="ESIREPEAT_14" token="ESIREPEAT_14" value="14"></bitenum>
+<bitenum description="" id="ESIREPEAT_15" token="ESIREPEAT_15" value="15"></bitenum>
+<bitenum description="" id="ESIREPEAT_16" token="ESIREPEAT_16" value="16"></bitenum>
+<bitenum description="" id="ESIREPEAT_17" token="ESIREPEAT_17" value="17"></bitenum>
+<bitenum description="" id="ESIREPEAT_18" token="ESIREPEAT_18" value="18"></bitenum>
+<bitenum description="" id="ESIREPEAT_19" token="ESIREPEAT_19" value="19"></bitenum>
+<bitenum description="" id="ESIREPEAT_20" token="ESIREPEAT_20" value="20"></bitenum>
+<bitenum description="" id="ESIREPEAT_21" token="ESIREPEAT_21" value="21"></bitenum>
+<bitenum description="" id="ESIREPEAT_22" token="ESIREPEAT_22" value="22"></bitenum>
+<bitenum description="" id="ESIREPEAT_23" token="ESIREPEAT_23" value="23"></bitenum>
+<bitenum description="" id="ESIREPEAT_24" token="ESIREPEAT_24" value="24"></bitenum>
+<bitenum description="" id="ESIREPEAT_25" token="ESIREPEAT_25" value="25"></bitenum>
+<bitenum description="" id="ESIREPEAT_26" token="ESIREPEAT_26" value="26"></bitenum>
+<bitenum description="" id="ESIREPEAT_27" token="ESIREPEAT_27" value="27"></bitenum>
+<bitenum description="" id="ESIREPEAT_28" token="ESIREPEAT_28" value="28"></bitenum>
+<bitenum description="" id="ESIREPEAT_29" token="ESIREPEAT_29" value="29"></bitenum>
+<bitenum description="" id="ESIREPEAT_30" token="ESIREPEAT_30" value="30"></bitenum>
+<bitenum description="" id="ESIREPEAT_31" token="ESIREPEAT_31" value="31"></bitenum></bitfield></register>
+<register acronym="ESITSM6" description="ESI TSM 6" id="ESITSM6" offset=" 0x0D6C" width="16">
+<bitfield begin="1" description="Input channel select" end="0" id="ESICH" range="" resetval="0" rwaccess="RW" width="2">
+<bitenum description="Input channel select: ESICH0" id="ESICH_0" token="ESICH_0" value="0"></bitenum>
+<bitenum description="Input channel select: ESICH1" id="ESICH_1" token="ESICH_1" value="1"></bitenum>
+<bitenum description="Input channel select: ESICH2" id="ESICH_2" token="ESICH_2" value="2"></bitenum>
+<bitenum description="Input channel select: ESICH3" id="ESICH_3" token="ESICH_3" value="3"></bitenum></bitfield>
+<bitfield begin="2" description="LC enable" end="2" id="ESILCEN" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="3" description="Excitation and sample-and-hold" end="3" id="ESIEX" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="4" description="TSM comparator on" end="4" id="ESICA" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="5" description="High-frequency clock on" end="5" id="ESICLKON" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="6" description="Internal output latches enabled" end="6" id="ESIRSON" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="7" description="TSM test cycle control" end="7" id="ESITESTS1" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="8" description="TSM DAC on" end="8" id="ESIDAC" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="9" description="This bit indicates the end of the TSM sequence" end="9" id="ESISTOP" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="10" description="This bit selects the clock source for the TSM" end="10" id="ESICLK" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="15" description="These bits together with the ESICLK bit configure the duration of this state" end="11" id="ESIREPEAT" range="" resetval="0" rwaccess="RW" width="5">
+<bitenum description="These bits configure the duration of this state" id="ESIREPEAT_0" token="ESIREPEAT_0" value="0"></bitenum>
+<bitenum description="ESIREPEATx selects the number of clock cycles for this state. The number of clock cycles = ESIREPEATx + 1" id="ESIREPEAT_1" token="ESIREPEAT_1" value="1"></bitenum>
+<bitenum description="" id="ESIREPEAT_2" token="ESIREPEAT_2" value="2"></bitenum>
+<bitenum description="" id="ESIREPEAT_3" token="ESIREPEAT_3" value="3"></bitenum>
+<bitenum description="" id="ESIREPEAT_4" token="ESIREPEAT_4" value="4"></bitenum>
+<bitenum description="" id="ESIREPEAT_5" token="ESIREPEAT_5" value="5"></bitenum>
+<bitenum description="" id="ESIREPEAT_6" token="ESIREPEAT_6" value="6"></bitenum>
+<bitenum description="" id="ESIREPEAT_7" token="ESIREPEAT_7" value="7"></bitenum>
+<bitenum description="" id="ESIREPEAT_8" token="ESIREPEAT_8" value="8"></bitenum>
+<bitenum description="" id="ESIREPEAT_9" token="ESIREPEAT_9" value="9"></bitenum>
+<bitenum description="" id="ESIREPEAT_10" token="ESIREPEAT_10" value="10"></bitenum>
+<bitenum description="" id="ESIREPEAT_11" token="ESIREPEAT_11" value="11"></bitenum>
+<bitenum description="" id="ESIREPEAT_12" token="ESIREPEAT_12" value="12"></bitenum>
+<bitenum description="" id="ESIREPEAT_13" token="ESIREPEAT_13" value="13"></bitenum>
+<bitenum description="" id="ESIREPEAT_14" token="ESIREPEAT_14" value="14"></bitenum>
+<bitenum description="" id="ESIREPEAT_15" token="ESIREPEAT_15" value="15"></bitenum>
+<bitenum description="" id="ESIREPEAT_16" token="ESIREPEAT_16" value="16"></bitenum>
+<bitenum description="" id="ESIREPEAT_17" token="ESIREPEAT_17" value="17"></bitenum>
+<bitenum description="" id="ESIREPEAT_18" token="ESIREPEAT_18" value="18"></bitenum>
+<bitenum description="" id="ESIREPEAT_19" token="ESIREPEAT_19" value="19"></bitenum>
+<bitenum description="" id="ESIREPEAT_20" token="ESIREPEAT_20" value="20"></bitenum>
+<bitenum description="" id="ESIREPEAT_21" token="ESIREPEAT_21" value="21"></bitenum>
+<bitenum description="" id="ESIREPEAT_22" token="ESIREPEAT_22" value="22"></bitenum>
+<bitenum description="" id="ESIREPEAT_23" token="ESIREPEAT_23" value="23"></bitenum>
+<bitenum description="" id="ESIREPEAT_24" token="ESIREPEAT_24" value="24"></bitenum>
+<bitenum description="" id="ESIREPEAT_25" token="ESIREPEAT_25" value="25"></bitenum>
+<bitenum description="" id="ESIREPEAT_26" token="ESIREPEAT_26" value="26"></bitenum>
+<bitenum description="" id="ESIREPEAT_27" token="ESIREPEAT_27" value="27"></bitenum>
+<bitenum description="" id="ESIREPEAT_28" token="ESIREPEAT_28" value="28"></bitenum>
+<bitenum description="" id="ESIREPEAT_29" token="ESIREPEAT_29" value="29"></bitenum>
+<bitenum description="" id="ESIREPEAT_30" token="ESIREPEAT_30" value="30"></bitenum>
+<bitenum description="" id="ESIREPEAT_31" token="ESIREPEAT_31" value="31"></bitenum></bitfield></register>
+<register acronym="ESITSM7" description="ESI TSM 7" id="ESITSM7" offset=" 0x0D6E" width="16">
+<bitfield begin="1" description="Input channel select" end="0" id="ESICH" range="" resetval="0" rwaccess="RW" width="2">
+<bitenum description="Input channel select: ESICH0" id="ESICH_0" token="ESICH_0" value="0"></bitenum>
+<bitenum description="Input channel select: ESICH1" id="ESICH_1" token="ESICH_1" value="1"></bitenum>
+<bitenum description="Input channel select: ESICH2" id="ESICH_2" token="ESICH_2" value="2"></bitenum>
+<bitenum description="Input channel select: ESICH3" id="ESICH_3" token="ESICH_3" value="3"></bitenum></bitfield>
+<bitfield begin="2" description="LC enable" end="2" id="ESILCEN" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="3" description="Excitation and sample-and-hold" end="3" id="ESIEX" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="4" description="TSM comparator on" end="4" id="ESICA" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="5" description="High-frequency clock on" end="5" id="ESICLKON" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="6" description="Internal output latches enabled" end="6" id="ESIRSON" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="7" description="TSM test cycle control" end="7" id="ESITESTS1" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="8" description="TSM DAC on" end="8" id="ESIDAC" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="9" description="This bit indicates the end of the TSM sequence" end="9" id="ESISTOP" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="10" description="This bit selects the clock source for the TSM" end="10" id="ESICLK" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="15" description="These bits together with the ESICLK bit configure the duration of this state" end="11" id="ESIREPEAT" range="" resetval="0" rwaccess="RW" width="5">
+<bitenum description="These bits configure the duration of this state" id="ESIREPEAT_0" token="ESIREPEAT_0" value="0"></bitenum>
+<bitenum description="ESIREPEATx selects the number of clock cycles for this state. The number of clock cycles = ESIREPEATx + 1" id="ESIREPEAT_1" token="ESIREPEAT_1" value="1"></bitenum>
+<bitenum description="" id="ESIREPEAT_2" token="ESIREPEAT_2" value="2"></bitenum>
+<bitenum description="" id="ESIREPEAT_3" token="ESIREPEAT_3" value="3"></bitenum>
+<bitenum description="" id="ESIREPEAT_4" token="ESIREPEAT_4" value="4"></bitenum>
+<bitenum description="" id="ESIREPEAT_5" token="ESIREPEAT_5" value="5"></bitenum>
+<bitenum description="" id="ESIREPEAT_6" token="ESIREPEAT_6" value="6"></bitenum>
+<bitenum description="" id="ESIREPEAT_7" token="ESIREPEAT_7" value="7"></bitenum>
+<bitenum description="" id="ESIREPEAT_8" token="ESIREPEAT_8" value="8"></bitenum>
+<bitenum description="" id="ESIREPEAT_9" token="ESIREPEAT_9" value="9"></bitenum>
+<bitenum description="" id="ESIREPEAT_10" token="ESIREPEAT_10" value="10"></bitenum>
+<bitenum description="" id="ESIREPEAT_11" token="ESIREPEAT_11" value="11"></bitenum>
+<bitenum description="" id="ESIREPEAT_12" token="ESIREPEAT_12" value="12"></bitenum>
+<bitenum description="" id="ESIREPEAT_13" token="ESIREPEAT_13" value="13"></bitenum>
+<bitenum description="" id="ESIREPEAT_14" token="ESIREPEAT_14" value="14"></bitenum>
+<bitenum description="" id="ESIREPEAT_15" token="ESIREPEAT_15" value="15"></bitenum>
+<bitenum description="" id="ESIREPEAT_16" token="ESIREPEAT_16" value="16"></bitenum>
+<bitenum description="" id="ESIREPEAT_17" token="ESIREPEAT_17" value="17"></bitenum>
+<bitenum description="" id="ESIREPEAT_18" token="ESIREPEAT_18" value="18"></bitenum>
+<bitenum description="" id="ESIREPEAT_19" token="ESIREPEAT_19" value="19"></bitenum>
+<bitenum description="" id="ESIREPEAT_20" token="ESIREPEAT_20" value="20"></bitenum>
+<bitenum description="" id="ESIREPEAT_21" token="ESIREPEAT_21" value="21"></bitenum>
+<bitenum description="" id="ESIREPEAT_22" token="ESIREPEAT_22" value="22"></bitenum>
+<bitenum description="" id="ESIREPEAT_23" token="ESIREPEAT_23" value="23"></bitenum>
+<bitenum description="" id="ESIREPEAT_24" token="ESIREPEAT_24" value="24"></bitenum>
+<bitenum description="" id="ESIREPEAT_25" token="ESIREPEAT_25" value="25"></bitenum>
+<bitenum description="" id="ESIREPEAT_26" token="ESIREPEAT_26" value="26"></bitenum>
+<bitenum description="" id="ESIREPEAT_27" token="ESIREPEAT_27" value="27"></bitenum>
+<bitenum description="" id="ESIREPEAT_28" token="ESIREPEAT_28" value="28"></bitenum>
+<bitenum description="" id="ESIREPEAT_29" token="ESIREPEAT_29" value="29"></bitenum>
+<bitenum description="" id="ESIREPEAT_30" token="ESIREPEAT_30" value="30"></bitenum>
+<bitenum description="" id="ESIREPEAT_31" token="ESIREPEAT_31" value="31"></bitenum></bitfield></register>
+<register acronym="ESITSM8" description="ESI TSM 8" id="ESITSM8" offset=" 0x0D70" width="16">
+<bitfield begin="1" description="Input channel select" end="0" id="ESICH" range="" resetval="0" rwaccess="RW" width="2">
+<bitenum description="Input channel select: ESICH0" id="ESICH_0" token="ESICH_0" value="0"></bitenum>
+<bitenum description="Input channel select: ESICH1" id="ESICH_1" token="ESICH_1" value="1"></bitenum>
+<bitenum description="Input channel select: ESICH2" id="ESICH_2" token="ESICH_2" value="2"></bitenum>
+<bitenum description="Input channel select: ESICH3" id="ESICH_3" token="ESICH_3" value="3"></bitenum></bitfield>
+<bitfield begin="2" description="LC enable" end="2" id="ESILCEN" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="3" description="Excitation and sample-and-hold" end="3" id="ESIEX" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="4" description="TSM comparator on" end="4" id="ESICA" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="5" description="High-frequency clock on" end="5" id="ESICLKON" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="6" description="Internal output latches enabled" end="6" id="ESIRSON" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="7" description="TSM test cycle control" end="7" id="ESITESTS1" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="8" description="TSM DAC on" end="8" id="ESIDAC" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="9" description="This bit indicates the end of the TSM sequence" end="9" id="ESISTOP" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="10" description="This bit selects the clock source for the TSM" end="10" id="ESICLK" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="15" description="These bits together with the ESICLK bit configure the duration of this state" end="11" id="ESIREPEAT" range="" resetval="0" rwaccess="RW" width="5">
+<bitenum description="These bits configure the duration of this state" id="ESIREPEAT_0" token="ESIREPEAT_0" value="0"></bitenum>
+<bitenum description="ESIREPEATx selects the number of clock cycles for this state. The number of clock cycles = ESIREPEATx + 1" id="ESIREPEAT_1" token="ESIREPEAT_1" value="1"></bitenum>
+<bitenum description="" id="ESIREPEAT_2" token="ESIREPEAT_2" value="2"></bitenum>
+<bitenum description="" id="ESIREPEAT_3" token="ESIREPEAT_3" value="3"></bitenum>
+<bitenum description="" id="ESIREPEAT_4" token="ESIREPEAT_4" value="4"></bitenum>
+<bitenum description="" id="ESIREPEAT_5" token="ESIREPEAT_5" value="5"></bitenum>
+<bitenum description="" id="ESIREPEAT_6" token="ESIREPEAT_6" value="6"></bitenum>
+<bitenum description="" id="ESIREPEAT_7" token="ESIREPEAT_7" value="7"></bitenum>
+<bitenum description="" id="ESIREPEAT_8" token="ESIREPEAT_8" value="8"></bitenum>
+<bitenum description="" id="ESIREPEAT_9" token="ESIREPEAT_9" value="9"></bitenum>
+<bitenum description="" id="ESIREPEAT_10" token="ESIREPEAT_10" value="10"></bitenum>
+<bitenum description="" id="ESIREPEAT_11" token="ESIREPEAT_11" value="11"></bitenum>
+<bitenum description="" id="ESIREPEAT_12" token="ESIREPEAT_12" value="12"></bitenum>
+<bitenum description="" id="ESIREPEAT_13" token="ESIREPEAT_13" value="13"></bitenum>
+<bitenum description="" id="ESIREPEAT_14" token="ESIREPEAT_14" value="14"></bitenum>
+<bitenum description="" id="ESIREPEAT_15" token="ESIREPEAT_15" value="15"></bitenum>
+<bitenum description="" id="ESIREPEAT_16" token="ESIREPEAT_16" value="16"></bitenum>
+<bitenum description="" id="ESIREPEAT_17" token="ESIREPEAT_17" value="17"></bitenum>
+<bitenum description="" id="ESIREPEAT_18" token="ESIREPEAT_18" value="18"></bitenum>
+<bitenum description="" id="ESIREPEAT_19" token="ESIREPEAT_19" value="19"></bitenum>
+<bitenum description="" id="ESIREPEAT_20" token="ESIREPEAT_20" value="20"></bitenum>
+<bitenum description="" id="ESIREPEAT_21" token="ESIREPEAT_21" value="21"></bitenum>
+<bitenum description="" id="ESIREPEAT_22" token="ESIREPEAT_22" value="22"></bitenum>
+<bitenum description="" id="ESIREPEAT_23" token="ESIREPEAT_23" value="23"></bitenum>
+<bitenum description="" id="ESIREPEAT_24" token="ESIREPEAT_24" value="24"></bitenum>
+<bitenum description="" id="ESIREPEAT_25" token="ESIREPEAT_25" value="25"></bitenum>
+<bitenum description="" id="ESIREPEAT_26" token="ESIREPEAT_26" value="26"></bitenum>
+<bitenum description="" id="ESIREPEAT_27" token="ESIREPEAT_27" value="27"></bitenum>
+<bitenum description="" id="ESIREPEAT_28" token="ESIREPEAT_28" value="28"></bitenum>
+<bitenum description="" id="ESIREPEAT_29" token="ESIREPEAT_29" value="29"></bitenum>
+<bitenum description="" id="ESIREPEAT_30" token="ESIREPEAT_30" value="30"></bitenum>
+<bitenum description="" id="ESIREPEAT_31" token="ESIREPEAT_31" value="31"></bitenum></bitfield></register>
+<register acronym="ESITSM9" description="ESI TSM 9" id="ESITSM9" offset=" 0x0D72" width="16">
+<bitfield begin="1" description="Input channel select" end="0" id="ESICH" range="" resetval="0" rwaccess="RW" width="2">
+<bitenum description="Input channel select: ESICH0" id="ESICH_0" token="ESICH_0" value="0"></bitenum>
+<bitenum description="Input channel select: ESICH1" id="ESICH_1" token="ESICH_1" value="1"></bitenum>
+<bitenum description="Input channel select: ESICH2" id="ESICH_2" token="ESICH_2" value="2"></bitenum>
+<bitenum description="Input channel select: ESICH3" id="ESICH_3" token="ESICH_3" value="3"></bitenum></bitfield>
+<bitfield begin="2" description="LC enable" end="2" id="ESILCEN" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="3" description="Excitation and sample-and-hold" end="3" id="ESIEX" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="4" description="TSM comparator on" end="4" id="ESICA" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="5" description="High-frequency clock on" end="5" id="ESICLKON" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="6" description="Internal output latches enabled" end="6" id="ESIRSON" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="7" description="TSM test cycle control" end="7" id="ESITESTS1" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="8" description="TSM DAC on" end="8" id="ESIDAC" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="9" description="This bit indicates the end of the TSM sequence" end="9" id="ESISTOP" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="10" description="This bit selects the clock source for the TSM" end="10" id="ESICLK" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="15" description="These bits together with the ESICLK bit configure the duration of this state" end="11" id="ESIREPEAT" range="" resetval="0" rwaccess="RW" width="5">
+<bitenum description="These bits configure the duration of this state" id="ESIREPEAT_0" token="ESIREPEAT_0" value="0"></bitenum>
+<bitenum description="ESIREPEATx selects the number of clock cycles for this state. The number of clock cycles = ESIREPEATx + 1" id="ESIREPEAT_1" token="ESIREPEAT_1" value="1"></bitenum>
+<bitenum description="" id="ESIREPEAT_2" token="ESIREPEAT_2" value="2"></bitenum>
+<bitenum description="" id="ESIREPEAT_3" token="ESIREPEAT_3" value="3"></bitenum>
+<bitenum description="" id="ESIREPEAT_4" token="ESIREPEAT_4" value="4"></bitenum>
+<bitenum description="" id="ESIREPEAT_5" token="ESIREPEAT_5" value="5"></bitenum>
+<bitenum description="" id="ESIREPEAT_6" token="ESIREPEAT_6" value="6"></bitenum>
+<bitenum description="" id="ESIREPEAT_7" token="ESIREPEAT_7" value="7"></bitenum>
+<bitenum description="" id="ESIREPEAT_8" token="ESIREPEAT_8" value="8"></bitenum>
+<bitenum description="" id="ESIREPEAT_9" token="ESIREPEAT_9" value="9"></bitenum>
+<bitenum description="" id="ESIREPEAT_10" token="ESIREPEAT_10" value="10"></bitenum>
+<bitenum description="" id="ESIREPEAT_11" token="ESIREPEAT_11" value="11"></bitenum>
+<bitenum description="" id="ESIREPEAT_12" token="ESIREPEAT_12" value="12"></bitenum>
+<bitenum description="" id="ESIREPEAT_13" token="ESIREPEAT_13" value="13"></bitenum>
+<bitenum description="" id="ESIREPEAT_14" token="ESIREPEAT_14" value="14"></bitenum>
+<bitenum description="" id="ESIREPEAT_15" token="ESIREPEAT_15" value="15"></bitenum>
+<bitenum description="" id="ESIREPEAT_16" token="ESIREPEAT_16" value="16"></bitenum>
+<bitenum description="" id="ESIREPEAT_17" token="ESIREPEAT_17" value="17"></bitenum>
+<bitenum description="" id="ESIREPEAT_18" token="ESIREPEAT_18" value="18"></bitenum>
+<bitenum description="" id="ESIREPEAT_19" token="ESIREPEAT_19" value="19"></bitenum>
+<bitenum description="" id="ESIREPEAT_20" token="ESIREPEAT_20" value="20"></bitenum>
+<bitenum description="" id="ESIREPEAT_21" token="ESIREPEAT_21" value="21"></bitenum>
+<bitenum description="" id="ESIREPEAT_22" token="ESIREPEAT_22" value="22"></bitenum>
+<bitenum description="" id="ESIREPEAT_23" token="ESIREPEAT_23" value="23"></bitenum>
+<bitenum description="" id="ESIREPEAT_24" token="ESIREPEAT_24" value="24"></bitenum>
+<bitenum description="" id="ESIREPEAT_25" token="ESIREPEAT_25" value="25"></bitenum>
+<bitenum description="" id="ESIREPEAT_26" token="ESIREPEAT_26" value="26"></bitenum>
+<bitenum description="" id="ESIREPEAT_27" token="ESIREPEAT_27" value="27"></bitenum>
+<bitenum description="" id="ESIREPEAT_28" token="ESIREPEAT_28" value="28"></bitenum>
+<bitenum description="" id="ESIREPEAT_29" token="ESIREPEAT_29" value="29"></bitenum>
+<bitenum description="" id="ESIREPEAT_30" token="ESIREPEAT_30" value="30"></bitenum>
+<bitenum description="" id="ESIREPEAT_31" token="ESIREPEAT_31" value="31"></bitenum></bitfield></register>
+<register acronym="ESITSM10" description="ESI TSM 10" id="ESITSM10" offset=" 0x0D74" width="16">
+<bitfield begin="1" description="Input channel select" end="0" id="ESICH" range="" resetval="0" rwaccess="RW" width="2">
+<bitenum description="Input channel select: ESICH0" id="ESICH_0" token="ESICH_0" value="0"></bitenum>
+<bitenum description="Input channel select: ESICH1" id="ESICH_1" token="ESICH_1" value="1"></bitenum>
+<bitenum description="Input channel select: ESICH2" id="ESICH_2" token="ESICH_2" value="2"></bitenum>
+<bitenum description="Input channel select: ESICH3" id="ESICH_3" token="ESICH_3" value="3"></bitenum></bitfield>
+<bitfield begin="2" description="LC enable" end="2" id="ESILCEN" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="3" description="Excitation and sample-and-hold" end="3" id="ESIEX" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="4" description="TSM comparator on" end="4" id="ESICA" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="5" description="High-frequency clock on" end="5" id="ESICLKON" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="6" description="Internal output latches enabled" end="6" id="ESIRSON" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="7" description="TSM test cycle control" end="7" id="ESITESTS1" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="8" description="TSM DAC on" end="8" id="ESIDAC" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="9" description="This bit indicates the end of the TSM sequence" end="9" id="ESISTOP" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="10" description="This bit selects the clock source for the TSM" end="10" id="ESICLK" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="15" description="These bits together with the ESICLK bit configure the duration of this state" end="11" id="ESIREPEAT" range="" resetval="0" rwaccess="RW" width="5">
+<bitenum description="These bits configure the duration of this state" id="ESIREPEAT_0" token="ESIREPEAT_0" value="0"></bitenum>
+<bitenum description="ESIREPEATx selects the number of clock cycles for this state. The number of clock cycles = ESIREPEATx + 1" id="ESIREPEAT_1" token="ESIREPEAT_1" value="1"></bitenum>
+<bitenum description="" id="ESIREPEAT_2" token="ESIREPEAT_2" value="2"></bitenum>
+<bitenum description="" id="ESIREPEAT_3" token="ESIREPEAT_3" value="3"></bitenum>
+<bitenum description="" id="ESIREPEAT_4" token="ESIREPEAT_4" value="4"></bitenum>
+<bitenum description="" id="ESIREPEAT_5" token="ESIREPEAT_5" value="5"></bitenum>
+<bitenum description="" id="ESIREPEAT_6" token="ESIREPEAT_6" value="6"></bitenum>
+<bitenum description="" id="ESIREPEAT_7" token="ESIREPEAT_7" value="7"></bitenum>
+<bitenum description="" id="ESIREPEAT_8" token="ESIREPEAT_8" value="8"></bitenum>
+<bitenum description="" id="ESIREPEAT_9" token="ESIREPEAT_9" value="9"></bitenum>
+<bitenum description="" id="ESIREPEAT_10" token="ESIREPEAT_10" value="10"></bitenum>
+<bitenum description="" id="ESIREPEAT_11" token="ESIREPEAT_11" value="11"></bitenum>
+<bitenum description="" id="ESIREPEAT_12" token="ESIREPEAT_12" value="12"></bitenum>
+<bitenum description="" id="ESIREPEAT_13" token="ESIREPEAT_13" value="13"></bitenum>
+<bitenum description="" id="ESIREPEAT_14" token="ESIREPEAT_14" value="14"></bitenum>
+<bitenum description="" id="ESIREPEAT_15" token="ESIREPEAT_15" value="15"></bitenum>
+<bitenum description="" id="ESIREPEAT_16" token="ESIREPEAT_16" value="16"></bitenum>
+<bitenum description="" id="ESIREPEAT_17" token="ESIREPEAT_17" value="17"></bitenum>
+<bitenum description="" id="ESIREPEAT_18" token="ESIREPEAT_18" value="18"></bitenum>
+<bitenum description="" id="ESIREPEAT_19" token="ESIREPEAT_19" value="19"></bitenum>
+<bitenum description="" id="ESIREPEAT_20" token="ESIREPEAT_20" value="20"></bitenum>
+<bitenum description="" id="ESIREPEAT_21" token="ESIREPEAT_21" value="21"></bitenum>
+<bitenum description="" id="ESIREPEAT_22" token="ESIREPEAT_22" value="22"></bitenum>
+<bitenum description="" id="ESIREPEAT_23" token="ESIREPEAT_23" value="23"></bitenum>
+<bitenum description="" id="ESIREPEAT_24" token="ESIREPEAT_24" value="24"></bitenum>
+<bitenum description="" id="ESIREPEAT_25" token="ESIREPEAT_25" value="25"></bitenum>
+<bitenum description="" id="ESIREPEAT_26" token="ESIREPEAT_26" value="26"></bitenum>
+<bitenum description="" id="ESIREPEAT_27" token="ESIREPEAT_27" value="27"></bitenum>
+<bitenum description="" id="ESIREPEAT_28" token="ESIREPEAT_28" value="28"></bitenum>
+<bitenum description="" id="ESIREPEAT_29" token="ESIREPEAT_29" value="29"></bitenum>
+<bitenum description="" id="ESIREPEAT_30" token="ESIREPEAT_30" value="30"></bitenum>
+<bitenum description="" id="ESIREPEAT_31" token="ESIREPEAT_31" value="31"></bitenum></bitfield></register>
+<register acronym="ESITSM11" description="ESI TSM 11" id="ESITSM11" offset=" 0x0D76" width="16">
+<bitfield begin="1" description="Input channel select" end="0" id="ESICH" range="" resetval="0" rwaccess="RW" width="2">
+<bitenum description="Input channel select: ESICH0" id="ESICH_0" token="ESICH_0" value="0"></bitenum>
+<bitenum description="Input channel select: ESICH1" id="ESICH_1" token="ESICH_1" value="1"></bitenum>
+<bitenum description="Input channel select: ESICH2" id="ESICH_2" token="ESICH_2" value="2"></bitenum>
+<bitenum description="Input channel select: ESICH3" id="ESICH_3" token="ESICH_3" value="3"></bitenum></bitfield>
+<bitfield begin="2" description="LC enable" end="2" id="ESILCEN" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="3" description="Excitation and sample-and-hold" end="3" id="ESIEX" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="4" description="TSM comparator on" end="4" id="ESICA" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="5" description="High-frequency clock on" end="5" id="ESICLKON" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="6" description="Internal output latches enabled" end="6" id="ESIRSON" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="7" description="TSM test cycle control" end="7" id="ESITESTS1" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="8" description="TSM DAC on" end="8" id="ESIDAC" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="9" description="This bit indicates the end of the TSM sequence" end="9" id="ESISTOP" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="10" description="This bit selects the clock source for the TSM" end="10" id="ESICLK" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="15" description="These bits together with the ESICLK bit configure the duration of this state" end="11" id="ESIREPEAT" range="" resetval="0" rwaccess="RW" width="5">
+<bitenum description="These bits configure the duration of this state" id="ESIREPEAT_0" token="ESIREPEAT_0" value="0"></bitenum>
+<bitenum description="ESIREPEATx selects the number of clock cycles for this state. The number of clock cycles = ESIREPEATx + 1" id="ESIREPEAT_1" token="ESIREPEAT_1" value="1"></bitenum>
+<bitenum description="" id="ESIREPEAT_2" token="ESIREPEAT_2" value="2"></bitenum>
+<bitenum description="" id="ESIREPEAT_3" token="ESIREPEAT_3" value="3"></bitenum>
+<bitenum description="" id="ESIREPEAT_4" token="ESIREPEAT_4" value="4"></bitenum>
+<bitenum description="" id="ESIREPEAT_5" token="ESIREPEAT_5" value="5"></bitenum>
+<bitenum description="" id="ESIREPEAT_6" token="ESIREPEAT_6" value="6"></bitenum>
+<bitenum description="" id="ESIREPEAT_7" token="ESIREPEAT_7" value="7"></bitenum>
+<bitenum description="" id="ESIREPEAT_8" token="ESIREPEAT_8" value="8"></bitenum>
+<bitenum description="" id="ESIREPEAT_9" token="ESIREPEAT_9" value="9"></bitenum>
+<bitenum description="" id="ESIREPEAT_10" token="ESIREPEAT_10" value="10"></bitenum>
+<bitenum description="" id="ESIREPEAT_11" token="ESIREPEAT_11" value="11"></bitenum>
+<bitenum description="" id="ESIREPEAT_12" token="ESIREPEAT_12" value="12"></bitenum>
+<bitenum description="" id="ESIREPEAT_13" token="ESIREPEAT_13" value="13"></bitenum>
+<bitenum description="" id="ESIREPEAT_14" token="ESIREPEAT_14" value="14"></bitenum>
+<bitenum description="" id="ESIREPEAT_15" token="ESIREPEAT_15" value="15"></bitenum>
+<bitenum description="" id="ESIREPEAT_16" token="ESIREPEAT_16" value="16"></bitenum>
+<bitenum description="" id="ESIREPEAT_17" token="ESIREPEAT_17" value="17"></bitenum>
+<bitenum description="" id="ESIREPEAT_18" token="ESIREPEAT_18" value="18"></bitenum>
+<bitenum description="" id="ESIREPEAT_19" token="ESIREPEAT_19" value="19"></bitenum>
+<bitenum description="" id="ESIREPEAT_20" token="ESIREPEAT_20" value="20"></bitenum>
+<bitenum description="" id="ESIREPEAT_21" token="ESIREPEAT_21" value="21"></bitenum>
+<bitenum description="" id="ESIREPEAT_22" token="ESIREPEAT_22" value="22"></bitenum>
+<bitenum description="" id="ESIREPEAT_23" token="ESIREPEAT_23" value="23"></bitenum>
+<bitenum description="" id="ESIREPEAT_24" token="ESIREPEAT_24" value="24"></bitenum>
+<bitenum description="" id="ESIREPEAT_25" token="ESIREPEAT_25" value="25"></bitenum>
+<bitenum description="" id="ESIREPEAT_26" token="ESIREPEAT_26" value="26"></bitenum>
+<bitenum description="" id="ESIREPEAT_27" token="ESIREPEAT_27" value="27"></bitenum>
+<bitenum description="" id="ESIREPEAT_28" token="ESIREPEAT_28" value="28"></bitenum>
+<bitenum description="" id="ESIREPEAT_29" token="ESIREPEAT_29" value="29"></bitenum>
+<bitenum description="" id="ESIREPEAT_30" token="ESIREPEAT_30" value="30"></bitenum>
+<bitenum description="" id="ESIREPEAT_31" token="ESIREPEAT_31" value="31"></bitenum></bitfield></register>
+<register acronym="ESITSM12" description="ESI TSM 12" id="ESITSM12" offset=" 0x0D78" width="16">
+<bitfield begin="1" description="Input channel select" end="0" id="ESICH" range="" resetval="0" rwaccess="RW" width="2">
+<bitenum description="Input channel select: ESICH0" id="ESICH_0" token="ESICH_0" value="0"></bitenum>
+<bitenum description="Input channel select: ESICH1" id="ESICH_1" token="ESICH_1" value="1"></bitenum>
+<bitenum description="Input channel select: ESICH2" id="ESICH_2" token="ESICH_2" value="2"></bitenum>
+<bitenum description="Input channel select: ESICH3" id="ESICH_3" token="ESICH_3" value="3"></bitenum></bitfield>
+<bitfield begin="2" description="LC enable" end="2" id="ESILCEN" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="3" description="Excitation and sample-and-hold" end="3" id="ESIEX" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="4" description="TSM comparator on" end="4" id="ESICA" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="5" description="High-frequency clock on" end="5" id="ESICLKON" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="6" description="Internal output latches enabled" end="6" id="ESIRSON" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="7" description="TSM test cycle control" end="7" id="ESITESTS1" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="8" description="TSM DAC on" end="8" id="ESIDAC" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="9" description="This bit indicates the end of the TSM sequence" end="9" id="ESISTOP" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="10" description="This bit selects the clock source for the TSM" end="10" id="ESICLK" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="15" description="These bits together with the ESICLK bit configure the duration of this state" end="11" id="ESIREPEAT" range="" resetval="0" rwaccess="RW" width="5">
+<bitenum description="These bits configure the duration of this state" id="ESIREPEAT_0" token="ESIREPEAT_0" value="0"></bitenum>
+<bitenum description="ESIREPEATx selects the number of clock cycles for this state. The number of clock cycles = ESIREPEATx + 1" id="ESIREPEAT_1" token="ESIREPEAT_1" value="1"></bitenum>
+<bitenum description="" id="ESIREPEAT_2" token="ESIREPEAT_2" value="2"></bitenum>
+<bitenum description="" id="ESIREPEAT_3" token="ESIREPEAT_3" value="3"></bitenum>
+<bitenum description="" id="ESIREPEAT_4" token="ESIREPEAT_4" value="4"></bitenum>
+<bitenum description="" id="ESIREPEAT_5" token="ESIREPEAT_5" value="5"></bitenum>
+<bitenum description="" id="ESIREPEAT_6" token="ESIREPEAT_6" value="6"></bitenum>
+<bitenum description="" id="ESIREPEAT_7" token="ESIREPEAT_7" value="7"></bitenum>
+<bitenum description="" id="ESIREPEAT_8" token="ESIREPEAT_8" value="8"></bitenum>
+<bitenum description="" id="ESIREPEAT_9" token="ESIREPEAT_9" value="9"></bitenum>
+<bitenum description="" id="ESIREPEAT_10" token="ESIREPEAT_10" value="10"></bitenum>
+<bitenum description="" id="ESIREPEAT_11" token="ESIREPEAT_11" value="11"></bitenum>
+<bitenum description="" id="ESIREPEAT_12" token="ESIREPEAT_12" value="12"></bitenum>
+<bitenum description="" id="ESIREPEAT_13" token="ESIREPEAT_13" value="13"></bitenum>
+<bitenum description="" id="ESIREPEAT_14" token="ESIREPEAT_14" value="14"></bitenum>
+<bitenum description="" id="ESIREPEAT_15" token="ESIREPEAT_15" value="15"></bitenum>
+<bitenum description="" id="ESIREPEAT_16" token="ESIREPEAT_16" value="16"></bitenum>
+<bitenum description="" id="ESIREPEAT_17" token="ESIREPEAT_17" value="17"></bitenum>
+<bitenum description="" id="ESIREPEAT_18" token="ESIREPEAT_18" value="18"></bitenum>
+<bitenum description="" id="ESIREPEAT_19" token="ESIREPEAT_19" value="19"></bitenum>
+<bitenum description="" id="ESIREPEAT_20" token="ESIREPEAT_20" value="20"></bitenum>
+<bitenum description="" id="ESIREPEAT_21" token="ESIREPEAT_21" value="21"></bitenum>
+<bitenum description="" id="ESIREPEAT_22" token="ESIREPEAT_22" value="22"></bitenum>
+<bitenum description="" id="ESIREPEAT_23" token="ESIREPEAT_23" value="23"></bitenum>
+<bitenum description="" id="ESIREPEAT_24" token="ESIREPEAT_24" value="24"></bitenum>
+<bitenum description="" id="ESIREPEAT_25" token="ESIREPEAT_25" value="25"></bitenum>
+<bitenum description="" id="ESIREPEAT_26" token="ESIREPEAT_26" value="26"></bitenum>
+<bitenum description="" id="ESIREPEAT_27" token="ESIREPEAT_27" value="27"></bitenum>
+<bitenum description="" id="ESIREPEAT_28" token="ESIREPEAT_28" value="28"></bitenum>
+<bitenum description="" id="ESIREPEAT_29" token="ESIREPEAT_29" value="29"></bitenum>
+<bitenum description="" id="ESIREPEAT_30" token="ESIREPEAT_30" value="30"></bitenum>
+<bitenum description="" id="ESIREPEAT_31" token="ESIREPEAT_31" value="31"></bitenum></bitfield></register>
+<register acronym="ESITSM13" description="ESI TSM 13" id="ESITSM13" offset=" 0x0D7A" width="16">
+<bitfield begin="1" description="Input channel select" end="0" id="ESICH" range="" resetval="0" rwaccess="RW" width="2">
+<bitenum description="Input channel select: ESICH0" id="ESICH_0" token="ESICH_0" value="0"></bitenum>
+<bitenum description="Input channel select: ESICH1" id="ESICH_1" token="ESICH_1" value="1"></bitenum>
+<bitenum description="Input channel select: ESICH2" id="ESICH_2" token="ESICH_2" value="2"></bitenum>
+<bitenum description="Input channel select: ESICH3" id="ESICH_3" token="ESICH_3" value="3"></bitenum></bitfield>
+<bitfield begin="2" description="LC enable" end="2" id="ESILCEN" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="3" description="Excitation and sample-and-hold" end="3" id="ESIEX" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="4" description="TSM comparator on" end="4" id="ESICA" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="5" description="High-frequency clock on" end="5" id="ESICLKON" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="6" description="Internal output latches enabled" end="6" id="ESIRSON" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="7" description="TSM test cycle control" end="7" id="ESITESTS1" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="8" description="TSM DAC on" end="8" id="ESIDAC" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="9" description="This bit indicates the end of the TSM sequence" end="9" id="ESISTOP" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="10" description="This bit selects the clock source for the TSM" end="10" id="ESICLK" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="15" description="These bits together with the ESICLK bit configure the duration of this state" end="11" id="ESIREPEAT" range="" resetval="0" rwaccess="RW" width="5">
+<bitenum description="These bits configure the duration of this state" id="ESIREPEAT_0" token="ESIREPEAT_0" value="0"></bitenum>
+<bitenum description="ESIREPEATx selects the number of clock cycles for this state. The number of clock cycles = ESIREPEATx + 1" id="ESIREPEAT_1" token="ESIREPEAT_1" value="1"></bitenum>
+<bitenum description="" id="ESIREPEAT_2" token="ESIREPEAT_2" value="2"></bitenum>
+<bitenum description="" id="ESIREPEAT_3" token="ESIREPEAT_3" value="3"></bitenum>
+<bitenum description="" id="ESIREPEAT_4" token="ESIREPEAT_4" value="4"></bitenum>
+<bitenum description="" id="ESIREPEAT_5" token="ESIREPEAT_5" value="5"></bitenum>
+<bitenum description="" id="ESIREPEAT_6" token="ESIREPEAT_6" value="6"></bitenum>
+<bitenum description="" id="ESIREPEAT_7" token="ESIREPEAT_7" value="7"></bitenum>
+<bitenum description="" id="ESIREPEAT_8" token="ESIREPEAT_8" value="8"></bitenum>
+<bitenum description="" id="ESIREPEAT_9" token="ESIREPEAT_9" value="9"></bitenum>
+<bitenum description="" id="ESIREPEAT_10" token="ESIREPEAT_10" value="10"></bitenum>
+<bitenum description="" id="ESIREPEAT_11" token="ESIREPEAT_11" value="11"></bitenum>
+<bitenum description="" id="ESIREPEAT_12" token="ESIREPEAT_12" value="12"></bitenum>
+<bitenum description="" id="ESIREPEAT_13" token="ESIREPEAT_13" value="13"></bitenum>
+<bitenum description="" id="ESIREPEAT_14" token="ESIREPEAT_14" value="14"></bitenum>
+<bitenum description="" id="ESIREPEAT_15" token="ESIREPEAT_15" value="15"></bitenum>
+<bitenum description="" id="ESIREPEAT_16" token="ESIREPEAT_16" value="16"></bitenum>
+<bitenum description="" id="ESIREPEAT_17" token="ESIREPEAT_17" value="17"></bitenum>
+<bitenum description="" id="ESIREPEAT_18" token="ESIREPEAT_18" value="18"></bitenum>
+<bitenum description="" id="ESIREPEAT_19" token="ESIREPEAT_19" value="19"></bitenum>
+<bitenum description="" id="ESIREPEAT_20" token="ESIREPEAT_20" value="20"></bitenum>
+<bitenum description="" id="ESIREPEAT_21" token="ESIREPEAT_21" value="21"></bitenum>
+<bitenum description="" id="ESIREPEAT_22" token="ESIREPEAT_22" value="22"></bitenum>
+<bitenum description="" id="ESIREPEAT_23" token="ESIREPEAT_23" value="23"></bitenum>
+<bitenum description="" id="ESIREPEAT_24" token="ESIREPEAT_24" value="24"></bitenum>
+<bitenum description="" id="ESIREPEAT_25" token="ESIREPEAT_25" value="25"></bitenum>
+<bitenum description="" id="ESIREPEAT_26" token="ESIREPEAT_26" value="26"></bitenum>
+<bitenum description="" id="ESIREPEAT_27" token="ESIREPEAT_27" value="27"></bitenum>
+<bitenum description="" id="ESIREPEAT_28" token="ESIREPEAT_28" value="28"></bitenum>
+<bitenum description="" id="ESIREPEAT_29" token="ESIREPEAT_29" value="29"></bitenum>
+<bitenum description="" id="ESIREPEAT_30" token="ESIREPEAT_30" value="30"></bitenum>
+<bitenum description="" id="ESIREPEAT_31" token="ESIREPEAT_31" value="31"></bitenum></bitfield></register>
+<register acronym="ESITSM14" description="ESI TSM 14" id="ESITSM14" offset=" 0x0D7C" width="16">
+<bitfield begin="1" description="Input channel select" end="0" id="ESICH" range="" resetval="0" rwaccess="RW" width="2">
+<bitenum description="Input channel select: ESICH0" id="ESICH_0" token="ESICH_0" value="0"></bitenum>
+<bitenum description="Input channel select: ESICH1" id="ESICH_1" token="ESICH_1" value="1"></bitenum>
+<bitenum description="Input channel select: ESICH2" id="ESICH_2" token="ESICH_2" value="2"></bitenum>
+<bitenum description="Input channel select: ESICH3" id="ESICH_3" token="ESICH_3" value="3"></bitenum></bitfield>
+<bitfield begin="2" description="LC enable" end="2" id="ESILCEN" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="3" description="Excitation and sample-and-hold" end="3" id="ESIEX" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="4" description="TSM comparator on" end="4" id="ESICA" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="5" description="High-frequency clock on" end="5" id="ESICLKON" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="6" description="Internal output latches enabled" end="6" id="ESIRSON" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="7" description="TSM test cycle control" end="7" id="ESITESTS1" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="8" description="TSM DAC on" end="8" id="ESIDAC" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="9" description="This bit indicates the end of the TSM sequence" end="9" id="ESISTOP" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="10" description="This bit selects the clock source for the TSM" end="10" id="ESICLK" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="15" description="These bits together with the ESICLK bit configure the duration of this state" end="11" id="ESIREPEAT" range="" resetval="0" rwaccess="RW" width="5">
+<bitenum description="These bits configure the duration of this state" id="ESIREPEAT_0" token="ESIREPEAT_0" value="0"></bitenum>
+<bitenum description="ESIREPEATx selects the number of clock cycles for this state. The number of clock cycles = ESIREPEATx + 1" id="ESIREPEAT_1" token="ESIREPEAT_1" value="1"></bitenum>
+<bitenum description="" id="ESIREPEAT_2" token="ESIREPEAT_2" value="2"></bitenum>
+<bitenum description="" id="ESIREPEAT_3" token="ESIREPEAT_3" value="3"></bitenum>
+<bitenum description="" id="ESIREPEAT_4" token="ESIREPEAT_4" value="4"></bitenum>
+<bitenum description="" id="ESIREPEAT_5" token="ESIREPEAT_5" value="5"></bitenum>
+<bitenum description="" id="ESIREPEAT_6" token="ESIREPEAT_6" value="6"></bitenum>
+<bitenum description="" id="ESIREPEAT_7" token="ESIREPEAT_7" value="7"></bitenum>
+<bitenum description="" id="ESIREPEAT_8" token="ESIREPEAT_8" value="8"></bitenum>
+<bitenum description="" id="ESIREPEAT_9" token="ESIREPEAT_9" value="9"></bitenum>
+<bitenum description="" id="ESIREPEAT_10" token="ESIREPEAT_10" value="10"></bitenum>
+<bitenum description="" id="ESIREPEAT_11" token="ESIREPEAT_11" value="11"></bitenum>
+<bitenum description="" id="ESIREPEAT_12" token="ESIREPEAT_12" value="12"></bitenum>
+<bitenum description="" id="ESIREPEAT_13" token="ESIREPEAT_13" value="13"></bitenum>
+<bitenum description="" id="ESIREPEAT_14" token="ESIREPEAT_14" value="14"></bitenum>
+<bitenum description="" id="ESIREPEAT_15" token="ESIREPEAT_15" value="15"></bitenum>
+<bitenum description="" id="ESIREPEAT_16" token="ESIREPEAT_16" value="16"></bitenum>
+<bitenum description="" id="ESIREPEAT_17" token="ESIREPEAT_17" value="17"></bitenum>
+<bitenum description="" id="ESIREPEAT_18" token="ESIREPEAT_18" value="18"></bitenum>
+<bitenum description="" id="ESIREPEAT_19" token="ESIREPEAT_19" value="19"></bitenum>
+<bitenum description="" id="ESIREPEAT_20" token="ESIREPEAT_20" value="20"></bitenum>
+<bitenum description="" id="ESIREPEAT_21" token="ESIREPEAT_21" value="21"></bitenum>
+<bitenum description="" id="ESIREPEAT_22" token="ESIREPEAT_22" value="22"></bitenum>
+<bitenum description="" id="ESIREPEAT_23" token="ESIREPEAT_23" value="23"></bitenum>
+<bitenum description="" id="ESIREPEAT_24" token="ESIREPEAT_24" value="24"></bitenum>
+<bitenum description="" id="ESIREPEAT_25" token="ESIREPEAT_25" value="25"></bitenum>
+<bitenum description="" id="ESIREPEAT_26" token="ESIREPEAT_26" value="26"></bitenum>
+<bitenum description="" id="ESIREPEAT_27" token="ESIREPEAT_27" value="27"></bitenum>
+<bitenum description="" id="ESIREPEAT_28" token="ESIREPEAT_28" value="28"></bitenum>
+<bitenum description="" id="ESIREPEAT_29" token="ESIREPEAT_29" value="29"></bitenum>
+<bitenum description="" id="ESIREPEAT_30" token="ESIREPEAT_30" value="30"></bitenum>
+<bitenum description="" id="ESIREPEAT_31" token="ESIREPEAT_31" value="31"></bitenum></bitfield></register>
+<register acronym="ESITSM15" description="ESI TSM 15" id="ESITSM15" offset=" 0x0D7E" width="16">
+<bitfield begin="1" description="Input channel select" end="0" id="ESICH" range="" resetval="0" rwaccess="RW" width="2">
+<bitenum description="Input channel select: ESICH0" id="ESICH_0" token="ESICH_0" value="0"></bitenum>
+<bitenum description="Input channel select: ESICH1" id="ESICH_1" token="ESICH_1" value="1"></bitenum>
+<bitenum description="Input channel select: ESICH2" id="ESICH_2" token="ESICH_2" value="2"></bitenum>
+<bitenum description="Input channel select: ESICH3" id="ESICH_3" token="ESICH_3" value="3"></bitenum></bitfield>
+<bitfield begin="2" description="LC enable" end="2" id="ESILCEN" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="3" description="Excitation and sample-and-hold" end="3" id="ESIEX" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="4" description="TSM comparator on" end="4" id="ESICA" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="5" description="High-frequency clock on" end="5" id="ESICLKON" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="6" description="Internal output latches enabled" end="6" id="ESIRSON" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="7" description="TSM test cycle control" end="7" id="ESITESTS1" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="8" description="TSM DAC on" end="8" id="ESIDAC" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="9" description="This bit indicates the end of the TSM sequence" end="9" id="ESISTOP" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="10" description="This bit selects the clock source for the TSM" end="10" id="ESICLK" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="15" description="These bits together with the ESICLK bit configure the duration of this state" end="11" id="ESIREPEAT" range="" resetval="0" rwaccess="RW" width="5">
+<bitenum description="These bits configure the duration of this state" id="ESIREPEAT_0" token="ESIREPEAT_0" value="0"></bitenum>
+<bitenum description="ESIREPEATx selects the number of clock cycles for this state. The number of clock cycles = ESIREPEATx + 1" id="ESIREPEAT_1" token="ESIREPEAT_1" value="1"></bitenum>
+<bitenum description="" id="ESIREPEAT_2" token="ESIREPEAT_2" value="2"></bitenum>
+<bitenum description="" id="ESIREPEAT_3" token="ESIREPEAT_3" value="3"></bitenum>
+<bitenum description="" id="ESIREPEAT_4" token="ESIREPEAT_4" value="4"></bitenum>
+<bitenum description="" id="ESIREPEAT_5" token="ESIREPEAT_5" value="5"></bitenum>
+<bitenum description="" id="ESIREPEAT_6" token="ESIREPEAT_6" value="6"></bitenum>
+<bitenum description="" id="ESIREPEAT_7" token="ESIREPEAT_7" value="7"></bitenum>
+<bitenum description="" id="ESIREPEAT_8" token="ESIREPEAT_8" value="8"></bitenum>
+<bitenum description="" id="ESIREPEAT_9" token="ESIREPEAT_9" value="9"></bitenum>
+<bitenum description="" id="ESIREPEAT_10" token="ESIREPEAT_10" value="10"></bitenum>
+<bitenum description="" id="ESIREPEAT_11" token="ESIREPEAT_11" value="11"></bitenum>
+<bitenum description="" id="ESIREPEAT_12" token="ESIREPEAT_12" value="12"></bitenum>
+<bitenum description="" id="ESIREPEAT_13" token="ESIREPEAT_13" value="13"></bitenum>
+<bitenum description="" id="ESIREPEAT_14" token="ESIREPEAT_14" value="14"></bitenum>
+<bitenum description="" id="ESIREPEAT_15" token="ESIREPEAT_15" value="15"></bitenum>
+<bitenum description="" id="ESIREPEAT_16" token="ESIREPEAT_16" value="16"></bitenum>
+<bitenum description="" id="ESIREPEAT_17" token="ESIREPEAT_17" value="17"></bitenum>
+<bitenum description="" id="ESIREPEAT_18" token="ESIREPEAT_18" value="18"></bitenum>
+<bitenum description="" id="ESIREPEAT_19" token="ESIREPEAT_19" value="19"></bitenum>
+<bitenum description="" id="ESIREPEAT_20" token="ESIREPEAT_20" value="20"></bitenum>
+<bitenum description="" id="ESIREPEAT_21" token="ESIREPEAT_21" value="21"></bitenum>
+<bitenum description="" id="ESIREPEAT_22" token="ESIREPEAT_22" value="22"></bitenum>
+<bitenum description="" id="ESIREPEAT_23" token="ESIREPEAT_23" value="23"></bitenum>
+<bitenum description="" id="ESIREPEAT_24" token="ESIREPEAT_24" value="24"></bitenum>
+<bitenum description="" id="ESIREPEAT_25" token="ESIREPEAT_25" value="25"></bitenum>
+<bitenum description="" id="ESIREPEAT_26" token="ESIREPEAT_26" value="26"></bitenum>
+<bitenum description="" id="ESIREPEAT_27" token="ESIREPEAT_27" value="27"></bitenum>
+<bitenum description="" id="ESIREPEAT_28" token="ESIREPEAT_28" value="28"></bitenum>
+<bitenum description="" id="ESIREPEAT_29" token="ESIREPEAT_29" value="29"></bitenum>
+<bitenum description="" id="ESIREPEAT_30" token="ESIREPEAT_30" value="30"></bitenum>
+<bitenum description="" id="ESIREPEAT_31" token="ESIREPEAT_31" value="31"></bitenum></bitfield></register>
+<register acronym="ESITSM16" description="ESI TSM 16" id="ESITSM16" offset=" 0x0D80" width="16">
+<bitfield begin="1" description="Input channel select" end="0" id="ESICH" range="" resetval="0" rwaccess="RW" width="2">
+<bitenum description="Input channel select: ESICH0" id="ESICH_0" token="ESICH_0" value="0"></bitenum>
+<bitenum description="Input channel select: ESICH1" id="ESICH_1" token="ESICH_1" value="1"></bitenum>
+<bitenum description="Input channel select: ESICH2" id="ESICH_2" token="ESICH_2" value="2"></bitenum>
+<bitenum description="Input channel select: ESICH3" id="ESICH_3" token="ESICH_3" value="3"></bitenum></bitfield>
+<bitfield begin="2" description="LC enable" end="2" id="ESILCEN" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="3" description="Excitation and sample-and-hold" end="3" id="ESIEX" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="4" description="TSM comparator on" end="4" id="ESICA" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="5" description="High-frequency clock on" end="5" id="ESICLKON" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="6" description="Internal output latches enabled" end="6" id="ESIRSON" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="7" description="TSM test cycle control" end="7" id="ESITESTS1" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="8" description="TSM DAC on" end="8" id="ESIDAC" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="9" description="This bit indicates the end of the TSM sequence" end="9" id="ESISTOP" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="10" description="This bit selects the clock source for the TSM" end="10" id="ESICLK" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="15" description="These bits together with the ESICLK bit configure the duration of this state" end="11" id="ESIREPEAT" range="" resetval="0" rwaccess="RW" width="5">
+<bitenum description="These bits configure the duration of this state" id="ESIREPEAT_0" token="ESIREPEAT_0" value="0"></bitenum>
+<bitenum description="ESIREPEATx selects the number of clock cycles for this state. The number of clock cycles = ESIREPEATx + 1" id="ESIREPEAT_1" token="ESIREPEAT_1" value="1"></bitenum>
+<bitenum description="" id="ESIREPEAT_2" token="ESIREPEAT_2" value="2"></bitenum>
+<bitenum description="" id="ESIREPEAT_3" token="ESIREPEAT_3" value="3"></bitenum>
+<bitenum description="" id="ESIREPEAT_4" token="ESIREPEAT_4" value="4"></bitenum>
+<bitenum description="" id="ESIREPEAT_5" token="ESIREPEAT_5" value="5"></bitenum>
+<bitenum description="" id="ESIREPEAT_6" token="ESIREPEAT_6" value="6"></bitenum>
+<bitenum description="" id="ESIREPEAT_7" token="ESIREPEAT_7" value="7"></bitenum>
+<bitenum description="" id="ESIREPEAT_8" token="ESIREPEAT_8" value="8"></bitenum>
+<bitenum description="" id="ESIREPEAT_9" token="ESIREPEAT_9" value="9"></bitenum>
+<bitenum description="" id="ESIREPEAT_10" token="ESIREPEAT_10" value="10"></bitenum>
+<bitenum description="" id="ESIREPEAT_11" token="ESIREPEAT_11" value="11"></bitenum>
+<bitenum description="" id="ESIREPEAT_12" token="ESIREPEAT_12" value="12"></bitenum>
+<bitenum description="" id="ESIREPEAT_13" token="ESIREPEAT_13" value="13"></bitenum>
+<bitenum description="" id="ESIREPEAT_14" token="ESIREPEAT_14" value="14"></bitenum>
+<bitenum description="" id="ESIREPEAT_15" token="ESIREPEAT_15" value="15"></bitenum>
+<bitenum description="" id="ESIREPEAT_16" token="ESIREPEAT_16" value="16"></bitenum>
+<bitenum description="" id="ESIREPEAT_17" token="ESIREPEAT_17" value="17"></bitenum>
+<bitenum description="" id="ESIREPEAT_18" token="ESIREPEAT_18" value="18"></bitenum>
+<bitenum description="" id="ESIREPEAT_19" token="ESIREPEAT_19" value="19"></bitenum>
+<bitenum description="" id="ESIREPEAT_20" token="ESIREPEAT_20" value="20"></bitenum>
+<bitenum description="" id="ESIREPEAT_21" token="ESIREPEAT_21" value="21"></bitenum>
+<bitenum description="" id="ESIREPEAT_22" token="ESIREPEAT_22" value="22"></bitenum>
+<bitenum description="" id="ESIREPEAT_23" token="ESIREPEAT_23" value="23"></bitenum>
+<bitenum description="" id="ESIREPEAT_24" token="ESIREPEAT_24" value="24"></bitenum>
+<bitenum description="" id="ESIREPEAT_25" token="ESIREPEAT_25" value="25"></bitenum>
+<bitenum description="" id="ESIREPEAT_26" token="ESIREPEAT_26" value="26"></bitenum>
+<bitenum description="" id="ESIREPEAT_27" token="ESIREPEAT_27" value="27"></bitenum>
+<bitenum description="" id="ESIREPEAT_28" token="ESIREPEAT_28" value="28"></bitenum>
+<bitenum description="" id="ESIREPEAT_29" token="ESIREPEAT_29" value="29"></bitenum>
+<bitenum description="" id="ESIREPEAT_30" token="ESIREPEAT_30" value="30"></bitenum>
+<bitenum description="" id="ESIREPEAT_31" token="ESIREPEAT_31" value="31"></bitenum></bitfield></register>
+<register acronym="ESITSM17" description="ESI TSM 17" id="ESITSM17" offset=" 0x0D82" width="16">
+<bitfield begin="1" description="Input channel select" end="0" id="ESICH" range="" resetval="0" rwaccess="RW" width="2">
+<bitenum description="Input channel select: ESICH0" id="ESICH_0" token="ESICH_0" value="0"></bitenum>
+<bitenum description="Input channel select: ESICH1" id="ESICH_1" token="ESICH_1" value="1"></bitenum>
+<bitenum description="Input channel select: ESICH2" id="ESICH_2" token="ESICH_2" value="2"></bitenum>
+<bitenum description="Input channel select: ESICH3" id="ESICH_3" token="ESICH_3" value="3"></bitenum></bitfield>
+<bitfield begin="2" description="LC enable" end="2" id="ESILCEN" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="3" description="Excitation and sample-and-hold" end="3" id="ESIEX" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="4" description="TSM comparator on" end="4" id="ESICA" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="5" description="High-frequency clock on" end="5" id="ESICLKON" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="6" description="Internal output latches enabled" end="6" id="ESIRSON" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="7" description="TSM test cycle control" end="7" id="ESITESTS1" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="8" description="TSM DAC on" end="8" id="ESIDAC" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="9" description="This bit indicates the end of the TSM sequence" end="9" id="ESISTOP" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="10" description="This bit selects the clock source for the TSM" end="10" id="ESICLK" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="15" description="These bits together with the ESICLK bit configure the duration of this state" end="11" id="ESIREPEAT" range="" resetval="0" rwaccess="RW" width="5">
+<bitenum description="These bits configure the duration of this state" id="ESIREPEAT_0" token="ESIREPEAT_0" value="0"></bitenum>
+<bitenum description="ESIREPEATx selects the number of clock cycles for this state. The number of clock cycles = ESIREPEATx + 1" id="ESIREPEAT_1" token="ESIREPEAT_1" value="1"></bitenum>
+<bitenum description="" id="ESIREPEAT_2" token="ESIREPEAT_2" value="2"></bitenum>
+<bitenum description="" id="ESIREPEAT_3" token="ESIREPEAT_3" value="3"></bitenum>
+<bitenum description="" id="ESIREPEAT_4" token="ESIREPEAT_4" value="4"></bitenum>
+<bitenum description="" id="ESIREPEAT_5" token="ESIREPEAT_5" value="5"></bitenum>
+<bitenum description="" id="ESIREPEAT_6" token="ESIREPEAT_6" value="6"></bitenum>
+<bitenum description="" id="ESIREPEAT_7" token="ESIREPEAT_7" value="7"></bitenum>
+<bitenum description="" id="ESIREPEAT_8" token="ESIREPEAT_8" value="8"></bitenum>
+<bitenum description="" id="ESIREPEAT_9" token="ESIREPEAT_9" value="9"></bitenum>
+<bitenum description="" id="ESIREPEAT_10" token="ESIREPEAT_10" value="10"></bitenum>
+<bitenum description="" id="ESIREPEAT_11" token="ESIREPEAT_11" value="11"></bitenum>
+<bitenum description="" id="ESIREPEAT_12" token="ESIREPEAT_12" value="12"></bitenum>
+<bitenum description="" id="ESIREPEAT_13" token="ESIREPEAT_13" value="13"></bitenum>
+<bitenum description="" id="ESIREPEAT_14" token="ESIREPEAT_14" value="14"></bitenum>
+<bitenum description="" id="ESIREPEAT_15" token="ESIREPEAT_15" value="15"></bitenum>
+<bitenum description="" id="ESIREPEAT_16" token="ESIREPEAT_16" value="16"></bitenum>
+<bitenum description="" id="ESIREPEAT_17" token="ESIREPEAT_17" value="17"></bitenum>
+<bitenum description="" id="ESIREPEAT_18" token="ESIREPEAT_18" value="18"></bitenum>
+<bitenum description="" id="ESIREPEAT_19" token="ESIREPEAT_19" value="19"></bitenum>
+<bitenum description="" id="ESIREPEAT_20" token="ESIREPEAT_20" value="20"></bitenum>
+<bitenum description="" id="ESIREPEAT_21" token="ESIREPEAT_21" value="21"></bitenum>
+<bitenum description="" id="ESIREPEAT_22" token="ESIREPEAT_22" value="22"></bitenum>
+<bitenum description="" id="ESIREPEAT_23" token="ESIREPEAT_23" value="23"></bitenum>
+<bitenum description="" id="ESIREPEAT_24" token="ESIREPEAT_24" value="24"></bitenum>
+<bitenum description="" id="ESIREPEAT_25" token="ESIREPEAT_25" value="25"></bitenum>
+<bitenum description="" id="ESIREPEAT_26" token="ESIREPEAT_26" value="26"></bitenum>
+<bitenum description="" id="ESIREPEAT_27" token="ESIREPEAT_27" value="27"></bitenum>
+<bitenum description="" id="ESIREPEAT_28" token="ESIREPEAT_28" value="28"></bitenum>
+<bitenum description="" id="ESIREPEAT_29" token="ESIREPEAT_29" value="29"></bitenum>
+<bitenum description="" id="ESIREPEAT_30" token="ESIREPEAT_30" value="30"></bitenum>
+<bitenum description="" id="ESIREPEAT_31" token="ESIREPEAT_31" value="31"></bitenum></bitfield></register>
+<register acronym="ESITSM18" description="ESI TSM 18" id="ESITSM18" offset=" 0x0D84" width="16">
+<bitfield begin="1" description="Input channel select" end="0" id="ESICH" range="" resetval="0" rwaccess="RW" width="2">
+<bitenum description="Input channel select: ESICH0" id="ESICH_0" token="ESICH_0" value="0"></bitenum>
+<bitenum description="Input channel select: ESICH1" id="ESICH_1" token="ESICH_1" value="1"></bitenum>
+<bitenum description="Input channel select: ESICH2" id="ESICH_2" token="ESICH_2" value="2"></bitenum>
+<bitenum description="Input channel select: ESICH3" id="ESICH_3" token="ESICH_3" value="3"></bitenum></bitfield>
+<bitfield begin="2" description="LC enable" end="2" id="ESILCEN" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="3" description="Excitation and sample-and-hold" end="3" id="ESIEX" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="4" description="TSM comparator on" end="4" id="ESICA" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="5" description="High-frequency clock on" end="5" id="ESICLKON" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="6" description="Internal output latches enabled" end="6" id="ESIRSON" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="7" description="TSM test cycle control" end="7" id="ESITESTS1" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="8" description="TSM DAC on" end="8" id="ESIDAC" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="9" description="This bit indicates the end of the TSM sequence" end="9" id="ESISTOP" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="10" description="This bit selects the clock source for the TSM" end="10" id="ESICLK" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="15" description="These bits together with the ESICLK bit configure the duration of this state" end="11" id="ESIREPEAT" range="" resetval="0" rwaccess="RW" width="5">
+<bitenum description="These bits configure the duration of this state" id="ESIREPEAT_0" token="ESIREPEAT_0" value="0"></bitenum>
+<bitenum description="ESIREPEATx selects the number of clock cycles for this state. The number of clock cycles = ESIREPEATx + 1" id="ESIREPEAT_1" token="ESIREPEAT_1" value="1"></bitenum>
+<bitenum description="" id="ESIREPEAT_2" token="ESIREPEAT_2" value="2"></bitenum>
+<bitenum description="" id="ESIREPEAT_3" token="ESIREPEAT_3" value="3"></bitenum>
+<bitenum description="" id="ESIREPEAT_4" token="ESIREPEAT_4" value="4"></bitenum>
+<bitenum description="" id="ESIREPEAT_5" token="ESIREPEAT_5" value="5"></bitenum>
+<bitenum description="" id="ESIREPEAT_6" token="ESIREPEAT_6" value="6"></bitenum>
+<bitenum description="" id="ESIREPEAT_7" token="ESIREPEAT_7" value="7"></bitenum>
+<bitenum description="" id="ESIREPEAT_8" token="ESIREPEAT_8" value="8"></bitenum>
+<bitenum description="" id="ESIREPEAT_9" token="ESIREPEAT_9" value="9"></bitenum>
+<bitenum description="" id="ESIREPEAT_10" token="ESIREPEAT_10" value="10"></bitenum>
+<bitenum description="" id="ESIREPEAT_11" token="ESIREPEAT_11" value="11"></bitenum>
+<bitenum description="" id="ESIREPEAT_12" token="ESIREPEAT_12" value="12"></bitenum>
+<bitenum description="" id="ESIREPEAT_13" token="ESIREPEAT_13" value="13"></bitenum>
+<bitenum description="" id="ESIREPEAT_14" token="ESIREPEAT_14" value="14"></bitenum>
+<bitenum description="" id="ESIREPEAT_15" token="ESIREPEAT_15" value="15"></bitenum>
+<bitenum description="" id="ESIREPEAT_16" token="ESIREPEAT_16" value="16"></bitenum>
+<bitenum description="" id="ESIREPEAT_17" token="ESIREPEAT_17" value="17"></bitenum>
+<bitenum description="" id="ESIREPEAT_18" token="ESIREPEAT_18" value="18"></bitenum>
+<bitenum description="" id="ESIREPEAT_19" token="ESIREPEAT_19" value="19"></bitenum>
+<bitenum description="" id="ESIREPEAT_20" token="ESIREPEAT_20" value="20"></bitenum>
+<bitenum description="" id="ESIREPEAT_21" token="ESIREPEAT_21" value="21"></bitenum>
+<bitenum description="" id="ESIREPEAT_22" token="ESIREPEAT_22" value="22"></bitenum>
+<bitenum description="" id="ESIREPEAT_23" token="ESIREPEAT_23" value="23"></bitenum>
+<bitenum description="" id="ESIREPEAT_24" token="ESIREPEAT_24" value="24"></bitenum>
+<bitenum description="" id="ESIREPEAT_25" token="ESIREPEAT_25" value="25"></bitenum>
+<bitenum description="" id="ESIREPEAT_26" token="ESIREPEAT_26" value="26"></bitenum>
+<bitenum description="" id="ESIREPEAT_27" token="ESIREPEAT_27" value="27"></bitenum>
+<bitenum description="" id="ESIREPEAT_28" token="ESIREPEAT_28" value="28"></bitenum>
+<bitenum description="" id="ESIREPEAT_29" token="ESIREPEAT_29" value="29"></bitenum>
+<bitenum description="" id="ESIREPEAT_30" token="ESIREPEAT_30" value="30"></bitenum>
+<bitenum description="" id="ESIREPEAT_31" token="ESIREPEAT_31" value="31"></bitenum></bitfield></register>
+<register acronym="ESITSM19" description="ESI TSM 19" id="ESITSM19" offset=" 0x0D86" width="16">
+<bitfield begin="1" description="Input channel select" end="0" id="ESICH" range="" resetval="0" rwaccess="RW" width="2">
+<bitenum description="Input channel select: ESICH0" id="ESICH_0" token="ESICH_0" value="0"></bitenum>
+<bitenum description="Input channel select: ESICH1" id="ESICH_1" token="ESICH_1" value="1"></bitenum>
+<bitenum description="Input channel select: ESICH2" id="ESICH_2" token="ESICH_2" value="2"></bitenum>
+<bitenum description="Input channel select: ESICH3" id="ESICH_3" token="ESICH_3" value="3"></bitenum></bitfield>
+<bitfield begin="2" description="LC enable" end="2" id="ESILCEN" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="3" description="Excitation and sample-and-hold" end="3" id="ESIEX" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="4" description="TSM comparator on" end="4" id="ESICA" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="5" description="High-frequency clock on" end="5" id="ESICLKON" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="6" description="Internal output latches enabled" end="6" id="ESIRSON" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="7" description="TSM test cycle control" end="7" id="ESITESTS1" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="8" description="TSM DAC on" end="8" id="ESIDAC" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="9" description="This bit indicates the end of the TSM sequence" end="9" id="ESISTOP" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="10" description="This bit selects the clock source for the TSM" end="10" id="ESICLK" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="15" description="These bits together with the ESICLK bit configure the duration of this state" end="11" id="ESIREPEAT" range="" resetval="0" rwaccess="RW" width="5">
+<bitenum description="These bits configure the duration of this state" id="ESIREPEAT_0" token="ESIREPEAT_0" value="0"></bitenum>
+<bitenum description="ESIREPEATx selects the number of clock cycles for this state. The number of clock cycles = ESIREPEATx + 1" id="ESIREPEAT_1" token="ESIREPEAT_1" value="1"></bitenum>
+<bitenum description="" id="ESIREPEAT_2" token="ESIREPEAT_2" value="2"></bitenum>
+<bitenum description="" id="ESIREPEAT_3" token="ESIREPEAT_3" value="3"></bitenum>
+<bitenum description="" id="ESIREPEAT_4" token="ESIREPEAT_4" value="4"></bitenum>
+<bitenum description="" id="ESIREPEAT_5" token="ESIREPEAT_5" value="5"></bitenum>
+<bitenum description="" id="ESIREPEAT_6" token="ESIREPEAT_6" value="6"></bitenum>
+<bitenum description="" id="ESIREPEAT_7" token="ESIREPEAT_7" value="7"></bitenum>
+<bitenum description="" id="ESIREPEAT_8" token="ESIREPEAT_8" value="8"></bitenum>
+<bitenum description="" id="ESIREPEAT_9" token="ESIREPEAT_9" value="9"></bitenum>
+<bitenum description="" id="ESIREPEAT_10" token="ESIREPEAT_10" value="10"></bitenum>
+<bitenum description="" id="ESIREPEAT_11" token="ESIREPEAT_11" value="11"></bitenum>
+<bitenum description="" id="ESIREPEAT_12" token="ESIREPEAT_12" value="12"></bitenum>
+<bitenum description="" id="ESIREPEAT_13" token="ESIREPEAT_13" value="13"></bitenum>
+<bitenum description="" id="ESIREPEAT_14" token="ESIREPEAT_14" value="14"></bitenum>
+<bitenum description="" id="ESIREPEAT_15" token="ESIREPEAT_15" value="15"></bitenum>
+<bitenum description="" id="ESIREPEAT_16" token="ESIREPEAT_16" value="16"></bitenum>
+<bitenum description="" id="ESIREPEAT_17" token="ESIREPEAT_17" value="17"></bitenum>
+<bitenum description="" id="ESIREPEAT_18" token="ESIREPEAT_18" value="18"></bitenum>
+<bitenum description="" id="ESIREPEAT_19" token="ESIREPEAT_19" value="19"></bitenum>
+<bitenum description="" id="ESIREPEAT_20" token="ESIREPEAT_20" value="20"></bitenum>
+<bitenum description="" id="ESIREPEAT_21" token="ESIREPEAT_21" value="21"></bitenum>
+<bitenum description="" id="ESIREPEAT_22" token="ESIREPEAT_22" value="22"></bitenum>
+<bitenum description="" id="ESIREPEAT_23" token="ESIREPEAT_23" value="23"></bitenum>
+<bitenum description="" id="ESIREPEAT_24" token="ESIREPEAT_24" value="24"></bitenum>
+<bitenum description="" id="ESIREPEAT_25" token="ESIREPEAT_25" value="25"></bitenum>
+<bitenum description="" id="ESIREPEAT_26" token="ESIREPEAT_26" value="26"></bitenum>
+<bitenum description="" id="ESIREPEAT_27" token="ESIREPEAT_27" value="27"></bitenum>
+<bitenum description="" id="ESIREPEAT_28" token="ESIREPEAT_28" value="28"></bitenum>
+<bitenum description="" id="ESIREPEAT_29" token="ESIREPEAT_29" value="29"></bitenum>
+<bitenum description="" id="ESIREPEAT_30" token="ESIREPEAT_30" value="30"></bitenum>
+<bitenum description="" id="ESIREPEAT_31" token="ESIREPEAT_31" value="31"></bitenum></bitfield></register>
+<register acronym="ESITSM20" description="ESI TSM 20" id="ESITSM20" offset=" 0x0D88" width="16">
+<bitfield begin="1" description="Input channel select" end="0" id="ESICH" range="" resetval="0" rwaccess="RW" width="2">
+<bitenum description="Input channel select: ESICH0" id="ESICH_0" token="ESICH_0" value="0"></bitenum>
+<bitenum description="Input channel select: ESICH1" id="ESICH_1" token="ESICH_1" value="1"></bitenum>
+<bitenum description="Input channel select: ESICH2" id="ESICH_2" token="ESICH_2" value="2"></bitenum>
+<bitenum description="Input channel select: ESICH3" id="ESICH_3" token="ESICH_3" value="3"></bitenum></bitfield>
+<bitfield begin="2" description="LC enable" end="2" id="ESILCEN" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="3" description="Excitation and sample-and-hold" end="3" id="ESIEX" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="4" description="TSM comparator on" end="4" id="ESICA" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="5" description="High-frequency clock on" end="5" id="ESICLKON" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="6" description="Internal output latches enabled" end="6" id="ESIRSON" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="7" description="TSM test cycle control" end="7" id="ESITESTS1" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="8" description="TSM DAC on" end="8" id="ESIDAC" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="9" description="This bit indicates the end of the TSM sequence" end="9" id="ESISTOP" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="10" description="This bit selects the clock source for the TSM" end="10" id="ESICLK" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="15" description="These bits together with the ESICLK bit configure the duration of this state" end="11" id="ESIREPEAT" range="" resetval="0" rwaccess="RW" width="5">
+<bitenum description="These bits configure the duration of this state" id="ESIREPEAT_0" token="ESIREPEAT_0" value="0"></bitenum>
+<bitenum description="ESIREPEATx selects the number of clock cycles for this state. The number of clock cycles = ESIREPEATx + 1" id="ESIREPEAT_1" token="ESIREPEAT_1" value="1"></bitenum>
+<bitenum description="" id="ESIREPEAT_2" token="ESIREPEAT_2" value="2"></bitenum>
+<bitenum description="" id="ESIREPEAT_3" token="ESIREPEAT_3" value="3"></bitenum>
+<bitenum description="" id="ESIREPEAT_4" token="ESIREPEAT_4" value="4"></bitenum>
+<bitenum description="" id="ESIREPEAT_5" token="ESIREPEAT_5" value="5"></bitenum>
+<bitenum description="" id="ESIREPEAT_6" token="ESIREPEAT_6" value="6"></bitenum>
+<bitenum description="" id="ESIREPEAT_7" token="ESIREPEAT_7" value="7"></bitenum>
+<bitenum description="" id="ESIREPEAT_8" token="ESIREPEAT_8" value="8"></bitenum>
+<bitenum description="" id="ESIREPEAT_9" token="ESIREPEAT_9" value="9"></bitenum>
+<bitenum description="" id="ESIREPEAT_10" token="ESIREPEAT_10" value="10"></bitenum>
+<bitenum description="" id="ESIREPEAT_11" token="ESIREPEAT_11" value="11"></bitenum>
+<bitenum description="" id="ESIREPEAT_12" token="ESIREPEAT_12" value="12"></bitenum>
+<bitenum description="" id="ESIREPEAT_13" token="ESIREPEAT_13" value="13"></bitenum>
+<bitenum description="" id="ESIREPEAT_14" token="ESIREPEAT_14" value="14"></bitenum>
+<bitenum description="" id="ESIREPEAT_15" token="ESIREPEAT_15" value="15"></bitenum>
+<bitenum description="" id="ESIREPEAT_16" token="ESIREPEAT_16" value="16"></bitenum>
+<bitenum description="" id="ESIREPEAT_17" token="ESIREPEAT_17" value="17"></bitenum>
+<bitenum description="" id="ESIREPEAT_18" token="ESIREPEAT_18" value="18"></bitenum>
+<bitenum description="" id="ESIREPEAT_19" token="ESIREPEAT_19" value="19"></bitenum>
+<bitenum description="" id="ESIREPEAT_20" token="ESIREPEAT_20" value="20"></bitenum>
+<bitenum description="" id="ESIREPEAT_21" token="ESIREPEAT_21" value="21"></bitenum>
+<bitenum description="" id="ESIREPEAT_22" token="ESIREPEAT_22" value="22"></bitenum>
+<bitenum description="" id="ESIREPEAT_23" token="ESIREPEAT_23" value="23"></bitenum>
+<bitenum description="" id="ESIREPEAT_24" token="ESIREPEAT_24" value="24"></bitenum>
+<bitenum description="" id="ESIREPEAT_25" token="ESIREPEAT_25" value="25"></bitenum>
+<bitenum description="" id="ESIREPEAT_26" token="ESIREPEAT_26" value="26"></bitenum>
+<bitenum description="" id="ESIREPEAT_27" token="ESIREPEAT_27" value="27"></bitenum>
+<bitenum description="" id="ESIREPEAT_28" token="ESIREPEAT_28" value="28"></bitenum>
+<bitenum description="" id="ESIREPEAT_29" token="ESIREPEAT_29" value="29"></bitenum>
+<bitenum description="" id="ESIREPEAT_30" token="ESIREPEAT_30" value="30"></bitenum>
+<bitenum description="" id="ESIREPEAT_31" token="ESIREPEAT_31" value="31"></bitenum></bitfield></register>
+<register acronym="ESITSM21" description="ESI TSM 21" id="ESITSM21" offset=" 0x0D8A" width="16">
+<bitfield begin="1" description="Input channel select" end="0" id="ESICH" range="" resetval="0" rwaccess="RW" width="2">
+<bitenum description="Input channel select: ESICH0" id="ESICH_0" token="ESICH_0" value="0"></bitenum>
+<bitenum description="Input channel select: ESICH1" id="ESICH_1" token="ESICH_1" value="1"></bitenum>
+<bitenum description="Input channel select: ESICH2" id="ESICH_2" token="ESICH_2" value="2"></bitenum>
+<bitenum description="Input channel select: ESICH3" id="ESICH_3" token="ESICH_3" value="3"></bitenum></bitfield>
+<bitfield begin="2" description="LC enable" end="2" id="ESILCEN" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="3" description="Excitation and sample-and-hold" end="3" id="ESIEX" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="4" description="TSM comparator on" end="4" id="ESICA" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="5" description="High-frequency clock on" end="5" id="ESICLKON" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="6" description="Internal output latches enabled" end="6" id="ESIRSON" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="7" description="TSM test cycle control" end="7" id="ESITESTS1" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="8" description="TSM DAC on" end="8" id="ESIDAC" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="9" description="This bit indicates the end of the TSM sequence" end="9" id="ESISTOP" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="10" description="This bit selects the clock source for the TSM" end="10" id="ESICLK" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="15" description="These bits together with the ESICLK bit configure the duration of this state" end="11" id="ESIREPEAT" range="" resetval="0" rwaccess="RW" width="5">
+<bitenum description="These bits configure the duration of this state" id="ESIREPEAT_0" token="ESIREPEAT_0" value="0"></bitenum>
+<bitenum description="ESIREPEATx selects the number of clock cycles for this state. The number of clock cycles = ESIREPEATx + 1" id="ESIREPEAT_1" token="ESIREPEAT_1" value="1"></bitenum>
+<bitenum description="" id="ESIREPEAT_2" token="ESIREPEAT_2" value="2"></bitenum>
+<bitenum description="" id="ESIREPEAT_3" token="ESIREPEAT_3" value="3"></bitenum>
+<bitenum description="" id="ESIREPEAT_4" token="ESIREPEAT_4" value="4"></bitenum>
+<bitenum description="" id="ESIREPEAT_5" token="ESIREPEAT_5" value="5"></bitenum>
+<bitenum description="" id="ESIREPEAT_6" token="ESIREPEAT_6" value="6"></bitenum>
+<bitenum description="" id="ESIREPEAT_7" token="ESIREPEAT_7" value="7"></bitenum>
+<bitenum description="" id="ESIREPEAT_8" token="ESIREPEAT_8" value="8"></bitenum>
+<bitenum description="" id="ESIREPEAT_9" token="ESIREPEAT_9" value="9"></bitenum>
+<bitenum description="" id="ESIREPEAT_10" token="ESIREPEAT_10" value="10"></bitenum>
+<bitenum description="" id="ESIREPEAT_11" token="ESIREPEAT_11" value="11"></bitenum>
+<bitenum description="" id="ESIREPEAT_12" token="ESIREPEAT_12" value="12"></bitenum>
+<bitenum description="" id="ESIREPEAT_13" token="ESIREPEAT_13" value="13"></bitenum>
+<bitenum description="" id="ESIREPEAT_14" token="ESIREPEAT_14" value="14"></bitenum>
+<bitenum description="" id="ESIREPEAT_15" token="ESIREPEAT_15" value="15"></bitenum>
+<bitenum description="" id="ESIREPEAT_16" token="ESIREPEAT_16" value="16"></bitenum>
+<bitenum description="" id="ESIREPEAT_17" token="ESIREPEAT_17" value="17"></bitenum>
+<bitenum description="" id="ESIREPEAT_18" token="ESIREPEAT_18" value="18"></bitenum>
+<bitenum description="" id="ESIREPEAT_19" token="ESIREPEAT_19" value="19"></bitenum>
+<bitenum description="" id="ESIREPEAT_20" token="ESIREPEAT_20" value="20"></bitenum>
+<bitenum description="" id="ESIREPEAT_21" token="ESIREPEAT_21" value="21"></bitenum>
+<bitenum description="" id="ESIREPEAT_22" token="ESIREPEAT_22" value="22"></bitenum>
+<bitenum description="" id="ESIREPEAT_23" token="ESIREPEAT_23" value="23"></bitenum>
+<bitenum description="" id="ESIREPEAT_24" token="ESIREPEAT_24" value="24"></bitenum>
+<bitenum description="" id="ESIREPEAT_25" token="ESIREPEAT_25" value="25"></bitenum>
+<bitenum description="" id="ESIREPEAT_26" token="ESIREPEAT_26" value="26"></bitenum>
+<bitenum description="" id="ESIREPEAT_27" token="ESIREPEAT_27" value="27"></bitenum>
+<bitenum description="" id="ESIREPEAT_28" token="ESIREPEAT_28" value="28"></bitenum>
+<bitenum description="" id="ESIREPEAT_29" token="ESIREPEAT_29" value="29"></bitenum>
+<bitenum description="" id="ESIREPEAT_30" token="ESIREPEAT_30" value="30"></bitenum>
+<bitenum description="" id="ESIREPEAT_31" token="ESIREPEAT_31" value="31"></bitenum></bitfield></register>
+<register acronym="ESITSM22" description="ESI TSM 22" id="ESITSM22" offset=" 0x0D8C" width="16">
+<bitfield begin="1" description="Input channel select" end="0" id="ESICH" range="" resetval="0" rwaccess="RW" width="2">
+<bitenum description="Input channel select: ESICH0" id="ESICH_0" token="ESICH_0" value="0"></bitenum>
+<bitenum description="Input channel select: ESICH1" id="ESICH_1" token="ESICH_1" value="1"></bitenum>
+<bitenum description="Input channel select: ESICH2" id="ESICH_2" token="ESICH_2" value="2"></bitenum>
+<bitenum description="Input channel select: ESICH3" id="ESICH_3" token="ESICH_3" value="3"></bitenum></bitfield>
+<bitfield begin="2" description="LC enable" end="2" id="ESILCEN" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="3" description="Excitation and sample-and-hold" end="3" id="ESIEX" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="4" description="TSM comparator on" end="4" id="ESICA" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="5" description="High-frequency clock on" end="5" id="ESICLKON" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="6" description="Internal output latches enabled" end="6" id="ESIRSON" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="7" description="TSM test cycle control" end="7" id="ESITESTS1" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="8" description="TSM DAC on" end="8" id="ESIDAC" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="9" description="This bit indicates the end of the TSM sequence" end="9" id="ESISTOP" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="10" description="This bit selects the clock source for the TSM" end="10" id="ESICLK" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="15" description="These bits together with the ESICLK bit configure the duration of this state" end="11" id="ESIREPEAT" range="" resetval="0" rwaccess="RW" width="5">
+<bitenum description="These bits configure the duration of this state" id="ESIREPEAT_0" token="ESIREPEAT_0" value="0"></bitenum>
+<bitenum description="ESIREPEATx selects the number of clock cycles for this state. The number of clock cycles = ESIREPEATx + 1" id="ESIREPEAT_1" token="ESIREPEAT_1" value="1"></bitenum>
+<bitenum description="" id="ESIREPEAT_2" token="ESIREPEAT_2" value="2"></bitenum>
+<bitenum description="" id="ESIREPEAT_3" token="ESIREPEAT_3" value="3"></bitenum>
+<bitenum description="" id="ESIREPEAT_4" token="ESIREPEAT_4" value="4"></bitenum>
+<bitenum description="" id="ESIREPEAT_5" token="ESIREPEAT_5" value="5"></bitenum>
+<bitenum description="" id="ESIREPEAT_6" token="ESIREPEAT_6" value="6"></bitenum>
+<bitenum description="" id="ESIREPEAT_7" token="ESIREPEAT_7" value="7"></bitenum>
+<bitenum description="" id="ESIREPEAT_8" token="ESIREPEAT_8" value="8"></bitenum>
+<bitenum description="" id="ESIREPEAT_9" token="ESIREPEAT_9" value="9"></bitenum>
+<bitenum description="" id="ESIREPEAT_10" token="ESIREPEAT_10" value="10"></bitenum>
+<bitenum description="" id="ESIREPEAT_11" token="ESIREPEAT_11" value="11"></bitenum>
+<bitenum description="" id="ESIREPEAT_12" token="ESIREPEAT_12" value="12"></bitenum>
+<bitenum description="" id="ESIREPEAT_13" token="ESIREPEAT_13" value="13"></bitenum>
+<bitenum description="" id="ESIREPEAT_14" token="ESIREPEAT_14" value="14"></bitenum>
+<bitenum description="" id="ESIREPEAT_15" token="ESIREPEAT_15" value="15"></bitenum>
+<bitenum description="" id="ESIREPEAT_16" token="ESIREPEAT_16" value="16"></bitenum>
+<bitenum description="" id="ESIREPEAT_17" token="ESIREPEAT_17" value="17"></bitenum>
+<bitenum description="" id="ESIREPEAT_18" token="ESIREPEAT_18" value="18"></bitenum>
+<bitenum description="" id="ESIREPEAT_19" token="ESIREPEAT_19" value="19"></bitenum>
+<bitenum description="" id="ESIREPEAT_20" token="ESIREPEAT_20" value="20"></bitenum>
+<bitenum description="" id="ESIREPEAT_21" token="ESIREPEAT_21" value="21"></bitenum>
+<bitenum description="" id="ESIREPEAT_22" token="ESIREPEAT_22" value="22"></bitenum>
+<bitenum description="" id="ESIREPEAT_23" token="ESIREPEAT_23" value="23"></bitenum>
+<bitenum description="" id="ESIREPEAT_24" token="ESIREPEAT_24" value="24"></bitenum>
+<bitenum description="" id="ESIREPEAT_25" token="ESIREPEAT_25" value="25"></bitenum>
+<bitenum description="" id="ESIREPEAT_26" token="ESIREPEAT_26" value="26"></bitenum>
+<bitenum description="" id="ESIREPEAT_27" token="ESIREPEAT_27" value="27"></bitenum>
+<bitenum description="" id="ESIREPEAT_28" token="ESIREPEAT_28" value="28"></bitenum>
+<bitenum description="" id="ESIREPEAT_29" token="ESIREPEAT_29" value="29"></bitenum>
+<bitenum description="" id="ESIREPEAT_30" token="ESIREPEAT_30" value="30"></bitenum>
+<bitenum description="" id="ESIREPEAT_31" token="ESIREPEAT_31" value="31"></bitenum></bitfield></register>
+<register acronym="ESITSM23" description="ESI TSM 23" id="ESITSM23" offset=" 0x0D8E" width="16">
+<bitfield begin="1" description="Input channel select" end="0" id="ESICH" range="" resetval="0" rwaccess="RW" width="2">
+<bitenum description="Input channel select: ESICH0" id="ESICH_0" token="ESICH_0" value="0"></bitenum>
+<bitenum description="Input channel select: ESICH1" id="ESICH_1" token="ESICH_1" value="1"></bitenum>
+<bitenum description="Input channel select: ESICH2" id="ESICH_2" token="ESICH_2" value="2"></bitenum>
+<bitenum description="Input channel select: ESICH3" id="ESICH_3" token="ESICH_3" value="3"></bitenum></bitfield>
+<bitfield begin="2" description="LC enable" end="2" id="ESILCEN" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="3" description="Excitation and sample-and-hold" end="3" id="ESIEX" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="4" description="TSM comparator on" end="4" id="ESICA" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="5" description="High-frequency clock on" end="5" id="ESICLKON" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="6" description="Internal output latches enabled" end="6" id="ESIRSON" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="7" description="TSM test cycle control" end="7" id="ESITESTS1" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="8" description="TSM DAC on" end="8" id="ESIDAC" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="9" description="This bit indicates the end of the TSM sequence" end="9" id="ESISTOP" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="10" description="This bit selects the clock source for the TSM" end="10" id="ESICLK" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="15" description="These bits together with the ESICLK bit configure the duration of this state" end="11" id="ESIREPEAT" range="" resetval="0" rwaccess="RW" width="5">
+<bitenum description="These bits configure the duration of this state" id="ESIREPEAT_0" token="ESIREPEAT_0" value="0"></bitenum>
+<bitenum description="ESIREPEATx selects the number of clock cycles for this state. The number of clock cycles = ESIREPEATx + 1" id="ESIREPEAT_1" token="ESIREPEAT_1" value="1"></bitenum>
+<bitenum description="" id="ESIREPEAT_2" token="ESIREPEAT_2" value="2"></bitenum>
+<bitenum description="" id="ESIREPEAT_3" token="ESIREPEAT_3" value="3"></bitenum>
+<bitenum description="" id="ESIREPEAT_4" token="ESIREPEAT_4" value="4"></bitenum>
+<bitenum description="" id="ESIREPEAT_5" token="ESIREPEAT_5" value="5"></bitenum>
+<bitenum description="" id="ESIREPEAT_6" token="ESIREPEAT_6" value="6"></bitenum>
+<bitenum description="" id="ESIREPEAT_7" token="ESIREPEAT_7" value="7"></bitenum>
+<bitenum description="" id="ESIREPEAT_8" token="ESIREPEAT_8" value="8"></bitenum>
+<bitenum description="" id="ESIREPEAT_9" token="ESIREPEAT_9" value="9"></bitenum>
+<bitenum description="" id="ESIREPEAT_10" token="ESIREPEAT_10" value="10"></bitenum>
+<bitenum description="" id="ESIREPEAT_11" token="ESIREPEAT_11" value="11"></bitenum>
+<bitenum description="" id="ESIREPEAT_12" token="ESIREPEAT_12" value="12"></bitenum>
+<bitenum description="" id="ESIREPEAT_13" token="ESIREPEAT_13" value="13"></bitenum>
+<bitenum description="" id="ESIREPEAT_14" token="ESIREPEAT_14" value="14"></bitenum>
+<bitenum description="" id="ESIREPEAT_15" token="ESIREPEAT_15" value="15"></bitenum>
+<bitenum description="" id="ESIREPEAT_16" token="ESIREPEAT_16" value="16"></bitenum>
+<bitenum description="" id="ESIREPEAT_17" token="ESIREPEAT_17" value="17"></bitenum>
+<bitenum description="" id="ESIREPEAT_18" token="ESIREPEAT_18" value="18"></bitenum>
+<bitenum description="" id="ESIREPEAT_19" token="ESIREPEAT_19" value="19"></bitenum>
+<bitenum description="" id="ESIREPEAT_20" token="ESIREPEAT_20" value="20"></bitenum>
+<bitenum description="" id="ESIREPEAT_21" token="ESIREPEAT_21" value="21"></bitenum>
+<bitenum description="" id="ESIREPEAT_22" token="ESIREPEAT_22" value="22"></bitenum>
+<bitenum description="" id="ESIREPEAT_23" token="ESIREPEAT_23" value="23"></bitenum>
+<bitenum description="" id="ESIREPEAT_24" token="ESIREPEAT_24" value="24"></bitenum>
+<bitenum description="" id="ESIREPEAT_25" token="ESIREPEAT_25" value="25"></bitenum>
+<bitenum description="" id="ESIREPEAT_26" token="ESIREPEAT_26" value="26"></bitenum>
+<bitenum description="" id="ESIREPEAT_27" token="ESIREPEAT_27" value="27"></bitenum>
+<bitenum description="" id="ESIREPEAT_28" token="ESIREPEAT_28" value="28"></bitenum>
+<bitenum description="" id="ESIREPEAT_29" token="ESIREPEAT_29" value="29"></bitenum>
+<bitenum description="" id="ESIREPEAT_30" token="ESIREPEAT_30" value="30"></bitenum>
+<bitenum description="" id="ESIREPEAT_31" token="ESIREPEAT_31" value="31"></bitenum></bitfield></register>
+<register acronym="ESITSM24" description="ESI TSM 24" id="ESITSM24" offset=" 0x0D90" width="16">
+<bitfield begin="1" description="Input channel select" end="0" id="ESICH" range="" resetval="0" rwaccess="RW" width="2">
+<bitenum description="Input channel select: ESICH0" id="ESICH_0" token="ESICH_0" value="0"></bitenum>
+<bitenum description="Input channel select: ESICH1" id="ESICH_1" token="ESICH_1" value="1"></bitenum>
+<bitenum description="Input channel select: ESICH2" id="ESICH_2" token="ESICH_2" value="2"></bitenum>
+<bitenum description="Input channel select: ESICH3" id="ESICH_3" token="ESICH_3" value="3"></bitenum></bitfield>
+<bitfield begin="2" description="LC enable" end="2" id="ESILCEN" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="3" description="Excitation and sample-and-hold" end="3" id="ESIEX" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="4" description="TSM comparator on" end="4" id="ESICA" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="5" description="High-frequency clock on" end="5" id="ESICLKON" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="6" description="Internal output latches enabled" end="6" id="ESIRSON" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="7" description="TSM test cycle control" end="7" id="ESITESTS1" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="8" description="TSM DAC on" end="8" id="ESIDAC" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="9" description="This bit indicates the end of the TSM sequence" end="9" id="ESISTOP" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="10" description="This bit selects the clock source for the TSM" end="10" id="ESICLK" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="15" description="These bits together with the ESICLK bit configure the duration of this state" end="11" id="ESIREPEAT" range="" resetval="0" rwaccess="RW" width="5">
+<bitenum description="These bits configure the duration of this state" id="ESIREPEAT_0" token="ESIREPEAT_0" value="0"></bitenum>
+<bitenum description="ESIREPEATx selects the number of clock cycles for this state. The number of clock cycles = ESIREPEATx + 1" id="ESIREPEAT_1" token="ESIREPEAT_1" value="1"></bitenum>
+<bitenum description="" id="ESIREPEAT_2" token="ESIREPEAT_2" value="2"></bitenum>
+<bitenum description="" id="ESIREPEAT_3" token="ESIREPEAT_3" value="3"></bitenum>
+<bitenum description="" id="ESIREPEAT_4" token="ESIREPEAT_4" value="4"></bitenum>
+<bitenum description="" id="ESIREPEAT_5" token="ESIREPEAT_5" value="5"></bitenum>
+<bitenum description="" id="ESIREPEAT_6" token="ESIREPEAT_6" value="6"></bitenum>
+<bitenum description="" id="ESIREPEAT_7" token="ESIREPEAT_7" value="7"></bitenum>
+<bitenum description="" id="ESIREPEAT_8" token="ESIREPEAT_8" value="8"></bitenum>
+<bitenum description="" id="ESIREPEAT_9" token="ESIREPEAT_9" value="9"></bitenum>
+<bitenum description="" id="ESIREPEAT_10" token="ESIREPEAT_10" value="10"></bitenum>
+<bitenum description="" id="ESIREPEAT_11" token="ESIREPEAT_11" value="11"></bitenum>
+<bitenum description="" id="ESIREPEAT_12" token="ESIREPEAT_12" value="12"></bitenum>
+<bitenum description="" id="ESIREPEAT_13" token="ESIREPEAT_13" value="13"></bitenum>
+<bitenum description="" id="ESIREPEAT_14" token="ESIREPEAT_14" value="14"></bitenum>
+<bitenum description="" id="ESIREPEAT_15" token="ESIREPEAT_15" value="15"></bitenum>
+<bitenum description="" id="ESIREPEAT_16" token="ESIREPEAT_16" value="16"></bitenum>
+<bitenum description="" id="ESIREPEAT_17" token="ESIREPEAT_17" value="17"></bitenum>
+<bitenum description="" id="ESIREPEAT_18" token="ESIREPEAT_18" value="18"></bitenum>
+<bitenum description="" id="ESIREPEAT_19" token="ESIREPEAT_19" value="19"></bitenum>
+<bitenum description="" id="ESIREPEAT_20" token="ESIREPEAT_20" value="20"></bitenum>
+<bitenum description="" id="ESIREPEAT_21" token="ESIREPEAT_21" value="21"></bitenum>
+<bitenum description="" id="ESIREPEAT_22" token="ESIREPEAT_22" value="22"></bitenum>
+<bitenum description="" id="ESIREPEAT_23" token="ESIREPEAT_23" value="23"></bitenum>
+<bitenum description="" id="ESIREPEAT_24" token="ESIREPEAT_24" value="24"></bitenum>
+<bitenum description="" id="ESIREPEAT_25" token="ESIREPEAT_25" value="25"></bitenum>
+<bitenum description="" id="ESIREPEAT_26" token="ESIREPEAT_26" value="26"></bitenum>
+<bitenum description="" id="ESIREPEAT_27" token="ESIREPEAT_27" value="27"></bitenum>
+<bitenum description="" id="ESIREPEAT_28" token="ESIREPEAT_28" value="28"></bitenum>
+<bitenum description="" id="ESIREPEAT_29" token="ESIREPEAT_29" value="29"></bitenum>
+<bitenum description="" id="ESIREPEAT_30" token="ESIREPEAT_30" value="30"></bitenum>
+<bitenum description="" id="ESIREPEAT_31" token="ESIREPEAT_31" value="31"></bitenum></bitfield></register>
+<register acronym="ESITSM25" description="ESI TSM 25" id="ESITSM25" offset=" 0x0D92" width="16">
+<bitfield begin="1" description="Input channel select" end="0" id="ESICH" range="" resetval="0" rwaccess="RW" width="2">
+<bitenum description="Input channel select: ESICH0" id="ESICH_0" token="ESICH_0" value="0"></bitenum>
+<bitenum description="Input channel select: ESICH1" id="ESICH_1" token="ESICH_1" value="1"></bitenum>
+<bitenum description="Input channel select: ESICH2" id="ESICH_2" token="ESICH_2" value="2"></bitenum>
+<bitenum description="Input channel select: ESICH3" id="ESICH_3" token="ESICH_3" value="3"></bitenum></bitfield>
+<bitfield begin="2" description="LC enable" end="2" id="ESILCEN" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="3" description="Excitation and sample-and-hold" end="3" id="ESIEX" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="4" description="TSM comparator on" end="4" id="ESICA" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="5" description="High-frequency clock on" end="5" id="ESICLKON" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="6" description="Internal output latches enabled" end="6" id="ESIRSON" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="7" description="TSM test cycle control" end="7" id="ESITESTS1" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="8" description="TSM DAC on" end="8" id="ESIDAC" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="9" description="This bit indicates the end of the TSM sequence" end="9" id="ESISTOP" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="10" description="This bit selects the clock source for the TSM" end="10" id="ESICLK" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="15" description="These bits together with the ESICLK bit configure the duration of this state" end="11" id="ESIREPEAT" range="" resetval="0" rwaccess="RW" width="5">
+<bitenum description="These bits configure the duration of this state" id="ESIREPEAT_0" token="ESIREPEAT_0" value="0"></bitenum>
+<bitenum description="ESIREPEATx selects the number of clock cycles for this state. The number of clock cycles = ESIREPEATx + 1" id="ESIREPEAT_1" token="ESIREPEAT_1" value="1"></bitenum>
+<bitenum description="" id="ESIREPEAT_2" token="ESIREPEAT_2" value="2"></bitenum>
+<bitenum description="" id="ESIREPEAT_3" token="ESIREPEAT_3" value="3"></bitenum>
+<bitenum description="" id="ESIREPEAT_4" token="ESIREPEAT_4" value="4"></bitenum>
+<bitenum description="" id="ESIREPEAT_5" token="ESIREPEAT_5" value="5"></bitenum>
+<bitenum description="" id="ESIREPEAT_6" token="ESIREPEAT_6" value="6"></bitenum>
+<bitenum description="" id="ESIREPEAT_7" token="ESIREPEAT_7" value="7"></bitenum>
+<bitenum description="" id="ESIREPEAT_8" token="ESIREPEAT_8" value="8"></bitenum>
+<bitenum description="" id="ESIREPEAT_9" token="ESIREPEAT_9" value="9"></bitenum>
+<bitenum description="" id="ESIREPEAT_10" token="ESIREPEAT_10" value="10"></bitenum>
+<bitenum description="" id="ESIREPEAT_11" token="ESIREPEAT_11" value="11"></bitenum>
+<bitenum description="" id="ESIREPEAT_12" token="ESIREPEAT_12" value="12"></bitenum>
+<bitenum description="" id="ESIREPEAT_13" token="ESIREPEAT_13" value="13"></bitenum>
+<bitenum description="" id="ESIREPEAT_14" token="ESIREPEAT_14" value="14"></bitenum>
+<bitenum description="" id="ESIREPEAT_15" token="ESIREPEAT_15" value="15"></bitenum>
+<bitenum description="" id="ESIREPEAT_16" token="ESIREPEAT_16" value="16"></bitenum>
+<bitenum description="" id="ESIREPEAT_17" token="ESIREPEAT_17" value="17"></bitenum>
+<bitenum description="" id="ESIREPEAT_18" token="ESIREPEAT_18" value="18"></bitenum>
+<bitenum description="" id="ESIREPEAT_19" token="ESIREPEAT_19" value="19"></bitenum>
+<bitenum description="" id="ESIREPEAT_20" token="ESIREPEAT_20" value="20"></bitenum>
+<bitenum description="" id="ESIREPEAT_21" token="ESIREPEAT_21" value="21"></bitenum>
+<bitenum description="" id="ESIREPEAT_22" token="ESIREPEAT_22" value="22"></bitenum>
+<bitenum description="" id="ESIREPEAT_23" token="ESIREPEAT_23" value="23"></bitenum>
+<bitenum description="" id="ESIREPEAT_24" token="ESIREPEAT_24" value="24"></bitenum>
+<bitenum description="" id="ESIREPEAT_25" token="ESIREPEAT_25" value="25"></bitenum>
+<bitenum description="" id="ESIREPEAT_26" token="ESIREPEAT_26" value="26"></bitenum>
+<bitenum description="" id="ESIREPEAT_27" token="ESIREPEAT_27" value="27"></bitenum>
+<bitenum description="" id="ESIREPEAT_28" token="ESIREPEAT_28" value="28"></bitenum>
+<bitenum description="" id="ESIREPEAT_29" token="ESIREPEAT_29" value="29"></bitenum>
+<bitenum description="" id="ESIREPEAT_30" token="ESIREPEAT_30" value="30"></bitenum>
+<bitenum description="" id="ESIREPEAT_31" token="ESIREPEAT_31" value="31"></bitenum></bitfield></register>
+<register acronym="ESITSM26" description="ESI TSM 26" id="ESITSM26" offset=" 0x0D94" width="16">
+<bitfield begin="1" description="Input channel select" end="0" id="ESICH" range="" resetval="0" rwaccess="RW" width="2">
+<bitenum description="Input channel select: ESICH0" id="ESICH_0" token="ESICH_0" value="0"></bitenum>
+<bitenum description="Input channel select: ESICH1" id="ESICH_1" token="ESICH_1" value="1"></bitenum>
+<bitenum description="Input channel select: ESICH2" id="ESICH_2" token="ESICH_2" value="2"></bitenum>
+<bitenum description="Input channel select: ESICH3" id="ESICH_3" token="ESICH_3" value="3"></bitenum></bitfield>
+<bitfield begin="2" description="LC enable" end="2" id="ESILCEN" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="3" description="Excitation and sample-and-hold" end="3" id="ESIEX" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="4" description="TSM comparator on" end="4" id="ESICA" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="5" description="High-frequency clock on" end="5" id="ESICLKON" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="6" description="Internal output latches enabled" end="6" id="ESIRSON" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="7" description="TSM test cycle control" end="7" id="ESITESTS1" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="8" description="TSM DAC on" end="8" id="ESIDAC" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="9" description="This bit indicates the end of the TSM sequence" end="9" id="ESISTOP" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="10" description="This bit selects the clock source for the TSM" end="10" id="ESICLK" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="15" description="These bits together with the ESICLK bit configure the duration of this state" end="11" id="ESIREPEAT" range="" resetval="0" rwaccess="RW" width="5">
+<bitenum description="These bits configure the duration of this state" id="ESIREPEAT_0" token="ESIREPEAT_0" value="0"></bitenum>
+<bitenum description="ESIREPEATx selects the number of clock cycles for this state. The number of clock cycles = ESIREPEATx + 1" id="ESIREPEAT_1" token="ESIREPEAT_1" value="1"></bitenum>
+<bitenum description="" id="ESIREPEAT_2" token="ESIREPEAT_2" value="2"></bitenum>
+<bitenum description="" id="ESIREPEAT_3" token="ESIREPEAT_3" value="3"></bitenum>
+<bitenum description="" id="ESIREPEAT_4" token="ESIREPEAT_4" value="4"></bitenum>
+<bitenum description="" id="ESIREPEAT_5" token="ESIREPEAT_5" value="5"></bitenum>
+<bitenum description="" id="ESIREPEAT_6" token="ESIREPEAT_6" value="6"></bitenum>
+<bitenum description="" id="ESIREPEAT_7" token="ESIREPEAT_7" value="7"></bitenum>
+<bitenum description="" id="ESIREPEAT_8" token="ESIREPEAT_8" value="8"></bitenum>
+<bitenum description="" id="ESIREPEAT_9" token="ESIREPEAT_9" value="9"></bitenum>
+<bitenum description="" id="ESIREPEAT_10" token="ESIREPEAT_10" value="10"></bitenum>
+<bitenum description="" id="ESIREPEAT_11" token="ESIREPEAT_11" value="11"></bitenum>
+<bitenum description="" id="ESIREPEAT_12" token="ESIREPEAT_12" value="12"></bitenum>
+<bitenum description="" id="ESIREPEAT_13" token="ESIREPEAT_13" value="13"></bitenum>
+<bitenum description="" id="ESIREPEAT_14" token="ESIREPEAT_14" value="14"></bitenum>
+<bitenum description="" id="ESIREPEAT_15" token="ESIREPEAT_15" value="15"></bitenum>
+<bitenum description="" id="ESIREPEAT_16" token="ESIREPEAT_16" value="16"></bitenum>
+<bitenum description="" id="ESIREPEAT_17" token="ESIREPEAT_17" value="17"></bitenum>
+<bitenum description="" id="ESIREPEAT_18" token="ESIREPEAT_18" value="18"></bitenum>
+<bitenum description="" id="ESIREPEAT_19" token="ESIREPEAT_19" value="19"></bitenum>
+<bitenum description="" id="ESIREPEAT_20" token="ESIREPEAT_20" value="20"></bitenum>
+<bitenum description="" id="ESIREPEAT_21" token="ESIREPEAT_21" value="21"></bitenum>
+<bitenum description="" id="ESIREPEAT_22" token="ESIREPEAT_22" value="22"></bitenum>
+<bitenum description="" id="ESIREPEAT_23" token="ESIREPEAT_23" value="23"></bitenum>
+<bitenum description="" id="ESIREPEAT_24" token="ESIREPEAT_24" value="24"></bitenum>
+<bitenum description="" id="ESIREPEAT_25" token="ESIREPEAT_25" value="25"></bitenum>
+<bitenum description="" id="ESIREPEAT_26" token="ESIREPEAT_26" value="26"></bitenum>
+<bitenum description="" id="ESIREPEAT_27" token="ESIREPEAT_27" value="27"></bitenum>
+<bitenum description="" id="ESIREPEAT_28" token="ESIREPEAT_28" value="28"></bitenum>
+<bitenum description="" id="ESIREPEAT_29" token="ESIREPEAT_29" value="29"></bitenum>
+<bitenum description="" id="ESIREPEAT_30" token="ESIREPEAT_30" value="30"></bitenum>
+<bitenum description="" id="ESIREPEAT_31" token="ESIREPEAT_31" value="31"></bitenum></bitfield></register>
+<register acronym="ESITSM27" description="ESI TSM 27" id="ESITSM27" offset=" 0x0D96" width="16">
+<bitfield begin="1" description="Input channel select" end="0" id="ESICH" range="" resetval="0" rwaccess="RW" width="2">
+<bitenum description="Input channel select: ESICH0" id="ESICH_0" token="ESICH_0" value="0"></bitenum>
+<bitenum description="Input channel select: ESICH1" id="ESICH_1" token="ESICH_1" value="1"></bitenum>
+<bitenum description="Input channel select: ESICH2" id="ESICH_2" token="ESICH_2" value="2"></bitenum>
+<bitenum description="Input channel select: ESICH3" id="ESICH_3" token="ESICH_3" value="3"></bitenum></bitfield>
+<bitfield begin="2" description="LC enable" end="2" id="ESILCEN" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="3" description="Excitation and sample-and-hold" end="3" id="ESIEX" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="4" description="TSM comparator on" end="4" id="ESICA" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="5" description="High-frequency clock on" end="5" id="ESICLKON" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="6" description="Internal output latches enabled" end="6" id="ESIRSON" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="7" description="TSM test cycle control" end="7" id="ESITESTS1" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="8" description="TSM DAC on" end="8" id="ESIDAC" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="9" description="This bit indicates the end of the TSM sequence" end="9" id="ESISTOP" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="10" description="This bit selects the clock source for the TSM" end="10" id="ESICLK" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="15" description="These bits together with the ESICLK bit configure the duration of this state" end="11" id="ESIREPEAT" range="" resetval="0" rwaccess="RW" width="5">
+<bitenum description="These bits configure the duration of this state" id="ESIREPEAT_0" token="ESIREPEAT_0" value="0"></bitenum>
+<bitenum description="ESIREPEATx selects the number of clock cycles for this state. The number of clock cycles = ESIREPEATx + 1" id="ESIREPEAT_1" token="ESIREPEAT_1" value="1"></bitenum>
+<bitenum description="" id="ESIREPEAT_2" token="ESIREPEAT_2" value="2"></bitenum>
+<bitenum description="" id="ESIREPEAT_3" token="ESIREPEAT_3" value="3"></bitenum>
+<bitenum description="" id="ESIREPEAT_4" token="ESIREPEAT_4" value="4"></bitenum>
+<bitenum description="" id="ESIREPEAT_5" token="ESIREPEAT_5" value="5"></bitenum>
+<bitenum description="" id="ESIREPEAT_6" token="ESIREPEAT_6" value="6"></bitenum>
+<bitenum description="" id="ESIREPEAT_7" token="ESIREPEAT_7" value="7"></bitenum>
+<bitenum description="" id="ESIREPEAT_8" token="ESIREPEAT_8" value="8"></bitenum>
+<bitenum description="" id="ESIREPEAT_9" token="ESIREPEAT_9" value="9"></bitenum>
+<bitenum description="" id="ESIREPEAT_10" token="ESIREPEAT_10" value="10"></bitenum>
+<bitenum description="" id="ESIREPEAT_11" token="ESIREPEAT_11" value="11"></bitenum>
+<bitenum description="" id="ESIREPEAT_12" token="ESIREPEAT_12" value="12"></bitenum>
+<bitenum description="" id="ESIREPEAT_13" token="ESIREPEAT_13" value="13"></bitenum>
+<bitenum description="" id="ESIREPEAT_14" token="ESIREPEAT_14" value="14"></bitenum>
+<bitenum description="" id="ESIREPEAT_15" token="ESIREPEAT_15" value="15"></bitenum>
+<bitenum description="" id="ESIREPEAT_16" token="ESIREPEAT_16" value="16"></bitenum>
+<bitenum description="" id="ESIREPEAT_17" token="ESIREPEAT_17" value="17"></bitenum>
+<bitenum description="" id="ESIREPEAT_18" token="ESIREPEAT_18" value="18"></bitenum>
+<bitenum description="" id="ESIREPEAT_19" token="ESIREPEAT_19" value="19"></bitenum>
+<bitenum description="" id="ESIREPEAT_20" token="ESIREPEAT_20" value="20"></bitenum>
+<bitenum description="" id="ESIREPEAT_21" token="ESIREPEAT_21" value="21"></bitenum>
+<bitenum description="" id="ESIREPEAT_22" token="ESIREPEAT_22" value="22"></bitenum>
+<bitenum description="" id="ESIREPEAT_23" token="ESIREPEAT_23" value="23"></bitenum>
+<bitenum description="" id="ESIREPEAT_24" token="ESIREPEAT_24" value="24"></bitenum>
+<bitenum description="" id="ESIREPEAT_25" token="ESIREPEAT_25" value="25"></bitenum>
+<bitenum description="" id="ESIREPEAT_26" token="ESIREPEAT_26" value="26"></bitenum>
+<bitenum description="" id="ESIREPEAT_27" token="ESIREPEAT_27" value="27"></bitenum>
+<bitenum description="" id="ESIREPEAT_28" token="ESIREPEAT_28" value="28"></bitenum>
+<bitenum description="" id="ESIREPEAT_29" token="ESIREPEAT_29" value="29"></bitenum>
+<bitenum description="" id="ESIREPEAT_30" token="ESIREPEAT_30" value="30"></bitenum>
+<bitenum description="" id="ESIREPEAT_31" token="ESIREPEAT_31" value="31"></bitenum></bitfield></register>
+<register acronym="ESITSM28" description="ESI TSM 28" id="ESITSM28" offset=" 0x0D98" width="16">
+<bitfield begin="1" description="Input channel select" end="0" id="ESICH" range="" resetval="0" rwaccess="RW" width="2">
+<bitenum description="Input channel select: ESICH0" id="ESICH_0" token="ESICH_0" value="0"></bitenum>
+<bitenum description="Input channel select: ESICH1" id="ESICH_1" token="ESICH_1" value="1"></bitenum>
+<bitenum description="Input channel select: ESICH2" id="ESICH_2" token="ESICH_2" value="2"></bitenum>
+<bitenum description="Input channel select: ESICH3" id="ESICH_3" token="ESICH_3" value="3"></bitenum></bitfield>
+<bitfield begin="2" description="LC enable" end="2" id="ESILCEN" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="3" description="Excitation and sample-and-hold" end="3" id="ESIEX" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="4" description="TSM comparator on" end="4" id="ESICA" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="5" description="High-frequency clock on" end="5" id="ESICLKON" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="6" description="Internal output latches enabled" end="6" id="ESIRSON" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="7" description="TSM test cycle control" end="7" id="ESITESTS1" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="8" description="TSM DAC on" end="8" id="ESIDAC" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="9" description="This bit indicates the end of the TSM sequence" end="9" id="ESISTOP" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="10" description="This bit selects the clock source for the TSM" end="10" id="ESICLK" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="15" description="These bits together with the ESICLK bit configure the duration of this state" end="11" id="ESIREPEAT" range="" resetval="0" rwaccess="RW" width="5">
+<bitenum description="These bits configure the duration of this state" id="ESIREPEAT_0" token="ESIREPEAT_0" value="0"></bitenum>
+<bitenum description="ESIREPEATx selects the number of clock cycles for this state. The number of clock cycles = ESIREPEATx + 1" id="ESIREPEAT_1" token="ESIREPEAT_1" value="1"></bitenum>
+<bitenum description="" id="ESIREPEAT_2" token="ESIREPEAT_2" value="2"></bitenum>
+<bitenum description="" id="ESIREPEAT_3" token="ESIREPEAT_3" value="3"></bitenum>
+<bitenum description="" id="ESIREPEAT_4" token="ESIREPEAT_4" value="4"></bitenum>
+<bitenum description="" id="ESIREPEAT_5" token="ESIREPEAT_5" value="5"></bitenum>
+<bitenum description="" id="ESIREPEAT_6" token="ESIREPEAT_6" value="6"></bitenum>
+<bitenum description="" id="ESIREPEAT_7" token="ESIREPEAT_7" value="7"></bitenum>
+<bitenum description="" id="ESIREPEAT_8" token="ESIREPEAT_8" value="8"></bitenum>
+<bitenum description="" id="ESIREPEAT_9" token="ESIREPEAT_9" value="9"></bitenum>
+<bitenum description="" id="ESIREPEAT_10" token="ESIREPEAT_10" value="10"></bitenum>
+<bitenum description="" id="ESIREPEAT_11" token="ESIREPEAT_11" value="11"></bitenum>
+<bitenum description="" id="ESIREPEAT_12" token="ESIREPEAT_12" value="12"></bitenum>
+<bitenum description="" id="ESIREPEAT_13" token="ESIREPEAT_13" value="13"></bitenum>
+<bitenum description="" id="ESIREPEAT_14" token="ESIREPEAT_14" value="14"></bitenum>
+<bitenum description="" id="ESIREPEAT_15" token="ESIREPEAT_15" value="15"></bitenum>
+<bitenum description="" id="ESIREPEAT_16" token="ESIREPEAT_16" value="16"></bitenum>
+<bitenum description="" id="ESIREPEAT_17" token="ESIREPEAT_17" value="17"></bitenum>
+<bitenum description="" id="ESIREPEAT_18" token="ESIREPEAT_18" value="18"></bitenum>
+<bitenum description="" id="ESIREPEAT_19" token="ESIREPEAT_19" value="19"></bitenum>
+<bitenum description="" id="ESIREPEAT_20" token="ESIREPEAT_20" value="20"></bitenum>
+<bitenum description="" id="ESIREPEAT_21" token="ESIREPEAT_21" value="21"></bitenum>
+<bitenum description="" id="ESIREPEAT_22" token="ESIREPEAT_22" value="22"></bitenum>
+<bitenum description="" id="ESIREPEAT_23" token="ESIREPEAT_23" value="23"></bitenum>
+<bitenum description="" id="ESIREPEAT_24" token="ESIREPEAT_24" value="24"></bitenum>
+<bitenum description="" id="ESIREPEAT_25" token="ESIREPEAT_25" value="25"></bitenum>
+<bitenum description="" id="ESIREPEAT_26" token="ESIREPEAT_26" value="26"></bitenum>
+<bitenum description="" id="ESIREPEAT_27" token="ESIREPEAT_27" value="27"></bitenum>
+<bitenum description="" id="ESIREPEAT_28" token="ESIREPEAT_28" value="28"></bitenum>
+<bitenum description="" id="ESIREPEAT_29" token="ESIREPEAT_29" value="29"></bitenum>
+<bitenum description="" id="ESIREPEAT_30" token="ESIREPEAT_30" value="30"></bitenum>
+<bitenum description="" id="ESIREPEAT_31" token="ESIREPEAT_31" value="31"></bitenum></bitfield></register>
+<register acronym="ESITSM29" description="ESI TSM 29" id="ESITSM29" offset=" 0x0D9A" width="16">
+<bitfield begin="1" description="Input channel select" end="0" id="ESICH" range="" resetval="0" rwaccess="RW" width="2">
+<bitenum description="Input channel select: ESICH0" id="ESICH_0" token="ESICH_0" value="0"></bitenum>
+<bitenum description="Input channel select: ESICH1" id="ESICH_1" token="ESICH_1" value="1"></bitenum>
+<bitenum description="Input channel select: ESICH2" id="ESICH_2" token="ESICH_2" value="2"></bitenum>
+<bitenum description="Input channel select: ESICH3" id="ESICH_3" token="ESICH_3" value="3"></bitenum></bitfield>
+<bitfield begin="2" description="LC enable" end="2" id="ESILCEN" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="3" description="Excitation and sample-and-hold" end="3" id="ESIEX" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="4" description="TSM comparator on" end="4" id="ESICA" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="5" description="High-frequency clock on" end="5" id="ESICLKON" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="6" description="Internal output latches enabled" end="6" id="ESIRSON" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="7" description="TSM test cycle control" end="7" id="ESITESTS1" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="8" description="TSM DAC on" end="8" id="ESIDAC" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="9" description="This bit indicates the end of the TSM sequence" end="9" id="ESISTOP" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="10" description="This bit selects the clock source for the TSM" end="10" id="ESICLK" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="15" description="These bits together with the ESICLK bit configure the duration of this state" end="11" id="ESIREPEAT" range="" resetval="0" rwaccess="RW" width="5">
+<bitenum description="These bits configure the duration of this state" id="ESIREPEAT_0" token="ESIREPEAT_0" value="0"></bitenum>
+<bitenum description="ESIREPEATx selects the number of clock cycles for this state. The number of clock cycles = ESIREPEATx + 1" id="ESIREPEAT_1" token="ESIREPEAT_1" value="1"></bitenum>
+<bitenum description="" id="ESIREPEAT_2" token="ESIREPEAT_2" value="2"></bitenum>
+<bitenum description="" id="ESIREPEAT_3" token="ESIREPEAT_3" value="3"></bitenum>
+<bitenum description="" id="ESIREPEAT_4" token="ESIREPEAT_4" value="4"></bitenum>
+<bitenum description="" id="ESIREPEAT_5" token="ESIREPEAT_5" value="5"></bitenum>
+<bitenum description="" id="ESIREPEAT_6" token="ESIREPEAT_6" value="6"></bitenum>
+<bitenum description="" id="ESIREPEAT_7" token="ESIREPEAT_7" value="7"></bitenum>
+<bitenum description="" id="ESIREPEAT_8" token="ESIREPEAT_8" value="8"></bitenum>
+<bitenum description="" id="ESIREPEAT_9" token="ESIREPEAT_9" value="9"></bitenum>
+<bitenum description="" id="ESIREPEAT_10" token="ESIREPEAT_10" value="10"></bitenum>
+<bitenum description="" id="ESIREPEAT_11" token="ESIREPEAT_11" value="11"></bitenum>
+<bitenum description="" id="ESIREPEAT_12" token="ESIREPEAT_12" value="12"></bitenum>
+<bitenum description="" id="ESIREPEAT_13" token="ESIREPEAT_13" value="13"></bitenum>
+<bitenum description="" id="ESIREPEAT_14" token="ESIREPEAT_14" value="14"></bitenum>
+<bitenum description="" id="ESIREPEAT_15" token="ESIREPEAT_15" value="15"></bitenum>
+<bitenum description="" id="ESIREPEAT_16" token="ESIREPEAT_16" value="16"></bitenum>
+<bitenum description="" id="ESIREPEAT_17" token="ESIREPEAT_17" value="17"></bitenum>
+<bitenum description="" id="ESIREPEAT_18" token="ESIREPEAT_18" value="18"></bitenum>
+<bitenum description="" id="ESIREPEAT_19" token="ESIREPEAT_19" value="19"></bitenum>
+<bitenum description="" id="ESIREPEAT_20" token="ESIREPEAT_20" value="20"></bitenum>
+<bitenum description="" id="ESIREPEAT_21" token="ESIREPEAT_21" value="21"></bitenum>
+<bitenum description="" id="ESIREPEAT_22" token="ESIREPEAT_22" value="22"></bitenum>
+<bitenum description="" id="ESIREPEAT_23" token="ESIREPEAT_23" value="23"></bitenum>
+<bitenum description="" id="ESIREPEAT_24" token="ESIREPEAT_24" value="24"></bitenum>
+<bitenum description="" id="ESIREPEAT_25" token="ESIREPEAT_25" value="25"></bitenum>
+<bitenum description="" id="ESIREPEAT_26" token="ESIREPEAT_26" value="26"></bitenum>
+<bitenum description="" id="ESIREPEAT_27" token="ESIREPEAT_27" value="27"></bitenum>
+<bitenum description="" id="ESIREPEAT_28" token="ESIREPEAT_28" value="28"></bitenum>
+<bitenum description="" id="ESIREPEAT_29" token="ESIREPEAT_29" value="29"></bitenum>
+<bitenum description="" id="ESIREPEAT_30" token="ESIREPEAT_30" value="30"></bitenum>
+<bitenum description="" id="ESIREPEAT_31" token="ESIREPEAT_31" value="31"></bitenum></bitfield></register>
+<register acronym="ESITSM30" description="ESI TSM 30" id="ESITSM30" offset=" 0x0D9C" width="16">
+<bitfield begin="1" description="Input channel select" end="0" id="ESICH" range="" resetval="0" rwaccess="RW" width="2">
+<bitenum description="Input channel select: ESICH0" id="ESICH_0" token="ESICH_0" value="0"></bitenum>
+<bitenum description="Input channel select: ESICH1" id="ESICH_1" token="ESICH_1" value="1"></bitenum>
+<bitenum description="Input channel select: ESICH2" id="ESICH_2" token="ESICH_2" value="2"></bitenum>
+<bitenum description="Input channel select: ESICH3" id="ESICH_3" token="ESICH_3" value="3"></bitenum></bitfield>
+<bitfield begin="2" description="LC enable" end="2" id="ESILCEN" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="3" description="Excitation and sample-and-hold" end="3" id="ESIEX" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="4" description="TSM comparator on" end="4" id="ESICA" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="5" description="High-frequency clock on" end="5" id="ESICLKON" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="6" description="Internal output latches enabled" end="6" id="ESIRSON" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="7" description="TSM test cycle control" end="7" id="ESITESTS1" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="8" description="TSM DAC on" end="8" id="ESIDAC" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="9" description="This bit indicates the end of the TSM sequence" end="9" id="ESISTOP" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="10" description="This bit selects the clock source for the TSM" end="10" id="ESICLK" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="15" description="These bits together with the ESICLK bit configure the duration of this state" end="11" id="ESIREPEAT" range="" resetval="0" rwaccess="RW" width="5">
+<bitenum description="These bits configure the duration of this state" id="ESIREPEAT_0" token="ESIREPEAT_0" value="0"></bitenum>
+<bitenum description="ESIREPEATx selects the number of clock cycles for this state. The number of clock cycles = ESIREPEATx + 1" id="ESIREPEAT_1" token="ESIREPEAT_1" value="1"></bitenum>
+<bitenum description="" id="ESIREPEAT_2" token="ESIREPEAT_2" value="2"></bitenum>
+<bitenum description="" id="ESIREPEAT_3" token="ESIREPEAT_3" value="3"></bitenum>
+<bitenum description="" id="ESIREPEAT_4" token="ESIREPEAT_4" value="4"></bitenum>
+<bitenum description="" id="ESIREPEAT_5" token="ESIREPEAT_5" value="5"></bitenum>
+<bitenum description="" id="ESIREPEAT_6" token="ESIREPEAT_6" value="6"></bitenum>
+<bitenum description="" id="ESIREPEAT_7" token="ESIREPEAT_7" value="7"></bitenum>
+<bitenum description="" id="ESIREPEAT_8" token="ESIREPEAT_8" value="8"></bitenum>
+<bitenum description="" id="ESIREPEAT_9" token="ESIREPEAT_9" value="9"></bitenum>
+<bitenum description="" id="ESIREPEAT_10" token="ESIREPEAT_10" value="10"></bitenum>
+<bitenum description="" id="ESIREPEAT_11" token="ESIREPEAT_11" value="11"></bitenum>
+<bitenum description="" id="ESIREPEAT_12" token="ESIREPEAT_12" value="12"></bitenum>
+<bitenum description="" id="ESIREPEAT_13" token="ESIREPEAT_13" value="13"></bitenum>
+<bitenum description="" id="ESIREPEAT_14" token="ESIREPEAT_14" value="14"></bitenum>
+<bitenum description="" id="ESIREPEAT_15" token="ESIREPEAT_15" value="15"></bitenum>
+<bitenum description="" id="ESIREPEAT_16" token="ESIREPEAT_16" value="16"></bitenum>
+<bitenum description="" id="ESIREPEAT_17" token="ESIREPEAT_17" value="17"></bitenum>
+<bitenum description="" id="ESIREPEAT_18" token="ESIREPEAT_18" value="18"></bitenum>
+<bitenum description="" id="ESIREPEAT_19" token="ESIREPEAT_19" value="19"></bitenum>
+<bitenum description="" id="ESIREPEAT_20" token="ESIREPEAT_20" value="20"></bitenum>
+<bitenum description="" id="ESIREPEAT_21" token="ESIREPEAT_21" value="21"></bitenum>
+<bitenum description="" id="ESIREPEAT_22" token="ESIREPEAT_22" value="22"></bitenum>
+<bitenum description="" id="ESIREPEAT_23" token="ESIREPEAT_23" value="23"></bitenum>
+<bitenum description="" id="ESIREPEAT_24" token="ESIREPEAT_24" value="24"></bitenum>
+<bitenum description="" id="ESIREPEAT_25" token="ESIREPEAT_25" value="25"></bitenum>
+<bitenum description="" id="ESIREPEAT_26" token="ESIREPEAT_26" value="26"></bitenum>
+<bitenum description="" id="ESIREPEAT_27" token="ESIREPEAT_27" value="27"></bitenum>
+<bitenum description="" id="ESIREPEAT_28" token="ESIREPEAT_28" value="28"></bitenum>
+<bitenum description="" id="ESIREPEAT_29" token="ESIREPEAT_29" value="29"></bitenum>
+<bitenum description="" id="ESIREPEAT_30" token="ESIREPEAT_30" value="30"></bitenum>
+<bitenum description="" id="ESIREPEAT_31" token="ESIREPEAT_31" value="31"></bitenum></bitfield></register>
+<register acronym="ESITSM31" description="ESI TSM 31" id="ESITSM31" offset=" 0x0D9E" width="16">
+<bitfield begin="1" description="Input channel select" end="0" id="ESICH" range="" resetval="0" rwaccess="RW" width="2">
+<bitenum description="Input channel select: ESICH0" id="ESICH_0" token="ESICH_0" value="0"></bitenum>
+<bitenum description="Input channel select: ESICH1" id="ESICH_1" token="ESICH_1" value="1"></bitenum>
+<bitenum description="Input channel select: ESICH2" id="ESICH_2" token="ESICH_2" value="2"></bitenum>
+<bitenum description="Input channel select: ESICH3" id="ESICH_3" token="ESICH_3" value="3"></bitenum></bitfield>
+<bitfield begin="2" description="LC enable" end="2" id="ESILCEN" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="3" description="Excitation and sample-and-hold" end="3" id="ESIEX" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="4" description="TSM comparator on" end="4" id="ESICA" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="5" description="High-frequency clock on" end="5" id="ESICLKON" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="6" description="Internal output latches enabled" end="6" id="ESIRSON" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="7" description="TSM test cycle control" end="7" id="ESITESTS1" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="8" description="TSM DAC on" end="8" id="ESIDAC" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="9" description="This bit indicates the end of the TSM sequence" end="9" id="ESISTOP" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="10" description="This bit selects the clock source for the TSM" end="10" id="ESICLK" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="15" description="These bits together with the ESICLK bit configure the duration of this state" end="11" id="ESIREPEAT" range="" resetval="0" rwaccess="RW" width="5">
+<bitenum description="These bits configure the duration of this state" id="ESIREPEAT_0" token="ESIREPEAT_0" value="0"></bitenum>
+<bitenum description="ESIREPEATx selects the number of clock cycles for this state. The number of clock cycles = ESIREPEATx + 1" id="ESIREPEAT_1" token="ESIREPEAT_1" value="1"></bitenum>
+<bitenum description="" id="ESIREPEAT_2" token="ESIREPEAT_2" value="2"></bitenum>
+<bitenum description="" id="ESIREPEAT_3" token="ESIREPEAT_3" value="3"></bitenum>
+<bitenum description="" id="ESIREPEAT_4" token="ESIREPEAT_4" value="4"></bitenum>
+<bitenum description="" id="ESIREPEAT_5" token="ESIREPEAT_5" value="5"></bitenum>
+<bitenum description="" id="ESIREPEAT_6" token="ESIREPEAT_6" value="6"></bitenum>
+<bitenum description="" id="ESIREPEAT_7" token="ESIREPEAT_7" value="7"></bitenum>
+<bitenum description="" id="ESIREPEAT_8" token="ESIREPEAT_8" value="8"></bitenum>
+<bitenum description="" id="ESIREPEAT_9" token="ESIREPEAT_9" value="9"></bitenum>
+<bitenum description="" id="ESIREPEAT_10" token="ESIREPEAT_10" value="10"></bitenum>
+<bitenum description="" id="ESIREPEAT_11" token="ESIREPEAT_11" value="11"></bitenum>
+<bitenum description="" id="ESIREPEAT_12" token="ESIREPEAT_12" value="12"></bitenum>
+<bitenum description="" id="ESIREPEAT_13" token="ESIREPEAT_13" value="13"></bitenum>
+<bitenum description="" id="ESIREPEAT_14" token="ESIREPEAT_14" value="14"></bitenum>
+<bitenum description="" id="ESIREPEAT_15" token="ESIREPEAT_15" value="15"></bitenum>
+<bitenum description="" id="ESIREPEAT_16" token="ESIREPEAT_16" value="16"></bitenum>
+<bitenum description="" id="ESIREPEAT_17" token="ESIREPEAT_17" value="17"></bitenum>
+<bitenum description="" id="ESIREPEAT_18" token="ESIREPEAT_18" value="18"></bitenum>
+<bitenum description="" id="ESIREPEAT_19" token="ESIREPEAT_19" value="19"></bitenum>
+<bitenum description="" id="ESIREPEAT_20" token="ESIREPEAT_20" value="20"></bitenum>
+<bitenum description="" id="ESIREPEAT_21" token="ESIREPEAT_21" value="21"></bitenum>
+<bitenum description="" id="ESIREPEAT_22" token="ESIREPEAT_22" value="22"></bitenum>
+<bitenum description="" id="ESIREPEAT_23" token="ESIREPEAT_23" value="23"></bitenum>
+<bitenum description="" id="ESIREPEAT_24" token="ESIREPEAT_24" value="24"></bitenum>
+<bitenum description="" id="ESIREPEAT_25" token="ESIREPEAT_25" value="25"></bitenum>
+<bitenum description="" id="ESIREPEAT_26" token="ESIREPEAT_26" value="26"></bitenum>
+<bitenum description="" id="ESIREPEAT_27" token="ESIREPEAT_27" value="27"></bitenum>
+<bitenum description="" id="ESIREPEAT_28" token="ESIREPEAT_28" value="28"></bitenum>
+<bitenum description="" id="ESIREPEAT_29" token="ESIREPEAT_29" value="29"></bitenum>
+<bitenum description="" id="ESIREPEAT_30" token="ESIREPEAT_30" value="30"></bitenum>
+<bitenum description="" id="ESIREPEAT_31" token="ESIREPEAT_31" value="31"></bitenum></bitfield></register>
+</module>

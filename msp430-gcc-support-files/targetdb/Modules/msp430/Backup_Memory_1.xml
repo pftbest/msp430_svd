@@ -1,0 +1,18 @@
+<module HW_revision="" XML_version="1" description="Backup Memory" id="Backup Memory">
+<register acronym="BAKMEM0" description="Battery Backup Memory 0" id="BAKMEM0" offset=" 0x0660" width="16"></register>
+<register acronym="BAKMEM1" description="Battery Backup Memory 1" id="BAKMEM1" offset=" 0x0662" width="16"></register>
+<register acronym="BAKMEM2" description="Battery Backup Memory 2" id="BAKMEM2" offset=" 0x0664" width="16"></register>
+<register acronym="BAKMEM3" description="Battery Backup Memory 3" id="BAKMEM3" offset=" 0x0666" width="16"></register>
+<register acronym="BAKMEM4" description="Battery Backup Memory 4" id="BAKMEM4" offset=" 0x0668" width="16"></register>
+<register acronym="BAKMEM5" description="Battery Backup Memory 5" id="BAKMEM5" offset=" 0x066A" width="16"></register>
+<register acronym="BAKMEM6" description="Battery Backup Memory 6" id="BAKMEM6" offset=" 0x066C" width="16"></register>
+<register acronym="BAKMEM7" description="Battery Backup Memory 7" id="BAKMEM7" offset=" 0x066E" width="16"></register>
+<register acronym="BAKMEM8" description="Battery Backup Memory 8" id="BAKMEM8" offset=" 0x0670" width="16"></register>
+<register acronym="BAKMEM9" description="Battery Backup Memory 9" id="BAKMEM9" offset=" 0x0672" width="16"></register>
+<register acronym="BAKMEM10" description="Battery Backup Memory 10" id="BAKMEM10" offset=" 0x0674" width="16"></register>
+<register acronym="BAKMEM11" description="Battery Backup Memory 11" id="BAKMEM11" offset=" 0x0676" width="16"></register>
+<register acronym="BAKMEM12" description="Battery Backup Memory 12" id="BAKMEM12" offset=" 0x0678" width="16"></register>
+<register acronym="BAKMEM13" description="Battery Backup Memory 13" id="BAKMEM13" offset=" 0x067A" width="16"></register>
+<register acronym="BAKMEM14" description="Battery Backup Memory 14" id="BAKMEM14" offset=" 0x067C" width="16"></register>
+<register acronym="BAKMEM15" description="Battery Backup Memory 15" id="BAKMEM15" offset=" 0x067E" width="16"></register>
+</module>

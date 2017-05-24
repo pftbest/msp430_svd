@@ -1,0 +1,22 @@
+<module id="PD" HW_revision="272.0">
+    <register id="PDIN" width="16" offset="0x60" internal="0" description="Port D Input">
+    </register>
+    <register id="PDOUT" width="16" offset="0x62" internal="0" description="Port D Output">
+    </register>
+    <register id="PDDIR" width="16" offset="0x64" internal="0" description="Port D Direction">
+    </register>
+    <register id="PDREN" width="16" offset="0x66" internal="0" description="Port D Resistor Enable">
+    </register>
+    <register id="PDSEL0" width="16" offset="0x6A" internal="0" description="Port D Select 0">
+    </register>
+    <register id="PDSEL1" width="16" offset="0x6C" internal="0" description="Port D Select 1">
+    </register>
+    <register id="PDSELC" width="16" offset="0x76" internal="0" description="Port D Complement Select">
+    </register>
+    <register id="PDIES" width="16" offset="0x78" internal="0" description="Port D Interrupt Edge Select">
+    </register>
+    <register id="PDIE" width="16" offset="0x7A" internal="0" description="Port D Interrupt Enable">
+    </register>
+    <register id="PDIFG" width="16" offset="0x7C" internal="0" description="Port D Interrupt Flag">
+    </register>
+</module>

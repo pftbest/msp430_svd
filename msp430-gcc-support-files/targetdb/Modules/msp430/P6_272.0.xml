@@ -1,0 +1,35 @@
+<module id="P6" HW_revision="272.0">
+    <register id="P6IV" width="16" offset="0x5E" internal="0" description="Port 6 Interrupt Vector Register">
+        <bitfield id="P6IV" description="Port 6 interrupt vector value" begin="4" end="0" width="5" rwaccess="R">
+            <bitenum id="NONE" value="0x0" description="No interrupt pending"/>
+            <bitenum id="P6IFG0" value="0x2" description="Interrupt Source: Port 6.0 interrupt; Interrupt Flag: P6IFG0; Interrupt Priority: Highest"/>
+            <bitenum id="P6IFG1" value="0x4" description="Interrupt Source: Port 6.1 interrupt; Interrupt Flag: P6IFG1"/>
+            <bitenum id="P6IFG2" value="0x6" description="Interrupt Source: Port 6.2 interrupt; Interrupt Flag: P6IFG2"/>
+            <bitenum id="P6IFG3" value="0x8" description="Interrupt Source: Port 6.3 interrupt; Interrupt Flag: P6IFG3"/>
+            <bitenum id="P6IFG4" value="0xA" description="Interrupt Source: Port 6.4 interrupt; Interrupt Flag: P6IFG4"/>
+            <bitenum id="P6IFG5" value="0xC" description="Interrupt Source: Port 6.5 interrupt; Interrupt Flag: P6IFG5"/>
+            <bitenum id="P6IFG6" value="0xE" description="Interrupt Source: Port 6.6 interrupt; Interrupt Flag: P6IFG6"/>
+            <bitenum id="P6IFG7" value="0x10" description="Interrupt Source: Port 6.7 interrupt; Interrupt Flag: P6IFG7; Interrupt Priority: Lowest"/>
+        </bitfield>
+    </register>
+    <register id="P6IN" width="8" offset="0x41" internal="0" description="Port 6 Input">
+    </register>
+    <register id="P6OUT" width="8" offset="0x43" internal="0" description="Port 6 Output">
+    </register>
+    <register id="P6DIR" width="8" offset="0x45" internal="0" description="Port 6 Direction">
+    </register>
+    <register id="P6REN" width="8" offset="0x47" internal="0" description="Port 6 Resistor Enable">
+    </register>
+    <register id="P6SEL0" width="8" offset="0x4B" internal="0" description="Port 6 Select 0">
+    </register>
+    <register id="P6SEL1" width="8" offset="0x4D" internal="0" description="Port 6 Select 1">
+    </register>
+    <register id="P6SELC" width="8" offset="0x57" internal="0" description="Port 6 Complement Select">
+    </register>
+    <register id="P6IES" width="8" offset="0x59" internal="0" description="Port 6 Interrupt Edge Select">
+    </register>
+    <register id="P6IE" width="8" offset="0x5B" internal="0" description="Port 6 Interrupt Enable">
+    </register>
+    <register id="P6IFG" width="8" offset="0x5D" internal="0" description="Port 6 Interrupt Flag">
+    </register>
+</module>

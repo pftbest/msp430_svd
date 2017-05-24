@@ -1,0 +1,22 @@
+<module HW_revision="" XML_version="1" description="Special Function" id="Special Function">
+<register acronym="IE1" description="Interrupt Enable 1" id="IE1" offset=" 0x0000" width="8">
+<bitfield begin="0" description="WDTIE" end="0" id="WDTIE" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="1" description="OFIE" end="1" id="OFIE" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="4" description="NMIIE" end="4" id="NMIIE" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="5" description="ACCVIE" end="5" id="ACCVIE" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="6" description="URXIE0" end="6" id="URXIE0" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="7" description="UTXIE0" end="7" id="UTXIE0" range="" resetval="0" rwaccess="RW" width="1"></bitfield></register>
+<register acronym="IFG1" description="Interrupt Flag 1" id="IFG1" offset=" 0x0002" width="8">
+<bitfield begin="0" description="WDTIFG" end="0" id="WDTIFG" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="1" description="OFIFG" end="1" id="OFIFG" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="4" description="NMIIFG" end="4" id="NMIIFG" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="6" description="URXIFG0" end="6" id="URXIFG0" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="7" description="UTXIFG0" end="7" id="UTXIFG0" range="" resetval="0" rwaccess="RW" width="1"></bitfield></register>
+<register acronym="ME1" description="Module Enable 1" id="ME1" offset=" 0x0004" width="8">
+<bitfield begin="6" description="URXE0" end="6" id="URXE0" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="7" description="UTXE0" end="7" id="UTXE0" range="" resetval="0" rwaccess="RW" width="1"></bitfield></register>
+<register acronym="IE2" description="Interrupt Enable 2" id="IE2" offset=" 0x0001" width="8">
+<bitfield begin="7" description="BTIE" end="7" id="BTIE" range="" resetval="0" rwaccess="RW" width="1"></bitfield></register>
+<register acronym="IFG2" description="Interrupt Flag 2" id="IFG2" offset=" 0x0003" width="8">
+<bitfield begin="7" description="BTIFG" end="7" id="BTIFG" range="" resetval="0" rwaccess="RW" width="1"></bitfield></register>
+</module>

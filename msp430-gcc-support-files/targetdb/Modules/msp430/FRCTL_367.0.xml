@@ -1,0 +1,52 @@
+<module id="FRCTL" HW_revision="367.0">
+    <register id="FRCTL0" width="16" offset="0x0" internal="0" description="FRAM Controller Control Register 0">
+        <bitfield id="NWAITS" description="Wait state numbers" begin="6" end="4" width="3" rwaccess="R/W">
+            <bitenum id="NWAITS_0" value="0x0" description="FRAM wait states: 0"/>
+            <bitenum id="NWAITS_1" value="0x1" description="FRAM wait states: 1"/>
+            <bitenum id="NWAITS_2" value="0x2" description="FRAM wait states: 2"/>
+            <bitenum id="NWAITS_3" value="0x3" description="FRAM wait states: 3"/>
+            <bitenum id="NWAITS_4" value="0x4" description="FRAM wait states: 4"/>
+            <bitenum id="NWAITS_5" value="0x5" description="FRAM wait states: 5"/>
+            <bitenum id="NWAITS_6" value="0x6" description="FRAM wait states: 6"/>
+            <bitenum id="NWAITS_7" value="0x7" description="FRAM wait states: 7"/>
+        </bitfield>
+        <bitfield id="FRCTLPW" description="FRCTLPW password" begin="15" end="8" width="8" rwaccess="R/W">
+        </bitfield>
+    </register>
+    <register id="GCCTL0" width="16" offset="0x4" internal="0" description="General Control Register 0">
+        <bitfield id="UBDRSTEN" description="Enable Power Up Clear (PUC) reset for the uncorrectable bit error detection flag (UBDIFG)" begin="7" end="7" width="1" rwaccess="R/W">
+            <bitenum id="UBDRSTEN_0" value="0x0" description="PUC not initiated on uncorrectable bit error detection flag."/>
+            <bitenum id="UBDRSTEN_1" value="0x1" description="PUC initiated on uncorrectable bit error detection flag. Generates vector in SYSRSTIV. Clear the UBDIE bit."/>
+        </bitfield>
+        <bitfield id="UBDIE" description="Enable NMI event for the uncorrectable bit error detection flag (UBDIFG)" begin="6" end="6" width="1" rwaccess="R/W">
+            <bitenum id="UBDIE_0" value="0x0" description="Disable NMI for the uncorrectable bit error detection flag (UBDIFG)."/>
+            <bitenum id="UBDIE_1" value="0x1" description="Enable NMI for the uncorrectable bit error detection flag (UBDIFG). Generates vector in SYSSNIV. Clear the UBDRSTEN bit."/>
+        </bitfield>
+        <bitfield id="CBDIE" description="Enable NMI event for the correctable bit error detection flag (CBDIFG)" begin="5" end="5" width="1" rwaccess="R/W">
+            <bitenum id="CBDIE_0" value="0x0" description="Disable NMI for the correctable bit error detection flag (CBDIFG)."/>
+            <bitenum id="CBDIE_1" value="0x1" description="Disable NMI for the correctable bit error detection flag (CBDIFG). Generates vector in SYSSNIV."/>
+        </bitfield>
+        <bitfield id="FRPWR" description="FRAM Memory Power Control Request" begin="2" end="2" width="1" rwaccess="R/W">
+            <bitenum id="FRPWR_0" value="0x0" description="Enable INACTIVE mode."/>
+            <bitenum id="FRPWR_1" value="0x1" description="Enable ACTIVE mode."/>
+        </bitfield>
+        <bitfield id="FRLPMPWR" description="Enables FRAM auto power up after LPM" begin="1" end="1" width="1" rwaccess="R/W">
+            <bitenum id="FRLPMPWR_0" value="0x0" description="FRAM startup is delayed to the first FRAM access after exit from LPM"/>
+            <bitenum id="FRLPMPWR_1" value="0x1" description="FRAM is powered up immediately on exit from LPM"/>
+        </bitfield>
+    </register>
+    <register id="GCCTL1" width="16" offset="0x6" internal="0" description="General Control Register 1">
+        <bitfield id="ACCTEIFG" description="Access time error flag" begin="3" end="3" width="1" rwaccess="R/W">
+            <bitenum id="ACCTEIFG_0" value="0x0" description="No interrupt pending."/>
+            <bitenum id="ACCTEIFG_1" value="0x1" description="Interrupt pending. Can be cleared by writing '0' or by reading SYSSNIV when it is the highest pending interrupt."/>
+        </bitfield>
+        <bitfield id="UBDIFG" description="FRAM uncorrectable bit error detection flag" begin="2" end="2" width="1" rwaccess="R/W">
+            <bitenum id="UBDIFG_0" value="0x0" description="No interrupt pending."/>
+            <bitenum id="UBDIFG_1" value="0x1" description="Interrupt pending. Can be cleared by writing '0' or by reading SYSSNIV when it is the highest pending interrupt."/>
+        </bitfield>
+        <bitfield id="CBDIFG" description="FRAM correctable bit error detection flag" begin="1" end="1" width="1" rwaccess="R/W">
+            <bitenum id="CBDIFG_0" value="0x0" description="No interrupt is pending"/>
+            <bitenum id="CBDIFG_1" value="0x1" description="Interrupt pending. Can be cleared by writing '0' or by reading SYSSNIV if it is the highest pending interrupt."/>
+        </bitfield>
+    </register>
+</module>

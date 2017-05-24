@@ -1,0 +1,7 @@
+<module HW_revision="" XML_version="1" description="TLV Calibration Data" id="TLV Calibration Data">
+<register acronym="TLV_CHECKSUM" description="TLV CHECK SUM" id="TLV_CHECKSUM" offset=" 0x10C0" width="16"></register>
+<register acronym="TLV_DCO_30_TAG" description="TLV TAG_DCO30 TAG" id="TLV_DCO_30_TAG" offset=" 0x10F6" width="8"></register>
+<register acronym="TLV_DCO_30_LEN" description="TLV TAG_DCO30 LEN" id="TLV_DCO_30_LEN" offset=" 0x10F7" width="8"></register>
+<register acronym="TLV_ADC10_1_TAG" description="TLV ADC10_1 TAG" id="TLV_ADC10_1_TAG" offset=" 0x10DA" width="8"></register>
+<register acronym="TLV_ADC10_1_LEN" description="TLV ADC10_1 LEN" id="TLV_ADC10_1_LEN" offset=" 0x10DB" width="8"></register>
+</module>

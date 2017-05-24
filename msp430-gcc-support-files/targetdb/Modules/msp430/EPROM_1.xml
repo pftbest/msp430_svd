@@ -1,0 +1,5 @@
+<module HW_revision="" XML_version="1" description="EPROM" id="EPROM">
+<register acronym="EPCTL" description="EPROM Control" id="EPCTL" offset=" 0x0054" width="8">
+<bitfield begin="0" description="EPEXE" end="0" id="EPEXE" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="1" description="EPVPPS" end="1" id="EPVPPS" range="" resetval="0" rwaccess="RW" width="1"></bitfield></register>
+</module>

@@ -1,0 +1,35 @@
+<module id="P7" HW_revision="272.0">
+    <register id="P7IV" width="16" offset="0x6E" internal="0" description="Port 7 Interrupt Vector Register">
+        <bitfield id="P7IV" description="Port 7 interrupt vector value" begin="4" end="0" width="5" rwaccess="R">
+            <bitenum id="NONE" value="0x0" description="No interrupt pending"/>
+            <bitenum id="P7IFG0" value="0x2" description="Interrupt Source: Port 7.0 interrupt; Interrupt Flag: P7IFG0; Interrupt Priority: Highest"/>
+            <bitenum id="P7IFG1" value="0x4" description="Interrupt Source: Port 7.1 interrupt; Interrupt Flag: P7IFG1"/>
+            <bitenum id="P7IFG2" value="0x6" description="Interrupt Source: Port 7.2 interrupt; Interrupt Flag: P7IFG2"/>
+            <bitenum id="P7IFG3" value="0x8" description="Interrupt Source: Port 7.3 interrupt; Interrupt Flag: P7IFG3"/>
+            <bitenum id="P7IFG4" value="0xA" description="Interrupt Source: Port 7.4 interrupt; Interrupt Flag: P7IFG4"/>
+            <bitenum id="P7IFG5" value="0xC" description="Interrupt Source: Port 7.5 interrupt; Interrupt Flag: P7IFG5"/>
+            <bitenum id="P7IFG6" value="0xE" description="Interrupt Source: Port 7.6 interrupt; Interrupt Flag: P7IFG6"/>
+            <bitenum id="P7IFG7" value="0x10" description="Interrupt Source: Port 7.7 interrupt; Interrupt Flag: P7IFG7; Interrupt Priority: Lowest"/>
+        </bitfield>
+    </register>
+    <register id="P7IN" width="8" offset="0x60" internal="0" description="Port 7 Input">
+    </register>
+    <register id="P7OUT" width="8" offset="0x62" internal="0" description="Port 7 Output">
+    </register>
+    <register id="P7DIR" width="8" offset="0x64" internal="0" description="Port 7 Direction">
+    </register>
+    <register id="P7REN" width="8" offset="0x66" internal="0" description="Port 7 Resistor Enable">
+    </register>
+    <register id="P7SEL0" width="8" offset="0x6A" internal="0" description="Port 7 Select 0">
+    </register>
+    <register id="P7SEL1" width="8" offset="0x6C" internal="0" description="Port 7 Select 1">
+    </register>
+    <register id="P7SELC" width="8" offset="0x76" internal="0" description="Port 7 Complement Select">
+    </register>
+    <register id="P7IES" width="8" offset="0x78" internal="0" description="Port 7 Interrupt Edge Select">
+    </register>
+    <register id="P7IE" width="8" offset="0x7A" internal="0" description="Port 7 Interrupt Enable">
+    </register>
+    <register id="P7IFG" width="8" offset="0x7C" internal="0" description="Port 7 Interrupt Flag">
+    </register>
+</module>

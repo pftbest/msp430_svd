@@ -1,0 +1,84 @@
+<module id="MPY32" HW_revision="208.0">
+    <register id="MPY" width="16" offset="0x0" internal="0" description="16-bit operand one  multiply">
+    </register>
+    <register id="MPYS" width="16" offset="0x2" internal="0" description="16-bit operand one  signed multiply">
+    </register>
+    <register id="MAC" width="16" offset="0x4" internal="0" description="16-bit operand one  multiply accumulate">
+    </register>
+    <register id="MACS" width="16" offset="0x6" internal="0" description="16-bit operand one  signed multiply accumulate">
+    </register>
+    <register id="OP2" width="16" offset="0x8" internal="0" description="16-bit operand two">
+    </register>
+    <register id="RESLO" width="16" offset="0xA" internal="0" description="16x16-bit result low word">
+    </register>
+    <register id="RESHI" width="16" offset="0xC" internal="0" description="16x16-bit result high word">
+    </register>
+    <register id="SUMEXT" width="16" offset="0xE" internal="0" description="16x16-bit sum extension register">
+    </register>
+    <register id="MPY32L" width="16" offset="0x10" internal="0" description="32-bit operand 1  multiply  low word">
+    </register>
+    <register id="MPY32H" width="16" offset="0x12" internal="0" description="32-bit operand 1  multiply  high word">
+    </register>
+    <register id="MPYS32L" width="16" offset="0x14" internal="0" description="32-bit operand 1  signed multiply  low word">
+    </register>
+    <register id="MPYS32H" width="16" offset="0x16" internal="0" description="32-bit operand 1  signed multiply  high word">
+    </register>
+    <register id="MAC32L" width="16" offset="0x18" internal="0" description="32-bit operand 1  multiply accumulate  low word">
+    </register>
+    <register id="MAC32H" width="16" offset="0x1A" internal="0" description="32-bit operand 1  multiply accumulate  high word">
+    </register>
+    <register id="MACS32L" width="16" offset="0x1C" internal="0" description="32-bit operand 1  signed multiply accumulate  low word">
+    </register>
+    <register id="MACS32H" width="16" offset="0x1E" internal="0" description="32-bit operand 1  signed multiply accumulate  high word">
+        <bitfield id="MACS32H" description="32-bit operand 1  signed multiply accumulate  high word" begin="15" end="8" width="8" rwaccess="R/W">
+        </bitfield>
+    </register>
+    <register id="OP2L" width="16" offset="0x20" internal="0" description="32-bit operand 2  low word">
+    </register>
+    <register id="OP2H" width="16" offset="0x22" internal="0" description="32-bit operand 2  high word">
+    </register>
+    <register id="RES0" width="16" offset="0x24" internal="0" description="32x32-bit result 0  least significant word">
+    </register>
+    <register id="RES1" width="16" offset="0x26" internal="0" description="32x32-bit result 1">
+    </register>
+    <register id="RES2" width="16" offset="0x28" internal="0" description="32x32-bit result 2">
+    </register>
+    <register id="RES3" width="16" offset="0x2A" internal="0" description="32x32-bit result 3  most significant word">
+    </register>
+    <register id="MPY32CTL0" width="16" offset="0x2C" internal="0" description="MPY32 control register 0">
+        <bitfield id="MPYDLY32" description="Delayed write mode." begin="9" end="9" width="1" rwaccess="R/W">
+            <bitenum id="MPYDLY32_0" value="0x0" description="Writes are delayed until 64-bit result (RES0 to RES3) is available."/>
+            <bitenum id="MPYDLY32_1" value="0x1" description="Writes are delayed until 32-bit result (RES0 to RES1) is available. 8 MPYDLYWRTEN"/>
+        </bitfield>
+        <bitfield id="MPYDLYWRTEN" description="Delayed write enable." begin="8" end="8" width="1" rwaccess="R/W">
+            <bitenum id="MPYDLYWRTEN_0" value="0x0" description="Writes are not delayed."/>
+            <bitenum id="MPYDLYWRTEN_1" value="0x1" description="Writes are delayed."/>
+        </bitfield>
+        <bitfield id="MPYOP2_32" description="Multiplier bit width of operand 2" begin="7" end="7" width="1" rwaccess="R/W">
+            <bitenum id="16" value="0x0" description="16 bits."/>
+            <bitenum id="32" value="0x1" description="32 bits."/>
+        </bitfield>
+        <bitfield id="MPYOP1_32" description="Multiplier bit width of operand 1" begin="6" end="6" width="1" rwaccess="R/W">
+            <bitenum id="16" value="0x0" description="16 bits."/>
+            <bitenum id="32" value="0x1" description="32 bits."/>
+        </bitfield>
+        <bitfield id="MPYM" description="Multiplier mode" begin="5" end="4" width="2" rwaccess="R/W">
+            <bitenum id="MPY" value="0x0" description="MPY  Multiply"/>
+            <bitenum id="MPYS" value="0x1" description="MPYS  Signed multiply"/>
+            <bitenum id="MAC" value="0x2" description="MAC  Multiply accumulate"/>
+            <bitenum id="MACS" value="0x3" description="MACS  Signed multiply accumulate"/>
+        </bitfield>
+        <bitfield id="MPYSAT" description="Saturation mode" begin="3" end="3" width="1" rwaccess="R/W">
+            <bitenum id="DISABLE" value="0x0" description="Saturation mode disabled."/>
+            <bitenum id="ENABLE" value="0x1" description="Saturation mode enabled."/>
+        </bitfield>
+        <bitfield id="MPYFRAC" description="Fractional mode." begin="2" end="2" width="1" rwaccess="R/W">
+            <bitenum id="DISABLE" value="0x0" description="Fractional mode disabled."/>
+            <bitenum id="ENABLE" value="0x1" description="Fractional mode enabled."/>
+        </bitfield>
+        <bitfield id="MPYC" description="Carry of the multiplier" begin="0" end="0" width="1" rwaccess="R/W">
+            <bitenum id="MPYC_0" value="0x0" description="No carry for result."/>
+            <bitenum id="MPYC_1" value="0x1" description="Result has a carry."/>
+        </bitfield>
+    </register>
+</module>

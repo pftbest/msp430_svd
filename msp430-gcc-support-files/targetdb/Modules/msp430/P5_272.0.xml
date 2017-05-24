@@ -1,0 +1,35 @@
+<module id="P5" HW_revision="272.0">
+    <register id="P5IV" width="16" offset="0x4E" internal="0" description="Port 5 Interrupt Vector Register">
+        <bitfield id="P5IV" description="Port 5 interrupt vector value" begin="4" end="0" width="5" rwaccess="R">
+            <bitenum id="NONE" value="0x0" description="No interrupt pending"/>
+            <bitenum id="P5IFG0" value="0x2" description="Interrupt Source: Port 5.0 interrupt; Interrupt Flag: P5IFG0; Interrupt Priority: Highest"/>
+            <bitenum id="P5IFG1" value="0x4" description="Interrupt Source: Port 5.1 interrupt; Interrupt Flag: P5IFG1"/>
+            <bitenum id="P5IFG2" value="0x6" description="Interrupt Source: Port 5.2 interrupt; Interrupt Flag: P5IFG2"/>
+            <bitenum id="P5IFG3" value="0x8" description="Interrupt Source: Port 5.3 interrupt; Interrupt Flag: P5IFG3"/>
+            <bitenum id="P5IFG4" value="0xA" description="Interrupt Source: Port 5.4 interrupt; Interrupt Flag: P5IFG4"/>
+            <bitenum id="P5IFG5" value="0xC" description="Interrupt Source: Port 5.5 interrupt; Interrupt Flag: P5IFG5"/>
+            <bitenum id="P5IFG6" value="0xE" description="Interrupt Source: Port 5.6 interrupt; Interrupt Flag: P5IFG6"/>
+            <bitenum id="P5IFG7" value="0x10" description="Interrupt Source: Port 5.7 interrupt; Interrupt Flag: P5IFG7; Interrupt Priority: Lowest"/>
+        </bitfield>
+    </register>
+    <register id="P5IN" width="8" offset="0x40" internal="0" description="Port 5 Input">
+    </register>
+    <register id="P5OUT" width="8" offset="0x42" internal="0" description="Port 5 Output">
+    </register>
+    <register id="P5DIR" width="8" offset="0x44" internal="0" description="Port 5 Direction">
+    </register>
+    <register id="P5REN" width="8" offset="0x46" internal="0" description="Port 5 Resistor Enable">
+    </register>
+    <register id="P5SEL0" width="8" offset="0x4A" internal="0" description="Port 5 Select 0">
+    </register>
+    <register id="P5SEL1" width="8" offset="0x4C" internal="0" description="Port 5 Select 1">
+    </register>
+    <register id="P5SELC" width="8" offset="0x56" internal="0" description="Port 5 Complement Select">
+    </register>
+    <register id="P5IES" width="8" offset="0x58" internal="0" description="Port 5 Interrupt Edge Select">
+    </register>
+    <register id="P5IE" width="8" offset="0x5A" internal="0" description="Port 5 Interrupt Enable">
+    </register>
+    <register id="P5IFG" width="8" offset="0x5C" internal="0" description="Port 5 Interrupt Flag">
+    </register>
+</module>

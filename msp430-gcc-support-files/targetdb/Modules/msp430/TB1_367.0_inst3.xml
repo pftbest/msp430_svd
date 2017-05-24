@@ -1,0 +1,244 @@
+<module id="TB1" HW_revision="367.0_inst3">
+    <register id="TB1CTL" width="16" offset="0x0" internal="0" description="Timer_B Control Register">
+        <bitfield id="TBIFG" description="TimerB interrupt flag" begin="0" end="0" width="1" rwaccess="R/W">
+            <bitenum id="TBIFG_0" value="0x0" description="No interrupt pending"/>
+            <bitenum id="TBIFG_1" value="0x1" description="Interrupt pending"/>
+        </bitfield>
+        <bitfield id="TBIE" description="TimerB interrupt enable" begin="1" end="1" width="1" rwaccess="R/W">
+            <bitenum id="TBIE_0" value="0x0" description="Interrupt disabled"/>
+            <bitenum id="TBIE_1" value="0x1" description="Interrupt enabled"/>
+        </bitfield>
+        <bitfield id="TBCLR" description="TimerB clear" begin="2" end="2" width="1" rwaccess="R/W">
+        </bitfield>
+        <bitfield id="MC" description="Mode control" begin="5" end="4" width="2" rwaccess="R/W">
+            <bitenum id="STOP" value="0x0" description="Stop mode: Timer is halted"/>
+            <bitenum id="UP" value="0x1" description="Up mode: Timer counts up to TBxCL0"/>
+            <bitenum id="CONTINUOUS" value="0x2" description="Continuous mode: Timer counts up to the value set by CNTL"/>
+            <bitenum id="UPDOWN" value="0x3" description="Up/down mode: Timer counts up to TBxCL0 then down to 0000h"/>
+        </bitfield>
+        <bitfield id="ID" description="Input divider" begin="7" end="6" width="2" rwaccess="R/W">
+            <bitenum id="1" value="0x0" description="/1"/>
+            <bitenum id="2" value="0x1" description="/2"/>
+            <bitenum id="4" value="0x2" description="/4"/>
+            <bitenum id="8" value="0x3" description="/8"/>
+        </bitfield>
+        <bitfield id="TBSSEL" description="TimerB clock source select" begin="9" end="8" width="2" rwaccess="R/W">
+            <bitenum id="TBCLK" value="0x0" description="TBxCLK"/>
+            <bitenum id="ACLK" value="0x1" description="ACLK"/>
+            <bitenum id="SMCLK" value="0x2" description="SMCLK"/>
+            <bitenum id="INCLK" value="0x3" description="INCLK"/>
+        </bitfield>
+        <bitfield id="CNTL" description="Counter length" begin="12" end="11" width="2" rwaccess="R/W">
+            <bitenum id="16" value="0x0" description="16-bit, TBxR(max) = 0FFFFh"/>
+            <bitenum id="12" value="0x1" description="12-bit, TBxR(max) = 0FFFh"/>
+            <bitenum id="10" value="0x2" description="10-bit, TBxR(max) = 03FFh"/>
+            <bitenum id="8" value="0x3" description="8-bit, TBxR(max) = 0FFh"/>
+        </bitfield>
+        <bitfield id="TBCLGRP" description="TBxCLn group" begin="14" end="13" width="2" rwaccess="R/W">
+            <bitenum id="TBCLGRP_0" value="0x0" description="Each TBxCLn latch loads independently"/>
+            <bitenum id="TBCLGRP_1" value="0x1" description="TBxCL1+TBxCL2 (TBxCCR1 CLLD bits control the update); TBxCL3+TBxCL4 (TBxCCR3 CLLD bits control the update); TBxCL5+TBxCL6 (TBxCCR5 CLLD bits control the update); TBxCL0 independent"/>
+            <bitenum id="TBCLGRP_2" value="0x2" description="TBxCL1+TBxCL2+TBxCL3 (TBxCCR1 CLLD bits control the update); TBxCL4+TBxCL5+TBxCL6 (TBxCCR4 CLLD bits control the update); TBxCL0 independent"/>
+            <bitenum id="TBCLGRP_3" value="0x3" description="TBxCL0+TBxCL1+TBxCL2+TBxCL3+TBxCL4+TBxCL5+TBxCL6 (TBxCCR1 CLLD bits control the update)"/>
+        </bitfield>
+    </register>
+    <register id="TB1CCTL0" width="16" offset="0x2" internal="0" description="Timer_B Capture/Compare Control Register">
+        <bitfield id="CCIFG" description="Capture/compare interrupt flag" begin="0" end="0" width="1" rwaccess="R/W">
+            <bitenum id="CCIFG_0" value="0x0" description="No interrupt pending"/>
+            <bitenum id="CCIFG_1" value="0x1" description="Interrupt pending"/>
+        </bitfield>
+        <bitfield id="COV" description="Capture overflow" begin="1" end="1" width="1" rwaccess="R/W">
+            <bitenum id="COV_0" value="0x0" description="No capture overflow occurred"/>
+            <bitenum id="COV_1" value="0x1" description="Capture overflow occurred"/>
+        </bitfield>
+        <bitfield id="OUT" description="Output" begin="2" end="2" width="1" rwaccess="R/W">
+            <bitenum id="LOW" value="0x0" description="Output low"/>
+            <bitenum id="HIGH" value="0x1" description="Output high"/>
+        </bitfield>
+        <bitfield id="CCI" description="Capture/compare input" begin="3" end="3" width="1" rwaccess="R">
+        </bitfield>
+        <bitfield id="CCIE" description="Capture/compare interrupt enable" begin="4" end="4" width="1" rwaccess="R/W">
+            <bitenum id="CCIE_0" value="0x0" description="Interrupt disabled"/>
+            <bitenum id="CCIE_1" value="0x1" description="Interrupt enabled"/>
+        </bitfield>
+        <bitfield id="OUTMOD" description="Output mode" begin="7" end="5" width="3" rwaccess="R/W">
+            <bitenum id="OUTMOD_0" value="0x0" description="OUT bit value"/>
+            <bitenum id="OUTMOD_1" value="0x1" description="Set"/>
+            <bitenum id="OUTMOD_2" value="0x2" description="Toggle/reset"/>
+            <bitenum id="OUTMOD_3" value="0x3" description="Set/reset"/>
+            <bitenum id="OUTMOD_4" value="0x4" description="Toggle"/>
+            <bitenum id="OUTMOD_5" value="0x5" description="Reset"/>
+            <bitenum id="OUTMOD_6" value="0x6" description="Toggle/set"/>
+            <bitenum id="OUTMOD_7" value="0x7" description="Reset/set"/>
+        </bitfield>
+        <bitfield id="CAP" description="Capture mode" begin="8" end="8" width="1" rwaccess="R/W">
+            <bitenum id="COMPARE" value="0x0" description="Compare mode"/>
+            <bitenum id="CAPTURE" value="0x1" description="Capture mode"/>
+        </bitfield>
+        <bitfield id="CLLD" description="Compare latch load" begin="10" end="9" width="2" rwaccess="R/W">
+            <bitenum id="CLLD_0" value="0x0" description="TBxCLn loads on write to TBxCCRn"/>
+            <bitenum id="CLLD_1" value="0x1" description="TBxCLn loads when TBxR counts to 0"/>
+            <bitenum id="CLLD_2" value="0x2" description="TBxCLn loads when TBxR counts to 0 (up or continuous mode). TBxCLn loads when TBxR counts to TBxCL0 or to 0 (up/down mode)."/>
+            <bitenum id="CLLD_3" value="0x3" description="TBxCLn loads when TBxR counts to TBxCLn"/>
+        </bitfield>
+        <bitfield id="SCS" description="Synchronize capture source" begin="11" end="11" width="1" rwaccess="R/W">
+            <bitenum id="ASYNC" value="0x0" description="Asynchronous capture"/>
+            <bitenum id="SYNC" value="0x1" description="Synchronous capture"/>
+        </bitfield>
+        <bitfield id="CCIS" description="Capture/compare input select" begin="13" end="12" width="2" rwaccess="R/W">
+            <bitenum id="CCIA" value="0x0" description="CCIxA"/>
+            <bitenum id="CCIB" value="0x1" description="CCIxB"/>
+            <bitenum id="GND" value="0x2" description="GND"/>
+            <bitenum id="VCC" value="0x3" description="VCC"/>
+        </bitfield>
+        <bitfield id="CM" description="Capture mode" begin="15" end="14" width="2" rwaccess="R/W">
+            <bitenum id="NONE" value="0x0" description="No capture"/>
+            <bitenum id="RISING" value="0x1" description="Capture on rising edge"/>
+            <bitenum id="FALLING" value="0x2" description="Capture on falling edge"/>
+            <bitenum id="BOTH" value="0x3" description="Capture on both rising and falling edges"/>
+        </bitfield>
+    </register>
+    <register id="TB1CCTL1" width="16" offset="0x4" internal="0" description="Timer_B Capture/Compare Control Register">
+        <bitfield id="CCIFG" description="Capture/compare interrupt flag" begin="0" end="0" width="1" rwaccess="R/W">
+            <bitenum id="CCIFG_0" value="0x0" description="No interrupt pending"/>
+            <bitenum id="CCIFG_1" value="0x1" description="Interrupt pending"/>
+        </bitfield>
+        <bitfield id="COV" description="Capture overflow" begin="1" end="1" width="1" rwaccess="R/W">
+            <bitenum id="COV_0" value="0x0" description="No capture overflow occurred"/>
+            <bitenum id="COV_1" value="0x1" description="Capture overflow occurred"/>
+        </bitfield>
+        <bitfield id="OUT" description="Output" begin="2" end="2" width="1" rwaccess="R/W">
+            <bitenum id="LOW" value="0x0" description="Output low"/>
+            <bitenum id="HIGH" value="0x1" description="Output high"/>
+        </bitfield>
+        <bitfield id="CCI" description="Capture/compare input" begin="3" end="3" width="1" rwaccess="R">
+        </bitfield>
+        <bitfield id="CCIE" description="Capture/compare interrupt enable" begin="4" end="4" width="1" rwaccess="R/W">
+            <bitenum id="CCIE_0" value="0x0" description="Interrupt disabled"/>
+            <bitenum id="CCIE_1" value="0x1" description="Interrupt enabled"/>
+        </bitfield>
+        <bitfield id="OUTMOD" description="Output mode" begin="7" end="5" width="3" rwaccess="R/W">
+            <bitenum id="OUTMOD_0" value="0x0" description="OUT bit value"/>
+            <bitenum id="OUTMOD_1" value="0x1" description="Set"/>
+            <bitenum id="OUTMOD_2" value="0x2" description="Toggle/reset"/>
+            <bitenum id="OUTMOD_3" value="0x3" description="Set/reset"/>
+            <bitenum id="OUTMOD_4" value="0x4" description="Toggle"/>
+            <bitenum id="OUTMOD_5" value="0x5" description="Reset"/>
+            <bitenum id="OUTMOD_6" value="0x6" description="Toggle/set"/>
+            <bitenum id="OUTMOD_7" value="0x7" description="Reset/set"/>
+        </bitfield>
+        <bitfield id="CAP" description="Capture mode" begin="8" end="8" width="1" rwaccess="R/W">
+            <bitenum id="COMPARE" value="0x0" description="Compare mode"/>
+            <bitenum id="CAPTURE" value="0x1" description="Capture mode"/>
+        </bitfield>
+        <bitfield id="CLLD" description="Compare latch load" begin="10" end="9" width="2" rwaccess="R/W">
+            <bitenum id="CLLD_0" value="0x0" description="TBxCLn loads on write to TBxCCRn"/>
+            <bitenum id="CLLD_1" value="0x1" description="TBxCLn loads when TBxR counts to 0"/>
+            <bitenum id="CLLD_2" value="0x2" description="TBxCLn loads when TBxR counts to 0 (up or continuous mode). TBxCLn loads when TBxR counts to TBxCL0 or to 0 (up/down mode)."/>
+            <bitenum id="CLLD_3" value="0x3" description="TBxCLn loads when TBxR counts to TBxCLn"/>
+        </bitfield>
+        <bitfield id="SCS" description="Synchronize capture source" begin="11" end="11" width="1" rwaccess="R/W">
+            <bitenum id="ASYNC" value="0x0" description="Asynchronous capture"/>
+            <bitenum id="SYNC" value="0x1" description="Synchronous capture"/>
+        </bitfield>
+        <bitfield id="CCIS" description="Capture/compare input select" begin="13" end="12" width="2" rwaccess="R/W">
+            <bitenum id="CCIA" value="0x0" description="CCIxA"/>
+            <bitenum id="CCIB" value="0x1" description="CCIxB"/>
+            <bitenum id="GND" value="0x2" description="GND"/>
+            <bitenum id="VCC" value="0x3" description="VCC"/>
+        </bitfield>
+        <bitfield id="CM" description="Capture mode" begin="15" end="14" width="2" rwaccess="R/W">
+            <bitenum id="NONE" value="0x0" description="No capture"/>
+            <bitenum id="RISING" value="0x1" description="Capture on rising edge"/>
+            <bitenum id="FALLING" value="0x2" description="Capture on falling edge"/>
+            <bitenum id="BOTH" value="0x3" description="Capture on both rising and falling edges"/>
+        </bitfield>
+    </register>
+    <register id="TB1CCTL2" width="16" offset="0x6" internal="0" description="Timer_B Capture/Compare Control Register">
+        <bitfield id="CCIFG" description="Capture/compare interrupt flag" begin="0" end="0" width="1" rwaccess="R/W">
+            <bitenum id="CCIFG_0" value="0x0" description="No interrupt pending"/>
+            <bitenum id="CCIFG_1" value="0x1" description="Interrupt pending"/>
+        </bitfield>
+        <bitfield id="COV" description="Capture overflow" begin="1" end="1" width="1" rwaccess="R/W">
+            <bitenum id="COV_0" value="0x0" description="No capture overflow occurred"/>
+            <bitenum id="COV_1" value="0x1" description="Capture overflow occurred"/>
+        </bitfield>
+        <bitfield id="OUT" description="Output" begin="2" end="2" width="1" rwaccess="R/W">
+            <bitenum id="LOW" value="0x0" description="Output low"/>
+            <bitenum id="HIGH" value="0x1" description="Output high"/>
+        </bitfield>
+        <bitfield id="CCI" description="Capture/compare input" begin="3" end="3" width="1" rwaccess="R">
+        </bitfield>
+        <bitfield id="CCIE" description="Capture/compare interrupt enable" begin="4" end="4" width="1" rwaccess="R/W">
+            <bitenum id="CCIE_0" value="0x0" description="Interrupt disabled"/>
+            <bitenum id="CCIE_1" value="0x1" description="Interrupt enabled"/>
+        </bitfield>
+        <bitfield id="OUTMOD" description="Output mode" begin="7" end="5" width="3" rwaccess="R/W">
+            <bitenum id="OUTMOD_0" value="0x0" description="OUT bit value"/>
+            <bitenum id="OUTMOD_1" value="0x1" description="Set"/>
+            <bitenum id="OUTMOD_2" value="0x2" description="Toggle/reset"/>
+            <bitenum id="OUTMOD_3" value="0x3" description="Set/reset"/>
+            <bitenum id="OUTMOD_4" value="0x4" description="Toggle"/>
+            <bitenum id="OUTMOD_5" value="0x5" description="Reset"/>
+            <bitenum id="OUTMOD_6" value="0x6" description="Toggle/set"/>
+            <bitenum id="OUTMOD_7" value="0x7" description="Reset/set"/>
+        </bitfield>
+        <bitfield id="CAP" description="Capture mode" begin="8" end="8" width="1" rwaccess="R/W">
+            <bitenum id="COMPARE" value="0x0" description="Compare mode"/>
+            <bitenum id="CAPTURE" value="0x1" description="Capture mode"/>
+        </bitfield>
+        <bitfield id="CLLD" description="Compare latch load" begin="10" end="9" width="2" rwaccess="R/W">
+            <bitenum id="CLLD_0" value="0x0" description="TBxCLn loads on write to TBxCCRn"/>
+            <bitenum id="CLLD_1" value="0x1" description="TBxCLn loads when TBxR counts to 0"/>
+            <bitenum id="CLLD_2" value="0x2" description="TBxCLn loads when TBxR counts to 0 (up or continuous mode). TBxCLn loads when TBxR counts to TBxCL0 or to 0 (up/down mode)."/>
+            <bitenum id="CLLD_3" value="0x3" description="TBxCLn loads when TBxR counts to TBxCLn"/>
+        </bitfield>
+        <bitfield id="SCS" description="Synchronize capture source" begin="11" end="11" width="1" rwaccess="R/W">
+            <bitenum id="ASYNC" value="0x0" description="Asynchronous capture"/>
+            <bitenum id="SYNC" value="0x1" description="Synchronous capture"/>
+        </bitfield>
+        <bitfield id="CCIS" description="Capture/compare input select" begin="13" end="12" width="2" rwaccess="R/W">
+            <bitenum id="CCIA" value="0x0" description="CCIxA"/>
+            <bitenum id="CCIB" value="0x1" description="CCIxB"/>
+            <bitenum id="GND" value="0x2" description="GND"/>
+            <bitenum id="VCC" value="0x3" description="VCC"/>
+        </bitfield>
+        <bitfield id="CM" description="Capture mode" begin="15" end="14" width="2" rwaccess="R/W">
+            <bitenum id="NONE" value="0x0" description="No capture"/>
+            <bitenum id="RISING" value="0x1" description="Capture on rising edge"/>
+            <bitenum id="FALLING" value="0x2" description="Capture on falling edge"/>
+            <bitenum id="BOTH" value="0x3" description="Capture on both rising and falling edges"/>
+        </bitfield>
+    </register>
+    <register id="TB1R" width="16" offset="0x10" internal="0" description="Timer_B count register">
+    </register>
+    <register id="TB1CCR0" width="16" offset="0x12" internal="0" description="Timer_B Capture/Compare  Register">
+    </register>
+    <register id="TB1CCR1" width="16" offset="0x14" internal="0" description="Timer_B Capture/Compare  Register">
+    </register>
+    <register id="TB1CCR2" width="16" offset="0x16" internal="0" description="Timer_B Capture/Compare  Register">
+    </register>
+    <register id="TB1EX0" width="16" offset="0x20" internal="0" description="Timer_Bx Expansion Register 0">
+        <bitfield id="TBIDEX" description="Input divider expansion" begin="2" end="0" width="3" rwaccess="R/W">
+            <bitenum id="1" value="0x0" description="Divide by 1"/>
+            <bitenum id="2" value="0x1" description="Divide by 2"/>
+            <bitenum id="3" value="0x2" description="Divide by 3"/>
+            <bitenum id="4" value="0x3" description="Divide by 4"/>
+            <bitenum id="5" value="0x4" description="Divide by 5"/>
+            <bitenum id="6" value="0x5" description="Divide by 6"/>
+            <bitenum id="7" value="0x6" description="Divide by 7"/>
+            <bitenum id="8" value="0x7" description="Divide by 8"/>
+        </bitfield>
+    </register>
+    <register id="TB1IV" width="16" offset="0x2E" internal="0" description="Timer_Bx Interrupt Vector Register">
+        <bitfield id="TBIV" description="Timer_B interrupt vector value" begin="15" end="0" width="16" rwaccess="R">
+            <bitenum id="NONE" value="0x0" description="No interrupt pending"/>
+            <bitenum id="TBCCR1" value="0x2" description="Interrupt Source: Capture/compare 1; Interrupt Flag: TBxCCR1 CCIFG; Interrupt Priority: Highest"/>
+            <bitenum id="TBCCR2" value="0x4" description="Interrupt Source: Capture/compare 2; Interrupt Flag: TBxCCR2 CCIFG"/>
+            <bitenum id="TBCCR3" value="0x6" description="Interrupt Source: Capture/compare 3; Interrupt Flag: TBxCCR3 CCIFG"/>
+            <bitenum id="TBCCR4" value="0x8" description="Interrupt Source: Capture/compare 4; Interrupt Flag: TBxCCR4 CCIFG"/>
+            <bitenum id="TBCCR5" value="0xA" description="Interrupt Source: Capture/compare 5; Interrupt Flag: TBxCCR5 CCIFG"/>
+            <bitenum id="TBCCR6" value="0xC" description="Interrupt Source: Capture/compare 6; Interrupt Flag: TBxCCR6 CCIFG"/>
+            <bitenum id="TBIFG" value="0xE" description="Interrupt Source: Timer overflow; Interrupt Flag: TBxCTL TBIFG; Interrupt Priority: Lowest"/>
+        </bitfield>
+    </register>
+</module>

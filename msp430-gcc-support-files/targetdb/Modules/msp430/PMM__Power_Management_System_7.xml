@@ -1,0 +1,28 @@
+<module HW_revision="" XML_version="1" description="PMM  Power Management System" id="PMM  Power Management System">
+<register acronym="PMMCTL0" description="PMM Control 0" id="PMMCTL0" offset=" 0x0120" width="16">
+<bitfield begin="2" description="PMM Software BOR" end="2" id="PMMSWBOR" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="3" description="PMM Software POR" end="3" id="PMMSWPOR" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="4" description="PMM Turn Regulator off" end="4" id="PMMREGOFF" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="6" description="SVS high side enable" end="6" id="SVSHE" range="" resetval="0" rwaccess="RW" width="1"></bitfield></register>
+<register acronym="PMMCTL1" description="PMM Control 1" id="PMMCTL1" offset=" 0x0122" width="16"></register>
+<register acronym="PMMCTL2" description="PMM Control 2" id="PMMCTL2" offset=" 0x0124" width="16">
+<bitfield begin="0" description="Internal Reference Enable" end="0" id="INTREFEN" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="1" description="External Reference output Enable" end="1" id="EXTREFEN" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="3" description="Temperature Sensor Enable" end="3" id="TSENSOREN" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="8" description="REF Reference generator active" end="8" id="REFGENACT" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="9" description="REF Reference bandgap active" end="9" id="REFBGACT" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="11" description="REF Bandgap mode" end="11" id="BGMODE" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="12" description="REF Reference generator ready" end="12" id="REFGENRDY" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="13" description="REF Reference bandgap ready" end="13" id="REFBGRDY" range="" resetval="0" rwaccess="RW" width="1"></bitfield></register>
+<register acronym="PMMIFG" description="PMM Interrupt Flag" id="PMMIFG" offset=" 0x012A" width="16">
+<bitfield begin="8" description="PMM Software BOR interrupt flag" end="8" id="PMMBORIFG" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="9" description="PMM RESET pin interrupt flag" end="9" id="PMMRSTIFG" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="10" description="PMM Software POR interrupt flag" end="10" id="PMMPORIFG" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="13" description="SVS low side interrupt flag" end="13" id="SVSHIFG" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="15" description="LPM5 indication Flag" end="15" id="PMMLPM5IFG" range="" resetval="0" rwaccess="RW" width="1"></bitfield></register>
+<register acronym="PMMIE" description="PMM Interrupt Enable" id="PMMIE" offset=" 0x012E" width="16"></register>
+<register acronym="PM5CTL0" description="PMM Power Mode 5 Control Register 0" id="PM5CTL0" offset=" 0x0130" width="16">
+<bitfield begin="0" description="Lock I/O pin configuration upon entry/exit to/from LPM5" end="0" id="LOCKLPM5" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="4" description="LPMx.5 switch dis/connected" end="4" id="LPM5SW" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="5" description="Manual mode for LPM3.5 switch" end="5" id="LPM5SM" range="" resetval="0" rwaccess="RW" width="1"></bitfield></register>
+</module>

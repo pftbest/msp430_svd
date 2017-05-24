@@ -1,0 +1,92 @@
+<module id="PMM" HW_revision="45">
+    <register id="PMMCTL0" width="16" offset="0x0" internal="0" description="PMM control register 0">
+        <bitfield id="PMMSWBOR" description="Software brownout reset." begin="2" end="2" width="1" rwaccess="R/W">
+            <bitenum id="PMMSWBOR_0" value="0x0" description="Normal operation"/>
+            <bitenum id="PMMSWBOR_1" value="0x1" description="Set to 1 to trigger a BOR"/>
+        </bitfield>
+        <bitfield id="PMMSWPOR" description="Software POR." begin="3" end="3" width="1" rwaccess="R/W">
+            <bitenum id="PMMSWPOR_0" value="0x0" description="Normal operation"/>
+            <bitenum id="PMMSWPOR_1" value="0x1" description="Set to 1 to trigger a POR"/>
+        </bitfield>
+        <bitfield id="PMMREGOFF" description="Regulator off" begin="4" end="4" width="1" rwaccess="R/W">
+            <bitenum id="PMMREGOFF_0" value="0x0" description="Regulator remains on when going into LPM3 or LPM4"/>
+            <bitenum id="PMMREGOFF_1" value="0x1" description="Regulator is turned off when going to LPM3 or LPM4. System enters LPM3.5 or LPM4.5, respectively."/>
+        </bitfield>
+        <bitfield id="SVSHE" description="High-side SVS enable." begin="6" end="6" width="1" rwaccess="R/W">
+            <bitenum id="SVSHE_0" value="0x0" description="High-side SVS (SVSH) is disabled in LPM2, LPM3, LPM4, LPM3.5, and LPM4.5. SVSH is always enabled in active mode, LPM0, and LPM1."/>
+            <bitenum id="SVSHE_1" value="0x1" description="SVSH is always enabled."/>
+        </bitfield>
+        <bitfield id="PMMPW" description="PMM password." begin="15" end="8" width="8" rwaccess="R/W">
+        </bitfield>
+    </register>
+    <register id="PMMCTL2" width="16" offset="0x4" internal="0" description="Power Management Module Control Register 2">
+        <bitfield id="INTREFEN" description="Internal reference enable" begin="0" end="0" width="1" rwaccess="R/W">
+            <bitenum id="INTREFEN_0" value="0x0" description="Disable internal reference"/>
+            <bitenum id="INTREFEN_1" value="0x1" description="Enable internal reference"/>
+        </bitfield>
+        <bitfield id="EXTREFEN" description="External reference output enable" begin="1" end="1" width="1" rwaccess="R/W">
+            <bitenum id="EXTREFEN_0" value="0x0" description="Disable external reference output"/>
+            <bitenum id="EXTREFEN_1" value="0x1" description="Enable internal reference output"/>
+        </bitfield>
+        <bitfield id="TSENSOREN" description="Temperature sensor enable" begin="3" end="3" width="1" rwaccess="R/W">
+            <bitenum id="TSENSOREN_0" value="0x0" description="Disable temperature sensor"/>
+            <bitenum id="TSENSOREN_1" value="0x1" description="Enable temperature sensor"/>
+        </bitfield>
+        <bitfield id="REFGENACT" description="Reference generator active. Read only." begin="8" end="8" width="1" rwaccess="R">
+            <bitenum id="REFGENACT_0" value="0x0" description="Reference generator not active"/>
+            <bitenum id="REFGENACT_1" value="0x1" description="Reference generator active"/>
+        </bitfield>
+        <bitfield id="REFBGACT" description="Reference bandgap active. Ready only." begin="9" end="9" width="1" rwaccess="R">
+            <bitenum id="REFBGACT_0" value="0x0" description="Reference bandgap buffer not active"/>
+            <bitenum id="REFBGACT_1" value="0x1" description="Reference bandgap buffer active"/>
+        </bitfield>
+        <bitfield id="BGMODE" description="Bandgap mode. Ready only." begin="11" end="11" width="1" rwaccess="R/W">
+            <bitenum id="BGMODE_0" value="0x0" description="Static mode (higher precision)"/>
+            <bitenum id="BGMODE_1" value="0x1" description="Sampled mode (lower power consumption)"/>
+        </bitfield>
+        <bitfield id="REFGENRDY" description="Variable reference voltage ready status." begin="12" end="12" width="1" rwaccess="R/W">
+            <bitenum id="REFGENRDY_0" value="0x0" description="Reference voltage output is not ready to be used."/>
+            <bitenum id="REFGENRDY_1" value="0x1" description="Reference voltage output is ready to be used"/>
+        </bitfield>
+        <bitfield id="REFBGRDY" description="Buffered bandgap voltage ready status." begin="13" end="13" width="1" rwaccess="R/W">
+            <bitenum id="REFBGRDY_0" value="0x0" description="Buffered bandgap voltage is not ready to be used"/>
+            <bitenum id="REFBGRDY_1" value="0x1" description="Buffered bandgap voltage is ready to be used"/>
+        </bitfield>
+    </register>
+    <register id="PMMIFG" width="16" offset="0xA" internal="0" description="PMM interrupt flag register">
+        <bitfield id="PMMBORIFG" description="PMM software brownout reset interrupt flag." begin="8" end="8" width="1" rwaccess="R/W">
+            <bitenum id="PMMBORIFG_0" value="0x0" description="Reset not due to PMMSWBOR"/>
+            <bitenum id="PMMBORIFG_1" value="0x1" description="Reset due to PMMSWBOR"/>
+        </bitfield>
+        <bitfield id="PMMRSTIFG" description="PMM reset pin interrupt flag." begin="9" end="9" width="1" rwaccess="R/W">
+            <bitenum id="PMMRSTIFG_0" value="0x0" description="Reset not due to reset pin"/>
+            <bitenum id="PMMRSTIFG_1" value="0x1" description="Reset due to reset pin"/>
+        </bitfield>
+        <bitfield id="PMMPORIFG" description="PMM software POR interrupt flag." begin="10" end="10" width="1" rwaccess="R/W">
+            <bitenum id="PMMPORIFG_0" value="0x0" description="Reset not due to PMMSWPOR"/>
+            <bitenum id="PMMPORIFG_1" value="0x1" description="Reset due to PMMSWPOR"/>
+        </bitfield>
+        <bitfield id="SVSHIFG" description="High-side SVS interrupt flag." begin="13" end="13" width="1" rwaccess="R/W">
+            <bitenum id="SVSHIFG_0" value="0x0" description="Reset not due to SVSH"/>
+            <bitenum id="SVSHIFG_1" value="0x1" description="Reset due to SVSH"/>
+        </bitfield>
+        <bitfield id="PMMLPM5IFG" description="LPMx.5 flag." begin="15" end="15" width="1" rwaccess="R/W">
+            <bitenum id="PMMLPM5IFG_0" value="0x0" description="Reset not due to wake-up from LPMx.5"/>
+            <bitenum id="PMMLPM5IFG_1" value="0x1" description="Reset due to wake-up from LPMx.5"/>
+        </bitfield>
+    </register>
+    <register id="PM5CTL0" width="16" offset="0x10" internal="0" description="Power mode 5 control register 0">
+        <bitfield id="LOCKLPM5" description="LPMx.5 Lock Bit" begin="0" end="0" width="1" rwaccess="R/W">
+            <bitenum id="LOCKLPM5_0" value="0x0" description="LPMx.5 configuration is not locked and defaults to its reset condition."/>
+            <bitenum id="LOCKLPM5_1" value="0x1" description="LPMx.5 configuration remains locked. Pin state is held during LPMx.5 entry and exit."/>
+        </bitfield>
+        <bitfield id="LPM5SW" description="Reports or sets the LPM3.5 switch connection upon the switch mode set by LPM5SM. When this bit is set, the VLPM3.5 domain can accept full-speed read and write operation by CPU MCLK. If the switch is disconnected, all peripherals within this domain can only accept the operation no more than 40 kHz. In automatic mode (LPM5SM = 0), this bit represents the switch connection between Vcore and VLPM3.5. Any write to this bit has no effect. In manual mode (LPM5SM = 1), this bit can be fully read and written by software. When this bit is set, the switch connection between Vcore and VLPM3.5 is connected. Otherwise, the switch is disconnected." begin="4" end="4" width="1" rwaccess="R/W">
+            <bitenum id="LPM5SW_0" value="0x0" description="LPMx.5 switch disconnected"/>
+            <bitenum id="LPM5SW_1" value="0x1" description="LPMx.5 switch connected"/>
+        </bitfield>
+        <bitfield id="LPM5SM" description="Specifies the operation mode of the LPM3.5 switch." begin="5" end="5" width="1" rwaccess="R/W">
+            <bitenum id="LPM5SM_0" value="0x0" description="Automatic mode for LPM3.5 switch that the switch is fully handled by the circuitry during mode switch."/>
+            <bitenum id="LPM5SM_1" value="0x1" description="Manual mode for LPM3.5 switch that the switch is specified by LPM5SW bit setting in software."/>
+        </bitfield>
+    </register>
+</module>

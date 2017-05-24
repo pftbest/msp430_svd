@@ -1,0 +1,18 @@
+<module id="TRI0" HW_revision="445.0.8">
+    <register id="TRI0CTL" width="16" offset="0x0" internal="0" description="TRI Control Register">
+        <bitfield id="TRIEN" description="TRI enable." begin="0" end="0" width="1" rwaccess="R/W">
+            <bitenum id="DISABLE" value="0x0" description="Disable the TRI module"/>
+            <bitenum id="ENABLE" value="0x1" description="Enable the TRI module"/>
+        </bitfield>
+        <bitfield id="TRIPM" description="TRI power mode select." begin="1" end="1" width="1" rwaccess="R/W">
+            <bitenum id="TRIPM_0" value="0x0" description="High speed and high power"/>
+            <bitenum id="TRIPM_1" value="0x1" description="Low speed and low power"/>
+        </bitfield>
+        <bitfield id="TRIPSEL" description="TRI positive input select." begin="7" end="6" width="2" rwaccess="R/W">
+            <bitenum id="TRIPSEL_0" value="0x0" description="External source (package terminal)"/>
+            <bitenum id="TRIPSEL_1" value="0x1" description="Device specific; refer to the device-specific sheet for details"/>
+            <bitenum id="TRIPSEL_2" value="0x2" description="Device specific; refer to the device-specific sheet for details"/>
+            <bitenum id="TRIPSEL_3" value="0x3" description="Device specific; refer to the device-specific sheet for details"/>
+        </bitfield>
+    </register>
+</module>

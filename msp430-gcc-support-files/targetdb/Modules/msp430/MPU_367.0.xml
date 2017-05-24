@@ -1,0 +1,128 @@
+<module id="MPU" HW_revision="367.0">
+    <register id="MPUCTL0" width="16" offset="0x0" internal="0" description="Memory Protection Unit Control 0">
+        <bitfield id="MPUENA" description="MPU Enable" begin="0" end="0" width="1" rwaccess="R/W">
+            <bitenum id="DISABLE" value="0x0" description="Disabled"/>
+            <bitenum id="ENABLE" value="0x1" description="Enabled"/>
+        </bitfield>
+        <bitfield id="MPULOCK" description="MPU Lock" begin="1" end="1" width="1" rwaccess="R/W">
+            <bitenum id="OPEN" value="0x0" description="Open"/>
+            <bitenum id="LOCK" value="0x1" description="Locked"/>
+        </bitfield>
+        <bitfield id="MPUSEGIE" description="Enable NMI Event if a Segment violation" begin="4" end="4" width="1" rwaccess="R/W">
+            <bitenum id="DISABLE" value="0x0" description="Segment violation interrupt disabled"/>
+            <bitenum id="ENABLE" value="0x1" description="Segment violation interrupt enabled"/>
+        </bitfield>
+        <bitfield id="MPUPW" description="MPU Password" begin="15" end="8" width="8" rwaccess="R/W">
+        </bitfield>
+    </register>
+    <register id="MPUCTL1" width="16" offset="0x2" internal="0" description="Memory Protection Unit Control 1">
+        <bitfield id="MPUSEG1IFG" description="Main Memory Segment 1 Violation Interrupt Flag" begin="0" end="0" width="1" rwaccess="R/W">
+            <bitenum id="MPUSEG1IFG_0" value="0x0" description="No interrupt pending"/>
+            <bitenum id="MPUSEG1IFG_1" value="0x1" description="Interrupt pending"/>
+        </bitfield>
+        <bitfield id="MPUSEG2IFG" description="Main Memory Segment 2 Violation Interrupt Flag" begin="1" end="1" width="1" rwaccess="R/W">
+            <bitenum id="MPUSEG2IFG_0" value="0x0" description="No interrupt pending"/>
+            <bitenum id="MPUSEG2IFG_1" value="0x1" description="Interrupt pending"/>
+        </bitfield>
+        <bitfield id="MPUSEG3IFG" description="Main Memory Segment 3 Violation Interrupt Flag" begin="2" end="2" width="1" rwaccess="R/W">
+            <bitenum id="MPUSEG1IFG_0" value="0x0" description="No interrupt pending"/>
+            <bitenum id="MPUSEG1IFG_1" value="0x1" description="Interrupt pending"/>
+        </bitfield>
+        <bitfield id="MPUSEGIIFG" description="User Information Memory Violation Interrupt Flag" begin="3" end="3" width="1" rwaccess="R/W">
+            <bitenum id="MPUSEGIIFG_0" value="0x0" description="No interrupt pending"/>
+            <bitenum id="MPUSEGIIFG_1" value="0x1" description="Interrupt pending"/>
+        </bitfield>
+        <bitfield id="MPUSEGIPIFG" description="IP Encapsulation Access Violation Interrupt Flag" begin="4" end="4" width="1" rwaccess="R/W">
+            <bitenum id="MPUSEG1IFG_0" value="0x0" description="No interrupt pending"/>
+            <bitenum id="MPUSEG1IFG_1" value="0x1" description="Interrupt pending"/>
+        </bitfield>
+    </register>
+    <register id="MPUSEGB2" width="16" offset="0x4" internal="0" description="Memory Protection Unit Segmentation Border 2 Register">
+    </register>
+    <register id="MPUSEGB1" width="16" offset="0x6" internal="0" description="Memory Protection Unit Segmentation Border 1 Register">
+    </register>
+    <register id="MPUSAM" width="16" offset="0x8" internal="0" description="Memory Protection Unit Segmentation Access Management Register">
+        <bitfield id="MPUSEG1RE" description="MPU Main Memory Segment 1 Read Enable" begin="0" end="0" width="1" rwaccess="R/W">
+            <bitenum id="DISABLE" value="0x0" description="Read on Main Memory Segment 1 causes a violation if MPUSEG1WE = MPUSEG1XE = 0"/>
+            <bitenum id="ENABLE" value="0x1" description="Read on Main Memory Segment 1 is allowed"/>
+        </bitfield>
+        <bitfield id="MPUSEG1WE" description="MPU Main Memory Segment 1 Write Enable" begin="1" end="1" width="1" rwaccess="R/W">
+            <bitenum id="DISABLE" value="0x0" description="Write on Main Memory Segment 1 causes a violation"/>
+            <bitenum id="ENABLE" value="0x1" description="Write on Main Memory Segment 1 is allowed"/>
+        </bitfield>
+        <bitfield id="MPUSEG1XE" description="MPU Main Memory Segment 1 Execute Enable" begin="2" end="2" width="1" rwaccess="R/W">
+            <bitenum id="DISABLE" value="0x0" description="Execute code on Main Memory Segment 1 causes a violation"/>
+            <bitenum id="ENABLE" value="0x1" description="Execute code on Main Memory Segment 1 is allowed"/>
+        </bitfield>
+        <bitfield id="MPUSEG1VS" description="MPU Main Memory Segment 1 Violation Select" begin="3" end="3" width="1" rwaccess="R/W">
+            <bitenum id="MPUSEG1VS_0" value="0x0" description="Violation in Main Memory Segment 1 asserts the MPUSEG1IFG bit and executes a SNMI if enabled by MPUSEGIE = 1"/>
+            <bitenum id="MPUSEG1VS_1" value="0x1" description="Violation in Main Memory Segment 1 asserts the MPUSEG1IFG bit and executes a PUC"/>
+        </bitfield>
+        <bitfield id="MPUSEG2RE" description="MPU Main Memory Segment 2 Read Enable" begin="4" end="4" width="1" rwaccess="R/W">
+            <bitenum id="DISABLE" value="0x0" description="Read on Main Memory Segment 2 causes a violation if MPUSEG2WE = MPUSEG2XE = 0"/>
+            <bitenum id="ENABLE" value="0x1" description="Read on Main Memory Segment 2 is allowed"/>
+        </bitfield>
+        <bitfield id="MPUSEG2WE" description="MPU Main Memory Segment 2 Write Enable" begin="5" end="5" width="1" rwaccess="R/W">
+            <bitenum id="DISABLE" value="0x0" description="Write on Main Memory Segment 2 causes a violation"/>
+            <bitenum id="ENABLE" value="0x1" description="Write on Main Memory Segment 2 is allowed"/>
+        </bitfield>
+        <bitfield id="MPUSEG2XE" description="MPU Main Memory Segment 2 Execute Enable" begin="6" end="6" width="1" rwaccess="R/W">
+            <bitenum id="DISABLE" value="0x0" description="Execute code on Main Memory Segment 2 causes a violation"/>
+            <bitenum id="ENABLE" value="0x1" description="Execute code on Main Memory Segment 2 is allowed"/>
+        </bitfield>
+        <bitfield id="MPUSEG2VS" description="MPU Main Memory Segment 2 Violation Select" begin="7" end="7" width="1" rwaccess="R/W">
+            <bitenum id="MPUSEG2VS_0" value="0x0" description="Violation in Main Memory Segment 2 asserts the MPUSEG2IFG bit and executes a SNMI if enabled by MPUSEGIE = 1"/>
+            <bitenum id="MPUSEG2VS_1" value="0x1" description="Violation in Main Memory Segment 2 asserts the MPUSEG2IFG bit and executes a PUC"/>
+        </bitfield>
+        <bitfield id="MPUSEG3RE" description="MPU Main Memory Segment 3 Read Enable" begin="8" end="8" width="1" rwaccess="R/W">
+            <bitenum id="DISABLE" value="0x0" description="Read on Main Memory Segment 3 causes a violation if MPUSEG3WE = MPUSEG3XE = 0"/>
+            <bitenum id="ENABLE" value="0x1" description="Read on Main Memory Segment 3 is allowed"/>
+        </bitfield>
+        <bitfield id="MPUSEG3WE" description="MPU Main Memory Segment 3 Write Enable" begin="9" end="9" width="1" rwaccess="R/W">
+            <bitenum id="DISABLE" value="0x0" description="Write on Main Memory Segment 3 causes a violation"/>
+            <bitenum id="ENABLE" value="0x1" description="Write on Main Memory Segment 3 is allowed"/>
+        </bitfield>
+        <bitfield id="MPUSEG3XE" description="MPU Main Memory Segment 3 Execute Enable" begin="10" end="10" width="1" rwaccess="R/W">
+            <bitenum id="DISABLE" value="0x0" description="Execute code on Main Memory Segment 3 causes a violation"/>
+            <bitenum id="ENABLE" value="0x1" description="Execute code on Main Memory Segment 3 is allowed"/>
+        </bitfield>
+        <bitfield id="MPUSEG3VS" description="MPU Main Memory Segment 3 Violation Select" begin="11" end="11" width="1" rwaccess="R/W">
+            <bitenum id="MPUSEG3VS_0" value="0x0" description="Violation in Main Memory Segment 3 asserts the MPUSEG3IFG bit and executes a SNMI if enabled by MPUSEGIE = 1"/>
+            <bitenum id="MPUSEG3VS_1" value="0x1" description="Violation in Main Memory Segment 3 asserts the MPUSEG3IFG bit and executes a PUC"/>
+        </bitfield>
+        <bitfield id="MPUSEGIRE" description="MPU User Information Memory Segment Read Enable" begin="12" end="12" width="1" rwaccess="R/W">
+            <bitenum id="DISABLE" value="0x0" description="Read on User Information Memory causes a violation if MPUSEGIWE=MPUSEGIXE=0"/>
+            <bitenum id="ENABLE" value="0x1" description="Read on User Information Memory is allowed"/>
+        </bitfield>
+        <bitfield id="MPUSEGIWE" description="MPU User Information Memory Segment Write Enable." begin="13" end="13" width="1" rwaccess="R/W">
+            <bitenum id="DISABLE" value="0x0" description="Write on User Information Memory causes a violation"/>
+            <bitenum id="ENABLE" value="0x1" description="Write on User Information Memory is allowed"/>
+        </bitfield>
+        <bitfield id="MPUSEGIXE" description="MPU User Information Memory Segment Execute Enable" begin="14" end="14" width="1" rwaccess="R/W">
+            <bitenum id="DISABLE" value="0x0" description="Execute code on User Information Memory causes a violation"/>
+            <bitenum id="ENABLE" value="0x1" description="Execute code on User Information Memory is allowed"/>
+        </bitfield>
+        <bitfield id="MPUSEGIVS" description="MPU User Information Memory Segment Violation Select" begin="15" end="15" width="1" rwaccess="R/W">
+            <bitenum id="MPUSEGIVS_0" value="0x0" description="Violation in User Information Memory asserts the MPUSEGIIFG bit and executes a SNMI if enabled by MPUSEGIE =1"/>
+            <bitenum id="MPUSEGIVS_1" value="0x1" description="Violation in User Information Memory asserts the MPUSEGIIFG bit and executes a PUC"/>
+        </bitfield>
+    </register>
+    <register id="MPUIPC0" width="16" offset="0xA" internal="0" description="Memory Protection Unit IP Control 0 Register">
+        <bitfield id="MPUIPVS" description="MPU IP Encapsulation segment Violation Select" begin="5" end="5" width="1" rwaccess="R/W">
+            <bitenum id="MPUIPVS_0" value="0x0" description="Violation in Main Memory Segment 1 asserts the MPUSEGPIFG bit and executes a SNMI if enabled by MPUSEGIE = 1"/>
+            <bitenum id="MPUIPVS_1" value="0x1" description="Violation in Main Memory Segment 1 asserts the MPUSEGPIFG bit and executes a PUC"/>
+        </bitfield>
+        <bitfield id="MPUIPENA" description="MPU IP Encapsulation Enable" begin="6" end="6" width="1" rwaccess="R/W">
+            <bitenum id="DISABLE" value="0x0" description="Disabled"/>
+            <bitenum id="ENABLE" value="0x1" description="Enabled"/>
+        </bitfield>
+        <bitfield id="MPUIPLOCK" description="MPU IP Encapsulation Lock" begin="7" end="7" width="1" rwaccess="R/W">
+            <bitenum id="OPEN" value="0x0" description="Open"/>
+            <bitenum id="LOCK" value="0x1" description="Locked"/>
+        </bitfield>
+    </register>
+    <register id="MPUIPSEGB2" width="16" offset="0xC" internal="0" description="Memory Protection Unit IP Encapsulation Segment Border 2 Register">
+    </register>
+    <register id="MPUIPSEGB1" width="16" offset="0xE" internal="0" description="Memory Protection Unit IP Encapsulation Segment Border 1 Register">
+    </register>
+</module>

@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<drivers id="TMS192C2026">
+    <isa id="TMS192C2026" ProcID="0x300080d0">
+        <driver file="../../DebugServer/bin/libDataSnapshotDecoder.dylib">
+			<connectionType Type="DataSnapshotViewer"/>
+            <property id="debugParent" Type="hiddenfield" Value="" />
+            <property id="PRU Base Address" Type="hiddenfield" Value="0x00" />
+            <property id="PRU Register Offset" Type="hiddenfield" Value="0x00" />
+            <property id="PRU Program RAM Offset" Type="hiddenfield" Value="0x00" />
+            <property id="PRU Data RAM Offset" Type="hiddenfield" Value="0x00" />
+            <property id="PRU Program RAM Size" Type="hiddenfield" Value="0x2000" />
+            <property id="PRU Data RAM Size" Type="hiddenfield" Value="0x2000" />
+            <property id="PRU Device Size" Type="hiddenfield" Value="0x10000" />
+            <property id="noSystemBreakpoints" Type="hiddenfield" Value="true" />
+        </driver>
+    </isa>
+</drivers>
