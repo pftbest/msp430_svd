@@ -29,6 +29,7 @@ macro_rules! eprintln {
 }
 
 pub fn parse_u32(input: &String) -> Result<u32, ParseIntError> {
+    let input = input.trim();
     if input.starts_with("0x") | input.starts_with("0X") {
         u32::from_str_radix(&input[2..], 16)
     } else {
@@ -37,11 +38,9 @@ pub fn parse_u32(input: &String) -> Result<u32, ParseIntError> {
 }
 
 pub fn load_xml(file_name: &Path) -> Result<Element, String> {
-    let mut file = try!(File::open(file_name)
-        .map_err(|_| format!("can't open {:?}", file_name)));
+    let mut file = try!(File::open(file_name).map_err(|_| format!("can't open {:?}", file_name)));
     let mut contents = String::new();
     try!(file.read_to_string(&mut contents)
-        .map_err(|_| format!("can't read {:?}", file_name)));
-    Element::parse(contents.as_bytes())
-        .map_err(|_| format!("can't parse {:?}", file_name))
+             .map_err(|_| format!("can't read {:?}", file_name)));
+    Element::parse(contents.as_bytes()).map_err(|_| format!("can't parse {:?}", file_name))
 }
