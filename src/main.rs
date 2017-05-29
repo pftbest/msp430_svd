@@ -39,7 +39,20 @@ pub fn parse_dslite(file_name: &Path) -> Device {
         }
     }
 
-    println!("{:#?}", registers);
+    registers.sort_by_key(|r| r.offset * 4 + r.width / 8);
+
+    let mut next_address = 0;
+    let mut prev_per = None;
+    for r in &registers {
+        if r.offset < next_address {
+            println!("overlap: {:?}\n\t{:?}", prev_per, r);
+        } else {
+            next_address = r.offset + (r.width / 8);
+            prev_per = Some(r)
+        }
+    }
+
+    //println!("{:#?}", registers);
 
     Device {
         name: name,
@@ -75,7 +88,8 @@ fn parse_dslite_module(file_name: &Path) -> Option<Module> {
     }
 
     let name = uw!(el.attributes.get("id")).to_owned();
-    let registers = el.children.iter()
+    let registers = el.children
+        .iter()
         .map(|r| parse_register(r, &name))
         .collect::<Vec<_>>();
 
