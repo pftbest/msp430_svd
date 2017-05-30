@@ -13,7 +13,7 @@ macro_rules! uw {
 macro_rules! eprint {
     ($s:expr) => {
         use std::io::Write;
-        ::std::io::stderr().write_str($s).ok()
+        ::std::io::stderr().write_all($s.as_bytes()).ok()
     };
     ($($arg:tt)*) => {
         use std::io::Write;

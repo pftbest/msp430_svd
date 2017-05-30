@@ -37,12 +37,10 @@ pub fn write_device(dev: &Device) -> String {
         el.children.push(write_string("size", &x.to_string()));
     }
     if let Some(x) = dev.defaults.reset_value {
-        el.children
-            .push(write_string("resetValue", &x.to_string()));
+        el.children.push(write_string("resetValue", &x.to_string()));
     }
     if let Some(x) = dev.defaults.reset_mask {
-        el.children
-            .push(write_string("resetMask", &x.to_string()));
+        el.children.push(write_string("resetMask", &x.to_string()));
     }
     if let Some(x) = dev.defaults.access {
         el.children.push(write_access(&x));
@@ -72,8 +70,7 @@ pub fn write_peripheral(per: &Peripheral) -> Element {
     el.children.push(write_string("name", &per.name));
 
     if let Some(x) = per.group_name.as_ref() {
-        el.children
-            .push(write_string("groupName", &x.to_string()));
+        el.children.push(write_string("groupName", &x.to_string()));
     }
 
     if let Some(x) = per.description.as_ref() {
@@ -131,13 +128,11 @@ pub fn write_register(reg: &Register) -> Element {
     }
 
     if let Some(x) = reg.reset_value.as_ref() {
-        el.children
-            .push(write_string("resetValue", &x.to_string()));
+        el.children.push(write_string("resetValue", &x.to_string()));
     }
 
     if let Some(x) = reg.reset_mask.as_ref() {
-        el.children
-            .push(write_string("resetMask", &x.to_string()));
+        el.children.push(write_string("resetMask", &x.to_string()));
     }
 
     if let Some(x) = reg.fields.as_ref() {
@@ -225,8 +220,7 @@ pub fn write_enum_val(reg: &EnumeratedValue) -> Element {
     }
 
     if let Some(x) = reg.is_default.as_ref() {
-        el.children
-            .push(write_string("isDefault", &x.to_string()));
+        el.children.push(write_string("isDefault", &x.to_string()));
     }
 
     el
