@@ -56,6 +56,59 @@ fn build_svd_device(dev: &Device) -> svd::Device {
                 _ => panic!("invalid width"),
             };
 
+            let mut fields = Vec::new();
+            for f in &reg.fields {
+                let mut enums = Vec::new();
+                for e in &f.enums {
+                    let ev = svd::EnumeratedValue {
+                        name: e.name.clone(),
+                        description: Some(e.description.clone()),
+                        value: Some(e.value),
+                        is_default: None,
+                    };
+                    enums.push(ev);
+                }
+
+                let field_constraint;
+                if enums.len() == 0 {
+                    field_constraint =
+                        Some(svd::WriteConstraint::Range(svd::WriteConstraintRange {
+                                                             min: 0,
+                                                             max: (1 << f.width) - 1,
+                                                         }));
+                } else {
+                    field_constraint = None;
+                }
+                let field = svd::Field {
+                    name: f.name.clone(),
+                    description: Some(f.description.clone()),
+                    bit_range: svd::BitRange {
+                        offset: f.offset,
+                        width: f.width,
+                    },
+                    access: Some(svd::Access::ReadWrite),
+                    enumerated_values: vec![svd::EnumeratedValues {
+                                                name: None,
+                                                usage: None,
+                                                derived_from: None,
+                                                values: enums,
+                                            }],
+                    write_constraint: field_constraint,
+                };
+                fields.push(field);
+            }
+
+            let reg_constraint;
+            if fields.len() == 0 {
+                reg_constraint = Some(svd::WriteConstraint::Range(svd::WriteConstraintRange {
+                                                                      min: 0,
+                                                                      max: (1 << (reg.width * 8)) -
+                                                                           1,
+                                                                  }));
+            } else {
+                reg_constraint = None;
+            }
+
             let ri = svd::RegisterInfo {
                 name: reg.name.fix_name(),
                 description: reg.description.clone(),
@@ -64,8 +117,8 @@ fn build_svd_device(dev: &Device) -> svd::Device {
                 access: None,
                 reset_value: None,
                 reset_mask: Some(reset_mask),
-                fields: Some(Vec::new()),
-                write_constraint: None,
+                fields: Some(fields),
+                write_constraint: reg_constraint,
             };
             registers.push(svd::Register::Single(ri));
         }
@@ -255,6 +308,7 @@ struct Register {
     module: String,
     offset: u32,
     width: u32,
+    fields: Vec<Field>,
 }
 
 fn parse_register(el: &Element, module: &str) -> Register {
@@ -268,11 +322,72 @@ fn parse_register(el: &Element, module: &str) -> Register {
     assert!(offset < (1 << 16));
     assert!(width == 8 || width == 16 || width == 32);
 
+    let fields = el.children
+        .iter()
+        .map(|f| parse_field(f))
+        .collect::<Vec<_>>();
+
     Register {
         name: name,
         description: description,
         offset: offset,
         width: width / 8,
         module: module.to_owned(),
+        fields: fields,
+    }
+}
+
+#[derive(Debug, Clone)]
+struct Field {
+    name: String,
+    description: String,
+    offset: u32,
+    width: u32,
+    enums: Vec<EnumValue>,
+}
+
+fn parse_field(el: &Element) -> Field {
+    assert_eq!(el.name, "bitfield");
+
+    let name = uw!(el.attributes.get("id")).to_owned();
+    let description = uw!(el.attributes.get("description")).to_owned();
+    let offset = uw!(utils::parse_u32(uw!(el.attributes.get("begin"))));
+    let width = uw!(utils::parse_u32(uw!(el.attributes.get("width"))));
+
+    let rwa = uw!(el.attributes.get("rwaccess")).to_owned();
+    assert!(rwa == "R/W" || rwa == "RW");
+
+    let enums = el.children
+        .iter()
+        .map(|e| parse_enum(e))
+        .collect::<Vec<_>>();
+
+    Field {
+        name: name,
+        description: description,
+        offset: offset,
+        width: width,
+        enums: enums,
+    }
+}
+
+#[derive(Debug, Clone)]
+struct EnumValue {
+    name: String,
+    description: String,
+    value: u32,
+}
+
+fn parse_enum(el: &Element) -> EnumValue {
+    assert_eq!(el.name, "bitenum");
+
+    let name = uw!(el.attributes.get("id")).to_owned();
+    let description = uw!(el.attributes.get("description")).to_owned();
+    let value = uw!(utils::parse_u32(uw!(el.attributes.get("value"))));
+
+    EnumValue {
+        name: name,
+        description: description,
+        value: value,
     }
 }

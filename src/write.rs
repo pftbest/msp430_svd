@@ -2,7 +2,7 @@ use xmltree::Element;
 use svd::*;
 use std::collections::HashMap;
 
-pub fn write_string(name: &str, text: &str) -> Element {
+fn write_string(name: &str, text: &str) -> Element {
     let mut el = Element::new(name);
     el.text = Some(String::from(text));
     el
@@ -53,7 +53,7 @@ pub fn write_device(dev: &Device) -> String {
     String::from_utf8(out).unwrap()
 }
 
-pub fn write_peripherals(dev: &Device) -> Element {
+fn write_peripherals(dev: &Device) -> Element {
     let mut el = Element::new("peripherals");
     el.children = vec![];
 
@@ -63,7 +63,7 @@ pub fn write_peripherals(dev: &Device) -> Element {
     el
 }
 
-pub fn write_peripheral(per: &Peripheral) -> Element {
+fn write_peripheral(per: &Peripheral) -> Element {
     let mut el = Element::new("peripheral");
     el.children = vec![];
 
@@ -94,7 +94,7 @@ pub fn write_peripheral(per: &Peripheral) -> Element {
     el
 }
 
-pub fn write_registers(per: &Vec<Register>) -> Element {
+fn write_registers(per: &Vec<Register>) -> Element {
     let mut el = Element::new("registers");
     el.children = vec![];
 
@@ -104,7 +104,7 @@ pub fn write_registers(per: &Vec<Register>) -> Element {
     el
 }
 
-pub fn write_register(reg: &Register) -> Element {
+fn write_register(reg: &Register) -> Element {
     let mut el = Element::new("register");
     el.children = vec![];
 
@@ -139,10 +139,14 @@ pub fn write_register(reg: &Register) -> Element {
         el.children.push(write_fields(x))
     }
 
+    if let Some(wc) = reg.write_constraint.as_ref() {
+        el.children.push(write_constraint(wc))
+    }
+
     el
 }
 
-pub fn write_fields(per: &Vec<Field>) -> Element {
+fn write_fields(per: &Vec<Field>) -> Element {
     let mut el = Element::new("fields");
     el.children = vec![];
 
@@ -152,7 +156,7 @@ pub fn write_fields(per: &Vec<Field>) -> Element {
     el
 }
 
-pub fn write_field(reg: &Field) -> Element {
+fn write_field(reg: &Field) -> Element {
     let mut el = Element::new("field");
     el.children = vec![];
 
@@ -176,10 +180,33 @@ pub fn write_field(reg: &Field) -> Element {
         el.children.push(write_enums(e))
     }
 
+    if let Some(wc) = reg.write_constraint.as_ref() {
+        el.children.push(write_constraint(wc))
+    }
+
     el
 }
 
-pub fn write_enums(per: &EnumeratedValues) -> Element {
+fn write_constraint(wc: &WriteConstraint) -> Element {
+    let mut wc_el = Element::new("writeConstraint");
+    let mut range_el = Element::new("range");
+
+    match wc {
+        &WriteConstraint::Range(r) => {
+            let mut min_el = Element::new("minimum");
+            let mut max_el = Element::new("maximum");
+            min_el.text = Some(r.min.to_string());
+            max_el.text = Some(r.max.to_string());
+            range_el.children.push(min_el);
+            range_el.children.push(max_el);
+        }
+        _ => panic!("unsupported write constraint"),
+    }
+    wc_el.children.push(range_el);
+    wc_el
+}
+
+fn write_enums(per: &EnumeratedValues) -> Element {
     let mut el = Element::new("enumeratedValues");
     el.children = vec![];
 
@@ -204,7 +231,7 @@ pub fn write_enums(per: &EnumeratedValues) -> Element {
     el
 }
 
-pub fn write_enum_val(reg: &EnumeratedValue) -> Element {
+fn write_enum_val(reg: &EnumeratedValue) -> Element {
     let mut el = Element::new("enumeratedValue");
     el.children = vec![];
 
