@@ -1,4 +1,5 @@
 use dslite_parser;
+use header_parser;
 use svd;
 
 trait StringEx {
@@ -24,7 +25,7 @@ impl StringEx for String {
     }
 }
 
-pub fn build_svd_device(dev: &dslite_parser::Device) -> svd::Device {
+pub fn build_svd_device(dev: &dslite_parser::Device, ints: &header_parser::Interrupts) -> svd::Device {
     let mut peripherals = Vec::new();
     for (_, m) in &dev.modules {
         let base_address = m.registers.iter().map(|r| r.offset).min().unwrap_or(0) & (!1);
@@ -90,11 +91,12 @@ pub fn build_svd_device(dev: &dslite_parser::Device) -> svd::Device {
 
             let reg_constraint;
             if fields.len() == 0 {
-                reg_constraint = Some(svd::WriteConstraint::Range(svd::WriteConstraintRange {
-                                                                      min: 0,
-                                                                      max: (1 << (reg.width * 8)) -
-                                                                           1,
-                                                                  }));
+                reg_constraint =
+                    Some(svd::WriteConstraint::Range(svd::WriteConstraintRange {
+                                                         min: 0,
+                                                         max: ((1u64 << (reg.width * 8)) - 1) as
+                                                              u32,
+                                                     }));
             } else {
                 reg_constraint = None;
             }
