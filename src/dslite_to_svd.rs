@@ -25,7 +25,10 @@ impl StringEx for String {
     }
 }
 
-pub fn build_svd_device(dev: &dslite_parser::Device, ints: &header_parser::Interrupts) -> svd::Device {
+pub fn build_svd_device(
+    dev: &dslite_parser::Device,
+    ints: &header_parser::Interrupts,
+) -> svd::Device {
     let mut peripherals = Vec::new();
     for (_, m) in &dev.modules {
         let base_address = m.registers.iter().map(|r| r.offset).min().unwrap_or(0) & (!1);
@@ -64,9 +67,9 @@ pub fn build_svd_device(dev: &dslite_parser::Device, ints: &header_parser::Inter
                 if enums.len() == 0 {
                     field_constraint =
                         Some(svd::WriteConstraint::Range(svd::WriteConstraintRange {
-                                                             min: 0,
-                                                             max: (1 << f.width) - 1,
-                                                         }));
+                            min: 0,
+                            max: (1 << f.width) - 1,
+                        }));
                 } else {
                     field_constraint = None;
                 }
@@ -78,12 +81,14 @@ pub fn build_svd_device(dev: &dslite_parser::Device, ints: &header_parser::Inter
                         width: f.width,
                     },
                     access: Some(svd::Access::ReadWrite),
-                    enumerated_values: vec![svd::EnumeratedValues {
-                                                name: None,
-                                                usage: None,
-                                                derived_from: None,
-                                                values: enums,
-                                            }],
+                    enumerated_values: vec![
+                        svd::EnumeratedValues {
+                            name: None,
+                            usage: None,
+                            derived_from: None,
+                            values: enums,
+                        },
+                    ],
                     write_constraint: field_constraint,
                 };
                 fields.push(field);
@@ -91,12 +96,10 @@ pub fn build_svd_device(dev: &dslite_parser::Device, ints: &header_parser::Inter
 
             let reg_constraint;
             if fields.len() == 0 {
-                reg_constraint =
-                    Some(svd::WriteConstraint::Range(svd::WriteConstraintRange {
-                                                         min: 0,
-                                                         max: ((1u64 << (reg.width * 8)) - 1) as
-                                                              u32,
-                                                     }));
+                reg_constraint = Some(svd::WriteConstraint::Range(svd::WriteConstraintRange {
+                    min: 0,
+                    max: ((1u64 << (reg.width * 8)) - 1) as u32,
+                }));
             } else {
                 reg_constraint = None;
             }

@@ -78,13 +78,17 @@ fn write_peripheral(per: &Peripheral) -> Element {
             .push(write_string("description", &x.to_string()));
     }
 
-    el.children
-        .push(write_string("baseAddress", &per.base_address.to_string()));
+    el.children.push(write_string(
+        "baseAddress",
+        &per.base_address.to_string(),
+    ));
 
     if let Some(x) = per.derived_from.as_ref() {
         el.attributes = HashMap::new();
-        el.attributes
-            .insert("derivedFrom".to_owned(), x.to_string());
+        el.attributes.insert(
+            "derivedFrom".to_owned(),
+            x.to_string(),
+        );
     }
 
     if let Some(x) = per.registers.as_ref() {
@@ -116,8 +120,10 @@ fn write_register(reg: &Register) -> Element {
     el.children.push(write_string("name", &reg.name));
     el.children
         .push(write_string("description", &reg.description));
-    el.children
-        .push(write_string("addressOffset", &reg.address_offset.to_string()));
+    el.children.push(write_string(
+        "addressOffset",
+        &reg.address_offset.to_string(),
+    ));
 
     if let Some(x) = reg.size.as_ref() {
         el.children.push(write_string("size", &x.to_string()));
@@ -167,10 +173,14 @@ fn write_field(reg: &Field) -> Element {
             .push(write_string("description", &x.to_string()));
     }
 
-    el.children
-        .push(write_string("bitOffset", &reg.bit_range.offset.to_string()));
-    el.children
-        .push(write_string("bitWidth", &reg.bit_range.width.to_string()));
+    el.children.push(write_string(
+        "bitOffset",
+        &reg.bit_range.offset.to_string(),
+    ));
+    el.children.push(write_string(
+        "bitWidth",
+        &reg.bit_range.width.to_string(),
+    ));
 
     if let Some(x) = reg.access {
         el.children.push(write_access(&x));
@@ -220,8 +230,10 @@ fn write_enums(per: &EnumeratedValues) -> Element {
 
     if let Some(x) = per.derived_from.as_ref() {
         el.attributes = HashMap::new();
-        el.attributes
-            .insert("derivedFrom".to_owned(), x.to_string());
+        el.attributes.insert(
+            "derivedFrom".to_owned(),
+            x.to_string(),
+        );
     }
 
     for e in &per.values {

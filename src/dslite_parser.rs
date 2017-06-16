@@ -39,12 +39,12 @@ pub fn parse_dslite(file_name: &Path) -> Device {
     }
 
     registers.sort_by(|a, b| if a.width != b.width {
-                          a.width.cmp(&b.width)
-                      } else if a.offset != b.offset {
-                          a.offset.cmp(&b.offset)
-                      } else {
-                          a.name.cmp(&b.name)
-                      });
+        a.width.cmp(&b.width)
+    } else if a.offset != b.offset {
+        a.offset.cmp(&b.offset)
+    } else {
+        a.name.cmp(&b.name)
+    });
 
     let mut modules: HashMap<String, Module> = HashMap::new();
     let mut memory: HashMap<u32, &Register> = HashMap::new();
@@ -52,9 +52,11 @@ pub fn parse_dslite(file_name: &Path) -> Device {
         if let Some(old) = get_conflict(&memory, r) {
             if r.width == 2 && old.width == 1 {
                 if !memory.contains_key(&r.offset) || !memory.contains_key(&(r.offset + 1)) {
-                    eprintln!("warning: register {} ({}) has missing parts",
-                              old.name,
-                              r.name);
+                    eprintln!(
+                        "warning: register {} ({}) has missing parts",
+                        old.name,
+                        r.name
+                    );
                 }
                 eprintln!("erasing {} (keeping {})", r.name, old.name);
                 continue;
@@ -65,10 +67,10 @@ pub fn parse_dslite(file_name: &Path) -> Device {
                 modules
                     .entry(r.module.clone())
                     .or_insert(Module {
-                                   name: r.module.clone(),
-                                   description: module_descriptions.get(&r.module).unwrap().clone(),
-                                   registers: Vec::new(),
-                               })
+                        name: r.module.clone(),
+                        description: module_descriptions.get(&r.module).unwrap().clone(),
+                        registers: Vec::new(),
+                    })
                     .registers
                     .push(r.clone());
                 continue;
@@ -83,10 +85,10 @@ pub fn parse_dslite(file_name: &Path) -> Device {
         modules
             .entry(r.module.clone())
             .or_insert(Module {
-                           name: r.module.clone(),
-                           description: module_descriptions.get(&r.module).unwrap().clone(),
-                           registers: Vec::new(),
-                       })
+                name: r.module.clone(),
+                description: module_descriptions.get(&r.module).unwrap().clone(),
+                registers: Vec::new(),
+            })
             .registers
             .push(r.clone());
     }
@@ -134,10 +136,10 @@ fn parse_dslite_module(file_name: &Path) -> Option<Module> {
         .collect::<Vec<_>>();
 
     Some(Module {
-             name: name,
-             description: description,
-             registers: registers,
-         })
+        name: name,
+        description: description,
+        registers: registers,
+    })
 }
 
 #[derive(Debug, Clone)]

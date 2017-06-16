@@ -40,15 +40,19 @@ pub fn parse_u32(input: &str) -> Result<u32, ParseIntError> {
 pub fn load_xml(file_name: &Path) -> Result<Element, String> {
     let mut file = try!(File::open(file_name).map_err(|_| format!("can't open {:?}", file_name)));
     let mut contents = String::new();
-    try!(file.read_to_string(&mut contents)
-             .map_err(|_| format!("can't read {:?}", file_name)));
+    try!(
+        file.read_to_string(&mut contents)
+            .map_err(|_| format!("can't read {:?}", file_name))
+    );
     Element::parse(contents.as_bytes()).map_err(|_| format!("can't parse {:?}", file_name))
 }
 
 pub fn load_text(file_name: &Path) -> Result<String, String> {
     let mut file = try!(File::open(file_name).map_err(|_| format!("can't open {:?}", file_name)));
     let mut contents = String::new();
-    try!(file.read_to_string(&mut contents)
-             .map_err(|_| format!("can't read {:?}", file_name)));
+    try!(
+        file.read_to_string(&mut contents)
+            .map_err(|_| format!("can't read {:?}", file_name))
+    );
     Ok(contents)
 }

@@ -65,10 +65,10 @@ fn parse_vector(line: &str, base_offset: u32) -> Option<Vector> {
     };
 
     Some(Vector {
-             name: name,
-             description: comment,
-             value: value,
-         })
+        name: name,
+        description: comment,
+        value: value,
+    })
 }
 
 fn get_content(line: &str, left: &str, right: &str) -> String {
