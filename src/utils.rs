@@ -28,7 +28,7 @@ macro_rules! eprintln {
     ($fmt:expr, $($arg:tt)*) => (eprint!(concat!($fmt, "\n"), $($arg)*));
 }
 
-pub fn parse_u32(input: &String) -> Result<u32, ParseIntError> {
+pub fn parse_u32(input: &str) -> Result<u32, ParseIntError> {
     let input = input.trim();
     if input.starts_with("0x") | input.starts_with("0X") {
         u32::from_str_radix(&input[2..], 16)

@@ -43,7 +43,7 @@ pub fn parse_header(file_name: &Path) -> Interrupts {
 fn parse_offset(line: &str) -> u32 {
     let addr = uw!(line.split_whitespace().nth(5)).trim_matches(')');
     assert!(addr.starts_with("0xFF"));
-    uw!(utils::parse_u32(&addr.to_owned()))
+    uw!(utils::parse_u32(&addr))
 }
 
 fn parse_vector(line: &str, base_offset: u32) -> Option<Vector> {
