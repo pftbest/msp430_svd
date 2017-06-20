@@ -27,7 +27,7 @@ impl StringEx for String {
 
 pub fn build_svd_device(
     dev: &dslite_parser::Device,
-    ints: &header_parser::Interrupts,
+    interrupts: &header_parser::Interrupts,
 ) -> svd::Device {
     let mut peripherals = Vec::new();
     for (_, m) in &dev.modules {
@@ -128,6 +128,28 @@ pub fn build_svd_device(
             derived_from: None,
         };
         peripherals.push(p);
+    }
+
+    if interrupts.vectors.len() != 0 {
+        peripherals.push(svd::Peripheral {
+            name: "_INTERRUPTS".to_owned(),
+            group_name: None,
+            description: None,
+            base_address: 0,
+            interrupt: interrupts
+                .vectors
+                .iter()
+                .map(|int| {
+                    svd::Interrupt {
+                        name: int.name.clone(),
+                        description: Some(int.description.clone()),
+                        value: int.value,
+                    }
+                })
+                .collect(),
+            registers: None,
+            derived_from: None,
+        });
     }
 
     svd::Device {

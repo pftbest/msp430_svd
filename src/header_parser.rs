@@ -3,8 +3,8 @@ use utils;
 
 #[derive(Debug)]
 pub struct Interrupts {
-    base_offset: u32,
-    vectors: Vec<Vector>,
+    pub base_offset: u32,
+    pub vectors: Vec<Vector>,
 }
 
 #[derive(Debug)]
@@ -18,24 +18,19 @@ pub fn parse_header(file_name: &Path) -> Interrupts {
     let text = uw!(utils::load_text(file_name));
 
     let mut base_offset = None;
+    let mut vectors = Vec::new();
     for line in text.lines() {
         if line.contains("Interrupt Vectors (offset from") {
             base_offset = Some(parse_offset(line));
-        }
-    }
-    let base_offset = uw!(base_offset);
-
-    let mut vectors = Vec::new();
-    for line in text.lines() {
-        if line.contains("#define") && line.contains("_VECTOR") {
-            if let Some(v) = parse_vector(line, base_offset) {
+        } else if line.contains("#define") && line.contains("_VECTOR") {
+            if let Some(v) = parse_vector(line) {
                 vectors.push(v);
             }
         }
     }
 
     Interrupts {
-        base_offset: base_offset,
+        base_offset: uw!(base_offset),
         vectors: vectors,
     }
 }
@@ -46,7 +41,7 @@ fn parse_offset(line: &str) -> u32 {
     uw!(utils::parse_u32(&addr))
 }
 
-fn parse_vector(line: &str, base_offset: u32) -> Option<Vector> {
+fn parse_vector(line: &str) -> Option<Vector> {
     let mut parts = line.split_whitespace();
     let name = uw!(parts.nth(1));
     if !(uw!(parts.next()).starts_with("(")) {
@@ -58,16 +53,14 @@ fn parse_vector(line: &str, base_offset: u32) -> Option<Vector> {
     let value = get_content(line, "(", ")");
     let comment = get_content(line, "/*", "*/");
 
-    let value = if value == "\"reset\"" {
-        (0x10000 - base_offset) / 2
-    } else {
-        uw!(utils::parse_u32(&value))
-    };
+    if value == "\"reset\"" {
+        return None;
+    }
 
     Some(Vector {
         name: name,
         description: comment,
-        value: value,
+        value: uw!(utils::parse_u32(&value)),
     })
 }
 
