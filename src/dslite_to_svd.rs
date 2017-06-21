@@ -63,15 +63,14 @@ pub fn build_svd_device(
                     enums.push(ev);
                 }
 
-                let field_constraint;
-                if enums.len() == 0 {
-                    field_constraint =
-                        Some(svd::WriteConstraint::Range(svd::WriteConstraintRange {
-                            min: 0,
-                            max: (1 << f.width) - 1,
-                        }));
-                } else {
-                    field_constraint = None;
+                let field_constraint = None;
+                if enums.len() == 0 && f.width > 1 {
+                    eprintln!("warning: no enums for field {}", f.name);
+                    // field_constraint =
+                    //     Some(svd::WriteConstraint::Range(svd::WriteConstraintRange {
+                    //         min: 0,
+                    //         max: (1 << f.width) - 1,
+                    //     }));
                 }
                 let field = svd::Field {
                     name: f.name.clone(),
@@ -94,14 +93,20 @@ pub fn build_svd_device(
                 fields.push(field);
             }
 
-            let reg_constraint;
+            let mut reg_constraint = None;
             if fields.len() == 0 {
+                eprintln!("warning: no fields for register {}", reg.name);
+            }
+
+            // if all fields are single bit and cover the entire register
+            // then allow to write any value
+            if (fields.len() == reg.width as usize * 8) &&
+                (fields.iter().all(|f| f.bit_range.width == 1))
+            {
                 reg_constraint = Some(svd::WriteConstraint::Range(svd::WriteConstraintRange {
                     min: 0,
                     max: ((1u64 << (reg.width * 8)) - 1) as u32,
                 }));
-            } else {
-                reg_constraint = None;
             }
 
             let ri = svd::RegisterInfo {
@@ -135,7 +140,7 @@ pub fn build_svd_device(
             name: "_INTERRUPTS".to_owned(),
             group_name: None,
             description: None,
-            base_address: 0,
+            base_address: interrupts.base_offset,
             interrupt: interrupts
                 .vectors
                 .iter()

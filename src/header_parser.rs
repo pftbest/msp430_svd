@@ -60,7 +60,7 @@ fn parse_vector(line: &str) -> Option<Vector> {
     Some(Vector {
         name: name,
         description: comment,
-        value: uw!(utils::parse_u32(&value)),
+        value: uw!(utils::parse_u32(&value)) - 1,
     })
 }
 
