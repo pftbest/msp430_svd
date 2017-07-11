@@ -106,7 +106,7 @@ pub fn build_svd_device(
 
             let mut reg_constraint = None;
             if fields.len() == 0 {
-                eprintln!("warning: no fields for register {}", reg.name);
+                eprintln!("warning: no fields in register {}", reg.name);
             }
 
             // check that fields have correct range

@@ -192,8 +192,13 @@ fn parse_field(el: &Element) -> Field {
 
     let name = uw!(el.attributes.get("id")).to_owned();
     let description = uw!(el.attributes.get("description")).to_owned();
-    let offset = uw!(utils::parse_u32(uw!(el.attributes.get("begin"))));
+    let begin = uw!(utils::parse_u32(uw!(el.attributes.get("begin"))));
+    let end = uw!(utils::parse_u32(uw!(el.attributes.get("end"))));
     let width = uw!(utils::parse_u32(uw!(el.attributes.get("width"))));
+
+    assert_eq!((begin as isize - end as isize).abs() + 1, width as isize);
+
+    let offset = ::std::cmp::min(begin, end);
 
     let rwa = uw!(el.attributes.get("rwaccess")).to_owned();
     assert!(rwa == "R/W" || rwa == "RW");
