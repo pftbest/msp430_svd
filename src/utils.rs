@@ -11,14 +11,14 @@ macro_rules! uw {
 
 /// Macro for printing to the error output
 macro_rules! eprint {
-    ($s:expr) => {
+    ($s:expr) => { {
         use std::io::Write;
         ::std::io::stderr().write_all($s.as_bytes()).ok();
-    };
-    ($($arg:tt)*) => {
+    } };
+    ($($arg:tt)*) => { {
         use std::io::Write;
         ::std::io::stderr().write_fmt(format_args!($($arg)*)).ok();
-    };
+    } };
 }
 
 /// Macro for printing to the error output, with a newline.

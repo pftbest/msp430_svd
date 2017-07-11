@@ -25,6 +25,17 @@ impl StringEx for String {
     }
 }
 
+fn get_bits(offset: u32, width: u32) -> u64 {
+    let mask = (1u64 << width) - 1;
+    mask << offset
+}
+
+#[test]
+fn test_get_bits() {
+    let v = get_bits(0, 2);
+    assert_eq!(v, 3);
+}
+
 pub fn build_svd_device(
     dev: &dslite_parser::Device,
     interrupts: &header_parser::Interrupts,
@@ -98,6 +109,16 @@ pub fn build_svd_device(
                 eprintln!("warning: no fields for register {}", reg.name);
             }
 
+            // check that fields have correct range
+            let mut field_test = !get_bits(0, reg.width * 8);
+            for f in &fields {
+                let field_bits = get_bits(f.bit_range.offset, f.bit_range.width);
+                if field_test & field_bits != 0 {
+                    eprintln!("error: bad field {} in register {}", f.name, reg.name);
+                }
+                field_test |= field_bits;
+            }
+
             // if all fields are single bit and cover the entire register
             // then allow to write any value
             if (fields.len() == reg.width as usize * 8) &&
@@ -117,7 +138,7 @@ pub fn build_svd_device(
                 access: None,
                 reset_value: None,
                 reset_mask: Some(reset_mask),
-                fields: Some(fields),
+                fields: if fields.len() != 0 { Some(fields) } else { None },
                 write_constraint: reg_constraint,
             };
             registers.push(svd::Register::Single(ri));
