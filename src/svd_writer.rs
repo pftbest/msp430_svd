@@ -261,8 +261,7 @@ fn write_enum_val(reg: &EnumeratedValue) -> Element {
     el.children.push(write_string("name", &reg.name));
 
     if let Some(x) = reg.description.as_ref() {
-        el.children
-            .push(write_string("description", &x.to_string()));
+        el.children.push(write_string("description", x));
     }
 
     if let Some(x) = reg.value.as_ref() {

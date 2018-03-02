@@ -246,8 +246,12 @@ fn parse_enum(el: &Element) -> EnumValue {
     assert_eq!(el.name, "bitenum");
 
     let name = uw!(el.attributes.get("id")).to_owned();
-    let description = uw!(el.attributes.get("description")).to_owned();
+    let mut description = uw!(el.attributes.get("description")).to_owned();
     let value = uw!(utils::parse_u32(uw!(el.attributes.get("value"))));
+
+    if description.trim().is_empty() {
+        description = name.clone();
+    }
 
     EnumValue {
         name: name,
