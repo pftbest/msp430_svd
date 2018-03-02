@@ -1,5 +1,5 @@
 /* ============================================================================ */
-/* Copyright (c) 2016, Texas Instruments Incorporated                           */
+/* Copyright (c) 2017, Texas Instruments Incorporated                           */
 /*  All rights reserved.                                                        */
 /*                                                                              */
 /*  Redistribution and use in source and binary forms, with or without          */
@@ -32,7 +32,7 @@
 
 /* This file supports MSP430FR5992 devices. */
 
-/* Version: 1.198 */
+/* 1.204 */
 
 /************************************************************
 * PERIPHERAL FILE MAP
@@ -775,7 +775,6 @@ PROVIDE(DMACTL4_H          = 0x0509);
 PROVIDE(DMAIV              = 0x050E);
 PROVIDE(DMAIV_L            = 0x050E);
 PROVIDE(DMAIV_H            = 0x050F);
-
 PROVIDE(DMA0CTL            = 0x0510);
 PROVIDE(DMA0CTL_L          = 0x0510);
 PROVIDE(DMA0CTL_H          = 0x0511);

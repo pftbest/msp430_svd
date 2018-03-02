@@ -1,0 +1,4 @@
+<properties XML_version="1.2">
+<property Type="stringfield" Value="-D=__MSP430G2755__   --use_hw_mpy=none" id="CompilerBuildOptions"></property>
+<property Type="stringfield" Value=" --use_hw_mpy=none --cinit_hold_wdt=on" id="LinkerBuildOptions"></property>
+</properties>

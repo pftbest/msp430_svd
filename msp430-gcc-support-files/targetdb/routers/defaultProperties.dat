@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+
+<router XML_version="1.2" id="default">
+	<property XML_version="1.2" Type="choicelist" id="bypass" Value="0" desc="Bypass" description="Bypass this cpu so that it is not debuggable">
+		<choice value="No"/>
+		<choice value="Yes"/>
+	</property>
+	<property XML_version="1.2" Type="filepathfield" id="GEL File" desc="initialization script" Value="" Extensions="Gel Files (*.gel)|*.gel|All Files (*.*)|*.*||"/>
+</router>
+

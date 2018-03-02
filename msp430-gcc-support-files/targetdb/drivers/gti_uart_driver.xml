@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <drivers id="MSP430">
 	<isa Type="MSP430" ProcID="0x6b800000">
-		<driver file="../../../DebugServer/drivers/libXPCOMToGTIAdapter.dylib">			
+		<driver file="../../../DebugServer/drivers/libXPCOMToGTIAdapter.so">			
 			<property Type="stringfield" Value="COM65" id="COM Port" />
 			<property Type="stringfield" Value="9600" id="Baud Rate" />
 			<property Type="hiddenfield" Value="Little Endian" id="Endianness" />
@@ -14,7 +14,7 @@
 	</isa>
 	
 	<isa Type="TMS320C28XX" ProcID="0x5000A3F8">
-		<driver file="../../../DebugServer/drivers/libXPCOMToGTIAdapter.dylib">			
+		<driver file="../../../DebugServer/drivers/libXPCOMToGTIAdapter.so">			
 			<property Type="stringfield" Value="COM65" id="COM Port" />
 			<property Type="stringfield" Value="9600" id="Baud Rate" />
 			<property Type="hiddenfield" Value="Little Endian" id="Endianness" />
@@ -31,7 +31,7 @@
 	</isa>
 	
 	<isa Type="CORTEX_M4" ProcID="0x75803800">
-		<driver file="../../../DebugServer/drivers/libXPCOMToGTIAdapter.dylib">			
+		<driver file="../../../DebugServer/drivers/libXPCOMToGTIAdapter.so">			
 			<property Type="stringfield" Value="COM14" id="COM Port" />
 			<property Type="stringfield" Value="9600" id="Baud Rate" />
 			<property Type="hiddenfield" Value="Little Endian" id="Endianness" />
@@ -44,7 +44,7 @@
 	</isa>
 	
 	<isa Type="CORTEX_M3" ProcID="0x75803800">
-		<driver file="../../../DebugServer/drivers/libXPCOMToGTIAdapter.dylib">			
+		<driver file="../../../DebugServer/drivers/libXPCOMToGTIAdapter.so">			
 			<property Type="stringfield" Value="COM14" id="COM Port" />
 			<property Type="stringfield" Value="9600" id="Baud Rate" />
 			<property Type="hiddenfield" Value="Little Endian" id="Endianness" />
@@ -57,7 +57,7 @@
 	</isa>
 	
 	<isa Type="Cortex_R4" ProcID="0x75803400">
-        <driver file="../../../DebugServer/drivers/libXPCOMToGTIAdapter.dylib">			
+        <driver file="../../../DebugServer/drivers/libXPCOMToGTIAdapter.so">			
 			<property Type="stringfield" Value="COM14" id="COM Port" />
 			<property Type="stringfield" Value="9600" id="Baud Rate" />
 			<property Type="hiddenfield" Value="32" id="Word Size Page 0" />
@@ -69,7 +69,7 @@
     </isa>
 	
 	<isa Type="Cortex_R5" ProcID="0x75803400">
-		<driver file="../../../DebugServer/drivers/libXPCOMToGTIAdapter.dylib">			
+		<driver file="../../../DebugServer/drivers/libXPCOMToGTIAdapter.so">			
 			<property Type="stringfield" Value="COM14" id="COM Port" />
 			<property Type="stringfield" Value="9600" id="Baud Rate" />
 			<property Type="hiddenfield" Value="32" id="Word Size Page 0" />

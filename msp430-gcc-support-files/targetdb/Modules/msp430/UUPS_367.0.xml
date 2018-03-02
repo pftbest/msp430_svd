@@ -1,0 +1,129 @@
+<module id="UUPS" HW_revision="367.0">
+    <register id="UUPSIIDX" width="16" offset="0x0" internal="0" description="Interrupt Index Register">
+        <bitfield id="IIDX" description="UUPS Interrupt Vector Value." begin="15" end="1" width="15" rwaccess="R">
+            <bitenum id="IIDX_0" value="0x0" description="No Interrupt pending"/>
+            <bitenum id="IIDX_1" value="0x1" description="Interrupt Source: PTMOUT; Interrupt Priority: Highest"/>
+            <bitenum id="IIDX_2" value="0x2" description="Interrupt Source: PREQIG"/>
+            <bitenum id="IIDX_3" value="0x3" description="Interrupt Source: STPBYDB"/>
+            <bitenum id="IIDX_4" value="0x4" description="Reserved; Interrupt Priority: Lowest"/>
+        </bitfield>
+    </register>
+    <register id="UUPSMIS" width="16" offset="0x2" internal="0" description="Masked Interrupt Status Register">
+        <bitfield id="PTMOUT" description="UUPS Power Up Time Out Masked Interrupt Status bit." begin="0" end="0" width="1" rwaccess="R">
+            <bitenum id="PTMOUT_0" value="0x0" description="No interrupt pending"/>
+            <bitenum id="PTMOUT_1" value="0x1" description="Interrupt pending"/>
+        </bitfield>
+        <bitfield id="PREQIG" description="UUPS Power Request Ignore Masked Interrupt Status bit." begin="1" end="1" width="1" rwaccess="R">
+            <bitenum id="PREQIG_0" value="0x0" description="No interrupt pending"/>
+            <bitenum id="PREQIG_1" value="0x1" description="Interrupt pending"/>
+        </bitfield>
+        <bitfield id="STPBYDB" description="USS has been interrupted by debug mode Masked Interrupt Status bit." begin="2" end="2" width="1" rwaccess="R">
+            <bitenum id="STPBYDB_0" value="0x0" description="No interrupt pending"/>
+            <bitenum id="STPBYDB_1" value="0x1" description="Interrupt pending"/>
+        </bitfield>
+    </register>
+    <register id="UUPSRIS" width="16" offset="0x4" internal="0" description="Raw Interrupt Status Register">
+        <bitfield id="PTMOUT" description="UUPS Power Up Timer Out Raw Interrupt Status bit." begin="0" end="0" width="1" rwaccess="R">
+            <bitenum id="PTMOUT_0" value="0x0" description="Time out during power up has not occurred"/>
+            <bitenum id="PTMOUT_1" value="0x1" description="Time out during power up has occurred"/>
+        </bitfield>
+        <bitfield id="PREQIG" description="UUPS Power Request Ignore Masked Interrupt Status and Clear bit." begin="1" end="1" width="1" rwaccess="R">
+            <bitenum id="PREQIG_0" value="0x0" description="No USS_PWRREQ signal has been ignored"/>
+            <bitenum id="PREQIG_1" value="0x1" description="USS_PWRREQ signal has been ignored"/>
+        </bitfield>
+        <bitfield id="STPBYDB" description="USS has been interrupted by debug mode." begin="2" end="2" width="1" rwaccess="R">
+            <bitenum id="STPBYDB_0" value="0x0" description="USS has not been interrupted by debug halt mode."/>
+            <bitenum id="STPBYDB_1" value="0x1" description="USS has been interrupted by debug halt mode."/>
+        </bitfield>
+    </register>
+    <register id="UUPSIMSC" width="16" offset="0x6" internal="0" description="Interrupt Mask Register">
+        <bitfield id="PTMOUT" description="UUPS Power Up Time Out Interrupt Mask bit." begin="0" end="0" width="1" rwaccess="R/W">
+            <bitenum id="PTMOUT_0" value="0x0" description="UUPS Power Up Time Out Interrupt is disabled."/>
+            <bitenum id="PTMOUT_1" value="0x1" description="UUPS Power Up Time Out Interrupt is enabled."/>
+        </bitfield>
+        <bitfield id="PREQIG" description="Power Request Ignore Interrupt Mask bit." begin="1" end="1" width="1" rwaccess="R/W">
+            <bitenum id="PREQIG_0" value="0x0" description="Power Request Ignore Interrupt is disabled."/>
+            <bitenum id="PREQIG_1" value="0x1" description="Power Request Ignore Interrupt is enabled."/>
+        </bitfield>
+        <bitfield id="STPBYDB" description="USS has been interrupted by debug mode Interrupt Mask bit." begin="2" end="2" width="1" rwaccess="R/W">
+            <bitenum id="STPBYDB_0" value="0x0" description="STPBYDB Interrupt is disabled"/>
+            <bitenum id="STPBYDB_1" value="0x1" description="STPBYDB Interrupt is enabled"/>
+        </bitfield>
+    </register>
+    <register id="UUPSICR" width="16" offset="0x8" internal="0" description="Interrupt Clear Register.">
+        <bitfield id="PREQIG" description="Power Request Ignored Interrupt Clear bit." begin="1" end="1" width="1" rwaccess="R/W">
+        </bitfield>
+        <bitfield id="PTMOUT" description="UUPS Power Up Time Out Interrupt Clear bit." begin="0" end="0" width="1" rwaccess="R/W">
+        </bitfield>
+        <bitfield id="STPBYDB" description="USS has been interrupted by debug mode Interrupt Clear bit." begin="2" end="2" width="1" rwaccess="R/W">
+        </bitfield>
+    </register>
+    <register id="UUPSISR" width="16" offset="0xA" internal="0" description="Interrupt Flag Set Register.">
+        <bitfield id="PREQIG" description="Power Request Ignored Interrupt Set bit." begin="1" end="1" width="1" rwaccess="R/W">
+        </bitfield>
+        <bitfield id="PTMOUT" description="UUPS Power Up Time Out Interrupt Set bit." begin="0" end="0" width="1" rwaccess="R/W">
+        </bitfield>
+        <bitfield id="STPBYDB" description="USS has been interrupted by debug mode Interrupt Set bit." begin="2" end="2" width="1" rwaccess="R/W">
+        </bitfield>
+    </register>
+    <register id="UUPSDESCLO" width="16" offset="0xC" internal="0" description="UUPS Descriptor Register L.">
+        <bitfield id="MINREV" description="Minor Revision" begin="3" end="0" width="4" rwaccess="R">
+        </bitfield>
+        <bitfield id="INSTNUM" description="Instance Number within the device." begin="11" end="8" width="4" rwaccess="R">
+        </bitfield>
+        <bitfield id="MAJREV" description="Major Revision" begin="7" end="4" width="4" rwaccess="R">
+        </bitfield>
+        <bitfield id="FEATUREVER" description="Feature Set for the module" begin="15" end="12" width="4" rwaccess="R">
+        </bitfield>
+    </register>
+    <register id="UUPSDESCHI" width="16" offset="0xE" internal="0" description="UUPS Descriptor Register H.">
+    </register>
+    <register id="UUPSCTL" width="16" offset="0x10" internal="0" description="UUPS Control">
+        <bitfield id="USSPWRUP" description="Turn on USS Power and  PLL" begin="8" end="8" width="1" rwaccess="R/W">
+            <bitenum id="USSPWRUP_0" value="0x0" description="No action"/>
+            <bitenum id="USSPWRUP_1" value="0x1" description="Power up the USS module and generate the PSQ_START to the ASQ if CTL.ASQEN = 1. Note: This bit becomes invalid in debug mode."/>
+        </bitfield>
+        <bitfield id="ASQEN" description="Power Ready Output Event Select" begin="11" end="11" width="1" rwaccess="R/W">
+            <bitenum id="ASQEN_0" value="0x0" description="Do not generate the PSQ_START signal event to ASQ."/>
+            <bitenum id="ASQEN_1" value="0x1" description="Generate the PSQ_START signal event to the ASQ."/>
+        </bitfield>
+        <bitfield id="LDORDY" description="USS LDO is ready" begin="0" end="0" width="1" rwaccess="R">
+            <bitenum id="LDORDY_0" value="0x0" description="USS LDO is powered down or in transition mode"/>
+            <bitenum id="LDORDY_1" value="0x1" description="USS LDO is powered on"/>
+        </bitfield>
+        <bitfield id="LBHDEL" description="Reserved_2" begin="13" end="12" width="2" rwaccess="R/W">
+            <bitenum id="LBHDEL_0" value="0x0" description="no additional delay"/>
+            <bitenum id="LBHDEL_1" value="0x1" description="additional hold off delay of ~100us (512 REFCLKs)"/>
+            <bitenum id="LBHDEL_2" value="0x2" description="additional hold off delay of ~200us (1024 REFCLKs)"/>
+            <bitenum id="LBHDEL_3" value="0x3" description="additional hold off delay of ~300us (1536 REFCLKs)"/>
+        </bitfield>
+        <bitfield id="USSPWRDN" description="USS Power Down" begin="14" end="14" width="1" rwaccess="R/W">
+            <bitenum id="USSPWRDN_0" value="0x0" description="No action"/>
+            <bitenum id="USSPWRDN_1" value="0x1" description="Stop the current measurement and power off the USS module."/>
+        </bitfield>
+        <bitfield id="USSPWRUPSEL" description="USS Power Up trigger source select." begin="10" end="9" width="2" rwaccess="R/W">
+            <bitenum id="USSPWRUPSEL_0" value="0x0" description="CTL.USSPWRUP bit"/>
+            <bitenum id="USSPWRUPSEL_1" value="0x1" description="Ext. trigger (see the device specific datasheet)"/>
+            <bitenum id="USSPWRUPSEL_2" value="0x2" description="Ext. trigger (see the device-specific data sheet)"/>
+            <bitenum id="USSPWRUPSEL_3" value="0x3" description="Ext. trigger (see the device-specific data sheet)"/>
+        </bitfield>
+        <bitfield id="USSSTOP" description="USS Measurement Stop" begin="15" end="15" width="1" rwaccess="R/W">
+            <bitenum id="USSSTOP_0" value="0x0" description="No action"/>
+            <bitenum id="USSSTOP_1" value="0x1" description="Stop the current measurement."/>
+        </bitfield>
+        <bitfield id="UPSTATE" description="USS Power Up trigger source select." begin="2" end="1" width="2" rwaccess="R">
+            <bitenum id="UPSTATE_0" value="0x0" description="USS is in OFF mode"/>
+            <bitenum id="UPSTATE_1" value="0x1" description="USS is in STANDBY mode"/>
+            <bitenum id="UPSTATE_2" value="0x2" description="USS power mode is in transition."/>
+            <bitenum id="UPSTATE_3" value="0x3" description="USS is in READY mode"/>
+        </bitfield>
+        <bitfield id="USS_BUSY" description="USS Busy bit." begin="3" end="3" width="1" rwaccess="R">
+            <bitenum id="USS_BUSY_0" value="0x0" description="The USS module is not busy."/>
+            <bitenum id="USS_BUSY_1" value="0x1" description="The USS module is busy."/>
+        </bitfield>
+        <bitfield id="USSSWRST" description="Software reset" begin="7" end="7" width="1" rwaccess="R/W">
+            <bitenum id="USSSWRST_0" value="0x0" description="Disabled. USS (and sub modules) reset released for operation"/>
+            <bitenum id="USSSWRST_1" value="0x1" description="Enabled. USS (and sub modules) logic held in reset state"/>
+        </bitfield>
+    </register>
+</module>

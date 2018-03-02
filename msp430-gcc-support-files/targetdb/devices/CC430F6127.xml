@@ -1,11 +1,8 @@
 <device HW_revision="1.0" XML_version="1.0" description="CC430F6127" id="CC430F6127" partnum="CC430F6127">
 
+<include href="../options/CC430F6127_TI.xml"></include>
+<include href="../options/CC430F6127_GNU.xml"></include>
 <property Type="stringfield" Value="CC430x6xx Family" id="FilterString"></property>
-<property Type="stringfield" Value="-lc -lgcc -L ${CCS_BASE_ROOT}/msp430/include_gcc " id="GNULinkerBuildOptions"></property>
-<property Type="stringfield" Value="../include_gcc/cc430f6127.ld" id="GNUFilesToCopy"></property>
-<property Type="stringfield" Value="-D=__CC430F6127__   --use_hw_mpy=F5 --silicon_errata=CPU15 --silicon_errata=CPU18 --silicon_errata=CPU21 --silicon_errata=CPU22 --silicon_errata=CPU23 --silicon_errata=CPU40" id="CompilerBuildOptions"></property>
-<property Type="stringfield" Value="-mmcu=cc430f6127 -I${CCS_BASE_ROOT}/msp430/include_gcc -Os -mhwmult=f5series" id="GNUCompilerBuildOptions"></property>
-<property Type="stringfield" Value="-llibmath.a -i${CCS_BASE_ROOT}/msp430/lib/5xx_6xx_FRxx --use_hw_mpy=F5 --cinit_hold_wdt=on" id="LinkerBuildOptions"></property>
 <property Type="numericfield" Value="80" id="HeapDefaultSize"></property>
 <property Type="stringfield" Value="minimal" id="PrintfDefault_support"></property>
 <property Type="numericfield" Value="80" id="StackDefaultSize"></property>

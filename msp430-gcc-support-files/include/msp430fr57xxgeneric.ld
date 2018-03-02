@@ -31,7 +31,7 @@
 /* ============================================================================ */
 
 /* This file supports MSP430FR57XXGENERIC devices. */
-/* Version: 1.198 */
+/* Version: 1.194 */
 /* Default linker script, for normal executables */
 
 OUTPUT_ARCH(msp430)

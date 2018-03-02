@@ -1,0 +1,4 @@
+<properties XML_version="1.2">
+<property Type="stringfield" Value="-D=__MSP430F4783__   --use_hw_mpy=32" id="CompilerBuildOptions"></property>
+<property Type="stringfield" Value="-llibmath.a -i${CCS_BASE_ROOT}/msp430/lib/4xx --use_hw_mpy=32" id="LinkerBuildOptions"></property>
+</properties>

@@ -2,7 +2,7 @@
 
 <drivers id="TMS320C64XX">
 	<isa Type="TMS320C64XX" ProcID="0x500193F8">
-		<driver file="../../DebugServer/bin/libDataSnapshotDecoder.dylib">
+		<driver file="../../DebugServer/bin/libDataSnapshotDecoder.so">
 			<connectionType Type="DataSnapshotViewer"/>
 		</driver>
 	</isa>

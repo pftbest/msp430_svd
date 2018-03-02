@@ -1,5 +1,5 @@
 /* ============================================================================ */
-/* Copyright (c) 2016, Texas Instruments Incorporated                           */
+/* Copyright (c) 2017, Texas Instruments Incorporated                           */
 /*  All rights reserved.                                                        */
 /*                                                                              */
 /*  Redistribution and use in source and binary forms, with or without          */
@@ -31,7 +31,7 @@
 /* ============================================================================ */
 
 /* This file supports MSP430FR69221 devices. */
-/* Version: 1.198 */
+/* Version: 1.204 */
 /* Default linker script, for normal executables */
 
 OUTPUT_ARCH(msp430)
@@ -179,13 +179,18 @@ SECTIONS
     KEEP (*(.resetvec))
   } > RESETVEC
 
+  .lower.rodata :
+  {
+    . = ALIGN(2);
+    *(.lower.rodata.* .lower.rodata)
+  } > ROM
+
   .rodata :
   {
     . = ALIGN(2);
     *(.plt)
     *(.rodata .rodata.* .gnu.linkonce.r.* .const .const:*)
     *(.rodata1)
-    *(.lower.rodata.* .lower.rodata)
     KEEP (*(.gcc_except_table)) *(.gcc_except_table.*)
     PROVIDE (__preinit_array_start = .);
     KEEP (*(.preinit_array))
@@ -246,12 +251,20 @@ SECTIONS
     *(.persistent)
     . = ALIGN(2);
     PROVIDE (__persistent_end = .);
-  } > HIFRAM
+  } > ROM
+  
+  .tinyram : {} > TINYRAM
+  
+  .lower.data :
+  {
+    . = ALIGN(2);
+    PROVIDE (__datastart = .);
+    *(.lower.data.* .lower.data)
+  } > RAM AT> ROM
 
   .data :
   {
     . = ALIGN(2);
-    PROVIDE (__datastart = .);
 
     KEEP (*(.jcr))
     *(.data.rel.ro.local) *(.data.rel.ro*)
@@ -270,8 +283,6 @@ SECTIONS
     *(.sdata .sdata.* .gnu.linkonce.s.* D_2 D_1)
 
     . = ALIGN(2);
-    *(.lower.data.* .lower.data)
-    . = ALIGN(2);
 
     _edata = .;
     PROVIDE (edata = .);
@@ -280,8 +291,8 @@ SECTIONS
 
   /* Note that crt0 assumes this is a multiple of two; all the
      start/stop symbols are also assumed word-aligned.  */
-  PROVIDE(__romdatastart = LOADADDR(.data));
-  PROVIDE (__romdatacopysize = SIZEOF(.data));
+  PROVIDE(__romdatastart = LOADADDR(.lower.data));
+  PROVIDE (__romdatacopysize = SIZEOF(.lower.data) + SIZEOF(.data));
 
   .upper.data :
   {
@@ -296,19 +307,24 @@ SECTIONS
   __rom_highdatacopysize = SIZEOF(.upper.data) - 2;
   __rom_highdatastart = LOADADDR(.upper.data) + 2;
 
-  .bss :
+  .lower.bss :
   {
     . = ALIGN(2);
     PROVIDE (__bssstart = .);
+    *(.lower.bss.* .lower.bss)
+  } > RAM
+
+  .bss :
+  {
+    . = ALIGN(2);
     *(.dynbss)
     *(.sbss .sbss.*)
     *(.bss .bss.* .gnu.linkonce.b.*)
-    *(.lower.bss.* .lower.bss)
     . = ALIGN(2);
     *(COMMON)
     PROVIDE (__bssend = .);
   } > RAM
-  PROVIDE (__bsssize = SIZEOF(.bss));
+  PROVIDE (__bsssize = SIZEOF(.lower.bss) + SIZEOF(.bss));
 
   .upper.bss :
   {
@@ -317,8 +333,8 @@ SECTIONS
     *(.upper.bss.* .upper.bss)
     . = ALIGN(2);
     __high_bssend = .;
-	__high_bsssize = SIZEOF(.upper.bss);
   } > HIFRAM
+  __high_bsssize = SIZEOF(.upper.bss);
 
   /* This section contains data that is not initialised during load
      or application reset.  */
@@ -360,6 +376,12 @@ SECTIONS
     *(.stack)
   }
 
+  .lower.text :
+  {
+    . = ALIGN(2);
+    *(.lower.text.* .lower.text)
+  } > ROM
+
   .text :
   {
     PROVIDE (_start = .);
@@ -369,9 +391,6 @@ SECTIONS
 
     . = ALIGN(2);
     KEEP (*(.lowtext))
-
-    . = ALIGN(2);
-    *(.lower.text.* .lower.text)
 
     . = ALIGN(2);
     *(.text .stub .text.* .gnu.linkonce.t.* .text:*)
@@ -395,10 +414,10 @@ SECTIONS
     *(.upper.text.* .upper.text)
   } > HIFRAM
 
-  .infoA     : {} > INFOA              /* MSP430 INFO FLASH MEMORY SEGMENTS */
-  .infoB     : {} > INFOB
-  .infoC     : {} > INFOC
-  .infoD     : {} > INFOD
+  .infoA (NOLOAD) : {} > INFOA              /* MSP430 INFO FLASH MEMORY SEGMENTS */
+  .infoB (NOLOAD) : {} > INFOB
+  .infoC (NOLOAD) : {} > INFOC
+  .infoD (NOLOAD) : {} > INFOD
 
   /* The rest are all not normally part of the runtime image.  */
 

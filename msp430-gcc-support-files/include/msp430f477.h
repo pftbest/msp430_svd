@@ -1,5 +1,5 @@
 /* ============================================================================ */
-/* Copyright (c) 2016, Texas Instruments Incorporated                           */
+/* Copyright (c) 2017, Texas Instruments Incorporated                           */
 /*  All rights reserved.                                                        */
 /*                                                                              */
 /*  Redistribution and use in source and binary forms, with or without          */
@@ -48,7 +48,7 @@
 #ifndef __msp430x47x
 #define __msp430x47x
 
-#define __MSP430_HEADER_VERSION__ 1198
+#define __MSP430_HEADER_VERSION__ 1204
 
 #ifdef __cplusplus
 extern "C" {

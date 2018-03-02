@@ -1,11 +1,8 @@
 <device HW_revision="1.0" XML_version="1.0" description="MSP430C315" id="MSP430C315" partnum="MSP430C315">
 
+<include href="../options/MSP430C315_TI.xml"></include>
+<include href="../options/MSP430C315_GNU.xml"></include>
 <property Type="stringfield" Value="MSP430x3xx Family" id="FilterString"></property>
-<property Type="stringfield" Value="-lc -lgcc -L ${CCS_BASE_ROOT}/msp430/include_gcc " id="GNULinkerBuildOptions"></property>
-<property Type="stringfield" Value="../include_gcc/msp430c315.ld" id="GNUFilesToCopy"></property>
-<property Type="stringfield" Value="-D=__MSP430C315__   --use_hw_mpy=none" id="CompilerBuildOptions"></property>
-<property Type="stringfield" Value="-mmcu=msp430c315 -I${CCS_BASE_ROOT}/msp430/include_gcc -Os -mhwmult=none" id="GNUCompilerBuildOptions"></property>
-<property Type="stringfield" Value=" --use_hw_mpy=none" id="LinkerBuildOptions"></property>
 <property Type="numericfield" Value="80" id="HeapDefaultSize"></property>
 <property Type="stringfield" Value="minimal" id="PrintfDefault_support"></property>
 <property Type="numericfield" Value="80" id="StackDefaultSize"></property>

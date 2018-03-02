@@ -1,5 +1,5 @@
 /* ============================================================================ */
-/* Copyright (c) 2016, Texas Instruments Incorporated                           */
+/* Copyright (c) 2017, Texas Instruments Incorporated                           */
 /*  All rights reserved.                                                        */
 /*                                                                              */
 /*  Redistribution and use in source and binary forms, with or without          */
@@ -31,7 +31,7 @@
 /* ============================================================================ */
 
 /* This file supports MSP430F67641A devices. */
-/* Version: 1.198 */
+/* Version: 1.204 */
 /* Default linker script, for normal executables */
 
 OUTPUT_ARCH(msp430)
@@ -40,7 +40,7 @@ ENTRY(_start)
 MEMORY {
   SFR              : ORIGIN = 0x0000, LENGTH = 0x0010 /* END=0x0010, size 16 */
   BSL              : ORIGIN = 0x1000, LENGTH = 0x0800
-  RAM              : ORIGIN = 0x1C00, LENGTH = 0x1000 /* END=0x2BFF, size 4096 */
+  RAM              : ORIGIN = 0x1C00, LENGTH = 0x2000 /* END=0x3BFF, size 8192 */
   INFOMEM          : ORIGIN = 0x1800, LENGTH = 0x0200 /* END=0x19FF, size 512 as 4 128-byte segments */
   INFOA            : ORIGIN = 0x1980, LENGTH = 0x0080 /* END=0x19FF, size 128 */
   INFOB            : ORIGIN = 0x1900, LENGTH = 0x0080 /* END=0x197F, size 128 */
@@ -186,12 +186,16 @@ SECTIONS
     KEEP (*(.resetvec))
   } > RESETVEC
 
+  .lower.rodata :
+  {
+    . = ALIGN(2);
+    *(.lower.rodata.* .lower.rodata)
+  } > ROM
+
   .rodata :
   {
     . = ALIGN(2);
     *(.plt)
-    . = ALIGN(2);
-    *(.lower.rodata.* .lower.rodata)
     . = ALIGN(2);
     *(.rodata .rodata.* .gnu.linkonce.r.* .const .const:*)
     *(.rodata1)
@@ -349,11 +353,14 @@ SECTIONS
     KEEP (*(.lowtext))
   } > ROM
 
-  .text :
+  .lower.text :
   {
     . = ALIGN(2);
     *(.lower.text.* .lower.text)
+  } > ROM
 
+  .text :
+  {
     . = ALIGN(2);
     *(.text .stub .text.* .gnu.linkonce.t.* .text:*)
 
@@ -387,7 +394,7 @@ SECTIONS
     *(.upper.bss.* .upper.bss)
     *(.upper.data.* .upper.data)
     ASSERT (SIZEOF(.upper) == 0, "This MCU does not support placing read/write data into high memory");
-  }
+  } > HIROM
 
   /* The rest are all not normally part of the runtime image.  */
 

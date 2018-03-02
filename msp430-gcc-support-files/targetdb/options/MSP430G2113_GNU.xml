@@ -1,0 +1,5 @@
+<properties XML_version="1.2">
+<property Type="stringfield" Value="-lc -lgcc --gc-sections -L ${CCS_BASE_ROOT}/msp430/include_gcc " id="GNULinkerBuildOptions"></property>
+<property Type="stringfield" Value="-mmcu=msp430g2113 -I${CCS_BASE_ROOT}/msp430/include_gcc -Os -mhwmult=none" id="GNUCompilerBuildOptions"></property>
+<property Type="stringfield" Value="../include_gcc/msp430g2113.ld" id="GNUFilesToCopy"></property>
+</properties>

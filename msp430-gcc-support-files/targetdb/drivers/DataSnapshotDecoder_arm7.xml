@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <drivers id="ARM7">
 	<isa Type="ARM7" ProcID="0x75800418">
-		 <driver file="../../DebugServer/bin/libDataSnapshotDecoder.dylib">
+		 <driver file="../../DebugServer/bin/libDataSnapshotDecoder.so">
 			<connectionType Type="DataSnapshotViewer"/>
 		</driver>
 	</isa>

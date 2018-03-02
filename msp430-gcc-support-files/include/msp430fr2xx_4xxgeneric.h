@@ -1,5 +1,5 @@
 /* ============================================================================ */
-/* Copyright (c) 2016, Texas Instruments Incorporated                           */
+/* Copyright (c) 2017, Texas Instruments Incorporated                           */
 /*  All rights reserved.                                                        */
 /*                                                                              */
 /*  Redistribution and use in source and binary forms, with or without          */
@@ -50,7 +50,7 @@
 
 #define __MSP430_HAS_MSP430XV2_CPU__                /* Definition to show that it has MSP430XV2 CPU */
 
-#define __MSP430_HEADER_VERSION__ 1198
+#define __MSP430_HEADER_VERSION__ 1204
 
 #ifdef __cplusplus
 extern "C" {
@@ -4493,7 +4493,7 @@ extern "C" {
 ************************************************************/
 #ifdef  __MSP430_HAS_WDT_A__          /* Definition to show that Module is available */
 
-#define OFS_WDTCTL             (0x000C)       /* Watchdog Timer Control */
+#define OFS_WDTCTL             (0x0000)       /* Watchdog Timer Control */
 #define OFS_WDTCTL_L           OFS_WDTCTL
 #define OFS_WDTCTL_H           OFS_WDTCTL+1
 /* The bit names have been prefixed with "WDT" */

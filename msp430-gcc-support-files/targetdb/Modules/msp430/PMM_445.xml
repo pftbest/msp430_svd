@@ -79,12 +79,12 @@
             <bitenum id="PMMBORIFG_1" value="0x1" description="Reset due to PMMSWBOR"/>
         </bitfield>
         <bitfield id="PMMRSTIFG" description="PMM reset pin interrupt flag." begin="9" end="9" width="1" rwaccess="R/W">
-            <bitenum id="PMMRSTIFG_0" value="0x0" description="Reset not due to reset pin"/>
-            <bitenum id="PMMRSTIFG_1" value="0x1" description="Reset due to reset pin"/>
+            <bitenum id="PMMBORIFG_0" value="0x0" description="Reset not due to reset pin"/>
+            <bitenum id="PMMBORIFG_1" value="0x1" description="Reset due to reset pin"/>
         </bitfield>
         <bitfield id="PMMPORIFG" description="PMM software POR interrupt flag." begin="10" end="10" width="1" rwaccess="R/W">
-            <bitenum id="PMMPORIFG_0" value="0x0" description="Reset not due to PMMSWPOR"/>
-            <bitenum id="PMMPORIFG_1" value="0x1" description="Reset due to PMMSWPOR"/>
+            <bitenum id="PMMBORIFG_0" value="0x0" description="Reset not due to PMMSWPOR"/>
+            <bitenum id="PMMBORIFG_1" value="0x1" description="Reset due to PMMSWPOR"/>
         </bitfield>
         <bitfield id="SPWRIFG" description="Secondary Power interrupt flag. This bit only works in multi power supply systems. When the secondary power is ready to use, this bit is set., In single power supply systems, this bit does not work." begin="11" end="11" width="1" rwaccess="R">
         </bitfield>

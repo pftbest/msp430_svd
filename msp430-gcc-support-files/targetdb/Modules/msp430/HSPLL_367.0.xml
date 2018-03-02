@@ -1,0 +1,101 @@
+<module id="HSPLL" HW_revision="367.0">
+    <register id="HSPLLIIDX" width="16" offset="0x0" internal="0" description="Interrupt Index Register">
+        <bitfield id="IIDX" description="HSPLL Interrupt Vector Value" begin="15" end="1" width="15" rwaccess="R">
+            <bitenum id="IIDX_0" value="0x0" description="No Interrupt pending"/>
+            <bitenum id="IIDX_1" value="0x1" description="Interrupt Source: PLLUNLOCK; Interrupt Priority: Highest"/>
+            <bitenum id="IIDX_2" value="0x2" description="Reserved; Interrupt Priority: Lowest"/>
+        </bitfield>
+    </register>
+    <register id="HSPLLMIS" width="16" offset="0x2" internal="0" description="Masked Interrupt Status Register.">
+        <bitfield id="PLLUNLOCK" description="HSPLL Unlock Masked Interrupt Status bit" begin="0" end="0" width="1" rwaccess="R">
+            <bitenum id="PLLUNLOCK_0" value="0x0" description="No interrupt pending"/>
+            <bitenum id="PLLUNLOCK_1" value="0x1" description="Interrupt pending"/>
+        </bitfield>
+    </register>
+    <register id="HSPLLRIS" width="16" offset="0x4" internal="0" description="Raw Interrupt Status Register">
+        <bitfield id="PLLUNLOCK" description="PLL Unlock Raw Interrupt Status bit." begin="0" end="0" width="1" rwaccess="R">
+            <bitenum id="PLLUNLOCK_0" value="0x0" description="PLL status has not been changed"/>
+            <bitenum id="PLLUNLOCK_1" value="0x1" description="PLL status has been changed from Lock to Unlock"/>
+        </bitfield>
+    </register>
+    <register id="HSPLLIMSC" width="16" offset="0x6" internal="0" description="Interrupt Mask Register">
+        <bitfield id="PLLUNLOCK" description="PLL Unlock Interrupt Mask bit." begin="0" end="0" width="1" rwaccess="R/W">
+            <bitenum id="PLLUNLOCK_0" value="0x0" description="PLL Unlock Interrupt is disabled"/>
+            <bitenum id="PLLUNLOCK_1" value="0x1" description="PLL Unlock Interrupt is enabled"/>
+        </bitfield>
+    </register>
+    <register id="HSPLLICR" width="16" offset="0x8" internal="0" description="Interrupt Flag Clear Register.">
+        <bitfield id="PLLUNLOCK" description="PLL Unlock Interrupt Clear bit." begin="0" end="0" width="1" rwaccess="R/W">
+        </bitfield>
+    </register>
+    <register id="HSPLLISR" width="16" offset="0xA" internal="0" description="Interrupt Flag Set Register.">
+        <bitfield id="PLLUNLOCK" description="PLL Unlock Interrupt Set bit." begin="0" end="0" width="1" rwaccess="R/W">
+        </bitfield>
+    </register>
+    <register id="HSPLLDESCLO" width="16" offset="0xC" internal="0" description="HSPLL Descriptor Register L.">
+        <bitfield id="MINREV" description="Minor Revision" begin="3" end="0" width="4" rwaccess="R">
+        </bitfield>
+        <bitfield id="INSTNUM" description="Instance Number within the device." begin="11" end="8" width="4" rwaccess="R">
+        </bitfield>
+        <bitfield id="MAJREV" description="Major Revision" begin="7" end="4" width="4" rwaccess="R">
+        </bitfield>
+        <bitfield id="FEATUREVER" description="Feature Set for the module" begin="15" end="12" width="4" rwaccess="R">
+        </bitfield>
+    </register>
+    <register id="HSPLLDESCHI" width="16" offset="0xE" internal="0" description="HSPLL Descriptor Register H.">
+    </register>
+    <register id="HSPLLCTL" width="16" offset="0x10" internal="0" description="HSPLL Control Register">
+        <bitfield id="PLLM" description="PLL Multiplier" begin="15" end="10" width="6" rwaccess="R/W">
+            <bitenum id="PLLM_16" value="0x10" description=""/>
+            <bitenum id="PLLM_17" value="0x11" description=""/>
+            <bitenum id="PLLM_18" value="0x12" description=""/>
+            <bitenum id="PLLM_19" value="0x13" description=""/>
+            <bitenum id="PLLM_20" value="0x14" description=""/>
+            <bitenum id="PLLM_21" value="0x15" description=""/>
+            <bitenum id="PLLM_22" value="0x16" description=""/>
+            <bitenum id="PLLM_23" value="0x17" description=""/>
+            <bitenum id="PLLM_24" value="0x18" description=""/>
+            <bitenum id="PLLM_25" value="0x19" description=""/>
+            <bitenum id="PLLM_26" value="0x1A" description=""/>
+            <bitenum id="PLLM_27" value="0x1B" description=""/>
+            <bitenum id="PLLM_28" value="0x1C" description=""/>
+            <bitenum id="PLLM_29" value="0x1D" description=""/>
+            <bitenum id="PLLM_30" value="0x1E" description=""/>
+            <bitenum id="PLLM_31" value="0x1F" description=""/>
+            <bitenum id="PLLM_32" value="0x20" description=""/>
+            <bitenum id="PLLM_33" value="0x21" description=""/>
+            <bitenum id="PLLM_34" value="0x22" description=""/>
+            <bitenum id="PLLM_35" value="0x23" description=""/>
+            <bitenum id="PLLM_36" value="0x24" description=""/>
+            <bitenum id="PLLM_37" value="0x25" description=""/>
+            <bitenum id="PLLM_38" value="0x26" description=""/>
+            <bitenum id="PLLM_39" value="0x27" description=""/>
+        </bitfield>
+        <bitfield id="PLL_LOCK" description="PLL Lock Status" begin="0" end="0" width="1" rwaccess="R">
+            <bitenum id="PLL_LOCK_0" value="0x0" description="PLL is not running or not locked"/>
+            <bitenum id="PLL_LOCK_1" value="0x1" description="PLL is locked"/>
+        </bitfield>
+        <bitfield id="PLLINFREQ" description="PLL Input Frequency Selection." begin="8" end="8" width="1" rwaccess="R/W">
+            <bitenum id="PLLINFREQ_0" value="0x0" description="Input frequency is equal to 6MHz or lower than 6MHz"/>
+            <bitenum id="PLLINFREQ_1" value="0x1" description="Input frequency is higher than 6MHz"/>
+        </bitfield>
+    </register>
+    <register id="HSPLLUSSXTLCTL" width="16" offset="0x12" internal="0" description="USSXT Control Register">
+        <bitfield id="USSXTEN" description="USSXT Enable." begin="0" end="0" width="1" rwaccess="R/W">
+            <bitenum id="USSXTEN_0" value="0x0" description="Disable USSXT Oscillator"/>
+            <bitenum id="USSXTEN_1" value="0x1" description="Enable USSXT Oscillator"/>
+        </bitfield>
+        <bitfield id="XTOUTOFF" description="USSXT Buffered Output OFF" begin="8" end="8" width="1" rwaccess="R/W">
+            <bitenum id="XTOUTOFF_0" value="0x0" description="Enable USSXT buffered output"/>
+            <bitenum id="XTOUTOFF_1" value="0x1" description="Disable USSXT buffered output. Default."/>
+        </bitfield>
+        <bitfield id="OSCTYPE" description="Reserved" begin="9" end="9" width="1" rwaccess="R/W">
+            <bitenum id="XTAL" value="0x0" description="Gating Counter Length: 4096. It is recommended to use this configuration for crystal resonators.  Note: the counter counts the oscillator clock, so total time can be calculated as Time = 4096 x 1/Oscillator Clock Frequency."/>
+            <bitenum id="CERAMIC" value="0x1" description="Gating Counter Length: 512. It is recommended to use this configuration for ceramic resonators. Note: the counter counts the oscillator clock, so total time can be calculated as Time = 512x 1/Oscillator Clock Frequency."/>
+        </bitfield>
+        <bitfield id="OSCSTATE" description="Oscillator Status Bit." begin="1" end="1" width="1" rwaccess="R">
+            <bitenum id="OSCSTATE_0" value="0x0" description="Oscillator is either not enabled or in the middle of start-up transition."/>
+            <bitenum id="OSCSTATE_1" value="0x1" description="Oscillator has started but is not stable yet. Wait for sufficient time for stabilization."/>
+        </bitfield>
+    </register>
+</module>

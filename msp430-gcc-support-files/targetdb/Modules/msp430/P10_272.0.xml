@@ -1,0 +1,22 @@
+<module id="P10" HW_revision="272.0_inst9">
+    <register id="P10IN" width="8" offset="0x81" internal="0" description="Port 10 Input">
+    </register>
+    <register id="P10OUT" width="8" offset="0x83" internal="0" description="Port 10 Output">
+    </register>
+    <register id="P10DIR" width="8" offset="0x85" internal="0" description="Port 10 Direction">
+    </register>
+    <register id="P10REN" width="8" offset="0x87" internal="0" description="Port 10 Resistor Enable">
+    </register>
+    <register id="P10SEL0" width="8" offset="0x8B" internal="0" description="Port 10 Select 0">
+    </register>
+    <register id="P10SEL1" width="8" offset="0x8D" internal="0" description="Port 10 Select 1">
+    </register>
+    <register id="P10SELC" width="8" offset="0x97" internal="0" description="Port 10 Complement Select">
+    </register>
+    <register id="P10IES" width="8" offset="0x99" internal="0" description="Port 10 Interrupt Edge Select">
+    </register>
+    <register id="P10IE" width="8" offset="0x9B" internal="0" description="Port 10 Interrupt Enable">
+    </register>
+    <register id="P10IFG" width="8" offset="0x9D" internal="0" description="Port 10 Interrupt Flag">
+    </register>
+</module>

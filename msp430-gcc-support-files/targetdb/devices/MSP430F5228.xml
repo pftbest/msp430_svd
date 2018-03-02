@@ -1,11 +1,8 @@
 <device HW_revision="1.0" XML_version="1.0" description="MSP430F5228" id="MSP430F5228" partnum="MSP430F5228">
 
+<include href="../options/MSP430F5228_TI.xml"></include>
+<include href="../options/MSP430F5228_GNU.xml"></include>
 <property Type="stringfield" Value="MSP430x5xx Family" id="FilterString"></property>
-<property Type="stringfield" Value="-lc -lgcc -L ${CCS_BASE_ROOT}/msp430/include_gcc " id="GNULinkerBuildOptions"></property>
-<property Type="stringfield" Value="../include_gcc/msp430f5228.ld" id="GNUFilesToCopy"></property>
-<property Type="stringfield" Value="-D=__MSP430F5228__ --data_model=restricted   --use_hw_mpy=F5 --silicon_errata=CPU21 --silicon_errata=CPU22 --silicon_errata=CPU40" id="CompilerBuildOptions"></property>
-<property Type="stringfield" Value="-mmcu=msp430f5228 -I${CCS_BASE_ROOT}/msp430/include_gcc -Os -mlarge -mhwmult=f5series -mcode-region=none -mdata-region=none" id="GNUCompilerBuildOptions"></property>
-<property Type="stringfield" Value="-llibmath.a -i${CCS_BASE_ROOT}/msp430/lib/5xx_6xx_FRxx --use_hw_mpy=F5 --cinit_hold_wdt=on" id="LinkerBuildOptions"></property>
 <property Type="numericfield" Value="160" id="HeapDefaultSize"></property>
 <property Type="stringfield" Value="minimal" id="PrintfDefault_support"></property>
 <property Type="numericfield" Value="160" id="StackDefaultSize"></property>
