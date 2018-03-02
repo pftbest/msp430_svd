@@ -1,5 +1,5 @@
 /* ============================================================================ */
-/* Copyright (c) 2016, Texas Instruments Incorporated                           */
+/* Copyright (c) 2017, Texas Instruments Incorporated                           */
 /*  All rights reserved.                                                        */
 /*                                                                              */
 /*  Redistribution and use in source and binary forms, with or without          */
@@ -31,7 +31,7 @@
 /* ============================================================================ */
 
 /* This file supports MSP430F6458 devices. */
-/* Version: 1.198 */
+/* Version: 1.204 */
 /* Default linker script, for normal executables */
 
 OUTPUT_ARCH(msp430)
@@ -188,12 +188,16 @@ SECTIONS
     KEEP (*(.resetvec))
   } > RESETVEC
 
+  .lower.rodata :
+  {
+    . = ALIGN(2);
+    *(.lower.rodata.* .lower.rodata)
+  } > ROM
+
   .rodata :
   {
     . = ALIGN(2);
     *(.plt)
-    . = ALIGN(2);
-    *(.lower.rodata.* .lower.rodata)
     . = ALIGN(2);
     *(.rodata .rodata.* .gnu.linkonce.r.* .const .const:*)
     *(.rodata1)
@@ -351,11 +355,14 @@ SECTIONS
     KEEP (*(.lowtext))
   } > ROM
 
-  .text :
+  .lower.text :
   {
     . = ALIGN(2);
     *(.lower.text.* .lower.text)
+  } > ROM
 
+  .text :
+  {
     . = ALIGN(2);
     *(.text .stub .text.* .gnu.linkonce.t.* .text:*)
 
@@ -389,7 +396,7 @@ SECTIONS
     *(.upper.bss.* .upper.bss)
     *(.upper.data.* .upper.data)
     ASSERT (SIZEOF(.upper) == 0, "This MCU does not support placing read/write data into high memory");
-  }
+  } > HIROM
 
   /* The rest are all not normally part of the runtime image.  */
 

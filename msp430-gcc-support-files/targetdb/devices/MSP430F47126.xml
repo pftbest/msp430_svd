@@ -1,11 +1,8 @@
 <device HW_revision="1.0" XML_version="1.0" description="MSP430F47126" id="MSP430F47126" partnum="MSP430F47196">
 
+<include href="../options/MSP430F47126_TI.xml"></include>
+<include href="../options/MSP430F47126_GNU.xml"></include>
 <property Type="stringfield" Value="MSP430x4xx Family" id="FilterString"></property>
-<property Type="stringfield" Value="-lc -lgcc -L ${CCS_BASE_ROOT}/msp430/include_gcc " id="GNULinkerBuildOptions"></property>
-<property Type="stringfield" Value="../include_gcc/msp430f47126.ld" id="GNUFilesToCopy"></property>
-<property Type="stringfield" Value="-D=__MSP430F47126__   --use_hw_mpy=32" id="CompilerBuildOptions"></property>
-<property Type="stringfield" Value="-mmcu=msp430f47126 -I${CCS_BASE_ROOT}/msp430/include_gcc -Os -mhwmult=32bit" id="GNUCompilerBuildOptions"></property>
-<property Type="stringfield" Value="-llibmath.a -i${CCS_BASE_ROOT}/msp430/lib/4xx --use_hw_mpy=32 --cinit_hold_wdt=on" id="LinkerBuildOptions"></property>
 <property Type="numericfield" Value="80" id="HeapDefaultSize"></property>
 <property Type="stringfield" Value="minimal" id="PrintfDefault_support"></property>
 <property Type="numericfield" Value="80" id="StackDefaultSize"></property>

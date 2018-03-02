@@ -1,5 +1,5 @@
 /* ============================================================================ */
-/* Copyright (c) 2016, Texas Instruments Incorporated                           */
+/* Copyright (c) 2017, Texas Instruments Incorporated                           */
 /*  All rights reserved.                                                        */
 /*                                                                              */
 /*  Redistribution and use in source and binary forms, with or without          */
@@ -31,7 +31,7 @@
 /* ============================================================================ */
 
 /* This file supports MSP430F2011 devices. */
-/* Version: 1.198 */
+/* Version: 1.204 */
 
 /************************************************************
 * STANDARD BITS

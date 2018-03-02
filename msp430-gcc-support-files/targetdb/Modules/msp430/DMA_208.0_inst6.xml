@@ -1,4 +1,4 @@
-<module id="DMA" HW_revision="208.0">
+<module id="DMA" HW_revision="208.0_inst6">
     <register id="DMACTL0" width="16" offset="0x0" internal="0" description="DMA Control 0">
         <bitfield id="DMA0TSEL" description="DMA trigger select" begin="4" end="0" width="5" rwaccess="R/W">
             <bitenum id="DMA0TRIG0" value="0x0" description="DMA0TRIG0"/>

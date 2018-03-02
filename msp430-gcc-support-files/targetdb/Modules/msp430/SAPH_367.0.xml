@@ -1,0 +1,391 @@
+<module id="SAPH" HW_revision="367.0">
+    <register id="SAPHIIDX" width="16" offset="0x0" internal="0" description="Interrupt Index">
+        <bitfield id="IIDX" description="This register provides the highest priority enabled interrupt index." begin="3" end="1" width="3" rwaccess="R">
+            <bitenum id="NONE" value="0x0" description="no interrupts pending"/>
+            <bitenum id="DATAERR" value="0x1" description="This interrupt indicates that either WINHI interrupt or WINLO interrupt has occurred in SDHS."/>
+            <bitenum id="TMFTO" value="0x2" description="This interrupt is valid when ASQ is activcve (auto mode). The interrupt indicates that the time counter in ASQ has reached to TIMEMARK_F (timeout)."/>
+            <bitenum id="SEQDN" value="0x3" description="The interrupt occurs when ASQ completes all of the measurements programmed in ASCTL0.PNGCNT. For example, when ASCTL0.PNGCNT = 3, total four measurements are performed. The interrupt indicates that all of the four measurements have been completed.  Note: After the ASQ is triggered, if the current measurement is interrupted by entering debug halt mode (UUPS.RIS.STPBYDB = 1), the SEQDN interrupt is also reported."/>
+            <bitenum id="PNGDN" value="0x4" description="The interrupt occurs when the PPG completes pulse generation."/>
+        </bitfield>
+    </register>
+    <register id="SAPHMIS" width="16" offset="0x2" internal="0" description="Masked Interrupt Satus">
+        <bitfield id="DATAERR" description="This interrupt indicates that either WINHI interrupt or WINLO interrupt has occurred in SDHS." begin="0" end="0" width="1" rwaccess="R">
+        </bitfield>
+        <bitfield id="TMFTO" description="This bit indicates a TIMEMARK F (timeout) event has happened." begin="1" end="1" width="1" rwaccess="R">
+        </bitfield>
+        <bitfield id="SEQDN" description="The interrupt occurs when ASQ completes all of the measurements programmed in ASCTL0.PNGCNT. For example, when ASCTL0.PNGCNT = 3, total four measurements are performed. The interrupt indicates that all of the four measurements have been completed.  Note: After the ASQ is triggered, if the current measurement is interrupted by entering debug halt mode (UUPS.RIS.STPBYDB = 1), the SEQDN interrupt is also reported." begin="2" end="2" width="1" rwaccess="R">
+        </bitfield>
+        <bitfield id="PNGDN" description="The interrupt occurs when the PPG completes pulse generation." begin="3" end="3" width="1" rwaccess="R">
+        </bitfield>
+    </register>
+    <register id="SAPHRIS" width="16" offset="0x4" internal="0" description="Raw Interrupt Status">
+        <bitfield id="DATAERR" description="This interrupt indicates that either WINHI interrupt or WINLO interrupt has occurred in SDHS." begin="0" end="0" width="1" rwaccess="R">
+        </bitfield>
+        <bitfield id="TMFTO" description="This bit indicates a TIMEMARK F (timeout) event has happened." begin="1" end="1" width="1" rwaccess="R">
+        </bitfield>
+        <bitfield id="SEQDN" description="The interrupt occurs when ASQ completes all of the measurements programmed in ASCTL0.PNGCNT. For example, when ASCTL0.PNGCNT = 3, total four measurements are performed. The interrupt indicates that all of the four measurements have been completed.  Note: After the ASQ is triggered, if the current measurement is interrupted by entering debug halt mode (UUPS.RIS.STPBYDB = 1), the SEQDN interrupt is also reported." begin="2" end="2" width="1" rwaccess="R">
+        </bitfield>
+        <bitfield id="PNGDN" description="The interrupt occurs when the PPG completes pulse generation." begin="3" end="3" width="1" rwaccess="R">
+        </bitfield>
+    </register>
+    <register id="SAPHIMSC" width="16" offset="0x6" internal="0" description="Interrupt Mask">
+        <bitfield id="DATAERR" description="This bit enables the DATAERR interrupt." begin="0" end="0" width="1" rwaccess="R/W">
+        </bitfield>
+        <bitfield id="TMFTO" description="This bit enables the TIMEMARK F (timeout) interrupt." begin="1" end="1" width="1" rwaccess="R/W">
+        </bitfield>
+        <bitfield id="SEQDN" description="This bit enables the SEQDN interrupt" begin="2" end="2" width="1" rwaccess="R/W">
+        </bitfield>
+        <bitfield id="PNGDN" description="This bit enables the PNGDN interrupt" begin="3" end="3" width="1" rwaccess="R/W">
+        </bitfield>
+    </register>
+    <register id="SAPHICR" width="16" offset="0x8" internal="0" description="Interrupt Clear">
+        <bitfield id="DATAERR" description="Writing one this bit to clear the pending DATAERR interrupt." begin="0" end="0" width="1" rwaccess="R/W">
+        </bitfield>
+        <bitfield id="TMFTO" description="Writing one this bit to clear the pending TIMEMARK F (timeout) interrupt" begin="1" end="1" width="1" rwaccess="R/W">
+        </bitfield>
+        <bitfield id="SEQDN" description="Writing one this bit to clear the pending SEQDN interrupt." begin="2" end="2" width="1" rwaccess="R/W">
+        </bitfield>
+        <bitfield id="PNGDN" description="Writing one this bit to clear the pending PNGDN interrupt." begin="3" end="3" width="1" rwaccess="R/W">
+        </bitfield>
+    </register>
+    <register id="SAPHISR" width="16" offset="0xA" internal="0" description="Interrupt Set">
+        <bitfield id="DATAERR" description="Writing one this bit generates a DATAERR interrupt by software." begin="0" end="0" width="1" rwaccess="R/W">
+        </bitfield>
+        <bitfield id="TMFTO" description="Writing one this bit to generate a TIMEMARK F (timeout) interrupt by software." begin="1" end="1" width="1" rwaccess="R/W">
+        </bitfield>
+        <bitfield id="SEQDN" description="Writing one this bit to generate a SEQDN interrupt by software." begin="2" end="2" width="1" rwaccess="R/W">
+        </bitfield>
+        <bitfield id="PNGDN" description="Writing one this bit to generate a PNGDN interrupt by software." begin="3" end="3" width="1" rwaccess="R/W">
+        </bitfield>
+    </register>
+    <register id="SAPHDESCLO" width="16" offset="0xC" internal="0" description="Module-Descriptor Low Word">
+        <bitfield id="MINREV" description="Minor Revision" begin="3" end="0" width="4" rwaccess="R">
+        </bitfield>
+        <bitfield id="MAJREV" description="Major Revision" begin="7" end="4" width="4" rwaccess="R">
+        </bitfield>
+        <bitfield id="INSTNUM" description="Instance Number" begin="11" end="8" width="4" rwaccess="R">
+        </bitfield>
+        <bitfield id="FEATUREVER" description="Feature Version" begin="15" end="12" width="4" rwaccess="R">
+        </bitfield>
+    </register>
+    <register id="SAPHDESCHI" width="16" offset="0xE" internal="0" description="Module-Descriptor High Word">
+    </register>
+    <register id="SAPHKEY" width="16" offset="0x10" internal="0" description="Key">
+    </register>
+    <register id="SAPHOCTL0" width="16" offset="0x12" internal="0" description="Physical Interface Output Control #0">
+        <bitfield id="CH0OE" description="CH0_OUT Enable. When OSEL.PCH0SEL =0, this bit enables the output CH0 when set to 1. When OSEL.PCH0SEL != 0, this bit is invalid." begin="0" end="0" width="1" rwaccess="R/W">
+            <bitenum id="CH0OE_0" value="0x0" description="Ch0 Output is HiZ"/>
+            <bitenum id="CH0OE_1" value="0x1" description="CH0 Output is driving"/>
+        </bitfield>
+        <bitfield id="CH1OE" description="CH1_OUT Enable. When OSEL.PCH1SEL =0, this bit enables the output CH1 when set to 1. When OSEL.PCH1SEL != 0, this bit is invalid." begin="1" end="1" width="1" rwaccess="R/W">
+            <bitenum id="CH1OE_0" value="0x0" description="Ch1 Output is HiZ"/>
+            <bitenum id="CH1OE_1" value="0x1" description="CH1 Output is driving"/>
+        </bitfield>
+        <bitfield id="CH0OUT" description="CH0_OUT Value. When OSEL.PCH0SEL =0 and OCTL0.CH0OE=1, this bit represents the logical value on the CH0 terminal.  0 = low 1 = high" begin="8" end="8" width="1" rwaccess="R/W">
+            <bitenum id="CH0OUT_0" value="0x0" description="Ch0 is set to low signal"/>
+            <bitenum id="CH0OUT_1" value="0x1" description="Ch0 is set to high signal"/>
+        </bitfield>
+        <bitfield id="CH1OUT" description="CH1_OUT Value. When OSEL.PCH1SEL =0 and OCTL0.CH1OE=1, this bit represents the logical value on the CH1 terminal.  0 = low 1 = high" begin="9" end="9" width="1" rwaccess="R/W">
+            <bitenum id="CH1OUT_0" value="0x0" description="Ch1 is set to low signal"/>
+            <bitenum id="CH1OUT_1" value="0x1" description="Ch1 is set to high signal"/>
+        </bitfield>
+    </register>
+    <register id="SAPHOCTL1" width="16" offset="0x14" internal="0" description="Physical Interface Output Control #1">
+        <bitfield id="CH0TERM" description="CH0 termination switch (SWG0) enable.  When OSEL.PCH0SEL =0, this bit controls the SWG0 switch.  0 = SWG0 is off.   1 = SWG0 is on. The CH0_OUT is disabled and connected to PVSS via SWG0 switch. No need to change OCTL0.CH0OE status." begin="0" end="0" width="1" rwaccess="R/W">
+            <bitenum id="CH0TERM_0" value="0x0" description="CH0 Output is defined by CH0OUT and CH0OE"/>
+            <bitenum id="CH0TERM_1" value="0x1" description="CH0 Output is set low with termination strength"/>
+        </bitfield>
+        <bitfield id="CH1TERM" description="CH1 termination switch (SWG1) enable.  When OSEL.PCH1SEL =0, this bit controls the SWG1 switch.  0 = SWG1 is off.   1 = SWG1 is on. The CH1_OUT is disabled and connected to PVSS via SWG1 switch. No need to change OCTL0.CH1OE status." begin="1" end="1" width="1" rwaccess="R/W">
+            <bitenum id="CH1TERM_0" value="0x0" description="CH1 Output is defined by CH1OUT and CH1OE"/>
+            <bitenum id="CH1TERM_1" value="0x1" description="CH1 Output is set low with termination strength"/>
+        </bitfield>
+        <bitfield id="CH0FP" description="DRV0 (output driver on the CH0_OUT) full strength enable.  0 = The DRV0 output impedance is deterimed by CH0PUT and CH0PDT registers.  1 = The DRV0 has lowest output impedance." begin="8" end="8" width="1" rwaccess="R/W">
+            <bitenum id="CH0FP_0" value="0x0" description="Ch0 Output is set to normal strength"/>
+            <bitenum id="CH0FP_1" value="0x1" description="Ch0 Output is set to maximum strength"/>
+        </bitfield>
+        <bitfield id="CH1FP" description="DRV1 (output driver on the CH1_OUT) full strength enable.  0 = The DRV1 output impedance is deterimed by CH1PUT and CH1PDT registers.  1 = The DRV1 has lowest output impedance." begin="9" end="9" width="1" rwaccess="R/W">
+            <bitenum id="CH1FP_0" value="0x0" description="Ch1 Output is set to normal strength"/>
+            <bitenum id="CH1FP_1" value="0x1" description="Ch1 Output is set to maximum strength"/>
+        </bitfield>
+    </register>
+    <register id="SAPHOSEL" width="16" offset="0x16" internal="0" description="Physical Interface Output Function Select">
+        <bitfield id="PCH0SEL" description="Output functional select for CH0_OUT." begin="1" end="0" width="2" rwaccess="R/W">
+            <bitenum id="GPIO" value="0x0" description="CH0_OUT is used as a GPO pin. It is controlled by OCTL0.CH0OUT and OCTL0.CH0OE."/>
+            <bitenum id="PPGSE" value="0x1" description="CH0_OUT is driven by the PPG."/>
+            <bitenum id="PCH0SEL_2" value="0x2" description="CH0_OUT is driven by the PPG as differential output along with CH1_OUT. (CH0_OUT and CH1_OUT are alwasy opposite polarity)"/>
+            <bitenum id="PCH0SEL_3" value="0x3" description="CH0_OUT is used as a GPO pin. It is controlled by OCTL0.CH0OUT and OCTL0.CH0OE."/>
+        </bitfield>
+        <bitfield id="PCH1SEL" description="Output functional select for CH0_OUT." begin="3" end="2" width="2" rwaccess="R/W">
+            <bitenum id="GPIO" value="0x0" description="CH1_OUT is used as a GPO pin. It is controlled by OCTL0.CH1OUT and OCTL0.CH1OE."/>
+            <bitenum id="PPGSE" value="0x1" description="CH1_OUT is driven by the PPG."/>
+            <bitenum id="PCH1SEL_2" value="0x2" description="CH1_OUT is driven by the PPG as differential output along with CH0_OUT. (CH0_OUT and CH1_OUT are alwasy opposite polarity)"/>
+            <bitenum id="PCH1SEL_3" value="0x3" description="CH1_OUT is used as a GPO pin. It is controlled by OCTL0.CH1OUT and OCTL0.CH1OE."/>
+        </bitfield>
+    </register>
+    <register id="SAPHCH0PUT" width="16" offset="0x20" internal="0" description="Channel 0 Pull UpTrim Register">
+        <bitfield id="CH0PUT" description="DRV0 pull up trim register. Write access is allowed only when TACR.UNLOCK=1. For secure the trim value, it is recommended to keep TACR.UNLOCK=0 during normal operation." begin="3" end="0" width="4" rwaccess="R/W">
+        </bitfield>
+    </register>
+    <register id="SAPHCH0PDT" width="16" offset="0x22" internal="0" description="Channel 0 Pull DownTrim Register">
+        <bitfield id="CH0PDT" description="DRV0 pull down trim register. Write access is allowed only when TACR.UNLOCK=1. For secure the trim value, it is recommended to keep TACR.UNLOCK=0 during normal operation." begin="3" end="0" width="4" rwaccess="R/W">
+        </bitfield>
+    </register>
+    <register id="SAPHCH0TT" width="16" offset="0x24" internal="0" description="Channel 0 Termination Trim">
+        <bitfield id="CH0TT" description="SWG0 trim register. Write access is allowed only when TACR.UNLOCK=1. For secure the trim value, it is recommended to keep TACR.UNLOCK=0 during normal operation." begin="3" end="0" width="4" rwaccess="R/W">
+        </bitfield>
+    </register>
+    <register id="SAPHCH1PUT" width="16" offset="0x26" internal="0" description="Channel 1 Pull UpTrim">
+        <bitfield id="CH1PUT" description="DRV1 pull up trim register. Write access is allowed only when TACR.UNLOCK=1. For secure the trim value, it is recommended to keep TACR.UNLOCK=0 during normal operation." begin="3" end="0" width="4" rwaccess="R/W">
+        </bitfield>
+    </register>
+    <register id="SAPHCH1PDT" width="16" offset="0x28" internal="0" description="Channel 1 Pull DownTrim">
+        <bitfield id="CH1PDT" description="DRV1 pull down trim register. Write access is allowed only when TACR.UNLOCK=1. For secure the trim value, it is recommended to keep TACR.UNLOCK=0 during normal operation." begin="3" end="0" width="4" rwaccess="R/W">
+        </bitfield>
+    </register>
+    <register id="SAPHCH1TT" width="16" offset="0x2A" internal="0" description="Channel 1 Termination Trim">
+        <bitfield id="CH1TT" description="SWG1 trim register. Write access is allowed only when TACR.UNLOCK=1. For secure the trim value, it is recommended to keep TACR.UNLOCK=0 during normal operation." begin="3" end="0" width="4" rwaccess="R/W">
+        </bitfield>
+    </register>
+    <register id="SAPHMCNF" width="16" offset="0x2C" internal="0" description="Mode Configuration Register">
+        <bitfield id="LPBE" description="LPBE, low power bias mode enable. This bit enables the low power bias operation mode. The selection of the operation mode shall only be changed while the PSQ is in OFF state (changes during other states of the PSQ causes corrupt measurement results and irregular triggers of sub modules ba ASQ)" begin="11" end="11" width="1" rwaccess="R/W">
+            <bitenum id="LPBE_0" value="0x0" description="For manual bias mode and regular ASQ bias mode. In this configuration the user controls by the ASQBSW has full control over the TxBias and RxBias switches."/>
+            <bitenum id="LPBE_1" value="0x1" description="Low power bias mode. In this mode the ASQ uses the CHxEBSW and PGABSW as auxiliary values to achieve faster channel setting on reactive input loads. The ASQ has full controls over the bias switch multiplexer."/>
+        </bitfield>
+        <bitfield id="RSV1" description="Reserved for future use" begin="10" end="9" width="2" rwaccess="R/W">
+        </bitfield>
+        <bitfield id="CPEO" description="This bit enables the charge pump of the input multiplexer." begin="8" end="8" width="1" rwaccess="R/W">
+            <bitenum id="CPEO_0" value="0x0" description="Charge pump is turned on by SDHS and ASQ related requests only."/>
+            <bitenum id="CPEO_1" value="0x1" description="Charge pump is turned on regardless of SDHS and ASQ related charge pump requests."/>
+        </bitfield>
+        <bitfield id="RSV0" description="Reserved for future use" begin="3" end="2" width="2" rwaccess="R/W">
+        </bitfield>
+        <bitfield id="BIMP" description="These bits define the impedance of the buffers for RxBias and TxBias. While for resistive loads the lowest impedance shows the fastest settling; is this not the case for reactive loads." begin="1" end="0" width="2" rwaccess="R/W">
+            <bitenum id="BIMP_0" value="0x0" description="200 Ohms buffer impedance for RxBias and TxBias"/>
+            <bitenum id="BIMP_1" value="0x1" description="600 Ohms buffer impedance for RxBias and TxBias"/>
+            <bitenum id="BIMP_2" value="0x2" description="1200 Ohms buffer impedance for RxBias and TxBias (default)"/>
+            <bitenum id="BIMP_3" value="0x3" description="2800 Ohms buffer impedance for RxBias and TxBias"/>
+        </bitfield>
+    </register>
+    <register id="SAPHTACTL" width="16" offset="0x2E" internal="0" description="Trim Access Control">
+        <bitfield id="UNLOCK" description="When UNLOCK = 1, the trim registers are allowed to be updated (CH0PUT, CH0PDT, CH0TT, CH1PUT, CH1PDT, and CH1TT)." begin="0" end="0" width="1" rwaccess="R/W">
+        </bitfield>
+    </register>
+    <register id="SAPHICTL0" width="16" offset="0x30" internal="0" description="Physical Interface Input Control #0">
+        <bitfield id="MUXSEL" description="Input Multiplexer Channel Select" begin="3" end="0" width="4" rwaccess="R/W">
+            <bitenum id="CH0IN" value="0x0" description="Channel 0 is selected for input"/>
+            <bitenum id="CH1IN" value="0x1" description="Channel 1 is selected for input"/>
+            <bitenum id="MUXSEL_2" value="0x2" description="reserved for future channels"/>
+            <bitenum id="MUXSEL_3" value="0x3" description="reserved for future channels"/>
+            <bitenum id="MUXSEL_4" value="0x4" description="reserved for future channels"/>
+            <bitenum id="MUXSEL_5" value="0x5" description="reserved for future channels"/>
+            <bitenum id="MUXSEL_6" value="0x6" description="reserved for future channels"/>
+            <bitenum id="MUXSEL_7" value="0x7" description="reserved for future channels"/>
+            <bitenum id="MUXSEL_8" value="0x8" description="no channel is selected"/>
+            <bitenum id="MUXSEL_9" value="0x9" description="no channel is selected"/>
+            <bitenum id="MUXSEL_10" value="0xA" description="no channel is selected"/>
+            <bitenum id="MUXSEL_11" value="0xB" description="no channel is selected"/>
+            <bitenum id="MUXSEL_12" value="0xC" description="no channel is selected"/>
+            <bitenum id="MUXSEL_13" value="0xD" description="no channel is selected"/>
+            <bitenum id="MUXSEL_14" value="0xE" description="no channel is selected"/>
+            <bitenum id="MUXSEL_15" value="0xF" description="no channel is selected"/>
+        </bitfield>
+        <bitfield id="DUMEN" description="PGA dummy load enable on the deselected multiplexer inputs." begin="7" end="7" width="1" rwaccess="R/W">
+            <bitenum id="DUMEN_0" value="0x0" description="PGA dummy input load is Hi-Z."/>
+            <bitenum id="DUMEN_1" value="0x1" description="PGA dummy input load matches the PGA input impedance."/>
+        </bitfield>
+        <bitfield id="MUXCTL" description="Input Multiplexer Control source" begin="4" end="4" width="1" rwaccess="R/W">
+            <bitenum id="MUXCTL_0" value="0x0" description="The input multiplexer is controlled by ICTL0.MUXSEL (register mode)"/>
+            <bitenum id="MUXCTL_1" value="0x1" description="The input multiplexer is controlled by ASQ (auto mode)"/>
+        </bitfield>
+    </register>
+    <register id="SAPHBCTL" width="16" offset="0x34" internal="0" description="Bias Control">
+        <bitfield id="ASQBSC" description="Tx bias and Rx bias switches control source select" begin="0" end="0" width="1" rwaccess="R/W">
+            <bitenum id="ASQBSC_0" value="0x0" description="Bias switches are controlled by BCTL.CH0EBSW, BCTL.CH1EBSW, BCTL.PGABSW bits (register mode)."/>
+            <bitenum id="ASQBSC_1" value="0x1" description="Bias switches are controlled by ASQ (auto mode)"/>
+        </bitfield>
+        <bitfield id="PGABSW" description="Rx bias (PGA bias) switch control. Note that the channel to apply the Rx bias is determined by ICTL0.MUXSEL." begin="1" end="1" width="1" rwaccess="R/W">
+            <bitenum id="PGABSW_0" value="0x0" description="Rx bias switch is open."/>
+            <bitenum id="PGABSW_1" value="0x1" description="Rx bias switch is closed (enabled)."/>
+        </bitfield>
+        <bitfield id="EXCBIAS" description="Excitation bias (Rx bias) Voltage Select" begin="5" end="4" width="2" rwaccess="R/W">
+            <bitenum id="EXCBIAS_0" value="0x0" description="0.2V nominal"/>
+            <bitenum id="EXCBIAS_1" value="0x1" description="0.3V nominal"/>
+            <bitenum id="EXCBIAS_2" value="0x2" description="0.4V nominal"/>
+            <bitenum id="EXCBIAS_3" value="0x3" description="0.6V nominal"/>
+        </bitfield>
+        <bitfield id="PGABIAS" description="PGA bias (Rx bias) Voltage Select" begin="7" end="6" width="2" rwaccess="R/W">
+            <bitenum id="PGABIAS_0" value="0x0" description="0.75V nominal"/>
+            <bitenum id="PGABIAS_1" value="0x1" description="0.8V nominal"/>
+            <bitenum id="PGABIAS_2" value="0x2" description="0.9V nominal"/>
+            <bitenum id="PGABIAS_3" value="0x3" description="0.95V nominal"/>
+        </bitfield>
+        <bitfield id="CH0EBSW" description="Channel 0 Tx bias Switch Control. Note that the Tx bias voltage is determined by BCTL.EXCBIAS." begin="8" end="8" width="1" rwaccess="R/W">
+            <bitenum id="CH0EBSW_0" value="0x0" description="Tx bias switch to CH0 is open."/>
+            <bitenum id="CH0EBSW_1" value="0x1" description="Tx bias switch to CH0 is closed (enabled)."/>
+        </bitfield>
+        <bitfield id="CH1EBSW" description="Channel 1 Tx bias Switch Control. Note that the Tx bias voltage is determined by BCTL.EXCBIAS." begin="9" end="9" width="1" rwaccess="R/W">
+            <bitenum id="CH1EBSW_0" value="0x0" description="Tx bias switch to CH1 is open."/>
+            <bitenum id="CH1EBSW_1" value="0x1" description="Tx bias switch to CH1 is closed (enabled)."/>
+        </bitfield>
+        <bitfield id="CPDA" description="Enable the power supply (Charge Pump) for the the input multiplexer during data acquisition." begin="3" end="3" width="1" rwaccess="R/W">
+            <bitenum id="CPDA_0" value="0x0" description="Turn off the charge pump during data acquisition."/>
+            <bitenum id="CPDA_1" value="0x1" description="Keep charge pump enabled during data acquisition."/>
+        </bitfield>
+        <bitfield id="LILC" description="Line input leakage compensation (LILC) enable. (Test function, keep at zero)" begin="2" end="2" width="1" rwaccess="R/W">
+            <bitenum id="LILC_0" value="0x0" description="LICL is disabled."/>
+            <bitenum id="LILC_1" value="0x1" description="LICL is enabled."/>
+        </bitfield>
+    </register>
+    <register id="SAPHPGC" width="16" offset="0x40" internal="0" description="PPG Count">
+        <bitfield id="EPULS" description="Excitation Pulse Count. This bit field defines the number of excitation pulses. Minimum value is zero." begin="6" end="0" width="7" rwaccess="R/W">
+        </bitfield>
+        <bitfield id="SPULS" description="Stop Pulse Count; This bit field defines the number of stop pulses. Minimum value is zero. Stop pulses have the inverted polarity of excitation pulses." begin="11" end="8" width="4" rwaccess="R/W">
+        </bitfield>
+        <bitfield id="PPOL" description="Pulse Polarity. This bit defines the polarity of the first excitation pulse." begin="13" end="13" width="1" rwaccess="R/W">
+            <bitenum id="PPOL_0" value="0x0" description="The excitation begins with logical high phase. The stop begines with logical low phase."/>
+            <bitenum id="PPOL_1" value="0x1" description="The excitation begins with logical low phase. The stop begines with logical high phase."/>
+        </bitfield>
+        <bitfield id="PLEV" description="PPG ouptut level during inactive. This bit affects the status of PPG output before and after excitations. Note that this bit is only valid when PGC.PHIZ =0." begin="14" end="14" width="1" rwaccess="R/W">
+            <bitenum id="PLEV_0" value="0x0" description="PPG output is low during inactive"/>
+            <bitenum id="PLEV_1" value="0x1" description="PPG output is high during inactive"/>
+        </bitfield>
+        <bitfield id="PHIZ" description="Hi-Z enable to PPG output during inactive." begin="15" end="15" width="1" rwaccess="R/W">
+            <bitenum id="PHIZ_0" value="0x0" description="PPG output during inactive is determined by PGC.PLEV bit."/>
+            <bitenum id="PHIZ_1" value="0x1" description="PPG output is in Hi-Z during inactive regardless of PGC.PLEV bit."/>
+        </bitfield>
+    </register>
+    <register id="SAPHPGLPER" width="16" offset="0x42" internal="0" description="Pulse Generator Low Period">
+        <bitfield id="LPER" description="Low phase period of PPG excitation pulses. This value defines the length of the low phase of the pulses. The minimum count is two regardless of the value set in this register." begin="7" end="0" width="8" rwaccess="R/W">
+        </bitfield>
+    </register>
+    <register id="SAPHPGHPER" width="16" offset="0x44" internal="0" description="Pulse Generator High Period">
+        <bitfield id="HPER" description="High phase period of PPG excitation pulses. This value defines the length of the high phase of the pulses. The minimum count is two regardless of the value set in this register." begin="7" end="0" width="8" rwaccess="R/W">
+        </bitfield>
+    </register>
+    <register id="SAPHPGCTL" width="16" offset="0x46" internal="0" description="PPG Control">
+        <bitfield id="PGSEL" description="PPG output channel select source." begin="0" end="0" width="1" rwaccess="R/W">
+            <bitenum id="PGSEL_0" value="0x0" description="PPG output channel is selected by PGCTL.PPGCHSEL bit (register mode)."/>
+            <bitenum id="PGSEL_1" value="0x1" description="PPG output channel is selected by ASQ (auto mode)."/>
+        </bitfield>
+        <bitfield id="PPGCHSEL" description="PPG output channel select when PGCTL.PGSEL = 0." begin="1" end="1" width="1" rwaccess="R/W">
+            <bitenum id="PPGCHSEL_0" value="0x0" description="CH0 is selected"/>
+            <bitenum id="PPGCHSEL_1" value="0x1" description="CH1 is selected"/>
+        </bitfield>
+        <bitfield id="TRSEL" description="PPG Trigger source select." begin="5" end="4" width="2" rwaccess="R/W">
+            <bitenum id="TRSEL_0" value="0x0" description="Writing 1 to PPGTRIG.PPGTRIG to trigger the PPG (start pulse generation)."/>
+            <bitenum id="TRSEL_1" value="0x1" description="PPG trigger is controlled by the ASQ."/>
+            <bitenum id="TRSEL_2" value="0x2" description="Ext. Signal (See device specific datasheet)"/>
+            <bitenum id="TRSEL_3" value="0x3" description="Ext. Signal (See device specific datasheet)"/>
+        </bitfield>
+        <bitfield id="PPGEN" description="PPGEN PPG trigger enable. This bit can be used to indicates that the configuration of the pulse generator is complete. The PPG can only be started when this bit is set to 1 regardless of its trigger source. It is recommended to keep this bit zero while updating PPG registers." begin="9" end="9" width="1" rwaccess="R/W">
+            <bitenum id="PPGEN_0" value="0x0" description="PPG trigger is disabled."/>
+            <bitenum id="PPGEN_1" value="0x1" description="PPG trigger is enabled."/>
+        </bitfield>
+        <bitfield id="TONE" description="Tone generation enable. The frequency of the test tone is determined by LPER and HPER. The test tone persists while PGCTL.TONE = 1 &amp; PGCTL.STOP=0. Either writing 0 to PGCTL.TONE or writing 1  to PGCTL.STOP stops tone generation." begin="14" end="14" width="1" rwaccess="R/W">
+            <bitenum id="DISABLE" value="0x0" description="Test tone generation is disabled.  Note: This bit is automatically cleared when writing '1' to PGCTL.STOP, and it stops test tone generation immediately."/>
+            <bitenum id="ENABLE" value="0x0" description="Test tone generation is enabled."/>
+        </bitfield>
+        <bitfield id="PPGSTOP" description="Writing one to this bit stopps the PPG to generate pulses. This bit is cleared automatically." begin="15" end="15" width="1" rwaccess="R/W">
+        </bitfield>
+        <bitfield id="PSCEN" description="PPG pre scaler enable." begin="13" end="13" width="1" rwaccess="R/W">
+            <bitenum id="DISABLE" value="0x0" description="Prescaler is disabled. PPG clock = PLL output clock."/>
+            <bitenum id="ENABLE" value="0x1" description="Prescaler by four is enabled. PPG clock = 1/4 of the PLL output clock."/>
+        </bitfield>
+    </register>
+    <register id="SAPHPPGTRIG" width="16" offset="0x48" internal="0" description="PPG Software Trigger">
+        <bitfield id="PPGTRIG" description="Writing '1' to this bit triggers the PPG to generate pulses when PGCTL.TRSEL =0.    Note: This bit is write only. Reading always returns with zero." begin="0" end="0" width="1" rwaccess="R/W">
+        </bitfield>
+    </register>
+    <register id="SAPHASCTL0" width="16" offset="0x60" internal="0" description="A-SEQ control register 0">
+        <bitfield id="PNGCNT" description="The total number of measurements to be performed.  0 = 1 measurement will be performed (Min) 1 = 2 measurements will be performed 2 = 3 measurements will be performed 3 = 4 measurements will be performed (Max) Note: This bit field is static, does not reflect the currently reamining measurement numbers." begin="1" end="0" width="2" rwaccess="R/W">
+        </bitfield>
+        <bitfield id="ASQCHSEL" description="This bit selects the channel to start with when ASQ contols the measuremnet sequences." begin="4" end="4" width="1" rwaccess="R/W">
+            <bitenum id="ASQCHSEL_0" value="0x0" description="CH0 is selected to start with.  If ASCTL0.PNGCNT = 3 and ASCTL1.CHTOG =1, then the channel selection would be CH0 - CH1 - CH0 - CH1. If ASCTL0.PNGCNT = 3 and ASCTL1.CHTOG =0, then the channel selection would be CH0 - CH0 - CH0 - CH0."/>
+            <bitenum id="ASQCHSEL_1" value="0x1" description="CH1 is selected to start with.  If ASCTL0.PNGCNT = 3 and ASCTL1.CHTOG =0, then the channel selection would be CH1 - CH1 - CH1 - CH1. If ASCTL0.PNGCNT = 3 and ASCTL1.CHTOG =1, then the channel selection would be CH1 - CH0 - CH1 - CH0."/>
+        </bitfield>
+        <bitfield id="ASQSTOP" description="Stop the ASQ. Writing '1' to this bit stops the measurement sequence controlled by the ASQ.  This bit is self cleared." begin="7" end="7" width="1" rwaccess="R/W">
+        </bitfield>
+        <bitfield id="ASQTEN" description="ASQ Trigger Enable. This bit can be used to indicate that the configuration of the ASQ is complete. The ASQ can only be triggered when this bit is set to '1' regardless of its trigger source. It is recommended to keep this bit zero while updating ASQ registerds." begin="9" end="9" width="1" rwaccess="R/W">
+            <bitenum id="ASQEN_0" value="0x0" description="ASQ trigger is disabled."/>
+            <bitenum id="ASQEN_1" value="0x1" description="ASQ trigger is enabled."/>
+        </bitfield>
+        <bitfield id="TRIGSEL" description="ASQ trigger select." begin="11" end="10" width="2" rwaccess="R/W">
+            <bitenum id="SWTRIG" value="0x0" description="Writing '1' to ASQTRIG.ASQTRIG"/>
+            <bitenum id="PSQ" value="0x1" description="The PSQ is selected to start the ASQ."/>
+            <bitenum id="TIMER" value="0x2" description="Ext. Signal (See device specific datasheet)"/>
+            <bitenum id="TRIGSEL_3" value="0x3" description="Ext. Signal (See device specific datasheet)"/>
+        </bitfield>
+        <bitfield id="ERABRT" description="Stop ASQ when the DATAERR interrupt occurrs when the mesurements controlled by ASQ (auto mode). Note that it is not possible to resume the measurement from where it was stopped. When ASQ is triggered again, the measurement seqeunce starts from the beginning." begin="13" end="13" width="1" rwaccess="R/W">
+            <bitenum id="ERABRT_0" value="0x0" description="Continue the measurements until completion regardless of the DATAERR interrupt."/>
+            <bitenum id="ERABRT_1" value="0x1" description="Stop the ASQ upon the DATAERR interrupt."/>
+        </bitfield>
+    </register>
+    <register id="SAPHASCTL1" width="16" offset="0x62" internal="0" description="A-SEQ control register 1">
+        <bitfield id="CHTOG" description="Channel toggle enable at each PNGDN interrupt." begin="0" end="0" width="1" rwaccess="R/W">
+            <bitenum id="CHTOG_0" value="0x0" description="Channel toggle is disabled."/>
+            <bitenum id="CHTOG_1" value="0x1" description="Channel toggle is enabled at each PNGDN interrupt."/>
+        </bitfield>
+        <bitfield id="CHACT" description="Read Only bit. This bit indicates the currently selected Tx channel." begin="4" end="4" width="1" rwaccess="R">
+        </bitfield>
+        <bitfield id="EARLYRB" description="Early Receive Bias Control. The Rx bias is applied at the TIMEMARK C, but when this bit is set to '1', the Rx bias is applied at the TIMEMARK A." begin="7" end="7" width="1" rwaccess="R/W">
+            <bitenum id="EARLYRB_0" value="0x0" description="Rx bias is applied to the Rx channel by the TIMEMARK C"/>
+            <bitenum id="EARLYRB_1" value="0x1" description="Rx bias is applied to the Rx channel by the TIMEMARK A"/>
+        </bitfield>
+        <bitfield id="ESOFF" description="Enable the OFF request when ASQ completes all of the measurement sequences." begin="8" end="8" width="1" rwaccess="R/W">
+            <bitenum id="ESOFF_0" value="0x0" description="OFF request is disabled. The ASQ does not send a request about USS power mode to the PSQ."/>
+            <bitenum id="ESOFF_1" value="0x1" description="OFF request is generated after sequence"/>
+        </bitfield>
+        <bitfield id="STDBY" description="ASQ can send a request sigal to the PSQ (Power Sequencer) of the USS module when the OFF request is received (See ASCTL1.ESOFF and the UUPS module)." begin="10" end="10" width="1" rwaccess="R/W">
+            <bitenum id="PWROFF" value="0x0" description="The ASQ sends a power down request to the PSQ (Power Sequencer) when the OFF request is received."/>
+            <bitenum id="STDBY" value="0x1" description="The ASQ sends a standby request to the PSQ (Power Sequencer) when the OFF request is received."/>
+        </bitfield>
+        <bitfield id="CHOWN" description="In general, if CH0 is selected for Tx, CH1 is selected for Rx. However, when this bit is set to '1', the Tx channel and Rx channel are identical. This bit can be used for debugging purpose." begin="11" end="11" width="1" rwaccess="R/W">
+            <bitenum id="CHOWN_0" value="0x0" description="Tx channel and Rx channel are not the same (This is the typical configuration)."/>
+            <bitenum id="CHOWN_1" value="0x1" description="Tx channel and Rx channel are identical."/>
+        </bitfield>
+    </register>
+    <register id="SAPHASQTRIG" width="8" offset="0x64" internal="0" description="ASQ Software Trigger">
+        <bitfield id="ASQTRIG" description="Writing '1' to this bit trigger the ASQ when ASCTL0.TRIGSEL = 0. Note: This bit is write only. Reading always returns with zero." begin="0" end="0" width="1" rwaccess="R/W">
+        </bitfield>
+    </register>
+    <register id="SAPHAPOL" width="16" offset="0x66" internal="0" description="ASQ ping output polarity">
+        <bitfield id="PCPOL" description="Bit 0 defines the PPG pulse polarity for the first measurement.  Bit 1 defines the PPG pulse polarity for the second measurement.  Bit 2 defines the PPG pulse polarity for the third measurement.  Bit 3 defines the PPG pulse polarity for the fourth measurement.   0 = PPG output pulses starts with logical high polarity. 1 = PPG output pulses starts with logical low polarity." begin="3" end="0" width="4" rwaccess="R/W">
+        </bitfield>
+    </register>
+    <register id="SAPHAPLEV" width="16" offset="0x68" internal="0" description="ASQ ping pause level">
+        <bitfield id="PCPLEV" description="Bit 0 defines the PPG output level at pause for the first measurement when PCPHIZ bit 0 = 0. Bit 1 defines the PPG output level at pause for the second measurement when PCPHIZ bit 1 = 0. Bit 2 defines the PPG output level at pause for the third measurement when PCPHIZ bit 2 = 0. Bit 3 defines the PPG output level at pause for the fourth measurement when PCPHIZ bit 3 = 0.   0 = Logical Low. 1 = Logical High." begin="3" end="0" width="4" rwaccess="R/W">
+        </bitfield>
+    </register>
+    <register id="SAPHAPHIZ" width="16" offset="0x6A" internal="0" description="ASQ ping pause impedance">
+        <bitfield id="PCPHIZ" description="Bit 0 defines the PPG output status at pause for the first measurement.  Bit 1 defines the PPG output status at pause for the second measurement.  Bit 2 defines the PPG output status at pause for the third measurement.  Bit 3 defines the PPG output status at pause for the fourth measurement.   0 = PPG ouput level is determined by APLEV.PCPLEV bits 1 = Hi-z. regardless of APLEV.PCPLEV bits" begin="3" end="0" width="4" rwaccess="R/W">
+        </bitfield>
+    </register>
+    <register id="SAPHATM_A" width="16" offset="0x6E" internal="0" description="A-SEQ start to 1st ping">
+    </register>
+    <register id="SAPHATM_B" width="16" offset="0x70" internal="0" description="ASQ start to ADC arm">
+    </register>
+    <register id="SAPHATM_C" width="16" offset="0x72" internal="0" description="Count for the TIMEMARK C Event">
+    </register>
+    <register id="SAPHATM_D" width="16" offset="0x74" internal="0" description="ASQ start to ADC trig">
+    </register>
+    <register id="SAPHATM_E" width="16" offset="0x76" internal="0" description="ASQ start to restart">
+    </register>
+    <register id="SAPHATM_F" width="16" offset="0x78" internal="0" description="ASQ start to timeout">
+    </register>
+    <register id="SAPHTBCTL" width="16" offset="0x7A" internal="0" description="Time Base Control">
+        <bitfield id="TCLR" description="The ASQ time counter clear. Writing '1' to this bit clears the the counter value. The counter must be stopped prior to be cleared. This bit is self cleared. TSTOP, TSTART, and TCLR bits are offerred for only debugging purpose. It is not recommend to use this bit while ASQ is active. Note: This bit is write only. Reading always returns with zero." begin="0" end="0" width="1" rwaccess="R/W">
+        </bitfield>
+        <bitfield id="TSTART" description="The ASQ time counter start. Writing '1' to this bit starts the counter. This bit is self cleared. TSTOP, TSTART, and TCLR bits are offerred for only debugging purpose. It is not recommend to use this bit while ASQ is active. Note: This bit is write only. Reading always returns with zero." begin="1" end="1" width="1" rwaccess="R/W">
+        </bitfield>
+        <bitfield id="TSTOP" description="The ASQ time counter stop. Writing '1' to this bit stops the counter. This bit is self cleared. TSTOP, TSTART, and TCLR bits are offerred for only debugging purpose. It is not recommend to use this bit while ASQ is active. Note: This bit is write only. Reading always returns with zero." begin="2" end="2" width="1" rwaccess="R/W">
+        </bitfield>
+        <bitfield id="PSSV" description="ASQ pre-scaler shift. The value written to the PSSV bits shifts the start point of the ASQ's pre-scaler. Note that the value only affects the first cycle of the pre-scaler.   0 = No shift 1 = The pre-scaler starts 1 clock later  2 = The pre-scaler starts 2 clocks later  ... 15 = The pre-scaler starts 15 clocks later" begin="7" end="4" width="4" rwaccess="R/W">
+        </bitfield>
+    </register>
+    <register id="SAPHATIMLO" width="16" offset="0x7C" internal="0" description="Acquisition Timer Low Part">
+    </register>
+    <register id="SAPHATIMHI" width="16" offset="0x7E" internal="0" description="Acquisition Timer High Part">
+        <bitfield id="ATIMHI" description="ASQ Timer Counter high part. The reading this register returns the counter value [19:16]." begin="3" end="0" width="4" rwaccess="R">
+        </bitfield>
+    </register>
+</module>

@@ -1,6 +1,6 @@
 //*****************************************************************************
 //
-// Copyright (C) 2016 Texas Instruments Incorporated - http://www.ti.com/
+// Copyright (C) 2017 Texas Instruments Incorporated - http://www.ti.com/
 //
 // Redistribution and use in source and binary forms, with or without
 // modification, are permitted provided that the following conditions
@@ -44,7 +44,7 @@
 #ifndef __MSP430FR5992
 #define __MSP430FR5992
 
-#define __MSP430_HEADER_VERSION__ 1198
+#define __MSP430_HEADER_VERSION__ 1204
 
 #define __MSP430_HAS_MSP430XV2_CPU__  /* CPU type */
 #define __MSP430FR5XX_6XX_FAMILY__
@@ -3586,25 +3586,25 @@ sfr_b(CSCTL6_H);
 #define __MSP430_BASEADDRESS_PORT1_R__ 0x200
 #define P1_BASE                __MSP430_BASEADDRESS_PORT1_R__
 #define __MSP430_HAS_PORT2_R__                /* Definition to show that port is available */
-#define __MSP430_BASEADDRESS_PORT2_R__ 0x201
+#define __MSP430_BASEADDRESS_PORT2_R__ 0x200
 #define P2_BASE                __MSP430_BASEADDRESS_PORT2_R__
 #define __MSP430_HAS_PORT3_R__                /* Definition to show that port is available */
 #define __MSP430_BASEADDRESS_PORT3_R__ 0x220
 #define P3_BASE                __MSP430_BASEADDRESS_PORT3_R__
 #define __MSP430_HAS_PORT4_R__                /* Definition to show that port is available */
-#define __MSP430_BASEADDRESS_PORT4_R__ 0x221
+#define __MSP430_BASEADDRESS_PORT4_R__ 0x220
 #define P4_BASE                __MSP430_BASEADDRESS_PORT4_R__
 #define __MSP430_HAS_PORT5_R__                /* Definition to show that port is available */
 #define __MSP430_BASEADDRESS_PORT5_R__ 0x240
 #define P5_BASE                __MSP430_BASEADDRESS_PORT5_R__
 #define __MSP430_HAS_PORT6_R__                /* Definition to show that port is available */
-#define __MSP430_BASEADDRESS_PORT6_R__ 0x241
+#define __MSP430_BASEADDRESS_PORT6_R__ 0x240
 #define P6_BASE                __MSP430_BASEADDRESS_PORT6_R__
 #define __MSP430_HAS_PORT7_R__                /* Definition to show that port is available */
 #define __MSP430_BASEADDRESS_PORT7_R__ 0x260
 #define P7_BASE                __MSP430_BASEADDRESS_PORT7_R__
 #define __MSP430_HAS_PORT8_R__                /* Definition to show that port is available */
-#define __MSP430_BASEADDRESS_PORT8_R__ 0x261
+#define __MSP430_BASEADDRESS_PORT8_R__ 0x260
 #define P8_BASE                __MSP430_BASEADDRESS_PORT8_R__
 #define __MSP430_HAS_PASEL0__                 /* Define for DriverLib */
 #define __MSP430_HAS_PASEL1__                 /* Define for DriverLib */
@@ -3996,133 +3996,133 @@ sfr_b(P8IFG);                                 /* Port 8 Interrupt Flag */
 #define OFS_P2IV                         (0x001E)
 #define OFS_P2IV_L                       OFS_P2IV
 #define OFS_P2IV_H                       OFS_P2IV+1
-#define OFS_PBIN                         (0x0020)
+#define OFS_PBIN                         (0x0000)
 #define OFS_PBIN_L                       OFS_PBIN
 #define OFS_PBIN_H                       OFS_PBIN+1
-#define OFS_PBOUT                        (0x0022)
+#define OFS_PBOUT                        (0x0002)
 #define OFS_PBOUT_L                      OFS_PBOUT
 #define OFS_PBOUT_H                      OFS_PBOUT+1
-#define OFS_PBDIR                        (0x0024)
+#define OFS_PBDIR                        (0x0004)
 #define OFS_PBDIR_L                      OFS_PBDIR
 #define OFS_PBDIR_H                      OFS_PBDIR+1
-#define OFS_PBREN                        (0x0026)
+#define OFS_PBREN                        (0x0006)
 #define OFS_PBREN_L                      OFS_PBREN
 #define OFS_PBREN_H                      OFS_PBREN+1
-#define OFS_PBSEL0                       (0x002A)
+#define OFS_PBSEL0                       (0x000A)
 #define OFS_PBSEL0_L                     OFS_PBSEL0
 #define OFS_PBSEL0_H                     OFS_PBSEL0+1
-#define OFS_PBSEL1                       (0x002C)
+#define OFS_PBSEL1                       (0x000C)
 #define OFS_PBSEL1_L                     OFS_PBSEL1
 #define OFS_PBSEL1_H                     OFS_PBSEL1+1
-#define OFS_P3IV                         (0x002E)
+#define OFS_P3IV                         (0x000E)
 #define OFS_P3IV_L                       OFS_P3IV
 #define OFS_P3IV_H                       OFS_P3IV+1
-#define OFS_PBSELC                       (0x0036)
+#define OFS_PBSELC                       (0x0016)
 #define OFS_PBSELC_L                     OFS_PBSELC
 #define OFS_PBSELC_H                     OFS_PBSELC+1
-#define OFS_PBIES                        (0x0038)
+#define OFS_PBIES                        (0x0018)
 #define OFS_PBIES_L                      OFS_PBIES
 #define OFS_PBIES_H                      OFS_PBIES+1
-#define OFS_PBIE                         (0x003A)
+#define OFS_PBIE                         (0x001A)
 #define OFS_PBIE_L                       OFS_PBIE
 #define OFS_PBIE_H                       OFS_PBIE+1
-#define OFS_PBIFG                        (0x003C)
+#define OFS_PBIFG                        (0x001C)
 #define OFS_PBIFG_L                      OFS_PBIFG
 #define OFS_PBIFG_H                      OFS_PBIFG+1
-#define OFS_P4IV                         (0x003E)
+#define OFS_P4IV                         (0x001E)
 #define OFS_P4IV_L                       OFS_P4IV
 #define OFS_P4IV_H                       OFS_P4IV+1
-#define OFS_PCIN                         (0x0040)
+#define OFS_PCIN                         (0x0000)
 #define OFS_PCIN_L                       OFS_PCIN
 #define OFS_PCIN_H                       OFS_PCIN+1
-#define OFS_PCOUT                        (0x0042)
+#define OFS_PCOUT                        (0x0002)
 #define OFS_PCOUT_L                      OFS_PCOUT
 #define OFS_PCOUT_H                      OFS_PCOUT+1
-#define OFS_PCDIR                        (0x0044)
+#define OFS_PCDIR                        (0x0004)
 #define OFS_PCDIR_L                      OFS_PCDIR
 #define OFS_PCDIR_H                      OFS_PCDIR+1
-#define OFS_PCREN                        (0x0046)
+#define OFS_PCREN                        (0x0006)
 #define OFS_PCREN_L                      OFS_PCREN
 #define OFS_PCREN_H                      OFS_PCREN+1
-#define OFS_PCSEL0                       (0x004A)
+#define OFS_PCSEL0                       (0x000A)
 #define OFS_PCSEL0_L                     OFS_PCSEL0
 #define OFS_PCSEL0_H                     OFS_PCSEL0+1
-#define OFS_PCSEL1                       (0x004C)
+#define OFS_PCSEL1                       (0x000C)
 #define OFS_PCSEL1_L                     OFS_PCSEL1
 #define OFS_PCSEL1_H                     OFS_PCSEL1+1
-#define OFS_P5IV                         (0x004E)
+#define OFS_P5IV                         (0x000E)
 #define OFS_P5IV_L                       OFS_P5IV
 #define OFS_P5IV_H                       OFS_P5IV+1
-#define OFS_PCSELC                       (0x0056)
+#define OFS_PCSELC                       (0x0016)
 #define OFS_PCSELC_L                     OFS_PCSELC
 #define OFS_PCSELC_H                     OFS_PCSELC+1
-#define OFS_PCIES                        (0x0058)
+#define OFS_PCIES                        (0x0018)
 #define OFS_PCIES_L                      OFS_PCIES
 #define OFS_PCIES_H                      OFS_PCIES+1
-#define OFS_PCIE                         (0x005A)
+#define OFS_PCIE                         (0x001A)
 #define OFS_PCIE_L                       OFS_PCIE
 #define OFS_PCIE_H                       OFS_PCIE+1
-#define OFS_PCIFG                        (0x005C)
+#define OFS_PCIFG                        (0x001C)
 #define OFS_PCIFG_L                      OFS_PCIFG
 #define OFS_PCIFG_H                      OFS_PCIFG+1
-#define OFS_P6IV                         (0x005E)
+#define OFS_P6IV                         (0x001E)
 #define OFS_P6IV_L                       OFS_P6IV
 #define OFS_P6IV_H                       OFS_P6IV+1
-#define OFS_PDIN                         (0x0060)
+#define OFS_PDIN                         (0x0000)
 #define OFS_PDIN_L                       OFS_PDIN
 #define OFS_PDIN_H                       OFS_PDIN+1
-#define OFS_PDOUT                        (0x0062)
+#define OFS_PDOUT                        (0x0002)
 #define OFS_PDOUT_L                      OFS_PDOUT
 #define OFS_PDOUT_H                      OFS_PDOUT+1
-#define OFS_PDDIR                        (0x0064)
+#define OFS_PDDIR                        (0x0004)
 #define OFS_PDDIR_L                      OFS_PDDIR
 #define OFS_PDDIR_H                      OFS_PDDIR+1
-#define OFS_PDREN                        (0x0066)
+#define OFS_PDREN                        (0x0006)
 #define OFS_PDREN_L                      OFS_PDREN
 #define OFS_PDREN_H                      OFS_PDREN+1
-#define OFS_PDSEL0                       (0x006A)
+#define OFS_PDSEL0                       (0x000A)
 #define OFS_PDSEL0_L                     OFS_PDSEL0
 #define OFS_PDSEL0_H                     OFS_PDSEL0+1
-#define OFS_PDSEL1                       (0x006C)
+#define OFS_PDSEL1                       (0x000C)
 #define OFS_PDSEL1_L                     OFS_PDSEL1
 #define OFS_PDSEL1_H                     OFS_PDSEL1+1
-#define OFS_P7IV                         (0x006E)
+#define OFS_P7IV                         (0x000E)
 #define OFS_P7IV_L                       OFS_P7IV
 #define OFS_P7IV_H                       OFS_P7IV+1
-#define OFS_PDSELC                       (0x0076)
+#define OFS_PDSELC                       (0x0016)
 #define OFS_PDSELC_L                     OFS_PDSELC
 #define OFS_PDSELC_H                     OFS_PDSELC+1
-#define OFS_PDIES                        (0x0078)
+#define OFS_PDIES                        (0x0018)
 #define OFS_PDIES_L                      OFS_PDIES
 #define OFS_PDIES_H                      OFS_PDIES+1
-#define OFS_PDIE                         (0x007A)
+#define OFS_PDIE                         (0x001A)
 #define OFS_PDIE_L                       OFS_PDIE
 #define OFS_PDIE_H                       OFS_PDIE+1
-#define OFS_PDIFG                        (0x007C)
+#define OFS_PDIFG                        (0x001C)
 #define OFS_PDIFG_L                      OFS_PDIFG
 #define OFS_PDIFG_H                      OFS_PDIFG+1
-#define OFS_P8IV                         (0x007E)
+#define OFS_P8IV                         (0x001E)
 #define OFS_P8IV_L                       OFS_P8IV
 #define OFS_P8IV_H                       OFS_P8IV+1
-#define OFS_PJIN                         (0x0120)
+#define OFS_PJIN                         (0x0000)
 #define OFS_PJIN_L                       OFS_PJIN
 #define OFS_PJIN_H                       OFS_PJIN+1
-#define OFS_PJOUT                        (0x0122)
+#define OFS_PJOUT                        (0x0002)
 #define OFS_PJOUT_L                      OFS_PJOUT
 #define OFS_PJOUT_H                      OFS_PJOUT+1
-#define OFS_PJDIR                        (0x0124)
+#define OFS_PJDIR                        (0x0004)
 #define OFS_PJDIR_L                      OFS_PJDIR
 #define OFS_PJDIR_H                      OFS_PJDIR+1
-#define OFS_PJREN                        (0x0126)
+#define OFS_PJREN                        (0x0006)
 #define OFS_PJREN_L                      OFS_PJREN
 #define OFS_PJREN_H                      OFS_PJREN+1
-#define OFS_PJSEL0                       (0x012A)
+#define OFS_PJSEL0                       (0x000A)
 #define OFS_PJSEL0_L                     OFS_PJSEL0
 #define OFS_PJSEL0_H                     OFS_PJSEL0+1
-#define OFS_PJSEL1                       (0x012C)
+#define OFS_PJSEL1                       (0x000C)
 #define OFS_PJSEL1_L                     OFS_PJSEL1
 #define OFS_PJSEL1_H                     OFS_PJSEL1+1
-#define OFS_PJSELC                       (0x0136)
+#define OFS_PJSELC                       (0x0016)
 #define OFS_PJSELC_L                     OFS_PJSELC
 #define OFS_PJSELC_H                     OFS_PJSELC+1
 #define OFS_P1IN                         (0x0000)
@@ -4145,66 +4145,66 @@ sfr_b(P8IFG);                                 /* Port 8 Interrupt Flag */
 #define OFS_P2IE                         (0x001B)
 #define OFS_P1IFG                        (0x001C)
 #define OFS_P2IFG                        (0x001D)
-#define OFS_P3IN                         (0x0020)
-#define OFS_P4IN                         (0x0021)
-#define OFS_P3OUT                        (0x0022)
-#define OFS_P4OUT                        (0x0023)
-#define OFS_P3DIR                        (0x0024)
-#define OFS_P4DIR                        (0x0025)
-#define OFS_P3REN                        (0x0026)
-#define OFS_P4REN                        (0x0027)
-#define OFS_P4SEL0                       (0x002B)
-#define OFS_P3SEL0                       (0x002A)
-#define OFS_P3SEL1                       (0x002C)
-#define OFS_P4SEL1                       (0x002D)
-#define OFS_P3SELC                       (0x0036)
-#define OFS_P4SELC                       (0x0037)
-#define OFS_P3IES                        (0x0038)
-#define OFS_P4IES                        (0x0039)
-#define OFS_P3IE                         (0x003A)
-#define OFS_P4IE                         (0x003B)
-#define OFS_P3IFG                        (0x003C)
-#define OFS_P4IFG                        (0x003D)
-#define OFS_P5IN                         (0x0040)
-#define OFS_P6IN                         (0x0041)
-#define OFS_P5OUT                        (0x0042)
-#define OFS_P6OUT                        (0x0043)
-#define OFS_P5DIR                        (0x0044)
-#define OFS_P6DIR                        (0x0045)
-#define OFS_P5REN                        (0x0046)
-#define OFS_P6REN                        (0x0047)
-#define OFS_P5SEL0                       (0x004A)
-#define OFS_P6SEL0                       (0x004B)
-#define OFS_P5SEL1                       (0x004C)
-#define OFS_P6SEL1                       (0x004D)
-#define OFS_P5SELC                       (0x0056)
-#define OFS_P6SELC                       (0x0057)
-#define OFS_P5IES                        (0x0058)
-#define OFS_P6IES                        (0x0059)
-#define OFS_P5IE                         (0x005A)
-#define OFS_P6IE                         (0x005B)
-#define OFS_P5IFG                        (0x005C)
-#define OFS_P6IFG                        (0x005D)
-#define OFS_P7IN                         (0x0060)
-#define OFS_P8IN                         (0x0061)
-#define OFS_P7OUT                        (0x0062)
-#define OFS_P8OUT                        (0x0063)
-#define OFS_P7DIR                        (0x0064)
-#define OFS_P8DIR                        (0x0065)
-#define OFS_P7REN                        (0x0066)
-#define OFS_P8REN                        (0x0067)
-#define OFS_P7SEL0                       (0x006A)
-#define OFS_P8SEL0                       (0x006B)
-#define OFS_P7SEL1                       (0x006C)
-#define OFS_P8SEL1                       (0x006D)
-#define OFS_P7SELC                       (0x0076)
-#define OFS_P8SELC                       (0x0077)
-#define OFS_P7IES                        (0x0078)
-#define OFS_P8IES                        (0x0079)
-#define OFS_P7IE                         (0x007A)
-#define OFS_P8IE                         (0x007B)
-#define OFS_P7IFG                        (0x007C)
-#define OFS_P8IFG                        (0x007D)
+#define OFS_P3IN                         (0x0000)
+#define OFS_P4IN                         (0x0001)
+#define OFS_P3OUT                        (0x0002)
+#define OFS_P4OUT                        (0x0003)
+#define OFS_P3DIR                        (0x0004)
+#define OFS_P4DIR                        (0x0005)
+#define OFS_P3REN                        (0x0006)
+#define OFS_P4REN                        (0x0007)
+#define OFS_P4SEL0                       (0x000B)
+#define OFS_P3SEL0                       (0x000A)
+#define OFS_P3SEL1                       (0x000C)
+#define OFS_P4SEL1                       (0x000D)
+#define OFS_P3SELC                       (0x0016)
+#define OFS_P4SELC                       (0x0017)
+#define OFS_P3IES                        (0x0018)
+#define OFS_P4IES                        (0x0019)
+#define OFS_P3IE                         (0x001A)
+#define OFS_P4IE                         (0x001B)
+#define OFS_P3IFG                        (0x001C)
+#define OFS_P4IFG                        (0x001D)
+#define OFS_P5IN                         (0x0000)
+#define OFS_P6IN                         (0x0001)
+#define OFS_P5OUT                        (0x0002)
+#define OFS_P6OUT                        (0x0003)
+#define OFS_P5DIR                        (0x0004)
+#define OFS_P6DIR                        (0x0005)
+#define OFS_P5REN                        (0x0006)
+#define OFS_P6REN                        (0x0007)
+#define OFS_P5SEL0                       (0x000A)
+#define OFS_P6SEL0                       (0x000B)
+#define OFS_P5SEL1                       (0x000C)
+#define OFS_P6SEL1                       (0x000D)
+#define OFS_P5SELC                       (0x0016)
+#define OFS_P6SELC                       (0x0017)
+#define OFS_P5IES                        (0x0018)
+#define OFS_P6IES                        (0x0019)
+#define OFS_P5IE                         (0x001A)
+#define OFS_P6IE                         (0x001B)
+#define OFS_P5IFG                        (0x001C)
+#define OFS_P6IFG                        (0x001D)
+#define OFS_P7IN                         (0x0000)
+#define OFS_P8IN                         (0x0001)
+#define OFS_P7OUT                        (0x0002)
+#define OFS_P8OUT                        (0x0003)
+#define OFS_P7DIR                        (0x0004)
+#define OFS_P8DIR                        (0x0005)
+#define OFS_P7REN                        (0x0006)
+#define OFS_P8REN                        (0x0007)
+#define OFS_P7SEL0                       (0x000A)
+#define OFS_P8SEL0                       (0x000B)
+#define OFS_P7SEL1                       (0x000C)
+#define OFS_P8SEL1                       (0x000D)
+#define OFS_P7SELC                       (0x0016)
+#define OFS_P8SELC                       (0x0017)
+#define OFS_P7IES                        (0x0018)
+#define OFS_P8IES                        (0x0019)
+#define OFS_P7IE                         (0x001A)
+#define OFS_P8IE                         (0x001B)
+#define OFS_P7IFG                        (0x001C)
+#define OFS_P8IFG                        (0x001D)
 
 /* DIO Control Bits */
 
@@ -6114,12 +6114,6 @@ sfr_b(GCCTL1_H);
                                                             generated automatically by the internal FRAM controller state 
                                                             machine. */
 #define AUTO_1_L                         (0x0008)
-#define AUTO__AUTO_0                     (0x0000)        /* User Wait State Mode. The NWAITS[3:0] is used for the FRAM 
-                                                            wait state. */
-#define AUTO__AUTO_1                     (0x0008)        /* Auto mode. The NWAITS[3:0] is ignored. Wait states are 
-                                                            generated automatically by the internal FRAM controller state 
-                                                            machine. */
-#define AUTO__AUTO_1_L                   (0x0008)
 #define WPROT                            (0x0001)        /* Write Protection Enable */
 #define WPROT_L                          (0x0001)
 #define WPROT_0                          (0x0000)        /* Disable Write Protection. Write to FRAM memory is allowed. */
@@ -6127,11 +6121,6 @@ sfr_b(GCCTL1_H);
                                                             In case a write access is attempted, the WPIFG (Write 
                                                             Protection Flag) bit will be set. */
 #define WPROT_1_L                        (0x0001)
-#define WPROT__WPROT_0                   (0x0000)        /* Disable Write Protection. Write to FRAM memory is allowed. */
-#define WPROT__WPROT_1                   (0x0001)        /* Enable Write Protection. Write to FRAM memory is not allowed. 
-                                                            In case a write access is attempted, the WPIFG (Write 
-                                                            Protection Flag) bit will be set. */
-#define WPROT__WPROT_1_L                 (0x0001)
 
 /* GCCTL0 Control Bits */
 #define UBDRSTEN                         (0x0080)        /* Enable Power Up Clear (PUC) reset for the uncorrectable bit 
@@ -6141,10 +6130,6 @@ sfr_b(GCCTL1_H);
 #define UBDRSTEN_1                       (0x0080)        /* PUC initiated on uncorrectable bit error detection flag. 
                                                             Generates vector in SYSRSTIV. Clear the UBDIE bit. */
 #define UBDRSTEN_1_L                     (0x0080)
-#define UBDRSTEN__UBDRSTEN_0             (0x0000)        /* PUC not initiated on uncorrectable bit error detection flag. */
-#define UBDRSTEN__UBDRSTEN_1             (0x0080)        /* PUC initiated on uncorrectable bit error detection flag. 
-                                                            Generates vector in SYSRSTIV. Clear the UBDIE bit. */
-#define UBDRSTEN__UBDRSTEN_1_L           (0x0080)
 #define UBDIE                            (0x0040)        /* Enable NMI event for the uncorrectable bit error detection 
                                                             flag (UBDIFG) */
 #define UBDIE_L                          (0x0040)
@@ -6153,11 +6138,6 @@ sfr_b(GCCTL1_H);
 #define UBDIE_1                          (0x0040)        /* Enable NMI for the uncorrectable bit error detection flag 
                                                             (UBDIFG). Generates vector in SYSSNIV. Clear the UBDRSTEN bit. */
 #define UBDIE_1_L                        (0x0040)
-#define UBDIE__UBDIE_0                   (0x0000)        /* Disable NMI for the uncorrectable bit error detection flag 
-                                                            (UBDIFG). */
-#define UBDIE__UBDIE_1                   (0x0040)        /* Enable NMI for the uncorrectable bit error detection flag 
-                                                            (UBDIFG). Generates vector in SYSSNIV. Clear the UBDRSTEN bit. */
-#define UBDIE__UBDIE_1_L                 (0x0040)
 #define CBDIE                            (0x0020)        /* Enable NMI event for the correctable bit error detection flag 
                                                             (CBDIFG) */
 #define CBDIE_L                          (0x0020)
@@ -6166,11 +6146,6 @@ sfr_b(GCCTL1_H);
 #define CBDIE_1                          (0x0020)        /* Disable NMI for the correctable bit error detection flag 
                                                             (CBDIFG). Generates vector in SYSSNIV. */
 #define CBDIE_1_L                        (0x0020)
-#define CBDIE__CBDIE_0                   (0x0000)        /* Disable NMI for the correctable bit error detection flag 
-                                                            (CBDIFG). */
-#define CBDIE__CBDIE_1                   (0x0020)        /* Disable NMI for the correctable bit error detection flag 
-                                                            (CBDIFG). Generates vector in SYSSNIV. */
-#define CBDIE__CBDIE_1_L                 (0x0020)
 #define WPIE                             (0x0010)        /* Enable NMI event for the Write Protection Detection flag 
                                                             (WPIFG) */
 #define WPIE_L                           (0x0010)
@@ -6178,28 +6153,17 @@ sfr_b(GCCTL1_H);
 #define WPIE_1                           (0x0010)        /* Enable NMI for the Write Protection Detection flag (WPIFG). 
                                                             Generates vector in SYSSNIV. */
 #define WPIE_1_L                         (0x0010)
-#define WPIE__WPIE_0                     (0x0000)        /* Disable NMI for the Write Protection Detection flag (WPIFG). */
-#define WPIE__WPIE_1                     (0x0010)        /* Enable NMI for the Write Protection Detection flag (WPIFG). 
-                                                            Generates vector in SYSSNIV. */
-#define WPIE__WPIE_1_L                   (0x0010)
 #define ACCTEIE                          (0x0008)        /* Enable NMI event for the Access time error flag (ACCTEIFG) */
 #define ACCTEIE_L                        (0x0008)
 #define ACCTEIE_0                        (0x0000)        /* Disable NMI for the Access time error flag (ACCTEIFG). */
 #define ACCTEIE_1                        (0x0008)        /* Enable NMI for the Access time error flag (ACCTEIFG). 
                                                             Generates vector in SYSSNIV. */
 #define ACCTEIE_1_L                      (0x0008)
-#define ACCTEIE__ACCTEIE_0               (0x0000)        /* Disable NMI for the Access time error flag (ACCTEIFG). */
-#define ACCTEIE__ACCTEIE_1               (0x0008)        /* Enable NMI for the Access time error flag (ACCTEIFG). 
-                                                            Generates vector in SYSSNIV. */
-#define ACCTEIE__ACCTEIE_1_L             (0x0008)
 #define FRPWR                            (0x0004)        /* FRAM Memory Power Control Request */
 #define FRPWR_L                          (0x0004)
 #define FRPWR_0                          (0x0000)        /* Enable INACTIVE mode. */
 #define FRPWR_1                          (0x0004)        /* Enable ACTIVE mode. */
 #define FRPWR_1_L                        (0x0004)
-#define FRPWR__FRPWR_0                   (0x0000)        /* Enable INACTIVE mode. */
-#define FRPWR__FRPWR_1                   (0x0004)        /* Enable ACTIVE mode. */
-#define FRPWR__FRPWR_1_L                 (0x0004)
 
 /* GCCTL1 Control Bits */
 #define WPIFG                            (0x0010)        /* Write Protection Detection flag */
@@ -6208,37 +6172,24 @@ sfr_b(GCCTL1_H);
 #define WPIFG_1                          (0x0010)        /* Interrupt pending. Can be cleared by writing '0' or by reading
                                                             SYSSNIV when it is the highest pending interrupt. */
 #define WPIFG_1_L                        (0x0010)
-#define WPIFG__WPIFG_0                   (0x0000)        /* No interrupt pending. */
 #define ACCTEIFG                         (0x0008)        /* Access time error flag */
 #define ACCTEIFG_L                       (0x0008)
 #define ACCTEIFG_0                       (0x0000)        /* No interrupt pending. */
 #define ACCTEIFG_1                       (0x0008)        /* Interrupt pending. Can be cleared by writing '0' or by reading
                                                             SYSSNIV when it is the highest pending interrupt. */
 #define ACCTEIFG_1_L                     (0x0008)
-#define ACCTEIFG__ACCTEIFG_0             (0x0000)        /* No interrupt pending. */
-#define ACCTEIFG__ACCTEIFG_1             (0x0008)        /* Interrupt pending. Can be cleared by writing '0' or by reading
-                                                            SYSSNIV when it is the highest pending interrupt. */
-#define ACCTEIFG__ACCTEIFG_1_L           (0x0008)
 #define UBDIFG                           (0x0004)        /* FRAM uncorrectable bit error detection flag */
 #define UBDIFG_L                         (0x0004)
 #define UBDIFG_0                         (0x0000)        /* No interrupt pending. */
 #define UBDIFG_1                         (0x0004)        /* Interrupt pending. Can be cleared by writing '0' or by reading
                                                             SYSSNIV when it is the highest pending interrupt. */
 #define UBDIFG_1_L                       (0x0004)
-#define UBDIFG__UBDIFG_0                 (0x0000)        /* No interrupt pending. */
-#define UBDIFG__UBDIFG_1                 (0x0004)        /* Interrupt pending. Can be cleared by writing '0' or by reading
-                                                            SYSSNIV when it is the highest pending interrupt. */
-#define UBDIFG__UBDIFG_1_L               (0x0004)
 #define CBDIFG                           (0x0002)        /* FRAM correctable bit error detection flag */
 #define CBDIFG_L                         (0x0002)
 #define CBDIFG_0                         (0x0000)        /* No interrupt is pending */
 #define CBDIFG_1                         (0x0002)        /* Interrupt pending. Can be cleared by writing '0' or by reading
                                                             SYSSNIV if it is the highest pending interrupt. */
 #define CBDIFG_1_L                       (0x0002)
-#define CBDIFG__CBDIFG_0                 (0x0000)        /* No interrupt is pending */
-#define CBDIFG__CBDIFG_1                 (0x0002)        /* Interrupt pending. Can be cleared by writing '0' or by reading
-                                                            SYSSNIV if it is the highest pending interrupt. */
-#define CBDIFG__CBDIFG_1_L               (0x0002)
 
 
 /*****************************************************************************
@@ -12328,6 +12279,29 @@ sfr_b(UCB3IV_H);
 #define SYSNMI_VECTOR          (54)                     /* 0xFFFC */
 #define RESET_VECTOR           ("reset")                /* 0xFFFE Reset (Highest Priority) */
 
+
+/************************************************************
+* Memory Boundary Definitions
+************************************************************/
+
+#define TINYRAM_START           0x000A
+#define TINYRAM_LENGTH          0x0016
+#define BSL_START               0x1000
+#define BSL_LENGTH              0x0800
+#define INFOD_START             0x1800
+#define INFOD_LENGTH            0x0080
+#define INFOC_START             0x1880
+#define INFOC_LENGTH            0x0080
+#define INFOB_START             0x1900
+#define INFOB_LENGTH            0x0080
+#define INFOA_START             0x1980
+#define INFOA_LENGTH            0x0080
+#define RAM_START               0x1C00
+#define RAM_LENGTH              0x1000
+#define LEARAM_START            0x2C00
+#define LEARAM_LENGTH           0x1000
+#define FRAM_START              0x4000
+#define FRAM_LENGTH             0x20000
 
 /************************************************************
 * End of Modules

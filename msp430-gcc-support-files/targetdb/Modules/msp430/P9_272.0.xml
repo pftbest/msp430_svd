@@ -1,0 +1,35 @@
+<module id="P9" HW_revision="272.0_inst9">
+    <register id="P9IV" width="16" offset="0x8E" internal="0" description="Port 9 Interrupt Vector Register">
+        <bitfield id="P9IV" description="Port 9 interrupt vector value" begin="4" end="0" width="5" rwaccess="R">
+            <bitenum id="NONE" value="0x0" description="No interrupt pending"/>
+            <bitenum id="P9IFG0" value="0x2" description="Interrupt Source: Port 9.0 interrupt; Interrupt Flag: P9IFG0; Interrupt Priority: Highest"/>
+            <bitenum id="P9IFG1" value="0x4" description="Interrupt Source: Port 9.1 interrupt; Interrupt Flag: P9IFG1"/>
+            <bitenum id="P9IFG2" value="0x6" description="Interrupt Source: Port 9.2 interrupt; Interrupt Flag: P9IFG2"/>
+            <bitenum id="P9IFG3" value="0x8" description="Interrupt Source: Port 9.3 interrupt; Interrupt Flag: P9IFG3"/>
+            <bitenum id="P9IFG4" value="0xA" description="Interrupt Source: Port 9.4 interrupt; Interrupt Flag: P9IFG4"/>
+            <bitenum id="P9IFG5" value="0xC" description="Interrupt Source: Port 9.5 interrupt; Interrupt Flag: P9IFG5"/>
+            <bitenum id="P9IFG6" value="0xE" description="Interrupt Source: Port 9.6 interrupt; Interrupt Flag: P9IFG6"/>
+            <bitenum id="P9IFG7" value="0x10" description="Interrupt Source: Port 9.7 interrupt; Interrupt Flag: P9IFG7; Interrupt Priority: Lowest"/>
+        </bitfield>
+    </register>
+    <register id="P9IN" width="8" offset="0x80" internal="0" description="Port 9 Input">
+    </register>
+    <register id="P9OUT" width="8" offset="0x82" internal="0" description="Port 9 Output">
+    </register>
+    <register id="P9DIR" width="8" offset="0x84" internal="0" description="Port 9 Direction">
+    </register>
+    <register id="P9REN" width="8" offset="0x86" internal="0" description="Port 9 Resistor Enable">
+    </register>
+    <register id="P9SEL0" width="8" offset="0x8A" internal="0" description="Port 9 Select 0">
+    </register>
+    <register id="P9SEL1" width="8" offset="0x8C" internal="0" description="Port 9 Select 1">
+    </register>
+    <register id="P9SELC" width="8" offset="0x96" internal="0" description="Port 9 Complement Select">
+    </register>
+    <register id="P9IES" width="8" offset="0x98" internal="0" description="Port 9 Interrupt Edge Select">
+    </register>
+    <register id="P9IE" width="8" offset="0x9A" internal="0" description="Port 9 Interrupt Enable">
+    </register>
+    <register id="P9IFG" width="8" offset="0x9C" internal="0" description="Port 9 Interrupt Flag">
+    </register>
+</module>

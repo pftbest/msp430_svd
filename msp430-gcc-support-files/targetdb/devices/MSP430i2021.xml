@@ -1,11 +1,8 @@
 <device HW_revision="1.0" XML_version="1.0" description="MSP430i2021" id="MSP430i2021" partnum="MSP430I204x_I203x_I202x">
 
+<include href="../options/MSP430i2021_TI.xml"></include>
+<include href="../options/MSP430i2021_GNU.xml"></include>
 <property Type="stringfield" Value="MSP430Ixxxx Family" id="FilterString"></property>
-<property Type="stringfield" Value="-lc -lgcc -L ${CCS_BASE_ROOT}/msp430/include_gcc " id="GNULinkerBuildOptions"></property>
-<property Type="stringfield" Value="../include_gcc/msp430i2021.ld" id="GNUFilesToCopy"></property>
-<property Type="stringfield" Value="-D=__MSP430i2021__   --use_hw_mpy=16" id="CompilerBuildOptions"></property>
-<property Type="stringfield" Value="-mmcu=msp430i2021 -I${CCS_BASE_ROOT}/msp430/include_gcc -Os -mhwmult=16bit" id="GNUCompilerBuildOptions"></property>
-<property Type="stringfield" Value=" --use_hw_mpy=16" id="LinkerBuildOptions"></property>
 <property Type="numericfield" Value="80" id="HeapDefaultSize"></property>
 <property Type="stringfield" Value="minimal" id="PrintfDefault_support"></property>
 <property Type="numericfield" Value="80" id="StackDefaultSize"></property>

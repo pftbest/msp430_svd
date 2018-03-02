@@ -33,7 +33,7 @@
 /* This file supports MSP430FR2311 devices. */
 /* Default linker script, for normal executables */
 
-/* Version: 1.198 */
+/* 1.204 */
 
 OUTPUT_ARCH(msp430)
 ENTRY(_start)
@@ -195,8 +195,6 @@ SECTIONS
        The same reasoning applies to the absence of definitions for the
        .either.text, .either.data and .either.bss sections as well.  */
 
-
-
     KEEP (*(.gcc_except_table)) *(.gcc_except_table.*)
     PROVIDE (__preinit_array_start = .);
     KEEP (*(.preinit_array))
@@ -240,7 +238,18 @@ SECTIONS
     KEEP (*(SORT(.dtors.*)))
     KEEP (*(.dtors))
   } > ROM
-
+  
+  /* This section contains data that is not initialised during load
+     or application reset. */
+  .persistent :
+  {
+    . = ALIGN(2);
+    PROVIDE (__persistent_start = .);
+    *(.persistent)
+    . = ALIGN(2);
+    PROVIDE (__persistent_end = .);
+  } > ROM
+  
 
   .data :
   {
@@ -266,7 +275,7 @@ SECTIONS
     /* See the note in .rodata section about why we do not have this line here:
 
         *(.either.data.* .either.data)
-    */	
+    */
     . = ALIGN(2);
     *(.lower.data.* .lower.data)
     . = ALIGN(2);
@@ -292,16 +301,15 @@ SECTIONS
     /* See the note in .rodata section about why we do not have this line here:
 
         *(.either.bss.* .either.bss)
-    */	
+    */
     *(.lower.bss.* .lower.bss)
     . = ALIGN(2);
     *(COMMON)
     PROVIDE (__bssend = .);
   } > RAM
   PROVIDE (__bsssize = SIZEOF(.bss));
-
   /* This section contains data that is not initialised during load
-      or application reset.  */
+     or application reset.  */
   .noinit (NOLOAD) :
   {
     . = ALIGN(2);
@@ -358,8 +366,9 @@ SECTIONS
     /* See the note in .rodata section about why we do not have this line here:
 
         *(.either.text.* .either.text)
+
     */
-	
+
     KEEP (*(.text.*personality*))
     /* .gnu.warning sections are handled specially by elf32.em.  */
     *(.gnu.warning)

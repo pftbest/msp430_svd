@@ -1,5 +1,5 @@
 /* ============================================================================ */
-/* Copyright (c) 2016, Texas Instruments Incorporated                           */
+/* Copyright (c) 2017, Texas Instruments Incorporated                           */
 /*  All rights reserved.                                                        */
 /*                                                                              */
 /*  Redistribution and use in source and binary forms, with or without          */
@@ -31,7 +31,7 @@
 /* ============================================================================ */
 
 /* This file supports MSP430FR5739 devices. */
-/* Version: 1.198 */
+/* Version: 1.204 */
 /* Default linker script, for normal executables */
 
 OUTPUT_ARCH(msp430)
@@ -228,6 +228,17 @@ SECTIONS
     KEEP (*(.dtors))
   } > ROM
 
+  /* This section contains data that is initialised during load
+     but not on application reset.  */  
+  .persistent :
+  {
+    . = ALIGN(2);
+    PROVIDE (__persistent_start = .);
+    *(.persistent)
+    . = ALIGN(2);
+    PROVIDE (__persistent_end = .);
+  } > ROM
+  
   .text :
   {
     . = ALIGN(2);
@@ -333,8 +344,8 @@ SECTIONS
     *(.stack)
   }
 
-  .infoA     : {} > INFOA              /* MSP430 INFO FLASH MEMORY SEGMENTS */
-  .infoB     : {} > INFOB
+  .infoA (NOLOAD) : {} > INFOA              /* MSP430 INFO FLASH MEMORY SEGMENTS */
+  .infoB (NOLOAD) : {} > INFOB
 
   .MSP430.attributes 0 :
   {

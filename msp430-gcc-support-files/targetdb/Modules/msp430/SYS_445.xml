@@ -137,7 +137,13 @@
             <bitenum id="PFWP_0" value="0x0" description="Program FRAM write enable"/>
             <bitenum id="PFWP_1" value="0x1" description="Program FRAM write protected (not writable)"/>
         </bitfield>
-        <bitfield id="FRWPPW" description="FRAM protection password" begin="15" end="8" width="8" rwaccess="R/W">
+        <bitfield id="DFWP" description="Data FRAM write protection" begin="1" end="1" width="1" rwaccess="R/W">
+            <bitenum id="DFWP_0" value="0x0" description="Data FRAM write enable"/>
+            <bitenum id="DFWP_1" value="0x1" description="Data FRAM write protected (not writable)"/>
+        </bitfield>
+        <bitfield id="FRWPPW" description="FRAM protection password, FRAM protection password. Write with 0A5h to unlock the FRAM protection registers. Always reads as 096h" begin="15" end="8" width="8" rwaccess="R/W">
+        </bitfield>
+        <bitfield id="FRWPOA" description="Program FRAM write protection offset address from the beginning of Program FRAM. The offset increases by 1KB resolution" begin="7" end="2" width="6" rwaccess="R/W">
         </bitfield>
     </register>
     <register id="SYSCFG1" width="16" offset="0x22" internal="0" description="System Configuration Register 1">
@@ -161,23 +167,67 @@
             <bitenum id="IRDATA_0" value="0x0" description="Infrared data logic 0"/>
             <bitenum id="IRDATA_1" value="0x1" description="Infrared data logic 1"/>
         </bitfield>
+        <bitfield id="SYNCSEL" description="Captivate Conversion triggered Source Selection" begin="7" end="6" width="2" rwaccess="R/W">
+            <bitenum id="SYNCSEL_0" value="0x0" description="External source is selected"/>
+            <bitenum id="SYNCSEL_1" value="0x1" description="ADC as the source is selected"/>
+            <bitenum id="SYNCSEL_2" value="0x2" description="internal source is selected"/>
+            <bitenum id="SYNCSEL_3" value="0x3" description="Reserved"/>
+        </bitfield>
     </register>
     <register id="SYSCFG2" width="16" offset="0x24" internal="0" description="System Configuration Register 2">
+        <bitfield id="ADCPCTL0" description="ADC input A0 pin select" begin="0" end="0" width="1" rwaccess="R/W">
+            <bitenum id="ADCPCTL0_0" value="0x0" description="ADC input A0 disabled"/>
+            <bitenum id="ADCPCTL0_1" value="0x1" description="ADC input A0 enabled"/>
+        </bitfield>
+        <bitfield id="ADCPCTL1" description="ADC input A1 pin select" begin="1" end="1" width="1" rwaccess="R/W">
+            <bitenum id="ADCPCTL1_0" value="0x0" description="ADC input A1 disabled"/>
+            <bitenum id="ADCPCTL1_1" value="0x1" description="ADC input A1 enabled"/>
+        </bitfield>
+        <bitfield id="ADCPCTL2" description="ADC input A2 pin select" begin="2" end="2" width="1" rwaccess="R/W">
+            <bitenum id="ADCPCTL2_0" value="0x0" description="ADC input A2 disabled"/>
+            <bitenum id="ADCPCTL2_1" value="0x1" description="ADC input A2 enabled"/>
+        </bitfield>
+        <bitfield id="ADCPCTL3" description="ADC input A3 pin select" begin="3" end="3" width="1" rwaccess="R/W">
+            <bitenum id="ADCPCTL3_0" value="0x0" description="ADC input A3 disabled"/>
+            <bitenum id="ADCPCTL3_1" value="0x1" description="ADC input A3 enabled"/>
+        </bitfield>
+        <bitfield id="ADCPCTL4" description="ADC input A4 pin select" begin="4" end="4" width="1" rwaccess="R/W">
+            <bitenum id="ADCPCTL4_0" value="0x0" description="ADC input A4 disabled"/>
+            <bitenum id="ADCPCTL4_1" value="0x1" description="ADC input A4 enabled"/>
+        </bitfield>
+        <bitfield id="ADCPCTL5" description="ADC input A5 pin select" begin="5" end="5" width="1" rwaccess="R/W">
+            <bitenum id="ADCPCTL5_0" value="0x0" description="ADC input A5 disabled"/>
+            <bitenum id="ADCPCTL5_1" value="0x1" description="ADC input A5 enabled"/>
+        </bitfield>
+        <bitfield id="ADCPCTL6" description="ADC input A6 pin select" begin="6" end="6" width="1" rwaccess="R/W">
+            <bitenum id="ADCPCTL6_0" value="0x0" description="ADC input A6 disabled"/>
+            <bitenum id="ADCPCTL6_1" value="0x1" description="ADC input A6 enabled"/>
+        </bitfield>
+        <bitfield id="ADCPCTL7" description="ADC input A7 pin select" begin="7" end="7" width="1" rwaccess="R/W">
+            <bitenum id="ADCPCTL7_0" value="0x0" description="ADC input A7 disabled"/>
+            <bitenum id="ADCPCTL7_1" value="0x1" description="ADC input A7 enabled"/>
+        </bitfield>
+        <bitfield id="ADCPCTL8" description="ADC input A8 pin select" begin="8" end="8" width="1" rwaccess="R/W">
+            <bitenum id="ADCPCTL8_0" value="0x0" description="ADC input A8 disabled"/>
+            <bitenum id="ADCPCTL8_1" value="0x1" description="ADC input A8 enabled"/>
+        </bitfield>
+        <bitfield id="ADCPCTL9" description="ADC input A9 pin select" begin="9" end="9" width="1" rwaccess="R/W">
+            <bitenum id="ADCPCTL9_0" value="0x0" description="ADC input A9 disabled"/>
+            <bitenum id="ADCPCTL9_1" value="0x1" description="ADC input A9 enabled"/>
+        </bitfield>
+        <bitfield id="USCIBRMP" description="eUSCIB Remapping source selection , please refer to device specific for details" begin="11" end="11" width="1" rwaccess="R/W">
+            <bitenum id="USCIBRMP_0" value="0x0" description="P1.x is selected, please refer to device specific for details"/>
+            <bitenum id="USCIBRMP_1" value="0x1" description="other port is selected, please refer to device specific for details"/>
+        </bitfield>
         <bitfield id="RTCCKSEL" description="RTC clock selection" begin="10" end="10" width="1" rwaccess="R/W">
-            <bitenum id="SMCLK" value="0x0" description="SMCLK is selected"/>
-            <bitenum id="ACLK" value="0x1" description="ACLK is selected"/>
+            <bitenum id="RTC_SMCLK" value="0x0" description="SMCLK is selected"/>
+            <bitenum id="RTC_ACLK" value="0x1" description="ACLK is selected"/>
         </bitfield>
-        <bitfield id="USCIBRMP" description="eUSCIB Remapping source selection" begin="11" end="11" width="1" rwaccess="R/W">
-            <bitenum id="USCIBRMP_0" value="0x0" description="P1.0 - P1.3 is selected"/>
-            <bitenum id="USCIBRMP_1" value="0x1" description="P2.2 - P2.5 is selected"/>
-        </bitfield>
-        <bitfield id="TB1TRGSEL" description="TB1OUTH trigger source selection" begin="14" end="14" width="1" rwaccess="R/W">
-            <bitenum id="INTERNAL" value="0x0" description="Internal source selected"/>
-            <bitenum id="EXTERNAL" value="0x1" description="External source selected"/>
-        </bitfield>
-        <bitfield id="TB0TRGSEL" description="TB0OUTH trigger source selection" begin="15" end="15" width="1" rwaccess="R/W">
-            <bitenum id="INTERNAL" value="0x0" description="Internal source selected"/>
-            <bitenum id="EXTERNAL" value="0x1" description="External source selected"/>
+    </register>
+    <register id="SYSCFG3" width="16" offset="0x26" internal="0" description="System Configuration Register 3">
+        <bitfield id="USCIARMP" description="eUSCIA remapping source selection, please refer to device specific for details" begin="0" end="0" width="1" rwaccess="R/W">
+            <bitenum id="USCIARMP_0" value="0x0" description="P1.x is selected, please refer to device specific for details"/>
+            <bitenum id="USCIARMP_1" value="0x1" description="other port is selected, please refer to device specific for details"/>
         </bitfield>
     </register>
 </module>

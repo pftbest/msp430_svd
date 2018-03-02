@@ -416,7 +416,7 @@
 #ifdef __MSP430_HAS_ECOMP0__
 #define ECOMP_BASE              ECOMP0_BASE
 
-#ifdef CP0CTL0
+#ifdef OFS_CP0CTL0
 #define CPCTL0                  CP0CTL0
 #define CPCTL0_L                CP0CTL0_L
 #define CPCTL0_H                CP0CTL0_H
@@ -424,7 +424,7 @@
 #define OFS_CPCTL0_L            OFS_CP0CTL0
 #define OFS_CPCTL0_H            OFS_CP0CTL0+1
 #endif
-#ifdef CP0CTL1
+#ifdef OFS_CP0CTL1
 #define CPCTL1                  CP0CTL1
 #define CPCTL1_L                CP0CTL1_L
 #define CPCTL1_H                CP0CTL1_H
@@ -432,7 +432,7 @@
 #define OFS_CPCTL1_L            OFS_CP0CTL1
 #define OFS_CPCTL1_H            OFS_CP0CTL1+1
 #endif
-#ifdef CP0INT
+#ifdef OFS_CP0INT
 #define CPINT                   CP0INT
 #define CPINT_L                 CP0INT_L
 #define CPINT_H                 CP0INT_H
@@ -440,15 +440,16 @@
 #define OFS_CPINT_L             OFS_CP0INT
 #define OFS_CPINT_H             OFS_CP0INT+1
 #endif
-#ifdef CP0IV
-#define CPIV                    CP0IV
-#define CPIV_L                  CP0IV_L
-#define CPIV_H                  CP0IV_H
+#ifdef OFS_CP0IV
+// not provided due to possible invalid re-define
+//#define CPIV                    CP0IV
+//#define CPIV_L                  CP0IV_L
+//#define CPIV_H                  CP0IV_H
 #define OFS_CPIV                OFS_CP0IV
 #define OFS_CPIV_L              OFS_CP0IV_L
 #define OFS_CPIV_H              OFS_CP0IV+1
 #endif
-#ifdef CP0DACCTL
+#ifdef OFS_CP0DACCTL
 #define CPDACCTL                CP0DACCTL
 #define CPDACCTL_L              CP0DACCTL_L
 #define CPDACCTL_H              CP0DACCTL_H
@@ -456,7 +457,7 @@
 #define OFS_CPDACCTL_L          OFS_CP0DACCTL
 #define OFS_CPDACCTL_H          OFS_CP0DACCTL+1
 #endif
-#ifdef CP0DACDATA
+#ifdef OFS_CP0DACDATA
 #define CPDACDATA               CP0DACDATA
 #define CPDACDATA_L             CP0DACDATA_L
 #define CPDACDATA_H             CP0DACDATA_H
@@ -508,6 +509,8 @@
 #define OFS_LCDBM16             OFS_LCDM48_LCDBM16
 #define OFS_LCDBM17             OFS_LCDM49_LCDBM17
 #define OFS_LCDBM18             OFS_LCDM50_LCDBM18
+#define OFS_LCDBM19             OFS_LCDM51_LCDBM19
+#define OFS_LCDBM20             OFS_LCDM52_LCDBM20 
 
 #endif
 
@@ -1275,6 +1278,281 @@
 #define RTCAHOUR                RTCAMINHR_H
 #define RTCADOW                 RTCADOWDAY_L
 #define RTCADAY                 RTCADOWDAY_H
+
+#endif
+
+/************************************************************
+* SAPH_A
+************************************************************/
+
+#ifdef __MSP430_HAS_SAPH_A__
+
+#define SAPHIIDX                SAPH_AIIDX
+#define SAPHIIDX_L              SAPH_AIIDX_L
+#define SAPHIIDX_H              SAPH_AIIDX_H
+#define SAPHMIS                 SAPH_AMIS
+#define SAPHMIS_L               SAPH_AMIS_L
+#define SAPHMIS_H               SAPH_AMIS_H
+#define SAPHRIS                 SAPH_ARIS
+#define SAPHRIS_L               SAPH_ARIS_L
+#define SAPHRIS_H               SAPH_ARIS_H
+#define SAPHIMSC                SAPH_AIMSC
+#define SAPHIMSC_L              SAPH_AIMSC_L
+#define SAPHIMSC_H              SAPH_AIMSC_H
+#define SAPHICR                 SAPH_AICR
+#define SAPHICR_L               SAPH_AICR_L
+#define SAPHICR_H               SAPH_AICR_H
+#define SAPHISR                 SAPH_AISR
+#define SAPHISR_L               SAPH_AISR_L
+#define SAPHISR_H               SAPH_AISR_H
+#define SAPHDESCLO              SAPH_ADESCLO
+#define SAPHDESCLO_L            SAPH_ADESCLO_L
+#define SAPHDESCLO_H            SAPH_ADESCLO_H
+#define SAPHDESCHI              SAPH_ADESCHI
+#define SAPHDESCHI_L            SAPH_ADESCHI_L
+#define SAPHDESCHI_H            SAPH_ADESCHI_H
+#define SAPHKEY                 SAPH_AKEY
+#define SAPHKEY_L               SAPH_AKEY_L
+#define SAPHKEY_H               SAPH_AKEY_H
+#define SAPHOCTL0               SAPH_AOCTL0
+#define SAPHOCTL0_L             SAPH_AOCTL0_L
+#define SAPHOCTL0_H             SAPH_AOCTL0_H
+#define SAPHOCTL1               SAPH_AOCTL1
+#define SAPHOCTL1_L             SAPH_AOCTL1_L
+#define SAPHOCTL1_H             SAPH_AOCTL1_H
+#define SAPHOSEL                SAPH_AOSEL
+#define SAPHOSEL_L              SAPH_AOSEL_L
+#define SAPHOSEL_H              SAPH_AOSEL_H
+#define SAPHCH0PUT              SAPH_ACH0PUT
+#define SAPHCH0PUT_L            SAPH_ACH0PUT_L
+#define SAPHCH0PUT_H            SAPH_ACH0PUT_H
+#define SAPHCH0PDT              SAPH_ACH0PDT
+#define SAPHCH0PDT_L            SAPH_ACH0PDT_L
+#define SAPHCH0PDT_H            SAPH_ACH0PDT_H
+#define SAPHCH0TT               SAPH_ACH0TT
+#define SAPHCH0TT_L             SAPH_ACH0TT_L
+#define SAPHCH0TT_H             SAPH_ACH0TT_H
+#define SAPHCH1PUT              SAPH_ACH1PUT
+#define SAPHCH1PUT_L            SAPH_ACH1PUT_L
+#define SAPHCH1PUT_H            SAPH_ACH1PUT_H
+#define SAPHCH1PDT              SAPH_ACH1PDT
+#define SAPHCH1PDT_L            SAPH_ACH1PDT_L
+#define SAPHCH1PDT_H            SAPH_ACH1PDT_H
+#define SAPHCH1TT               SAPH_ACH1TT
+#define SAPHCH1TT_L             SAPH_ACH1TT_L
+#define SAPHCH1TT_H             SAPH_ACH1TT_H
+#define SAPHMCNF                SAPH_AMCNF
+#define SAPHMCNF_L              SAPH_AMCNF_L
+#define SAPHMCNF_H              SAPH_AMCNF_H
+#define SAPHTACTL               SAPH_ATACTL
+#define SAPHTACTL_L             SAPH_ATACTL_L
+#define SAPHTACTL_H             SAPH_ATACTL_H
+#define SAPHICTL0               SAPH_AICTL0
+#define SAPHICTL0_L             SAPH_AICTL0_L
+#define SAPHICTL0_H             SAPH_AICTL0_H
+#define SAPHBCTL                SAPH_ABCTL
+#define SAPHBCTL_L              SAPH_ABCTL_L
+#define SAPHBCTL_H              SAPH_ABCTL_H
+#define SAPHPGC                 SAPH_APGC
+#define SAPHPGC_L               SAPH_APGC_L
+#define SAPHPGC_H               SAPH_APGC_H
+#define SAPHPGLPER              SAPH_APGLPER
+#define SAPHPGLPER_L            SAPH_APGLPER_L
+#define SAPHPGLPER_H            SAPH_APGLPER_H
+#define SAPHPGHPER              SAPH_APGHPER
+#define SAPHPGHPER_L            SAPH_APGHPER_L
+#define SAPHPGHPER_H            SAPH_APGHPER_H
+#define SAPHPGCTL               SAPH_APGCTL
+#define SAPHPGCTL_L             SAPH_APGCTL_L
+#define SAPHPGCTL_H             SAPH_APGCTL_H
+#define SAPHPPGTRIG             SAPH_APPGTRIG
+#define SAPHPPGTRIG_L           SAPH_APPGTRIG_L
+#define SAPHPPGTRIG_H           SAPH_APPGTRIG_H
+#define SAPHXPGCTL              SAPH_AXPGCTL
+#define SAPHXPGCTL_L            SAPH_AXPGCTL_L
+#define SAPHXPGCTL_H            SAPH_AXPGCTL_H
+#define SAPHXPGLPER             SAPH_AXPGLPER
+#define SAPHXPGLPER_L           SAPH_AXPGLPER_L
+#define SAPHXPGLPER_H           SAPH_AXPGLPER_H
+#define SAPHXPGHPER             SAPH_AXPGHPER
+#define SAPHXPGHPER_L           SAPH_AXPGHPER_L
+#define SAPHXPGHPER_H           SAPH_AXPGHPER_H
+#define SAPHASCTL0              SAPH_AASCTL0
+#define SAPHASCTL0_L            SAPH_AASCTL0_L
+#define SAPHASCTL0_H            SAPH_AASCTL0_H
+#define SAPHASCTL1              SAPH_AASCTL1
+#define SAPHASCTL1_L            SAPH_AASCTL1_L
+#define SAPHASCTL1_H            SAPH_AASCTL1_H
+#define SAPHASQTRIG             SAPH_AASQTRIG
+#define SAPHAPOL                SAPH_AAPOL
+#define SAPHAPOL_L              SAPH_AAPOL_L
+#define SAPHAPOL_H              SAPH_AAPOL_H
+#define SAPHAPLEV               SAPH_AAPLEV
+#define SAPHAPLEV_L             SAPH_AAPLEV_L
+#define SAPHAPLEV_H             SAPH_AAPLEV_H
+#define SAPHAPHIZ               SAPH_AAPHIZ
+#define SAPHAPHIZ_L             SAPH_AAPHIZ_L
+#define SAPHAPHIZ_H             SAPH_AAPHIZ_H
+#define SAPHATM_A               SAPH_AATM_A
+#define SAPHATM_A_L             SAPH_AATM_A_L
+#define SAPHATM_A_H             SAPH_AATM_A_H
+#define SAPHATM_B               SAPH_AATM_B
+#define SAPHATM_B_L             SAPH_AATM_B_L
+#define SAPHATM_B_H             SAPH_AATM_B_H
+#define SAPHATM_C               SAPH_AATM_C
+#define SAPHATM_C_L             SAPH_AATM_C_L
+#define SAPHATM_C_H             SAPH_AATM_C_H
+#define SAPHATM_D               SAPH_AATM_D
+#define SAPHATM_D_L             SAPH_AATM_D_L
+#define SAPHATM_D_H             SAPH_AATM_D_H
+#define SAPHATM_E               SAPH_AATM_E
+#define SAPHATM_E_L             SAPH_AATM_E_L
+#define SAPHATM_E_H             SAPH_AATM_E_H
+#define SAPHATM_F               SAPH_AATM_F
+#define SAPHATM_F_L             SAPH_AATM_F_L
+#define SAPHATM_F_H             SAPH_AATM_F_H
+#define SAPHTBCTL               SAPH_ATBCTL
+#define SAPHTBCTL_L             SAPH_ATBCTL_L
+#define SAPHTBCTL_H             SAPH_ATBCTL_H
+#define SAPHATIMLO              SAPH_AATIMLO
+#define SAPHATIMLO_L            SAPH_AATIMLO_L
+#define SAPHATIMLO_H            SAPH_AATIMLO_H
+#define SAPHATIMHI              SAPH_AATIMHI
+#define SAPHATIMHI_L            SAPH_AATIMHI_L
+#define SAPHATIMHI_H            SAPH_AATIMHI_H
+
+#define OFS_SAPHIIDX           OFS_SAPH_AIIDX
+#define OFS_SAPHIIDX_L         OFS_SAPH_AIIDX
+#define OFS_SAPHIIDX_H         OFS_SAPH_AIIDX+1
+#define OFS_SAPHMIS            OFS_SAPH_AMIS
+#define OFS_SAPHMIS_L          OFS_SAPH_AMIS
+#define OFS_SAPHMIS_H          OFS_SAPH_AMIS+1
+#define OFS_SAPHRIS            OFS_SAPH_ARIS
+#define OFS_SAPHRIS_L          OFS_SAPH_ARIS
+#define OFS_SAPHRIS_H          OFS_SAPH_ARIS+1
+#define OFS_SAPHIMSC           OFS_SAPH_AIMSC
+#define OFS_SAPHIMSC_L         OFS_SAPH_AIMSC
+#define OFS_SAPHIMSC_H         OFS_SAPH_AIMSC+1
+#define OFS_SAPHICR            OFS_SAPH_AICR
+#define OFS_SAPHICR_L          OFS_SAPH_AICR
+#define OFS_SAPHICR_H          OFS_SAPH_AICR+1
+#define OFS_SAPHISR            OFS_SAPH_AISR
+#define OFS_SAPHISR_L          OFS_SAPH_AISR
+#define OFS_SAPHISR_H          OFS_SAPH_AISR+1
+#define OFS_SAPHDESCLO         OFS_SAPH_ADESCLO
+#define OFS_SAPHDESCLO_L       OFS_SAPH_ADESCLO
+#define OFS_SAPHDESCLO_H       OFS_SAPH_ADESCLO+1
+#define OFS_SAPHDESCHI         OFS_SAPH_ADESCHI
+#define OFS_SAPHDESCHI_L       OFS_SAPH_ADESCHI
+#define OFS_SAPHDESCHI_H       OFS_SAPH_ADESCHI+1
+#define OFS_SAPHKEY            OFS_SAPH_AKEY
+#define OFS_SAPHKEY_L          OFS_SAPH_AKEY
+#define OFS_SAPHKEY_H          OFS_SAPH_AKEY+1
+#define OFS_SAPHOCTL0          OFS_SAPH_AOCTL0
+#define OFS_SAPHOCTL0_L        OFS_SAPH_AOCTL0
+#define OFS_SAPHOCTL0_H        OFS_SAPH_AOCTL0+1
+#define OFS_SAPHOCTL1          OFS_SAPH_AOCTL1
+#define OFS_SAPHOCTL1_L        OFS_SAPH_AOCTL1
+#define OFS_SAPHOCTL1_H        OFS_SAPH_AOCTL1+1
+#define OFS_SAPHOSEL           OFS_SAPH_AOSEL
+#define OFS_SAPHOSEL_L         OFS_SAPH_AOSEL
+#define OFS_SAPHOSEL_H         OFS_SAPH_AOSEL+1
+#define OFS_SAPHCH0PUT         OFS_SAPH_ACH0PUT
+#define OFS_SAPHCH0PUT_L       OFS_SAPH_ACH0PUT
+#define OFS_SAPHCH0PUT_H       OFS_SAPH_ACH0PUT+1
+#define OFS_SAPHCH0PDT         OFS_SAPH_ACH0PDT
+#define OFS_SAPHCH0PDT_L       OFS_SAPH_ACH0PDT
+#define OFS_SAPHCH0PDT_H       OFS_SAPH_ACH0PDT+1
+#define OFS_SAPHCH0TT          OFS_SAPH_ACH0TT
+#define OFS_SAPHCH0TT_L        OFS_SAPH_ACH0TT
+#define OFS_SAPHCH0TT_H        OFS_SAPH_ACH0TT+1
+#define OFS_SAPHCH1PUT         OFS_SAPH_ACH1PUT
+#define OFS_SAPHCH1PUT_L       OFS_SAPH_ACH1PUT
+#define OFS_SAPHCH1PUT_H       OFS_SAPH_ACH1PUT+1
+#define OFS_SAPHCH1PDT         OFS_SAPH_ACH1PDT
+#define OFS_SAPHCH1PDT_L       OFS_SAPH_ACH1PDT
+#define OFS_SAPHCH1PDT_H       OFS_SAPH_ACH1PDT+1
+#define OFS_SAPHCH1TT          OFS_SAPH_ACH1TT
+#define OFS_SAPHCH1TT_L        OFS_SAPH_ACH1TT
+#define OFS_SAPHCH1TT_H        OFS_SAPH_ACH1TT+1
+#define OFS_SAPHTACTL          OFS_SAPH_ATACTL
+#define OFS_SAPHTACTL_L        OFS_SAPH_ATACTL
+#define OFS_SAPHTACTL_H        OFS_SAPH_ATACTL+1
+#define OFS_SAPHICTL0          OFS_SAPH_AICTL0
+#define OFS_SAPHICTL0_L        OFS_SAPH_AICTL0
+#define OFS_SAPHICTL0_H        OFS_SAPH_AICTL0+1
+#define OFS_SAPHBCTL           OFS_SAPH_ABCTL
+#define OFS_SAPHBCTL_L         OFS_SAPH_ABCTL
+#define OFS_SAPHBCTL_H         OFS_SAPH_ABCTL+1
+#define OFS_SAPHPGC            OFS_SAPH_APGC
+#define OFS_SAPHPGC_L          OFS_SAPH_APGC
+#define OFS_SAPHPGC_H          OFS_SAPH_APGC+1
+#define OFS_SAPHPGLPER         OFS_SAPH_APGLPER
+#define OFS_SAPHPGLPER_L       OFS_SAPH_APGLPER
+#define OFS_SAPHPGLPER_H       OFS_SAPH_APGLPER+1
+#define OFS_SAPHPGHPER         OFS_SAPH_APGHPER
+#define OFS_SAPHPGHPER_L       OFS_SAPH_APGHPER
+#define OFS_SAPHPGHPER_H       OFS_SAPH_APGHPER+1
+#define OFS_SAPHPGCTL          OFS_SAPH_APGCTL
+#define OFS_SAPHPGCTL_L        OFS_SAPH_APGCTL
+#define OFS_SAPHPGCTL_H        OFS_SAPH_APGCTL+1
+#define OFS_SAPHPPGTRIG        OFS_SAPH_APPGTRIG
+#define OFS_SAPHPPGTRIG_L      OFS_SAPH_APPGTRIG
+#define OFS_SAPHPPGTRIG_H      OFS_SAPH_APPGTRIG+1
+#define OFS_SAPHXPGCTL         OFS_SAPH_AXPGCTL
+#define OFS_SAPHXPGCTL_L       OFS_SAPH_AXPGCTL
+#define OFS_SAPHXPGCTL_H       OFS_SAPH_AXPGCTL+1
+#define OFS_SAPHXPGLPER        OFS_SAPH_AXPGLPER
+#define OFS_SAPHXPGLPER_L      OFS_SAPH_AXPGLPER
+#define OFS_SAPHXPGLPER_H      OFS_SAPH_AXPGLPER+1
+#define OFS_SAPHXPGHPER        OFS_SAPH_AXPGHPER
+#define OFS_SAPHXPGHPER_L      OFS_SAPH_AXPGHPER
+#define OFS_SAPHXPGHPER_H      OFS_SAPH_AXPGHPER+1
+#define OFS_SAPHASCTL0         OFS_SAPH_AASCTL0
+#define OFS_SAPHASCTL0_L       OFS_SAPH_AASCTL0
+#define OFS_SAPHASCTL0_H       OFS_SAPH_AASCTL0+1
+#define OFS_SAPHASCTL1         OFS_SAPH_AASCTL1
+#define OFS_SAPHASCTL1_L       OFS_SAPH_AASCTL1
+#define OFS_SAPHASCTL1_H       OFS_SAPH_AASCTL1+1
+#define OFS_SAPHASQTRIG        OFS_SAPH_AASQTRIG
+#define OFS_SAPHAPOL           OFS_SAPH_AAPOL
+#define OFS_SAPHAPOL_L         OFS_SAPH_AAPOL
+#define OFS_SAPHAPOL_H         OFS_SAPH_AAPOL+1
+#define OFS_SAPHAPLEV          OFS_SAPH_AAPLEV
+#define OFS_SAPHAPLEV_L        OFS_SAPH_AAPLEV
+#define OFS_SAPHAPLEV_H        OFS_SAPH_AAPLEV+1
+#define OFS_SAPHAPHIZ          OFS_SAPH_AAPHIZ
+#define OFS_SAPHAPHIZ_L        OFS_SAPH_AAPHIZ
+#define OFS_SAPHAPHIZ_H        OFS_SAPH_AAPHIZ+1
+#define OFS_SAPHATM_A          OFS_SAPH_AATM_A
+#define OFS_SAPHATM_A_L        OFS_SAPH_AATM_A
+#define OFS_SAPHATM_A_H        OFS_SAPH_AATM_A+1
+#define OFS_SAPHATM_B          OFS_SAPH_AATM_B
+#define OFS_SAPHATM_B_L        OFS_SAPH_AATM_B
+#define OFS_SAPHATM_B_H        OFS_SAPH_AATM_B+1
+#define OFS_SAPHATM_C          OFS_SAPH_AATM_C
+#define OFS_SAPHATM_C_L        OFS_SAPH_AATM_C
+#define OFS_SAPHATM_C_H        OFS_SAPH_AATM_C+1
+#define OFS_SAPHATM_D          OFS_SAPH_AATM_D
+#define OFS_SAPHATM_D_L        OFS_SAPH_AATM_D
+#define OFS_SAPHATM_D_H        OFS_SAPH_AATM_D+1
+#define OFS_SAPHATM_E          OFS_SAPH_AATM_E
+#define OFS_SAPHATM_E_L        OFS_SAPH_AATM_E
+#define OFS_SAPHATM_E_H        OFS_SAPH_AATM_E+1
+#define OFS_SAPHATM_F          OFS_SAPH_AATM_F
+#define OFS_SAPHATM_F_L        OFS_SAPH_AATM_F
+#define OFS_SAPHATM_F_H        OFS_SAPH_AATM_F+1
+#define OFS_SAPHTBCTL          OFS_SAPH_ATBCTL
+#define OFS_SAPHTBCTL_L        OFS_SAPH_ATBCTL
+#define OFS_SAPHTBCTL_H        OFS_SAPH_ATBCTL+1
+#define OFS_SAPHATIMLO         OFS_SAPH_AATIMLO
+#define OFS_SAPHATIMLO_L       OFS_SAPH_AATIMLO
+#define OFS_SAPHATIMLO_H       OFS_SAPH_AATIMLO+1
+#define OFS_SAPHATIMHI         OFS_SAPH_AATIMHI
+#define OFS_SAPHATIMHI_L       OFS_SAPH_AATIMHI
+#define OFS_SAPHATIMHI_H       OFS_SAPH_AATIMHI+1
+
+#define SAPH_VECTOR            SAPH_A_VECTOR
 
 #endif
 

@@ -33,7 +33,7 @@
 /* This file supports MSP430FR5992 devices. */
 /* Default linker script, for normal executables */
 
-/* Version: 1.198 */
+/* 1.204 */
 
 OUTPUT_ARCH(msp430)
 ENTRY(_start)
@@ -180,13 +180,18 @@ SECTIONS
   __interrupt_vector_54  : { KEEP (*(__interrupt_vector_54)) KEEP (*(__interrupt_vector_sysnmi)) } > VECT54
   __reset_vector         : { KEEP (*(__interrupt_vector_55)) KEEP (*(__interrupt_vector_reset)) KEEP (*(.resetvec)) } > RESETVEC
 
+  .lower.rodata :
+  {
+    . = ALIGN(2);
+    *(.lower.rodata.* .lower.rodata)
+  } > ROM
+
   .rodata :
   {
     . = ALIGN(2);
     *(.plt)
     *(.rodata .rodata.* .gnu.linkonce.r.* .const .const:*)
     *(.rodata1)
-    *(.lower.rodata.* .lower.rodata)
 	/* Note: By default we do not have this line:
 
          *(.either.rodata.*) *(.either.rodata)
@@ -201,8 +206,6 @@ SECTIONS
 
        The same reasoning applies to the absence of definitions for the
        .either.text, .either.data and .either.bss sections as well.  */
-
-
 
     KEEP (*(.gcc_except_table)) *(.gcc_except_table.*)
     PROVIDE (__preinit_array_start = .);
@@ -247,7 +250,18 @@ SECTIONS
     KEEP (*(SORT(.dtors.*)))
     KEEP (*(.dtors))
   } > ROM
-
+  
+  /* This section contains data that is not initialised during load
+     or application reset. */
+  .persistent :
+  {
+    . = ALIGN(2);
+    PROVIDE (__persistent_start = .);
+    *(.persistent)
+    . = ALIGN(2);
+    PROVIDE (__persistent_end = .);
+  } > ROM
+  
   .upper.rodata :
   {
     /* Note: If this section is not defined then please add:
@@ -259,6 +273,15 @@ SECTIONS
        work properly.  */
     *(.upper.rodata.* .upper.rodata)
   } > HIFRAM
+
+  .tinyram : {} > TINYRAM
+
+  .lower.data :
+  {
+    . = ALIGN(2);
+    PROVIDE (__datastart = .);
+    *(.lower.data.* .lower.data)
+  } > RAM AT> ROM
 
   .data :
   {
@@ -284,11 +307,8 @@ SECTIONS
     /* See the note in .rodata section about why we do not have this line here:
 
         *(.either.data.* .either.data)
-    */	
+    */
     . = ALIGN(2);
-    *(.lower.data.* .lower.data)
-    . = ALIGN(2);
-
     _edata = .;
     PROVIDE (edata = .);
     PROVIDE (__dataend = .);
@@ -296,8 +316,8 @@ SECTIONS
 
   /* Note that crt0 assumes this is a multiple of two; all the
      start/stop symbols are also assumed word-aligned.  */
-  PROVIDE(__romdatastart = LOADADDR(.data));
-  PROVIDE (__romdatacopysize = SIZEOF(.data));
+  PROVIDE(__romdatastart = LOADADDR(.lower.data));
+  PROVIDE (__romdatacopysize = SIZEOF(.lower.data) + SIZEOF(.data));
 
   .upper.data :
   {
@@ -309,19 +329,15 @@ SECTIONS
     __high_dataend = .;
   } > HIFRAM AT> ROM
 
-  /* This section contains data that is not initialised during load
-     or application reset.  */
-  .persistent :
-  {
-    . = ALIGN(2);
-    PROVIDE (__persistent_start = .);
-    *(.persistent)
-    . = ALIGN(2);
-    PROVIDE (__persistent_end = .);
-  } > HIFRAM
-
   __rom_highdatacopysize = SIZEOF(.upper.data) - 2;
   __rom_highdatastart = LOADADDR(.upper.data) + 2;
+
+  .lower.bss :
+  {
+    . = ALIGN(2);
+    PROVIDE (__bssstart = .);
+    *(.lower.bss.* .lower.bss)
+  } > RAM
 
   .bss :
   {
@@ -333,16 +349,14 @@ SECTIONS
     /* See the note in .rodata section about why we do not have this line here:
 
         *(.either.bss.* .either.bss)
-    */	
-    *(.lower.bss.* .lower.bss)
+    */
     . = ALIGN(2);
     *(COMMON)
     PROVIDE (__bssend = .);
   } > RAM
-  PROVIDE (__bsssize = SIZEOF(.bss));
-
+  PROVIDE (__bsssize = SIZEOF(.lower.bss) + SIZEOF(.bss));
   /* This section contains data that is not initialised during load
-      or application reset.  */
+     or application reset.  */
   .noinit (NOLOAD) :
   {
     . = ALIGN(2);
@@ -364,8 +378,8 @@ SECTIONS
     *(.upper.bss.* .upper.bss)
     . = ALIGN(2);
     __high_bssend = .;
-    __high_bsssize = SIZEOF(.upper.bss);
   } > HIFRAM
+  __high_bsssize = SIZEOF(.upper.bss);
 
   /* We create this section so that "end" will always be in the
      RAM region (matching .stack below), even if the .bss
@@ -395,15 +409,18 @@ SECTIONS
     *(.stack)
   }
 
+  .lower.text :
+  {
+    . = ALIGN(2);
+    *(.lower.text.* .lower.text)
+  } > ROM
+
   .text :
   {
     PROVIDE (_start = .);
 
     . = ALIGN(2);
     KEEP (*(SORT(.crt_*)))
-
-    . = ALIGN(2);
-    KEEP (*(.lowtext))
 
     . = ALIGN(2);
     *(.lower.text.* .lower.text)
@@ -413,8 +430,9 @@ SECTIONS
     /* See the note in .rodata section about why we do not have this line here:
 
         *(.either.text.* .either.text)
+
     */
-	
+
     KEEP (*(.text.*personality*))
     /* .gnu.warning sections are handled specially by elf32.em.  */
     *(.gnu.warning)
@@ -441,10 +459,10 @@ SECTIONS
   } > HIFRAM
 
   /* MSP430 INFO FLASH MEMORY SEGMENTS */
-  .infoD     : {} > INFOD
-  .infoC     : {} > INFOC
-  .infoB     : {} > INFOB
-  .infoA     : {} > INFOA
+  .infoD (NOLOAD) : {} > INFOD
+  .infoC (NOLOAD) : {} > INFOC
+  .infoB (NOLOAD) : {} > INFOB
+  .infoA (NOLOAD) : {} > INFOA
 
 
   /* The rest are all not normally part of the runtime image.  */

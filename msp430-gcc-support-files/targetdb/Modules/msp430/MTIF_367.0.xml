@@ -1,0 +1,76 @@
+<module id="MTIF" HW_revision="367.0">
+    <register id="MTIFPGCNF" width="16" offset="0x0" internal="0" description="Pulse Generator Configuration Register">
+        <bitfield id="PGPW" description="PG password. Always reads as 0x69. Must be written as 0x5A for register changes to be effective. This password differs from the pin configuration and pulse counter passwords." begin="15" end="8" width="8" rwaccess="R/W">
+        </bitfield>
+        <bitfield id="PGFS" description="PG pulse grid frequency select. This value determines at which time grid pulses are generated. The pulse generator frame frequency is an 1/256th of this (PGEN has to be one to perform a change)." begin="6" end="4" width="3" rwaccess="R/W">
+            <bitenum id="PGFS_0" value="0x0" description="Pulse grid frequency is set to 8 Hz (nominal)"/>
+            <bitenum id="PGFS_1" value="0x1" description="Pulse grid frequency is set to 16 Hz (nominal)"/>
+            <bitenum id="PGFS_2" value="0x2" description="Pulse grid frequency is set to 32 Hz (nominal)"/>
+            <bitenum id="PGFS_3" value="0x3" description="Pulse grid frequency is set to 64 Hz (nominal)"/>
+            <bitenum id="PGFS_4" value="0x4" description="Pulse grid frequency is set to 128 Hz (nominal)"/>
+            <bitenum id="PGFS_5" value="0x5" description="Pulse grid frequency is set to 256 Hz (nominal)"/>
+            <bitenum id="PGFS_6" value="0x6" description="Pulse grid frequency is set to 512 Hz (nominal)"/>
+            <bitenum id="PGFS_7" value="0x7" description="Pulse grid frequency is set to 1024 Hz (nominal) default"/>
+        </bitfield>
+        <bitfield id="PGCLR" description="PG pulse counter clear. This bit allows to clear the pulse generator (PGEN has to be set to one to perform a clear). Note!: A clear request is being latched and released after the clear is executed. PCEN =0 and LFXTOFF=1 will prevent that. The clear occurs then after the clock is reenabled. This bit is for triggering only; it's state cannot be read back" begin="2" end="2" width="1" rwaccess="R/W">
+        </bitfield>
+        <bitfield id="PGEN" description="PG sub module enable. This bit enables the PG sub module when set to one" begin="0" end="0" width="1" rwaccess="R/W">
+        </bitfield>
+    </register>
+    <register id="MTIFPGKVAL" width="16" offset="0x2" internal="0" description="Pulse Generator Value Register">
+        <bitfield id="KVAL" description="Pulse Count Number. This register value determines how many pulses are generated withing 256 periods of the pulse grid frequency(with password protection as in PGCNF). PGEN has to be one to perform a change." begin="6" end="0" width="7" rwaccess="R/W">
+        </bitfield>
+        <bitfield id="PGPW" description="PG password. Always reads as 0x69. Must be written as 0x5A for register changes to be effective. This password differs from the pin configuration and pulse counter passwords." begin="15" end="8" width="8" rwaccess="R/W">
+        </bitfield>
+    </register>
+    <register id="MTIFPGCTL" width="16" offset="0x4" internal="0" description="Pulse Generator Control Register">
+        <bitfield id="PKUR" description="Pulse K-Count Update Request (with password protection as in PGCNF). The update of KVAL occurs during the frequency grid slot 0xff (e.g. in the last 4ms of a second with a pulse grid frequency of 256Hz)" begin="0" end="0" width="1" rwaccess="R/W">
+        </bitfield>
+        <bitfield id="PGPW" description="PG password. Always reads as 0x69. Must be written as 0x5A for register changes to be effective. This password differs from the pin configuration and pulse counter passwords." begin="15" end="8" width="8" rwaccess="R/W">
+        </bitfield>
+        <bitfield id="PGUR" description="Pulse Grid Frequency Update Request (with password protection as in PGCNF). The update of PGFS occurs during the frequency grid slot 0xff (e.g. in the last 4ms of an second with an pulse grid frequency of 256Hz)" begin="1" end="1" width="1" rwaccess="R/W">
+        </bitfield>
+    </register>
+    <register id="MTIFPGSR" width="16" offset="0x6" internal="0" description="Pulse Generator Status Register">
+        <bitfield id="PKUA" description="Pulse K-Count Update Acknowledge. This acknowledges a PCUR directly after the K-values has been updated." begin="0" end="0" width="1" rwaccess="R/W">
+        </bitfield>
+        <bitfield id="PGUA" description="Pulse Grid Frequency Update Acknowledge. This acknowledges a PGUR directly after the PGFS has been updated." begin="1" end="1" width="1" rwaccess="R/W">
+        </bitfield>
+    </register>
+    <register id="MTIFPCCNF" width="16" offset="0x8" internal="0" description="Pulse Counter Configuration Register">
+        <bitfield id="PCPW" description="Pulse counter password. Always reads as 0x96. Must be written as 0xA5 for register changes to be effective. This password differs from the pin configuration and pulse generator passwords" begin="15" end="8" width="8" rwaccess="R/W">
+        </bitfield>
+        <bitfield id="PCEN" description="PC sub module enable. This bit enables the PC sub module when set to one" begin="0" end="0" width="1" rwaccess="R/W">
+        </bitfield>
+        <bitfield id="PCCLR" description="Pulse counter clear. This bit allows to clear the pulse counter when set to one (PCEN has to be one to perform a clear). Note!: A clear request is being latched and released after the clear is executed. LFXTOFF=1 and PCEN=0 will prevent that. The clear occurs then after the clock is reenabled. This bit is for triggering only; it's state cannot be read back" begin="2" end="2" width="1" rwaccess="R/W">
+        </bitfield>
+    </register>
+    <register id="MTIFPCR" width="16" offset="0xA" internal="0" description="Pulse Counter Value Register">
+    </register>
+    <register id="MTIFPCCTL" width="16" offset="0xC" internal="0" description="Pulse Counter Control Register">
+        <bitfield id="PCRR" description="Pulse Counter Read Request. Set this to request an update of PCR read register from the actual counter." begin="0" end="0" width="1" rwaccess="R/W">
+        </bitfield>
+    </register>
+    <register id="MTIFPCSR" width="16" offset="0xE" internal="0" description="Pulse Counter Status Register">
+        <bitfield id="PCOFL" description="Pulse counter overflow. This bit indicates an overflow of the pulse counter when its value changes since the last read request procedure. It is basically the 17th bit of the counter" begin="1" end="1" width="1" rwaccess="R/W">
+        </bitfield>
+        <bitfield id="PCRA" description="Pulse counter read acknowledge. This acknowledges the update of the PCR register as response to the PCRR read request. Note!: A read request is being latched. LFXTOFF=1 and PCEN=0 will prevent that.The read will then be performed and acknowledged after the clock is reenabled." begin="0" end="0" width="1" rwaccess="R/W">
+        </bitfield>
+    </register>
+    <register id="MTIFTPCTL" width="16" offset="0x10" internal="0" description="Measurement Test Port Control Register">
+        <bitfield id="TPPW" description="Test port password. Always reads as 0x0F. Must be written as 0xC3 for register changes to be effective.This password differs from the pulse generator and pulse counter passwords" begin="15" end="8" width="8" rwaccess="R/W">
+        </bitfield>
+        <bitfield id="TPISEL" description="Test port input select for pulse counter. This value determines the source for the pulse counter." begin="2" end="2" width="1" rwaccess="R/W">
+            <bitenum id="TPISEL_0" value="0x0" description="The pulse generator is used as input"/>
+            <bitenum id="TPISEL_1" value="0x1" description="The test port input terminal is selected as input"/>
+        </bitfield>
+        <bitfield id="TPIE" description="Test port input enable. This bit allows to enable the test input port" begin="1" end="1" width="1" rwaccess="R/W">
+        </bitfield>
+        <bitfield id="TPOE" description="Test port output enable. This bit allows to enable the test pulse output when set to one" begin="0" end="0" width="1" rwaccess="R/W">
+        </bitfield>
+        <bitfield id="ACTIVATE" description="Test port terminal enable activation. This value determines if the testport output is enabled solely by software or by software and hardware." begin="3" end="3" width="1" rwaccess="R/W">
+            <bitenum id="ACTIVATE_0" value="0x0" description="The test port output is enabled solely by TPOE (enabled if TPOE=1)"/>
+            <bitenum id="ACTIVATE_1" value="0x1" description="The testport output requires both TPOE to be high and the MTPE pin to be high to be enabled"/>
+        </bitfield>
+    </register>
+</module>

@@ -1,0 +1,22 @@
+<module id="PE" HW_revision="272.0_inst9">
+    <register id="PEIN" width="16" offset="0x80" internal="0" description="Port E Input">
+    </register>
+    <register id="PEOUT" width="16" offset="0x82" internal="0" description="Port E Output">
+    </register>
+    <register id="PEDIR" width="16" offset="0x84" internal="0" description="Port E Direction">
+    </register>
+    <register id="PEREN" width="16" offset="0x86" internal="0" description="Port E Resistor Enable">
+    </register>
+    <register id="PESEL0" width="16" offset="0x8A" internal="0" description="Port E Select 0">
+    </register>
+    <register id="PESEL1" width="16" offset="0x8C" internal="0" description="Port E Select 1">
+    </register>
+    <register id="PESELC" width="16" offset="0x96" internal="0" description="Port E Complement Select">
+    </register>
+    <register id="PEIES" width="16" offset="0x98" internal="0" description="Port E Interrupt Edge Select">
+    </register>
+    <register id="PEIE" width="16" offset="0x9A" internal="0" description="Port E Interrupt Enable">
+    </register>
+    <register id="PEIFG" width="16" offset="0x9C" internal="0" description="Port E Interrupt Flag">
+    </register>
+</module>

@@ -1,0 +1,248 @@
+<module id="SDHS" HW_revision="367.0">
+    <register id="SDHSIIDX" width="16" offset="0x0" internal="0" description="Interrupt Index Register">
+        <bitfield id="IIDX" description="SDHS Interrupt Vector Value." begin="15" end="1" width="15" rwaccess="R">
+            <bitenum id="IIDX_0" value="0x0" description="No Interrupt pending."/>
+            <bitenum id="IIDX_1" value="0x1" description="Interrupt Source: RIS.OVF; Interrupt Priority: Highest"/>
+            <bitenum id="IIDX_2" value="0x2" description="Interrupt Source: RIS.ACQDONE"/>
+            <bitenum id="IIDX_3" value="0x3" description="Interrupt Source: RIS.SSTRG"/>
+            <bitenum id="IIDX_4" value="0x4" description="Interrupt Source: RIS.DTRDY"/>
+            <bitenum id="IIDX_5" value="0x5" description="Interrupt Source: RIS.WINHI"/>
+            <bitenum id="IIDX_6" value="0x6" description="Interrupt Source: RIS.WINLO"/>
+            <bitenum id="IIDX_7" value="0x7" description="Reserved; Interrupt"/>
+            <bitenum id="IIDX_8" value="0x8" description="Reserved; Interrupt Priority: Lowest"/>
+        </bitfield>
+    </register>
+    <register id="SDHSMIS" width="16" offset="0x2" internal="0" description="Masked Interrupt Status and Clear Register">
+        <bitfield id="DTRDY" description="SDHS Data Ready Masked Interrupt Status bit." begin="3" end="3" width="1" rwaccess="R">
+            <bitenum id="DTRDY_0" value="0x0" description="No interrupt pending"/>
+            <bitenum id="DTRDY_1" value="0x1" description="Interrupt pending"/>
+        </bitfield>
+        <bitfield id="SSTRG" description="SDHS Start Conversion Trigger Masked Interrupt Status bit." begin="2" end="2" width="1" rwaccess="R">
+            <bitenum id="SSTRG_0" value="0x0" description="No interrupt pending"/>
+            <bitenum id="SSTRG_1" value="0x1" description="Interrupt pending"/>
+        </bitfield>
+        <bitfield id="OVF" description="SDHS Data Overflow Masked Interrupt Status bit." begin="0" end="0" width="1" rwaccess="R">
+            <bitenum id="OVF_0" value="0x0" description="No interrupt pending"/>
+            <bitenum id="OVF_1" value="0x1" description="Interrupt pending"/>
+        </bitfield>
+        <bitfield id="ACQDONE" description="Acquisition Done Masked Interrupt Status bit." begin="1" end="1" width="1" rwaccess="R">
+            <bitenum id="ACQDONE_0" value="0x0" description="No interrupt pending"/>
+            <bitenum id="ACQDONE_1" value="0x1" description="Interrupt pending"/>
+        </bitfield>
+        <bitfield id="WINHI" description="SDHS Window High Masked Interrupt Status bit." begin="4" end="4" width="1" rwaccess="R">
+            <bitenum id="WINHI_0" value="0x0" description="No interrupt pending"/>
+            <bitenum id="WINHI_1" value="0x1" description="Interrupt pending"/>
+        </bitfield>
+        <bitfield id="WINLO" description="SDHS Window Low Masked Interrupt Status and Clear bit." begin="5" end="5" width="1" rwaccess="R">
+            <bitenum id="WINLO_0" value="0x0" description="No interrupt pending"/>
+            <bitenum id="WINLO_1" value="0x1" description="Interrupt pending"/>
+        </bitfield>
+    </register>
+    <register id="SDHSRIS" width="16" offset="0x4" internal="0" description="Raw Interrupt Status Register">
+        <bitfield id="DTRDY" description="SDHS Data Ready Raw Interrupt Status bit." begin="3" end="3" width="1" rwaccess="R">
+            <bitenum id="DTRDY_0" value="0x0" description="No DTRDY event"/>
+            <bitenum id="DTRDY_1" value="0x1" description="The data buffer has become empty."/>
+        </bitfield>
+        <bitfield id="SSTRG" description="SDHS Start Conversion Trigger Raw Interrupt Status bit." begin="2" end="2" width="1" rwaccess="R">
+            <bitenum id="SSTRG_0" value="0x0" description="No SSTRG event"/>
+            <bitenum id="SSTRG_1" value="0x1" description="Converson Start signal has been asserted"/>
+        </bitfield>
+        <bitfield id="OVF" description="SDHS Data Overflow Raw Interrupt Status bit." begin="0" end="0" width="1" rwaccess="R">
+            <bitenum id="OVF_0" value="0x0" description="No OVF event"/>
+            <bitenum id="OVF_1" value="0x1" description="When DTC is enabled (CTL2.DTCOFF = 0), DTC has dropped at least one sample. This indicates that the system clock needs to be increased.  When DTC is disabled (CTL2.DTCOFF = 1),  At least one new sample has been overwritten to SDHSDT register before the previous value is read."/>
+        </bitfield>
+        <bitfield id="ACQDONE" description="Acquisition Done Raw Interrupt Status bit" begin="1" end="1" width="1" rwaccess="R">
+            <bitenum id="ACQDONE_0" value="0x0" description="No ACQDONE event"/>
+            <bitenum id="ACQDONE_1" value="0x1" description="Data conversion has been finished (either complete or incomplete)."/>
+        </bitfield>
+        <bitfield id="WINHI" description="SDHS Window High Raw Interrupt Status bit." begin="4" end="4" width="1" rwaccess="R">
+            <bitenum id="WINHI_0" value="0x0" description="No WINHI event"/>
+            <bitenum id="WINHI_1" value="0x1" description="The output data value is higher than the value in the WINHITH register"/>
+        </bitfield>
+        <bitfield id="WINLO" description="SDHS Window Low Raw Interrupt Status bit." begin="5" end="5" width="1" rwaccess="R">
+            <bitenum id="WINLO_0" value="0x0" description="No new data is lower than the value in the WINLOTH register"/>
+            <bitenum id="WINLO_1" value="0x1" description="New data is low than the value in the WINLOTH register"/>
+        </bitfield>
+        <bitfield id="ISTOP" description="Incomplete Stop Status bit." begin="15" end="15" width="1" rwaccess="R">
+            <bitenum id="ISTOP_0" value="0x0" description="No ISTOP event"/>
+            <bitenum id="ISTOP_1" value="0x1" description="Conversion has been interrupted and stopped before completing the number of samples defined in CTL2.SAMPSZ."/>
+        </bitfield>
+    </register>
+    <register id="SDHSIMSC" width="16" offset="0x6" internal="0" description="Interrupt Mask Register">
+        <bitfield id="DTRDY" description="SDHS Data Ready Interrupt Mask bit." begin="3" end="3" width="1" rwaccess="R/W">
+            <bitenum id="DTRDY_0" value="0x0" description="Interrupt is disabled"/>
+            <bitenum id="DTRDY_1" value="0x1" description="Interrupt is enabled"/>
+        </bitfield>
+        <bitfield id="SSTRG" description="SDHS Start Conversion Trigger Interrupt Mask bit." begin="2" end="2" width="1" rwaccess="R/W">
+            <bitenum id="SSTRG_0" value="0x0" description="Interrupt is disabled"/>
+            <bitenum id="SSTRG_1" value="0x1" description="Interrupt is enabled"/>
+        </bitfield>
+        <bitfield id="OVF" description="SDHS Data Overflow Interrupt Mask bit." begin="0" end="0" width="1" rwaccess="R/W">
+            <bitenum id="OVF_0" value="0x0" description="Interrupt is disabled"/>
+            <bitenum id="OVF_1" value="0x1" description="Interrupt is enabled"/>
+        </bitfield>
+        <bitfield id="ACQDONE" description="Acquisition Done  Interrupt Mask bit." begin="1" end="1" width="1" rwaccess="R/W">
+            <bitenum id="ACQDONE_0" value="0x0" description="Interrupt is disabled"/>
+            <bitenum id="ACQDONE_1" value="0x1" description="Interrupt is enabled"/>
+        </bitfield>
+        <bitfield id="WINHI" description="SDHS Window High Interrupt Mask bit." begin="4" end="4" width="1" rwaccess="R/W">
+            <bitenum id="WINHI_0" value="0x0" description="Interrupt is disabled"/>
+            <bitenum id="WINHI_1" value="0x1" description="Interrupt is enabled"/>
+        </bitfield>
+        <bitfield id="WINLO" description="SDHS Window Low Interrupt Mask bit." begin="5" end="5" width="1" rwaccess="R/W">
+            <bitenum id="WINLO_0" value="0x0" description="Interrupt is disabled"/>
+            <bitenum id="WINLO_1" value="0x1" description="Interrupt is enabled"/>
+        </bitfield>
+    </register>
+    <register id="SDHSICR" width="16" offset="0x8" internal="0" description="Interrupt Clear Register.">
+        <bitfield id="SSTRG" description="SDHS Start Conversion Trigger Interrupt Clear bit." begin="2" end="2" width="1" rwaccess="R/W">
+        </bitfield>
+        <bitfield id="OVF" description="SDHS Data Overflow Interrupt Clear bit." begin="0" end="0" width="1" rwaccess="R/W">
+        </bitfield>
+        <bitfield id="ACQDONE" description="Acquisition Done  Interrupt Clear bit." begin="1" end="1" width="1" rwaccess="R/W">
+        </bitfield>
+        <bitfield id="WINHI" description="SDHS Window High Interrupt Clear bit." begin="4" end="4" width="1" rwaccess="R/W">
+        </bitfield>
+        <bitfield id="WINLO" description="SDHS Window Low Interrupt Clear bit." begin="5" end="5" width="1" rwaccess="R/W">
+        </bitfield>
+        <bitfield id="ISTOP" description="Incomplete Stop Interrupt Clear bit." begin="15" end="15" width="1" rwaccess="R/W">
+        </bitfield>
+        <bitfield id="DTRDY" description="SDHS Data Ready Interrupt Clear bit." begin="3" end="3" width="1" rwaccess="R/W">
+        </bitfield>
+    </register>
+    <register id="SDHSISR" width="16" offset="0xA" internal="0" description="Interrupt Set Register.">
+        <bitfield id="DTRDY" description="SDHS Data Ready Interrupt Set bit." begin="3" end="3" width="1" rwaccess="R/W">
+        </bitfield>
+        <bitfield id="SSTRG" description="SDHS Start Conversion Trigger Interrupt Set bit." begin="2" end="2" width="1" rwaccess="R/W">
+        </bitfield>
+        <bitfield id="OVF" description="SDHS Data Overflow Interrupt Set bit." begin="0" end="0" width="1" rwaccess="R/W">
+        </bitfield>
+        <bitfield id="ACQDONE" description="Acquisition Done Interrupt Set bit." begin="1" end="1" width="1" rwaccess="R/W">
+        </bitfield>
+        <bitfield id="WINHI" description="SDHS Window High Interrupt Set bit." begin="4" end="4" width="1" rwaccess="R/W">
+        </bitfield>
+        <bitfield id="WINLO" description="SDHS Window Low Interrupt Set bit." begin="5" end="5" width="1" rwaccess="R/W">
+        </bitfield>
+        <bitfield id="ISTOP" description="Incomplete Stop Interrupt Set bit." begin="15" end="15" width="1" rwaccess="R/W">
+        </bitfield>
+    </register>
+    <register id="SDHSDESCLO" width="16" offset="0xC" internal="0" description="SDHS Descriptor Register L.">
+        <bitfield id="MINREV" description="Minor Revision" begin="3" end="0" width="4" rwaccess="R">
+        </bitfield>
+        <bitfield id="INSTNUM" description="Instance Number within the device." begin="11" end="8" width="4" rwaccess="R">
+        </bitfield>
+        <bitfield id="MAJREV" description="Major Revision" begin="7" end="4" width="4" rwaccess="R">
+        </bitfield>
+        <bitfield id="FEATUREVER" description="Feature Set for the module" begin="15" end="12" width="4" rwaccess="R">
+        </bitfield>
+    </register>
+    <register id="SDHSDESCHI" width="16" offset="0xE" internal="0" description="SDHS Descriptor Register H.">
+    </register>
+    <register id="SDHSCTL0" width="16" offset="0x10" internal="0" description="SDHS Control Register 0">
+        <bitfield id="DALGN" description="Data alignment" begin="7" end="7" width="1" rwaccess="R/W">
+            <bitenum id="DALGN_0" value="0x0" description="Right-aligned."/>
+            <bitenum id="DALGN_1" value="0x1" description="Left-aligned."/>
+        </bitfield>
+        <bitfield id="DFMSEL" description="Data format" begin="9" end="8" width="2" rwaccess="R/W">
+            <bitenum id="DFMSEL_0" value="0x0" description="2's complement"/>
+            <bitenum id="DFMSEL_1" value="0x1" description="Offset binary"/>
+            <bitenum id="DFMSEL_2" value="0x2" description="Reserved (defaults to 0, 2s complement)"/>
+            <bitenum id="DFMSEL_3" value="0x3" description="Reserved (defaults to 0, 2s complement)"/>
+        </bitfield>
+        <bitfield id="INTDLY" description="DTRDY Interrupt delay select.  This regiser can be used to discard up to 7 samples after conversion start.  Note that the skipped samples will be lost." begin="3" end="1" width="3" rwaccess="R/W">
+            <bitenum id="INTDLY_0" value="0x0" description="No dealy"/>
+            <bitenum id="INTDLY_1" value="0x1" description="1 sample delay, 2nd sample is the first interrupt"/>
+            <bitenum id="INTDLY_2" value="0x2" description="2 samples delay, 3rd sample is the first interrupt"/>
+            <bitenum id="INTDLY_3" value="0x3" description="3 samples delay, 4rd sample is the first interrupt"/>
+            <bitenum id="INTDLY_4" value="0x4" description="4 samples delay, 5th sample is the first interrupt"/>
+            <bitenum id="INTDLY_5" value="0x5" description="5 samples delay, 6th sample is the first interrupt"/>
+            <bitenum id="INTDLY_6" value="0x6" description="6 samples delay, 7th sample is the first interrupt"/>
+            <bitenum id="INTDLY_7" value="0x7" description="7 samples delay, 8th sample is the first interrupt"/>
+        </bitfield>
+        <bitfield id="AUTOSSDIS" description="SDHS Auto Sample Start Disable" begin="0" end="0" width="1" rwaccess="R/W">
+            <bitenum id="AUTOSSDIS_0" value="0x0" description="Auto Sample start enabled. SDHS is powered up when the SHDS_PWR_UP applied, then data conversion is automatically started once the SDHS is fully powered up."/>
+            <bitenum id="AUTOSSDIS_1" value="0x1" description="Auto Sample start disabled.  (This configuration must be used when the ASQ controls the measurement sequences) - SHDS_PWR_UP signal to turns on the SDHS - CONVERSION_START signal to start data convesion"/>
+        </bitfield>
+        <bitfield id="TRGSRC" description="SDHS trigger source select." begin="15" end="15" width="1" rwaccess="R/W">
+            <bitenum id="TRGSRC_0" value="0x0" description="Register control mode:  - CTL4.SDHSON is the source of the SHDS_PWR_UP/DOWN signal - CTL5.SSTART is the source of the CONVERSION_START/STOP signal"/>
+            <bitenum id="TRGSRC_1" value="0x1" description="ASQ control mode: The SDHS is controlled by the ASQ. - ASQ_ACQARM signal from the ASQ is the source of the SHDS_PWR_UP/DOWN signal - ASQ_ACQTRIG signal from the ASQ is the source of the CONVERSION_START/STOP signal"/>
+        </bitfield>
+        <bitfield id="OBR" description="Output Bit Resolution" begin="11" end="10" width="2" rwaccess="R/W">
+            <bitenum id="OBR_0" value="0x0" description="12-bit"/>
+            <bitenum id="OBR_1" value="0x1" description="13-bit"/>
+            <bitenum id="OBR_2" value="0x2" description="14-bit"/>
+            <bitenum id="OBR_3" value="0x3" description="Reserved (default: 12-bit)"/>
+        </bitfield>
+        <bitfield id="SHIFT" description="MSB Shift" begin="13" end="12" width="2" rwaccess="R/W">
+            <bitenum id="SHIFT_0" value="0x0" description="No Shift, MSB."/>
+            <bitenum id="SHIFT_1" value="0x1" description="MSB - 1 (Shift left by 1 from filter out). If OBR = 2, then this configuration is invalid. No shift is performed."/>
+            <bitenum id="SHIFT_2" value="0x2" description="MSB -2 (Shift left by 2 from filter out). If OBR = 1, then this configuration is invalid. No shift is performed."/>
+            <bitenum id="SHIFT_3" value="0x3" description="Reserved (No shift)"/>
+        </bitfield>
+    </register>
+    <register id="SDHSCTL1" width="16" offset="0x12" internal="0" description="SDHS Control Register 1">
+        <bitfield id="OSR" description="Over Sampling Rate." begin="3" end="0" width="4" rwaccess="R/W">
+            <bitenum id="OSR_0" value="0x0" description="10"/>
+            <bitenum id="OSR_1" value="0x1" description="20"/>
+            <bitenum id="OSR_2" value="0x2" description="40"/>
+            <bitenum id="OSR_3" value="0x3" description="80"/>
+            <bitenum id="OSR_4" value="0x4" description="160"/>
+        </bitfield>
+    </register>
+    <register id="SDHSCTL2" width="16" offset="0x14" internal="0" description="SDHS Control Register 2">
+        <bitfield id="SMPCTLOFF" description="Disable sampling size counting." begin="10" end="10" width="1" rwaccess="R/W">
+            <bitenum id="SMPCTLOFF_0" value="0x0" description="Total sampling size is determined by SMPSZ bits. The SDHS automatically stops data conversion."/>
+            <bitenum id="SMPCTLOFF_1" value="0x1" description="SMPSZ bits are ignored. Conversion does not stop until the trigger source selected by TRGSRC bits is deasserted."/>
+        </bitfield>
+        <bitfield id="SMPSZ" description="Total Sample Size." begin="9" end="0" width="10" rwaccess="R/W">
+        </bitfield>
+        <bitfield id="DTCOFF" description="Data Transfer Controller (DTC) Off" begin="15" end="15" width="1" rwaccess="R/W">
+            <bitenum id="DTCOFF_0" value="0x0" description="DTC enabled. The DTC automatically transfers the data from the SDHSDT register to the address specified in the DTCDA register."/>
+            <bitenum id="DTCOFF_1" value="0x1" description="DTC disabled. The data in the SDHSDT register must be read by CPU, otherwise the overflow interrupt flag (RIS.OVF) will eventually be asserted."/>
+        </bitfield>
+        <bitfield id="WINCMPEN" description="Window Comparator Enable" begin="14" end="14" width="1" rwaccess="R/W">
+            <bitenum id="WINCMPEN_0" value="0x0" description="Window Comparator is disabled"/>
+            <bitenum id="WINCMPEN_1" value="0x1" description="Window Comparator is enabled"/>
+        </bitfield>
+    </register>
+    <register id="SDHSCTL3" width="16" offset="0x16" internal="0" description="SDHS Control Register 3">
+        <bitfield id="TRIGEN" description="SDHS Trigger Enable bit" begin="0" end="0" width="1" rwaccess="R/W">
+            <bitenum id="TRIGEN_0" value="0x0" description="SDHS Trigger is disabled. Once this bit is de-asserted, CTL0,  CTL1, CTL2, CTL7,WINHITH, WINLOTH, and DTCDA registers are unlocked (allowed to be modified)."/>
+            <bitenum id="TRIGEN_1" value="0x1" description="SDHS Trigger is enabled. Once this bit is asserted, CTL0,  CTL1, CTL2, CTL7,WINHITH, WINLOTH, and DTCDA registers are locked (not allowed to be modified)."/>
+        </bitfield>
+    </register>
+    <register id="SDHSCTL4" width="16" offset="0x18" internal="0" description="SDHS Control Register 4">
+        <bitfield id="SDHSON" description="SDHS Power-up" begin="0" end="0" width="1" rwaccess="R/W">
+            <bitenum id="SDHSON_0" value="0x0" description="Power down the SDHS module"/>
+            <bitenum id="SDHSON_1" value="0x1" description="Power on the SDHS module"/>
+        </bitfield>
+    </register>
+    <register id="SDHSCTL5" width="16" offset="0x1A" internal="0" description="SDHS Control Register 5">
+        <bitfield id="SSTART" description="Start of conversion." begin="0" end="0" width="1" rwaccess="R/W">
+            <bitenum id="SSTART_0" value="0x0" description="Stop conversion"/>
+            <bitenum id="SSTART_1" value="0x1" description="Start conversion"/>
+        </bitfield>
+        <bitfield id="SDHS_LOCK" description="Start of conversion." begin="8" end="8" width="1" rwaccess="R">
+            <bitenum id="SDHS_LOCK_0" value="0x0" description="CTL3 register is unlocked."/>
+            <bitenum id="SDHS_LOCK_1" value="0x1" description="CTL3 register is locked as well as  CTL0,  CTL1, CTL2, CTL7,WINHITH, WINLOTH, and DTCDA registers. Only read is allowed."/>
+        </bitfield>
+    </register>
+    <register id="SDHSCTL6" width="16" offset="0x1C" internal="0" description="SDHS Control Register 6">
+        <bitfield id="PGA_GAIN" description="PGA Gain Control bits" begin="5" end="0" width="6" rwaccess="R/W">
+        </bitfield>
+    </register>
+    <register id="SDHSCTL7" width="16" offset="0x1E" internal="0" description="SDHS Control Register 7">
+        <bitfield id="MODOPTI" description="SDHS Modulator Optimization bits." begin="4" end="0" width="5" rwaccess="R/W">
+        </bitfield>
+    </register>
+    <register id="SDHSDT" width="16" offset="0x22" internal="0" description="SDHS Data Converstion Register">
+    </register>
+    <register id="SDHSWINHITH" width="16" offset="0x24" internal="0" description="SDHS Window Comparator High Threshold Register.">
+    </register>
+    <register id="SDHSWINLOTH" width="16" offset="0x26" internal="0" description="SDHS Window Comparator Low Threshold Register.">
+    </register>
+    <register id="SDHSDTCDA" width="16" offset="0x28" internal="0" description="DTC destination address register">
+        <bitfield id="DTCDA" description="DTC destination address." begin="14" end="0" width="15" rwaccess="R/W">
+        </bitfield>
+    </register>
+</module>

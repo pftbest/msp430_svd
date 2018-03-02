@@ -17,8 +17,8 @@
             <bitenum id="DCORSEL_3" value="0x3" description="8 MHz"/>
             <bitenum id="DCORSEL_4" value="0x4" description="12 MHz"/>
             <bitenum id="DCORSEL_5" value="0x5" description="16 MHz"/>
-            <bitenum id="DCORSEL_6" value="0x6" description="Reserved"/>
-            <bitenum id="DCORSEL_7" value="0x7" description="Reserved"/>
+            <bitenum id="DCORSEL_6" value="0x6" description="20 MHz(Only avaliable in 24MHz clock system)"/>
+            <bitenum id="DCORSEL_7" value="0x7" description="24 MHz(Only avaliable in 24MHz clock system)"/>
         </bitfield>
         <bitfield id="DCOFTRIM" description="DCO frequency trim. These bits trims the DCO frequency. By default, it is chipspecific trimmed. These bits can also be trimmed by user code." begin="6" end="4" width="3" rwaccess="R/W">
         </bitfield>
@@ -37,8 +37,8 @@
             <bitenum id="8" value="0x3" description="fDCOCLK / 8"/>
             <bitenum id="16" value="0x4" description="fDCOCLK / 16"/>
             <bitenum id="32" value="0x5" description="fDCOCLK / 32"/>
-            <bitenum id="FLLD_6" value="0x6" description="Reserved for future use"/>
-            <bitenum id="FLLD_7" value="0x7" description="Reserved for future use"/>
+            <bitenum id="FLLD_6" value="0x6" description="fDCOCLK / 40(Only avaliable in 24MHz clock system)"/>
+            <bitenum id="FLLD_7" value="0x7" description="fDCOCLK / 48(Only avaliable in 24MHz clock system)"/>
         </bitfield>
     </register>
     <register id="CSCTL3" width="16" offset="0x6" internal="0" description="Clock System Control 3">
@@ -49,14 +49,18 @@
             <bitenum id="128" value="0x3" description="fFLLREFCLK / 128"/>
             <bitenum id="256" value="0x4" description="fFLLREFCLK / 256"/>
             <bitenum id="512" value="0x5" description="fFLLREFCLK / 512"/>
-            <bitenum id="FLLREFDIV_6" value="0x6" description="Reserved for future use"/>
-            <bitenum id="FLLREFDIV_7" value="0x7" description="Reserved for future use"/>
+            <bitenum id="FLLREFDIV_6" value="0x6" description="fFLLREFCLK / 640 (only available in 24MHz clock system)"/>
+            <bitenum id="FLLREFDIV_7" value="0x7" description="fFLLREFCLK / 768(only available in 24MHz clock system)"/>
         </bitfield>
         <bitfield id="SELREF" description="FLL reference select. These bits select the FLL reference clock source." begin="5" end="4" width="2" rwaccess="R/W">
             <bitenum id="XT1CLK" value="0x0" description="XT1CLK"/>
             <bitenum id="REFOCLK" value="0x1" description="REFOCLK"/>
             <bitenum id="SELREF_2" value="0x2" description="served for future use"/>
             <bitenum id="SELREF_3" value="0x3" description="served for future use"/>
+        </bitfield>
+        <bitfield id="REFOLP" description="REFO Low Power Enable. This bit turns on REFO low-power mode. During switch, the low-power mode will be invalid until REFOREADY is set." begin="7" end="7" width="1" rwaccess="R/W">
+            <bitenum id="REFOLP_0" value="0x0" description="REFO Low Power Disabled (High Power Mode)"/>
+            <bitenum id="REFOLP_1" value="0x1" description="REFO Low Power Enabled"/>
         </bitfield>
     </register>
     <register id="CSCTL4" width="16" offset="0x8" internal="0" description="Clock System Control 4">
@@ -70,9 +74,11 @@
             <bitenum id="SELMS_6" value="0x6" description="Reserved for future use"/>
             <bitenum id="SELMS_7" value="0x7" description="Reserved for future use"/>
         </bitfield>
-        <bitfield id="SELA" description="Selects the ACLK source" begin="8" end="8" width="1" rwaccess="R/W">
+        <bitfield id="SELA" description="Selects the ACLK source" begin="9" end="8" width="2" rwaccess="R/W">
             <bitenum id="XT1CLK" value="0x0" description="XT1CLK with divider (must be no more than 40 kHz)"/>
             <bitenum id="REFOCLK" value="0x1" description="REFO (internal 32-kHz clock source)"/>
+            <bitenum id="VLOCLK" value="0x2" description="VLO (internal 10-kHz clock source)"/>
+            <bitenum id="RESERVED" value="0x3" description="Reserved"/>
         </bitfield>
     </register>
     <register id="CSCTL5" width="16" offset="0xA" internal="0" description="Clock System Control 5">
@@ -139,17 +145,25 @@
             <bitenum id="256" value="0x5" description="/256"/>
             <bitenum id="384" value="0x6" description="/384"/>
             <bitenum id="512" value="0x7" description="/512"/>
-            <bitenum id="768" value="0x8" description="/768"/>
-            <bitenum id="1024" value="0x9" description="/1024"/>
-            <bitenum id="DIVA_10" value="0xA" description="Reserved"/>
-            <bitenum id="DIVA_11" value="0xB" description="Reserved"/>
-            <bitenum id="DIVA_12" value="0xC" description="Reserved"/>
-            <bitenum id="DIVA_13" value="0xD" description="Reserved"/>
+            <bitenum id="768" value="0x8" description="/768(Only available in 24MHz clock system, 24 MHz preference)"/>
+            <bitenum id="1024" value="0x9" description="/1024(Only available in 24MHz clock system, 24 MHz preference)"/>
+            <bitenum id="108" value="0xA" description="/108(Only available in 24MHz clock system, 24 MHz preference)"/>
+            <bitenum id="338" value="0xB" description="338(Only available in 24MHz clock system, 24 MHz preference)"/>
+            <bitenum id="414" value="0xC" description="414(Only available in 24MHz clock system, 24 MHz preference)"/>
+            <bitenum id="640" value="0xD" description="640(Only available in 24MHz clock system, 24 MHz preference)"/>
             <bitenum id="DIVA_14" value="0xE" description="Reserved"/>
             <bitenum id="DIVA_15" value="0xF" description="Reserved"/>
         </bitfield>
+        <bitfield id="XT1FAULTOFF" description="The XT1 oscillator fault detection off" begin="13" end="13" width="1" rwaccess="R/W">
+            <bitenum id="XT1FAULTOFF_0" value="0x0" description="Enabling XT1 fault to switch ACLK to REFO"/>
+            <bitenum id="XT1FAULTOFF_1" value="0x1" description="Disabling XT1 fault to switch ACLK to REFO"/>
+        </bitfield>
     </register>
     <register id="CSCTL7" width="16" offset="0xE" internal="0" description="Clock System Control Register 7">
+        <bitfield id="REFOREADY" description="REFO ready flag. This bit reflects the REFO readiness whent REFO is good for operation (such as FLL reference)" begin="2" end="2" width="1" rwaccess="R">
+            <bitenum id="REFOREADY_0" value="0x0" description="REFO unstable"/>
+            <bitenum id="REFOREADY_1" value="0x1" description="REFO ready to go"/>
+        </bitfield>
         <bitfield id="DCOFFG" description="DCO fault flag. If this bit is set, the OFIFG flag is also set. The DCOFFG bit is set if DCO = {0} or DCO = {511}. DCOFFG can be cleared by software. If the DCO fault condition still remains, DCOFFG is set. As long as DCOFFG is set, FLLUNLOCK shows the DCOERROR condition." begin="0" end="0" width="1" rwaccess="R/W">
             <bitenum id="DCOFFG_0" value="0x0" description="No fault condition occurred after the last reset."/>
             <bitenum id="DCOFFG_1" value="0x1" description="DCO fault. A DCO fault occurred after the last reset."/>

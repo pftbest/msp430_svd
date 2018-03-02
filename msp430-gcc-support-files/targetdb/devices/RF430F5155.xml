@@ -1,11 +1,8 @@
 <device HW_revision="1.0" XML_version="1.0" description="RF430F5155" id="RF430F5155" partnum="RF430F5155">
 
+<include href="../options/RF430F5155_TI.xml"></include>
+<include href="../options/RF430F5155_GNU.xml"></include>
 <property Type="stringfield" Value="RF430x5xx Family" id="FilterString"></property>
-<property Type="stringfield" Value="-lc -lgcc -L ${CCS_BASE_ROOT}/msp430/include_gcc " id="GNULinkerBuildOptions"></property>
-<property Type="stringfield" Value="../include_gcc/rf430f5155.ld" id="GNUFilesToCopy"></property>
-<property Type="stringfield" Value="-D=__RF430F5155__   --use_hw_mpy=F5 --silicon_errata=CPU21 --silicon_errata=CPU22 --silicon_errata=CPU40" id="CompilerBuildOptions"></property>
-<property Type="stringfield" Value="-mmcu=rf430f5155 -I${CCS_BASE_ROOT}/msp430/include_gcc -Os -mhwmult=f5series" id="GNUCompilerBuildOptions"></property>
-<property Type="stringfield" Value="-llibmath.a -i${CCS_BASE_ROOT}/msp430/lib/5xx_6xx_FRxx --use_hw_mpy=F5" id="LinkerBuildOptions"></property>
 <property Type="numericfield" Value="80" id="HeapDefaultSize"></property>
 <property Type="stringfield" Value="minimal" id="PrintfDefault_support"></property>
 <property Type="numericfield" Value="80" id="StackDefaultSize"></property>

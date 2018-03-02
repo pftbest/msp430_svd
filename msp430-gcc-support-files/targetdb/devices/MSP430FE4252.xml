@@ -1,11 +1,8 @@
 <device HW_revision="1.0" XML_version="1.0" description="MSP430FE4252" id="MSP430FE4252" partnum="MSP430FE42x2">
 
+<include href="../options/MSP430FE4252_TI.xml"></include>
+<include href="../options/MSP430FE4252_GNU.xml"></include>
 <property Type="stringfield" Value="MSP430x4xx Family" id="FilterString"></property>
-<property Type="stringfield" Value="-lc -lgcc -L ${CCS_BASE_ROOT}/msp430/include_gcc " id="GNULinkerBuildOptions"></property>
-<property Type="stringfield" Value="../include_gcc/msp430fe4252.ld" id="GNUFilesToCopy"></property>
-<property Type="stringfield" Value="-D=__MSP430FE4252__   --use_hw_mpy=none" id="CompilerBuildOptions"></property>
-<property Type="stringfield" Value="-mmcu=msp430fe4252 -I${CCS_BASE_ROOT}/msp430/include_gcc -Os -mhwmult=none -msilicon-errata=CPU4" id="GNUCompilerBuildOptions"></property>
-<property Type="stringfield" Value=" --use_hw_mpy=none" id="LinkerBuildOptions"></property>
 <property Type="numericfield" Value="80" id="HeapDefaultSize"></property>
 <property Type="stringfield" Value="minimal" id="PrintfDefault_support"></property>
 <property Type="numericfield" Value="80" id="StackDefaultSize"></property>

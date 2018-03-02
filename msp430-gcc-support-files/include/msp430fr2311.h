@@ -1,6 +1,6 @@
 //*****************************************************************************
 //
-// Copyright (C) 2016 Texas Instruments Incorporated - http://www.ti.com/
+// Copyright (C) 2017 Texas Instruments Incorporated - http://www.ti.com/
 //
 // Redistribution and use in source and binary forms, with or without
 // modification, are permitted provided that the following conditions
@@ -44,7 +44,7 @@
 #ifndef __MSP430FR2311
 #define __MSP430FR2311
 
-#define __MSP430_HEADER_VERSION__ 1198
+#define __MSP430_HEADER_VERSION__ 1204
 
 #define __MSP430_HAS_MSP430XV2_CPU__  /* CPU type */
 #define __MSP430FR2XX_4XX_FAMILY__
@@ -1582,7 +1582,7 @@ sfr_b(CSCTL8_H);
 #define __MSP430_BASEADDRESS_PORT1_R__ 0x200
 #define P1_BASE                __MSP430_BASEADDRESS_PORT1_R__
 #define __MSP430_HAS_PORT2_R__                /* Definition to show that port is available */
-#define __MSP430_BASEADDRESS_PORT2_R__ 0x201
+#define __MSP430_BASEADDRESS_PORT2_R__ 0x200
 #define P2_BASE                __MSP430_BASEADDRESS_PORT2_R__
 #define __MSP430_HAS_PASEL0__                 /* Define for DriverLib */
 #define __MSP430_HAS_PASEL1__                 /* Define for DriverLib */
@@ -1728,25 +1728,25 @@ sfr_b(P2IFG);                                 /* Port 2 Interrupt Flag */
 #define OFS_P2IV                         (0x001E)
 #define OFS_P2IV_L                       OFS_P2IV
 #define OFS_P2IV_H                       OFS_P2IV+1
-#define OFS_PJIN                         (0x0120)
+#define OFS_PJIN                         (0x0000)
 #define OFS_PJIN_L                       OFS_PJIN
 #define OFS_PJIN_H                       OFS_PJIN+1
-#define OFS_PJOUT                        (0x0122)
+#define OFS_PJOUT                        (0x0002)
 #define OFS_PJOUT_L                      OFS_PJOUT
 #define OFS_PJOUT_H                      OFS_PJOUT+1
-#define OFS_PJDIR                        (0x0124)
+#define OFS_PJDIR                        (0x0004)
 #define OFS_PJDIR_L                      OFS_PJDIR
 #define OFS_PJDIR_H                      OFS_PJDIR+1
-#define OFS_PJREN                        (0x0126)
+#define OFS_PJREN                        (0x0006)
 #define OFS_PJREN_L                      OFS_PJREN
 #define OFS_PJREN_H                      OFS_PJREN+1
-#define OFS_PJSEL0                       (0x012A)
+#define OFS_PJSEL0                       (0x000A)
 #define OFS_PJSEL0_L                     OFS_PJSEL0
 #define OFS_PJSEL0_H                     OFS_PJSEL0+1
-#define OFS_PJSEL1                       (0x012C)
+#define OFS_PJSEL1                       (0x000C)
 #define OFS_PJSEL1_L                     OFS_PJSEL1
 #define OFS_PJSEL1_H                     OFS_PJSEL1+1
-#define OFS_PJSELC                       (0x0136)
+#define OFS_PJSELC                       (0x0016)
 #define OFS_PJSELC_L                     OFS_PJSELC
 #define OFS_PJSELC_H                     OFS_PJSELC+1
 #define OFS_P1IN                         (0x0000)
@@ -1955,10 +1955,6 @@ sfr_b(GCCTL1_H);
 #define UBDRSTEN_1                       (0x0080)        /* PUC initiated on uncorrectable bit error detection flag. 
                                                             Generates vector in SYSRSTIV. Clear the UBDIE bit. */
 #define UBDRSTEN_1_L                     (0x0080)
-#define UBDRSTEN__UBDRSTEN_0             (0x0000)        /* PUC not initiated on uncorrectable bit error detection flag. */
-#define UBDRSTEN__UBDRSTEN_1             (0x0080)        /* PUC initiated on uncorrectable bit error detection flag. 
-                                                            Generates vector in SYSRSTIV. Clear the UBDIE bit. */
-#define UBDRSTEN__UBDRSTEN_1_L           (0x0080)
 #define UBDIE                            (0x0040)        /* Enable NMI event for the uncorrectable bit error detection 
                                                             flag (UBDIFG) */
 #define UBDIE_L                          (0x0040)
@@ -1967,11 +1963,6 @@ sfr_b(GCCTL1_H);
 #define UBDIE_1                          (0x0040)        /* Enable NMI for the uncorrectable bit error detection flag 
                                                             (UBDIFG). Generates vector in SYSSNIV. Clear the UBDRSTEN bit. */
 #define UBDIE_1_L                        (0x0040)
-#define UBDIE__UBDIE_0                   (0x0000)        /* Disable NMI for the uncorrectable bit error detection flag 
-                                                            (UBDIFG). */
-#define UBDIE__UBDIE_1                   (0x0040)        /* Enable NMI for the uncorrectable bit error detection flag 
-                                                            (UBDIFG). Generates vector in SYSSNIV. Clear the UBDRSTEN bit. */
-#define UBDIE__UBDIE_1_L                 (0x0040)
 #define CBDIE                            (0x0020)        /* Enable NMI event for the correctable bit error detection flag 
                                                             (CBDIFG) */
 #define CBDIE_L                          (0x0020)
@@ -1980,19 +1971,11 @@ sfr_b(GCCTL1_H);
 #define CBDIE_1                          (0x0020)        /* Disable NMI for the correctable bit error detection flag 
                                                             (CBDIFG). Generates vector in SYSSNIV. */
 #define CBDIE_1_L                        (0x0020)
-#define CBDIE__CBDIE_0                   (0x0000)        /* Disable NMI for the correctable bit error detection flag 
-                                                            (CBDIFG). */
-#define CBDIE__CBDIE_1                   (0x0020)        /* Disable NMI for the correctable bit error detection flag 
-                                                            (CBDIFG). Generates vector in SYSSNIV. */
-#define CBDIE__CBDIE_1_L                 (0x0020)
 #define FRPWR                            (0x0004)        /* FRAM Memory Power Control Request */
 #define FRPWR_L                          (0x0004)
 #define FRPWR_0                          (0x0000)        /* Enable INACTIVE mode. */
 #define FRPWR_1                          (0x0004)        /* Enable ACTIVE mode. */
 #define FRPWR_1_L                        (0x0004)
-#define FRPWR__FRPWR_0                   (0x0000)        /* Enable INACTIVE mode. */
-#define FRPWR__FRPWR_1                   (0x0004)        /* Enable ACTIVE mode. */
-#define FRPWR__FRPWR_1_L                 (0x0004)
 #define FRLPMPWR                         (0x0002)        /* Enables FRAM auto power up after LPM */
 #define FRLPMPWR_L                       (0x0002)
 #define FRLPMPWR_0                       (0x0000)        /* FRAM startup is delayed to the first FRAM access after exit 
@@ -2007,30 +1990,18 @@ sfr_b(GCCTL1_H);
 #define ACCTEIFG_1                       (0x0008)        /* Interrupt pending. Can be cleared by writing '0' or by reading
                                                             SYSSNIV when it is the highest pending interrupt. */
 #define ACCTEIFG_1_L                     (0x0008)
-#define ACCTEIFG__ACCTEIFG_0             (0x0000)        /* No interrupt pending. */
-#define ACCTEIFG__ACCTEIFG_1             (0x0008)        /* Interrupt pending. Can be cleared by writing '0' or by reading
-                                                            SYSSNIV when it is the highest pending interrupt. */
-#define ACCTEIFG__ACCTEIFG_1_L           (0x0008)
 #define UBDIFG                           (0x0004)        /* FRAM uncorrectable bit error detection flag */
 #define UBDIFG_L                         (0x0004)
 #define UBDIFG_0                         (0x0000)        /* No interrupt pending. */
 #define UBDIFG_1                         (0x0004)        /* Interrupt pending. Can be cleared by writing '0' or by reading
                                                             SYSSNIV when it is the highest pending interrupt. */
 #define UBDIFG_1_L                       (0x0004)
-#define UBDIFG__UBDIFG_0                 (0x0000)        /* No interrupt pending. */
-#define UBDIFG__UBDIFG_1                 (0x0004)        /* Interrupt pending. Can be cleared by writing '0' or by reading
-                                                            SYSSNIV when it is the highest pending interrupt. */
-#define UBDIFG__UBDIFG_1_L               (0x0004)
 #define CBDIFG                           (0x0002)        /* FRAM correctable bit error detection flag */
 #define CBDIFG_L                         (0x0002)
 #define CBDIFG_0                         (0x0000)        /* No interrupt is pending */
 #define CBDIFG_1                         (0x0002)        /* Interrupt pending. Can be cleared by writing '0' or by reading
                                                             SYSSNIV if it is the highest pending interrupt. */
 #define CBDIFG_1_L                       (0x0002)
-#define CBDIFG__CBDIFG_0                 (0x0000)        /* No interrupt is pending */
-#define CBDIFG__CBDIFG_1                 (0x0002)        /* Interrupt pending. Can be cleared by writing '0' or by reading
-                                                            SYSSNIV if it is the highest pending interrupt. */
-#define CBDIFG__CBDIFG_1_L               (0x0002)
 
 
 /*****************************************************************************
@@ -5678,6 +5649,19 @@ sfr_b(UCB0IV_H);
 #define SYSNMI_VECTOR          (58)                     /* 0xFFFC */
 #define RESET_VECTOR           ("reset")                /* 0xFFFE Reset (Highest Priority) */
 
+
+/************************************************************
+* Memory Boundary Definitions
+************************************************************/
+
+#define BSL0_START              0x1000
+#define BSL0_LENGTH             0x0800
+#define RAM_START               0x2000
+#define RAM_LENGTH              0x0400
+#define FRAM_START              0xF100
+#define FRAM_LENGTH             0x0F00
+#define BSL1_START              0xFFC00
+#define BSL1_LENGTH             0x0400
 
 /************************************************************
 * End of Modules

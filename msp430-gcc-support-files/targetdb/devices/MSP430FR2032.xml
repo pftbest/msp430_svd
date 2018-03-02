@@ -1,11 +1,8 @@
 <device HW_revision="1.0" XML_version="1.0" description="MSP430FR2032" id="MSP430FR2032" partnum="MSP430FR2032">
 
+<include href="../options/MSP430FR2032_TI.xml"></include>
+<include href="../options/MSP430FR2032_GNU.xml"></include>
 <property Type="stringfield" Value="MSP430FRxxx Family" id="FilterString"></property>
-<property Type="stringfield" Value="-lc -lgcc -L ${CCS_BASE_ROOT}/msp430/include_gcc " id="GNULinkerBuildOptions"></property>
-<property Type="stringfield" Value="../include_gcc/msp430fr2032.ld" id="GNUFilesToCopy"></property>
-<property Type="stringfield" Value="-D=__MSP430FR2032__ --advice:hw_config=all  --use_hw_mpy=none --silicon_errata=CPU21 --silicon_errata=CPU22 --silicon_errata=CPU40" id="CompilerBuildOptions"></property>
-<property Type="stringfield" Value="-mmcu=msp430fr2032 -I${CCS_BASE_ROOT}/msp430/include_gcc -Os -mhwmult=none" id="GNUCompilerBuildOptions"></property>
-<property Type="stringfield" Value=" --use_hw_mpy=none --cinit_hold_wdt=on" id="LinkerBuildOptions"></property>
 <property Type="numericfield" Value="160" id="HeapDefaultSize"></property>
 <property Type="stringfield" Value="minimal" id="PrintfDefault_support"></property>
 <property Type="numericfield" Value="160" id="StackDefaultSize"></property>

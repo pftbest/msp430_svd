@@ -1,0 +1,543 @@
+<module id="LCD_C" HW_revision="208.0">
+    <register id="LCDCCTL0" width="16" offset="0x0" internal="0" description="LCD_C control 0">
+        <bitfield id="LCDON" description="LCD on" begin="0" end="0" width="1" rwaccess="R/W">
+            <bitenum id="OFF" value="0x0" description="LCD_C module off"/>
+            <bitenum id="ON" value="0x1" description="LCD_C module on"/>
+        </bitfield>
+        <bitfield id="LCDLP" description="LCD low-power waveform" begin="1" end="1" width="1" rwaccess="R/W">
+            <bitenum id="LCDLP_0" value="0x0" description="Standard LCD waveforms on segment and common lines selected"/>
+            <bitenum id="LCDLP_1" value="0x1" description="Low-power LCD waveforms on segment and common lines selected"/>
+        </bitfield>
+        <bitfield id="LCDSON" description="LCD segments on" begin="2" end="2" width="1" rwaccess="R/W">
+            <bitenum id="OFF" value="0x0" description="All LCD segments are off"/>
+            <bitenum id="ON" value="0x1" description="All LCD segments are enabled and on or off according to their corresponding memory location"/>
+        </bitfield>
+        <bitfield id="LCDMX" description="LCD mux rate" begin="5" end="3" width="3" rwaccess="R/W">
+            <bitenum id="STATIC" value="0x0" description="Static"/>
+            <bitenum id="2MUX" value="0x1" description="2-mux"/>
+            <bitenum id="3MUX" value="0x2" description="3-mux"/>
+            <bitenum id="4MUX" value="0x3" description="4-mux"/>
+            <bitenum id="5MUX" value="0x4" description="5-mux"/>
+            <bitenum id="6MUX" value="0x5" description="6-mux"/>
+            <bitenum id="7MUX" value="0x6" description="7-mux"/>
+            <bitenum id="8MUX" value="0x7" description="8-mux"/>
+        </bitfield>
+        <bitfield id="LCDSSEL" description="Clock source select for LCD and blinking frequency" begin="7" end="7" width="1" rwaccess="R/W">
+            <bitenum id="ACLK" value="0x0" description="ACLK (30 kHz to 40 kHz)"/>
+            <bitenum id="VLOCLK" value="0x1" description="VLOCLK"/>
+        </bitfield>
+        <bitfield id="LCDPRE" description="LCD frequency pre-scaler" begin="10" end="8" width="3" rwaccess="R/W">
+            <bitenum id="1" value="0x0" description="Divide by 1"/>
+            <bitenum id="2" value="0x1" description="Divide by 2"/>
+            <bitenum id="4" value="0x2" description="Divide by 4"/>
+            <bitenum id="8" value="0x3" description="Divide by 8"/>
+            <bitenum id="16" value="0x4" description="Divide by 16"/>
+            <bitenum id="32" value="0x5" description="Divide by 32"/>
+        </bitfield>
+        <bitfield id="LCDDIV" description="LCD frequency divider" begin="15" end="11" width="5" rwaccess="R/W">
+            <bitenum id="1" value="0x0" description="Divide by 1"/>
+            <bitenum id="2" value="0x1" description="Divide by 2"/>
+            <bitenum id="3" value="0x2" description="Divide by 3"/>
+            <bitenum id="4" value="0x3" description="Divide by 4"/>
+            <bitenum id="5" value="0x4" description="Divide by 5"/>
+            <bitenum id="6" value="0x5" description="Divide by 6"/>
+            <bitenum id="7" value="0x6" description="Divide by 7"/>
+            <bitenum id="8" value="0x7" description="Divide by 8"/>
+            <bitenum id="9" value="0x8" description="Divide by 9"/>
+            <bitenum id="10" value="0x9" description="Divide by 10"/>
+            <bitenum id="11" value="0xA" description="Divide by 11"/>
+            <bitenum id="12" value="0xB" description="Divide by 12"/>
+            <bitenum id="13" value="0xC" description="Divide by 13"/>
+            <bitenum id="14" value="0xD" description="Divide by 14"/>
+            <bitenum id="15" value="0xE" description="Divide by 15"/>
+            <bitenum id="16" value="0xF" description="Divide by 16"/>
+            <bitenum id="17" value="0x10" description="Divide by 17"/>
+            <bitenum id="18" value="0x11" description="Divide by 18"/>
+            <bitenum id="19" value="0x12" description="Divide by 19"/>
+            <bitenum id="20" value="0x13" description="Divide by 20"/>
+            <bitenum id="21" value="0x14" description="Divide by 21"/>
+            <bitenum id="22" value="0x15" description="Divide by 22"/>
+            <bitenum id="23" value="0x16" description="Divide by 23"/>
+            <bitenum id="24" value="0x17" description="Divide by 24"/>
+            <bitenum id="25" value="0x18" description="Divide by 25"/>
+            <bitenum id="26" value="0x19" description="Divide by 26"/>
+            <bitenum id="27" value="0x1A" description="Divide by 27"/>
+            <bitenum id="28" value="0x1B" description="Divide by 28"/>
+            <bitenum id="29" value="0x1C" description="Divide by 29"/>
+            <bitenum id="30" value="0x1D" description="Divide by 30"/>
+            <bitenum id="31" value="0x1E" description="Divide by 31"/>
+            <bitenum id="32" value="0x1F" description="Divide by 32"/>
+        </bitfield>
+    </register>
+    <register id="LCDCCTL1" width="16" offset="0x2" internal="0" description="LCD_C control 1">
+        <bitfield id="LCDFRMIFG" description="LCD frame interrupt flag" begin="0" end="0" width="1" rwaccess="R/W">
+            <bitenum id="LCDFRMIFG_0" value="0x0" description="No interrupt pending"/>
+            <bitenum id="LCDFRMIFG_1" value="0x1" description="Interrupt pending"/>
+        </bitfield>
+        <bitfield id="LCDBLKOFFIFG" description="LCD blinking interrupt flag, segments switched off" begin="1" end="1" width="1" rwaccess="R/W">
+            <bitenum id="LCDBLKOFFIFG_0" value="0x0" description="No interrupt pending"/>
+            <bitenum id="LCDBLKOFFIFG_1" value="0x1" description="Interrupt pending"/>
+        </bitfield>
+        <bitfield id="LCDBLKONIFG" description="LCD blinking interrupt flag, segments switched on" begin="2" end="2" width="1" rwaccess="R/W">
+            <bitenum id="LCDBLKONIFG_0" value="0x0" description="No interrupt pending"/>
+            <bitenum id="LCDBLKONIFG_1" value="0x1" description="Interrupt pending"/>
+        </bitfield>
+        <bitfield id="LCDNOCAPIFG" description="No capacitance connected interrupt flag" begin="3" end="3" width="1" rwaccess="R/W">
+            <bitenum id="LCDNOCAPIFG_0" value="0x0" description="No interrupt pending"/>
+            <bitenum id="LCDNOCAPIFG_1" value="0x1" description="Interrupt pending"/>
+        </bitfield>
+        <bitfield id="LCDFRMIE" description="LCD frame interrupt enable" begin="8" end="8" width="1" rwaccess="R/W">
+            <bitenum id="LCDFRMIE_0" value="0x0" description="Interrupt disabled"/>
+            <bitenum id="LCDFRMIE_1" value="0x1" description="Interrupt enabled"/>
+        </bitfield>
+        <bitfield id="LCDBLKOFFIE" description="LCD blinking interrupt enable, segments switched off" begin="9" end="9" width="1" rwaccess="R/W">
+            <bitenum id="LCDBLKOFFIE_0" value="0x0" description="Interrupt disabled"/>
+            <bitenum id="LCDBLKOFFIE_1" value="0x1" description="Interrupt enabled"/>
+        </bitfield>
+        <bitfield id="LCDBLKONIE" description="LCD blinking interrupt enable, segments switched on" begin="10" end="10" width="1" rwaccess="R/W">
+            <bitenum id="LCDBLKONIE_0" value="0x0" description="Interrupt disabled"/>
+            <bitenum id="LCDBLKONIE_1" value="0x1" description="Interrupt enabled"/>
+        </bitfield>
+        <bitfield id="LCDNOCAPIE" description="No capacitance connected interrupt enable" begin="11" end="11" width="1" rwaccess="R/W">
+            <bitenum id="LCDNOCAPIE_0" value="0x0" description="Interrupt disabled"/>
+            <bitenum id="LCDNOCAPIE_1" value="0x1" description="Interrupt enabled"/>
+        </bitfield>
+    </register>
+    <register id="LCDCBLKCTL" width="16" offset="0x4" internal="0" description="LCD_C blinking control">
+        <bitfield id="LCDBLKMOD" description="Blinking mode" begin="1" end="0" width="2" rwaccess="R/W">
+            <bitenum id="LCDBLKMOD_0" value="0x0" description="Blinking disabled"/>
+            <bitenum id="LCDBLKMOD_1" value="0x1" description="Blinking of individual segments as enabled in blinking memory register LCDBMx. In mux mode 5 blinking is disabled."/>
+            <bitenum id="LCDBLKMOD_2" value="0x2" description="Blinking of all segments"/>
+            <bitenum id="LCDBLKMOD_3" value="0x3" description="Switching between display contents as stored in LCDMx and LCDBMx memory registers. In mux mode 5 blinking is disabled."/>
+        </bitfield>
+        <bitfield id="LCDBLKPRE" description="Clock pre-scaler for blinking frequency" begin="4" end="2" width="3" rwaccess="R/W">
+            <bitenum id="512" value="0x0" description="Divide by 512"/>
+            <bitenum id="1024" value="0x1" description="Divide by 1024"/>
+            <bitenum id="2048" value="0x2" description="Divide by 2048"/>
+            <bitenum id="4096" value="0x3" description="Divide by 4096"/>
+            <bitenum id="8162" value="0x4" description="Divide by 8162"/>
+            <bitenum id="16384" value="0x5" description="Divide by 16384"/>
+            <bitenum id="32768" value="0x6" description="Divide by 32768"/>
+            <bitenum id="65536" value="0x7" description="Divide by 65536"/>
+        </bitfield>
+        <bitfield id="LCDBLKDIV" description="Clock divider for blinking frequency" begin="7" end="5" width="3" rwaccess="R/W">
+            <bitenum id="1" value="0x0" description="Divide by 1"/>
+            <bitenum id="2" value="0x1" description="Divide by 2"/>
+            <bitenum id="3" value="0x2" description="Divide by 3"/>
+            <bitenum id="4" value="0x3" description="Divide by 4"/>
+            <bitenum id="5" value="0x4" description="Divide by 5"/>
+            <bitenum id="6" value="0x5" description="Divide by 6"/>
+            <bitenum id="7" value="0x6" description="Divide by 7"/>
+            <bitenum id="8" value="0x7" description="Divide by 8"/>
+        </bitfield>
+    </register>
+    <register id="LCDCMEMCTL" width="16" offset="0x6" internal="0" description="LCD_C memory control">
+        <bitfield id="LCDDISP" description="Select LCD memory registers for display" begin="0" end="0" width="1" rwaccess="R/W">
+            <bitenum id="LCDDISP_0" value="0x0" description="Display content of LCD memory registers LCDM"/>
+            <bitenum id="LCDDISP_1" value="0x1" description="Display content of LCD blinking memory registers LCDBM"/>
+        </bitfield>
+        <bitfield id="LCDCLRM" description="Clear LCD memory" begin="1" end="1" width="1" rwaccess="R/W">
+            <bitenum id="LCDCLRM_0" value="0x0" description="Contents of LCD memory registers LCDMx remain unchanged"/>
+            <bitenum id="LCDCLRM_1" value="0x1" description="Clear content of all LCD memory registers LCDM"/>
+        </bitfield>
+        <bitfield id="LCDCLRBM" description="Clear LCD blinking memory" begin="2" end="2" width="1" rwaccess="R/W">
+            <bitenum id="LCDCLRBM_0" value="0x0" description="Contents of blinking memory registers LCDBM remain unchanged"/>
+            <bitenum id="LCDCLRBM_1" value="0x1" description="Clear content of all blinking memory registers LCDBM"/>
+        </bitfield>
+    </register>
+    <register id="LCDCVCTL" width="16" offset="0x8" internal="0" description="LCD_C Voltage Control Register">
+        <bitfield id="LCD2B" description="Bias select" begin="0" end="0" width="1" rwaccess="R/W">
+            <bitenum id="LCD2B_0" value="0x0" description="1/3 bias"/>
+            <bitenum id="LCD2B_1" value="0x1" description="1/2 bias"/>
+        </bitfield>
+        <bitfield id="VLCDREF" description="Charge pump reference select" begin="2" end="1" width="2" rwaccess="R/W">
+            <bitenum id="VLCDREF_0" value="0x0" description="Internal reference voltage"/>
+            <bitenum id="VLCDREF_1" value="0x1" description="External reference voltage"/>
+            <bitenum id="VLCDREF_2" value="0x2" description="Internal reference voltage switched to external pin LCDREF/R13"/>
+            <bitenum id="VLCDREF_3" value="0x3" description="Reserved (defaults to external reference voltage)"/>
+        </bitfield>
+        <bitfield id="LCDCPEN" description="Charge pump enable" begin="3" end="3" width="1" rwaccess="R/W">
+            <bitenum id="LCDCPEN_0" value="0x0" description="Charge pump disabled"/>
+            <bitenum id="LCDCPEN_1" value="0x1" description="Charge pump enabled when VLCD is generated internally (VLCDEXT = 0) and VLCD  0 or VLCDREF  0"/>
+        </bitfield>
+        <bitfield id="VLCDEXT" description="VLCD source select" begin="4" end="4" width="1" rwaccess="R/W">
+            <bitenum id="VLCDEXT_0" value="0x0" description="VLCD is generated internally"/>
+            <bitenum id="VLCDEXT_1" value="0x1" description="VLCD is sourced externally"/>
+        </bitfield>
+        <bitfield id="LCDEXTBIAS" description="V2 to V4 voltage select" begin="5" end="5" width="1" rwaccess="R/W">
+            <bitenum id="LCDEXTBIAS_0" value="0x0" description="V2 to V4 are generated internally"/>
+            <bitenum id="LCDEXTBIAS_1" value="0x1" description="V2 to V4 are sourced externally and the internal bias generator is switched off"/>
+        </bitfield>
+        <bitfield id="R03EXT" description="V5 voltage select" begin="6" end="6" width="1" rwaccess="R/W">
+            <bitenum id="VSS" value="0x0" description="V5 is VSS"/>
+            <bitenum id="R03" value="0x1" description="V5 is sourced from the R03 pin"/>
+        </bitfield>
+        <bitfield id="LCDREXT" description="V2 to V4 voltage on external Rx3 pins" begin="7" end="7" width="1" rwaccess="R/W">
+            <bitenum id="LCDREXT_0" value="0x0" description="Internally generated V2 to V4 are not switched to pins (LCDEXTBIAS = 0)"/>
+            <bitenum id="LCDREXT_1" value="0x1" description="Internally generated V2 to V4 are switched to pins (LCDEXTBIAS = 0)"/>
+        </bitfield>
+        <bitfield id="VLCD" description="Charge pump voltage select" begin="12" end="9" width="4" rwaccess="R/W">
+            <bitenum id="DISABLED" value="0x0" description="Charge pump disabled"/>
+            <bitenum id="2_60" value="0x1" description="If VLCDREF = 00 or 10: VLCD = 2.60 V; If VLCDREF = 01 or 11: VLCD = 2.17 * VREF"/>
+            <bitenum id="2_66" value="0x2" description="If VLCDREF = 00 or 10: VLCD = 2.60 V + (VLCD  1) * 0.06 V; If VLCDREF = 01 or 11: VLCD = 2.17 * VREF + (VLCD  1) * 0.05 * VREF"/>
+            <bitenum id="2_72" value="0x3" description="If VLCDREF = 00 or 10: VLCD = 2.60 V + (VLCD  1) * 0.06 V; If VLCDREF = 01 or 11: VLCD = 2.17 * VREF + (VLCD  1) * 0.05 * VREF"/>
+            <bitenum id="2_78" value="0x4" description="If VLCDREF = 00 or 10: VLCD = 2.60 V + (VLCD  1) * 0.06 V; If VLCDREF = 01 or 11: VLCD = 2.17 * VREF + (VLCD  1) * 0.05 * VREF"/>
+            <bitenum id="2_84" value="0x5" description="If VLCDREF = 00 or 10: VLCD = 2.60 V + (VLCD  1) * 0.06 V; If VLCDREF = 01 or 11: VLCD = 2.17 * VREF + (VLCD  1) * 0.05 * VREF"/>
+            <bitenum id="2_90" value="0x6" description="If VLCDREF = 00 or 10: VLCD = 2.60 V + (VLCD  1) * 0.06 V; If VLCDREF = 01 or 11: VLCD = 2.17 * VREF + (VLCD  1) * 0.05 * VREF"/>
+            <bitenum id="2_96" value="0x7" description="If VLCDREF = 00 or 10: VLCD = 2.60 V + (VLCD  1) * 0.06 V; If VLCDREF = 01 or 11: VLCD = 2.17 * VREF + (VLCD  1) * 0.05 * VREF"/>
+            <bitenum id="3_02" value="0x8" description="If VLCDREF = 00 or 10: VLCD = 2.60 V + (VLCD  1) * 0.06 V; If VLCDREF = 01 or 11: VLCD = 2.17 * VREF + (VLCD  1) * 0.05 * VREF"/>
+            <bitenum id="3_08" value="0x9" description="If VLCDREF = 00 or 10: VLCD = 2.60 V + (VLCD  1) * 0.06 V; If VLCDREF = 01 or 11: VLCD = 2.17 * VREF + (VLCD  1) * 0.05 * VREF"/>
+            <bitenum id="3_14" value="0xA" description="If VLCDREF = 00 or 10: VLCD = 2.60 V + (VLCD  1) * 0.06 V; If VLCDREF = 01 or 11: VLCD = 2.17 * VREF + (VLCD  1) * 0.05 * VREF"/>
+            <bitenum id="3_20" value="0xB" description="If VLCDREF = 00 or 10: VLCD = 2.60 V + (VLCD  1) * 0.06 V; If VLCDREF = 01 or 11: VLCD = 2.17 * VREF + (VLCD  1) * 0.05 * VREF"/>
+            <bitenum id="3_26" value="0xC" description="If VLCDREF = 00 or 10: VLCD = 2.60 V + (VLCD  1) * 0.06 V; If VLCDREF = 01 or 11: VLCD = 2.17 * VREF + (VLCD  1) * 0.05 * VREF"/>
+            <bitenum id="3_32" value="0xD" description="If VLCDREF = 00 or 10: VLCD = 2.60 V + (VLCD  1) * 0.06 V; If VLCDREF = 01 or 11: VLCD = 2.17 * VREF + (VLCD  1) * 0.05 * VREF"/>
+            <bitenum id="3_38" value="0xE" description="If VLCDREF = 00 or 10: VLCD = 2.60 V + (VLCD  1) * 0.06 V; If VLCDREF = 01 or 11: VLCD = 2.17 * VREF + (VLCD  1) * 0.05 * VREF"/>
+            <bitenum id="3_44" value="0xF" description="If VLCDREF = 00 or 10: VLCD = 2.60 V + (15  1) * 0.06 V = 3.44 V; If VLCDREF = 01 or 11: VLCD = 2.17 * VREF + (15  1) * 0.05 * VREF = 2.87 * VREF"/>
+        </bitfield>
+    </register>
+    <register id="LCDCPCTL0" width="16" offset="0xA" internal="0" description="LCD_C port control 0">
+        <bitfield id="LCDS0" description="LCD segment line 0 enable" begin="0" end="0" width="1" rwaccess="R/W">
+            <bitenum id="LCDS0_0" value="0x0" description="Multiplexed pins are port functions"/>
+            <bitenum id="LCDS0_1" value="0x1" description="Pins are LCD functions"/>
+        </bitfield>
+        <bitfield id="LCDS1" description="LCD segment line 1 enable" begin="1" end="1" width="1" rwaccess="R/W">
+            <bitenum id="LCDS1_0" value="0x0" description="Multiplexed pins are port functions"/>
+            <bitenum id="LCDS1_1" value="0x1" description="Pins are LCD functions"/>
+        </bitfield>
+        <bitfield id="LCDS2" description="LCD segment line 2 enable" begin="2" end="2" width="1" rwaccess="R/W">
+            <bitenum id="LCDS2_0" value="0x0" description="Multiplexed pins are port functions"/>
+            <bitenum id="LCDS2_1" value="0x1" description="Pins are LCD functions"/>
+        </bitfield>
+        <bitfield id="LCDS3" description="LCD segment line 3 enable" begin="3" end="3" width="1" rwaccess="R/W">
+            <bitenum id="LCDS3_0" value="0x0" description="Multiplexed pins are port functions"/>
+            <bitenum id="LCDS3_1" value="0x1" description="Pins are LCD functions"/>
+        </bitfield>
+        <bitfield id="LCDS4" description="LCD segment line 4 enable" begin="4" end="4" width="1" rwaccess="R/W">
+            <bitenum id="LCDS4_0" value="0x0" description="Multiplexed pins are port functions"/>
+            <bitenum id="LCDS4_1" value="0x1" description="Pins are LCD functions"/>
+        </bitfield>
+        <bitfield id="LCDS5" description="LCD segment line 5 enable" begin="5" end="5" width="1" rwaccess="R/W">
+            <bitenum id="LCDS5_0" value="0x0" description="Multiplexed pins are port functions"/>
+            <bitenum id="LCDS5_1" value="0x1" description="Pins are LCD functions"/>
+        </bitfield>
+        <bitfield id="LCDS6" description="LCD segment line 6 enable" begin="6" end="6" width="1" rwaccess="R/W">
+            <bitenum id="LCDS6_0" value="0x0" description="Multiplexed pins are port functions"/>
+            <bitenum id="LCDS6_1" value="0x1" description="Pins are LCD functions"/>
+        </bitfield>
+        <bitfield id="LCDS7" description="LCD segment line 7 enable" begin="7" end="7" width="1" rwaccess="R/W">
+            <bitenum id="LCDS7_0" value="0x0" description="Multiplexed pins are port functions"/>
+            <bitenum id="LCDS7_1" value="0x1" description="Pins are LCD functions"/>
+        </bitfield>
+        <bitfield id="LCDS8" description="LCD segment line 8 enable" begin="8" end="8" width="1" rwaccess="R/W">
+            <bitenum id="LCDS8_0" value="0x0" description="Multiplexed pins are port functions"/>
+            <bitenum id="LCDS8_1" value="0x1" description="Pins are LCD functions"/>
+        </bitfield>
+        <bitfield id="LCDS9" description="LCD segment line 9 enable" begin="9" end="9" width="1" rwaccess="R/W">
+            <bitenum id="LCDS9_0" value="0x0" description="Multiplexed pins are port functions"/>
+            <bitenum id="LCDS9_1" value="0x1" description="Pins are LCD functions"/>
+        </bitfield>
+        <bitfield id="LCDS10" description="LCD segment line 10 enable" begin="10" end="10" width="1" rwaccess="R/W">
+            <bitenum id="LCDS10_0" value="0x0" description="Multiplexed pins are port functions"/>
+            <bitenum id="LCDS10_1" value="0x1" description="Pins are LCD functions"/>
+        </bitfield>
+        <bitfield id="LCDS11" description="LCD segment line 11 enable" begin="11" end="11" width="1" rwaccess="R/W">
+            <bitenum id="LCDS11_0" value="0x0" description="Multiplexed pins are port functions"/>
+            <bitenum id="LCDS11_1" value="0x1" description="Pins are LCD functions"/>
+        </bitfield>
+        <bitfield id="LCDS12" description="LCD segment line 12 enable" begin="12" end="12" width="1" rwaccess="R/W">
+            <bitenum id="LCDS12_0" value="0x0" description="Multiplexed pins are port functions"/>
+            <bitenum id="LCDS12_1" value="0x1" description="Pins are LCD functions"/>
+        </bitfield>
+        <bitfield id="LCDS13" description="LCD segment line 13 enable" begin="13" end="13" width="1" rwaccess="R/W">
+            <bitenum id="LCDS13_0" value="0x0" description="Multiplexed pins are port functions"/>
+            <bitenum id="LCDS13_1" value="0x1" description="Pins are LCD functions"/>
+        </bitfield>
+        <bitfield id="LCDS14" description="LCD segment line 14 enable" begin="14" end="14" width="1" rwaccess="R/W">
+            <bitenum id="LCDS14_0" value="0x0" description="Multiplexed pins are port functions"/>
+            <bitenum id="LCDS14_1" value="0x1" description="Pins are LCD functions"/>
+        </bitfield>
+        <bitfield id="LCDS15" description="LCD segment line 15 enable" begin="15" end="15" width="1" rwaccess="R/W">
+            <bitenum id="LCDS15_0" value="0x0" description="Multiplexed pins are port functions"/>
+            <bitenum id="LCDS15_1" value="0x1" description="Pins are LCD functions"/>
+        </bitfield>
+    </register>
+    <register id="LCDCPCTL1" width="16" offset="0xC" internal="0" description="LCD_C port control 1">
+        <bitfield id="LCDS16" description="LCD segment line 16 enable" begin="0" end="0" width="1" rwaccess="R/W">
+            <bitenum id="LCDS16_0" value="0x0" description="Multiplexed pins are port functions"/>
+            <bitenum id="LCDS16_1" value="0x1" description="Pins are LCD functions"/>
+        </bitfield>
+        <bitfield id="LCDS17" description="LCD segment line 17 enable" begin="1" end="1" width="1" rwaccess="R/W">
+            <bitenum id="LCDS17_0" value="0x0" description="Multiplexed pins are port functions"/>
+            <bitenum id="LCDS17_1" value="0x1" description="Pins are LCD functions"/>
+        </bitfield>
+        <bitfield id="LCDS18" description="LCD segment line 18 enable" begin="2" end="2" width="1" rwaccess="R/W">
+            <bitenum id="LCDS18_0" value="0x0" description="Multiplexed pins are port functions"/>
+            <bitenum id="LCDS18_1" value="0x1" description="Pins are LCD functions"/>
+        </bitfield>
+        <bitfield id="LCDS19" description="LCD segment line 19 enable" begin="3" end="3" width="1" rwaccess="R/W">
+            <bitenum id="LCDS19_0" value="0x0" description="Multiplexed pins are port functions"/>
+            <bitenum id="LCDS19_1" value="0x1" description="Pins are LCD functions"/>
+        </bitfield>
+        <bitfield id="LCDS20" description="LCD segment line 20 enable" begin="4" end="4" width="1" rwaccess="R/W">
+            <bitenum id="LCDS20_0" value="0x0" description="Multiplexed pins are port functions"/>
+            <bitenum id="LCDS20_1" value="0x1" description="Pins are LCD functions"/>
+        </bitfield>
+        <bitfield id="LCDS21" description="LCD segment line 21 enable" begin="5" end="5" width="1" rwaccess="R/W">
+            <bitenum id="LCDS21_0" value="0x0" description="Multiplexed pins are port functions"/>
+            <bitenum id="LCDS21_1" value="0x1" description="Pins are LCD functions"/>
+        </bitfield>
+        <bitfield id="LCDS22" description="LCD segment line 22 enable" begin="6" end="6" width="1" rwaccess="R/W">
+            <bitenum id="LCDS22_0" value="0x0" description="Multiplexed pins are port functions"/>
+            <bitenum id="LCDS22_1" value="0x1" description="Pins are LCD functions"/>
+        </bitfield>
+        <bitfield id="LCDS23" description="LCD segment line 23 enable" begin="7" end="7" width="1" rwaccess="R/W">
+            <bitenum id="LCDS23_0" value="0x0" description="Multiplexed pins are port functions"/>
+            <bitenum id="LCDS23_1" value="0x1" description="Pins are LCD functions"/>
+        </bitfield>
+        <bitfield id="LCDS24" description="LCD segment line 24 enable" begin="8" end="8" width="1" rwaccess="R/W">
+            <bitenum id="LCDS24_0" value="0x0" description="Multiplexed pins are port functions"/>
+            <bitenum id="LCDS24_1" value="0x1" description="Pins are LCD functions"/>
+        </bitfield>
+        <bitfield id="LCDS25" description="LCD segment line 25 enable" begin="9" end="9" width="1" rwaccess="R/W">
+            <bitenum id="LCDS25_0" value="0x0" description="Multiplexed pins are port functions"/>
+            <bitenum id="LCDS25_1" value="0x1" description="Pins are LCD functions"/>
+        </bitfield>
+        <bitfield id="LCDS26" description="LCD segment line 26 enable" begin="10" end="10" width="1" rwaccess="R/W">
+            <bitenum id="LCDS26_0" value="0x0" description="Multiplexed pins are port functions"/>
+            <bitenum id="LCDS26_1" value="0x1" description="Pins are LCD functions"/>
+        </bitfield>
+        <bitfield id="LCDS27" description="LCD segment line 27 enable" begin="11" end="11" width="1" rwaccess="R/W">
+            <bitenum id="LCDS27_0" value="0x0" description="Multiplexed pins are port functions"/>
+            <bitenum id="LCDS27_1" value="0x1" description="Pins are LCD functions"/>
+        </bitfield>
+        <bitfield id="LCDS28" description="LCD segment line 28 enable" begin="12" end="12" width="1" rwaccess="R/W">
+            <bitenum id="LCDS28_0" value="0x0" description="Multiplexed pins are port functions"/>
+            <bitenum id="LCDS28_1" value="0x1" description="Pins are LCD functions"/>
+        </bitfield>
+        <bitfield id="LCDS29" description="LCD segment line 29 enable" begin="13" end="13" width="1" rwaccess="R/W">
+            <bitenum id="LCDS29_0" value="0x0" description="Multiplexed pins are port functions"/>
+            <bitenum id="LCDS29_1" value="0x1" description="Pins are LCD functions"/>
+        </bitfield>
+        <bitfield id="LCDS30" description="LCD segment line 30 enable" begin="14" end="14" width="1" rwaccess="R/W">
+            <bitenum id="LCDS30_0" value="0x0" description="Multiplexed pins are port functions"/>
+            <bitenum id="LCDS30_1" value="0x1" description="Pins are LCD functions"/>
+        </bitfield>
+        <bitfield id="LCDS31" description="LCD segment line 31 enable" begin="15" end="15" width="1" rwaccess="R/W">
+            <bitenum id="LCDS31_0" value="0x0" description="Multiplexed pins are port functions"/>
+            <bitenum id="LCDS31_1" value="0x1" description="Pins are LCD functions"/>
+        </bitfield>
+    </register>
+    <register id="LCDCPCTL2" width="16" offset="0xE" internal="0" description="LCD_C port control 2 (256 segments)">
+        <bitfield id="LCDS32" description="LCD segment line 32 enable" begin="0" end="0" width="1" rwaccess="R/W">
+            <bitenum id="LCDS32_0" value="0x0" description="Multiplexed pins are port functions"/>
+            <bitenum id="LCDS32_1" value="0x1" description="Pins are LCD functions"/>
+        </bitfield>
+        <bitfield id="LCDS33" description="LCD segment line 33 enable" begin="1" end="1" width="1" rwaccess="R/W">
+            <bitenum id="LCDS33_0" value="0x0" description="Multiplexed pins are port functions"/>
+            <bitenum id="LCDS33_1" value="0x1" description="Pins are LCD functions"/>
+        </bitfield>
+        <bitfield id="LCDS34" description="LCD segment line 34 enable" begin="2" end="2" width="1" rwaccess="R/W">
+            <bitenum id="LCDS34_0" value="0x0" description="Multiplexed pins are port functions"/>
+            <bitenum id="LCDS34_1" value="0x1" description="Pins are LCD functions"/>
+        </bitfield>
+        <bitfield id="LCDS35" description="LCD segment line 35 enable" begin="3" end="3" width="1" rwaccess="R/W">
+            <bitenum id="LCDS35_0" value="0x0" description="Multiplexed pins are port functions"/>
+            <bitenum id="LCDS35_1" value="0x1" description="Pins are LCD functions"/>
+        </bitfield>
+        <bitfield id="LCDS36" description="LCD segment line 36 enable" begin="4" end="4" width="1" rwaccess="R/W">
+            <bitenum id="LCDS36_0" value="0x0" description="Multiplexed pins are port functions"/>
+            <bitenum id="LCDS36_1" value="0x1" description="Pins are LCD functions"/>
+        </bitfield>
+        <bitfield id="LCDS37" description="LCD segment line 37 enable" begin="5" end="5" width="1" rwaccess="R/W">
+            <bitenum id="LCDS37_0" value="0x0" description="Multiplexed pins are port functions"/>
+            <bitenum id="LCDS37_1" value="0x1" description="Pins are LCD functions"/>
+        </bitfield>
+        <bitfield id="LCDS38" description="LCD segment line 38 enable" begin="6" end="6" width="1" rwaccess="R/W">
+            <bitenum id="LCDS38_0" value="0x0" description="Multiplexed pins are port functions"/>
+            <bitenum id="LCDS38_1" value="0x1" description="Pins are LCD functions"/>
+        </bitfield>
+        <bitfield id="LCDS39" description="LCD segment line 39 enable" begin="7" end="7" width="1" rwaccess="R/W">
+            <bitenum id="LCDS39_0" value="0x0" description="Multiplexed pins are port functions"/>
+            <bitenum id="LCDS39_1" value="0x1" description="Pins are LCD functions"/>
+        </bitfield>
+        <bitfield id="LCDS40" description="LCD segment line 40 enable" begin="8" end="8" width="1" rwaccess="R/W">
+            <bitenum id="LCDS40_0" value="0x0" description="Multiplexed pins are port functions"/>
+            <bitenum id="LCDS40_1" value="0x1" description="Pins are LCD functions"/>
+        </bitfield>
+        <bitfield id="LCDS41" description="LCD segment line 41 enable" begin="9" end="9" width="1" rwaccess="R/W">
+            <bitenum id="LCDS41_0" value="0x0" description="Multiplexed pins are port functions"/>
+            <bitenum id="LCDS41_1" value="0x1" description="Pins are LCD functions"/>
+        </bitfield>
+        <bitfield id="LCDS42" description="LCD segment line 42 enable" begin="10" end="10" width="1" rwaccess="R/W">
+            <bitenum id="LCDS42_0" value="0x0" description="Multiplexed pins are port functions"/>
+            <bitenum id="LCDS42_1" value="0x1" description="Pins are LCD functions"/>
+        </bitfield>
+        <bitfield id="LCDS43" description="LCD segment line 43 enable" begin="11" end="11" width="1" rwaccess="R/W">
+            <bitenum id="LCDS43_0" value="0x0" description="Multiplexed pins are port functions"/>
+            <bitenum id="LCDS43_1" value="0x1" description="Pins are LCD functions"/>
+        </bitfield>
+        <bitfield id="LCDS44" description="LCD segment line 44 enable" begin="12" end="12" width="1" rwaccess="R/W">
+            <bitenum id="LCDS44_0" value="0x0" description="Multiplexed pins are port functions"/>
+            <bitenum id="LCDS44_1" value="0x1" description="Pins are LCD functions"/>
+        </bitfield>
+        <bitfield id="LCDS45" description="LCD segment line 45 enable" begin="13" end="13" width="1" rwaccess="R/W">
+            <bitenum id="LCDS45_0" value="0x0" description="Multiplexed pins are port functions"/>
+            <bitenum id="LCDS45_1" value="0x1" description="Pins are LCD functions"/>
+        </bitfield>
+        <bitfield id="LCDS46" description="LCD segment line 46 enable" begin="14" end="14" width="1" rwaccess="R/W">
+            <bitenum id="LCDS46_0" value="0x0" description="Multiplexed pins are port functions"/>
+            <bitenum id="LCDS46_1" value="0x1" description="Pins are LCD functions"/>
+        </bitfield>
+        <bitfield id="LCDS47" description="LCD segment line 47 enable" begin="15" end="15" width="1" rwaccess="R/W">
+            <bitenum id="LCDS47_0" value="0x0" description="Multiplexed pins are port functions"/>
+            <bitenum id="LCDS47_1" value="0x1" description="Pins are LCD functions"/>
+        </bitfield>
+    </register>
+    <register id="LCDCPCTL3" width="16" offset="0x10" internal="0" description="LCD_C port control 3 (384 segments)">
+        <bitfield id="LCDS48" description="LCD segment line 48 enable" begin="0" end="0" width="1" rwaccess="R/W">
+            <bitenum id="LCDS48_0" value="0x0" description="Multiplexed pins are port functions"/>
+            <bitenum id="LCDS48_1" value="0x1" description="Pins are LCD functions"/>
+        </bitfield>
+        <bitfield id="LCDS49" description="LCD segment line 49 enable" begin="1" end="1" width="1" rwaccess="R/W">
+            <bitenum id="LCDS49_0" value="0x0" description="Multiplexed pins are port functions"/>
+            <bitenum id="LCDS49_1" value="0x1" description="Pins are LCD functions"/>
+        </bitfield>
+        <bitfield id="LCDS50" description="LCD segment line 50 enable" begin="2" end="2" width="1" rwaccess="R/W">
+            <bitenum id="LCDS50_0" value="0x0" description="Multiplexed pins are port functions"/>
+            <bitenum id="LCDS50_1" value="0x1" description="Pins are LCD functions"/>
+        </bitfield>
+        <bitfield id="LCDS51" description="LCD segment line 51 enable" begin="3" end="3" width="1" rwaccess="R/W">
+            <bitenum id="LCDS51_0" value="0x0" description="Multiplexed pins are port functions"/>
+            <bitenum id="LCDS51_1" value="0x1" description="Pins are LCD functions"/>
+        </bitfield>
+        <bitfield id="LCDS52" description="LCD segment line 52 enable" begin="4" end="4" width="1" rwaccess="R/W">
+            <bitenum id="LCDS52_0" value="0x0" description="Multiplexed pins are port functions"/>
+            <bitenum id="LCDS52_1" value="0x1" description="Pins are LCD functions"/>
+        </bitfield>
+        <bitfield id="LCDS53" description="LCD segment line 53 enable" begin="5" end="5" width="1" rwaccess="R/W">
+            <bitenum id="LCDS53_0" value="0x0" description="Multiplexed pins are port functions"/>
+            <bitenum id="LCDS53_1" value="0x1" description="Pins are LCD functions"/>
+        </bitfield>
+    </register>
+    <register id="LCDCCPCTL" width="16" offset="0x12" internal="0" description="LCD_C charge pump control">
+        <bitfield id="LCDCPDIS" description="LCD charge pump disable" begin="7" end="0" width="8" rwaccess="R/W">
+        </bitfield>
+        <bitfield id="LCDCPCLKSYNC" description="LCD charge pump clock synchronization" begin="15" end="15" width="1" rwaccess="R/W">
+            <bitenum id="LCDCPCLKSYNC_0" value="0x0" description="Synchronization disabled"/>
+            <bitenum id="LCDCPCLKSYNC_1" value="0x1" description="Synchronization enabled"/>
+        </bitfield>
+    </register>
+    <register id="LCDCIV" width="16" offset="0x1E" internal="0" description="LCD_C interrupt vector">
+        <bitfield id="LCDCIV" description="LCD_C interrupt vector value" begin="15" end="0" width="16" rwaccess="R">
+            <bitenum id="NONE" value="0x0" description="No interrupt pending"/>
+            <bitenum id="LCDNOCAPIFG" value="0x2" description="Interrupt Source: No capacitor connected; Interrupt Flag: LCDNOCAPIFG; Interrupt Priority: Highest"/>
+            <bitenum id="LCDBLKOFFIFG" value="0x4" description="Interrupt Source: Blink, segments off; Interrupt Flag: LCDBLKOFFIFG"/>
+            <bitenum id="LCDBLKONIFG" value="0x6" description="Interrupt Source: Blink, segments on; Interrupt Flag: LCDBLKONIFG"/>
+            <bitenum id="LCDFRMIFG" value="0x8" description="Interrupt Source: Frame interrupt; Interrupt Flag: LCDFRMIFG; Interrupt Priority: Lowest"/>
+        </bitfield>
+    </register>
+    <register id="LCDM1" width="8" offset="0x20" internal="0" description="LCD memory 1">
+    </register>
+    <register id="LCDM2" width="8" offset="0x21" internal="0" description="LCD memory 2">
+    </register>
+    <register id="LCDM3" width="8" offset="0x22" internal="0" description="LCD memory 3">
+    </register>
+    <register id="LCDM4" width="8" offset="0x23" internal="0" description="LCD memory 4">
+    </register>
+    <register id="LCDM5" width="8" offset="0x24" internal="0" description="LCD memory 5">
+    </register>
+    <register id="LCDM6" width="8" offset="0x25" internal="0" description="LCD memory 6">
+    </register>
+    <register id="LCDM7" width="8" offset="0x26" internal="0" description="LCD memory 7">
+    </register>
+    <register id="LCDM8" width="8" offset="0x27" internal="0" description="LCD memory 8">
+    </register>
+    <register id="LCDM9" width="8" offset="0x28" internal="0" description="LCD memory 9">
+    </register>
+    <register id="LCDM10" width="8" offset="0x29" internal="0" description="LCD memory 10">
+    </register>
+    <register id="LCDM11" width="8" offset="0x2A" internal="0" description="LCD memory 11">
+    </register>
+    <register id="LCDM12" width="8" offset="0x2B" internal="0" description="LCD memory 12">
+    </register>
+    <register id="LCDM13" width="8" offset="0x2C" internal="0" description="LCD memory 13">
+    </register>
+    <register id="LCDM14" width="8" offset="0x2D" internal="0" description="LCD memory 14">
+    </register>
+    <register id="LCDM15" width="8" offset="0x2E" internal="0" description="LCD memory 15">
+    </register>
+    <register id="LCDM16" width="8" offset="0x2F" internal="0" description="LCD memory 16">
+    </register>
+    <register id="LCDM17" width="8" offset="0x30" internal="0" description="LCD memory 17">
+    </register>
+    <register id="LCDM18" width="8" offset="0x31" internal="0" description="LCD memory 18">
+    </register>
+    <register id="LCDM19" width="8" offset="0x32" internal="0" description="LCD memory 19">
+    </register>
+    <register id="LCDM20" width="8" offset="0x33" internal="0" description="LCD memory 20">
+    </register>
+    <register id="LCDM21" width="8" offset="0x34" internal="0" description="LCD memory 21">
+    </register>
+    <register id="LCDM22" width="8" offset="0x35" internal="0" description="LCD memory 22">
+    </register>
+    <register id="LCDM23" width="8" offset="0x36" internal="0" description="LCD memory 23">
+    </register>
+    <register id="LCDM24" width="8" offset="0x37" internal="0" description="LCD memory 24">
+    </register>
+    <register id="LCDM25" width="8" offset="0x38" internal="0" description="LCD memory 25">
+    </register>
+    <register id="LCDM26" width="8" offset="0x39" internal="0" description="LCD memory 26">
+    </register>
+    <register id="LCDM27" width="8" offset="0x3A" internal="0" description="LCD memory 27">
+    </register>
+    <register id="LCDM28" width="8" offset="0x3B" internal="0" description="LCD memory 28">
+    </register>
+    <register id="LCDM29" width="8" offset="0x3C" internal="0" description="LCD memory 29">
+    </register>
+    <register id="LCDM30" width="8" offset="0x3D" internal="0" description="LCD memory 30">
+    </register>
+    <register id="LCDM31" width="8" offset="0x3E" internal="0" description="LCD memory 31">
+    </register>
+    <register id="LCDM32" width="8" offset="0x3F" internal="0" description="LCD memory 32">
+    </register>
+    <register id="LCDM33_LCDBM1" width="8" offset="0x40" internal="0" description="LCD memory 33 / LCD blinking memory 1">
+    </register>
+    <register id="LCDM34_LCDBM2" width="8" offset="0x41" internal="0" description="LCD memory 34 / LCD blinking memory 2">
+    </register>
+    <register id="LCDM35_LCDBM3" width="8" offset="0x42" internal="0" description="LCD memory 35 / LCD blinking memory 3">
+    </register>
+    <register id="LCDM36_LCDBM4" width="8" offset="0x43" internal="0" description="LCD memory 36 / LCD blinking memory 4">
+    </register>
+    <register id="LCDM37_LCDBM5" width="8" offset="0x44" internal="0" description="LCD memory 37 / LCD blinking memory 5">
+    </register>
+    <register id="LCDM38_LCDBM6" width="8" offset="0x45" internal="0" description="LCD memory 38 / LCD blinking memory 6">
+    </register>
+    <register id="LCDM39_LCDBM7" width="8" offset="0x46" internal="0" description="LCD memory 39 / LCD blinking memory 7">
+    </register>
+    <register id="LCDM40_LCDBM8" width="8" offset="0x47" internal="0" description="LCD memory 40 / LCD blinking memory 8">
+    </register>
+    <register id="LCDM41_LCDBM9" width="8" offset="0x48" internal="0" description="LCD memory 41 / LCD blinking memory 9">
+    </register>
+    <register id="LCDM42_LCDBM10" width="8" offset="0x49" internal="0" description="LCD memory 42 / LCD blinking memory 10">
+    </register>
+    <register id="LCDM43_LCDBM11" width="8" offset="0x4A" internal="0" description="LCD memory 43 / LCD blinking memory 11">
+    </register>
+    <register id="LCDM44_LCDBM12" width="8" offset="0x4B" internal="0" description="LCD memory 44 / LCD blinking memory 11">
+    </register>
+    <register id="LCDM45_LCDBM13" width="8" offset="0x4C" internal="0" description="LCD memory 45 / LCD blinking memory 13">
+    </register>
+    <register id="LCDM46_LCDBM14" width="8" offset="0x4D" internal="0" description="LCD memory 46 / LCD blinking memory 14">
+    </register>
+    <register id="LCDM47_LCDBM15" width="8" offset="0x4E" internal="0" description="LCD memory 47 / LCD blinking memory 15">
+    </register>
+    <register id="LCDM48_LCDBM16" width="8" offset="0x4F" internal="0" description="LCD memory 48 / LCD blinking memory 16">
+    </register>
+    <register id="LCDM49_LCDBM17" width="8" offset="0x50" internal="0" description="LCD memory 49 / LCD blinking memory 17">
+    </register>
+    <register id="LCDM50_LCDBM18" width="8" offset="0x51" internal="0" description="LCD memory 50 / LCD blinking memory 18">
+    </register>
+    <register id="LCDM51_LCDBM19" width="8" offset="0x52" internal="0" description="LCD memory 51 / LCD blinking memory 19">
+    </register>
+    <register id="LCDM52_LCDBM20" width="8" offset="0x53" internal="0" description="LCD memory 52 / LCD blinking memory 20">
+    </register>
+</module>
