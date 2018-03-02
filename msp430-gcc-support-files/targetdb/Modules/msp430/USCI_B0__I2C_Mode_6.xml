@@ -155,8 +155,6 @@
 <bitfield begin="7" description="I2C Slave Address Bit 7" end="7" id="UCSA7" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
 <bitfield begin="8" description="I2C Slave Address Bit 8" end="8" id="UCSA8" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
 <bitfield begin="9" description="I2C Slave Address Bit 9" end="9" id="UCSA9" range="" resetval="0" rwaccess="RW" width="1"></bitfield></register>
-<register acronym="UCB0IE" description="USCI B0 Interrupt Enable Register" id="UCB0IE" offset=" 0x056A" width="16"></register>
-<register acronym="UCB0IFG" description="USCI B0 Interrupt Flags Register" id="UCB0IFG" offset=" 0x056C" width="16"></register>
 <register acronym="UCB0IE__I2C" description="USCI B0 Interrupt Enable Register" id="UCB0IE__I2C" offset=" 0x056A" width="16">
 <bitfield begin="0" description="I2C Receive Interrupt Enable 0" end="0" id="UCRXIE0" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
 <bitfield begin="1" description="I2C Transmit Interrupt Enable 0" end="1" id="UCTXIE0" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
