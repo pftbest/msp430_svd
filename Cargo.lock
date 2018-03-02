@@ -1,15 +1,15 @@
-[root]
+[[package]]
+name = "bitflags"
+version = "0.7.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+
+[[package]]
 name = "msp430gen"
 version = "0.1.0"
 dependencies = [
  "svd-parser 0.5.1",
  "xmltree 0.4.0 (registry+https://github.com/rust-lang/crates.io-index)",
 ]
-
-[[package]]
-name = "bitflags"
-version = "0.7.0"
-source = "registry+https://github.com/rust-lang/crates.io-index"
 
 [[package]]
 name = "svd-parser"

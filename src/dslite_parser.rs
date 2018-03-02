@@ -62,20 +62,38 @@ pub fn parse_dslite(file_name: &Path) -> Device {
                 continue;
             } else if r.width == old.width && r.offset == old.offset {
                 if r.module == old.module {
-                    panic!("conflict in the same module\nOLD {:#?}\nNEW {:#?}", old, r);
+                    eprintln!("warning: conflict in the same module, {} and {}", old.name, r.name);
+                    if r.fields.is_empty() && old.fields.is_empty() {
+                        // Both registers are empty, that means they are identical, so
+                        // keep the one with a short name
+                        if r.name.len() >= old.name.len() {
+                            eprintln!("erasing {} (keeping {})", r.name, old.name);
+                            continue;
+                        }
+                    } else if r.fields.is_empty() {
+                        // New register is empty, so keep the old one
+                        eprintln!("erasing {} (keeping {})", r.name, old.name);
+                        continue;
+                    } else if old.fields.is_empty() {
+                        // Old register is empty, replace it with new one
+                    } else {
+                        panic!("both registers have fields, can't decide which one to keep\nOLD {:#?}\nNEW {:#?}\nPlease file an issue at https://github.com/pftbest/msp430_svd/issues", old, r);
+                    }
+                    eprintln!("erasing {} (keeping {})", old.name, r.name);
+                } else {
+                    modules
+                        .entry(r.module.clone())
+                        .or_insert(Module {
+                            name: r.module.clone(),
+                            description: module_descriptions.get(&r.module).unwrap().clone(),
+                            registers: Vec::new(),
+                        })
+                        .registers
+                        .push(r.clone());
+                    continue;
                 }
-                modules
-                    .entry(r.module.clone())
-                    .or_insert(Module {
-                        name: r.module.clone(),
-                        description: module_descriptions.get(&r.module).unwrap().clone(),
-                        registers: Vec::new(),
-                    })
-                    .registers
-                    .push(r.clone());
-                continue;
             } else {
-                panic!("unexpected registers\nOLD {:#?}\nNEW {:#?}", old, r);
+                panic!("unexpected registers\nOLD {:#?}\nNEW {:#?}\nPlease file an issue at https://github.com/pftbest/msp430_svd/issues", old, r);
             }
         }
         for i in 0..r.width {
