@@ -7,3 +7,4 @@ authors = ["Vadzim Dambrouski <pftbest@gmail.com>"]
 #ldscript-parser = "0.1"
 xmltree = "*"
 svd-parser = { path = "svd-parser" }
+ordermap = "=0.4.0"

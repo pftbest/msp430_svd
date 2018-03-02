@@ -1,4 +1,4 @@
-use std::collections::HashMap;
+use ordermap::OrderMap;
 use xmltree::Element;
 use utils;
 use std::path::Path;
@@ -7,10 +7,10 @@ use std::path::Path;
 pub struct Device {
     pub name: String,
     pub description: String,
-    pub modules: HashMap<String, Module>,
+    pub modules: OrderMap<String, Module>,
 }
 
-fn get_conflict<'a>(map: &HashMap<u32, &'a Register>, reg: &Register) -> Option<&'a Register> {
+fn get_conflict<'a>(map: &OrderMap<u32, &'a Register>, reg: &Register) -> Option<&'a Register> {
     for i in 0..reg.width {
         let addr = reg.offset + i;
         if let Some(old) = map.get(&addr) {
@@ -27,7 +27,7 @@ pub fn parse_dslite(file_name: &Path) -> Device {
     let description = uw!(el.attributes.get("description")).to_owned();
     let cpu = uw!(el.children.iter().find(|i| i.name == "cpu"));
 
-    let mut module_descriptions = HashMap::new();
+    let mut module_descriptions = OrderMap::new();
     let mut registers = Vec::new();
     for i in &cpu.children {
         if let Some(module) = parse_cpu_instance(i, file_name) {
@@ -46,8 +46,8 @@ pub fn parse_dslite(file_name: &Path) -> Device {
         a.name.cmp(&b.name)
     });
 
-    let mut modules: HashMap<String, Module> = HashMap::new();
-    let mut memory: HashMap<u32, &Register> = HashMap::new();
+    let mut modules: OrderMap<String, Module> = OrderMap::new();
+    let mut memory: OrderMap<u32, &Register> = OrderMap::new();
     for r in &registers {
         if let Some(old) = get_conflict(&memory, r) {
             if r.width == 2 && old.width == 1 {
