@@ -1,6 +1,7 @@
 use dslite_parser;
 use header_parser;
 use svd;
+use inflector::Inflector;
 
 trait StringEx {
     fn fix_name(&self) -> String;
@@ -8,20 +9,19 @@ trait StringEx {
 
 impl StringEx for String {
     fn fix_name(&self) -> String {
-        self.replace("/", "_")
-            .replace(" ", "_")
-            .replace("__Real_Time_Clock", "")
-            .replace("__Power_Management_System", "")
-            .replace("__Special_Function_Registers", "")
-            .replace("__System_Module", "")
-            .replace("__Unified_System_Clock", "")
-            .replace("__Multiplier__16_Bit_Mode", "")
-            .replace("__Multiplier__32_Bit_Mode", "")
-            .replace("__RAM_Control_Module", "")
-            .replace("__I2C_Mode", "_I2C_Mode")
-            .replace("__SPI_Mode", "_SPI_Mode")
-            .replace("__UART_Mode", "_UART_Mode")
-            .replace("__SPI", "")
+        self.to_screaming_snake_case()
+        // Some fixups to make the names look nicer
+        .trim_right_matches("_SPI").to_owned()
+        .trim_right_matches("_I2C").to_owned()
+        .replace("RTC_REAL_TIME_CLOCK", "RTC")
+        .replace("SFR_SPECIAL_FUNCTION_REGISTERS", "SFR")
+        .replace("PMM_POWER_MANAGEMENT_SYSTEM", "PMM")
+        .replace("RC_RAM_CONTROL_MODULE", "RC")
+        .replace("UCS_UNIFIED_SYSTEM_CLOCK", "UCS")
+        .replace("SYS_SYSTEM_MODULE", "SYS")
+        .replace("MPY_16_MULTIPLIER_16_BIT_MODE", "MPY_16")
+        .replace("MPY_32_MULTIPLIER_32_BIT_MODE", "MPY_32")
+        .replace("CS_CLOCK_SYSTEM", "CS")
     }
 }
 
