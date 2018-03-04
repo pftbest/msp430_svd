@@ -38,12 +38,14 @@ pub fn parse_dslite(file_name: &Path) -> Device {
         }
     }
 
-    registers.sort_by(|a, b| if a.width != b.width {
-        a.width.cmp(&b.width)
-    } else if a.offset != b.offset {
-        a.offset.cmp(&b.offset)
-    } else {
-        a.name.cmp(&b.name)
+    registers.sort_by(|a, b| {
+        if a.width != b.width {
+            a.width.cmp(&b.width)
+        } else if a.offset != b.offset {
+            a.offset.cmp(&b.offset)
+        } else {
+            a.name.cmp(&b.name)
+        }
     });
 
     let mut modules: OrderMap<String, Module> = OrderMap::new();
@@ -54,15 +56,17 @@ pub fn parse_dslite(file_name: &Path) -> Device {
                 if !memory.contains_key(&r.offset) || !memory.contains_key(&(r.offset + 1)) {
                     eprintln!(
                         "warning: register {} ({}) has missing parts",
-                        old.name,
-                        r.name
+                        old.name, r.name
                     );
                 }
                 eprintln!("erasing {} (keeping {})", r.name, old.name);
                 continue;
             } else if r.width == old.width && r.offset == old.offset {
                 if r.module == old.module {
-                    eprintln!("warning: conflict in the same module, {} and {}", old.name, r.name);
+                    eprintln!(
+                        "warning: conflict in the same module, {} and {}",
+                        old.name, r.name
+                    );
                     if r.fields.is_empty() && old.fields.is_empty() {
                         // Both registers are empty, that means they are identical, so
                         // keep the one with a short name

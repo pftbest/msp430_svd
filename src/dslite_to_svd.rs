@@ -57,7 +57,7 @@ pub fn build_svd_device(
             let reset_mask = match reg.width {
                 1 => 0xff,
                 2 => 0xffff,
-                4 => 0xffffffff,
+                4 => 0xffff_ffff,
                 _ => panic!("invalid width"),
             };
 
@@ -75,7 +75,7 @@ pub fn build_svd_device(
                 }
 
                 let field_constraint = None;
-                if enums.len() == 0 && f.width > 1 {
+                if enums.is_empty() && f.width > 1 {
                     eprintln!("warning: no enums for field {}", f.name);
                     // field_constraint =
                     //     Some(svd::WriteConstraint::Range(svd::WriteConstraintRange {
@@ -105,7 +105,7 @@ pub fn build_svd_device(
             }
 
             let mut reg_constraint = None;
-            if fields.len() == 0 {
+            if fields.is_empty() {
                 eprintln!("warning: no fields in register {}", reg.name);
             }
 
@@ -121,8 +121,8 @@ pub fn build_svd_device(
 
             // if all fields are single bit and cover the entire register
             // then allow to write any value
-            if (fields.len() == reg.width as usize * 8) &&
-                (fields.iter().all(|f| f.bit_range.width == 1))
+            if (fields.len() == reg.width as usize * 8)
+                && (fields.iter().all(|f| f.bit_range.width == 1))
             {
                 reg_constraint = Some(svd::WriteConstraint::Range(svd::WriteConstraintRange {
                     min: 0,
@@ -138,7 +138,11 @@ pub fn build_svd_device(
                 access: None,
                 reset_value: None,
                 reset_mask: Some(reset_mask),
-                fields: if fields.len() != 0 { Some(fields) } else { None },
+                fields: if fields.is_empty() {
+                    None
+                } else {
+                    Some(fields)
+                },
                 write_constraint: reg_constraint,
             };
             registers.push(svd::Register::Single(ri));
@@ -156,7 +160,7 @@ pub fn build_svd_device(
         peripherals.push(p);
     }
 
-    if interrupts.vectors.len() != 0 {
+    if !interrupts.vectors.is_empty() {
         peripherals.push(svd::Peripheral {
             name: "_INTERRUPTS".to_owned(),
             group_name: None,
@@ -165,12 +169,10 @@ pub fn build_svd_device(
             interrupt: interrupts
                 .vectors
                 .iter()
-                .map(|int| {
-                    svd::Interrupt {
-                        name: int.name.clone(),
-                        description: Some(int.description.clone()),
-                        value: int.value,
-                    }
+                .map(|int| svd::Interrupt {
+                    name: int.name.clone(),
+                    description: Some(int.description.clone()),
+                    value: int.value,
                 })
                 .collect(),
             registers: None,

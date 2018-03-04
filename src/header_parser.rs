@@ -38,13 +38,13 @@ pub fn parse_header(file_name: &Path) -> Interrupts {
 fn parse_offset(line: &str) -> u32 {
     let addr = uw!(line.split_whitespace().nth(5)).trim_matches(')');
     assert!(addr.starts_with("0xFF"));
-    uw!(utils::parse_u32(&addr))
+    uw!(utils::parse_u32(addr))
 }
 
 fn parse_vector(line: &str) -> Option<Vector> {
     let mut parts = line.split_whitespace();
     let name = uw!(parts.nth(1));
-    if !(uw!(parts.next()).starts_with("(")) {
+    if !(uw!(parts.next()).starts_with('(')) {
         eprintln!("skipping aliased vector {}", name);
         return None;
     }
