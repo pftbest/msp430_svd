@@ -1,6 +1,7 @@
 use dslite_parser;
 use header_parser;
 use svd;
+use inflector::Inflector;
 
 trait StringEx {
     fn fix_name(&self) -> String;
@@ -8,20 +9,19 @@ trait StringEx {
 
 impl StringEx for String {
     fn fix_name(&self) -> String {
-        self.replace("/", "_")
-            .replace(" ", "_")
-            .replace("__Real_Time_Clock", "")
-            .replace("__Power_Management_System", "")
-            .replace("__Special_Function_Registers", "")
-            .replace("__System_Module", "")
-            .replace("__Unified_System_Clock", "")
-            .replace("__Multiplier__16_Bit_Mode", "")
-            .replace("__Multiplier__32_Bit_Mode", "")
-            .replace("__RAM_Control_Module", "")
-            .replace("__I2C_Mode", "_I2C_Mode")
-            .replace("__SPI_Mode", "_SPI_Mode")
-            .replace("__UART_Mode", "_UART_Mode")
-            .replace("__SPI", "")
+        self.to_screaming_snake_case()
+        // Some fixups to make the names look nicer
+        .trim_right_matches("_SPI").to_owned()
+        .trim_right_matches("_I2C").to_owned()
+        .replace("RTC_REAL_TIME_CLOCK", "RTC")
+        .replace("SFR_SPECIAL_FUNCTION_REGISTERS", "SFR")
+        .replace("PMM_POWER_MANAGEMENT_SYSTEM", "PMM")
+        .replace("RC_RAM_CONTROL_MODULE", "RC")
+        .replace("UCS_UNIFIED_SYSTEM_CLOCK", "UCS")
+        .replace("SYS_SYSTEM_MODULE", "SYS")
+        .replace("MPY_16_MULTIPLIER_16_BIT_MODE", "MPY_16")
+        .replace("MPY_32_MULTIPLIER_32_BIT_MODE", "MPY_32")
+        .replace("CS_CLOCK_SYSTEM", "CS")
     }
 }
 
@@ -57,7 +57,7 @@ pub fn build_svd_device(
             let reset_mask = match reg.width {
                 1 => 0xff,
                 2 => 0xffff,
-                4 => 0xffffffff,
+                4 => 0xffff_ffff,
                 _ => panic!("invalid width"),
             };
 
@@ -75,7 +75,7 @@ pub fn build_svd_device(
                 }
 
                 let field_constraint = None;
-                if enums.len() == 0 && f.width > 1 {
+                if enums.is_empty() && f.width > 1 {
                     eprintln!("warning: no enums for field {}", f.name);
                     // field_constraint =
                     //     Some(svd::WriteConstraint::Range(svd::WriteConstraintRange {
@@ -105,7 +105,7 @@ pub fn build_svd_device(
             }
 
             let mut reg_constraint = None;
-            if fields.len() == 0 {
+            if fields.is_empty() {
                 eprintln!("warning: no fields in register {}", reg.name);
             }
 
@@ -121,8 +121,8 @@ pub fn build_svd_device(
 
             // if all fields are single bit and cover the entire register
             // then allow to write any value
-            if (fields.len() == reg.width as usize * 8) &&
-                (fields.iter().all(|f| f.bit_range.width == 1))
+            if (fields.len() == reg.width as usize * 8)
+                && (fields.iter().all(|f| f.bit_range.width == 1))
             {
                 reg_constraint = Some(svd::WriteConstraint::Range(svd::WriteConstraintRange {
                     min: 0,
@@ -138,7 +138,11 @@ pub fn build_svd_device(
                 access: None,
                 reset_value: None,
                 reset_mask: Some(reset_mask),
-                fields: if fields.len() != 0 { Some(fields) } else { None },
+                fields: if fields.is_empty() {
+                    None
+                } else {
+                    Some(fields)
+                },
                 write_constraint: reg_constraint,
             };
             registers.push(svd::Register::Single(ri));
@@ -156,7 +160,7 @@ pub fn build_svd_device(
         peripherals.push(p);
     }
 
-    if interrupts.vectors.len() != 0 {
+    if !interrupts.vectors.is_empty() {
         peripherals.push(svd::Peripheral {
             name: "_INTERRUPTS".to_owned(),
             group_name: None,
@@ -165,12 +169,10 @@ pub fn build_svd_device(
             interrupt: interrupts
                 .vectors
                 .iter()
-                .map(|int| {
-                    svd::Interrupt {
-                        name: int.name.clone(),
-                        description: Some(int.description.clone()),
-                        value: int.value,
-                    }
+                .map(|int| svd::Interrupt {
+                    name: int.name.clone(),
+                    description: Some(int.description.clone()),
+                    value: int.value,
                 })
                 .collect(),
             registers: None,

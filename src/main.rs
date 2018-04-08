@@ -1,5 +1,7 @@
-extern crate xmltree;
+extern crate inflector;
+extern crate ordermap;
 extern crate svd_parser as svd;
+extern crate xmltree;
 
 #[macro_use]
 mod utils;
