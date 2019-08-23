@@ -1,0 +1,82 @@
+<module id="SAC2" HW_revision="455.0.8_config3">
+    <register id="SAC2OA" width="16" offset="0x0" internal="0" description="SAC OA Control Register">
+        <bitfield id="PSEL" description="SAC OA Positive input source selection" begin="1" end="0" width="2" rwaccess="R/W">
+            <bitenum id="PSEL_0" value="0x0" description="External source selected"/>
+            <bitenum id="PSEL_1" value="0x1" description="12-bit reference DAC source selected"/>
+            <bitenum id="PSEL_2" value="0x2" description="Pair OA source selected"/>
+        </bitfield>
+        <bitfield id="PMUXEN" description="SAC Positive input MUX control." begin="3" end="3" width="1" rwaccess="R/W">
+            <bitenum id="PMUXEN_0" value="0x0" description="All positive input sources are disconnected to OA positive port"/>
+            <bitenum id="PMUXEN_1" value="0x1" description="All positive input sources are connected to OA positive port"/>
+        </bitfield>
+        <bitfield id="NSEL" description="SAC OA Negative input source selection" begin="5" end="4" width="2" rwaccess="R/W">
+            <bitenum id="NSEL_0" value="0x0" description="External source selected"/>
+            <bitenum id="NSEL_1" value="0x1" description="PGA source selected"/>
+            <bitenum id="NSEL_2" value="0x2" description="Device Specific"/>
+        </bitfield>
+        <bitfield id="NMUXEN" description="SAC Negative input MUX controL" begin="7" end="7" width="1" rwaccess="R/W">
+            <bitenum id="NMUXEN_0" value="0x0" description="All negative input sources are disconnected to OA negative port"/>
+            <bitenum id="NMUXEN_1" value="0x1" description="All negative input sources are connected to OA negative port"/>
+        </bitfield>
+        <bitfield id="OAEN" description="SAC OA Enable selection" begin="8" end="8" width="1" rwaccess="R/W">
+            <bitenum id="OAEN_0" value="0x0" description="SAC OA is disabled, then the SAC OA output high impedance"/>
+            <bitenum id="OAEN_1" value="0x1" description="SAC OA is enabled, normal mode"/>
+        </bitfield>
+        <bitfield id="OAPM" description="SAC OA power mode selection" begin="9" end="9" width="1" rwaccess="R/W">
+            <bitenum id="OAPM_0" value="0x0" description="High speed and high power"/>
+            <bitenum id="OAPM_1" value="0x1" description="Llow speed and low power"/>
+        </bitfield>
+        <bitfield id="SACEN" description="SAC Enable selection" begin="10" end="10" width="1" rwaccess="R/W">
+            <bitenum id="SACEN_0" value="0x0" description="SAC all modules are disabled, then the SAC output high impedance"/>
+            <bitenum id="SACEN_1" value="0x1" description="SAC all modules are enabled, normal mode"/>
+        </bitfield>
+    </register>
+    <register id="SAC2PGA" width="16" offset="0x2" internal="0" description="SAC PGA Control Register">
+        <bitfield id="MSEL" description="SAC PGA Mode Selection" begin="1" end="0" width="2" rwaccess="R/W">
+            <bitenum id="MSEL_0" value="0x0" description="Inverting PGA mode (external pad IN- is selected)"/>
+            <bitenum id="MSEL_1" value="0x1" description="Buffer mode (floating is selected )"/>
+            <bitenum id="MSEL_2" value="0x2" description="Non-inverting mode"/>
+            <bitenum id="MSEL_3" value="0x3" description="Cascade OA Inverting mode"/>
+        </bitfield>
+        <bitfield id="GAIN" description="SAC PGA Gain configuration" begin="6" end="4" width="3" rwaccess="R/W">
+        </bitfield>
+    </register>
+    <register id="SAC2DAC" width="16" offset="0x4" internal="0" description="SAC DAC Control Register">
+        <bitfield id="DACEN" description="SAC DAC enable" begin="0" end="0" width="1" rwaccess="R/W">
+            <bitenum id="DACEN_0" value="0x0" description="Disabled"/>
+            <bitenum id="DACEN_1" value="0x1" description="Enabled"/>
+        </bitfield>
+        <bitfield id="DACIE" description="SAC DAC interrupt enable" begin="1" end="1" width="1" rwaccess="R/W">
+            <bitenum id="DACIE_0" value="0x0" description="Disabled"/>
+            <bitenum id="DACIE_1" value="0x1" description="Enabled"/>
+        </bitfield>
+        <bitfield id="DACDMAE" description="SAC DAC DMA request enable" begin="2" end="2" width="1" rwaccess="R/W">
+            <bitenum id="DACDMAE_0" value="0x0" description="DMA request disabled"/>
+            <bitenum id="DACDMAE_1" value="0x1" description="DMA request enabled"/>
+        </bitfield>
+        <bitfield id="DACLSEL" description="SAC DAC load select. Selects the load trigger for the DAC latch." begin="9" end="8" width="2" rwaccess="R/W">
+            <bitenum id="DACLSEL_0" value="0x0" description="DAC latch loads when DACDAT written"/>
+            <bitenum id="DACLSEL_2" value="0x2" description="Device specific 0. DAC always loads data from DACDAT at the positive edge of this signal"/>
+            <bitenum id="DACLSEL_3" value="0x3" description="Device specific 1. DAC always loads data from DACDAT at the positive edge of this signal"/>
+        </bitfield>
+        <bitfield id="DACSREF" description="SAC DAC select reference voltage" begin="12" end="12" width="1" rwaccess="R/W">
+            <bitenum id="DACSREF_0" value="0x0" description="AVCC"/>
+            <bitenum id="DACSREF_1" value="0x1" description="Alternative reference"/>
+        </bitfield>
+    </register>
+    <register id="SAC2DAT" width="16" offset="0x6" internal="0" description="SAC DAC Data Register">
+        <bitfield id="DACData" description="SAC DAC data in unsigned format." begin="11" end="0" width="12" rwaccess="R/W">
+        </bitfield>
+    </register>
+    <register id="SAC2DACSTS" width="16" offset="0x8" internal="0" description="SAC DAC Status Register">
+        <bitfield id="DACIFG" description="SAC DAC data update flag" begin="0" end="0" width="1" rwaccess="R/W">
+        </bitfield>
+    </register>
+    <register id="SAC2IV" width="16" offset="0xA" internal="0" description="SAC Interrupt Vector Register">
+        <bitfield id="SACIV2" description="SAC Interrupt Vector Register" begin="15" end="0" width="16" rwaccess="R">
+            <bitenum id="SACIV_0" value="0x0" description="No interrupt pending"/>
+            <bitenum id="SACIV_2" value="0x2" description="S&amp;H completed interrupt flag (Highest priority)"/>
+            <bitenum id="SACIV_4" value="0x4" description="DAC channel update interrupt flag"/>
+        </bitfield>
+    </register>
+</module>

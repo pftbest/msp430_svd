@@ -1,7 +1,7 @@
 use ordermap::OrderMap;
-use xmltree::Element;
-use utils;
 use std::path::Path;
+use utils;
+use xmltree::Element;
 
 #[derive(Debug)]
 pub struct Device {
@@ -131,8 +131,8 @@ pub struct Module {
 
 fn parse_cpu_instance(el: &Element, root_file: &Path) -> Option<Module> {
     assert_eq!(el.name, "instance");
-    let base = uw!(utils::parse_u32(uw!(el.attributes.get("baseaddr"))));
-    assert_eq!(base, 0);
+    let _base = uw!(utils::parse_u32(uw!(el.attributes.get("baseaddr"))));
+    //assert_eq!(base, 0);
 
     let href = uw!(el.attributes.get("href")).to_owned();
     let root_path = uw!(root_file.parent());
@@ -151,11 +151,16 @@ fn parse_dslite_module(file_name: &Path) -> Option<Module> {
     }
 
     let name = uw!(el.attributes.get("id")).to_owned();
-    let description = uw!(el.attributes.get("description")).to_owned();
-    let registers = el.children
+    let mut description = el.attributes.get("description").unwrap_or(&name).to_owned();
+    let registers = el
+        .children
         .iter()
         .map(|r| parse_register(r, &name))
         .collect::<Vec<_>>();
+
+    if description.trim().is_empty() {
+        description = name.clone();
+    }
 
     Some(Module {
         name: name,
@@ -177,15 +182,20 @@ pub struct Register {
 fn parse_register(el: &Element, module: &str) -> Register {
     assert_eq!(el.name, "register");
 
-    let name = uw!(el.attributes.get("acronym")).to_owned();
-    let description = uw!(el.attributes.get("description")).to_owned();
+    let name = uw!(el.attributes.get("id")).to_owned();
+    let mut description = uw!(el.attributes.get("description")).to_owned();
     let offset = uw!(utils::parse_u32(uw!(el.attributes.get("offset"))));
     let width = uw!(utils::parse_u32(uw!(el.attributes.get("width"))));
+
+    if description.trim().is_empty() {
+        description = name.clone();
+    }
 
     assert!(offset < (1 << 16));
     assert!(width == 8 || width == 16 || width == 32);
 
-    let fields = el.children
+    let fields = el
+        .children
         .iter()
         .map(|f| parse_field(f))
         .collect::<Vec<_>>();
@@ -213,19 +223,24 @@ fn parse_field(el: &Element) -> Field {
     assert_eq!(el.name, "bitfield");
 
     let name = uw!(el.attributes.get("id")).to_owned();
-    let description = uw!(el.attributes.get("description")).to_owned();
+    let mut description = uw!(el.attributes.get("description")).to_owned();
     let begin = uw!(utils::parse_u32(uw!(el.attributes.get("begin"))));
     let end = uw!(utils::parse_u32(uw!(el.attributes.get("end"))));
     let width = uw!(utils::parse_u32(uw!(el.attributes.get("width"))));
+
+    if description.trim().is_empty() {
+        description = name.clone();
+    }
 
     assert_eq!((begin as isize - end as isize).abs() + 1, width as isize);
 
     let offset = ::std::cmp::min(begin, end);
 
     let rwa = uw!(el.attributes.get("rwaccess")).to_owned();
-    assert!(rwa == "R/W" || rwa == "RW");
+    assert!(rwa == "R/W" || rwa == "RW" || rwa == "R");
 
-    let enums = el.children
+    let enums = el
+        .children
         .iter()
         .map(|e| parse_enum(e))
         .collect::<Vec<_>>();

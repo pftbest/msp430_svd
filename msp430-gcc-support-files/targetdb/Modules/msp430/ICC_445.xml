@@ -1,0 +1,107 @@
+<module id="ICC" HW_revision="445">
+    <register id="ICCSC" width="16" offset="0x0" internal="0" description="">
+        <bitfield id="ICMC" description="Current Interrupt Compare Mask of virtual stack specifies the current ICM at the top of virtual stack If ICM[1:0] is less than the priority level (ILSRx[1:0]) of the new interrupt, the corresponding source is sent to the CPU. Note that the ICMC is the element stack that the stack pointer is pointing to." begin="1" end="0" width="2" rwaccess="R">
+        </bitfield>
+        <bitfield id="VSFFLG" description="Virtual stack full flag This bit indicates whether or not the virtual stack is full. It is automatically updated when the stack is pushed or popped." begin="4" end="4" width="1" rwaccess="R">
+            <bitenum id="VSFFLG_0" value="0x0" description="ICCMVS register is not full"/>
+            <bitenum id="VSFFLG_1" value="0x1" description="ICCMVS register is full"/>
+        </bitfield>
+        <bitfield id="VSEFLG" description="Virtual stack empty flag.This bit indicates whether or not the virtual stack is empty. It is automatically updated when the stack is pushed or popped." begin="5" end="5" width="1" rwaccess="R">
+            <bitenum id="VSEFLG_0" value="0x0" description="Stack has valid data"/>
+            <bitenum id="VSEFLG_1" value="0x1" description="Stack has no valid data"/>
+        </bitfield>
+        <bitfield id="ICCEN" description="ICC enable" begin="7" end="7" width="1" rwaccess="R/W">
+            <bitenum id="ICCEN_0" value="0x0" description="ICC module disabled"/>
+            <bitenum id="ICCEN_1" value="0x1" description="ICC module enabled"/>
+        </bitfield>
+    </register>
+    <register id="ICCMVS" width="16" offset="0x2" internal="0" description="">
+        <bitfield id="ICM0" description="Interrupt compare mask virtual stack position 0 This field is the virtual stack register for ICM0." begin="1" end="0" width="2" rwaccess="R">
+        </bitfield>
+        <bitfield id="ICM1" description="Interrupt compare mask virtual stack position 1 This field is the virtual stack register for ICM1." begin="3" end="2" width="2" rwaccess="R">
+        </bitfield>
+        <bitfield id="ICM3" description="Interrupt compare mask virtual stack position 3 This field is the virtual stack register for ICM3." begin="7" end="6" width="2" rwaccess="R">
+        </bitfield>
+        <bitfield id="MVSSP" description="MVS stack pointer indicate register" begin="10" end="8" width="3" rwaccess="R">
+            <bitenum id="MVSSP_0" value="0x0" description="000b = Stack empty"/>
+            <bitenum id="MVSSP_1" value="0x1" description="001b = ICM0 affected"/>
+            <bitenum id="MVSSP_2" value="0x2" description="010b = ICM0 and ICM1 affected"/>
+            <bitenum id="MVSSP_3" value="0x3" description="011b = ICM0, ICM1, and ICM2 affected"/>
+            <bitenum id="MVSSP_4" value="0x4" description="100b = ICM0, ICM1, ICM2, and ICM3 affected. Also means the stack is full."/>
+        </bitfield>
+        <bitfield id="ICM2" description="Interrupt compare mask virtual stack position 2 This field is the virtual stack register for ICM2." begin="5" end="4" width="2" rwaccess="R">
+        </bitfield>
+    </register>
+    <register id="ICCILSR0" width="16" offset="0x4" internal="0" description="">
+        <bitfield id="ILSR0" description="Sets the interrupt level for this interrupt source. Maskable interrupt sources only. See the device-specific data sheet to determine the interrupt source for each ILSRx bit." begin="1" end="0" width="2" rwaccess="R/W">
+        </bitfield>
+        <bitfield id="ILSR1" description="Sets the interrupt level for this interrupt source. Maskable interrupt sources only. See the device-specific data sheet to determine the interrupt source for each ILSRx bit." begin="3" end="2" width="2" rwaccess="R/W">
+        </bitfield>
+        <bitfield id="ILSR2" description="Sets the interrupt level for this interrupt source. Maskable interrupt sources only. See the device-specific data sheet to determine the interrupt source for each ILSRx bit." begin="5" end="4" width="2" rwaccess="R/W">
+        </bitfield>
+        <bitfield id="ILSR3" description="Sets the interrupt level for this interrupt source. Maskable interrupt sources only. See the device-specific data sheet to determine the interrupt source for each ILSRx bit." begin="7" end="6" width="2" rwaccess="R/W">
+        </bitfield>
+        <bitfield id="ILSR4" description="Sets the interrupt level for this interrupt source. Maskable interrupt sources only. See the device-specific data sheet to determine the interrupt source for each ILSRx bit." begin="9" end="8" width="2" rwaccess="R/W">
+        </bitfield>
+        <bitfield id="ILSR5" description="Sets the interrupt level for this interrupt source. Maskable interrupt sources only. See the device-specific data sheet to determine the interrupt source for each ILSRx bit." begin="11" end="10" width="2" rwaccess="R/W">
+        </bitfield>
+        <bitfield id="ILSR6" description="Sets the interrupt level for this interrupt source. Maskable interrupt sources only. See the device-specific data sheet to determine the interrupt source for each ILSRx bit." begin="13" end="12" width="2" rwaccess="R/W">
+        </bitfield>
+        <bitfield id="ILSR7" description="Sets the interrupt level for this interrupt source. Maskable interrupt sources only. See the device-specific data sheet to determine the interrupt source for each ILSRx bit." begin="15" end="14" width="2" rwaccess="R/W">
+        </bitfield>
+    </register>
+    <register id="ICCILSR1" width="16" offset="0x6" internal="0" description="">
+        <bitfield id="ILSR8" description="Sets the interrupt level for this interrupt source. Maskable interrupt sources only. See the device-specific data sheet to determine the interrupt source for each ILSRxx bit." begin="1" end="0" width="2" rwaccess="R/W">
+        </bitfield>
+        <bitfield id="ILSR9" description="Sets the interrupt level for this interrupt source. Maskable interrupt sources only. See the device-specific data sheet to determine the interrupt source for each ILSRxx bit." begin="3" end="2" width="2" rwaccess="R/W">
+        </bitfield>
+        <bitfield id="ILSR10" description="Sets the interrupt level for this interrupt source. Maskable interrupt sources only. See the device-specific data sheet to determine the interrupt source for each ILSRxx bit." begin="5" end="4" width="2" rwaccess="R/W">
+        </bitfield>
+        <bitfield id="ILSR11" description="Sets the interrupt level for this interrupt source. Maskable interrupt sources only. See the device-specific data sheet to determine the interrupt source for each ILSRxx bit" begin="7" end="6" width="2" rwaccess="R/W">
+        </bitfield>
+        <bitfield id="ILSR12" description="Sets the interrupt level for this interrupt source. Maskable interrupt sources only. See the device-specific data sheet to determine the interrupt source for each ILSRxx bit." begin="9" end="8" width="2" rwaccess="R/W">
+        </bitfield>
+        <bitfield id="ILSR13" description="Sets the interrupt level for this interrupt source. Maskable interrupt sources only. See the device-specific data sheet to determine the interrupt source for each ILSRxx bit." begin="11" end="10" width="2" rwaccess="R/W">
+        </bitfield>
+        <bitfield id="ILSR14" description="Sets the interrupt level for this interrupt source. Maskable interrupt sources only. See the device-specific data sheet to determine the interrupt source for each ILSRxx bit." begin="13" end="12" width="2" rwaccess="R/W">
+        </bitfield>
+        <bitfield id="ILSR15" description="Sets the interrupt level for this interrupt source. Maskable interrupt sources only. See the device-specific data sheet to determine the interrupt source for each ILSRxx bit." begin="15" end="14" width="2" rwaccess="R/W">
+        </bitfield>
+    </register>
+    <register id="ICCILSR2" width="16" offset="0x8" internal="0" description="">
+        <bitfield id="ILSR16" description="Sets the interrupt level for this interrupt source. Maskable interrupt sources only. See the device-specific data sheet to determine the interrupt source for each ILSRxx bit." begin="1" end="0" width="2" rwaccess="R/W">
+        </bitfield>
+        <bitfield id="ILSR17" description="Sets the interrupt level for this interrupt source. Maskable interrupt sources only. See the device-specific data sheet to determine the interrupt source for each ILSRxx bit" begin="3" end="2" width="2" rwaccess="R/W">
+        </bitfield>
+        <bitfield id="ILSR18" description="Sets the interrupt level for this interrupt source. Maskable interrupt sources only. See the device-specific data sheet to determine the interrupt source for each ILSRxx bit." begin="5" end="4" width="2" rwaccess="R/W">
+        </bitfield>
+        <bitfield id="ILSR19" description="Sets the interrupt level for this interrupt source. Maskable interrupt sources only. See the device-specific data sheet to determine the interrupt source for each ILSRxx bit." begin="7" end="6" width="2" rwaccess="R/W">
+        </bitfield>
+        <bitfield id="ILSR20" description="Sets the interrupt level for this interrupt source. Maskable interrupt sources only. See the device-specific data sheet to determine the interrupt source for each ILSRxx bit." begin="9" end="8" width="2" rwaccess="R/W">
+        </bitfield>
+        <bitfield id="ILSR21" description="Sets the interrupt level for this interrupt source. Maskable interrupt sources only. See the device-specific data sheet to determine the interrupt source for each ILSRxx bit." begin="11" end="10" width="2" rwaccess="R/W">
+        </bitfield>
+        <bitfield id="ILSR22" description="Sets the interrupt level for this interrupt source. Maskable interrupt sources only. See the device-specific data sheet to determine the interrupt source for each" begin="13" end="12" width="2" rwaccess="R/W">
+        </bitfield>
+        <bitfield id="ILSR23" description="Sets the interrupt level for this interrupt source. Maskable interrupt sources only. See the device-specific data sheet to determine the interrupt source for each" begin="15" end="14" width="2" rwaccess="R/W">
+        </bitfield>
+    </register>
+    <register id="ICCILSR3" width="16" offset="0xA" internal="0" description="">
+        <bitfield id="ILSR24" description="Sets the interrupt level for this interrupt source. Maskable interrupt sources only. See the device-specific data sheet to determine the interrupt source for each ILSRxx bit." begin="1" end="0" width="2" rwaccess="R/W">
+        </bitfield>
+        <bitfield id="ILSR25" description="Sets the interrupt level for this interrupt source. Maskable interrupt sources only. See the device-specific data sheet to determine the interrupt source for each ILSRxx bit." begin="3" end="2" width="2" rwaccess="R/W">
+        </bitfield>
+        <bitfield id="ILSR26" description="Sets the interrupt level for this interrupt source. Maskable interrupt sources only. See the device-specific data sheet to determine the interrupt source for each ILSRxx bit." begin="5" end="4" width="2" rwaccess="R/W">
+        </bitfield>
+        <bitfield id="ILSR27" description="Sets the interrupt level for this interrupt source. Maskable interrupt sources only. See the device-specific data sheet to determine the interrupt source for each ILSRxx bit." begin="7" end="6" width="2" rwaccess="R/W">
+        </bitfield>
+        <bitfield id="ILSR28" description="Sets the interrupt level for this interrupt source. Maskable interrupt sources only. See the device-specific data sheet to determine the interrupt source for each ILSRxx bit." begin="9" end="8" width="2" rwaccess="R/W">
+        </bitfield>
+        <bitfield id="ILSR29" description="Sets the interrupt level for this interrupt source. Maskable interrupt sources only. See the device-specific data sheet to determine the interrupt source for each ILSRxx bit." begin="11" end="10" width="2" rwaccess="R/W">
+        </bitfield>
+        <bitfield id="ILSR30" description="Sets the interrupt level for this interrupt source. Maskable interrupt sources only. See the device-specific data sheet to determine the interrupt source for each ILSRxx bit." begin="13" end="12" width="2" rwaccess="R/W">
+        </bitfield>
+        <bitfield id="ILSR31" description="Sets the interrupt level for this interrupt source. Maskable interrupt sources only. See the device-specific data sheet to determine the interrupt source for each ILSRxx bit." begin="15" end="14" width="2" rwaccess="R/W">
+        </bitfield>
+    </register>
+</module>
