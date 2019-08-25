@@ -1,0 +1,245 @@
+<module id="eCOMP1" HW_revision="445">
+    <register id="CP1CTL0" width="16" offset="0x0" internal="0" description="Comparator Control Register 0">
+        <bitfield id="CPPEN" description="Channel input enable for the V+ terminal" begin="4" end="4" width="1" rwaccess="R/W">
+            <bitenum id="CPPEN_0" value="0x0" description="Selected analog input channel for V+ terminal is disabled."/>
+            <bitenum id="CPPEN_1" value="0x1" description="Selected analog input channel for V+ terminal is enabled."/>
+        </bitfield>
+        <bitfield id="CPNSEL" description="Channel input selected for the - terminal" begin="10" end="8" width="3" rwaccess="R/W">
+            <bitenum id="CPNSEL_0" value="0x0" description="select external input source"/>
+            <bitenum id="CPNSEL_1" value="0x1" description="select external input source"/>
+            <bitenum id="CPNSEL_2" value="0x2" description="select external input source"/>
+            <bitenum id="CPNSEL_3" value="0x3" description="select external input source"/>
+            <bitenum id="CPNSEL_4" value="0x4" description="device specific, please refer to device data sheet for details"/>
+            <bitenum id="CPNSEL_5" value="0x5" description="device specific, please refer to device data sheet for details"/>
+            <bitenum id="CPNSEL_6" value="0x6" description="6-bit DAC"/>
+            <bitenum id="CPNSEL_7" value="0x7" description="Reserved"/>
+        </bitfield>
+        <bitfield id="CPNEN" description="Channel input enable for the - terminal" begin="12" end="12" width="1" rwaccess="R/W">
+            <bitenum id="CPNEN_0" value="0x0" description="Selected analog input channel for V- terminal is disabled."/>
+            <bitenum id="CPNEN_1" value="0x1" description="Selected analog input channel for V- terminal is enabled."/>
+        </bitfield>
+        <bitfield id="CPPSEL" description="Channel input selected for the V+ terminal" begin="2" end="0" width="3" rwaccess="R/W">
+            <bitenum id="CPPSEL_0" value="0x0" description="select external input source"/>
+            <bitenum id="CPPSEL_1" value="0x1" description="select external input source"/>
+            <bitenum id="CPPSEL_2" value="0x2" description="select external input source"/>
+            <bitenum id="CPPSEL_3" value="0x3" description="select external input source"/>
+            <bitenum id="CPPSEL_4" value="0x4" description="device specific, please refer to device data sheet for details"/>
+            <bitenum id="CPPSEL_5" value="0x5" description="device specific, please refer to device data sheet for details"/>
+            <bitenum id="CPPSEL_6" value="0x6" description="6-bit DAC"/>
+            <bitenum id="CPPSEL_7" value="0x7" description="Reserved"/>
+        </bitfield>
+    </register>
+    <register id="CP1CTL1" width="16" offset="0x2" internal="0" description="Comparator Control Register 1">
+        <bitfield id="CPOUT" description="Comparator output value" begin="0" end="0" width="1" rwaccess="R">
+        </bitfield>
+        <bitfield id="CPINV" description="Comparator output polarity" begin="1" end="1" width="1" rwaccess="R/W">
+            <bitenum id="CPINV_0" value="0x0" description="Comparator output is non-inverted"/>
+            <bitenum id="CPINV_1" value="0x1" description="Comparator output is inverted"/>
+        </bitfield>
+        <bitfield id="CPIES" description="Interrupt edge select for CEIIFG and CEIFG" begin="4" end="4" width="1" rwaccess="R/W">
+            <bitenum id="CPIES_0" value="0x0" description="Rising edge for CPIFG, falling edge for CPIIFG"/>
+            <bitenum id="CPIES_1" value="0x1" description="Falling edge for CPIFG, rising edge for CPIIFG"/>
+        </bitfield>
+        <bitfield id="CPFLT" description="Analog Output Low Pass filter Selection. Changing CPFLT might set interrupt flag." begin="5" end="5" width="1" rwaccess="R/W">
+            <bitenum id="CPFLT_0" value="0x0" description="Comparator output is not filtered"/>
+            <bitenum id="CPFLT_1" value="0x1" description="Comparator output is filtered"/>
+        </bitfield>
+        <bitfield id="CPFLTDLY" description="Analog Filter Delay selection. These bits are used to select the analog filter delay" begin="7" end="6" width="2" rwaccess="R/W">
+            <bitenum id="CPFLTDLY_0" value="0x0" description="Typical filter delay of 450ns"/>
+            <bitenum id="CPFLTDLY_1" value="0x1" description="Typical filter delay of 900ns"/>
+            <bitenum id="CPFLTDLY_2" value="0x2" description="Typical filter delay of 1800ns"/>
+            <bitenum id="CPFLTDLY_3" value="0x3" description="Typical filter delay of 3600ns"/>
+        </bitfield>
+        <bitfield id="CPMSEL" description="Power mode selection." begin="8" end="8" width="1" rwaccess="R/W">
+            <bitenum id="CPMSEL_0" value="0x0" description="High-power &amp; High speed mode (500nA)"/>
+            <bitenum id="CPMSEL_1" value="0x1" description="Low-power &amp; Low speed mode (10nA)"/>
+        </bitfield>
+        <bitfield id="CPEN" description="Comparator enable/disable. This bit is used to disable/enable the comparator. When the comparator is disabled, the Comparator consumes no power." begin="9" end="9" width="1" rwaccess="R/W">
+            <bitenum id="CPEN_0" value="0x0" description="Comparator is disabled"/>
+            <bitenum id="CPEN_1" value="0x1" description="Comparator is enabled"/>
+        </bitfield>
+        <bitfield id="CPHSEL" description="Programable Hysteresis mode. These bits are used to select the Hysteresis mode." begin="11" end="10" width="2" rwaccess="R/W">
+            <bitenum id="CPHSEL_0" value="0x0" description="disable"/>
+            <bitenum id="CPHSEL_1" value="0x1" description="10mV"/>
+            <bitenum id="CPHSEL_2" value="0x2" description="20mV"/>
+            <bitenum id="CPHSEL_3" value="0x3" description="30mV"/>
+        </bitfield>
+        <bitfield id="CPIE" description="Comparator interrupt output enable bit" begin="14" end="14" width="1" rwaccess="R/W">
+            <bitenum id="CPIE_0" value="0x0" description="Interrupt output is disabled"/>
+            <bitenum id="CPIE_1" value="0x1" description="Interrupt output is enabled"/>
+        </bitfield>
+        <bitfield id="CPIIE" description="Comparator inverted interrupt output enable bit" begin="15" end="15" width="1" rwaccess="R/W">
+            <bitenum id="CPIIE_0" value="0x0" description="Interrupt inverted output is disabled"/>
+            <bitenum id="CPIIE_1" value="0x1" description="Interrupt inverted output is enabled"/>
+        </bitfield>
+    </register>
+    <register id="CP1INT" width="16" offset="0x6" internal="0" description="Comparator Interrupt Control Register">
+        <bitfield id="CPIFG" description="Comparator output interrupt flag" begin="0" end="0" width="1" rwaccess="R/W">
+            <bitenum id="CPIFG_0" value="0x0" description="No interrupt pending."/>
+            <bitenum id="CPIFG_1" value="0x1" description="Output interrupt pending."/>
+        </bitfield>
+        <bitfield id="CPIIFG" description="Comparator output inverted interrupt flag" begin="1" end="1" width="1" rwaccess="R/W">
+            <bitenum id="CPIIFG_0" value="0x0" description="No interrupt pending."/>
+            <bitenum id="CPIIFG_1" value="0x1" description="Output interrupt pending."/>
+        </bitfield>
+    </register>
+    <register id="CP1IV" width="16" offset="0x8" internal="0" description="Comparator Interrupt Vector Word Register">
+        <bitfield id="CPIV" description="Comparator interrupt vector word register" begin="15" end="0" width="16" rwaccess="R">
+            <bitenum id="NONE" value="0x0" description="No interrupt pending"/>
+            <bitenum id="CPIFG" value="0x2" description="CPIFG"/>
+            <bitenum id="CPIIFG" value="0x4" description="CPIIFG"/>
+        </bitfield>
+    </register>
+    <register id="CP1DACCTL" width="16" offset="0x10" internal="0" description="6-bit Comparator built-in DAC Control Register">
+        <bitfield id="CPDACSW" description="This bit is only valid when CPDACBUFS is set to 1." begin="0" end="0" width="1" rwaccess="R/W">
+            <bitenum id="CPDACSW_0" value="0x0" description="CPDACBUF1 selected"/>
+            <bitenum id="CPDACSW_1" value="0x1" description="CPDACBUF2 selected"/>
+        </bitfield>
+        <bitfield id="CPDACBUFS" description="Comparator built-in DAC buffer controlled source selection." begin="1" end="1" width="1" rwaccess="R/W">
+            <bitenum id="CPDACBUFS_0" value="0x0" description="Comparator output is selected as the buffer control source"/>
+            <bitenum id="CPDACBUFS_1" value="0x1" description="CPDACSW bit is selected as the buffer control source"/>
+        </bitfield>
+        <bitfield id="CPDACREFS" description="Comparator built-in DAC reference voltage selection" begin="2" end="2" width="1" rwaccess="R/W">
+            <bitenum id="CPDACREFS_0" value="0x0" description="VDD selected"/>
+            <bitenum id="CPDACREFS_1" value="0x1" description="on-chip VREF selected"/>
+        </bitfield>
+        <bitfield id="CPDACEN" description="Comparator built-in DAC output control bit." begin="7" end="7" width="1" rwaccess="R/W">
+            <bitenum id="CPDACEN_0" value="0x0" description="DAC output is disabled."/>
+            <bitenum id="CPDACEN_1" value="0x1" description="DAC output is enabled."/>
+        </bitfield>
+    </register>
+    <register id="CP1DACDATA" width="16" offset="0x12" internal="0" description="6-bit Comparator built-in DAC Data Register">
+        <bitfield id="CPDACBUF1" description="1st 6-bit DAC buffer Data" begin="5" end="0" width="6" rwaccess="R/W">
+            <bitenum id="CPDACBUF1_0" value="0x0" description="0v"/>
+            <bitenum id="CPDACBUF1_1" value="0x1" description="selected reference voltage * 1/64"/>
+            <bitenum id="CPDACBUF1_2" value="0x2" description="selected reference voltage * 2/64"/>
+            <bitenum id="CPDACBUF1_3" value="0x3" description="selected reference voltage * 3/64"/>
+            <bitenum id="CPDACBUF1_4" value="0x4" description="selected reference voltage * 4/64"/>
+            <bitenum id="CPDACBUF1_5" value="0x5" description="selected reference voltage * 5/64"/>
+            <bitenum id="CPDACBUF1_6" value="0x6" description="selected reference voltage * 6/64"/>
+            <bitenum id="CPDACBUF1_7" value="0x7" description="selected reference voltage * 7/64"/>
+            <bitenum id="CPDACBUF1_8" value="0x8" description="selected reference voltage * 8/64"/>
+            <bitenum id="CPDACBUF1_9" value="0x9" description="selected reference voltage *9/64"/>
+            <bitenum id="CPDACBUF1_10" value="0xA" description="selected reference voltage * 10/64"/>
+            <bitenum id="CPDACBUF1_11" value="0xB" description="selected reference voltage * 11/64"/>
+            <bitenum id="CPDACBUF1_12" value="0xC" description="selected reference voltage * 12/64"/>
+            <bitenum id="CPDACBUF1_13" value="0xD" description="selected reference voltage * 13/64"/>
+            <bitenum id="CPDACBUF1_14" value="0xE" description="selected reference voltage * 14/64"/>
+            <bitenum id="CPDACBUF1_15" value="0xF" description="selected reference voltage * 15/64"/>
+            <bitenum id="CPDACBUF1_16" value="0x10" description="selected reference voltage * 16/64"/>
+            <bitenum id="CPDACBUF1_17" value="0x11" description="selected reference voltage * 17/64"/>
+            <bitenum id="CPDACBUF1_18" value="0x12" description="selected reference voltage * 18/64"/>
+            <bitenum id="CPDACBUF1_19" value="0x13" description="selected reference voltage * 19/64"/>
+            <bitenum id="CPDACBUF1_20" value="0x14" description="selected reference voltage * 20/64"/>
+            <bitenum id="CPDACBUF1_21" value="0x15" description="selected reference voltage * 21/64"/>
+            <bitenum id="CPDACBUF1_22" value="0x16" description="selected reference voltage * 22/64"/>
+            <bitenum id="CPDACBUF1_23" value="0x17" description="selected reference voltage * 23/64"/>
+            <bitenum id="CPDACBUF1_24" value="0x18" description="selected reference voltage * 24/64"/>
+            <bitenum id="CPDACBUF1_25" value="0x19" description="selected reference voltage * 25/64"/>
+            <bitenum id="CPDACBUF1_26" value="0x1A" description="selected reference voltage * 26/64"/>
+            <bitenum id="CPDACBUF1_27" value="0x1B" description="selected reference voltage * 27/64"/>
+            <bitenum id="CPDACBUF1_28" value="0x1C" description="selected reference voltage * 28/64"/>
+            <bitenum id="CPDACBUF1_29" value="0x1D" description="selected reference voltage * 29/64"/>
+            <bitenum id="CPDACBUF1_30" value="0x1E" description="selected reference voltage * 30/64"/>
+            <bitenum id="CPDACBUF1_31" value="0x1F" description="selected reference voltage * 31/64"/>
+            <bitenum id="CPDACBUF1_32" value="0x20" description="selected reference voltage * 32/64"/>
+            <bitenum id="CPDACBUF1_33" value="0x21" description="selected reference voltage * 33/64"/>
+            <bitenum id="CPDACBUF1_34" value="0x22" description="selected reference voltage * 34/64"/>
+            <bitenum id="CPDACBUF1_35" value="0x23" description="selected reference voltage * 35/64"/>
+            <bitenum id="CPDACBUF1_36" value="0x24" description="selected reference voltage * 36/64"/>
+            <bitenum id="CPDACBUF1_37" value="0x25" description="selected reference voltage * 37/64"/>
+            <bitenum id="CPDACBUF1_38" value="0x26" description="selected reference voltage * 38/64"/>
+            <bitenum id="CPDACBUF1_39" value="0x27" description="selected reference voltage * 39/64"/>
+            <bitenum id="CPDACBUF1_40" value="0x28" description="selected reference voltage * 40/64"/>
+            <bitenum id="CPDACBUF1_41" value="0x29" description="selected reference voltage * 41/64"/>
+            <bitenum id="CPDACBUF1_42" value="0x2A" description="selected reference voltage * 42/64"/>
+            <bitenum id="CPDACBUF1_43" value="0x2B" description="selected reference voltage * 43/64"/>
+            <bitenum id="CPDACBUF1_44" value="0x2C" description="selected reference voltage * 44/64"/>
+            <bitenum id="CPDACBUF1_45" value="0x2D" description="selected reference voltage * 45/64"/>
+            <bitenum id="CPDACBUF1_46" value="0x2E" description="selected reference voltage * 46/64"/>
+            <bitenum id="CPDACBUF1_47" value="0x2F" description="selected reference voltage * 47/64"/>
+            <bitenum id="CPDACBUF1_48" value="0x30" description="selected reference voltage * 48/64"/>
+            <bitenum id="CPDACBUF1_49" value="0x31" description="selected reference voltage * 49/64"/>
+            <bitenum id="CPDACBUF1_50" value="0x32" description="selected reference voltage * 50/64"/>
+            <bitenum id="CPDACBUF1_51" value="0x33" description="selected reference voltage * 51/64"/>
+            <bitenum id="CPDACBUF1_52" value="0x34" description="selected reference voltage * 52/64"/>
+            <bitenum id="CPDACBUF1_53" value="0x35" description="selected reference voltage * 53/64"/>
+            <bitenum id="CPDACBUF1_54" value="0x36" description="selected reference voltage * 54/64"/>
+            <bitenum id="CPDACBUF1_55" value="0x37" description="selected reference voltage * 55/64"/>
+            <bitenum id="CPDACBUF1_56" value="0x38" description="selected reference voltage * 56/64"/>
+            <bitenum id="CPDACBUF1_57" value="0x39" description="selected reference voltage * 57/64"/>
+            <bitenum id="CPDACBUF1_58" value="0x3A" description="selected reference voltage * 58/64"/>
+            <bitenum id="CPDACBUF1_59" value="0x3B" description="selected reference voltage * 59/64"/>
+            <bitenum id="CPDACBUF1_60" value="0x3C" description="selected reference voltage * 60/64"/>
+            <bitenum id="CPDACBUF1_61" value="0x3D" description="selected reference voltage * 61/64"/>
+            <bitenum id="CPDACBUF1_62" value="0x3E" description="selected reference voltage * 62/64"/>
+            <bitenum id="CPDACBUF1_63" value="0x3F" description="selected reference voltage * 63/64"/>
+        </bitfield>
+        <bitfield id="CPDACBUF2" description="2nd 6-bit DAC buffer Data" begin="13" end="8" width="6" rwaccess="R/W">
+            <bitenum id="CPDACBUF2_0" value="0x0" description="0v"/>
+            <bitenum id="CPDACBUF2_1" value="0x1" description="selected reference voltage * 1/64"/>
+            <bitenum id="CPDACBUF2_2" value="0x2" description="selected reference voltage * 2/64"/>
+            <bitenum id="CPDACBUF2_3" value="0x3" description="selected reference voltage * 3/64"/>
+            <bitenum id="CPDACBUF2_4" value="0x4" description="selected reference voltage * 4/64"/>
+            <bitenum id="CPDACBUF2_5" value="0x5" description="selected reference voltage * 5/64"/>
+            <bitenum id="CPDACBUF2_6" value="0x6" description="selected reference voltage * 6/64"/>
+            <bitenum id="CPDACBUF2_7" value="0x7" description="selected reference voltage * 7/64"/>
+            <bitenum id="CPDACBUF2_8" value="0x8" description="selected reference voltage * 8/64"/>
+            <bitenum id="CPDACBUF2_9" value="0x9" description="selected reference voltage * 9/64"/>
+            <bitenum id="CPDACBUF2_10" value="0xA" description="selected reference voltage * 10/64"/>
+            <bitenum id="CPDACBUF2_11" value="0xB" description="selected reference voltage * 11/64"/>
+            <bitenum id="CPDACBUF2_12" value="0xC" description="selected reference voltage * 12/64"/>
+            <bitenum id="CPDACBUF2_13" value="0xD" description="selected reference voltage * 13/64"/>
+            <bitenum id="CPDACBUF2_14" value="0xE" description="selected reference voltage * 14/64"/>
+            <bitenum id="CPDACBUF2_15" value="0xF" description="selected reference voltage * 15/64"/>
+            <bitenum id="CPDACBUF2_16" value="0x10" description="selected reference voltage * 16/64"/>
+            <bitenum id="CPDACBUF2_17" value="0x11" description="selected reference voltage * 17/64"/>
+            <bitenum id="CPDACBUF2_18" value="0x12" description="selected reference voltage * 18/64"/>
+            <bitenum id="CPDACBUF2_19" value="0x13" description="selected reference voltage * 19/64"/>
+            <bitenum id="CPDACBUF2_20" value="0x14" description="selected reference voltage * 20/64"/>
+            <bitenum id="CPDACBUF2_21" value="0x15" description="selected reference voltage * 21/64"/>
+            <bitenum id="CPDACBUF2_22" value="0x16" description="selected reference voltage * 22/64"/>
+            <bitenum id="CPDACBUF2_23" value="0x17" description="selected reference voltage * 23/64"/>
+            <bitenum id="CPDACBUF2_24" value="0x18" description="selected reference voltage * 24/64"/>
+            <bitenum id="CPDACBUF2_25" value="0x19" description="selected reference voltage * 25/64"/>
+            <bitenum id="CPDACBUF2_26" value="0x1A" description="selected reference voltage * 26/64"/>
+            <bitenum id="CPDACBUF2_27" value="0x1B" description="selected reference voltage * 27/64"/>
+            <bitenum id="CPDACBUF2_28" value="0x1C" description="selected reference voltage * 28/64"/>
+            <bitenum id="CPDACBUF2_29" value="0x1D" description="selected reference voltage * 29/64"/>
+            <bitenum id="CPDACBUF2_30" value="0x1E" description="selected reference voltage * 30/64"/>
+            <bitenum id="CPDACBUF2_31" value="0x1F" description="selected reference voltage * 31/64"/>
+            <bitenum id="CPDACBUF2_32" value="0x20" description="selected reference voltage * 32/64"/>
+            <bitenum id="CPDACBUF2_33" value="0x21" description="selected reference voltage * 33/64"/>
+            <bitenum id="CPDACBUF2_34" value="0x22" description="selected reference voltage * 34/64"/>
+            <bitenum id="CPDACBUF2_35" value="0x23" description="selected reference voltage * 35/64"/>
+            <bitenum id="CPDACBUF2_36" value="0x24" description="selected reference voltage * 36/64"/>
+            <bitenum id="CPDACBUF2_37" value="0x25" description="selected reference voltage * 37/64"/>
+            <bitenum id="CPDACBUF2_38" value="0x26" description="selected reference voltage * 38/64"/>
+            <bitenum id="CPDACBUF2_39" value="0x27" description="selected reference voltage * 39/64"/>
+            <bitenum id="CPDACBUF2_40" value="0x28" description="selected reference voltage * 40/64"/>
+            <bitenum id="CPDACBUF2_41" value="0x29" description="selected reference voltage * 41/64"/>
+            <bitenum id="CPDACBUF2_42" value="0x2A" description="selected reference voltage * 42/64"/>
+            <bitenum id="CPDACBUF2_43" value="0x2B" description="selected reference voltage * 43/64"/>
+            <bitenum id="CPDACBUF2_44" value="0x2C" description="selected reference voltage * 44/64"/>
+            <bitenum id="CPDACBUF2_45" value="0x2D" description="selected reference voltage * 45/64"/>
+            <bitenum id="CPDACBUF2_46" value="0x2E" description="selected reference voltage * 46/64"/>
+            <bitenum id="CPDACBUF2_47" value="0x2F" description="selected reference voltage * 47/64"/>
+            <bitenum id="CPDACBUF2_48" value="0x30" description="selected reference voltage * 48/64"/>
+            <bitenum id="CPDACBUF2_49" value="0x31" description="selected reference voltage * 49/64"/>
+            <bitenum id="CPDACBUF2_50" value="0x32" description="selected reference voltage * 50/64"/>
+            <bitenum id="CPDACBUF2_51" value="0x33" description="selected reference voltage * 51/64"/>
+            <bitenum id="CPDACBUF2_52" value="0x34" description="selected reference voltage * 52/64"/>
+            <bitenum id="CPDACBUF2_53" value="0x35" description="selected reference voltage * 53/64"/>
+            <bitenum id="CPDACBUF2_54" value="0x36" description="selected reference voltage * 54/64"/>
+            <bitenum id="CPDACBUF2_55" value="0x37" description="selected reference voltage * 55/64"/>
+            <bitenum id="CPDACBUF2_56" value="0x38" description="selected reference voltage * 56/64"/>
+            <bitenum id="CPDACBUF2_57" value="0x39" description="selected reference voltage * 57/64"/>
+            <bitenum id="CPDACBUF2_58" value="0x3A" description="selected reference voltage * 58/64"/>
+            <bitenum id="CPDACBUF2_59" value="0x3B" description="selected reference voltage * 59/64"/>
+            <bitenum id="CPDACBUF2_60" value="0x3C" description="selected reference voltage * 60/64"/>
+            <bitenum id="CPDACBUF2_61" value="0x3D" description="selected reference voltage * 61/64"/>
+            <bitenum id="CPDACBUF2_62" value="0x3E" description="selected reference voltage * 62/64"/>
+            <bitenum id="CPDACBUF2_63" value="0x3F" description="selected reference voltage * 63/64"/>
+        </bitfield>
+    </register>
+</module>

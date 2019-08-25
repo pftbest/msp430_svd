@@ -1,6 +1,6 @@
-use xmltree::Element;
-use svd::*;
 use std::collections::HashMap;
+use svd::*;
+use xmltree::Element;
 
 fn write_string(name: &str, text: &str) -> Element {
     let mut el = Element::new(name);
@@ -161,6 +161,11 @@ fn write_register(reg: &Register) -> Element {
 
     if let Some(wc) = reg.write_constraint.as_ref() {
         el.children.push(write_constraint(wc))
+    }
+
+    if let Some(x) = reg.alternate_register.as_ref() {
+        el.children
+            .push(write_string("alternateRegister", &x.to_string()));
     }
 
     el

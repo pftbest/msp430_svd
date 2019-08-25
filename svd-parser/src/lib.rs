@@ -33,7 +33,7 @@ use xmltree::Element;
 macro_rules! try {
     ($e:expr) => {
         $e.expect(concat!(file!(), ":", line!(), " ", stringify!($e)))
-    }
+    };
 }
 
 mod parse;
@@ -55,7 +55,7 @@ impl ElementExt for Element {
     where
         String: PartialEq<K>,
     {
-        self.get_child(k).map(|c| try!(c.text.clone()))
+        self.get_child(k).and_then(|c| c.text.clone())
     }
 
     fn debug(&self) {
@@ -116,25 +116,19 @@ impl Peripheral {
             group_name: tree.get_child_text("groupName"),
             description: tree.get_child_text("description"),
             base_address: try!(parse::u32(try!(tree.get_child("baseAddress")))),
-            interrupt: tree.children
+            interrupt: tree
+                .children
                 .iter()
                 .filter(|t| t.name == "interrupt")
                 .map(Interrupt::parse)
                 .collect::<Vec<_>>(),
-            registers: tree.get_child("registers")
-                .map(
-                    |rs| {
-                        rs.children
-                            .iter()
-                            .filter_map(Register::parse)
-                            .collect()
-                    },
-                ),
-            derived_from: tree.attributes.get("derivedFrom").map(
-                |s| {
-                    s.to_owned()
-                },
-            ),
+            registers: tree.get_child("registers").map(|rs| {
+                rs.children.iter().filter_map(Register::parse).collect()
+            }),
+            derived_from: tree
+                .attributes
+                .get("derivedFrom")
+                .map(|s| s.to_owned()),
         }
     }
 }
@@ -168,6 +162,8 @@ pub struct RegisterInfo {
     /// `None` indicates that the `<fields>` node is not present
     pub fields: Option<Vec<Field>>,
     pub write_constraint: Option<WriteConstraint>,
+    /// Another register that aliases the same address space
+    pub alternate_register: Option<String>,
 }
 
 #[derive(Clone, Debug, PartialEq)]
@@ -198,21 +194,25 @@ impl RegisterInfo {
     fn parse(tree: &Element) -> RegisterInfo {
         RegisterInfo {
             name: try!(tree.get_child_text("name")),
-            description: try!(tree.get_child_text("description")),
+            description: tree.get_child_text("description").unwrap_or_default(),
             address_offset: {
                 try!(parse::u32(try!(tree.get_child("addressOffset"))))
             },
             size: tree.get_child("size").map(|t| try!(parse::u32(t))),
             access: tree.get_child("access").map(Access::parse),
-            reset_value:
-                tree.get_child("resetValue").map(|t| try!(parse::u32(t))),
-            reset_mask:
-                tree.get_child("resetMask").map(|t| try!(parse::u32(t))),
-            fields:
-                tree.get_child("fields")
-                    .map(|fs| fs.children.iter().map(Field::parse).collect()),
-            write_constraint: tree.get_child("writeConstraint")
+            reset_value: tree
+                .get_child("resetValue")
+                .map(|t| try!(parse::u32(t))),
+            reset_mask: tree
+                .get_child("resetMask")
+                .map(|t| try!(parse::u32(t))),
+            fields: tree
+                .get_child("fields")
+                .map(|fs| fs.children.iter().map(Field::parse).collect()),
+            write_constraint: tree
+                .get_child("writeConstraint")
                 .map(WriteConstraint::parse),
+            alternate_register: tree.get_child_text("alternateRegister"),
         }
     }
 }
@@ -221,11 +221,11 @@ impl RegisterArrayInfo {
     fn parse(tree: &Element) -> RegisterArrayInfo {
         RegisterArrayInfo {
             dim: try!(tree.get_child_text("dim").unwrap().parse::<u32>()),
-            dim_increment: try!(
-                tree.get_child("dimIncrement")
-                    .map(|t| try!(parse::u32(t)))
-            ),
-            dim_index: tree.get_child("dimIndex")
+            dim_increment: try!(tree
+                .get_child("dimIncrement")
+                .map(|t| try!(parse::u32(t)))),
+            dim_index: tree
+                .get_child("dimIndex")
                 .map(|c| parse::dim_index(try!(c.text.as_ref()))),
         }
     }
@@ -298,12 +298,14 @@ impl Field {
             description: tree.get_child_text("description"),
             bit_range: BitRange::parse(tree),
             access: tree.get_child("access").map(Access::parse),
-            enumerated_values: tree.children
+            enumerated_values: tree
+                .children
                 .iter()
                 .filter(|t| t.name == "enumeratedValues")
                 .map(EnumeratedValues::parse)
                 .collect::<Vec<_>>(),
-            write_constraint: tree.get_child("writeConstraint")
+            write_constraint: tree
+                .get_child("writeConstraint")
                 .map(WriteConstraint::parse),
         }
     }
@@ -318,7 +320,8 @@ pub struct BitRange {
 impl BitRange {
     fn parse(tree: &Element) -> BitRange {
         let (end, start): (u32, u32) = if let Some(range) =
-            tree.get_child("bitRange") {
+            tree.get_child("bitRange")
+        {
             let text = try!(range.text.as_ref());
 
             assert!(text.starts_with('['));
@@ -326,20 +329,19 @@ impl BitRange {
 
             let mut parts = text[1..text.len() - 1].split(':');
 
-            (try!(try!(parts.next()).parse()), try!(try!(parts.next()).parse()))
+            (
+                try!(try!(parts.next()).parse()),
+                try!(try!(parts.next()).parse()),
+            )
         } else if let (Some(lsb), Some(msb)) =
-            (tree.get_child_text("lsb"), tree.get_child_text("msb")) {
+            (tree.get_child_text("lsb"), tree.get_child_text("msb"))
+        {
             (try!(msb.parse()), try!(lsb.parse::<u32>()))
         } else {
             return BitRange {
-                       offset: try!(
-                try!(tree.get_child_text("bitOffset"))
-                    .parse()
-            ),
-                       width: {
-                           try!(try!(tree.get_child_text("bitWidth")).parse())
-                       },
-                   };
+                offset: try!(try!(tree.get_child_text("bitOffset")).parse()),
+                width: { try!(try!(tree.get_child_text("bitWidth")).parse()) },
+            };
         };
 
         BitRange {
@@ -377,30 +379,17 @@ impl WriteConstraint {
             let ref field = tree.children[0].name;
             // Write constraint can only be one of the following
             match field.as_ref() {
-                "writeAsRead" => {
-                    WriteConstraint::WriteAsRead(
-                        try!(
-                            tree.get_child(field.as_ref())
-                                .map(|t| try!(parse::bool(t)))
-                        ),
-                    )
-                }
+                "writeAsRead" => WriteConstraint::WriteAsRead(try!(tree
+                    .get_child(field.as_ref())
+                    .map(|t| try!(parse::bool(t))))),
                 "useEnumeratedValues" => {
-                    WriteConstraint::UseEnumeratedValues(
-                        try!(
-                            tree.get_child(field.as_ref())
-                                .map(|t| try!(parse::bool(t)))
-                        ),
-                    )
+                    WriteConstraint::UseEnumeratedValues(try!(tree
+                        .get_child(field.as_ref())
+                        .map(|t| try!(parse::bool(t)))))
                 }
-                "range" => {
-                    WriteConstraint::Range(
-                        try!(
-                            tree.get_child(field.as_ref())
-                                .map(WriteConstraintRange::parse)
-                        ),
-                    )
-                }
+                "range" => WriteConstraint::Range(try!(tree
+                    .get_child(field.as_ref())
+                    .map(WriteConstraintRange::parse))),
                 v => panic!("unknown <writeConstraint> variant: {}", v),
             }
         } else {
@@ -422,10 +411,12 @@ impl Defaults {
     fn parse(tree: &Element) -> Defaults {
         Defaults {
             size: tree.get_child("size").map(|t| try!(parse::u32(t))),
-            reset_value:
-                tree.get_child("resetValue").map(|t| try!(parse::u32(t))),
-            reset_mask:
-                tree.get_child("resetMask").map(|t| try!(parse::u32(t))),
+            reset_value: tree
+                .get_child("resetValue")
+                .map(|t| try!(parse::u32(t))),
+            reset_mask: tree
+                .get_child("resetMask")
+                .map(|t| try!(parse::u32(t))),
             access: tree.get_child("access").map(Access::parse),
         }
     }
@@ -466,10 +457,12 @@ impl EnumeratedValues {
         EnumeratedValues {
             name: tree.get_child_text("name"),
             usage: tree.get_child("usage").map(Usage::parse),
-            derived_from: tree.attributes
+            derived_from: tree
+                .attributes
                 .get(&"derivedFrom".to_owned())
                 .map(|s| s.to_owned()),
-            values: tree.children
+            values: tree
+                .children
                 .iter()
                 .filter_map(EnumeratedValue::parse)
                 .collect(),
@@ -491,17 +484,13 @@ impl EnumeratedValue {
             return None;
         }
 
-        Some(
-            EnumeratedValue {
-                name: try!(tree.get_child_text("name")),
-                description: tree.get_child_text("description"),
-                value: tree.get_child("value").map(|t| try!(parse::u32(t))),
-                is_default: tree.get_child_text("isDefault").map(
-                    |t| {
-                        try!(t.parse())
-                    },
-                ),
-            },
-        )
+        Some(EnumeratedValue {
+            name: try!(tree.get_child_text("name")),
+            description: tree.get_child_text("description"),
+            value: tree.get_child("value").map(|t| try!(parse::u32(t))),
+            is_default: tree
+                .get_child_text("isDefault")
+                .map(|t| try!(t.parse())),
+        })
     }
 }
