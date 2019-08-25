@@ -44,7 +44,7 @@ pub fn build_svd_device(
 ) -> svd::Device {
     let mut peripherals = Vec::new();
     for (_, m) in &dev.modules {
-        let base_address = m.registers.iter().map(|r| r.offset).min().unwrap_or(0) & (!1);
+        let base_address = m.baseaddr;
         assert!(base_address < (1 << 16));
         assert!(base_address % 2 == 0);
 

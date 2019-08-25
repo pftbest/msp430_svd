@@ -27,11 +27,11 @@ pub fn parse_dslite(file_name: &Path) -> Device {
     let description = uw!(el.attributes.get("description")).to_owned();
     let cpu = uw!(el.children.iter().find(|i| i.name == "cpu"));
 
-    let mut module_descriptions = OrderMap::new();
+    let mut cached_modules = OrderMap::new();
     let mut registers = Vec::new();
     for i in &cpu.children {
         if let Some(module) = parse_cpu_instance(i, file_name) {
-            module_descriptions.insert(module.name.clone(), module.description.clone());
+            cached_modules.insert(module.name.clone(), module.clone());
             for r in module.registers {
                 registers.push(r);
             }
@@ -87,11 +87,7 @@ pub fn parse_dslite(file_name: &Path) -> Device {
                 } else {
                     modules
                         .entry(r.module.clone())
-                        .or_insert(Module {
-                            name: r.module.clone(),
-                            description: module_descriptions.get(&r.module).unwrap().clone(),
-                            registers: Vec::new(),
-                        })
+                        .or_insert(cached_modules.get(&r.module).unwrap().clone())
                         .registers
                         .push(r.clone());
                     continue;
@@ -106,11 +102,7 @@ pub fn parse_dslite(file_name: &Path) -> Device {
         }
         modules
             .entry(r.module.clone())
-            .or_insert(Module {
-                name: r.module.clone(),
-                description: module_descriptions.get(&r.module).unwrap().clone(),
-                registers: Vec::new(),
-            })
+            .or_insert(cached_modules.get(&r.module).unwrap().clone())
             .registers
             .push(r.clone());
     }
@@ -127,21 +119,21 @@ pub struct Module {
     pub name: String,
     pub description: String,
     pub registers: Vec<Register>,
+    pub baseaddr: u32,
 }
 
 fn parse_cpu_instance(el: &Element, root_file: &Path) -> Option<Module> {
     assert_eq!(el.name, "instance");
-    let _base = uw!(utils::parse_u32(uw!(el.attributes.get("baseaddr"))));
-    //assert_eq!(base, 0);
+    let base = uw!(utils::parse_u32(uw!(el.attributes.get("baseaddr"))));
 
     let href = uw!(el.attributes.get("href")).to_owned();
     let root_path = uw!(root_file.parent());
     let module_path = root_path.join(href);
 
-    parse_dslite_module(&module_path)
+    parse_dslite_module(&module_path, base)
 }
 
-fn parse_dslite_module(file_name: &Path) -> Option<Module> {
+fn parse_dslite_module(file_name: &Path, baseaddr: u32) -> Option<Module> {
     let el = uw!(utils::load_xml(file_name));
 
     assert_eq!(el.name, "module");
@@ -152,11 +144,17 @@ fn parse_dslite_module(file_name: &Path) -> Option<Module> {
 
     let name = uw!(el.attributes.get("id")).to_owned();
     let mut description = el.attributes.get("description").unwrap_or(&name).to_owned();
-    let registers = el
+    let mut registers = el
         .children
         .iter()
         .map(|r| parse_register(r, &name))
         .collect::<Vec<_>>();
+
+    // Rest of the code assumes that the offset value of each register includes the base address of
+    // the module, so we add it here
+    for mut reg in &mut registers {
+        reg.offset += baseaddr;
+    }
 
     if description.trim().is_empty() {
         description = name.clone();
@@ -166,6 +164,7 @@ fn parse_dslite_module(file_name: &Path) -> Option<Module> {
         name: name,
         description: description,
         registers: registers,
+        baseaddr,
     })
 }
 
