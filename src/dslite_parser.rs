@@ -74,6 +74,7 @@ pub fn parse_dslite(file_name: &Path) -> Device {
                     let mut reg = r.clone();
                     reg.alternate = Some(old.name.clone());
                     modules.get_mut(&r.module).unwrap().registers.push(reg);
+                    continue;
                 } else {
                     modules
                         .entry(r.module.clone())
