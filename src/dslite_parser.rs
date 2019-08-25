@@ -30,11 +30,15 @@ pub fn parse_dslite(file_name: &Path) -> Device {
     let mut cached_modules = OrderMap::new();
     let mut registers = Vec::new();
     for i in &cpu.children {
-        if let Some(module) = parse_cpu_instance(i, file_name) {
-            cached_modules.insert(module.name.clone(), module.clone());
-            for r in module.registers {
+        if let Some(mut module) = parse_cpu_instance(i, file_name) {
+            // Remove all registers from the module before we cache it, since we will fill in the
+            // registers after we process duplicates. This two-step caching process also prevents
+            // modules with no registers from entering the output list of modules.
+            let module_regs = std::mem::replace(&mut module.registers, Vec::new());
+            for r in module_regs {
                 registers.push(r);
             }
+            cached_modules.insert(module.name.clone(), module);
         }
     }
 
@@ -63,27 +67,13 @@ pub fn parse_dslite(file_name: &Path) -> Device {
                 continue;
             } else if r.width == old.width && r.offset == old.offset {
                 if r.module == old.module {
-                    eprintln!(
-                        "warning: conflict in the same module, {} and {}",
-                        old.name, r.name
-                    );
-                    if r.fields.is_empty() && old.fields.is_empty() {
-                        // Both registers are empty, that means they are identical, so
-                        // keep the one with a short name
-                        if r.name.len() >= old.name.len() {
-                            eprintln!("erasing {} (keeping {})", r.name, old.name);
-                            continue;
-                        }
-                    } else if r.fields.is_empty() {
-                        // New register is empty, so keep the old one
-                        eprintln!("erasing {} (keeping {})", r.name, old.name);
-                        continue;
-                    } else if old.fields.is_empty() {
-                        // Old register is empty, replace it with new one
-                    } else {
-                        panic!("both registers have fields, can't decide which one to keep\nOLD {:#?}\nNEW {:#?}\nPlease file an issue at https://github.com/pftbest/msp430_svd/issues", old, r);
-                    }
-                    eprintln!("erasing {} (keeping {})", old.name, r.name);
+                    // In this case the two registers alias the same address space, such as
+                    // UCA0CTLW0 and UCA0CTLW0_SPI, which describe the same addresses differently
+                    // depending on whether SPI mode is enabled for the eUSCI_A0. We simply include
+                    // both registers and mark the second one with an alternate name.
+                    let mut reg = r.clone();
+                    reg.alternate = Some(old.name.clone());
+                    modules.get_mut(&r.module).unwrap().registers.push(reg);
                 } else {
                     modules
                         .entry(r.module.clone())
@@ -119,7 +109,6 @@ pub struct Module {
     pub name: String,
     pub description: String,
     pub registers: Vec<Register>,
-    pub baseaddr: u32,
 }
 
 fn parse_cpu_instance(el: &Element, root_file: &Path) -> Option<Module> {
@@ -151,7 +140,7 @@ fn parse_dslite_module(file_name: &Path, baseaddr: u32) -> Option<Module> {
         .collect::<Vec<_>>();
 
     // Rest of the code assumes that the offset value of each register includes the base address of
-    // the module, so we add it here
+    // the module, so we add it here.
     for mut reg in &mut registers {
         reg.offset += baseaddr;
     }
@@ -164,7 +153,6 @@ fn parse_dslite_module(file_name: &Path, baseaddr: u32) -> Option<Module> {
         name: name,
         description: description,
         registers: registers,
-        baseaddr,
     })
 }
 
@@ -176,6 +164,7 @@ pub struct Register {
     pub offset: u32,
     pub width: u32,
     pub fields: Vec<Field>,
+    pub alternate: Option<String>,
 }
 
 fn parse_register(el: &Element, module: &str) -> Register {
@@ -206,6 +195,7 @@ fn parse_register(el: &Element, module: &str) -> Register {
         width: width / 8,
         module: module.to_owned(),
         fields: fields,
+        alternate: None,
     }
 }
 

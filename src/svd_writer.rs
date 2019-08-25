@@ -163,6 +163,11 @@ fn write_register(reg: &Register) -> Element {
         el.children.push(write_constraint(wc))
     }
 
+    if let Some(x) = reg.alternate_register.as_ref() {
+        el.children
+            .push(write_string("alternateRegister", &x.to_string()));
+    }
+
     el
 }
 

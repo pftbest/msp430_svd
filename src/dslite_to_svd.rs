@@ -11,10 +11,6 @@ impl StringEx for String {
     fn fix_name(&self) -> String {
         self.to_screaming_snake_case()
             // Some fixups to make the names look nicer
-            .trim_right_matches("_SPI")
-            .to_owned()
-            .trim_right_matches("_I2C")
-            .to_owned()
             .replace("RTC_REAL_TIME_CLOCK", "RTC")
             .replace("SFR_SPECIAL_FUNCTION_REGISTERS", "SFR")
             .replace("PMM_POWER_MANAGEMENT_SYSTEM", "PMM")
@@ -44,7 +40,7 @@ pub fn build_svd_device(
 ) -> svd::Device {
     let mut peripherals = Vec::new();
     for (_, m) in &dev.modules {
-        let base_address = m.baseaddr;
+        let base_address = m.registers.iter().map(|r| r.offset).min().unwrap_or(0) & (!1);
         assert!(base_address < (1 << 16));
         assert!(base_address % 2 == 0);
 
@@ -150,6 +146,7 @@ pub fn build_svd_device(
                     Some(fields)
                 },
                 write_constraint: reg_constraint,
+                alternate_register: reg.alternate.clone(),
             };
             registers.push(svd::Register::Single(ri));
         }

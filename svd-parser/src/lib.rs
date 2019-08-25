@@ -162,6 +162,8 @@ pub struct RegisterInfo {
     /// `None` indicates that the `<fields>` node is not present
     pub fields: Option<Vec<Field>>,
     pub write_constraint: Option<WriteConstraint>,
+    /// Another register that aliases the same address space
+    pub alternate_register: Option<String>,
 }
 
 #[derive(Clone, Debug, PartialEq)]
@@ -210,6 +212,7 @@ impl RegisterInfo {
             write_constraint: tree
                 .get_child("writeConstraint")
                 .map(WriteConstraint::parse),
+            alternate_register: tree.get_child_text("alternateRegister"),
         }
     }
 }
