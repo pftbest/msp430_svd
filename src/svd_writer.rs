@@ -1,6 +1,6 @@
-use xmltree::Element;
-use svd::*;
 use std::collections::HashMap;
+use svd::*;
+use xmltree::Element;
 
 fn write_string(name: &str, text: &str) -> Element {
     let mut el = Element::new(name);

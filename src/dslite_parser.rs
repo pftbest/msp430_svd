@@ -211,12 +211,20 @@ fn parse_register(el: &Element, module: &str) -> Register {
 }
 
 #[derive(Debug, Clone)]
+pub enum Access {
+    ReadOnly,
+    WriteOnly,
+    ReadWrite,
+}
+
+#[derive(Debug, Clone)]
 pub struct Field {
     pub name: String,
     pub description: String,
     pub offset: u32,
     pub width: u32,
     pub enums: Vec<EnumValue>,
+    pub rwa: Access,
 }
 
 fn parse_field(el: &Element) -> Field {
@@ -237,7 +245,12 @@ fn parse_field(el: &Element) -> Field {
     let offset = ::std::cmp::min(begin, end);
 
     let rwa = uw!(el.attributes.get("rwaccess")).to_owned();
-    assert!(rwa == "R/W" || rwa == "RW" || rwa == "R");
+    let rwa = match &rwa[..] {
+        "R/W" | "RW" => Access::ReadWrite,
+        "R" => Access::ReadOnly,
+        "W" => Access::WriteOnly,
+        _ => panic!("Unexpected read/write value {}", rwa),
+    };
 
     let enums = el
         .children
@@ -251,6 +264,7 @@ fn parse_field(el: &Element) -> Field {
         offset: offset,
         width: width,
         enums: enums,
+        rwa,
     }
 }
 

@@ -1,7 +1,7 @@
 use dslite_parser;
 use header_parser;
-use svd;
 use inflector::Inflector;
+use svd;
 
 trait StringEx {
     fn fix_name(&self) -> String;
@@ -10,18 +10,20 @@ trait StringEx {
 impl StringEx for String {
     fn fix_name(&self) -> String {
         self.to_screaming_snake_case()
-        // Some fixups to make the names look nicer
-        .trim_right_matches("_SPI").to_owned()
-        .trim_right_matches("_I2C").to_owned()
-        .replace("RTC_REAL_TIME_CLOCK", "RTC")
-        .replace("SFR_SPECIAL_FUNCTION_REGISTERS", "SFR")
-        .replace("PMM_POWER_MANAGEMENT_SYSTEM", "PMM")
-        .replace("RC_RAM_CONTROL_MODULE", "RC")
-        .replace("UCS_UNIFIED_SYSTEM_CLOCK", "UCS")
-        .replace("SYS_SYSTEM_MODULE", "SYS")
-        .replace("MPY_16_MULTIPLIER_16_BIT_MODE", "MPY_16")
-        .replace("MPY_32_MULTIPLIER_32_BIT_MODE", "MPY_32")
-        .replace("CS_CLOCK_SYSTEM", "CS")
+            // Some fixups to make the names look nicer
+            .trim_right_matches("_SPI")
+            .to_owned()
+            .trim_right_matches("_I2C")
+            .to_owned()
+            .replace("RTC_REAL_TIME_CLOCK", "RTC")
+            .replace("SFR_SPECIAL_FUNCTION_REGISTERS", "SFR")
+            .replace("PMM_POWER_MANAGEMENT_SYSTEM", "PMM")
+            .replace("RC_RAM_CONTROL_MODULE", "RC")
+            .replace("UCS_UNIFIED_SYSTEM_CLOCK", "UCS")
+            .replace("SYS_SYSTEM_MODULE", "SYS")
+            .replace("MPY_16_MULTIPLIER_16_BIT_MODE", "MPY_16")
+            .replace("MPY_32_MULTIPLIER_32_BIT_MODE", "MPY_32")
+            .replace("CS_CLOCK_SYSTEM", "CS")
     }
 }
 
@@ -83,6 +85,12 @@ pub fn build_svd_device(
                     //         max: (1 << f.width) - 1,
                     //     }));
                 }
+                let access = match f.rwa {
+                    dslite_parser::Access::ReadWrite => svd::Access::ReadWrite,
+                    dslite_parser::Access::ReadOnly => svd::Access::ReadOnly,
+                    dslite_parser::Access::WriteOnly => svd::Access::WriteOnly,
+                };
+
                 let field = svd::Field {
                     name: f.name.clone(),
                     description: Some(f.description.clone()),
@@ -90,15 +98,13 @@ pub fn build_svd_device(
                         offset: f.offset,
                         width: f.width,
                     },
-                    access: Some(svd::Access::ReadWrite),
-                    enumerated_values: vec![
-                        svd::EnumeratedValues {
-                            name: None,
-                            usage: None,
-                            derived_from: None,
-                            values: enums,
-                        },
-                    ],
+                    access: Some(access),
+                    enumerated_values: vec![svd::EnumeratedValues {
+                        name: None,
+                        usage: None,
+                        derived_from: None,
+                        values: enums,
+                    }],
                     write_constraint: field_constraint,
                 };
                 fields.push(field);
