@@ -95,12 +95,16 @@ pub fn build_svd_device(
                         width: f.width,
                     },
                     access: Some(access),
-                    enumerated_values: vec![svd::EnumeratedValues {
-                        name: None,
-                        usage: None,
-                        derived_from: None,
-                        values: enums,
-                    }],
+                    enumerated_values: if enums.len() != 0 {
+                        vec![svd::EnumeratedValues {
+                            name: None,
+                            usage: None,
+                            derived_from: None,
+                            values: enums,
+                        }]
+                    } else {
+                        vec![]
+                    },
                     write_constraint: field_constraint,
                 };
                 fields.push(field);
