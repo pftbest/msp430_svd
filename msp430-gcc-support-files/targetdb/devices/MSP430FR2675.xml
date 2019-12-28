@@ -1,0 +1,72 @@
+<device HW_revision="1.0" XML_version="1.0" description="MSP430FR2675" id="MSP430FR2675" partnum="MSP430FR2675">
+
+<include href="../options/MSP430FR2675_TI.xml" />
+<include href="../options/MSP430FR2675_GNU.xml" />
+<property Type="stringfield" Value="1.207" id="DeviceFileVersion"></property>
+<property Type="stringfield" Value="MSP430FRxxx Family" id="FilterString"></property>
+<property Type="numericfield" Value="160" id="HeapDefaultSize"></property>
+<property Type="stringfield" Value="minimal" id="PrintfDefault_support"></property>
+<property Type="numericfield" Value="160" id="StackDefaultSize"></property>
+<property Type="numericfield" Value="3" id="breakpoints"></property>
+<property Type="stringfield" Value="EXTENDED" id="clockcontrol"></property>
+<property Type="stringfield" Value="MSP430Xv2" id="cpu_family"></property>
+<property Type="stringfield" Value="EMEX_SMALL_5XX" id="eem"></property>
+<property Type="numericfield" Value="8" id="hw_mpy"></property>
+<property Type="stringfield" Value="true" id="IsElfDefault"></property>
+<property Type="numericfield" Value="3300" id="target_vcc_default"></property>
+<property Type="numericfield" Value="1" id="jtag"></property>
+<property Type="stringfield" Value="true" id="Make Device Secure"></property>
+<property Type="numericfield" Value="2" id="spybiwire"></property>
+<property Type="numericfield" Value="1" id="cycleCounter"></property>
+<property Type="stringfield" Value="0xFFA2" id="iv_base"></property>
+<property Type="stringfield" Value="true" id="supportUserCodeErase"></property>
+<property Type="stringfield" Value="0-120" id="Password"></property>
+<property Type="stringfield" Value="true" id="supportLPMx5"></property>
+<property Type="stringfield" Value="FRWP_memorySegments(seg_Id_1[Data]{@start=0x8000 @end=0x8400 },seg_Id_2[Code]{@start=0x8400 @end=0xFFFF});FRWP_properties(initLib=frwp_init.a);" id="AccessManagementOptions"></property>
+<property Type="stringfield" Value="com.ti.ccstudio.project.templates.blink_msp430:templates/msp430fr59xx/blink.c;" id="TemplateFileOverrides"></property>
+<property Type="stringfield" Value="-romwidth=8 -memwidth=8" id="HexBuildOptions"></property>
+
+<instance desc="MSP430" href="../cpus/MSP430Xv2.xml" id="MSP430" xml="MSP430Xv2.xml" xmlpath="../cpus/"></instance>
+<cpu HW_revision="1.0" XML_version="2.0" description="MSP430 CPU" id="MSP430" isa="MSP430">
+
+<instance HW_revision="1.0" accessnumbytes="2" baseaddr="0x0700" description="" href="../Modules/msp430/ADC_445.xml" id="ADC" xml="ADC_445.xml" permissions="p" requestor="MSP430" size="10" xmlpath="../Modules/msp430/"></instance>
+<instance HW_revision="1.0" accessnumbytes="2" baseaddr="0x0660" description="" href="../Modules/msp430/BKMEM_445.0.8.xml" id="BKMEM" xml="BKMEM_445.0.8.xml" permissions="p" requestor="MSP430" size="10" xmlpath="../Modules/msp430/"></instance>
+<instance HW_revision="1.0" accessnumbytes="2" baseaddr="0x0A00" description="" href="../Modules/msp430/CAPTIVATE_1.00.xml" id="CAPTIVATE" xml="CAPTIVATE_1.00.xml" permissions="p" requestor="MSP430" size="10" xmlpath="../Modules/msp430/"></instance>
+<instance HW_revision="1.0" accessnumbytes="2" baseaddr="0x01C0" description="" href="../Modules/msp430/CRC_208.0.xml" id="CRC" xml="CRC_208.0.xml" permissions="p" requestor="MSP430" size="10" xmlpath="../Modules/msp430/"></instance>
+<instance HW_revision="1.0" accessnumbytes="2" baseaddr="0x0180" description="" href="../Modules/msp430/CS_445.xml" id="CS" xml="CS_445.xml" permissions="p" requestor="MSP430" size="10" xmlpath="../Modules/msp430/"></instance>
+<instance HW_revision="1.0" accessnumbytes="2" baseaddr="0x0200" description="" href="../Modules/msp430/PA_272.0.xml" id="PA" xml="PA_272.0.xml" permissions="p" requestor="MSP430" size="10" xmlpath="../Modules/msp430/"></instance>
+<instance HW_revision="1.0" accessnumbytes="2" baseaddr="0x0200" description="" href="../Modules/msp430/P1_272.0.xml" id="P1" xml="P1_272.0.xml" permissions="p" requestor="MSP430" size="10" xmlpath="../Modules/msp430/"></instance>
+<instance HW_revision="1.0" accessnumbytes="2" baseaddr="0x0200" description="" href="../Modules/msp430/P2_272.0.xml" id="P2" xml="P2_272.0.xml" permissions="p" requestor="MSP430" size="10" xmlpath="../Modules/msp430/"></instance>
+<instance HW_revision="1.0" accessnumbytes="2" baseaddr="0x0200" description="" href="../Modules/msp430/PB_272.0.xml" id="PB" xml="PB_272.0.xml" permissions="p" requestor="MSP430" size="10" xmlpath="../Modules/msp430/"></instance>
+<instance HW_revision="1.0" accessnumbytes="2" baseaddr="0x0200" description="" href="../Modules/msp430/P3_272.0.xml" id="P3" xml="P3_272.0.xml" permissions="p" requestor="MSP430" size="10" xmlpath="../Modules/msp430/"></instance>
+<instance HW_revision="1.0" accessnumbytes="2" baseaddr="0x0200" description="" href="../Modules/msp430/P4_272.0.xml" id="P4" xml="P4_272.0.xml" permissions="p" requestor="MSP430" size="10" xmlpath="../Modules/msp430/"></instance>
+<instance HW_revision="1.0" accessnumbytes="2" baseaddr="0x0200" description="" href="../Modules/msp430/PC_272.0.xml" id="PC" xml="PC_272.0.xml" permissions="p" requestor="MSP430" size="10" xmlpath="../Modules/msp430/"></instance>
+<instance HW_revision="1.0" accessnumbytes="2" baseaddr="0x0200" description="" href="../Modules/msp430/P5_272.0.xml" id="P5" xml="P5_272.0.xml" permissions="p" requestor="MSP430" size="10" xmlpath="../Modules/msp430/"></instance>
+<instance HW_revision="1.0" accessnumbytes="2" baseaddr="0x0200" description="" href="../Modules/msp430/P6_272.0.xml" id="P6" xml="P6_272.0.xml" permissions="p" requestor="MSP430" size="10" xmlpath="../Modules/msp430/"></instance>
+<instance HW_revision="1.0" accessnumbytes="2" baseaddr="0x0200" description="" href="../Modules/msp430/PD_272.0.xml" id="PD" xml="PD_272.0.xml" permissions="p" requestor="MSP430" size="10" xmlpath="../Modules/msp430/"></instance>
+<instance HW_revision="1.0" accessnumbytes="2" baseaddr="0x0200" description="" href="../Modules/msp430/P7_272.0.xml" id="P7" xml="P7_272.0.xml" permissions="p" requestor="MSP430" size="10" xmlpath="../Modules/msp430/"></instance>
+<instance HW_revision="1.0" accessnumbytes="2" baseaddr="0x0200" description="" href="../Modules/msp430/P8_272.0.xml" id="P8" xml="P8_272.0.xml" permissions="p" requestor="MSP430" size="10" xmlpath="../Modules/msp430/"></instance>
+<instance HW_revision="1.0" accessnumbytes="2" baseaddr="0x0200" description="" href="../Modules/msp430/PE_272.0.xml" id="PE" xml="PE_272.0.xml" permissions="p" requestor="MSP430" size="10" xmlpath="../Modules/msp430/"></instance>
+<instance HW_revision="1.0" accessnumbytes="2" baseaddr="0x0200" description="" href="../Modules/msp430/P9_272.0.xml" id="P9" xml="P9_272.0.xml" permissions="p" requestor="MSP430" size="10" xmlpath="../Modules/msp430/"></instance>
+<instance HW_revision="1.0" accessnumbytes="2" baseaddr="0x0200" description="" href="../Modules/msp430/P10_272.0.xml" id="P10" xml="P10_272.0.xml" permissions="p" requestor="MSP430" size="10" xmlpath="../Modules/msp430/"></instance>
+<instance HW_revision="1.0" accessnumbytes="2" baseaddr="0x0200" description="" href="../Modules/msp430/PJ_272.0.xml" id="PJ" xml="PJ_272.0.xml" permissions="p" requestor="MSP430" size="10" xmlpath="../Modules/msp430/"></instance>
+<instance HW_revision="1.0" accessnumbytes="2" baseaddr="0x01A0" description="" href="../Modules/msp430/FRCTL_367.0.xml" id="FRCTL" xml="FRCTL_367.0.xml" permissions="p" requestor="MSP430" size="10" xmlpath="../Modules/msp430/"></instance>
+<instance HW_revision="1.0" accessnumbytes="2" baseaddr="0x04C0" description="" href="../Modules/msp430/MPY32_208.0.xml" id="MPY32" xml="MPY32_208.0.xml" permissions="p" requestor="MSP430" size="10" xmlpath="../Modules/msp430/"></instance>
+<instance HW_revision="1.0" accessnumbytes="2" baseaddr="0x0120" description="" href="../Modules/msp430/PMM_445.xml" id="PMM" xml="PMM_445.xml" permissions="p" requestor="MSP430" size="10" xmlpath="../Modules/msp430/"></instance>
+<instance HW_revision="1.0" accessnumbytes="2" baseaddr="0x0300" description="" href="../Modules/msp430/RTC_445.xml" id="RTC" xml="RTC_445.xml" permissions="p" requestor="MSP430" size="10" xmlpath="../Modules/msp430/"></instance>
+<instance HW_revision="1.0" accessnumbytes="2" baseaddr="0x0100" description="" href="../Modules/msp430/SFR_445.0.xml" id="SFR" xml="SFR_445.0.xml" permissions="p" requestor="MSP430" size="10" xmlpath="../Modules/msp430/"></instance>
+<instance HW_revision="1.0" accessnumbytes="2" baseaddr="0x0140" description="" href="../Modules/msp430/SYS_1.0.xml" id="SYS" xml="SYS_1.0.xml" permissions="p" requestor="MSP430" size="10" xmlpath="../Modules/msp430/"></instance>
+<instance HW_revision="1.0" accessnumbytes="2" baseaddr="0x0380" description="" href="../Modules/msp430/TA0_356.0_inst3.xml" id="TA0" xml="TA0_356.0_inst3.xml" permissions="p" requestor="MSP430" size="10" xmlpath="../Modules/msp430/"></instance>
+<instance HW_revision="1.0" accessnumbytes="2" baseaddr="0x03C0" description="" href="../Modules/msp430/TA1_356.0_inst3.xml" id="TA1" xml="TA1_356.0_inst3.xml" permissions="p" requestor="MSP430" size="10" xmlpath="../Modules/msp430/"></instance>
+<instance HW_revision="1.0" accessnumbytes="2" baseaddr="0x0400" description="" href="../Modules/msp430/TA2_356.0_inst3.xml" id="TA2" xml="TA2_356.0_inst3.xml" permissions="p" requestor="MSP430" size="10" xmlpath="../Modules/msp430/"></instance>
+<instance HW_revision="1.0" accessnumbytes="2" baseaddr="0x0440" description="" href="../Modules/msp430/TA3_356.0_inst3.xml" id="TA3" xml="TA3_356.0_inst3.xml" permissions="p" requestor="MSP430" size="10" xmlpath="../Modules/msp430/"></instance>
+<instance HW_revision="1.0" accessnumbytes="2" baseaddr="0x0480" description="" href="../Modules/msp430/TB0_367.0_inst7.xml" id="TB0" xml="TB0_367.0_inst7.xml" permissions="p" requestor="MSP430" size="10" xmlpath="../Modules/msp430/"></instance>
+<instance HW_revision="1.0" accessnumbytes="2" baseaddr="0x01CC" description="" href="../Modules/msp430/WDT_A_356.0.xml" id="WDT_A" xml="WDT_A_356.0.xml" permissions="p" requestor="MSP430" size="10" xmlpath="../Modules/msp430/"></instance>
+<instance HW_revision="1.0" accessnumbytes="2" baseaddr="0x08E0" description="" href="../Modules/msp430/eCOMP0_445.xml" id="eCOMP0" xml="eCOMP0_445.xml" permissions="p" requestor="MSP430" size="10" xmlpath="../Modules/msp430/"></instance>
+<instance HW_revision="1.0" accessnumbytes="2" baseaddr="0x0500" description="" href="../Modules/msp430/eUSCI_A0_445.xml" id="eUSCI_A0" xml="eUSCI_A0_445.xml" permissions="p" requestor="MSP430" size="10" xmlpath="../Modules/msp430/"></instance>
+<instance HW_revision="1.0" accessnumbytes="2" baseaddr="0x0520" description="" href="../Modules/msp430/eUSCI_A1_445.xml" id="eUSCI_A1" xml="eUSCI_A1_445.xml" permissions="p" requestor="MSP430" size="10" xmlpath="../Modules/msp430/"></instance>
+<instance HW_revision="1.0" accessnumbytes="2" baseaddr="0x0540" description="" href="../Modules/msp430/eUSCI_B0_445.xml" id="eUSCI_B0" xml="eUSCI_B0_445.xml" permissions="p" requestor="MSP430" size="10" xmlpath="../Modules/msp430/"></instance>
+<instance HW_revision="1.0" accessnumbytes="2" baseaddr="0x0580" description="" href="../Modules/msp430/eUSCI_B1_445.xml" id="eUSCI_B1" xml="eUSCI_B1_445.xml" permissions="p" requestor="MSP430" size="10" xmlpath="../Modules/msp430/"></instance>
+<instance HW_revision="1.0" accessnumbytes="4" baseaddr="0x0000" description="" href="../Modules/msp430/MSP430Xv2_NotVisible.xml" id="" permissions="p" requestor="MSP430" size="00" xml="MSP430Xv2_NotVisible.xml" xmlpath="../Modules/msp430/"></instance>
+</cpu></device>
+

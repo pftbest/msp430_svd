@@ -1,0 +1,6 @@
+<properties XML_version="1.2">
+<property Type="stringfield" Value="1.207" id="TIOptionsVersion"></property>
+<property Type="stringfield" Value="-D=__MSP430FR2676__ -D_FRWP_ENABLE -D_INFO_FRWP_ENABLE --advice:hw_config=all --use_hw_mpy=F5 --silicon_errata=CPU21 --silicon_errata=CPU22 --silicon_errata=CPU40" id="CompilerBuildOptions"></property>
+<property Type="stringfield" Value="--define=_FRWP_ENABLE --define=_INFO_FRWP_ENABLE -i&quot;${CCS_BASE_ROOT}/msp430/lib/FR2xx&quot; -lfrwp_init.a --priority  --use_hw_mpy=F5 --cinit_hold_wdt=on" id="LinkerBuildOptions"></property>
+</properties>
+

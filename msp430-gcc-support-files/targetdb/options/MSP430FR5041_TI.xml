@@ -1,0 +1,6 @@
+<properties XML_version="1.2">
+<property Type="stringfield" Value="1.207" id="TIOptionsVersion"></property>
+<property Type="stringfield" Value="-D=__MSP430FR5041__ -D_MPU_ENABLE --data_model=restricted --advice:hw_config=all  --use_hw_mpy=F5 --silicon_errata=CPU21 --silicon_errata=CPU22 --silicon_errata=CPU40" id="CompilerBuildOptions"></property>
+<property Type="stringfield" Value="-llibmpu_init.a --define=_MPU_ENABLE -llibmath.a -i${CCS_BASE_ROOT}/msp430/lib/5xx_6xx_FRxx --use_hw_mpy=F5 --cinit_hold_wdt=on -i${CCS_BASE_ROOT}/msp430/lib/FR59xx --priority" id="LinkerBuildOptions"></property>
+</properties>
+

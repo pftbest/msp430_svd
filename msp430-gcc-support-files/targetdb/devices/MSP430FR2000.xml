@@ -2,6 +2,7 @@
 
 <include href="../options/MSP430FR2000_TI.xml" />
 <include href="../options/MSP430FR2000_GNU.xml" />
+<property Type="stringfield" Value="1.207" id="DeviceFileVersion"></property>
 <property Type="stringfield" Value="MSP430FRxxx Family" id="FilterString"></property>
 <property Type="numericfield" Value="160" id="HeapDefaultSize"></property>
 <property Type="stringfield" Value="minimal" id="PrintfDefault_support"></property>

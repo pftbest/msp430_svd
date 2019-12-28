@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <drivers id="DEBUGSSM">
     <isa Type="DEBUGSSM" ProcID="0x00C00005">
-        <driver file="../../DebugServer/bin/libDataSnapshotDecoder.so">
+        <driver file="../../DebugServer/bin/libDataSnapshotDecoder.dylib">
 			<connectionType Type="DataSnapshotViewer"/>
 		</driver>
     </isa>

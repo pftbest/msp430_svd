@@ -1,5 +1,5 @@
 <module id="eCOMP0" HW_revision="445">
-    <register id="CPCTL0" width="16" offset="0x0" internal="0" description="Comparator Control Register 0">
+    <register id="CP0CTL0" width="16" offset="0x0" internal="0" description="Comparator Control Register 0">
         <bitfield id="CPPEN" description="Channel input enable for the V+ terminal" begin="4" end="4" width="1" rwaccess="R/W">
             <bitenum id="CPPEN_0" value="0x0" description="Selected analog input channel for V+ terminal is disabled."/>
             <bitenum id="CPPEN_1" value="0x1" description="Selected analog input channel for V+ terminal is enabled."/>
@@ -29,7 +29,7 @@
             <bitenum id="CPPSEL_7" value="0x7" description="Reserved"/>
         </bitfield>
     </register>
-    <register id="CPCTL1" width="16" offset="0x2" internal="0" description="Comparator Control Register 1">
+    <register id="CP0CTL1" width="16" offset="0x2" internal="0" description="Comparator Control Register 1">
         <bitfield id="CPOUT" description="Comparator output value" begin="0" end="0" width="1" rwaccess="R">
         </bitfield>
         <bitfield id="CPINV" description="Comparator output polarity" begin="1" end="1" width="1" rwaccess="R/W">
@@ -73,7 +73,7 @@
             <bitenum id="CPIIE_1" value="0x1" description="Interrupt inverted output is enabled"/>
         </bitfield>
     </register>
-    <register id="CPINT" width="16" offset="0x6" internal="0" description="Comparator Interrupt Control Register">
+    <register id="CP0INT" width="16" offset="0x6" internal="0" description="Comparator Interrupt Control Register">
         <bitfield id="CPIFG" description="Comparator output interrupt flag" begin="0" end="0" width="1" rwaccess="R/W">
             <bitenum id="CPIFG_0" value="0x0" description="No interrupt pending."/>
             <bitenum id="CPIFG_1" value="0x1" description="Output interrupt pending."/>
@@ -83,14 +83,14 @@
             <bitenum id="CPIIFG_1" value="0x1" description="Output interrupt pending."/>
         </bitfield>
     </register>
-    <register id="CPIV" width="16" offset="0x8" internal="0" description="Comparator Interrupt Vector Word Register">
+    <register id="CP0IV" width="16" offset="0x8" internal="0" description="Comparator Interrupt Vector Word Register">
         <bitfield id="CPIV" description="Comparator interrupt vector word register" begin="15" end="0" width="16" rwaccess="R">
             <bitenum id="NONE" value="0x0" description="No interrupt pending"/>
             <bitenum id="CPIFG" value="0x2" description="CPIFG"/>
             <bitenum id="CPIIFG" value="0x4" description="CPIIFG"/>
         </bitfield>
     </register>
-    <register id="CPDACCTL" width="16" offset="0x10" internal="0" description="6-bit Comparator built-in DAC Control Register">
+    <register id="CP0DACCTL" width="16" offset="0x10" internal="0" description="6-bit Comparator built-in DAC Control Register">
         <bitfield id="CPDACSW" description="This bit is only valid when CPDACBUFS is set to 1." begin="0" end="0" width="1" rwaccess="R/W">
             <bitenum id="CPDACSW_0" value="0x0" description="CPDACBUF1 selected"/>
             <bitenum id="CPDACSW_1" value="0x1" description="CPDACBUF2 selected"/>
@@ -108,7 +108,7 @@
             <bitenum id="CPDACEN_1" value="0x1" description="DAC output is enabled."/>
         </bitfield>
     </register>
-    <register id="CPDACDATA" width="16" offset="0x12" internal="0" description="6-bit Comparator built-in DAC Data Register">
+    <register id="CP0DACDATA" width="16" offset="0x12" internal="0" description="6-bit Comparator built-in DAC Data Register">
         <bitfield id="CPDACBUF1" description="1st 6-bit DAC buffer Data" begin="5" end="0" width="6" rwaccess="R/W">
             <bitenum id="CPDACBUF1_0" value="0x0" description="0v"/>
             <bitenum id="CPDACBUF1_1" value="0x1" description="selected reference voltage * 1/64"/>

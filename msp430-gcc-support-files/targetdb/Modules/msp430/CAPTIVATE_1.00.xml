@@ -1,0 +1,56 @@
+<module id="CAPTIVATE" HW_revision="1.00">
+    <register id="CAPIE" width="16" offset="0x120" internal="0" description="CapTIvate Interrupt Enable Register">
+        <bitfield id="EOCIEN" description="End of conversion interrupt enable When enabled, an interrupt is called when EOCIFG = 1; that is, at the end of each conversion. EOCIFG must be cleared during the interrupt service routine." begin="0" end="0" width="1" rwaccess="R/W">
+            <bitenum id="EOCIEN_0" value="0x0" description="Interrupt disabled"/>
+            <bitenum id="EOCIEN_1" value="0x1" description="Interrupt enabled"/>
+        </bitfield>
+        <bitfield id="CAPDTCTIEN" description="CapTIvate detection interrupt enable" begin="1" end="1" width="1" rwaccess="R/W">
+            <bitenum id="CAPDTCTIEN_0" value="0x0" description="Interrupt disabled"/>
+            <bitenum id="CAPDTCTIEN_1" value="0x1" description="Interrupt enabled"/>
+        </bitfield>
+        <bitfield id="CAPTIEN" description="CapTIvate Timer interrupt enable" begin="2" end="2" width="1" rwaccess="R/W">
+            <bitenum id="CAPTIEN_0" value="0x0" description="Interrupt disabled"/>
+            <bitenum id="CAPTIEN_1" value="0x1" description="Interrupt enabled"/>
+        </bitfield>
+        <bitfield id="CAPCNTRIEN" description="CapTIvate Conversion Counter interrupt enable" begin="3" end="3" width="1" rwaccess="R/W">
+            <bitenum id="CAPCNTRIEN_0" value="0x0" description="Interrupt disabled"/>
+            <bitenum id="CAPCNTRIEN_1" value="0x1" description="Interrupt enabled"/>
+        </bitfield>
+        <bitfield id="CAPMAXIEN" description="CapTIvate maximum count interrupt enable" begin="8" end="8" width="1" rwaccess="R/W">
+            <bitenum id="CAPMAXIEN_0" value="0x0" description="Interrupt disabled"/>
+            <bitenum id="CAPMAXIEN_1" value="0x1" description="Interrupt enabled"/>
+        </bitfield>
+    </register>
+    <register id="CAPIFG" width="16" offset="0x122" internal="0" description="CapTIvate Interrupt Flag Register">
+        <bitfield id="EOCIFG" description="End of conversion interrupt flag This bit is set by hardware when each of the enabled CRx channels has finished converting and its results are ready. This bit is cleared by hardware when a conversion is launched (when CIPF becomes 1) or when CAPPWR = 0. If EOCITEN = 1, the CapTIvate interrupt occurs when EOCIFG transitions to 1. EOCIFG must be cleared by software before exiting the interrupt service routine." begin="0" end="0" width="1" rwaccess="R/W">
+            <bitenum id="EOCIFG_0" value="0x0" description="No end of conversion has occurred"/>
+            <bitenum id="EOCIFG_1" value="0x1" description="End of conversion has occurred"/>
+        </bitfield>
+        <bitfield id="CAPDTCTIFG" description="CapTIvate detection interrupt flag" begin="1" end="1" width="1" rwaccess="R/W">
+            <bitenum id="CAPDTCTIFG_0" value="0x0" description="No interrupt pending"/>
+            <bitenum id="CAPDTCTIFG_1" value="0x1" description="Interrupt pending"/>
+        </bitfield>
+        <bitfield id="CAPTIFG" description="CapTIvate timer interrupt flag" begin="2" end="2" width="1" rwaccess="R/W">
+            <bitenum id="CAPTIFG_0" value="0x0" description="No interrupt pending"/>
+            <bitenum id="CAPTIFG_1" value="0x1" description="Interrupt pending"/>
+        </bitfield>
+        <bitfield id="CAPCNTRIFG" description="specified number of conversion have been reached" begin="3" end="3" width="1" rwaccess="R/W">
+            <bitenum id="CAPCNTRIFG_0" value="0x0" description="No interrupt pending"/>
+            <bitenum id="CAPCNTRIFG_1" value="0x1" description="Interrupt pending"/>
+        </bitfield>
+        <bitfield id="CAPMAXIFG" description="CapTIvate maximum count interrupt flag" begin="8" end="8" width="1" rwaccess="R/W">
+            <bitenum id="CAPMAXIFG_0" value="0x0" description="Maximum count not reached"/>
+            <bitenum id="CAPMAXIFG_1" value="0x1" description="Maximum count reached"/>
+        </bitfield>
+    </register>
+    <register id="CAPIV" width="16" offset="0x124" internal="0" description="CapTIvate Interrupt Vector Register">
+        <bitfield id="CAPIV" description="CapTIvate Interrupt vector value. Reports a value that can be used as address offset for fast interrupt service routine handling. A read clears the highest priority interrupt. A write clears all pending interrupts. 000Ch to FFFEh = Reserved" begin="15" end="0" width="16" rwaccess="R">
+            <bitenum id="CAPIV_0" value="0x0" description="No interrupt pending"/>
+            <bitenum id="CAPIV_2" value="0x2" description="Interrupt source: End of conversion interrupt, Flag = EOCIFG"/>
+            <bitenum id="CAPIV_4" value="0x4" description="Interrupt source: Detection interrupt, Flag = CAPDTCTIFG"/>
+            <bitenum id="CAPIV_6" value="0x6" description="Interrupt source: CapTIvate Timer interrupt, Flag = CAPTIFG"/>
+            <bitenum id="CAPIV_8" value="0x8" description="Interrupt source: CapTIvate Counter interrupt, Flag = CAPCNTRIFG"/>
+            <bitenum id="CAPIV_10" value="0xA" description="Interrupt source: max count value reached, Flag = CAPMAXIFG"/>
+        </bitfield>
+    </register>
+</module>

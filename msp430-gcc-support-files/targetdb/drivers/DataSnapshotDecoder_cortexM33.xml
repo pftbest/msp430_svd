@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<drivers id="Cortex_M3">
+	<isa Type="Cortex_M33" ProcID="0x7580cc00">
+		<driver file="../../DebugServer/bin/libDataSnapshotDecoder.dylib">
+			<connectionType Type="DataSnapshotViewer"/>
+		</driver>
+	</isa>
+
+	<driverProperties>
+		<version number="1.0"/>
+		<choicelist id="Endianness" type="string_list" must="true">
+			<choice value="Little Endian"></choice>
+			<choice value="Big Endian"></choice>
+		</choicelist>
+		<current>
+			<cchoice key="Endianness" value="Little Endian"/>
+		</current>
+	</driverProperties>
+</drivers>
