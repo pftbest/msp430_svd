@@ -1,10 +1,11 @@
 use std::collections::HashMap;
 use svd::*;
-use xmltree::Element;
+use xmltree::{Element, XMLNode};
 
 fn write_string(name: &str, text: &str) -> Element {
     let mut el = Element::new(name);
-    el.text = Some(String::from(text));
+    el.children = vec![];
+    el.children.push(XMLNode::Text(String::from(text)));
     el
 }
 
@@ -31,22 +32,22 @@ fn write_access(a: &Access) -> Element {
 pub fn write_device(dev: &Device) -> String {
     let mut el = Element::new("device");
     el.children = vec![];
-    el.children.push(write_string("name", &dev.name));
+    el.children.push(XMLNode::Element(write_string("name", &dev.name)));
 
     if let Some(x) = dev.defaults.size {
-        el.children.push(write_string("size", &x.to_string()));
+        el.children.push(XMLNode::Element(write_string("size", &x.to_string())));
     }
     if let Some(x) = dev.defaults.reset_value {
-        el.children.push(write_string("resetValue", &x.to_string()));
+        el.children.push(XMLNode::Element(write_string("resetValue", &x.to_string())));
     }
     if let Some(x) = dev.defaults.reset_mask {
-        el.children.push(write_string("resetMask", &x.to_string()));
+        el.children.push(XMLNode::Element(write_string("resetMask", &x.to_string())));
     }
     if let Some(x) = dev.defaults.access {
-        el.children.push(write_access(&x));
+        el.children.push(XMLNode::Element(write_access(&x)));
     }
 
-    el.children.push(write_peripherals(dev));
+    el.children.push(XMLNode::Element(write_peripherals(dev)));
 
     let mut out = Vec::new();
     el.write(&mut out);
@@ -58,7 +59,7 @@ fn write_peripherals(dev: &Device) -> Element {
     el.children = vec![];
 
     for p in &dev.peripherals {
-        el.children.push(write_peripheral(p));
+        el.children.push(XMLNode::Element(write_peripheral(p)));
     }
     el
 }
@@ -67,18 +68,18 @@ fn write_peripheral(per: &Peripheral) -> Element {
     let mut el = Element::new("peripheral");
     el.children = vec![];
 
-    el.children.push(write_string("name", &per.name));
+    el.children.push(XMLNode::Element(write_string("name", &per.name)));
 
     if let Some(x) = per.group_name.as_ref() {
-        el.children.push(write_string("groupName", x));
+        el.children.push(XMLNode::Element(write_string("groupName", x)));
     }
 
     if let Some(x) = per.description.as_ref() {
-        el.children.push(write_string("description", x));
+        el.children.push(XMLNode::Element(write_string("description", x)));
     }
 
     el.children
-        .push(write_string("baseAddress", &per.base_address.to_string()));
+        .push(XMLNode::Element(write_string("baseAddress", &per.base_address.to_string())));
 
     if let Some(x) = per.derived_from.as_ref() {
         el.attributes = HashMap::new();
@@ -86,11 +87,11 @@ fn write_peripheral(per: &Peripheral) -> Element {
     }
 
     if let Some(x) = per.registers.as_ref() {
-        el.children.push(write_registers(x))
+        el.children.push(XMLNode::Element(write_registers(x)))
     }
 
     for int in &per.interrupt {
-        el.children.push(write_interrupt(int))
+        el.children.push(XMLNode::Element(write_interrupt(int)))
     }
 
     el
@@ -100,14 +101,14 @@ fn write_interrupt(int: &Interrupt) -> Element {
     let mut el = Element::new("interrupt");
     el.children = vec![];
 
-    el.children.push(write_string("name", &int.name));
+    el.children.push(XMLNode::Element(write_string("name", &int.name)));
 
     if let Some(x) = int.description.as_ref() {
-        el.children.push(write_string("description", x));
+        el.children.push(XMLNode::Element(write_string("description", x)));
     }
 
     el.children
-        .push(write_string("value", &int.value.to_string()));
+        .push(XMLNode::Element(write_string("value", &int.value.to_string())));
 
     el
 }
@@ -117,7 +118,7 @@ fn write_registers(per: &[Register]) -> Element {
     el.children = vec![];
 
     for r in per {
-        el.children.push(write_register(r));
+        el.children.push(XMLNode::Element(write_register(r)));
     }
     el
 }
@@ -131,41 +132,41 @@ fn write_register(reg: &Register) -> Element {
         _ => panic!("arrays are not supported"),
     };
 
-    el.children.push(write_string("name", &reg.name));
+    el.children.push(XMLNode::Element(write_string("name", &reg.name)));
     el.children
-        .push(write_string("description", &reg.description));
-    el.children.push(write_string(
+        .push(XMLNode::Element(write_string("description", &reg.description)));
+    el.children.push(XMLNode::Element(write_string(
         "addressOffset",
         &reg.address_offset.to_string(),
-    ));
+    )));
 
     if let Some(x) = reg.size {
-        el.children.push(write_string("size", &x.to_string()));
+        el.children.push(XMLNode::Element(write_string("size", &x.to_string())));
     }
 
     if let Some(x) = reg.access {
-        el.children.push(write_access(&x));
+        el.children.push(XMLNode::Element(write_access(&x)));
     }
 
     if let Some(x) = reg.reset_value {
-        el.children.push(write_string("resetValue", &x.to_string()));
+        el.children.push(XMLNode::Element(write_string("resetValue", &x.to_string())));
     }
 
     if let Some(x) = reg.reset_mask {
-        el.children.push(write_string("resetMask", &x.to_string()));
+        el.children.push(XMLNode::Element(write_string("resetMask", &x.to_string())));
     }
 
     if let Some(x) = reg.fields.as_ref() {
-        el.children.push(write_fields(x))
+        el.children.push(XMLNode::Element(write_fields(x)))
     }
 
     if let Some(wc) = reg.write_constraint.as_ref() {
-        el.children.push(write_constraint(wc))
+        el.children.push(XMLNode::Element(write_constraint(wc)))
     }
 
     if let Some(x) = reg.alternate_register.as_ref() {
         el.children
-            .push(write_string("alternateRegister", &x.to_string()));
+            .push(XMLNode::Element(write_string("alternateRegister", &x.to_string())));
     }
 
     el
@@ -176,7 +177,7 @@ fn write_fields(per: &[Field]) -> Element {
     el.children = vec![];
 
     for r in per {
-        el.children.push(write_field(r));
+        el.children.push(XMLNode::Element(write_field(r)));
     }
     el
 }
@@ -185,27 +186,27 @@ fn write_field(reg: &Field) -> Element {
     let mut el = Element::new("field");
     el.children = vec![];
 
-    el.children.push(write_string("name", &reg.name));
+    el.children.push(XMLNode::Element(write_string("name", &reg.name)));
 
     if let Some(x) = reg.description.as_ref() {
-        el.children.push(write_string("description", x));
+        el.children.push(XMLNode::Element(write_string("description", x)));
     }
 
     el.children
-        .push(write_string("bitOffset", &reg.bit_range.offset.to_string()));
+        .push(XMLNode::Element(write_string("bitOffset", &reg.bit_range.offset.to_string())));
     el.children
-        .push(write_string("bitWidth", &reg.bit_range.width.to_string()));
+        .push(XMLNode::Element(write_string("bitWidth", &reg.bit_range.width.to_string())));
 
     if let Some(x) = reg.access {
-        el.children.push(write_access(&x));
+        el.children.push(XMLNode::Element(write_access(&x)));
     }
 
     for e in &reg.enumerated_values {
-        el.children.push(write_enums(e))
+        el.children.push(XMLNode::Element(write_enums(e)))
     }
 
     if let Some(wc) = reg.write_constraint.as_ref() {
-        el.children.push(write_constraint(wc))
+        el.children.push(XMLNode::Element(write_constraint(wc)))
     }
 
     el
@@ -219,14 +220,17 @@ fn write_constraint(wc: &WriteConstraint) -> Element {
         WriteConstraint::Range(r) => {
             let mut min_el = Element::new("minimum");
             let mut max_el = Element::new("maximum");
-            min_el.text = Some(r.min.to_string());
-            max_el.text = Some(r.max.to_string());
-            range_el.children.push(min_el);
-            range_el.children.push(max_el);
+            min_el.children = vec![];
+            max_el.children = vec![];
+
+            min_el.children.push(XMLNode::Text(r.min.to_string()));
+            max_el.children.push(XMLNode::Text(r.max.to_string()));
+            range_el.children.push(XMLNode::Element(min_el));
+            range_el.children.push(XMLNode::Element(max_el));
         }
         _ => panic!("unsupported write constraint"),
     }
-    wc_el.children.push(range_el);
+    wc_el.children.push(XMLNode::Element(range_el));
     wc_el
 }
 
@@ -235,11 +239,11 @@ fn write_enums(per: &EnumeratedValues) -> Element {
     el.children = vec![];
 
     if let Some(x) = per.name.as_ref() {
-        el.children.push(write_string("name", x));
+        el.children.push(XMLNode::Element(write_string("name", x)));
     }
 
     if let Some(x) = per.usage.as_ref() {
-        el.children.push(write_usage(x));
+        el.children.push(XMLNode::Element(write_usage(x)));
     }
 
     if let Some(x) = per.derived_from.as_ref() {
@@ -248,7 +252,7 @@ fn write_enums(per: &EnumeratedValues) -> Element {
     }
 
     for e in &per.values {
-        el.children.push(write_enum_val(e));
+        el.children.push(XMLNode::Element(write_enum_val(e)));
     }
 
     el
@@ -258,18 +262,18 @@ fn write_enum_val(reg: &EnumeratedValue) -> Element {
     let mut el = Element::new("enumeratedValue");
     el.children = vec![];
 
-    el.children.push(write_string("name", &reg.name));
+    el.children.push(XMLNode::Element(write_string("name", &reg.name)));
 
     if let Some(x) = reg.description.as_ref() {
-        el.children.push(write_string("description", x));
+        el.children.push(XMLNode::Element(write_string("description", x)));
     }
 
     if let Some(x) = reg.value {
-        el.children.push(write_string("value", &x.to_string()));
+        el.children.push(XMLNode::Element(write_string("value", &x.to_string())));
     }
 
     if let Some(x) = reg.is_default {
-        el.children.push(write_string("isDefault", &x.to_string()));
+        el.children.push(XMLNode::Element(write_string("isDefault", &x.to_string())));
     }
 
     el

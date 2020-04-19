@@ -1,7 +1,7 @@
 use ordermap::OrderMap;
 use std::path::Path;
 use utils;
-use xmltree::Element;
+use xmltree::{XMLNode, Element};
 
 #[derive(Debug)]
 pub struct Device {
@@ -25,11 +25,12 @@ pub fn parse_dslite(file_name: &Path) -> Device {
 
     let name = uw!(el.attributes.get("id")).to_owned();
     let description = uw!(el.attributes.get("description")).to_owned();
-    let cpu = uw!(el.children.iter().find(|i| i.name == "cpu"));
+    let cpu = uw!(el.children.iter().find(|i| i.as_element().map_or(false, |e| e.name == "cpu")));
 
     let mut cached_modules = OrderMap::new();
     let mut registers = Vec::new();
-    for i in &cpu.children {
+
+    for i in &cpu.as_element().expect("The node named CPU wasn't an XML Element!").children {
         if let Some(mut module) = parse_cpu_instance(i, file_name) {
             // Remove all registers from the module before we cache it, since we will fill in the
             // registers after we process duplicates. This two-step caching process also prevents
@@ -112,7 +113,8 @@ pub struct Module {
     pub registers: Vec<Register>,
 }
 
-fn parse_cpu_instance(el: &Element, root_file: &Path) -> Option<Module> {
+fn parse_cpu_instance(node: &XMLNode, root_file: &Path) -> Option<Module> {
+    let el = node.as_element().expect("CPU instance was not an XML Element!");
     assert_eq!(el.name, "instance");
     let base = uw!(utils::parse_u32(uw!(el.attributes.get("baseaddr"))));
 
@@ -137,7 +139,7 @@ fn parse_dslite_module(file_name: &Path, baseaddr: u32) -> Option<Module> {
     let mut registers = el
         .children
         .iter()
-        .map(|r| parse_register(r, &name))
+        .map(|r| parse_register(r.as_element().expect("Register was not an XML Element!"), &name))
         .collect::<Vec<_>>();
 
     // Rest of the code assumes that the offset value of each register includes the base address of
@@ -186,7 +188,7 @@ fn parse_register(el: &Element, module: &str) -> Register {
     let fields = el
         .children
         .iter()
-        .map(|f| parse_field(f))
+        .map(|f| parse_field(f.as_element().expect("Field was not an XML Element!")))
         .collect::<Vec<_>>();
 
     Register {
@@ -245,7 +247,7 @@ fn parse_field(el: &Element) -> Field {
     let enums = el
         .children
         .iter()
-        .map(|e| parse_enum(e))
+        .map(|e| parse_enum(e.as_element().expect("Enums was not an XML Element!")))
         .collect::<Vec<_>>();
 
     Field {
