@@ -1,5 +1,5 @@
 extern crate inflector;
-extern crate ordermap;
+extern crate indexmap;
 extern crate svd_parser as svd;
 extern crate xmltree;
 

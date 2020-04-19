@@ -1,4 +1,4 @@
-use ordermap::OrderMap;
+use indexmap::IndexMap;
 use std::path::Path;
 use utils;
 use xmltree::{XMLNode, Element};
@@ -7,10 +7,10 @@ use xmltree::{XMLNode, Element};
 pub struct Device {
     pub name: String,
     pub description: String,
-    pub modules: OrderMap<String, Module>,
+    pub modules: IndexMap<String, Module>,
 }
 
-fn get_conflict<'a>(map: &OrderMap<u32, &'a Register>, reg: &Register) -> Option<&'a Register> {
+fn get_conflict<'a>(map: &IndexMap<u32, &'a Register>, reg: &Register) -> Option<&'a Register> {
     for i in 0..reg.width {
         let addr = reg.offset + i;
         if let Some(old) = map.get(&addr) {
@@ -27,7 +27,7 @@ pub fn parse_dslite(file_name: &Path) -> Device {
     let description = uw!(el.attributes.get("description")).to_owned();
     let cpu = uw!(el.children.iter().find(|i| i.as_element().map_or(false, |e| e.name == "cpu")));
 
-    let mut cached_modules = OrderMap::new();
+    let mut cached_modules = IndexMap::new();
     let mut registers = Vec::new();
 
     for i in &cpu.as_element().expect("The node named CPU wasn't an XML Element!").children {
@@ -53,8 +53,8 @@ pub fn parse_dslite(file_name: &Path) -> Device {
         }
     });
 
-    let mut modules: OrderMap<String, Module> = OrderMap::new();
-    let mut memory: OrderMap<u32, &Register> = OrderMap::new();
+    let mut modules: IndexMap<String, Module> = IndexMap::new();
+    let mut memory: IndexMap<u32, &Register> = IndexMap::new();
     for r in &registers {
         if let Some(old) = get_conflict(&memory, r) {
             if r.width == 2 && old.width == 1 {
