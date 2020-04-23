@@ -9,3 +9,6 @@ xmltree = "0.10.0"
 svd-parser = { path = "svd-parser" }
 indexmap = "1.3.2"
 Inflector = "0.11.1"
+
+[build-dependencies]
+vergen = "3.1.0"
