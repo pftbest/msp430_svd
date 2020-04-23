@@ -1,0 +1,207 @@
+_svd: ../../msp430g2211.svd
+
+
+TIMER_A2:
+  _delete:
+    - TAIV
+    - TAR
+    - TACCR0
+    - TACCR1
+  _add:
+    TAIV:
+      description: Timer A Interrupt Vector Word
+      addressOffset: 0
+      size: 16
+      resetMask: 65535
+      fields:
+        TAIV:
+          description: Timer A Interrupt Vector value
+          bitOffset: 0
+          bitWidth: 4
+      NONE: [0, "No interrupt pending"]
+      TACCR1: [2, "Capture/Compare 1"]
+      TAIFG: [10, "Timer overflow"]
+    TAR:
+      description: Timer A Counter Register
+      addressOffset: 66
+      size: 16
+      resetMask: 65535
+      fields:
+        TAR:
+          description: Timer A Counter Register
+          bitOffset: 0
+          bitWidth: 16
+    TACCR0:
+      description: Timer A Capture/Compare 0
+      addressOffset: 68
+      size: 16
+      resetMask: 65535
+      fields:
+        TACCR0:
+          description: Timer A Capture/Compare register 0
+          bitOffset: 0
+          bitWidth: 16
+    TACCR1:
+      description: Timer A Capture/Compare 1
+      addressOffset: 70
+      size: 16
+      resetMask: 65535
+      fields:
+        TACCR1:
+          description: Timer A Capture/Compare register 1
+          bitOffset: 0
+          bitWidth: 16
+  TAIV:
+    TAIV:
+      NONE: [0, "No interrupt pending"]
+      TACCR1: [2, "Capture/Compare 1"]
+      TAIFG: [10, "Timer overflow"]
+  TAR:
+    TAR: [0, 0xffff]
+  TACCR0:
+    TACCR0: [0, 0xffff]
+  TACCR1:
+    TACCR1: [0, 0xffff]
+
+Calibration_Data:
+  _delete:
+    - CALDCO_1MHZ
+    - CALBC1_1MHZ
+  _add:
+    CALDCO_1MHZ:
+      description: DCOCTL  Calibration Data for 1MHz
+      addressOffset: 0
+      size: 8
+      resetMask: 255
+      fields:
+        CALDCO_1MHZ:
+          description: DCOCTL  Calibration Data register
+          bitOffset: 0
+          bitWidth: 8
+    CALBC1_1MHZ:
+      description: BCSCTL1 Calibration Data for 1MHz
+      addressOffset: 1
+      size: 8
+      resetMask: 255
+      fields:
+        CALBC1_1MHZ:
+          description: BCSCTL1 Calibration Data register
+          bitOffset: 0
+          bitWidth: 8
+
+Port_1_2:
+  P1IN:
+    _add:
+      P1IN:
+        description: Port 1 Input register
+        bitOffset: 0
+        bitWidth: 8
+    P1IN: [0, 0xff]
+  P1OUT:
+    _add:
+      P1OUT:
+        description: Port 1 Output register
+        bitOffset: 0
+        bitWidth: 8
+    P1OUT: [0, 0xff]
+  P1DIR:
+    _add:
+      P1DIR:
+        description: Port 1 Direction register
+        bitOffset: 0
+        bitWidth: 8
+    P1DIR: [0, 0xff]
+  P1IFG:
+    _add:
+      P1IFG:
+        description: Port 1 Interrupt Flag register
+        bitOffset: 0
+        bitWidth: 8
+    P1IFG: [0, 0xff]
+  P1IES:
+    _add:
+      P1IES:
+        description: Port 1 Interrupt Edge Select register
+        bitOffset: 0
+        bitWidth: 8
+    P1IES: [0, 0xff]
+  P1IE:
+    _add:
+      P1IE:
+        description: Port 1 Interrupt Enable register
+        bitOffset: 0
+        bitWidth: 8
+    P1IE: [0, 0xff]
+  P1SEL:
+    _add:
+      P1SEL:
+        description: Port 1 Selection register
+        bitOffset: 0
+        bitWidth: 8
+    P1SEL: [0, 0xff]
+  P1REN:
+    _add:
+      P1REN:
+        description: Port 1 Resistor Enable register
+        bitOffset: 0
+        bitWidth: 8
+    P1REN: [0, 0xff]
+  P2IN:
+    _add:
+      P2IN:
+        description: Port 2 Input register
+        bitOffset: 0
+        bitWidth: 8
+    P2IN: [0, 0xff]
+  P2OUT:
+    _add:
+      P2OUT:
+        description: Port 2 Output register
+        bitOffset: 0
+        bitWidth: 8
+    P2OUT: [0, 0xff]
+  P2DIR:
+    _add:
+      P2DIR:
+        description: Port 2 Direction register
+        bitOffset: 0
+        bitWidth: 8
+    P2DIR: [0, 0xff]
+  P2IFG:
+    _add:
+      P2IFG:
+        description: Port 2 Interrupt Flag register
+        bitOffset: 0
+        bitWidth: 8
+    P2IFG: [0, 0xff]
+  P2IES:
+    _add:
+      P2IES:
+        description: Port 2 Interrupt Edge Select register
+        bitOffset: 0
+        bitWidth: 8
+    P2IES: [0, 0xff]
+  P2IE:
+    _add:
+      P2IE:
+        description: Port 2 Interrupt Enable register
+        bitOffset: 0
+        bitWidth: 8
+    P2IE: [0, 0xff]
+  P2SEL:
+    _add:
+      P2SEL:
+        description: Port 2 Selection register
+        bitOffset: 0
+        bitWidth: 8
+    P2SEL: [0, 0xff]
+  P2REN:
+    _add:
+      P2REN:
+        description: Port 2 Resistor Enable register
+        bitOffset: 0
+        bitWidth: 8
+    P2REN: [0, 0xff]
+
+_include:
+  - "../peripherals/watchdog_timer.yaml"
