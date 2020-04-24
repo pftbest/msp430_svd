@@ -2,6 +2,7 @@ _svd: ../../msp430g2211.svd
 
 _include:
   - "../peripherals/calibration_data.yaml"
+  - "../peripherals/comparator_a.yaml"
   - "../peripherals/flash.yaml"
   - "../peripherals/port_1_2.yaml"
   - "../peripherals/system_clock.yaml"

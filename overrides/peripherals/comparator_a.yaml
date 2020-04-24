@@ -1,0 +1,49 @@
+Comparator_A:
+  CACTL2:
+    _add:
+      P2CA:
+        description: Comparator A +/-Terminal Multiplexer register
+        bitOffset: 2
+        bitWidth: 5
+    P2CA: [0, 31]
+      # FIXME: This field is begging for a variant.
+      # NONE_NONE: [0b00000, "No + or - connection"]
+      # NONE_CA1: [0b00010, "No connection to +, connect - to CA1"]
+      # NONE_CA2: [0b00100, "No connection to +, connect - to CA2"]
+      # NONE_CA3: [0b00110, "No connection to +, connect - to CA3"]
+      # NONE_CA4: [0b01000, "No connection to +, connect - to CA4"]
+      # NONE_CA5: [0b01010, "No connection to +, connect - to CA5"]
+      # NONE_CA6: [0b01100, "No connection to +, connect - to CA6"]
+      # NONE_CA7: [0b01110, "No connection to +, connect - to CA7"]
+      # CA0_NONE: [0b00001, "Connect + to CA0, no connection to -"]
+      # CA0_CA1: [0b00011, "Connect + to CA0, connect - to CA1"]
+      # CA0_CA2: [0b00101, "Connect + to CA0, connect - to CA2"]
+      # CA0_CA3: [0b00111, "Connect + to CA0, connect - to CA3"]
+      # CA0_CA4: [0b01001, "Connect + to CA0, connect - to CA4"]
+      # CA0_CA5: [0b01011, "Connect + to CA0, connect - to CA5"]
+      # CA0_CA6: [0b01101, "Connect + to CA0, connect - to CA6"]
+      # CA0_CA7: [0b01111, "Connect + to CA0, connect - to CA7"]
+      # CA1_NONE: [0b10000, "Connect + to CA1, no connection to -"]
+      # CA1_CA1: [0b10010, "Connect + to CA1, connect - to CA1"]
+      # CA1_CA2: [0b10100, "Connect + to CA1, connect - to CA2"]
+      # CA1_CA3: [0b10110, "Connect + to CA1, connect - to CA3"]
+      # CA1_CA4: [0b11000, "Connect + to CA1, connect - to CA4"]
+      # CA1_CA5: [0b11010, "Connect + to CA1, connect - to CA5"]
+      # CA1_CA6: [0b11100, "Connect + to CA1, connect - to CA6"]
+      # CA1_CA7: [0b11110, "Connect + to CA1, connect - to CA7"]
+      # CA2_NONE: [0b10001, "Connect + to CA2, no connection to -"]
+      # CA2_CA1: [0b10011, "Connect + to CA2, connect - to CA1"]
+      # CA2_CA2: [0b10101, "Connect + to CA2, connect - to CA2"]
+      # CA2_CA3: [0b10111, "Connect + to CA2, connect - to CA3"]
+      # CA2_CA4: [0b11001, "Connect + to CA2, connect - to CA4"]
+      # CA2_CA5: [0b11011, "Connect + to CA2, connect - to CA5"]
+      # CA2_CA6: [0b11101, "Connect + to CA2, connect - to CA6"]
+      # CA2_CA7: [0b11111, "Connect + to CA2, connect - to CA7"]
+
+  CAPD:
+    _add:
+      CAPD:
+        description: Comparator A Port Disable register
+        bitOffset: 0
+        bitWidth: 8
+    CAPD: [0, 0xff]
