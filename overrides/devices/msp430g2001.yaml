@@ -1,4 +1,4 @@
-_svd: ../../msp430g2211.svd
+_svd: ../../msp430g2001.svd
 
 _include:
   - "../peripherals/calibration_data.yaml"

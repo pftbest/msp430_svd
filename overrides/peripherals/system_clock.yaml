@@ -1,0 +1,32 @@
+System_Clock:
+  DCOCTL:
+    _add:
+      # For compatibility with CALDCO_1MHZ
+      DCOCTL:
+        description: DCO Clock Frequency Control register
+        bitOffset: 0
+        bitWidth: 8
+      DCO:
+        description: DCO Frequency Select
+        bitOffset: 5
+        bitWidth: 3
+      MOD:
+        description: Modulator Selection
+        bitOffset: 0
+        bitWidth: 5
+    DCOCTL: [0, 0xff]
+    DCO: [0, 7]
+    MOD: [0, 31]
+  BCSCTL1:
+    _add:
+      # For compatibility with CALBC1_1MHZ
+      BCSCTL1:
+        description: Basic Clock System Control 1 register
+        bitOffset: 0
+        bitWidth: 8
+      RSEL:
+        description: Range Select
+        bitOffset: 0
+        bitWidth: 4
+    BCSCTL1: [0, 0xff]
+    RSEL: [0, 15]
