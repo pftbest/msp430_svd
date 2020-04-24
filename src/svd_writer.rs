@@ -49,6 +49,8 @@ pub fn write_device(dev: &Device) -> String {
 
     el.children.push(XMLNode::Element(write_peripherals(dev)));
 
+    el.children.push(XMLNode::Element(write_vendor_extensions()));
+
     let mut out = Vec::new();
     el.write(&mut out);
     String::from_utf8(out).unwrap()
@@ -277,4 +279,16 @@ fn write_enum_val(reg: &EnumeratedValue) -> Element {
     }
 
     el
+}
+
+fn write_vendor_extensions() -> Element {
+    let mut vendor = Element::new("vendorExtensions");
+    let mut msp430_el = Element::new("msp430_svd");
+
+    msp430_el.children.push(XMLNode::Element(write_string("version", env!("VERGEN_SEMVER"))));
+    msp430_el.children.push(XMLNode::Element(write_string("commit_hash", env!("VERGEN_SHA_SHORT"))));
+
+    vendor.children.push(XMLNode::Element(msp430_el));
+
+    vendor
 }
