@@ -1,0 +1,35 @@
+PMM:
+  PMMCTL0:
+    _add:
+      PMMPW:
+        description: PMM Password
+        bitOffset: 8
+        bitWidth: 8
+        access: read-write
+    PMMPW:
+      _read:
+        PASSWORD: [0x96, "Values always reads from the PMMCTL0 register"]
+      _write:
+        PASSWORD: [0xA5, "Values which must be written to the PMMCTL0 register"]
+  PMMCTL2:
+    _add:
+      REFGEN:
+        description: Reference generator trigger. If written with a 1, the generation of the variable reference voltage is started. When the reference voltage request is set, this bit is cleared by hardware or writing 0.
+        bitOffset: 6
+        bitWidth: 1
+        access: read-write
+      REFBGEN:
+        description: Bandgap and bandgap buffer trigger. If written with a 1, the generation of the buffered bandgap voltage is started. When the bandgap buffer voltage request is set, this bit is cleared by hardware or writing 0.
+        bitOffset: 7
+        bitWidth: 1
+        access: read-write
+      REFVSEL:
+        description: Internal reference voltage level select. 00b = 1.5V, 01b = 2.0V, 10b = 2.5V
+        bitOffset: 4
+        bitWidth: 2
+        access: read-write
+    REFVSEL:
+            REFVSEL_0: [0, "00b = 1.5V"]
+            REFVSEL_1: [1, "01b = 2.0V"]
+            REFVSEL_2: [2, "10b = 2.5V"]
+            REFVSEL_3: [3, "11b = Reserved"]

@@ -1,0 +1,6 @@
+_svd: ../../msp430fr4133.svd
+
+_include:
+  - "../peripherals/fram.yaml"
+  - "../peripherals/pmmctl.yaml"
+  - "../peripherals/watchdog_timer.yaml"
