@@ -6,14 +6,9 @@ System_Clock:
         description: DCO Clock Frequency Control register
         bitOffset: 0
         bitWidth: 8
-      DCO:
-        description: DCO Frequency Select
-        bitOffset: 5
-        bitWidth: 3
-      MOD:
-        description: Modulator Selection
-        bitOffset: 0
-        bitWidth: 5
+    _merge:
+      - "DCO[0-2]"
+      - "MOD*"
     DCOCTL: [0, 0xff]
     DCO: [0, 7]
     MOD: [0, 31]
@@ -24,9 +19,7 @@ System_Clock:
         description: Basic Clock System Control 1 register
         bitOffset: 0
         bitWidth: 8
-      RSEL:
-        description: Range Select
-        bitOffset: 0
-        bitWidth: 4
+    _merge:
+      - "RSEL*"
     BCSCTL1: [0, 0xff]
     RSEL: [0, 15]

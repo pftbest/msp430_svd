@@ -15,9 +15,6 @@ TIMER_A2:
           description: Timer A Interrupt Vector value
           bitOffset: 0
           bitWidth: 4
-      NONE: [0, "No interrupt pending"]
-      TACCR1: [2, "Capture/Compare 1"]
-      TAIFG: [10, "Timer overflow"]
     TAR:
       description: Timer A Counter Register
       addressOffset: 66

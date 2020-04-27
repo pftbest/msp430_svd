@@ -7,6 +7,8 @@ Watchdog_Timer:
         description: Watchdog Timer Password
         bitOffset: 8
         bitWidth: 8
+    _merge:
+      - "WDTIS*"
     WDTPW:
       _read:
         PASSWORD: [0x69, "Value always read from the Watchdog Password register"]

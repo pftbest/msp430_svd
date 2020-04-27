@@ -18,10 +18,8 @@ Flash:
         description: FCTL2 Password
         bitOffset: 8
         bitWidth: 8
-      FN:
-        description: Flash Controller Clock Divider
-        bitOffset: 0
-        bitWidth: 6
+    _merge:
+      - "FN*"
     FWKEY:
       _read:
         PASSWORD: [0x96, "Value always read from the FCTL2 Password register"]
