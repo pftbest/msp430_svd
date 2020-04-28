@@ -1,0 +1,39 @@
+# TODO: Some devices only implement Port 3 (like msp430g2553).
+# Separate using a template.
+
+Port_3_4:
+  P3IN:
+    _add:
+      P3IN:
+        description: Port 3 Input register
+        bitOffset: 0
+        bitWidth: 8
+    P3IN: [0, 0xff]
+  P3OUT:
+    _add:
+      P3OUT:
+        description: Port 3 Output register
+        bitOffset: 0
+        bitWidth: 8
+    P3OUT: [0, 0xff]
+  P3DIR:
+    _add:
+      P3DIR:
+        description: Port 3 Direction register
+        bitOffset: 0
+        bitWidth: 8
+    P3DIR: [0, 0xff]
+  P3SEL:
+    _add:
+      P3SEL:
+        description: Port 3 Selection register
+        bitOffset: 0
+        bitWidth: 8
+    P3SEL: [0, 0xff]
+  P3REN:
+    _add:
+      P3REN:
+        description: Port 3 Resistor Enable register
+        bitOffset: 0
+        bitWidth: 8
+    P3REN: [0, 0xff]

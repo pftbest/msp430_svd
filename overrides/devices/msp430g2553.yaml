@@ -20,7 +20,35 @@ USCI_B0_SPI_MODE:
   _strip_end:
     - _SPI
 
+# It appears device specific as to whether PxSEL2 is implemented.
+Port_1_2:
+  P1SEL2:
+    _add:
+      P1SEL2:
+        description: Port 1 Selection register 2
+        bitOffset: 0
+        bitWidth: 8
+    P1SEL2: [0, 0xff]
+  P2SEL2:
+    _add:
+      P2SEL2:
+        description: Port 2 Selection register 2
+        bitOffset: 0
+        bitWidth: 8
+    P2SEL2: [0, 0xff]
+
+Port_3_4:
+  P3SEL2:
+    _add:
+      P3SEL2:
+        description: Port 3 Selection register 2
+        bitOffset: 0
+        bitWidth: 8
+    P3SEL2: [0, 0xff]
+
 _include:
+  - "../peripherals/port_1_2.yaml"
+  - "../peripherals/port_3_4.yaml"
   - "../peripherals/timer0_a3.yaml"
   - "../peripherals/usci_a0_spi_mode.yaml"
   - "../peripherals/usci_a0_uart_mode.yaml"
