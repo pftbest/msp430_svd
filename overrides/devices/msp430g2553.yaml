@@ -227,10 +227,14 @@ Calibration_Data:
 
 _include:
   - "../peripherals/adc10.yaml"
+  - "../peripherals/comparator_a.yaml"
+  - "../peripherals/flash.yaml"
   - "../peripherals/port_1_2.yaml"
   - "../peripherals/port_3_4.yaml"
+  - "../peripherals/system_clock.yaml"
   - "../peripherals/timer0_a3.yaml"
   - "../peripherals/usci_a0_spi_mode.yaml"
   - "../peripherals/usci_a0_uart_mode.yaml"
   - "../peripherals/usci_b0_i2c_mode.yaml"
   - "../peripherals/usci_b0_spi_mode.yaml"
+  - "../peripherals/watchdog_timer.yaml"
