@@ -3,9 +3,15 @@ _svd: ../../msp430g2553.svd
 _modify:
   Timer_0_A3:
     name: Timer0_A3
+    description: "Timer A3"
   Timer_1_A3:
     name: Timer1_A3
 
+# FIXME: _derive confusingly gives Timer1_A3 a type of Timer0_A3.
+_derive:
+  Timer1_A3: Timer0_A3
+
+# The SPI suffix is neither included in the datasheet or manual.
 USCI_A0_SPI_MODE:
   _modify:
     UCA0MCTL_SPI:
@@ -59,3 +65,6 @@ USCI_B0_SPI_MODE:
     UCB0CTL1_SPI:
       name:
         UCB0CTL1
+
+_include:
+  - "../peripherals/timer0_a3.yaml"

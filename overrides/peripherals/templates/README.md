@@ -1,5 +1,7 @@
+This is a placeholder directory.
+
 Some peripherals have multiple instances, and thus multiple names.
-This directory contains patches which don't actually name a peripheral.
+This directory will contain patches which don't actually name a peripheral.
 They are meant to be `_include`d at peripheral scope.
 
 See `msp430g2553`'s `Timer0_A3` and `Timer1_A3` for an example;
