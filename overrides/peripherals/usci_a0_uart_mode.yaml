@@ -1,4 +1,4 @@
-USCI_A0_UART_Mode:
+USCI_A0_UART_MODE:
   _delete:
     - UCA0RXBUF
     - UCA0TXBUF

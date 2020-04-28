@@ -1,12 +1,19 @@
-# B0_SPI mode has the same registers as A0_SPI, but different names.
-# I couldn't find a nice way to merge the two files.
+# B0_I2C has a very similar layout to B0_SPI. addressOffets line up at least!
 
-USCI_B0_SPI_MODE:
+USCI_B0_I2C_MODE:
   _delete:
     - UCB0RXBUF
     - UCB0TXBUF
     - UCB0BR0
     - UCB0BR1
+  UCB0I2COA:
+    _merge:
+      - "UCOA*"
+    UCOA: [0, 1023]
+  UCB0I2CSA:
+    _merge:
+      - "UCSA*"
+    UCSA: [0, 1023]
   _add:
     UCB0RXBUF:
       description: USCI B0 Receive Buffer
