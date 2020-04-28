@@ -1,0 +1,56 @@
+# Machine generated using scripts/missing.py, commit f413e7a
+ADC10:
+  ADC10AE0:
+    ADC10AE0: [0, 255]
+  ADC10DTC1:
+    ADC10DTC1: [0, 255]
+  ADC10MEM:
+    ADC10MEM: [0, 65535]
+  ADC10SA:
+    ADC10SA: [0, 65535]
+  _add:
+    ADC10AE0:
+      addressOffset: 2
+      description: ADC10 Analog Enable 0
+      fields:
+        ADC10AE0:
+          bitOffset: 0
+          bitWidth: 8
+          description: ADC10 Analog Enable 0 register
+      resetMask: 255
+      size: 8
+    ADC10DTC1:
+      addressOffset: 1
+      description: ADC10 Data Transfer Control 1
+      fields:
+        ADC10DTC1:
+          bitOffset: 0
+          bitWidth: 8
+          description: ADC10 Data Transfer Control 1 register
+      resetMask: 255
+      size: 8
+    ADC10MEM:
+      addressOffset: 364
+      description: ADC10 Memory
+      fields:
+        ADC10MEM:
+          bitOffset: 0
+          bitWidth: 16
+          description: ADC10 Memory register
+      resetMask: 65535
+      size: 16
+    ADC10SA:
+      addressOffset: 372
+      description: ADC10 Data Transfer Start Address
+      fields:
+        ADC10SA:
+          bitOffset: 0
+          bitWidth: 16
+          description: ADC10 Data Transfer Start Address register
+      resetMask: 65535
+      size: 16
+  _delete:
+  - ADC10DTC1
+  - ADC10AE0
+  - ADC10MEM
+  - ADC10SA

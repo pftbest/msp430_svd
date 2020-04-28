@@ -47,6 +47,7 @@ Port_3_4:
     P3SEL2: [0, 0xff]
 
 _include:
+  - "../peripherals/adc10.yaml"
   - "../peripherals/port_1_2.yaml"
   - "../peripherals/port_3_4.yaml"
   - "../peripherals/timer0_a3.yaml"
