@@ -46,6 +46,185 @@ Port_3_4:
         bitWidth: 8
     P3SEL2: [0, 0xff]
 
+# Machine generated using scripts/missing.py, commit c203e83
+TLV_Calibration_Data:
+  TLV_ADC10_1_LEN:
+    TLV_ADC10_1_LEN: [0, 255]
+  TLV_ADC10_1_TAG:
+    TLV_ADC10_1_TAG: [0, 255]
+  TLV_CHECKSUM:
+    TLV_CHECKSUM: [0, 65535]
+  TLV_DCO_30_LEN:
+    TLV_DCO_30_LEN: [0, 255]
+  TLV_DCO_30_TAG:
+    TLV_DCO_30_TAG: [0, 255]
+  _add:
+    TLV_ADC10_1_LEN:
+      addressOffset: 27
+      description: TLV ADC10_1 LEN
+      fields:
+        TLV_ADC10_1_LEN:
+          bitOffset: 0
+          bitWidth: 8
+          description: TLV ADC10_1 LEN register
+      resetMask: 255
+      size: 8
+    TLV_ADC10_1_TAG:
+      addressOffset: 26
+      description: TLV ADC10_1 TAG
+      fields:
+        TLV_ADC10_1_TAG:
+          bitOffset: 0
+          bitWidth: 8
+          description: TLV ADC10_1 TAG register
+      resetMask: 255
+      size: 8
+    TLV_CHECKSUM:
+      addressOffset: 0
+      description: TLV CHECK SUM
+      fields:
+        TLV_CHECKSUM:
+          bitOffset: 0
+          bitWidth: 16
+          description: TLV CHECK SUM register
+      resetMask: 65535
+      size: 16
+    TLV_DCO_30_LEN:
+      addressOffset: 55
+      description: TLV TAG_DCO30 LEN
+      fields:
+        TLV_DCO_30_LEN:
+          bitOffset: 0
+          bitWidth: 8
+          description: TLV TAG_DCO30 LEN register
+      resetMask: 255
+      size: 8
+    TLV_DCO_30_TAG:
+      addressOffset: 54
+      description: TLV TAG_DCO30 TAG
+      fields:
+        TLV_DCO_30_TAG:
+          bitOffset: 0
+          bitWidth: 8
+          description: TLV TAG_DCO30 TAG register
+      resetMask: 255
+      size: 8
+  _delete:
+  - TLV_CHECKSUM
+  - TLV_DCO_30_TAG
+  - TLV_DCO_30_LEN
+  - TLV_ADC10_1_TAG
+  - TLV_ADC10_1_LEN
+
+# Machine generated using scripts/missing.py, commit c203e83
+Calibration_Data:
+  CALBC1_12MHZ:
+    CALBC1_12MHZ: [0, 255]
+  CALBC1_16MHZ:
+    CALBC1_16MHZ: [0, 255]
+  CALBC1_1MHZ:
+    CALBC1_1MHZ: [0, 255]
+  CALBC1_8MHZ:
+    CALBC1_8MHZ: [0, 255]
+  CALDCO_12MHZ:
+    CALDCO_12MHZ: [0, 255]
+  CALDCO_16MHZ:
+    CALDCO_16MHZ: [0, 255]
+  CALDCO_1MHZ:
+    CALDCO_1MHZ: [0, 255]
+  CALDCO_8MHZ:
+    CALDCO_8MHZ: [0, 255]
+  _add:
+    CALBC1_12MHZ:
+      addressOffset: 3
+      description: BCSCTL1 Calibration Data for 12MHz
+      fields:
+        CALBC1_12MHZ:
+          bitOffset: 0
+          bitWidth: 8
+          description: BCSCTL1 Calibration Data for 12MHz register
+      resetMask: 255
+      size: 8
+    CALBC1_16MHZ:
+      addressOffset: 1
+      description: BCSCTL1 Calibration Data for 16MHz
+      fields:
+        CALBC1_16MHZ:
+          bitOffset: 0
+          bitWidth: 8
+          description: BCSCTL1 Calibration Data for 16MHz register
+      resetMask: 255
+      size: 8
+    CALBC1_1MHZ:
+      addressOffset: 7
+      description: BCSCTL1 Calibration Data for 1MHz
+      fields:
+        CALBC1_1MHZ:
+          bitOffset: 0
+          bitWidth: 8
+          description: BCSCTL1 Calibration Data for 1MHz register
+      resetMask: 255
+      size: 8
+    CALBC1_8MHZ:
+      addressOffset: 5
+      description: BCSCTL1 Calibration Data for 8MHz
+      fields:
+        CALBC1_8MHZ:
+          bitOffset: 0
+          bitWidth: 8
+          description: BCSCTL1 Calibration Data for 8MHz register
+      resetMask: 255
+      size: 8
+    CALDCO_12MHZ:
+      addressOffset: 2
+      description: DCOCTL  Calibration Data for 12MHz
+      fields:
+        CALDCO_12MHZ:
+          bitOffset: 0
+          bitWidth: 8
+          description: DCOCTL  Calibration Data for 12MHz register
+      resetMask: 255
+      size: 8
+    CALDCO_16MHZ:
+      addressOffset: 0
+      description: DCOCTL  Calibration Data for 16MHz
+      fields:
+        CALDCO_16MHZ:
+          bitOffset: 0
+          bitWidth: 8
+          description: DCOCTL  Calibration Data for 16MHz register
+      resetMask: 255
+      size: 8
+    CALDCO_1MHZ:
+      addressOffset: 6
+      description: DCOCTL  Calibration Data for 1MHz
+      fields:
+        CALDCO_1MHZ:
+          bitOffset: 0
+          bitWidth: 8
+          description: DCOCTL  Calibration Data for 1MHz register
+      resetMask: 255
+      size: 8
+    CALDCO_8MHZ:
+      addressOffset: 4
+      description: DCOCTL  Calibration Data for 8MHz
+      fields:
+        CALDCO_8MHZ:
+          bitOffset: 0
+          bitWidth: 8
+          description: DCOCTL  Calibration Data for 8MHz register
+      resetMask: 255
+      size: 8
+  _delete:
+  - CALDCO_16MHZ
+  - CALBC1_16MHZ
+  - CALDCO_12MHZ
+  - CALBC1_12MHZ
+  - CALDCO_8MHZ
+  - CALBC1_8MHZ
+  - CALDCO_1MHZ
+  - CALBC1_1MHZ
+
 _include:
   - "../peripherals/adc10.yaml"
   - "../peripherals/port_1_2.yaml"
