@@ -2,3 +2,5 @@ target/
 **/*.rs.bk
 .vscode/
 .DS_Store
+*.svd
+*.svd.patched
