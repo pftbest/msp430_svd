@@ -1,0 +1,70 @@
+  _delete:
+    - TAIV
+    - TAR
+    - TACCR0
+    - TACCR1
+    - TACCR2
+  _add:
+    TAIV:
+      description: Timer A Interrupt Vector Word
+      addressOffset: 0
+      size: 16
+      resetMask: 65535
+      fields:
+        TAIV:
+          description: Timer A Interrupt Vector value
+          bitOffset: 0
+          bitWidth: 4
+    TAR:
+      description: Timer A Counter Register
+      addressOffset: 66
+      size: 16
+      resetMask: 65535
+      fields:
+        TAR:
+          description: Timer A Counter Register
+          bitOffset: 0
+          bitWidth: 16
+    TACCR0:
+      description: Timer A Capture/Compare 0
+      addressOffset: 68
+      size: 16
+      resetMask: 65535
+      fields:
+        TACCR0:
+          description: Timer A Capture/Compare register 0
+          bitOffset: 0
+          bitWidth: 16
+    TACCR1:
+      description: Timer A Capture/Compare 1
+      addressOffset: 70
+      size: 16
+      resetMask: 65535
+      fields:
+        TACCR1:
+          description: Timer A Capture/Compare register 1
+          bitOffset: 0
+          bitWidth: 16
+    TACCR2:
+      description: Timer A Capture/Compare 2
+      addressOffset: 72
+      size: 16
+      resetMask: 65535
+      fields:
+        TACCR1:
+          description: Timer A Capture/Compare register 2
+          bitOffset: 0
+          bitWidth: 16
+  TAIV:
+    TAIV:
+      NONE: [0, "No interrupt pending"]
+      TACCR1: [2, "Capture/Compare 1"]
+      TAIFG: [10, "Timer overflow"]
+  TAR:
+    TAR: [0, 0xffff]
+  TACCR0:
+    TACCR0: [0, 0xffff]
+  TACCR1:
+    TACCR1: [0, 0xffff]
+  TACCR2:
+    TACCR2: [0, 0xffff]
