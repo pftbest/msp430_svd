@@ -5,6 +5,7 @@ import argparse
 import os.path
 import sys
 import subprocess
+import re
 
 import yaml
 from lxml import etree
@@ -83,10 +84,18 @@ if __name__ == "__main__":
     yaml_out[args.peripheral]["_add"] = yaml_regs
 
     for r in missing_regs:
+        width = int(r.get("width"))
         bounds = "[0, {}]".format(2**width - 1)
         yaml_out[args.peripheral][r.get("id")] = { r.get("id") : bounds }
 
+
+    label = subprocess.check_output(["git", "rev-parse", "--short", "HEAD"]).strip().decode("utf-8")
+    yaml_str = yaml.dump(yaml_out, default_style=None, default_flow_style=False)
+
+    bounds_re = re.compile("'(\[.*\])'")
     with open(args.o, "w") as fp:
-        label = subprocess.check_output(["git", "rev-parse", "--short", "HEAD"]).strip().decode("utf-8")
         fp.write("# Machine generated using scripts/missing.py, commit {}\n".format(label))
-        yaml.dump(yaml_out, fp)
+
+        # Remove single quotes around bounds
+        for l in yaml_str.splitlines():
+            fp.write(re.sub(bounds_re, r"\1", l) + "\n")
