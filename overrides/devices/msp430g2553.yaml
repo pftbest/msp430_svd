@@ -13,58 +13,13 @@ _derive:
 
 # The SPI suffix is neither included in the datasheet or manual.
 USCI_A0_SPI_MODE:
-  _modify:
-    UCA0MCTL_SPI:
-      name:
-        UCA0MCTL
-    UCA0STAT_SPI:
-      name:
-        UCA0STAT
-    UCA0RXBUF_SPI:
-      name:
-        UCA0RXBUF
-    UCA0TXBUF_SPI:
-      name:
-        UCA0TXBUF
-    UCA0BR0_SPI:
-      name:
-        UCA0BR0
-    UCA0BR1_SPI:
-      name:
-        UCA0BR1
-    UCA0CTL0_SPI:
-      name:
-        UCA0CTL0
-    UCA0CTL1_SPI:
-      name:
-        UCA0CTL1
+  _strip_end:
+    - _SPI
 
 USCI_B0_SPI_MODE:
-  _modify:
-    UCB0MCTL_SPI:
-      name:
-        UCB0MCTL
-    UCB0STAT_SPI:
-      name:
-        UCB0STAT
-    UCB0RXBUF_SPI:
-      name:
-        UCB0RXBUF
-    UCB0TXBUF_SPI:
-      name:
-        UCB0TXBUF
-    UCB0BR0_SPI:
-      name:
-        UCB0BR0
-    UCB0BR1_SPI:
-      name:
-        UCB0BR1
-    UCB0CTL0_SPI:
-      name:
-        UCB0CTL0
-    UCB0CTL1_SPI:
-      name:
-        UCB0CTL1
+  _strip_end:
+    - _SPI
 
 _include:
   - "../peripherals/timer0_a3.yaml"
+  - "../peripherals/usci_a0_uart_mode.yaml"
