@@ -1,0 +1,58 @@
+USCI_A0_SPI_Mode:
+  _delete:
+    - UCA0MCTL # It exists according to manual, but it's unused.
+    - UCA0RXBUF
+    - UCA0TXBUF
+    - UCA0BR0
+    - UCA0BR1
+  _add:
+    UCA0RXBUF:
+      description: USCI A0 Receive Buffer
+      addressOffset: 6
+      size: 8
+      resetMask: 255
+      fields:
+        UCA0RXBUF:
+          description: USCI A0 Receive Buffer register
+          bitOffset: 0
+          bitWidth: 8
+    UCA0TXBUF:
+      description: USCI A0 Transmit Buffer
+      addressOffset: 7
+      size: 8
+      resetMask: 255
+      fields:
+        UCA0TXBUF:
+          description: USCI A0 Transmit Buffer register
+          bitOffset: 0
+          bitWidth: 8
+    UCA0BR0:
+      description: USCI A0 Baud Rate 0
+      addressOffset: 2
+      size: 8
+      resetMask: 255
+      fields:
+        UCA0BR0:
+          description: USCI A0 Baud Rate 0 register
+          bitOffset: 0
+          bitWidth: 8
+    UCA0BR1:
+      description: USCI A0 Baud Rate 1 Buffer
+      addressOffset: 3
+      size: 8
+      resetMask: 255
+      fields:
+        UCA0BR1:
+          description: USCI A0 Baud Rate 1 register
+          bitOffset: 0
+          bitWidth: 8
+  UCA0RXBUF:
+    UCA0RXBUF: [0, 255]
+  UCA0TXBUF:
+    UCA0TXBUF: [0, 255]
+  UCA0BR0:
+    UCA0BR0: [0, 255]
+  UCA0BR1:
+    UCA0BR1: [0, 255]
+# TODO: Figure out how to represent "UCA0CTL1.UCSYNC must be 1" at the PAC
+# level

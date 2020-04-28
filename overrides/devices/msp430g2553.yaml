@@ -22,4 +22,6 @@ USCI_B0_SPI_MODE:
 
 _include:
   - "../peripherals/timer0_a3.yaml"
+  - "../peripherals/usci_a0_spi_mode.yaml"
   - "../peripherals/usci_a0_uart_mode.yaml"
+  - "../peripherals/usci_b0_spi_mode.yaml"
