@@ -34,16 +34,16 @@ pub fn write_device(dev: &Device) -> String {
     el.children = vec![];
     el.children.push(XMLNode::Element(write_string("name", &dev.name)));
 
-    if let Some(x) = dev.defaults.size {
+    if let Some(x) = dev.default_register_properties.size {
         el.children.push(XMLNode::Element(write_string("size", &x.to_string())));
     }
-    if let Some(x) = dev.defaults.reset_value {
+    if let Some(x) = dev.default_register_properties.reset_value {
         el.children.push(XMLNode::Element(write_string("resetValue", &x.to_string())));
     }
-    if let Some(x) = dev.defaults.reset_mask {
+    if let Some(x) = dev.default_register_properties.reset_mask {
         el.children.push(XMLNode::Element(write_string("resetMask", &x.to_string())));
     }
-    if let Some(x) = dev.defaults.access {
+    if let Some(x) = dev.default_register_properties.access {
         el.children.push(XMLNode::Element(write_access(&x)));
     }
 
@@ -115,12 +115,16 @@ fn write_interrupt(int: &Interrupt) -> Element {
     el
 }
 
-fn write_registers(per: &[Register]) -> Element {
+fn write_registers(per: &std::vec::Vec<svd::RegisterCluster>) -> Element {
     let mut el = Element::new("registers");
     el.children = vec![];
 
     for r in per {
-        el.children.push(XMLNode::Element(write_register(r)));
+        if let svd::RegisterCluster::Register(reg) = r {
+            el.children.push(XMLNode::Element(write_register(reg)));
+        } else {
+            unimplemented!("Writing register clusters is not implemented.")
+        }
     }
     el
 }
@@ -136,7 +140,7 @@ fn write_register(reg: &Register) -> Element {
 
     el.children.push(XMLNode::Element(write_string("name", &reg.name)));
     el.children
-        .push(XMLNode::Element(write_string("description", &reg.description)));
+        .push(XMLNode::Element(write_string("description", reg.description.as_ref().unwrap())));
     el.children.push(XMLNode::Element(write_string(
         "addressOffset",
         &reg.address_offset.to_string(),

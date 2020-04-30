@@ -63,12 +63,12 @@ pub fn build_svd_device(
             for f in &reg.fields {
                 let mut enums = Vec::new();
                 for e in &f.enums {
-                    let ev = svd::EnumeratedValue {
-                        name: e.name.clone(),
-                        description: Some(e.description.clone()),
-                        value: Some(e.value),
-                        is_default: None,
-                    };
+                    let ev = svd::enumeratedvalue::EnumeratedValueBuilder::default()
+                        .name(e.name.clone())
+                        .description(Some(e.description.clone()))
+                        .value(Some(e.value))
+                        .is_default(None)
+                        .build().unwrap();
                     enums.push(ev);
                 }
 
@@ -87,26 +87,51 @@ pub fn build_svd_device(
                     dslite_parser::Access::WriteOnly => svd::Access::WriteOnly,
                 };
 
-                let field = svd::Field {
-                    name: f.name.clone(),
-                    description: Some(f.description.clone()),
-                    bit_range: svd::BitRange {
+                let field_info = svd::fieldinfo::FieldInfoBuilder::default()
+                    .name(f.name.clone())
+                    .description(Some(f.description.clone()))
+                    .bit_range(svd::bitrange::BitRange {
                         offset: f.offset,
                         width: f.width,
-                    },
-                    access: Some(access),
-                    enumerated_values: if enums.len() != 0 {
-                        vec![svd::EnumeratedValues {
-                            name: None,
-                            usage: None,
-                            derived_from: None,
-                            values: enums,
-                        }]
+                        range_type: svd::bitrange::BitRangeType::OffsetWidth
+                    })
+                    .access(Some(access))
+                    .enumerated_values(if enums.len() != 0 {
+                        vec![svd::enumeratedvalues::EnumeratedValuesBuilder::default()
+                            .name(None)
+                            .usage(None)
+                            .derived_from(None)
+                            .values(enums)
+                            .build().unwrap()]
                     } else {
                         vec![]
-                    },
-                    write_constraint: field_constraint,
-                };
+                    })
+                    .write_constraint(field_constraint)
+                    .modified_write_values(None)
+                    .build().unwrap();
+
+                let field = svd::field::Field::Single(field_info);
+
+                //  {
+                //     name: f.name.clone(),
+                //     description: Some(f.description.clone()),
+                //     bit_range: svd::BitRange {
+                //         offset: f.offset,
+                //         width: f.width,
+                //     },
+                //     access: Some(access),
+                //     enumerated_values: if enums.len() != 0 {
+                //         vec![svd::EnumeratedValues {
+                //             name: None,
+                //             usage: None,
+                //             derived_from: None,
+                //             values: enums,
+                //         }]
+                //     } else {
+                //         vec![]
+                //     },
+                //     write_constraint: field_constraint,
+                // };
                 fields.push(field);
             }
 
@@ -130,50 +155,53 @@ pub fn build_svd_device(
             if (fields.len() == reg.width as usize * 8)
                 && (fields.iter().all(|f| f.bit_range.width == 1))
             {
-                reg_constraint = Some(svd::WriteConstraint::Range(svd::WriteConstraintRange {
+                reg_constraint = Some(svd::WriteConstraint::Range(svd::writeconstraint::WriteConstraintRange {
                     min: 0,
                     max: ((1u64 << (reg.width * 8)) - 1) as u32,
                 }));
             }
 
-            let ri = svd::RegisterInfo {
-                name: reg.name.fix_name(),
-                description: reg.description.clone(),
-                address_offset: offset,
-                size: Some(reg.width * 8),
-                access: None,
-                reset_value: None,
-                reset_mask: Some(reset_mask),
-                fields: if fields.is_empty() {
+            let mut props : svd::RegisterProperties = Default::default();
+            props.size = Some(reg.width * 8);
+            props.reset_value = None;
+            props.reset_mask = Some(reset_mask);
+            props.access = None;
+
+            let ri = svd::registerinfo::RegisterInfoBuilder::default()
+                .name(reg.name.fix_name())
+                .description(Some(reg.description.clone()))
+                .address_offset(offset)
+                .fields(if fields.is_empty() {
                     None
                 } else {
                     Some(fields)
-                },
-                write_constraint: reg_constraint,
-                alternate_register: reg.alternate.clone(),
-            };
-            registers.push(svd::Register::Single(ri));
+                })
+                .properties(props)
+                .write_constraint(reg_constraint)
+                .alternate_register(reg.alternate.clone())
+                .build().unwrap();
+            registers.push(svd::RegisterCluster::Register(svd::Register::Single(ri)));
         }
 
-        let p = svd::Peripheral {
-            name: m.name.fix_name(),
-            group_name: None,
-            description: Some(m.description.clone()),
-            base_address: base_address,
-            interrupt: Vec::new(),
-            registers: Some(registers),
-            derived_from: None,
-        };
+        let p = svd::peripheral::PeripheralBuilder::default()
+            .name(m.name.fix_name())
+            .group_name(None)
+            .description(Some(m.description.clone()))
+            .base_address(base_address)
+            .interrupt(Vec::new())
+            .registers(Some(registers))
+            .derived_from(None)
+            .build().unwrap();
         peripherals.push(p);
     }
 
     if !interrupts.vectors.is_empty() {
-        peripherals.push(svd::Peripheral {
-            name: "_INTERRUPTS".to_owned(),
-            group_name: None,
-            description: None,
-            base_address: interrupts.base_offset,
-            interrupt: interrupts
+        peripherals.push(svd::peripheral::PeripheralBuilder::default()
+            .name("_INTERRUPTS".to_owned())
+            .group_name(None)
+            .description(None)
+            .base_address(interrupts.base_offset)
+            .interrupt(interrupts
                 .vectors
                 .iter()
                 .map(|int| svd::Interrupt {
@@ -181,20 +209,21 @@ pub fn build_svd_device(
                     description: Some(int.description.clone()),
                     value: int.value,
                 })
-                .collect(),
-            registers: None,
-            derived_from: None,
-        });
+                .collect())
+            .registers(None)
+            .derived_from(None)
+            .build().unwrap());
     }
 
-    svd::Device {
-        name: dev.name.fix_name(),
-        peripherals: peripherals,
-        defaults: svd::Defaults {
-            size: Some(2),
-            reset_value: Some(0),
-            reset_mask: None,
-            access: Some(svd::Access::ReadWrite),
-        },
-    }
+    let mut props : svd::RegisterProperties = Default::default();
+    props.size = Some(2);
+    props.reset_value = Some(0);
+    props.reset_mask = None;
+    props.access = Some(svd::Access::ReadWrite);
+
+    svd::device::DeviceBuilder::default()
+        .name(dev.name.fix_name())
+        .peripherals(peripherals)
+        .default_register_properties(props)
+        .build().unwrap()
 }
