@@ -1,0 +1,14 @@
+FRAM:
+  FRCTL0:
+    _add:
+      FRCTLPW:
+        description: FRCTLPW Password
+        bitOffset: 8
+        bitWidth: 8
+    FRCTLPW:
+      _read:
+        PASSWORD: [0x96, "Value always reads from the FRCTL0 register"]
+      _write:
+        PASSWORD: [0xA5, "Value which must be written to the FRCTL0 register"]
+
+
