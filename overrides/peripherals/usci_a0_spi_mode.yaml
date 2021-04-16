@@ -1,4 +1,4 @@
-USCI_A0_SPI_Mode:
+USCI_A0_SPI_MODE:
   _delete:
     - UCA0MCTL # It exists according to manual, but it's unused.
     - UCA0RXBUF

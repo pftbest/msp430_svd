@@ -1,7 +1,7 @@
 # TODO: Some devices only implement Port 3 (like msp430g2553).
 # Separate using a template.
 
-Port_3_4:
+PORT_3_4:
   P3IN:
     _add:
       P3IN:

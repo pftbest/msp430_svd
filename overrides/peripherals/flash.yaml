@@ -1,6 +1,6 @@
 # Every Flash peripheral is missing the password register.
 
-Flash:
+FLASH:
   FCTL1:
     _add:
       FWKEY:

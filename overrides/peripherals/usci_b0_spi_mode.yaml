@@ -1,7 +1,7 @@
 # B0_SPI mode has the same registers as A0_SPI, but different names.
 # I couldn't find a nice way to merge the two files.
 
-USCI_B0_SPI_Mode:
+USCI_B0_SPI_MODE:
   _delete:
     - UCB0RXBUF
     - UCB0TXBUF

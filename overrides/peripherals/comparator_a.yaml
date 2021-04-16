@@ -1,4 +1,4 @@
-Comparator_A:
+COMPARATOR_A:
   CACTL2:
     _merge:
       - "P2CA*"

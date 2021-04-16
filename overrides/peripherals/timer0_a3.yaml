@@ -1,4 +1,4 @@
-Timer0_A3:
+TIMER0_A3:
   _modify:
     TAOR:
       name: TAR

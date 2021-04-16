@@ -1,6 +1,6 @@
 # Every Watchdog timer peripheral is missing the password register.
 
-Watchdog_Timer:
+WATCHDOG_TIMER:
   WDTCTL:
     _add:
       WDTPW:

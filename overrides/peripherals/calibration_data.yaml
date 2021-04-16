@@ -1,4 +1,4 @@
-Calibration_Data:
+CALIBRATION_DATA:
   _delete:
     - CALDCO_1MHZ
     - CALBC1_1MHZ

@@ -1,4 +1,4 @@
-System_Clock:
+SYSTEM_CLOCK:
   DCOCTL:
     _add:
       # For compatibility with CALDCO_1MHZ
