@@ -1,10 +1,18 @@
 USCI_A0_SPI_MODE:
+  # The SPI suffix is neither included in the datasheet or manual.
+  _strip_end:
+    - _SPI
+
   _delete:
     - UCA0MCTL # It exists according to manual, but it's unused.
     - UCA0RXBUF
     - UCA0TXBUF
+    - UCA0RXBUF_SPI
+    - UCA0TXBUF_SPI
     - UCA0BR0
     - UCA0BR1
+    - UCA0BR0_SPI
+    - UCA0BR1_SPI
   _add:
     UCA0RXBUF:
       description: USCI A0 Receive Buffer

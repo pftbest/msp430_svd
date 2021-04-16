@@ -2,11 +2,19 @@
 # I couldn't find a nice way to merge the two files.
 
 USCI_B0_SPI_MODE:
+  # The SPI suffix is neither included in the datasheet or manual.
+  _strip_end:
+    - _SPI
+
   _delete:
     - UCB0RXBUF
     - UCB0TXBUF
+    - UCB0RXBUF_SPI
+    - UCB0TXBUF_SPI
     - UCB0BR0
     - UCB0BR1
+    - UCB0BR0_SPI
+    - UCB0BR1_SPI
   _add:
     UCB0RXBUF:
       description: USCI B0 Receive Buffer

@@ -1,27 +1,18 @@
 _svd: ../../msp430g2553.svd
 
 _modify:
-  Timer_0_A3:
-    name: Timer0_A3
+  TIMER_0_A3:
+    name: TIMER0_A3
     description: "Timer A3"
-  Timer_1_A3:
-    name: Timer1_A3
+  TIMER_1_A3:
+    name: TIMER1_A3
 
 # FIXME: _derive confusingly gives Timer1_A3 a type of Timer0_A3.
 _derive:
-  Timer1_A3: Timer0_A3
-
-# The SPI suffix is neither included in the datasheet or manual.
-USCI_A0_SPI_MODE:
-  _strip_end:
-    - _SPI
-
-USCI_B0_SPI_MODE:
-  _strip_end:
-    - _SPI
+  TIMER1_A3: TIMER0_A3
 
 # It appears device specific as to whether PxSEL2 is implemented.
-Port_1_2:
+PORT_1_2:
   P1SEL2:
     _add:
       P1SEL2:
@@ -37,7 +28,7 @@ Port_1_2:
         bitWidth: 8
     P2SEL2: [0, 0xff]
 
-Port_3_4:
+PORT_3_4:
   P3SEL2:
     _add:
       P3SEL2:
@@ -47,7 +38,7 @@ Port_3_4:
     P3SEL2: [0, 0xff]
 
 # Machine generated using scripts/missing.py, commit c203e83
-TLV_Calibration_Data:
+TLV_CALIBRATION_DATA:
   TLV_ADC10_1_LEN:
     TLV_ADC10_1_LEN: [0, 255]
   TLV_ADC10_1_TAG:
@@ -117,7 +108,7 @@ TLV_Calibration_Data:
   - TLV_ADC10_1_LEN
 
 # Machine generated using scripts/missing.py, commit c203e83
-Calibration_Data:
+CALIBRATION_DATA:
   CALBC1_12MHZ:
     CALBC1_12MHZ: [0, 255]
   CALBC1_16MHZ:
