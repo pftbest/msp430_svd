@@ -66,7 +66,7 @@ pub fn build_svd_device(
                     let ev = svd::enumeratedvalue::EnumeratedValueBuilder::default()
                         .name(e.name.clone())
                         .description(Some(e.description.clone()))
-                        .value(Some(e.value))
+                        .value(Some(e.value.into()))
                         .is_default(None)
                         .build().unwrap();
                     enums.push(ev);
@@ -157,7 +157,7 @@ pub fn build_svd_device(
             {
                 reg_constraint = Some(svd::WriteConstraint::Range(svd::writeconstraint::WriteConstraintRange {
                     min: 0,
-                    max: ((1u64 << (reg.width * 8)) - 1) as u32,
+                    max: ((1u64 << (reg.width * 8)) - 1),
                 }));
             }
 
@@ -187,7 +187,7 @@ pub fn build_svd_device(
             .name(m.name.fix_name())
             .group_name(None)
             .description(Some(m.description.clone()))
-            .base_address(base_address)
+            .base_address(base_address.into())
             .interrupt(Vec::new())
             .registers(Some(registers))
             .derived_from(None)
@@ -200,7 +200,7 @@ pub fn build_svd_device(
             .name("_INTERRUPTS".to_owned())
             .group_name(None)
             .description(None)
-            .base_address(interrupts.base_offset)
+            .base_address(interrupts.base_offset.into())
             .interrupt(interrupts
                 .vectors
                 .iter()

@@ -202,6 +202,12 @@ dependencies = [
 ]
 
 [[package]]
+name = "once_cell"
+version = "1.7.2"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "af8b08b04175473088b46763e51ee54da5f9a164bc162f615b91bc179dbf15a3"
+
+[[package]]
 name = "pest"
 version = "2.1.3"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -305,11 +311,14 @@ dependencies = [
 
 [[package]]
 name = "svd-parser"
-version = "0.9.0"
-source = "git+https://github.com/rust-embedded/svd?rev=9a97945#9a979456cbb64d86f0f5da855440d320ee99aa58"
+version = "0.10.1"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "6b787831d8f6a1549ccd1b0d62772d0526425a7da687f0f98591ab18e53bfe98"
 dependencies = [
  "anyhow",
+ "once_cell",
  "rayon",
+ "regex",
  "thiserror",
  "xmltree 0.8.0",
 ]
