@@ -100,9 +100,9 @@ pub fn parse_dslite(file_name: &Path) -> Device {
     }
 
     Device {
-        name: name,
-        description: description,
-        modules: modules,
+        name,
+        description,
+        modules,
     }
 }
 
@@ -153,9 +153,9 @@ fn parse_dslite_module(file_name: &Path, baseaddr: u32) -> Option<Module> {
     }
 
     Some(Module {
-        name: name,
-        description: description,
-        registers: registers,
+        name,
+        description,
+        registers,
     })
 }
 
@@ -192,12 +192,12 @@ fn parse_register(el: &Element, module: &str) -> Register {
         .collect::<Vec<_>>();
 
     Register {
-        name: name,
-        description: description,
-        offset: offset,
+        name,
+        description,
+        offset,
         width: width / 8,
         module: module.to_owned(),
-        fields: fields,
+        fields,
         alternate: None,
     }
 }
@@ -251,11 +251,11 @@ fn parse_field(el: &Element) -> Field {
         .collect::<Vec<_>>();
 
     Field {
-        name: name,
-        description: description,
-        offset: offset,
-        width: width,
-        enums: enums,
+        name,
+        description,
+        offset,
+        width,
+        enums,
         rwa,
     }
 }
@@ -279,8 +279,8 @@ fn parse_enum(el: &Element) -> EnumValue {
     }
 
     EnumValue {
-        name: name,
-        description: description,
-        value: value,
+        name,
+        description,
+        value,
     }
 }

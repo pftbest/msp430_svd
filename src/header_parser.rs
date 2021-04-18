@@ -31,7 +31,7 @@ pub fn parse_header(file_name: &Path) -> Interrupts {
 
     Interrupts {
         base_offset: uw!(base_offset),
-        vectors: vectors,
+        vectors,
     }
 }
 
@@ -58,7 +58,7 @@ fn parse_vector(line: &str) -> Option<Vector> {
     }
 
     Some(Vector {
-        name: name,
+        name,
         description: comment,
         value: uw!(utils::parse_u32(&value)) - 1,
     })

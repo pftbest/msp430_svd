@@ -96,7 +96,7 @@ pub fn build_svd_device(
                         range_type: svd::bitrange::BitRangeType::OffsetWidth
                     })
                     .access(Some(access))
-                    .enumerated_values(if enums.len() != 0 {
+                    .enumerated_values(if !enums.is_empty() {
                         vec![svd::enumeratedvalues::EnumeratedValuesBuilder::default()
                             .name(None)
                             .usage(None)

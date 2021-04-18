@@ -46,7 +46,7 @@ fn main() {
 
     match svd::parse(&out_svd) {
         Ok(parsed) => { assert_eq!(svd_dev, parsed); },
-        Err(e) => {
+        Err(_e) => {
             eprintln!("Parsing output file {} during round-trip test failed", out_svd);
             return;
         }

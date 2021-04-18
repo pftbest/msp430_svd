@@ -52,7 +52,7 @@ pub fn write_device(dev: &Device) -> String {
     el.children.push(XMLNode::Element(write_vendor_extensions()));
 
     let mut out = Vec::new();
-    el.write(&mut out);
+    el.write(&mut out).unwrap();
     String::from_utf8(out).unwrap()
 }
 
@@ -115,7 +115,7 @@ fn write_interrupt(int: &Interrupt) -> Element {
     el
 }
 
-fn write_registers(per: &std::vec::Vec<svd::RegisterCluster>) -> Element {
+fn write_registers(per: &[svd::RegisterCluster]) -> Element {
     let mut el = Element::new("registers");
     el.children = vec![];
 
