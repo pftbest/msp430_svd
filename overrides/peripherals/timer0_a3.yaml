@@ -1,7 +1,5 @@
 TIMER0_A3:
   _modify:
-    TAOR:
-      name: TAR
     TA0CTL:
       name: TACTL
     TA0CCTL0:
@@ -10,74 +8,52 @@ TIMER0_A3:
       name: TACCTL1
     TA0CCTL2:
       name: TACCTL2
-  _delete:
-    - TA0IV
-    - TA0R
-    - TA0CCR0
-    - TA0CCR1
-    - TA0CCR2
-  _add:
-    TAIV:
-      description: Timer A Interrupt Vector Word
-      addressOffset: 0
-      size: 16
-      resetMask: 65535
-      fields:
-        TAIV:
-          description: Timer A Interrupt Vector value
-          bitOffset: 0
-          bitWidth: 4
-    TAR:
-      description: Timer A Counter Register
-      addressOffset: 66
-      size: 16
-      resetMask: 65535
-      fields:
-        TAR:
-          description: Timer A Counter Register
-          bitOffset: 0
-          bitWidth: 16
-    TACCR0:
-      description: Timer A Capture/Compare 0
-      addressOffset: 68
-      size: 16
-      resetMask: 65535
-      fields:
-        TACCR0:
-          description: Timer A Capture/Compare register 0
-          bitOffset: 0
-          bitWidth: 16
-    TACCR1:
-      description: Timer A Capture/Compare 1
-      addressOffset: 70
-      size: 16
-      resetMask: 65535
-      fields:
-        TACCR1:
-          description: Timer A Capture/Compare register 1
-          bitOffset: 0
-          bitWidth: 16
-    TACCR2:
-      description: Timer A Capture/Compare 2
-      addressOffset: 72
-      size: 16
-      resetMask: 65535
-      fields:
-        TACCR2:
-          description: Timer A Capture/Compare register 2
-          bitOffset: 0
-          bitWidth: 16
+    TA0IV:
+      name: TAIV
+    TA0R:
+      name: TAR
+    TA0CCR0:
+      name: TACCR0
+    TA0CCR1:
+      name: TACCR1
+    TA0CCR2:
+      name: TACCR2
   TAIV:
+    _add:
+      TAIV:
+        description: Timer A Interrupt Vector value
+        bitOffset: 0
+        bitWidth: 4
     TAIV:
       NONE: [0, "No interrupt pending"]
       TACCR1: [2, "Capture/Compare 1"]
       TACCR2: [4, "Capture/Compare 2"]
       TAIFG: [10, "Timer overflow"]
   TAR:
+    _add:
+      TAR:
+        description: Timer A Counter Register
+        bitOffset: 0
+        bitWidth: 16
     TAR: [0, 0xffff]
   TACCR0:
+    _add:
+      TACCR0:
+        description: Timer A Capture/Compare register 0
+        bitOffset: 0
+        bitWidth: 16
     TACCR0: [0, 0xffff]
   TACCR1:
+    _add:
+      TACCR1:
+        description: Timer A Capture/Compare register 1
+        bitOffset: 0
+        bitWidth: 16
     TACCR1: [0, 0xffff]
   TACCR2:
+    _add:
+      TACCR2:
+        description: Timer A Capture/Compare register 2
+        bitOffset: 0
+        bitWidth: 16
     TACCR2: [0, 0xffff]

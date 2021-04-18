@@ -1,9 +1,4 @@
 USCI_A0_UART_MODE:
-  _delete:
-    - UCA0RXBUF
-    - UCA0TXBUF
-    - UCA0BR0
-    - UCA0BR1
   UCA0ABCTL:
     _merge:
       - "UCDELIM*"
@@ -22,52 +17,31 @@ USCI_A0_UART_MODE:
         description: Idle line detected
         bitOffset: 1
         bitWidth: 1
-  _add:
-    UCA0RXBUF:
-      description: USCI A0 Receive Buffer
-      addressOffset: 10
-      size: 8
-      resetMask: 255
-      fields:
-        UCA0RXBUF:
-          description: USCI A0 Receive Buffer register
-          bitOffset: 0
-          bitWidth: 8
-    UCA0TXBUF:
-      description: USCI A0 Transmit Buffer
-      addressOffset: 11
-      size: 8
-      resetMask: 255
-      fields:
-        UCA0TXBUF:
-          description: USCI A0 Transmit Buffer register
-          bitOffset: 0
-          bitWidth: 8
-    UCA0BR0:
-      description: USCI A0 Baud Rate 0
-      addressOffset: 6
-      size: 8
-      resetMask: 255
-      fields:
-        UCA0BR0:
-          description: USCI A0 Baud Rate 0 register
-          bitOffset: 0
-          bitWidth: 8
-    UCA0BR1:
-      description: USCI A0 Baud Rate 1 Buffer
-      addressOffset: 7
-      size: 8
-      resetMask: 255
-      fields:
-        UCA0BR1:
-          description: USCI A0 Baud Rate 1 register
-          bitOffset: 0
-          bitWidth: 8
   UCA0RXBUF:
+    _add:
+      UCA0RXBUF:
+        description: USCI A0 Receive Buffer register
+        bitOffset: 0
+        bitWidth: 8
     UCA0RXBUF: [0, 255]
   UCA0TXBUF:
+    _add:
+      UCA0TXBUF:
+        description: USCI A0 Transmit Buffer register
+        bitOffset: 0
+        bitWidth: 8
     UCA0TXBUF: [0, 255]
   UCA0BR0:
+    _add:
+      UCA0BR0:
+        description: USCI A0 Baud Rate 0 register
+        bitOffset: 0
+        bitWidth: 8
     UCA0BR0: [0, 255]
   UCA0BR1:
+    _add:
+      UCA0BR1:
+        description: USCI A0 Baud Rate 1 register
+        bitOffset: 0
+        bitWidth: 8
     UCA0BR1: [0, 255]

@@ -1,11 +1,6 @@
 # B0_I2C has a very similar layout to B0_SPI. addressOffets line up at least!
 
 USCI_B0_I2C_MODE:
-  _delete:
-    - UCB0RXBUF
-    - UCB0TXBUF
-    - UCB0BR0
-    - UCB0BR1
   UCB0I2COA:
     _merge:
       - "UCOA*"
@@ -14,54 +9,33 @@ USCI_B0_I2C_MODE:
     _merge:
       - "UCSA*"
     UCSA: [0, 1023]
-  _add:
-    UCB0RXBUF:
-      description: USCI B0 Receive Buffer
-      addressOffset: 6
-      size: 8
-      resetMask: 255
-      fields:
-        UCB0RXBUF:
-          description: USCI B0 Receive Buffer register
-          bitOffset: 0
-          bitWidth: 8
-    UCB0TXBUF:
-      description: USCI B0 Transmit Buffer
-      addressOffset: 7
-      size: 8
-      resetMask: 255
-      fields:
-        UCB0TXBUF:
-          description: USCI B0 Transmit Buffer register
-          bitOffset: 0
-          bitWidth: 8
-    UCB0BR0:
-      description: USCI B0 Baud Rate 0
-      addressOffset: 2
-      size: 8
-      resetMask: 255
-      fields:
-        UCB0BR0:
-          description: USCI B0 Baud Rate 0 register
-          bitOffset: 0
-          bitWidth: 8
-    UCB0BR1:
-      description: USCI B0 Baud Rate 1 Buffer
-      addressOffset: 3
-      size: 8
-      resetMask: 255
-      fields:
-        UCB0BR1:
-          description: USCI B0 Baud Rate 1 register
-          bitOffset: 0
-          bitWidth: 8
   UCB0RXBUF:
+    _add:
+      UCB0RXBUF:
+        description: USCI B0 Receive Buffer register
+        bitOffset: 0
+        bitWidth: 8
     UCB0RXBUF: [0, 255]
   UCB0TXBUF:
+    _add:
+      UCB0TXBUF:
+        description: USCI B0 Transmit Buffer register
+        bitOffset: 0
+        bitWidth: 8
     UCB0TXBUF: [0, 255]
   UCB0BR0:
+    _add:
+      UCB0BR0:
+        description: USCI B0 Baud Rate 0 register
+        bitOffset: 0
+        bitWidth: 8
     UCB0BR0: [0, 255]
   UCB0BR1:
+    _add:
+      UCB0BR1:
+        description: USCI B0 Baud Rate 1 register
+        bitOffset: 0
+        bitWidth: 8
     UCB0BR1: [0, 255]
 # TODO: Figure out how to represent "UCB0CTL1.UCSYNC must be 1" at the PAC
 # level

@@ -1,7 +1,4 @@
 CALIBRATION_DATA:
-  _delete:
-    - CALDCO_1MHZ
-    - CALBC1_1MHZ
   _add:
     CALDCO_1MHZ:
       description: DCOCTL  Calibration Data for 1MHz

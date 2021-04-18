@@ -73,10 +73,9 @@ patched output to double-check the results:
 Look at the `overrides/devices` directory for existing examples on how to write
 patches, along with the linked documentation.
 
-Versions of svdtools before commit [79a57db](https://github.com/stm32-rs/svdtools/commit/79a57db21f6373e81304ab5f330dd2780117ea4b)
-[do not properly](https://github.com/stm32-rs/svdtools/issues/24) handle
-registers that completely omit their fields. A workaround is to `_delete` such
-registers and recreate them with the missing fields.
+**You will need `svdtools` version [`0.1.13`](https://pypi.org/project/svdtools/0.1.13/)
+(or a later [commit](https://github.com/stm32-rs/svdtools/tree/v0.1.13)) to
+generate patches for your SVD file.**
 
 ### Naming Convention
 When possible, I use the MSP430x{1,2,3,4,5,6}xx Family User Guide name for
