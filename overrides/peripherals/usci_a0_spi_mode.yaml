@@ -5,6 +5,7 @@ USCI_A0_SPI_MODE:
 
   _delete:
     - UCA0MCTL # It exists according to manual, but it's unused.
+    - UCA0MCTL_SPI # It exists according to manual, but it's unused.
     - UCA0RXBUF
     - UCA0TXBUF
     - UCA0RXBUF_SPI
