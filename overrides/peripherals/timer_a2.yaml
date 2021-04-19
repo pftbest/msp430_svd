@@ -15,21 +15,18 @@ TIMER_A2:
         description: Timer A Counter Register
         bitOffset: 0
         bitWidth: 16
-    TAR:
-      TAR: [0, 0xffff]
+    TAR: [0, 0xffff]
   TACCR0:
     _add:
       TACCR0:
         description: Timer A Capture/Compare register 0
         bitOffset: 0
         bitWidth: 16
-    TACCR0:
-      TACCR0: [0, 0xffff]
+    TACCR0: [0, 0xffff]
   TACCR1:
     _add:
       TACCR1:
         description: Timer A Capture/Compare register 1
         bitOffset: 0
         bitWidth: 16
-    TACCR1:
-      TACCR1: [0, 0xffff]
+    TACCR1: [0, 0xffff]

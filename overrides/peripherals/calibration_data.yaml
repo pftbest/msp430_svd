@@ -1,22 +1,13 @@
 CALIBRATION_DATA:
-  _add:
-    CALDCO_1MHZ:
-      description: DCOCTL  Calibration Data for 1MHz
-      addressOffset: 0
-      size: 8
-      resetMask: 255
-      fields:
-        CALDCO_1MHZ:
-          description: DCOCTL  Calibration Data register
-          bitOffset: 0
-          bitWidth: 8
-    CALBC1_1MHZ:
-      description: BCSCTL1 Calibration Data for 1MHz
-      addressOffset: 1
-      size: 8
-      resetMask: 255
-      fields:
-        CALBC1_1MHZ:
-          description: BCSCTL1 Calibration Data register
-          bitOffset: 0
-          bitWidth: 8
+  CALDCO_1MHZ:
+    _add:
+      CALDCO_1MHZ:
+        description: DCOCTL  Calibration Data register
+        bitOffset: 0
+        bitWidth: 8
+  CALBC1_1MHZ:
+    _add:
+      CALBC1_1MHZ:
+        description: BCSCTL1 Calibration Data register
+        bitOffset: 0
+        bitWidth: 8
