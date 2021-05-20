@@ -2,7 +2,7 @@
 
 <include href="../options/CC430F6147_TI.xml"></include>
 <include href="../options/CC430F6147_GNU.xml"></include>
-<property Type="stringfield" Value="1.207" id="DeviceFileVersion"></property>
+<property Type="stringfield" Value="1.210" id="DeviceFileVersion"></property>
 <property Type="stringfield" Value="CC430x6xx Family" id="FilterString"></property>
 <property Type="numericfield" Value="80" id="HeapDefaultSize"></property>
 <property Type="stringfield" Value="minimal" id="PrintfDefault_support"></property>

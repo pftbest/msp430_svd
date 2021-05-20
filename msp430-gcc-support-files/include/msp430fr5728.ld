@@ -1,5 +1,5 @@
 /* ============================================================================ */
-/* Copyright (c) 2017, Texas Instruments Incorporated                           */
+/* Copyright (c) 2020, Texas Instruments Incorporated                           */
 /*  All rights reserved.                                                        */
 /*                                                                              */
 /*  Redistribution and use in source and binary forms, with or without          */
@@ -31,7 +31,7 @@
 /* ============================================================================ */
 
 /* This file supports MSP430FR5728 devices. */
-/* Version: 1.204 */
+/* Version: 1.210 */
 /* Default linker script, for normal executables */
 
 OUTPUT_ARCH(msp430)
@@ -44,7 +44,7 @@ MEMORY {
   INFOMEM          : ORIGIN = 0x1800, LENGTH = 0x0100 /* END=0x18FF, size 256 as 2 128-byte segments */
   INFOA            : ORIGIN = 0x1880, LENGTH = 0x0080 /* END=0x18FF, size 128 */
   INFOB            : ORIGIN = 0x1800, LENGTH = 0x0080 /* END=0x187F, size 128 */
-  ROM (rx)         : ORIGIN = 0xC200, LENGTH = 0x3D80 /* END=0xFF7F, size 15744 */
+  FRAM (rx)        : ORIGIN = 0xC200, LENGTH = 0x3D80 /* END=0xFF7F, size 15744 */
   JTAGSIGNATURE    : ORIGIN = 0xFF80, LENGTH = 0x0004
   BSLSIGNATURE     : ORIGIN = 0xFF84, LENGTH = 0x0004
   IPESIGNATURE     : ORIGIN = 0xFF88, LENGTH = 0x0008
@@ -176,32 +176,35 @@ SECTIONS
     KEEP (*(.resetvec))
   } > RESETVEC
 
-  .rodata : 
+  .rodata :
   {
     . = ALIGN(2);
     *(.plt)
     *(.rodata .rodata.* .gnu.linkonce.r.* .const .const:*)
     *(.rodata1)
     KEEP (*(.gcc_except_table)) *(.gcc_except_table.*)
-    PROVIDE (__preinit_array_start = .);
-    KEEP (*(.preinit_array))
-    PROVIDE (__preinit_array_end = .);
-    PROVIDE (__init_array_start = .);
-    KEEP (*(SORT(.init_array.*)))
-    KEEP (*(.init_array))
-    PROVIDE (__init_array_end = .);
-    PROVIDE (__fini_array_start = .);
-    KEEP (*(.fini_array))
-    KEEP (*(SORT(.fini_array.*)))
-    PROVIDE (__fini_array_end = .);
-  } > ROM
+  } > FRAM
 
   /* Note: This is a separate .rodata section for sections which are
      read only but which older linkers treat as read-write.
      This prevents older linkers from marking the entire .rodata
      section as read-write.  */
-  .rodata2 : 
+  .rodata2 :
   {
+    . = ALIGN(2);
+    PROVIDE (__preinit_array_start = .);
+    KEEP (*(.preinit_array))
+    PROVIDE (__preinit_array_end = .);
+    . = ALIGN(2);
+    PROVIDE (__init_array_start = .);
+    KEEP (*(SORT(.init_array.*)))
+    KEEP (*(.init_array))
+    PROVIDE (__init_array_end = .);
+    . = ALIGN(2);
+    PROVIDE (__fini_array_start = .);
+    KEEP (*(.fini_array))
+    KEEP (*(SORT(.fini_array.*)))
+    PROVIDE (__fini_array_end = .);
     . = ALIGN(2);
     *(.eh_frame_hdr)
     KEEP (*(.eh_frame))
@@ -226,10 +229,10 @@ SECTIONS
     KEEP (*(EXCLUDE_FILE (*crtend*.o ) .dtors))
     KEEP (*(SORT(.dtors.*)))
     KEEP (*(.dtors))
-  } > ROM
+  } > FRAM
 
   /* This section contains data that is initialised during load
-     but not on application reset.  */  
+     but not on application reset.  */
   .persistent :
   {
     . = ALIGN(2);
@@ -237,8 +240,8 @@ SECTIONS
     *(.persistent)
     . = ALIGN(2);
     PROVIDE (__persistent_end = .);
-  } > ROM
-  
+  } > FRAM
+
   .text :
   {
     . = ALIGN(2);
@@ -256,9 +259,9 @@ SECTIONS
     KEEP (*(.init))
     KEEP (*(.fini))
     KEEP (*(.tm_clone_table))
-  } > ROM
+  } > FRAM
 
-  .data : 
+  .data :
   {
     . = ALIGN(2);
     PROVIDE (__datastart = .);
@@ -283,14 +286,14 @@ SECTIONS
     _edata = .;
     PROVIDE (edata = .);
     PROVIDE (__dataend = .);
-  } > RAM AT>ROM
+  } > RAM AT>FRAM
 
   /* Note that crt0 assumes this is a multiple of two; all the
      start/stop symbols are also assumed word-aligned.  */
   PROVIDE(__romdatastart = LOADADDR(.data));
   PROVIDE (__romdatacopysize = SIZEOF(.data));
 
-  .bss : 
+  .bss :
   {
     . = ALIGN(2);
     PROVIDE (__bssstart = .);
@@ -305,7 +308,7 @@ SECTIONS
 
   /* This section contains data that is not initialised during load
      or application reset.  */
-  .noinit (NOLOAD) : 
+  .noinit (NOLOAD) :
   {
     . = ALIGN(2);
     PROVIDE (__noinit_start = .);
@@ -323,7 +326,7 @@ SECTIONS
     . = ALIGN(2);
     __heap_start__ = .;
     _end = __heap_start__;
-    PROVIDE (end = .); 
+    PROVIDE (end = .);
     KEEP (*(.heap))
     _end = .;
     PROVIDE (end = .);

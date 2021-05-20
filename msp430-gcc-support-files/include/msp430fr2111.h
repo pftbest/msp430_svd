@@ -1,6 +1,6 @@
 //*****************************************************************************
 //
-// Copyright (C) 2017 Texas Instruments Incorporated - http://www.ti.com/
+// Copyright (C) 2020 Texas Instruments Incorporated - http://www.ti.com/
 //
 // Redistribution and use in source and binary forms, with or without
 // modification, are permitted provided that the following conditions
@@ -44,7 +44,7 @@
 #ifndef __MSP430FR2111
 #define __MSP430FR2111
 
-#define __MSP430_HEADER_VERSION__ 1204
+#define __MSP430_HEADER_VERSION__ 1210
 
 #define __MSP430_HAS_MSP430XV2_CPU__  /* CPU type */
 #define __MSP430FR2XX_4XX_FAMILY__
@@ -1581,17 +1581,12 @@ sfr_b(CSCTL8_H);
 #define __MSP430_HAS_PORT1_R__                /* Definition to show that port is available */
 #define __MSP430_BASEADDRESS_PORT1_R__ 0x200
 #define P1_BASE                __MSP430_BASEADDRESS_PORT1_R__
-#define __MSP430_HAS_PORT2_R__                /* Definition to show that port is available */
-#define __MSP430_BASEADDRESS_PORT2_R__ 0x200
-#define P2_BASE                __MSP430_BASEADDRESS_PORT2_R__
 #define __MSP430_HAS_PASEL0__                 /* Define for DriverLib */
 #define __MSP430_HAS_PASEL1__                 /* Define for DriverLib */
 #define __MSP430_HAS_PJSEL0__                 /* Define for DriverLib */
 #define __MSP430_HAS_PJSEL1__                 /* Define for DriverLib */
 #define __MSP430_HAS_P1SEL0__                 /* Define for DriverLib */
-#define __MSP430_HAS_P2SEL0__                 /* Define for DriverLib */
 #define __MSP430_HAS_P1SEL1__                 /* Define for DriverLib */
-#define __MSP430_HAS_P2SEL1__                 /* Define for DriverLib */
 
 sfr_w(PAIN);                                  /* Port A Input */
 sfr_b(PAIN_L);
@@ -4700,7 +4695,6 @@ sfr_b(UCA0IV_H);
 ************************************************************/
 
 #define __MSP430_HAS_TLV__                    /* Definition to show that Module is available */
-#define TLV_BASE               __MSP430_BASEADDRESS_TLV__
 
 #define TLV_CRC_LENGTH         (0x1A01)       /* CRC length of the TLV structure */
 #define TLV_CRC_VALUE          (0x1A02)       /* CRC value of the TLV structure */

@@ -1,5 +1,5 @@
 <properties XML_version="1.2">
-<property Type="stringfield" Value="1.207" id="TIOptionsVersion"></property>
+<property Type="stringfield" Value="1.210" id="TIOptionsVersion"></property>
 <property Type="stringfield" Value="-D=__MSP430F46161__ --data_model=restricted   --use_hw_mpy=16" id="CompilerBuildOptions"></property>
 <property Type="stringfield" Value=" --use_hw_mpy=16 --cinit_hold_wdt=on" id="LinkerBuildOptions"></property>
 </properties>

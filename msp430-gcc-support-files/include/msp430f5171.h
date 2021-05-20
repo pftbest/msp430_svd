@@ -1,5 +1,5 @@
 /* ============================================================================ */
-/* Copyright (c) 2017, Texas Instruments Incorporated                           */
+/* Copyright (c) 2020, Texas Instruments Incorporated                           */
 /*  All rights reserved.                                                        */
 /*                                                                              */
 /*  Redistribution and use in source and binary forms, with or without          */
@@ -55,7 +55,7 @@
 #define __MSP430_HAS_MSP430XV2_CPU__                /* Definition to show that it has MSP430XV2 CPU */
 #define __MSP430F5XX_6XX_FAMILY__
 
-#define __MSP430_HEADER_VERSION__ 1204
+#define __MSP430_HEADER_VERSION__ 1210
 
 #ifdef __cplusplus
 extern "C" {
@@ -526,27 +526,13 @@ sfr_b(CRCRESR_H);                             /* CRC reverse result Register */
 #define DMA_BASE               __MSP430_BASEADDRESS_DMAX_3__
 
 sfr_w(DMACTL0);                               /* DMA Module Control 0 */
-sfr_b(DMACTL0_L);                             /* DMA Module Control 0 */
-sfr_b(DMACTL0_H);                             /* DMA Module Control 0 */
 sfr_w(DMACTL1);                               /* DMA Module Control 1 */
-sfr_b(DMACTL1_L);                             /* DMA Module Control 1 */
-sfr_b(DMACTL1_H);                             /* DMA Module Control 1 */
 sfr_w(DMACTL2);                               /* DMA Module Control 2 */
-sfr_b(DMACTL2_L);                             /* DMA Module Control 2 */
-sfr_b(DMACTL2_H);                             /* DMA Module Control 2 */
 sfr_w(DMACTL3);                               /* DMA Module Control 3 */
-sfr_b(DMACTL3_L);                             /* DMA Module Control 3 */
-sfr_b(DMACTL3_H);                             /* DMA Module Control 3 */
 sfr_w(DMACTL4);                               /* DMA Module Control 4 */
-sfr_b(DMACTL4_L);                             /* DMA Module Control 4 */
-sfr_b(DMACTL4_H);                             /* DMA Module Control 4 */
 sfr_w(DMAIV);                                 /* DMA Interrupt Vector Word */
-sfr_b(DMAIV_L);                               /* DMA Interrupt Vector Word */
-sfr_b(DMAIV_H);                               /* DMA Interrupt Vector Word */
 
 sfr_w(DMA0CTL);                               /* DMA Channel 0 Control */
-sfr_b(DMA0CTL_L);                             /* DMA Channel 0 Control */
-sfr_b(DMA0CTL_H);                             /* DMA Channel 0 Control */
 sfr_l(DMA0SA);                                /* DMA Channel 0 Source Address */
 sfr_w(DMA0SAL);                               /* DMA Channel 0 Source Address */
 sfr_w(DMA0SAH);                               /* DMA Channel 0 Source Address */
@@ -556,8 +542,6 @@ sfr_w(DMA0DAH);                               /* DMA Channel 0 Destination Addre
 sfr_w(DMA0SZ);                                /* DMA Channel 0 Transfer Size */
 
 sfr_w(DMA1CTL);                               /* DMA Channel 1 Control */
-sfr_b(DMA1CTL_L);                             /* DMA Channel 1 Control */
-sfr_b(DMA1CTL_H);                             /* DMA Channel 1 Control */
 sfr_l(DMA1SA);                                /* DMA Channel 1 Source Address */
 sfr_w(DMA1SAL);                               /* DMA Channel 1 Source Address */
 sfr_w(DMA1SAH);                               /* DMA Channel 1 Source Address */
@@ -567,8 +551,6 @@ sfr_w(DMA1DAH);                               /* DMA Channel 1 Destination Addre
 sfr_w(DMA1SZ);                                /* DMA Channel 1 Transfer Size */
 
 sfr_w(DMA2CTL);                               /* DMA Channel 2 Control */
-sfr_b(DMA2CTL_L);                             /* DMA Channel 2 Control */
-sfr_b(DMA2CTL_H);                             /* DMA Channel 2 Control */
 sfr_l(DMA2SA);                                /* DMA Channel 2 Source Address */
 sfr_w(DMA2SAL);                               /* DMA Channel 2 Source Address */
 sfr_w(DMA2SAH);                               /* DMA Channel 2 Source Address */
@@ -589,20 +571,6 @@ sfr_w(DMA2SZ);                                /* DMA Channel 2 Transfer Size */
 #define DMA1TSEL3              (0x0800)       /* DMA channel 1 transfer select bit 3 */
 #define DMA1TSEL4              (0x1000)       /* DMA channel 1 transfer select bit 4 */
 
-/* DMACTL0 Control Bits */
-#define DMA0TSEL0_L            (0x0001)       /* DMA channel 0 transfer select bit 0 */
-#define DMA0TSEL1_L            (0x0002)       /* DMA channel 0 transfer select bit 1 */
-#define DMA0TSEL2_L            (0x0004)       /* DMA channel 0 transfer select bit 2 */
-#define DMA0TSEL3_L            (0x0008)       /* DMA channel 0 transfer select bit 3 */
-#define DMA0TSEL4_L            (0x0010)       /* DMA channel 0 transfer select bit 4 */
-
-/* DMACTL0 Control Bits */
-#define DMA1TSEL0_H            (0x0001)       /* DMA channel 1 transfer select bit 0 */
-#define DMA1TSEL1_H            (0x0002)       /* DMA channel 1 transfer select bit 1 */
-#define DMA1TSEL2_H            (0x0004)       /* DMA channel 1 transfer select bit 2 */
-#define DMA1TSEL3_H            (0x0008)       /* DMA channel 1 transfer select bit 3 */
-#define DMA1TSEL4_H            (0x0010)       /* DMA channel 1 transfer select bit 4 */
-
 /* DMACTL01 Control Bits */
 #define DMA2TSEL0              (0x0001)       /* DMA channel 2 transfer select bit 0 */
 #define DMA2TSEL1              (0x0002)       /* DMA channel 2 transfer select bit 1 */
@@ -610,22 +578,10 @@ sfr_w(DMA2SZ);                                /* DMA Channel 2 Transfer Size */
 #define DMA2TSEL3              (0x0008)       /* DMA channel 2 transfer select bit 3 */
 #define DMA2TSEL4              (0x0010)       /* DMA channel 2 transfer select bit 4 */
 
-/* DMACTL01 Control Bits */
-#define DMA2TSEL0_L            (0x0001)       /* DMA channel 2 transfer select bit 0 */
-#define DMA2TSEL1_L            (0x0002)       /* DMA channel 2 transfer select bit 1 */
-#define DMA2TSEL2_L            (0x0004)       /* DMA channel 2 transfer select bit 2 */
-#define DMA2TSEL3_L            (0x0008)       /* DMA channel 2 transfer select bit 3 */
-#define DMA2TSEL4_L            (0x0010)       /* DMA channel 2 transfer select bit 4 */
-
 /* DMACTL4 Control Bits */
 #define ENNMI                  (0x0001)       /* Enable NMI interruption of DMA */
 #define ROUNDROBIN             (0x0002)       /* Round-Robin DMA channel priorities */
 #define DMARMWDIS              (0x0004)       /* Inhibited DMA transfers during read-modify-write CPU operations */
-
-/* DMACTL4 Control Bits */
-#define ENNMI_L                (0x0001)       /* Enable NMI interruption of DMA */
-#define ROUNDROBIN_L           (0x0002)       /* Round-Robin DMA channel priorities */
-#define DMARMWDIS_L            (0x0004)       /* Inhibited DMA transfers during read-modify-write CPU operations */
 
 /* DMAxCTL Control Bits */
 #define DMAREQ                 (0x0001)       /* Initiate DMA transfer with DMATSEL */
@@ -643,25 +599,6 @@ sfr_w(DMA2SZ);                                /* DMA Channel 2 Transfer Size */
 #define DMADT0                 (0x1000)       /* DMA transfer mode bit 0 */
 #define DMADT1                 (0x2000)       /* DMA transfer mode bit 1 */
 #define DMADT2                 (0x4000)       /* DMA transfer mode bit 2 */
-
-/* DMAxCTL Control Bits */
-#define DMAREQ_L               (0x0001)       /* Initiate DMA transfer with DMATSEL */
-#define DMAABORT_L             (0x0002)       /* DMA transfer aborted by NMI */
-#define DMAIE_L                (0x0004)       /* DMA interrupt enable */
-#define DMAIFG_L               (0x0008)       /* DMA interrupt flag */
-#define DMAEN_L                (0x0010)       /* DMA enable */
-#define DMALEVEL_L             (0x0020)       /* DMA level sensitive trigger select */
-#define DMASRCBYTE_L           (0x0040)       /* DMA source byte */
-#define DMADSTBYTE_L           (0x0080)       /* DMA destination byte */
-
-/* DMAxCTL Control Bits */
-#define DMASRCINCR0_H          (0x0001)       /* DMA source increment bit 0 */
-#define DMASRCINCR1_H          (0x0002)       /* DMA source increment bit 1 */
-#define DMADSTINCR0_H          (0x0004)       /* DMA destination increment bit 0 */
-#define DMADSTINCR1_H          (0x0008)       /* DMA destination increment bit 1 */
-#define DMADT0_H               (0x0010)       /* DMA transfer mode bit 0 */
-#define DMADT1_H               (0x0020)       /* DMA transfer mode bit 1 */
-#define DMADT2_H               (0x0040)       /* DMA transfer mode bit 2 */
 
 #define DMASWDW                (0x0000)       /* DMA transfer: source word to destination word */
 #define DMASBDW                (0x0040)       /* DMA transfer: source byte to destination word */
@@ -3512,7 +3449,6 @@ sfr_b(WDTCTL_H);                              /* Watchdog Timer Control */
 * TLV Descriptors
 ************************************************************/
 #define __MSP430_HAS_TLV__                    /* Definition to show that Module is available */
-#define TLV_BASE               __MSP430_BASEADDRESS_TLV__
 
 #define TLV_CRC_LENGTH         (0x1A01)       /* CRC length of the TLV structure */
 #define TLV_CRC_VALUE          (0x1A02)       /* CRC value of the TLV structure */

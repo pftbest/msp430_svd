@@ -1,6 +1,6 @@
 //*****************************************************************************
 //
-// Copyright (C) 2018 Texas Instruments Incorporated - http://www.ti.com/
+// Copyright (C) 2020 Texas Instruments Incorporated - http://www.ti.com/
 //
 // Redistribution and use in source and binary forms, with or without
 // modification, are permitted provided that the following conditions
@@ -44,7 +44,7 @@
 #ifndef __MSP430FR2355
 #define __MSP430FR2355
 
-#define __MSP430_HEADER_VERSION__ 1206
+#define __MSP430_HEADER_VERSION__ 1210
 
 #define __MSP430_HAS_MSP430XV2_CPU__  /* CPU type */
 #define __MSP430FR2XX_4XX_FAMILY__
@@ -1616,12 +1616,6 @@ sfr_b(CSCTL8_H);
 #define __MSP430_HAS_PORTC_R__                /* Definition to show that port is available */
 #define __MSP430_BASEADDRESS_PORTC_R__ 0x240
 #define PC_BASE                __MSP430_BASEADDRESS_PORTC_R__
-#define __MSP430_HAS_PORTD_R__                /* Definition to show that port is available */
-#define __MSP430_BASEADDRESS_PORTD_R__ 0x260
-#define PD_BASE                __MSP430_BASEADDRESS_PORTD_R__
-#define __MSP430_HAS_PORTE_R__                /* Definition to show that port is available */
-#define __MSP430_BASEADDRESS_PORTE_R__ 0x280
-#define PE_BASE                __MSP430_BASEADDRESS_PORTE_R__
 #define __MSP430_HAS_PORTJ_R__                /* Definition to show that port is available */
 #define __MSP430_BASEADDRESS_PORTJ_R__ 0x320
 #define PJ_BASE                __MSP430_BASEADDRESS_PORTJ_R__
@@ -1643,28 +1637,12 @@ sfr_b(CSCTL8_H);
 #define __MSP430_HAS_PORT6_R__                /* Definition to show that port is available */
 #define __MSP430_BASEADDRESS_PORT6_R__ 0x240
 #define P6_BASE                __MSP430_BASEADDRESS_PORT6_R__
-#define __MSP430_HAS_PORT7_R__                /* Definition to show that port is available */
-#define __MSP430_BASEADDRESS_PORT7_R__ 0x260
-#define P7_BASE                __MSP430_BASEADDRESS_PORT7_R__
-#define __MSP430_HAS_PORT8_R__                /* Definition to show that port is available */
-#define __MSP430_BASEADDRESS_PORT8_R__ 0x260
-#define P8_BASE                __MSP430_BASEADDRESS_PORT8_R__
-#define __MSP430_HAS_PORT9_R__                /* Definition to show that port is available */
-#define __MSP430_BASEADDRESS_PORT9_R__ 0x280
-#define P9_BASE                __MSP430_BASEADDRESS_PORT9_R__
-#define __MSP430_HAS_PORT10_R__                /* Definition to show that port is available */
-#define __MSP430_BASEADDRESS_PORT10_R__ 0x280
-#define P10_BASE                __MSP430_BASEADDRESS_PORT10_R__
 #define __MSP430_HAS_PASEL0__                 /* Define for DriverLib */
 #define __MSP430_HAS_PASEL1__                 /* Define for DriverLib */
 #define __MSP430_HAS_PBSEL0__                 /* Define for DriverLib */
 #define __MSP430_HAS_PBSEL1__                 /* Define for DriverLib */
 #define __MSP430_HAS_PCSEL0__                 /* Define for DriverLib */
 #define __MSP430_HAS_PCSEL1__                 /* Define for DriverLib */
-#define __MSP430_HAS_PDSEL0__                 /* Define for DriverLib */
-#define __MSP430_HAS_PDSEL1__                 /* Define for DriverLib */
-#define __MSP430_HAS_PESEL0__                 /* Define for DriverLib */
-#define __MSP430_HAS_PESEL1__                 /* Define for DriverLib */
 #define __MSP430_HAS_PJSEL0__                 /* Define for DriverLib */
 #define __MSP430_HAS_PJSEL1__                 /* Define for DriverLib */
 #define __MSP430_HAS_P1SEL0__                 /* Define for DriverLib */
@@ -1679,14 +1657,6 @@ sfr_b(CSCTL8_H);
 #define __MSP430_HAS_P6SEL0__                 /* Define for DriverLib */
 #define __MSP430_HAS_P5SEL1__                 /* Define for DriverLib */
 #define __MSP430_HAS_P6SEL1__                 /* Define for DriverLib */
-#define __MSP430_HAS_P7SEL0__                 /* Define for DriverLib */
-#define __MSP430_HAS_P8SEL0__                 /* Define for DriverLib */
-#define __MSP430_HAS_P7SEL1__                 /* Define for DriverLib */
-#define __MSP430_HAS_P8SEL1__                 /* Define for DriverLib */
-#define __MSP430_HAS_P9SEL0__                 /* Define for DriverLib */
-#define __MSP430_HAS_P10SEL0__                 /* Define for DriverLib */
-#define __MSP430_HAS_P9SEL1__                 /* Define for DriverLib */
-#define __MSP430_HAS_P10SEL1__                 /* Define for DriverLib */
 
 sfr_w(PAIN);                                  /* Port A Input */
 sfr_b(PAIN_L);
@@ -7860,7 +7830,6 @@ sfr_b(UCB1IV_H);
 ************************************************************/
 
 #define __MSP430_HAS_TLV__                    /* Definition to show that Module is available */
-#define TLV_BASE               __MSP430_BASEADDRESS_TLV__
 
 #define TLV_CRC_LENGTH         (0x1A01)       /* CRC length of the TLV structure */
 #define TLV_CRC_VALUE          (0x1A02)       /* CRC value of the TLV structure */

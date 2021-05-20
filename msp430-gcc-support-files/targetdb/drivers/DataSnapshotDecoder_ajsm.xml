@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<drivers id="tixds510ajsm">
+    <isa Type="AJSM" ProcID="0x38400404">
+        <driver file="..\..\DebugServer\bin\DataSnapshotDecoder.dll">
+			<connectionType Type="DataSnapshotViewer"/>
+	    <property Name="Unlock Key bits 31:00" Type="numericfield" Value="0x0" NumericType="HEX" UpperBound="0xFFFFFFFF" LowerBound="0" ID="device.unlock_key_w0"/>
+	    <property Name="Unlock Key bits 63:32" Type="numericfield" Value="0x0" NumericType="HEX" UpperBound="0xFFFFFFFF" LowerBound="0" ID="device.unlock_key_w1"/>
+	    <property Name="Unlock Key bits 95:64" Type="numericfield" Value="0x0" NumericType="HEX" UpperBound="0xFFFFFFFF" LowerBound="0" ID="device.unlock_key_w2"/>
+	    <property Name="Unlock Key bits 127:96" Type="numericfield" Value="0x0" NumericType="HEX" UpperBound="0xFFFFFFFF" LowerBound="0" ID="device.unlock_key_w3"/>
+        </driver>
+    </isa>
+</drivers>

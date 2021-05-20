@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <drivers id="TMS192C2026">
     <isa id="TMS192C2026" ProcID="0x300080d0">
-        <driver file="../../DebugServer/bin/libDataSnapshotDecoder.dylib">
+        <driver file="..\..\DebugServer\bin\DataSnapshotDecoder.dll">
 			<connectionType Type="DataSnapshotViewer"/>
             <property id="debugParent" Type="hiddenfield" Value="" />
             <property id="PRU Base Address" Type="hiddenfield" Value="0x00" />

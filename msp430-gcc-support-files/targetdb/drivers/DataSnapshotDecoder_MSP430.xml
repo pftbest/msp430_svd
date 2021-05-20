@@ -2,7 +2,7 @@
 
 <drivers id="MSP430">
                 <isa Type="MSP430" ProcID="0x6b800000">
-                                <driver file="..\..\DebugServer\bin\libDataSnapshotDecoder.dylib">
+                                <driver file="..\..\DebugServer\bin\DataSnapshotDecoder.dll">
                                                 <connectionType Type="DataSnapshotViewer"/>
                                                 <property Type="hiddenfield" Value="msp430.dll" id="dllName" />
                                                 <property Type="hiddenfield" Value="MSP430" id="interface" />
@@ -14,7 +14,7 @@
                                 </driver>
                 </isa>
                 <isa Type="MSP430L092" ProcID="0x6b800000">
-                                <driver file="..\..\DebugServer\bin\libDataSnapshotDecoder.dylib">
+                                <driver file="..\..\DebugServer\bin\DataSnapshotDecoder.dll">
                                                 <connectionType Type="DataSnapshotViewer"/>
                                                 <property Type="hiddenfield" Value="msp430.dll" id="dllName" />
                                                 <property Type="hiddenfield" Value="MSP430" id="interface" />
@@ -31,7 +31,7 @@
                                 </driver>
                 </isa>
                 <isa Type="MSP430C09x" ProcID="0x6b800000">
-                                <driver file="..\..\DebugServer\bin\libDataSnapshotDecoder.dylib">
+                                <driver file="..\..\DebugServer\bin\DataSnapshotDecoder.dll">
                                                 <connectionType Type="DataSnapshotViewer"/>
                                                 <property Type="hiddenfield" Value="msp430.dll" id="dllName" />
                                                 <property Type="hiddenfield" Value="MSP430" id="interface" />
@@ -44,7 +44,7 @@
                                 </driver>
                 </isa>
                 <isa Type="MSP430FR57xx" ProcID="0x6b800000">
-                                <driver file="..\..\DebugServer\bin\libDataSnapshotDecoder.dylib">
+                                <driver file="..\..\DebugServer\bin\DataSnapshotDecoder.dll">
                                                 <connectionType Type="DataSnapshotViewer"/>
                                                 <property Type="hiddenfield" Value="msp430.dll" id="dllName" />
 												<property Type="hiddenfield" id="supportLPMx5" Value="true"></property>
@@ -59,7 +59,7 @@
                                 </driver>
                 </isa>
 				<isa Type="MSP430FR59xx" ProcID="0x6b800000">
-                                <driver file="..\..\DebugServer\bin\libDataSnapshotDecoder.dylib">
+                                <driver file="..\..\DebugServer\bin\DataSnapshotDecoder.dll">
                                                 <connectionType Type="DataSnapshotViewer"/>
                                                 <property Type="hiddenfield" Value="msp430.dll" id="dllName" />
 												<property Type="hiddenfield" id="supportLPMx5" Value="true"></property>
@@ -74,7 +74,7 @@
                                 </driver>
                 </isa>
 				<isa Type="MSP430F1xx_SLOW" ProcID="0x6b800000">
-                                <driver file="..\..\DebugServer\bin\libDataSnapshotDecoder.dylib">
+                                <driver file="..\..\DebugServer\bin\DataSnapshotDecoder.dll">
                                                 <connectionType Type="DataSnapshotViewer"/>
                                                 <property Type="hiddenfield" Value="msp430.dll" id="dllName" />
                                                 <property Type="hiddenfield" Value="MSP430" id="interface" />
@@ -84,7 +84,7 @@
                                 </driver>
                 </isa>
                 <isa Type="RF430FRL15X" ProcID="0x6b800000">
-                                <driver file="..\..\DebugServer\bin\libDataSnapshotDecoder.dylib">
+                                <driver file="..\..\DebugServer\bin\DataSnapshotDecoder.dll">
                                                 <connectionType Type="DataSnapshotViewer"/>
                                                 <property Type="hiddenfield" Value="msp430.dll" id="dllName" />
                                                 <property Type="hiddenfield" Value="MSP430" id="interface" />

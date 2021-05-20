@@ -33,7 +33,7 @@
 /* This file supports MSP430FR2422 devices. */
 /* Default linker script, for normal executables */
 
-/* 1.204 */
+/* 1.210 */
 
 OUTPUT_ARCH(msp430)
 ENTRY(_start)
@@ -43,7 +43,7 @@ MEMORY {
   BSL1             : ORIGIN = 0xFFC00, LENGTH = 0x0400
   RAM              : ORIGIN = 0x2000, LENGTH = 0x0800
   INFOMEM          : ORIGIN = 0x1800, LENGTH = 0x0100
-  ROM (rx)         : ORIGIN = 0xE300, LENGTH = 0x1C80 /* END=0xFF7F, size 7296 */
+  FRAM (rx)        : ORIGIN = 0xE300, LENGTH = 0x1C80 /* END=0xFF7F, size 7296 */
   JTAGSIGNATURE    : ORIGIN = 0xFF80, LENGTH = 0x0004
   BSLSIGNATURE     : ORIGIN = 0xFF84, LENGTH = 0x0004
   VECT0           : ORIGIN = 0xFF88, LENGTH = 0x0002
@@ -197,24 +197,27 @@ SECTIONS
        .either.text, .either.data and .either.bss sections as well.  */
 
     KEEP (*(.gcc_except_table)) *(.gcc_except_table.*)
-    PROVIDE (__preinit_array_start = .);
-    KEEP (*(.preinit_array))
-    PROVIDE (__preinit_array_end = .);
-    PROVIDE (__init_array_start = .);
-    KEEP (*(SORT(.init_array.*)))
-    KEEP (*(.init_array))
-    PROVIDE (__init_array_end = .);
-    PROVIDE (__fini_array_start = .);
-    KEEP (*(.fini_array))
-    KEEP (*(SORT(.fini_array.*)))
-    PROVIDE (__fini_array_end = .);
-  } > ROM
+  } > FRAM
 
   /* Note: Separate .rodata section for sections which are
      read only but which older linkers treat as read-write.
      This prevents older linkers from marking the entire .rodata
      section as read-write.  */
   .rodata2 : {
+    . = ALIGN(2);
+    PROVIDE (__preinit_array_start = .);
+    KEEP (*(.preinit_array))
+    PROVIDE (__preinit_array_end = .);
+    . = ALIGN(2);
+    PROVIDE (__init_array_start = .);
+    KEEP (*(SORT(.init_array.*)))
+    KEEP (*(.init_array))
+    PROVIDE (__init_array_end = .);
+    . = ALIGN(2);
+    PROVIDE (__fini_array_start = .);
+    KEEP (*(.fini_array))
+    KEEP (*(SORT(.fini_array.*)))
+    PROVIDE (__fini_array_end = .);
     . = ALIGN(2);
     *(.eh_frame_hdr)
     KEEP (*(.eh_frame))	
@@ -226,10 +229,10 @@ SECTIONS
        directory crtbegin.o is in.  */
     KEEP (*crtbegin*.o(.ctors))
 
-    /* We don't want to include the .ctor section from from the
-       crtend.o file until after the sorted ctors.  The .ctor section
-       from the crtend file contains the end of ctors marker and it
-       must be last */
+    /* We don't want to include the .ctor section from the crtend.o
+       file until after the sorted ctors.  The .ctor section from
+       the crtend file contains the end of ctors marker and it must
+       be last */
     KEEP (*(EXCLUDE_FILE (*crtend*.o ) .ctors))
     KEEP (*(SORT(.ctors.*)))
     KEEP (*(.ctors))
@@ -238,7 +241,7 @@ SECTIONS
     KEEP (*(EXCLUDE_FILE (*crtend*.o ) .dtors))
     KEEP (*(SORT(.dtors.*)))
     KEEP (*(.dtors))
-  } > ROM
+  } > FRAM
   
   /* This section contains data that is not initialised during load
      or application reset. */
@@ -249,7 +252,7 @@ SECTIONS
     *(.persistent)
     . = ALIGN(2);
     PROVIDE (__persistent_end = .);
-  } > ROM
+  } > FRAM
   
 
   .data :
@@ -284,7 +287,7 @@ SECTIONS
     _edata = .;
     PROVIDE (edata = .);
     PROVIDE (__dataend = .);
-  } > RAM AT> ROM
+  } > RAM AT> FRAM
 
   /* Note that crt0 assumes this is a multiple of two; all the
      start/stop symbols are also assumed word-aligned.  */
@@ -381,7 +384,7 @@ SECTIONS
     KEEP (*(.init))
     KEEP (*(.fini))
     KEEP (*(.tm_clone_table))
-  } > ROM
+  } > FRAM
 
 
   /* MSP430 INFO FLASH MEMORY SEGMENTS */

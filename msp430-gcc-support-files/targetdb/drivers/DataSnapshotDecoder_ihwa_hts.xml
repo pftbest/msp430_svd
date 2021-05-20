@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<drivers id="HTS">
+	<isa id="TMS192C2010" ProcID="0x30008050">
+		<driver file="..\..\DebugServer\bin\DataSnapshotDecoder.dll">
+			<connectionType Type="DataSnapshotViewer"/>      
+		</driver>
+	</isa>
+	<isa id="HTS_DMPAC0" ProcID="0x30008058">
+		<driver file="..\..\DebugServer\bin\DataSnapshotDecoder.dll">
+			<connectionType Type="DataSnapshotViewer"/>      
+		</driver>
+	</isa>
+	<isa id="HTS_VPAC0" ProcID="0x30008060">
+		<driver file="..\..\DebugServer\bin\DataSnapshotDecoder.dll">
+			<connectionType Type="DataSnapshotViewer"/>      
+		</driver>
+	</isa>
+</drivers>

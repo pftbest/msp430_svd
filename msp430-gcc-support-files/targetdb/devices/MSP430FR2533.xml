@@ -2,7 +2,7 @@
 
 <include href="../options/MSP430FR2533_TI.xml"></include>
 <include href="../options/MSP430FR2533_GNU.xml"></include>
-<property Type="stringfield" Value="1.207" id="DeviceFileVersion"></property>
+<property Type="stringfield" Value="1.210" id="DeviceFileVersion"></property>
 <property Type="stringfield" Value="MSP430FRxxx Family" id="FilterString"></property>
 <property Type="numericfield" Value="160" id="HeapDefaultSize"></property>
 <property Type="stringfield" Value="minimal" id="PrintfDefault_support"></property>
@@ -23,7 +23,7 @@
 <property Type="stringfield" Value="true" id="supportUserCodeErase"></property>
 <property Type="stringfield" Value="true" id="supportLPMx5"></property>
 <property Type="stringfield" Value="true" id="supportINFOMemory"></property>
-<property Type="stringfield" Value="com.ti.ccstudio.project.templates.blink_msp430:templates/msp430fr59xx/blink.c;" id="TemplateFileOverrides"></property>
+<property Type="stringfield" Value="com.ti.ccstudio.project.templates.blink_msp430:templates/msp430fr59xx/blink.c; com.ti.ccstudio.project.templates.blink_gnu_msp430:templates/msp430fr59xx/blink.c" id="TemplateFileOverrides"></property>
 <property Type="stringfield" Value="-romwidth=8 -memwidth=8" id="HexBuildOptions"></property>
 
 

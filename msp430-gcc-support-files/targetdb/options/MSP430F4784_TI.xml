@@ -1,5 +1,5 @@
 <properties XML_version="1.2">
-<property Type="stringfield" Value="1.207" id="TIOptionsVersion"></property>
+<property Type="stringfield" Value="1.210" id="TIOptionsVersion"></property>
 <property Type="stringfield" Value="-D=__MSP430F4784__   --use_hw_mpy=32 --silicon_errata=CPU19" id="CompilerBuildOptions"></property>
 <property Type="stringfield" Value="-llibmath.a -i${CCS_BASE_ROOT}/msp430/lib/4xx --use_hw_mpy=32" id="LinkerBuildOptions"></property>
 </properties>

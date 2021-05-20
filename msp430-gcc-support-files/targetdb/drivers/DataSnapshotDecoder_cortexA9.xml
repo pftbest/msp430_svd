@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <drivers id="CortexA9">
   <isa Type="CortexA9" ProcID="0x75802400">
-   <driver file="../../DebugServer/bin/libDataSnapshotDecoder.dylib">
+   <driver file="..\..\DebugServer\bin\DataSnapshotDecoder.dll">
 			<connectionType Type="DataSnapshotViewer"/>
 		</driver>
   </isa>
@@ -13,7 +13,6 @@
 			<choice value="Big Endian"></choice>
 		</choicelist>
 		<current>
-			<cchoice key="Device" value="C64x+"/>
 			<cchoice key="Endianness" value="Little Endian"/>
 		</current>
 	</driverProperties>

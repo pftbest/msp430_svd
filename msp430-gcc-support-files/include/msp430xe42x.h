@@ -1,5 +1,5 @@
 /* ============================================================================ */
-/* Copyright (c) 2017, Texas Instruments Incorporated                           */
+/* Copyright (c) 2020, Texas Instruments Incorporated                           */
 /*  All rights reserved.                                                        */
 /*                                                                              */
 /*  Redistribution and use in source and binary forms, with or without          */
@@ -66,7 +66,7 @@
 #ifndef __msp430xE42x
 #define __msp430xE42x
 
-#define __MSP430_HEADER_VERSION__ 1204
+#define __MSP430_HEADER_VERSION__ 1210
 
 #ifdef __cplusplus
 extern "C" {
@@ -995,7 +995,7 @@ sfr_w(NMBMEAS_HI);                            /* ESP430 Return Value 31 */
 #define mINIT                  (0x0007)       /* Initialize ESP430 Software */
 #define mTEMP                  (0x0009)       /* Request Temp. Measurement from ESP430 Software */
 #define mSWVERSION             (0x000B)       /* Request software version of ESP430 */
-#define mREAD_PARAM            (0x000D)       /* Request to read the parameter with no. "Parameter No." */
+#define mREAD_PARAM            (0x000D)       /* Request to read the parameter with no. “Parameter No.” */
 #define mREAD_I2               (0x000F)       /* Request to read the I2 Channel (only if not used) */
 
 #define mSET_CTRL0             (0x0200)       /* Set Control Register 0 */

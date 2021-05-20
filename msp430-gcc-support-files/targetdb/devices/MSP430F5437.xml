@@ -2,7 +2,7 @@
 
 <include href="../options/MSP430F5437_TI.xml"></include>
 <include href="../options/MSP430F5437_GNU.xml"></include>
-<property Type="stringfield" Value="1.207" id="DeviceFileVersion"></property>
+<property Type="stringfield" Value="1.210" id="DeviceFileVersion"></property>
 <property Type="stringfield" Value="MSP430x5xx Family" id="FilterString"></property>
 <property Type="numericfield" Value="160" id="HeapDefaultSize"></property>
 <property Type="stringfield" Value="minimal" id="PrintfDefault_support"></property>

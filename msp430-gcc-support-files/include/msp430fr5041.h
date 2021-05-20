@@ -1,6 +1,6 @@
 //*****************************************************************************
 //
-// Copyright (C) 2017 Texas Instruments Incorporated - http://www.ti.com/
+// Copyright (C) 2020 Texas Instruments Incorporated - http://www.ti.com/
 //
 // Redistribution and use in source and binary forms, with or without
 // modification, are permitted provided that the following conditions
@@ -44,7 +44,7 @@
 #ifndef __MSP430FR5041
 #define __MSP430FR5041
 
-#define __MSP430_HEADER_VERSION__ 1204
+#define __MSP430_HEADER_VERSION__ 1210
 
 #define __MSP430_HAS_MSP430XV2_CPU__  /* CPU type */
 #define __MSP430FR5XX_6XX_FAMILY__
@@ -3612,9 +3612,6 @@ sfr_b(CSCTL6_H);
 #define __MSP430_HAS_PORT9_R__                /* Definition to show that port is available */
 #define __MSP430_BASEADDRESS_PORT9_R__ 0x280
 #define P9_BASE                __MSP430_BASEADDRESS_PORT9_R__
-#define __MSP430_HAS_PORT10_R__                /* Definition to show that port is available */
-#define __MSP430_BASEADDRESS_PORT10_R__ 0x280
-#define P10_BASE                __MSP430_BASEADDRESS_PORT10_R__
 #define __MSP430_HAS_PASEL0__                 /* Define for DriverLib */
 #define __MSP430_HAS_PASEL1__                 /* Define for DriverLib */
 #define __MSP430_HAS_PBSEL0__                 /* Define for DriverLib */
@@ -3644,9 +3641,7 @@ sfr_b(CSCTL6_H);
 #define __MSP430_HAS_P7SEL1__                 /* Define for DriverLib */
 #define __MSP430_HAS_P8SEL1__                 /* Define for DriverLib */
 #define __MSP430_HAS_P9SEL0__                 /* Define for DriverLib */
-#define __MSP430_HAS_P10SEL0__                 /* Define for DriverLib */
 #define __MSP430_HAS_P9SEL1__                 /* Define for DriverLib */
-#define __MSP430_HAS_P10SEL1__                 /* Define for DriverLib */
 
 sfr_w(PAIN);                                  /* Port A Input */
 sfr_b(PAIN_L);
@@ -4809,100 +4804,71 @@ sfr_b(P10IFG);                                /* Port 10 Interrupt Flag */
 #define DMA_BASE               __MSP430_BASEADDRESS_DMA__
 
 sfr_w(DMACTL0);                               /* DMA Control 0 */
-sfr_b(DMACTL0_L);
-sfr_b(DMACTL0_H);
+
 sfr_w(DMACTL1);                               /* DMA Control 1 */
-sfr_b(DMACTL1_L);
-sfr_b(DMACTL1_H);
+
 sfr_w(DMACTL2);                               /* DMA Control 2 */
-sfr_b(DMACTL2_L);
-sfr_b(DMACTL2_H);
+
 sfr_w(DMACTL4);                               /* DMA Control 4 */
-sfr_b(DMACTL4_L);
-sfr_b(DMACTL4_H);
+
 sfr_w(DMAIV);                                 /* DMA Interrupt Vector */
-sfr_b(DMAIV_L);
-sfr_b(DMAIV_H);
+
 sfr_w(DMA0CTL);                               /* DMA Channel 0 Control */
-sfr_b(DMA0CTL_L);
-sfr_b(DMA0CTL_H);
+
 sfr_a(DMA0SA);                                /* DMA Channel 0 Source Address */
 
 sfr_a(DMA0DA);                                /* DMA Channel 0 Destination Address */
 
 sfr_w(DMA0SZ);                                /* DMA Channel 0 Transfer Size */
-sfr_b(DMA0SZ_L);
-sfr_b(DMA0SZ_H);
+
 sfr_w(DMA1CTL);                               /* DMA Channel 1 Control */
-sfr_b(DMA1CTL_L);
-sfr_b(DMA1CTL_H);
+
 sfr_a(DMA1SA);                                /* DMA Channel 1 Source Address */
 
 sfr_a(DMA1DA);                                /* DMA Channel 1 Destination Address */
 
 sfr_w(DMA1SZ);                                /* DMA Channel 1 Transfer Size */
-sfr_b(DMA1SZ_L);
-sfr_b(DMA1SZ_H);
+
 sfr_w(DMA2CTL);                               /* DMA Channel 2 Control */
-sfr_b(DMA2CTL_L);
-sfr_b(DMA2CTL_H);
+
 sfr_a(DMA2SA);                                /* DMA Channel 2 Source Address */
 
 sfr_a(DMA2DA);                                /* DMA Channel 2 Destination Address */
 
 sfr_w(DMA2SZ);                                /* DMA Channel 2 Transfer Size */
-sfr_b(DMA2SZ_L);
-sfr_b(DMA2SZ_H);
+
 sfr_w(DMA3CTL);                               /* DMA Channel 3 Control */
-sfr_b(DMA3CTL_L);
-sfr_b(DMA3CTL_H);
+
 sfr_a(DMA3SA);                                /* DMA Channel 3 Source Address */
 
 sfr_a(DMA3DA);                                /* DMA Channel 3 Destination Address */
 
 sfr_w(DMA3SZ);                                /* DMA Channel 3 Transfer Size */
-sfr_b(DMA3SZ_L);
-sfr_b(DMA3SZ_H);
+
 sfr_w(DMA4CTL);                               /* DMA Channel 4 Control */
-sfr_b(DMA4CTL_L);
-sfr_b(DMA4CTL_H);
+
 sfr_a(DMA4SA);                                /* DMA Channel 4 Source Address */
 
 sfr_a(DMA4DA);                                /* DMA Channel 4 Destination Address */
 
 sfr_w(DMA4SZ);                                /* DMA Channel 4 Transfer Size */
-sfr_b(DMA4SZ_L);
-sfr_b(DMA4SZ_H);
+
 sfr_w(DMA5CTL);                               /* DMA Channel 5 Control */
-sfr_b(DMA5CTL_L);
-sfr_b(DMA5CTL_H);
+
 sfr_a(DMA5SA);                                /* DMA Channel 5 Source Address */
 
 sfr_a(DMA5DA);                                /* DMA Channel 5 Destination Address */
 
 sfr_w(DMA5SZ);                                /* DMA Channel 5 Transfer Size */
-sfr_b(DMA5SZ_L);
-sfr_b(DMA5SZ_H);
+
 
 /* DMA Register Offsets */
 #define OFS_DMACTL0                      (0x0000)
-#define OFS_DMACTL0_L                    OFS_DMACTL0
-#define OFS_DMACTL0_H                    OFS_DMACTL0+1
 #define OFS_DMACTL1                      (0x0002)
-#define OFS_DMACTL1_L                    OFS_DMACTL1
-#define OFS_DMACTL1_H                    OFS_DMACTL1+1
 #define OFS_DMACTL2                      (0x0004)
-#define OFS_DMACTL2_L                    OFS_DMACTL2
-#define OFS_DMACTL2_H                    OFS_DMACTL2+1
 #define OFS_DMACTL4                      (0x0008)
-#define OFS_DMACTL4_L                    OFS_DMACTL4
-#define OFS_DMACTL4_H                    OFS_DMACTL4+1
 #define OFS_DMAIV                        (0x000E)
-#define OFS_DMAIV_L                      OFS_DMAIV
-#define OFS_DMAIV_H                      OFS_DMAIV+1
 #define OFS_DMA0CTL                      (0x0010)
-#define OFS_DMA0CTL_L                    OFS_DMA0CTL
-#define OFS_DMA0CTL_H                    OFS_DMA0CTL+1
 #define OFS_DMA0SA                       (0x0012)
 #define OFS_DMA0SA_L                     OFS_DMA0SA
 #define OFS_DMA0SA_H                     OFS_DMA0SA+2
@@ -4910,11 +4876,7 @@ sfr_b(DMA5SZ_H);
 #define OFS_DMA0DA_L                     OFS_DMA0DA
 #define OFS_DMA0DA_H                     OFS_DMA0DA+2
 #define OFS_DMA0SZ                       (0x001A)
-#define OFS_DMA0SZ_L                     OFS_DMA0SZ
-#define OFS_DMA0SZ_H                     OFS_DMA0SZ+1
 #define OFS_DMA1CTL                      (0x0020)
-#define OFS_DMA1CTL_L                    OFS_DMA1CTL
-#define OFS_DMA1CTL_H                    OFS_DMA1CTL+1
 #define OFS_DMA1SA                       (0x0022)
 #define OFS_DMA1SA_L                     OFS_DMA1SA
 #define OFS_DMA1SA_H                     OFS_DMA1SA+2
@@ -4922,11 +4884,7 @@ sfr_b(DMA5SZ_H);
 #define OFS_DMA1DA_L                     OFS_DMA1DA
 #define OFS_DMA1DA_H                     OFS_DMA1DA+2
 #define OFS_DMA1SZ                       (0x002A)
-#define OFS_DMA1SZ_L                     OFS_DMA1SZ
-#define OFS_DMA1SZ_H                     OFS_DMA1SZ+1
 #define OFS_DMA2CTL                      (0x0030)
-#define OFS_DMA2CTL_L                    OFS_DMA2CTL
-#define OFS_DMA2CTL_H                    OFS_DMA2CTL+1
 #define OFS_DMA2SA                       (0x0032)
 #define OFS_DMA2SA_L                     OFS_DMA2SA
 #define OFS_DMA2SA_H                     OFS_DMA2SA+2
@@ -4934,11 +4892,7 @@ sfr_b(DMA5SZ_H);
 #define OFS_DMA2DA_L                     OFS_DMA2DA
 #define OFS_DMA2DA_H                     OFS_DMA2DA+2
 #define OFS_DMA2SZ                       (0x003A)
-#define OFS_DMA2SZ_L                     OFS_DMA2SZ
-#define OFS_DMA2SZ_H                     OFS_DMA2SZ+1
 #define OFS_DMA3CTL                      (0x0040)
-#define OFS_DMA3CTL_L                    OFS_DMA3CTL
-#define OFS_DMA3CTL_H                    OFS_DMA3CTL+1
 #define OFS_DMA3SA                       (0x0042)
 #define OFS_DMA3SA_L                     OFS_DMA3SA
 #define OFS_DMA3SA_H                     OFS_DMA3SA+2
@@ -4946,11 +4900,7 @@ sfr_b(DMA5SZ_H);
 #define OFS_DMA3DA_L                     OFS_DMA3DA
 #define OFS_DMA3DA_H                     OFS_DMA3DA+2
 #define OFS_DMA3SZ                       (0x004A)
-#define OFS_DMA3SZ_L                     OFS_DMA3SZ
-#define OFS_DMA3SZ_H                     OFS_DMA3SZ+1
 #define OFS_DMA4CTL                      (0x0050)
-#define OFS_DMA4CTL_L                    OFS_DMA4CTL
-#define OFS_DMA4CTL_H                    OFS_DMA4CTL+1
 #define OFS_DMA4SA                       (0x0052)
 #define OFS_DMA4SA_L                     OFS_DMA4SA
 #define OFS_DMA4SA_H                     OFS_DMA4SA+2
@@ -4958,11 +4908,7 @@ sfr_b(DMA5SZ_H);
 #define OFS_DMA4DA_L                     OFS_DMA4DA
 #define OFS_DMA4DA_H                     OFS_DMA4DA+2
 #define OFS_DMA4SZ                       (0x005A)
-#define OFS_DMA4SZ_L                     OFS_DMA4SZ
-#define OFS_DMA4SZ_H                     OFS_DMA4SZ+1
 #define OFS_DMA5CTL                      (0x0060)
-#define OFS_DMA5CTL_L                    OFS_DMA5CTL
-#define OFS_DMA5CTL_H                    OFS_DMA5CTL+1
 #define OFS_DMA5SA                       (0x0062)
 #define OFS_DMA5SA_L                     OFS_DMA5SA
 #define OFS_DMA5SA_H                     OFS_DMA5SA+2
@@ -4970,87 +4916,48 @@ sfr_b(DMA5SZ_H);
 #define OFS_DMA5DA_L                     OFS_DMA5DA
 #define OFS_DMA5DA_H                     OFS_DMA5DA+2
 #define OFS_DMA5SZ                       (0x006A)
-#define OFS_DMA5SZ_L                     OFS_DMA5SZ
-#define OFS_DMA5SZ_H                     OFS_DMA5SZ+1
 
 /* DMA Control Bits */
 
 /* DMACTL0 Control Bits */
 #define DMA0TSEL                         (0x001f)        /* DMA trigger select */
-#define DMA0TSEL_L                       (0x001f)
 #define DMA0TSEL0                        (0x0001)        /* DMA trigger select */
-#define DMA0TSEL0_L                      (0x0001)
 #define DMA0TSEL1                        (0x0002)        /* DMA trigger select */
-#define DMA0TSEL1_L                      (0x0002)
 #define DMA0TSEL2                        (0x0004)        /* DMA trigger select */
-#define DMA0TSEL2_L                      (0x0004)
 #define DMA0TSEL3                        (0x0008)        /* DMA trigger select */
-#define DMA0TSEL3_L                      (0x0008)
 #define DMA0TSEL4                        (0x0010)        /* DMA trigger select */
-#define DMA0TSEL4_L                      (0x0010)
 #define DMA0TSEL_0                       (0x0000)        /* DMA0TRIG0 */
 #define DMA0TSEL_1                       (0x0001)        /* DMA0TRIG1 */
-#define DMA0TSEL_1_L                     (0x0001)
 #define DMA0TSEL_2                       (0x0002)        /* DMA0TRIG2 */
-#define DMA0TSEL_2_L                     (0x0002)
 #define DMA0TSEL_3                       (0x0003)        /* DMA0TRIG3 */
-#define DMA0TSEL_3_L                     (0x0003)
 #define DMA0TSEL_4                       (0x0004)        /* DMA0TRIG4 */
-#define DMA0TSEL_4_L                     (0x0004)
 #define DMA0TSEL_5                       (0x0005)        /* DMA0TRIG5 */
-#define DMA0TSEL_5_L                     (0x0005)
 #define DMA0TSEL_6                       (0x0006)        /* DMA0TRIG6 */
-#define DMA0TSEL_6_L                     (0x0006)
 #define DMA0TSEL_7                       (0x0007)        /* DMA0TRIG7 */
-#define DMA0TSEL_7_L                     (0x0007)
 #define DMA0TSEL_8                       (0x0008)        /* DMA0TRIG8 */
-#define DMA0TSEL_8_L                     (0x0008)
 #define DMA0TSEL_9                       (0x0009)        /* DMA0TRIG9 */
-#define DMA0TSEL_9_L                     (0x0009)
 #define DMA0TSEL_10                      (0x000a)        /* DMA0TRIG10 */
-#define DMA0TSEL_10_L                    (0x000a)
 #define DMA0TSEL_11                      (0x000b)        /* DMA0TRIG11 */
-#define DMA0TSEL_11_L                    (0x000b)
 #define DMA0TSEL_12                      (0x000c)        /* DMA0TRIG12 */
-#define DMA0TSEL_12_L                    (0x000c)
 #define DMA0TSEL_13                      (0x000d)        /* DMA0TRIG13 */
-#define DMA0TSEL_13_L                    (0x000d)
 #define DMA0TSEL_14                      (0x000e)        /* DMA0TRIG14 */
-#define DMA0TSEL_14_L                    (0x000e)
 #define DMA0TSEL_15                      (0x000f)        /* DMA0TRIG15 */
-#define DMA0TSEL_15_L                    (0x000f)
 #define DMA0TSEL_16                      (0x0010)        /* DMA0TRIG16 */
-#define DMA0TSEL_16_L                    (0x0010)
 #define DMA0TSEL_17                      (0x0011)        /* DMA0TRIG17 */
-#define DMA0TSEL_17_L                    (0x0011)
 #define DMA0TSEL_18                      (0x0012)        /* DMA0TRIG18 */
-#define DMA0TSEL_18_L                    (0x0012)
 #define DMA0TSEL_19                      (0x0013)        /* DMA0TRIG19 */
-#define DMA0TSEL_19_L                    (0x0013)
 #define DMA0TSEL_20                      (0x0014)        /* DMA0TRIG20 */
-#define DMA0TSEL_20_L                    (0x0014)
 #define DMA0TSEL_21                      (0x0015)        /* DMA0TRIG21 */
-#define DMA0TSEL_21_L                    (0x0015)
 #define DMA0TSEL_22                      (0x0016)        /* DMA0TRIG22 */
-#define DMA0TSEL_22_L                    (0x0016)
 #define DMA0TSEL_23                      (0x0017)        /* DMA0TRIG23 */
-#define DMA0TSEL_23_L                    (0x0017)
 #define DMA0TSEL_24                      (0x0018)        /* DMA0TRIG24 */
-#define DMA0TSEL_24_L                    (0x0018)
 #define DMA0TSEL_25                      (0x0019)        /* DMA0TRIG25 */
-#define DMA0TSEL_25_L                    (0x0019)
 #define DMA0TSEL_26                      (0x001a)        /* DMA0TRIG26 */
-#define DMA0TSEL_26_L                    (0x001a)
 #define DMA0TSEL_27                      (0x001b)        /* DMA0TRIG27 */
-#define DMA0TSEL_27_L                    (0x001b)
 #define DMA0TSEL_28                      (0x001c)        /* DMA0TRIG28 */
-#define DMA0TSEL_28_L                    (0x001c)
 #define DMA0TSEL_29                      (0x001d)        /* DMA0TRIG29 */
-#define DMA0TSEL_29_L                    (0x001d)
 #define DMA0TSEL_30                      (0x001e)        /* DMA0TRIG30 */
-#define DMA0TSEL_30_L                    (0x001e)
 #define DMA0TSEL_31                      (0x001f)        /* DMA0TRIG31 */
-#define DMA0TSEL_31_L                    (0x001f)
 #define DMA0TSEL__DMAREQ                 DMA0TSEL_0
 #define DMA0TSEL__TA0CCR0                DMA0TSEL_1
 #define DMA0TSEL__TA0CCR2                DMA0TSEL_2
@@ -5085,142 +4992,74 @@ sfr_b(DMA5SZ_H);
 #define DMA0TSEL__DMAE0                  DMA0TSEL_31
 #define DMA0TSEL__DMA0TRIG0              (0x0000)        /* DMA0TRIG0 */
 #define DMA0TSEL__DMA0TRIG1              (0x0001)        /* DMA0TRIG1 */
-#define DMA0TSEL__DMA0TRIG1_L            (0x0001)
 #define DMA0TSEL__DMA0TRIG2              (0x0002)        /* DMA0TRIG2 */
-#define DMA0TSEL__DMA0TRIG2_L            (0x0002)
 #define DMA0TSEL__DMA0TRIG3              (0x0003)        /* DMA0TRIG3 */
-#define DMA0TSEL__DMA0TRIG3_L            (0x0003)
 #define DMA0TSEL__DMA0TRIG4              (0x0004)        /* DMA0TRIG4 */
-#define DMA0TSEL__DMA0TRIG4_L            (0x0004)
 #define DMA0TSEL__DMA0TRIG5              (0x0005)        /* DMA0TRIG5 */
-#define DMA0TSEL__DMA0TRIG5_L            (0x0005)
 #define DMA0TSEL__DMA0TRIG6              (0x0006)        /* DMA0TRIG6 */
-#define DMA0TSEL__DMA0TRIG6_L            (0x0006)
 #define DMA0TSEL__DMA0TRIG7              (0x0007)        /* DMA0TRIG7 */
-#define DMA0TSEL__DMA0TRIG7_L            (0x0007)
 #define DMA0TSEL__DMA0TRIG8              (0x0008)        /* DMA0TRIG8 */
-#define DMA0TSEL__DMA0TRIG8_L            (0x0008)
 #define DMA0TSEL__DMA0TRIG9              (0x0009)        /* DMA0TRIG9 */
-#define DMA0TSEL__DMA0TRIG9_L            (0x0009)
 #define DMA0TSEL__DMA0TRIG10             (0x000a)        /* DMA0TRIG10 */
-#define DMA0TSEL__DMA0TRIG10_L           (0x000a)
 #define DMA0TSEL__DMA0TRIG11             (0x000b)        /* DMA0TRIG11 */
-#define DMA0TSEL__DMA0TRIG11_L           (0x000b)
 #define DMA0TSEL__DMA0TRIG12             (0x000c)        /* DMA0TRIG12 */
-#define DMA0TSEL__DMA0TRIG12_L           (0x000c)
 #define DMA0TSEL__DMA0TRIG13             (0x000d)        /* DMA0TRIG13 */
-#define DMA0TSEL__DMA0TRIG13_L           (0x000d)
 #define DMA0TSEL__DMA0TRIG14             (0x000e)        /* DMA0TRIG14 */
-#define DMA0TSEL__DMA0TRIG14_L           (0x000e)
 #define DMA0TSEL__DMA0TRIG15             (0x000f)        /* DMA0TRIG15 */
-#define DMA0TSEL__DMA0TRIG15_L           (0x000f)
 #define DMA0TSEL__DMA0TRIG16             (0x0010)        /* DMA0TRIG16 */
-#define DMA0TSEL__DMA0TRIG16_L           (0x0010)
 #define DMA0TSEL__DMA0TRIG17             (0x0011)        /* DMA0TRIG17 */
-#define DMA0TSEL__DMA0TRIG17_L           (0x0011)
 #define DMA0TSEL__DMA0TRIG18             (0x0012)        /* DMA0TRIG18 */
-#define DMA0TSEL__DMA0TRIG18_L           (0x0012)
 #define DMA0TSEL__DMA0TRIG19             (0x0013)        /* DMA0TRIG19 */
-#define DMA0TSEL__DMA0TRIG19_L           (0x0013)
 #define DMA0TSEL__DMA0TRIG20             (0x0014)        /* DMA0TRIG20 */
-#define DMA0TSEL__DMA0TRIG20_L           (0x0014)
 #define DMA0TSEL__DMA0TRIG21             (0x0015)        /* DMA0TRIG21 */
-#define DMA0TSEL__DMA0TRIG21_L           (0x0015)
 #define DMA0TSEL__DMA0TRIG22             (0x0016)        /* DMA0TRIG22 */
-#define DMA0TSEL__DMA0TRIG22_L           (0x0016)
 #define DMA0TSEL__DMA0TRIG23             (0x0017)        /* DMA0TRIG23 */
-#define DMA0TSEL__DMA0TRIG23_L           (0x0017)
 #define DMA0TSEL__DMA0TRIG24             (0x0018)        /* DMA0TRIG24 */
-#define DMA0TSEL__DMA0TRIG24_L           (0x0018)
 #define DMA0TSEL__DMA0TRIG25             (0x0019)        /* DMA0TRIG25 */
-#define DMA0TSEL__DMA0TRIG25_L           (0x0019)
 #define DMA0TSEL__DMA0TRIG26             (0x001a)        /* DMA0TRIG26 */
-#define DMA0TSEL__DMA0TRIG26_L           (0x001a)
 #define DMA0TSEL__DMA0TRIG27             (0x001b)        /* DMA0TRIG27 */
-#define DMA0TSEL__DMA0TRIG27_L           (0x001b)
 #define DMA0TSEL__DMA0TRIG28             (0x001c)        /* DMA0TRIG28 */
-#define DMA0TSEL__DMA0TRIG28_L           (0x001c)
 #define DMA0TSEL__DMA0TRIG29             (0x001d)        /* DMA0TRIG29 */
-#define DMA0TSEL__DMA0TRIG29_L           (0x001d)
 #define DMA0TSEL__DMA0TRIG30             (0x001e)        /* DMA0TRIG30 */
-#define DMA0TSEL__DMA0TRIG30_L           (0x001e)
 #define DMA0TSEL__DMA0TRIG31             (0x001f)        /* DMA0TRIG31 */
-#define DMA0TSEL__DMA0TRIG31_L           (0x001f)
 #define DMA1TSEL                         (0x1f00)        /* DMA trigger select */
-#define DMA1TSEL_H                       (0x001f)
 #define DMA1TSEL0                        (0x0100)        /* DMA trigger select */
-#define DMA1TSEL0_H                      (0x0001)
 #define DMA1TSEL1                        (0x0200)        /* DMA trigger select */
-#define DMA1TSEL1_H                      (0x0002)
 #define DMA1TSEL2                        (0x0400)        /* DMA trigger select */
-#define DMA1TSEL2_H                      (0x0004)
 #define DMA1TSEL3                        (0x0800)        /* DMA trigger select */
-#define DMA1TSEL3_H                      (0x0008)
 #define DMA1TSEL4                        (0x1000)        /* DMA trigger select */
-#define DMA1TSEL4_H                      (0x0010)
 #define DMA1TSEL_0                       (0x0000)        /* DMA1TRIG0 */
 #define DMA1TSEL_1                       (0x0100)        /* DMA1TRIG1 */
-#define DMA1TSEL_1_H                     (0x0001)
 #define DMA1TSEL_2                       (0x0200)        /* DMA1TRIG2 */
-#define DMA1TSEL_2_H                     (0x0002)
 #define DMA1TSEL_3                       (0x0300)        /* DMA1TRIG3 */
-#define DMA1TSEL_3_H                     (0x0003)
 #define DMA1TSEL_4                       (0x0400)        /* DMA1TRIG4 */
-#define DMA1TSEL_4_H                     (0x0004)
 #define DMA1TSEL_5                       (0x0500)        /* DMA1TRIG5 */
-#define DMA1TSEL_5_H                     (0x0005)
 #define DMA1TSEL_6                       (0x0600)        /* DMA1TRIG6 */
-#define DMA1TSEL_6_H                     (0x0006)
 #define DMA1TSEL_7                       (0x0700)        /* DMA1TRIG7 */
-#define DMA1TSEL_7_H                     (0x0007)
 #define DMA1TSEL_8                       (0x0800)        /* DMA1TRIG8 */
-#define DMA1TSEL_8_H                     (0x0008)
 #define DMA1TSEL_9                       (0x0900)        /* DMA1TRIG9 */
-#define DMA1TSEL_9_H                     (0x0009)
 #define DMA1TSEL_10                      (0x0a00)        /* DMA1TRIG10 */
-#define DMA1TSEL_10_H                    (0x000a)
 #define DMA1TSEL_11                      (0x0b00)        /* DMA1TRIG11 */
-#define DMA1TSEL_11_H                    (0x000b)
 #define DMA1TSEL_12                      (0x0c00)        /* DMA1TRIG12 */
-#define DMA1TSEL_12_H                    (0x000c)
 #define DMA1TSEL_13                      (0x0d00)        /* DMA1TRIG13 */
-#define DMA1TSEL_13_H                    (0x000d)
 #define DMA1TSEL_14                      (0x0e00)        /* DMA1TRIG14 */
-#define DMA1TSEL_14_H                    (0x000e)
 #define DMA1TSEL_15                      (0x0f00)        /* DMA1TRIG15 */
-#define DMA1TSEL_15_H                    (0x000f)
 #define DMA1TSEL_16                      (0x1000)        /* DMA1TRIG16 */
-#define DMA1TSEL_16_H                    (0x0010)
 #define DMA1TSEL_17                      (0x1100)        /* DMA1TRIG17 */
-#define DMA1TSEL_17_H                    (0x0011)
 #define DMA1TSEL_18                      (0x1200)        /* DMA1TRIG18 */
-#define DMA1TSEL_18_H                    (0x0012)
 #define DMA1TSEL_19                      (0x1300)        /* DMA1TRIG19 */
-#define DMA1TSEL_19_H                    (0x0013)
 #define DMA1TSEL_20                      (0x1400)        /* DMA1TRIG20 */
-#define DMA1TSEL_20_H                    (0x0014)
 #define DMA1TSEL_21                      (0x1500)        /* DMA1TRIG21 */
-#define DMA1TSEL_21_H                    (0x0015)
 #define DMA1TSEL_22                      (0x1600)        /* DMA1TRIG22 */
-#define DMA1TSEL_22_H                    (0x0016)
 #define DMA1TSEL_23                      (0x1700)        /* DMA1TRIG23 */
-#define DMA1TSEL_23_H                    (0x0017)
 #define DMA1TSEL_24                      (0x1800)        /* DMA1TRIG24 */
-#define DMA1TSEL_24_H                    (0x0018)
 #define DMA1TSEL_25                      (0x1900)        /* DMA1TRIG25 */
-#define DMA1TSEL_25_H                    (0x0019)
 #define DMA1TSEL_26                      (0x1a00)        /* DMA1TRIG26 */
-#define DMA1TSEL_26_H                    (0x001a)
 #define DMA1TSEL_27                      (0x1b00)        /* DMA1TRIG27 */
-#define DMA1TSEL_27_H                    (0x001b)
 #define DMA1TSEL_28                      (0x1c00)        /* DMA1TRIG28 */
-#define DMA1TSEL_28_H                    (0x001c)
 #define DMA1TSEL_29                      (0x1d00)        /* DMA1TRIG29 */
-#define DMA1TSEL_29_H                    (0x001d)
 #define DMA1TSEL_30                      (0x1e00)        /* DMA1TRIG30 */
-#define DMA1TSEL_30_H                    (0x001e)
 #define DMA1TSEL_31                      (0x1f00)        /* DMA1TRIG31 */
-#define DMA1TSEL_31_H                    (0x001f)
 #define DMA1TSEL__DMAREQ                 DMA1TSEL_0
 #define DMA1TSEL__TA0CCR0                DMA1TSEL_1
 #define DMA1TSEL__TA0CCR2                DMA1TSEL_2
@@ -5255,144 +5094,76 @@ sfr_b(DMA5SZ_H);
 #define DMA1TSEL__DMAE0                  DMA1TSEL_31
 #define DMA1TSEL__DMA1TRIG0              (0x0000)        /* DMA1TRIG0 */
 #define DMA1TSEL__DMA1TRIG1              (0x0100)        /* DMA1TRIG1 */
-#define DMA1TSEL__DMA1TRIG1_H            (0x0001)
 #define DMA1TSEL__DMA1TRIG2              (0x0200)        /* DMA1TRIG2 */
-#define DMA1TSEL__DMA1TRIG2_H            (0x0002)
 #define DMA1TSEL__DMA1TRIG3              (0x0300)        /* DMA1TRIG3 */
-#define DMA1TSEL__DMA1TRIG3_H            (0x0003)
 #define DMA1TSEL__DMA1TRIG4              (0x0400)        /* DMA1TRIG4 */
-#define DMA1TSEL__DMA1TRIG4_H            (0x0004)
 #define DMA1TSEL__DMA1TRIG5              (0x0500)        /* DMA1TRIG5 */
-#define DMA1TSEL__DMA1TRIG5_H            (0x0005)
 #define DMA1TSEL__DMA1TRIG6              (0x0600)        /* DMA1TRIG6 */
-#define DMA1TSEL__DMA1TRIG6_H            (0x0006)
 #define DMA1TSEL__DMA1TRIG7              (0x0700)        /* DMA1TRIG7 */
-#define DMA1TSEL__DMA1TRIG7_H            (0x0007)
 #define DMA1TSEL__DMA1TRIG8              (0x0800)        /* DMA1TRIG8 */
-#define DMA1TSEL__DMA1TRIG8_H            (0x0008)
 #define DMA1TSEL__DMA1TRIG9              (0x0900)        /* DMA1TRIG9 */
-#define DMA1TSEL__DMA1TRIG9_H            (0x0009)
 #define DMA1TSEL__DMA1TRIG10             (0x0a00)        /* DMA1TRIG10 */
-#define DMA1TSEL__DMA1TRIG10_H           (0x000a)
 #define DMA1TSEL__DMA1TRIG11             (0x0b00)        /* DMA1TRIG11 */
-#define DMA1TSEL__DMA1TRIG11_H           (0x000b)
 #define DMA1TSEL__DMA1TRIG12             (0x0c00)        /* DMA1TRIG12 */
-#define DMA1TSEL__DMA1TRIG12_H           (0x000c)
 #define DMA1TSEL__DMA1TRIG13             (0x0d00)        /* DMA1TRIG13 */
-#define DMA1TSEL__DMA1TRIG13_H           (0x000d)
 #define DMA1TSEL__DMA1TRIG14             (0x0e00)        /* DMA1TRIG14 */
-#define DMA1TSEL__DMA1TRIG14_H           (0x000e)
 #define DMA1TSEL__DMA1TRIG15             (0x0f00)        /* DMA1TRIG15 */
-#define DMA1TSEL__DMA1TRIG15_H           (0x000f)
 #define DMA1TSEL__DMA1TRIG16             (0x1000)        /* DMA1TRIG16 */
-#define DMA1TSEL__DMA1TRIG16_H           (0x0010)
 #define DMA1TSEL__DMA1TRIG17             (0x1100)        /* DMA1TRIG17 */
-#define DMA1TSEL__DMA1TRIG17_H           (0x0011)
 #define DMA1TSEL__DMA1TRIG18             (0x1200)        /* DMA1TRIG18 */
-#define DMA1TSEL__DMA1TRIG18_H           (0x0012)
 #define DMA1TSEL__DMA1TRIG19             (0x1300)        /* DMA1TRIG19 */
-#define DMA1TSEL__DMA1TRIG19_H           (0x0013)
 #define DMA1TSEL__DMA1TRIG20             (0x1400)        /* DMA1TRIG20 */
-#define DMA1TSEL__DMA1TRIG20_H           (0x0014)
 #define DMA1TSEL__DMA1TRIG21             (0x1500)        /* DMA1TRIG21 */
-#define DMA1TSEL__DMA1TRIG21_H           (0x0015)
 #define DMA1TSEL__DMA1TRIG22             (0x1600)        /* DMA1TRIG22 */
-#define DMA1TSEL__DMA1TRIG22_H           (0x0016)
 #define DMA1TSEL__DMA1TRIG23             (0x1700)        /* DMA1TRIG23 */
-#define DMA1TSEL__DMA1TRIG23_H           (0x0017)
 #define DMA1TSEL__DMA1TRIG24             (0x1800)        /* DMA1TRIG24 */
-#define DMA1TSEL__DMA1TRIG24_H           (0x0018)
 #define DMA1TSEL__DMA1TRIG25             (0x1900)        /* DMA1TRIG25 */
-#define DMA1TSEL__DMA1TRIG25_H           (0x0019)
 #define DMA1TSEL__DMA1TRIG26             (0x1a00)        /* DMA1TRIG26 */
-#define DMA1TSEL__DMA1TRIG26_H           (0x001a)
 #define DMA1TSEL__DMA1TRIG27             (0x1b00)        /* DMA1TRIG27 */
-#define DMA1TSEL__DMA1TRIG27_H           (0x001b)
 #define DMA1TSEL__DMA1TRIG28             (0x1c00)        /* DMA1TRIG28 */
-#define DMA1TSEL__DMA1TRIG28_H           (0x001c)
 #define DMA1TSEL__DMA1TRIG29             (0x1d00)        /* DMA1TRIG29 */
-#define DMA1TSEL__DMA1TRIG29_H           (0x001d)
 #define DMA1TSEL__DMA1TRIG30             (0x1e00)        /* DMA1TRIG30 */
-#define DMA1TSEL__DMA1TRIG30_H           (0x001e)
 #define DMA1TSEL__DMA1TRIG31             (0x1f00)        /* DMA1TRIG31 */
-#define DMA1TSEL__DMA1TRIG31_H           (0x001f)
 
 /* DMACTL1 Control Bits */
 #define DMA2TSEL                         (0x001f)        /* DMA trigger select */
-#define DMA2TSEL_L                       (0x001f)
 #define DMA2TSEL0                        (0x0001)        /* DMA trigger select */
-#define DMA2TSEL0_L                      (0x0001)
 #define DMA2TSEL1                        (0x0002)        /* DMA trigger select */
-#define DMA2TSEL1_L                      (0x0002)
 #define DMA2TSEL2                        (0x0004)        /* DMA trigger select */
-#define DMA2TSEL2_L                      (0x0004)
 #define DMA2TSEL3                        (0x0008)        /* DMA trigger select */
-#define DMA2TSEL3_L                      (0x0008)
 #define DMA2TSEL4                        (0x0010)        /* DMA trigger select */
-#define DMA2TSEL4_L                      (0x0010)
 #define DMA2TSEL_0                       (0x0000)        /* DMA2TRIG0 */
 #define DMA2TSEL_1                       (0x0001)        /* DMA2TRIG1 */
-#define DMA2TSEL_1_L                     (0x0001)
 #define DMA2TSEL_2                       (0x0002)        /* DMA2TRIG2 */
-#define DMA2TSEL_2_L                     (0x0002)
 #define DMA2TSEL_3                       (0x0003)        /* DMA2TRIG3 */
-#define DMA2TSEL_3_L                     (0x0003)
 #define DMA2TSEL_4                       (0x0004)        /* DMA2TRIG4 */
-#define DMA2TSEL_4_L                     (0x0004)
 #define DMA2TSEL_5                       (0x0005)        /* DMA2TRIG5 */
-#define DMA2TSEL_5_L                     (0x0005)
 #define DMA2TSEL_6                       (0x0006)        /* DMA2TRIG6 */
-#define DMA2TSEL_6_L                     (0x0006)
 #define DMA2TSEL_7                       (0x0007)        /* DMA2TRIG7 */
-#define DMA2TSEL_7_L                     (0x0007)
 #define DMA2TSEL_8                       (0x0008)        /* DMA2TRIG8 */
-#define DMA2TSEL_8_L                     (0x0008)
 #define DMA2TSEL_9                       (0x0009)        /* DMA2TRIG9 */
-#define DMA2TSEL_9_L                     (0x0009)
 #define DMA2TSEL_10                      (0x000a)        /* DMA2TRIG10 */
-#define DMA2TSEL_10_L                    (0x000a)
 #define DMA2TSEL_11                      (0x000b)        /* DMA2TRIG11 */
-#define DMA2TSEL_11_L                    (0x000b)
 #define DMA2TSEL_12                      (0x000c)        /* DMA2TRIG12 */
-#define DMA2TSEL_12_L                    (0x000c)
 #define DMA2TSEL_13                      (0x000d)        /* DMA2TRIG13 */
-#define DMA2TSEL_13_L                    (0x000d)
 #define DMA2TSEL_14                      (0x000e)        /* DMA2TRIG14 */
-#define DMA2TSEL_14_L                    (0x000e)
 #define DMA2TSEL_15                      (0x000f)        /* DMA2TRIG15 */
-#define DMA2TSEL_15_L                    (0x000f)
 #define DMA2TSEL_16                      (0x0010)        /* DMA2TRIG16 */
-#define DMA2TSEL_16_L                    (0x0010)
 #define DMA2TSEL_17                      (0x0011)        /* DMA2TRIG17 */
-#define DMA2TSEL_17_L                    (0x0011)
 #define DMA2TSEL_18                      (0x0012)        /* DMA2TRIG18 */
-#define DMA2TSEL_18_L                    (0x0012)
 #define DMA2TSEL_19                      (0x0013)        /* DMA2TRIG19 */
-#define DMA2TSEL_19_L                    (0x0013)
 #define DMA2TSEL_20                      (0x0014)        /* DMA2TRIG20 */
-#define DMA2TSEL_20_L                    (0x0014)
 #define DMA2TSEL_21                      (0x0015)        /* DMA2TRIG21 */
-#define DMA2TSEL_21_L                    (0x0015)
 #define DMA2TSEL_22                      (0x0016)        /* DMA2TRIG22 */
-#define DMA2TSEL_22_L                    (0x0016)
 #define DMA2TSEL_23                      (0x0017)        /* DMA2TRIG23 */
-#define DMA2TSEL_23_L                    (0x0017)
 #define DMA2TSEL_24                      (0x0018)        /* DMA2TRIG24 */
-#define DMA2TSEL_24_L                    (0x0018)
 #define DMA2TSEL_25                      (0x0019)        /* DMA2TRIG25 */
-#define DMA2TSEL_25_L                    (0x0019)
 #define DMA2TSEL_26                      (0x001a)        /* DMA2TRIG26 */
-#define DMA2TSEL_26_L                    (0x001a)
 #define DMA2TSEL_27                      (0x001b)        /* DMA2TRIG27 */
-#define DMA2TSEL_27_L                    (0x001b)
 #define DMA2TSEL_28                      (0x001c)        /* DMA2TRIG28 */
-#define DMA2TSEL_28_L                    (0x001c)
 #define DMA2TSEL_29                      (0x001d)        /* DMA2TRIG29 */
-#define DMA2TSEL_29_L                    (0x001d)
 #define DMA2TSEL_30                      (0x001e)        /* DMA2TRIG30 */
-#define DMA2TSEL_30_L                    (0x001e)
 #define DMA2TSEL_31                      (0x001f)        /* DMA2TRIG31 */
-#define DMA2TSEL_31_L                    (0x001f)
 #define DMA2TSEL__DMAREQ                 DMA2TSEL_0
 #define DMA2TSEL__TA0CCR0                DMA2TSEL_1
 #define DMA2TSEL__TA0CCR2                DMA2TSEL_2
@@ -5427,142 +5198,74 @@ sfr_b(DMA5SZ_H);
 #define DMA2TSEL__DMAE0                  DMA2TSEL_31
 #define DMA2TSEL__DMA2TRIG0              (0x0000)        /* DMA2TRIG0 */
 #define DMA2TSEL__DMA2TRIG1              (0x0001)        /* DMA2TRIG1 */
-#define DMA2TSEL__DMA2TRIG1_L            (0x0001)
 #define DMA2TSEL__DMA2TRIG2              (0x0002)        /* DMA2TRIG2 */
-#define DMA2TSEL__DMA2TRIG2_L            (0x0002)
 #define DMA2TSEL__DMA2TRIG3              (0x0003)        /* DMA2TRIG3 */
-#define DMA2TSEL__DMA2TRIG3_L            (0x0003)
 #define DMA2TSEL__DMA2TRIG4              (0x0004)        /* DMA2TRIG4 */
-#define DMA2TSEL__DMA2TRIG4_L            (0x0004)
 #define DMA2TSEL__DMA2TRIG5              (0x0005)        /* DMA2TRIG5 */
-#define DMA2TSEL__DMA2TRIG5_L            (0x0005)
 #define DMA2TSEL__DMA2TRIG6              (0x0006)        /* DMA2TRIG6 */
-#define DMA2TSEL__DMA2TRIG6_L            (0x0006)
 #define DMA2TSEL__DMA2TRIG7              (0x0007)        /* DMA2TRIG7 */
-#define DMA2TSEL__DMA2TRIG7_L            (0x0007)
 #define DMA2TSEL__DMA2TRIG8              (0x0008)        /* DMA2TRIG8 */
-#define DMA2TSEL__DMA2TRIG8_L            (0x0008)
 #define DMA2TSEL__DMA2TRIG9              (0x0009)        /* DMA2TRIG9 */
-#define DMA2TSEL__DMA2TRIG9_L            (0x0009)
 #define DMA2TSEL__DMA2TRIG10             (0x000a)        /* DMA2TRIG10 */
-#define DMA2TSEL__DMA2TRIG10_L           (0x000a)
 #define DMA2TSEL__DMA2TRIG11             (0x000b)        /* DMA2TRIG11 */
-#define DMA2TSEL__DMA2TRIG11_L           (0x000b)
 #define DMA2TSEL__DMA2TRIG12             (0x000c)        /* DMA2TRIG12 */
-#define DMA2TSEL__DMA2TRIG12_L           (0x000c)
 #define DMA2TSEL__DMA2TRIG13             (0x000d)        /* DMA2TRIG13 */
-#define DMA2TSEL__DMA2TRIG13_L           (0x000d)
 #define DMA2TSEL__DMA2TRIG14             (0x000e)        /* DMA2TRIG14 */
-#define DMA2TSEL__DMA2TRIG14_L           (0x000e)
 #define DMA2TSEL__DMA2TRIG15             (0x000f)        /* DMA2TRIG15 */
-#define DMA2TSEL__DMA2TRIG15_L           (0x000f)
 #define DMA2TSEL__DMA2TRIG16             (0x0010)        /* DMA2TRIG16 */
-#define DMA2TSEL__DMA2TRIG16_L           (0x0010)
 #define DMA2TSEL__DMA2TRIG17             (0x0011)        /* DMA2TRIG17 */
-#define DMA2TSEL__DMA2TRIG17_L           (0x0011)
 #define DMA2TSEL__DMA2TRIG18             (0x0012)        /* DMA2TRIG18 */
-#define DMA2TSEL__DMA2TRIG18_L           (0x0012)
 #define DMA2TSEL__DMA2TRIG19             (0x0013)        /* DMA2TRIG19 */
-#define DMA2TSEL__DMA2TRIG19_L           (0x0013)
 #define DMA2TSEL__DMA2TRIG20             (0x0014)        /* DMA2TRIG20 */
-#define DMA2TSEL__DMA2TRIG20_L           (0x0014)
 #define DMA2TSEL__DMA2TRIG21             (0x0015)        /* DMA2TRIG21 */
-#define DMA2TSEL__DMA2TRIG21_L           (0x0015)
 #define DMA2TSEL__DMA2TRIG22             (0x0016)        /* DMA2TRIG22 */
-#define DMA2TSEL__DMA2TRIG22_L           (0x0016)
 #define DMA2TSEL__DMA2TRIG23             (0x0017)        /* DMA2TRIG23 */
-#define DMA2TSEL__DMA2TRIG23_L           (0x0017)
 #define DMA2TSEL__DMA2TRIG24             (0x0018)        /* DMA2TRIG24 */
-#define DMA2TSEL__DMA2TRIG24_L           (0x0018)
 #define DMA2TSEL__DMA2TRIG25             (0x0019)        /* DMA2TRIG25 */
-#define DMA2TSEL__DMA2TRIG25_L           (0x0019)
 #define DMA2TSEL__DMA2TRIG26             (0x001a)        /* DMA2TRIG26 */
-#define DMA2TSEL__DMA2TRIG26_L           (0x001a)
 #define DMA2TSEL__DMA2TRIG27             (0x001b)        /* DMA2TRIG27 */
-#define DMA2TSEL__DMA2TRIG27_L           (0x001b)
 #define DMA2TSEL__DMA2TRIG28             (0x001c)        /* DMA2TRIG28 */
-#define DMA2TSEL__DMA2TRIG28_L           (0x001c)
 #define DMA2TSEL__DMA2TRIG29             (0x001d)        /* DMA2TRIG29 */
-#define DMA2TSEL__DMA2TRIG29_L           (0x001d)
 #define DMA2TSEL__DMA2TRIG30             (0x001e)        /* DMA2TRIG30 */
-#define DMA2TSEL__DMA2TRIG30_L           (0x001e)
 #define DMA2TSEL__DMA2TRIG31             (0x001f)        /* DMA2TRIG31 */
-#define DMA2TSEL__DMA2TRIG31_L           (0x001f)
 #define DMA3TSEL                         (0x1f00)        /* DMA trigger select */
-#define DMA3TSEL_H                       (0x001f)
 #define DMA3TSEL0                        (0x0100)        /* DMA trigger select */
-#define DMA3TSEL0_H                      (0x0001)
 #define DMA3TSEL1                        (0x0200)        /* DMA trigger select */
-#define DMA3TSEL1_H                      (0x0002)
 #define DMA3TSEL2                        (0x0400)        /* DMA trigger select */
-#define DMA3TSEL2_H                      (0x0004)
 #define DMA3TSEL3                        (0x0800)        /* DMA trigger select */
-#define DMA3TSEL3_H                      (0x0008)
 #define DMA3TSEL4                        (0x1000)        /* DMA trigger select */
-#define DMA3TSEL4_H                      (0x0010)
 #define DMA3TSEL_0                       (0x0000)        /* DMA3TRIG0 */
 #define DMA3TSEL_1                       (0x0100)        /* DMA3TRIG1 */
-#define DMA3TSEL_1_H                     (0x0001)
 #define DMA3TSEL_2                       (0x0200)        /* DMA3TRIG2 */
-#define DMA3TSEL_2_H                     (0x0002)
 #define DMA3TSEL_3                       (0x0300)        /* DMA3TRIG3 */
-#define DMA3TSEL_3_H                     (0x0003)
 #define DMA3TSEL_4                       (0x0400)        /* DMA3TRIG4 */
-#define DMA3TSEL_4_H                     (0x0004)
 #define DMA3TSEL_5                       (0x0500)        /* DMA3TRIG5 */
-#define DMA3TSEL_5_H                     (0x0005)
 #define DMA3TSEL_6                       (0x0600)        /* DMA3TRIG6 */
-#define DMA3TSEL_6_H                     (0x0006)
 #define DMA3TSEL_7                       (0x0700)        /* DMA3TRIG7 */
-#define DMA3TSEL_7_H                     (0x0007)
 #define DMA3TSEL_8                       (0x0800)        /* DMA3TRIG8 */
-#define DMA3TSEL_8_H                     (0x0008)
 #define DMA3TSEL_9                       (0x0900)        /* DMA3TRIG9 */
-#define DMA3TSEL_9_H                     (0x0009)
 #define DMA3TSEL_10                      (0x0a00)        /* DMA3TRIG10 */
-#define DMA3TSEL_10_H                    (0x000a)
 #define DMA3TSEL_11                      (0x0b00)        /* DMA3TRIG11 */
-#define DMA3TSEL_11_H                    (0x000b)
 #define DMA3TSEL_12                      (0x0c00)        /* DMA3TRIG12 */
-#define DMA3TSEL_12_H                    (0x000c)
 #define DMA3TSEL_13                      (0x0d00)        /* DMA3TRIG13 */
-#define DMA3TSEL_13_H                    (0x000d)
 #define DMA3TSEL_14                      (0x0e00)        /* DMA3TRIG14 */
-#define DMA3TSEL_14_H                    (0x000e)
 #define DMA3TSEL_15                      (0x0f00)        /* DMA3TRIG15 */
-#define DMA3TSEL_15_H                    (0x000f)
 #define DMA3TSEL_16                      (0x1000)        /* DMA3TRIG16 */
-#define DMA3TSEL_16_H                    (0x0010)
 #define DMA3TSEL_17                      (0x1100)        /* DMA3TRIG17 */
-#define DMA3TSEL_17_H                    (0x0011)
 #define DMA3TSEL_18                      (0x1200)        /* DMA3TRIG18 */
-#define DMA3TSEL_18_H                    (0x0012)
 #define DMA3TSEL_19                      (0x1300)        /* DMA3TRIG19 */
-#define DMA3TSEL_19_H                    (0x0013)
 #define DMA3TSEL_20                      (0x1400)        /* DMA3TRIG20 */
-#define DMA3TSEL_20_H                    (0x0014)
 #define DMA3TSEL_21                      (0x1500)        /* DMA3TRIG21 */
-#define DMA3TSEL_21_H                    (0x0015)
 #define DMA3TSEL_22                      (0x1600)        /* DMA3TRIG22 */
-#define DMA3TSEL_22_H                    (0x0016)
 #define DMA3TSEL_23                      (0x1700)        /* DMA3TRIG23 */
-#define DMA3TSEL_23_H                    (0x0017)
 #define DMA3TSEL_24                      (0x1800)        /* DMA3TRIG24 */
-#define DMA3TSEL_24_H                    (0x0018)
 #define DMA3TSEL_25                      (0x1900)        /* DMA3TRIG25 */
-#define DMA3TSEL_25_H                    (0x0019)
 #define DMA3TSEL_26                      (0x1a00)        /* DMA3TRIG26 */
-#define DMA3TSEL_26_H                    (0x001a)
 #define DMA3TSEL_27                      (0x1b00)        /* DMA3TRIG27 */
-#define DMA3TSEL_27_H                    (0x001b)
 #define DMA3TSEL_28                      (0x1c00)        /* DMA3TRIG28 */
-#define DMA3TSEL_28_H                    (0x001c)
 #define DMA3TSEL_29                      (0x1d00)        /* DMA3TRIG29 */
-#define DMA3TSEL_29_H                    (0x001d)
 #define DMA3TSEL_30                      (0x1e00)        /* DMA3TRIG30 */
-#define DMA3TSEL_30_H                    (0x001e)
 #define DMA3TSEL_31                      (0x1f00)        /* DMA3TRIG31 */
-#define DMA3TSEL_31_H                    (0x001f)
 #define DMA3TSEL__DMAREQ                 DMA3TSEL_0
 #define DMA3TSEL__TA0CCR0                DMA3TSEL_1
 #define DMA3TSEL__TA0CCR2                DMA3TSEL_2
@@ -5597,144 +5300,76 @@ sfr_b(DMA5SZ_H);
 #define DMA3TSEL__DMAE0                  DMA3TSEL_31
 #define DMA3TSEL__DMA3TRIG0              (0x0000)        /* DMA3TRIG0 */
 #define DMA3TSEL__DMA3TRIG1              (0x0100)        /* DMA3TRIG1 */
-#define DMA3TSEL__DMA3TRIG1_H            (0x0001)
 #define DMA3TSEL__DMA3TRIG2              (0x0200)        /* DMA3TRIG2 */
-#define DMA3TSEL__DMA3TRIG2_H            (0x0002)
 #define DMA3TSEL__DMA3TRIG3              (0x0300)        /* DMA3TRIG3 */
-#define DMA3TSEL__DMA3TRIG3_H            (0x0003)
 #define DMA3TSEL__DMA3TRIG4              (0x0400)        /* DMA3TRIG4 */
-#define DMA3TSEL__DMA3TRIG4_H            (0x0004)
 #define DMA3TSEL__DMA3TRIG5              (0x0500)        /* DMA3TRIG5 */
-#define DMA3TSEL__DMA3TRIG5_H            (0x0005)
 #define DMA3TSEL__DMA3TRIG6              (0x0600)        /* DMA3TRIG6 */
-#define DMA3TSEL__DMA3TRIG6_H            (0x0006)
 #define DMA3TSEL__DMA3TRIG7              (0x0700)        /* DMA3TRIG7 */
-#define DMA3TSEL__DMA3TRIG7_H            (0x0007)
 #define DMA3TSEL__DMA3TRIG8              (0x0800)        /* DMA3TRIG8 */
-#define DMA3TSEL__DMA3TRIG8_H            (0x0008)
 #define DMA3TSEL__DMA3TRIG9              (0x0900)        /* DMA3TRIG9 */
-#define DMA3TSEL__DMA3TRIG9_H            (0x0009)
 #define DMA3TSEL__DMA3TRIG10             (0x0a00)        /* DMA3TRIG10 */
-#define DMA3TSEL__DMA3TRIG10_H           (0x000a)
 #define DMA3TSEL__DMA3TRIG11             (0x0b00)        /* DMA3TRIG11 */
-#define DMA3TSEL__DMA3TRIG11_H           (0x000b)
 #define DMA3TSEL__DMA3TRIG12             (0x0c00)        /* DMA3TRIG12 */
-#define DMA3TSEL__DMA3TRIG12_H           (0x000c)
 #define DMA3TSEL__DMA3TRIG13             (0x0d00)        /* DMA3TRIG13 */
-#define DMA3TSEL__DMA3TRIG13_H           (0x000d)
 #define DMA3TSEL__DMA3TRIG14             (0x0e00)        /* DMA3TRIG14 */
-#define DMA3TSEL__DMA3TRIG14_H           (0x000e)
 #define DMA3TSEL__DMA3TRIG15             (0x0f00)        /* DMA3TRIG15 */
-#define DMA3TSEL__DMA3TRIG15_H           (0x000f)
 #define DMA3TSEL__DMA3TRIG16             (0x1000)        /* DMA3TRIG16 */
-#define DMA3TSEL__DMA3TRIG16_H           (0x0010)
 #define DMA3TSEL__DMA3TRIG17             (0x1100)        /* DMA3TRIG17 */
-#define DMA3TSEL__DMA3TRIG17_H           (0x0011)
 #define DMA3TSEL__DMA3TRIG18             (0x1200)        /* DMA3TRIG18 */
-#define DMA3TSEL__DMA3TRIG18_H           (0x0012)
 #define DMA3TSEL__DMA3TRIG19             (0x1300)        /* DMA3TRIG19 */
-#define DMA3TSEL__DMA3TRIG19_H           (0x0013)
 #define DMA3TSEL__DMA3TRIG20             (0x1400)        /* DMA3TRIG20 */
-#define DMA3TSEL__DMA3TRIG20_H           (0x0014)
 #define DMA3TSEL__DMA3TRIG21             (0x1500)        /* DMA3TRIG21 */
-#define DMA3TSEL__DMA3TRIG21_H           (0x0015)
 #define DMA3TSEL__DMA3TRIG22             (0x1600)        /* DMA3TRIG22 */
-#define DMA3TSEL__DMA3TRIG22_H           (0x0016)
 #define DMA3TSEL__DMA3TRIG23             (0x1700)        /* DMA3TRIG23 */
-#define DMA3TSEL__DMA3TRIG23_H           (0x0017)
 #define DMA3TSEL__DMA3TRIG24             (0x1800)        /* DMA3TRIG24 */
-#define DMA3TSEL__DMA3TRIG24_H           (0x0018)
 #define DMA3TSEL__DMA3TRIG25             (0x1900)        /* DMA3TRIG25 */
-#define DMA3TSEL__DMA3TRIG25_H           (0x0019)
 #define DMA3TSEL__DMA3TRIG26             (0x1a00)        /* DMA3TRIG26 */
-#define DMA3TSEL__DMA3TRIG26_H           (0x001a)
 #define DMA3TSEL__DMA3TRIG27             (0x1b00)        /* DMA3TRIG27 */
-#define DMA3TSEL__DMA3TRIG27_H           (0x001b)
 #define DMA3TSEL__DMA3TRIG28             (0x1c00)        /* DMA3TRIG28 */
-#define DMA3TSEL__DMA3TRIG28_H           (0x001c)
 #define DMA3TSEL__DMA3TRIG29             (0x1d00)        /* DMA3TRIG29 */
-#define DMA3TSEL__DMA3TRIG29_H           (0x001d)
 #define DMA3TSEL__DMA3TRIG30             (0x1e00)        /* DMA3TRIG30 */
-#define DMA3TSEL__DMA3TRIG30_H           (0x001e)
 #define DMA3TSEL__DMA3TRIG31             (0x1f00)        /* DMA3TRIG31 */
-#define DMA3TSEL__DMA3TRIG31_H           (0x001f)
 
 /* DMACTL2 Control Bits */
 #define DMA4TSEL                         (0x001f)        /* DMA trigger select */
-#define DMA4TSEL_L                       (0x001f)
 #define DMA4TSEL0                        (0x0001)        /* DMA trigger select */
-#define DMA4TSEL0_L                      (0x0001)
 #define DMA4TSEL1                        (0x0002)        /* DMA trigger select */
-#define DMA4TSEL1_L                      (0x0002)
 #define DMA4TSEL2                        (0x0004)        /* DMA trigger select */
-#define DMA4TSEL2_L                      (0x0004)
 #define DMA4TSEL3                        (0x0008)        /* DMA trigger select */
-#define DMA4TSEL3_L                      (0x0008)
 #define DMA4TSEL4                        (0x0010)        /* DMA trigger select */
-#define DMA4TSEL4_L                      (0x0010)
 #define DMA4TSEL_0                       (0x0000)        /* DMA4TRIG0 */
 #define DMA4TSEL_1                       (0x0001)        /* DMA4TRIG1 */
-#define DMA4TSEL_1_L                     (0x0001)
 #define DMA4TSEL_2                       (0x0002)        /* DMA4TRIG2 */
-#define DMA4TSEL_2_L                     (0x0002)
 #define DMA4TSEL_3                       (0x0003)        /* DMA4TRIG3 */
-#define DMA4TSEL_3_L                     (0x0003)
 #define DMA4TSEL_4                       (0x0004)        /* DMA4TRIG4 */
-#define DMA4TSEL_4_L                     (0x0004)
 #define DMA4TSEL_5                       (0x0005)        /* DMA4TRIG5 */
-#define DMA4TSEL_5_L                     (0x0005)
 #define DMA4TSEL_6                       (0x0006)        /* DMA4TRIG6 */
-#define DMA4TSEL_6_L                     (0x0006)
 #define DMA4TSEL_7                       (0x0007)        /* DMA4TRIG7 */
-#define DMA4TSEL_7_L                     (0x0007)
 #define DMA4TSEL_8                       (0x0008)        /* DMA4TRIG8 */
-#define DMA4TSEL_8_L                     (0x0008)
 #define DMA4TSEL_9                       (0x0009)        /* DMA4TRIG9 */
-#define DMA4TSEL_9_L                     (0x0009)
 #define DMA4TSEL_10                      (0x000a)        /* DMA4TRIG10 */
-#define DMA4TSEL_10_L                    (0x000a)
 #define DMA4TSEL_11                      (0x000b)        /* DMA4TRIG11 */
-#define DMA4TSEL_11_L                    (0x000b)
 #define DMA4TSEL_12                      (0x000c)        /* DMA4TRIG12 */
-#define DMA4TSEL_12_L                    (0x000c)
 #define DMA4TSEL_13                      (0x000d)        /* DMA4TRIG13 */
-#define DMA4TSEL_13_L                    (0x000d)
 #define DMA4TSEL_14                      (0x000e)        /* DMA4TRIG14 */
-#define DMA4TSEL_14_L                    (0x000e)
 #define DMA4TSEL_15                      (0x000f)        /* DMA4TRIG15 */
-#define DMA4TSEL_15_L                    (0x000f)
 #define DMA4TSEL_16                      (0x0010)        /* DMA4TRIG16 */
-#define DMA4TSEL_16_L                    (0x0010)
 #define DMA4TSEL_17                      (0x0011)        /* DMA4TRIG17 */
-#define DMA4TSEL_17_L                    (0x0011)
 #define DMA4TSEL_18                      (0x0012)        /* DMA4TRIG18 */
-#define DMA4TSEL_18_L                    (0x0012)
 #define DMA4TSEL_19                      (0x0013)        /* DMA4TRIG19 */
-#define DMA4TSEL_19_L                    (0x0013)
 #define DMA4TSEL_20                      (0x0014)        /* DMA4TRIG20 */
-#define DMA4TSEL_20_L                    (0x0014)
 #define DMA4TSEL_21                      (0x0015)        /* DMA4TRIG21 */
-#define DMA4TSEL_21_L                    (0x0015)
 #define DMA4TSEL_22                      (0x0016)        /* DMA4TRIG22 */
-#define DMA4TSEL_22_L                    (0x0016)
 #define DMA4TSEL_23                      (0x0017)        /* DMA4TRIG23 */
-#define DMA4TSEL_23_L                    (0x0017)
 #define DMA4TSEL_24                      (0x0018)        /* DMA4TRIG24 */
-#define DMA4TSEL_24_L                    (0x0018)
 #define DMA4TSEL_25                      (0x0019)        /* DMA4TRIG25 */
-#define DMA4TSEL_25_L                    (0x0019)
 #define DMA4TSEL_26                      (0x001a)        /* DMA4TRIG26 */
-#define DMA4TSEL_26_L                    (0x001a)
 #define DMA4TSEL_27                      (0x001b)        /* DMA4TRIG27 */
-#define DMA4TSEL_27_L                    (0x001b)
 #define DMA4TSEL_28                      (0x001c)        /* DMA4TRIG28 */
-#define DMA4TSEL_28_L                    (0x001c)
 #define DMA4TSEL_29                      (0x001d)        /* DMA4TRIG29 */
-#define DMA4TSEL_29_L                    (0x001d)
 #define DMA4TSEL_30                      (0x001e)        /* DMA4TRIG30 */
-#define DMA4TSEL_30_L                    (0x001e)
 #define DMA4TSEL_31                      (0x001f)        /* DMA4TRIG31 */
-#define DMA4TSEL_31_L                    (0x001f)
 #define DMA4TSEL__DMAREQ                 DMA4TSEL_0
 #define DMA4TSEL__TA0CCR0                DMA4TSEL_1
 #define DMA4TSEL__TA0CCR2                DMA4TSEL_2
@@ -5769,142 +5404,74 @@ sfr_b(DMA5SZ_H);
 #define DMA4TSEL__DMAE0                  DMA4TSEL_31
 #define DMA4TSEL__DMA4TRIG0              (0x0000)        /* DMA4TRIG0 */
 #define DMA4TSEL__DMA4TRIG1              (0x0001)        /* DMA4TRIG1 */
-#define DMA4TSEL__DMA4TRIG1_L            (0x0001)
 #define DMA4TSEL__DMA4TRIG2              (0x0002)        /* DMA4TRIG2 */
-#define DMA4TSEL__DMA4TRIG2_L            (0x0002)
 #define DMA4TSEL__DMA4TRIG3              (0x0003)        /* DMA4TRIG3 */
-#define DMA4TSEL__DMA4TRIG3_L            (0x0003)
 #define DMA4TSEL__DMA4TRIG4              (0x0004)        /* DMA4TRIG4 */
-#define DMA4TSEL__DMA4TRIG4_L            (0x0004)
 #define DMA4TSEL__DMA4TRIG5              (0x0005)        /* DMA4TRIG5 */
-#define DMA4TSEL__DMA4TRIG5_L            (0x0005)
 #define DMA4TSEL__DMA4TRIG6              (0x0006)        /* DMA4TRIG6 */
-#define DMA4TSEL__DMA4TRIG6_L            (0x0006)
 #define DMA4TSEL__DMA4TRIG7              (0x0007)        /* DMA4TRIG7 */
-#define DMA4TSEL__DMA4TRIG7_L            (0x0007)
 #define DMA4TSEL__DMA4TRIG8              (0x0008)        /* DMA4TRIG8 */
-#define DMA4TSEL__DMA4TRIG8_L            (0x0008)
 #define DMA4TSEL__DMA4TRIG9              (0x0009)        /* DMA4TRIG9 */
-#define DMA4TSEL__DMA4TRIG9_L            (0x0009)
 #define DMA4TSEL__DMA4TRIG10             (0x000a)        /* DMA4TRIG10 */
-#define DMA4TSEL__DMA4TRIG10_L           (0x000a)
 #define DMA4TSEL__DMA4TRIG11             (0x000b)        /* DMA4TRIG11 */
-#define DMA4TSEL__DMA4TRIG11_L           (0x000b)
 #define DMA4TSEL__DMA4TRIG12             (0x000c)        /* DMA4TRIG12 */
-#define DMA4TSEL__DMA4TRIG12_L           (0x000c)
 #define DMA4TSEL__DMA4TRIG13             (0x000d)        /* DMA4TRIG13 */
-#define DMA4TSEL__DMA4TRIG13_L           (0x000d)
 #define DMA4TSEL__DMA4TRIG14             (0x000e)        /* DMA4TRIG14 */
-#define DMA4TSEL__DMA4TRIG14_L           (0x000e)
 #define DMA4TSEL__DMA4TRIG15             (0x000f)        /* DMA4TRIG15 */
-#define DMA4TSEL__DMA4TRIG15_L           (0x000f)
 #define DMA4TSEL__DMA4TRIG16             (0x0010)        /* DMA4TRIG16 */
-#define DMA4TSEL__DMA4TRIG16_L           (0x0010)
 #define DMA4TSEL__DMA4TRIG17             (0x0011)        /* DMA4TRIG17 */
-#define DMA4TSEL__DMA4TRIG17_L           (0x0011)
 #define DMA4TSEL__DMA4TRIG18             (0x0012)        /* DMA4TRIG18 */
-#define DMA4TSEL__DMA4TRIG18_L           (0x0012)
 #define DMA4TSEL__DMA4TRIG19             (0x0013)        /* DMA4TRIG19 */
-#define DMA4TSEL__DMA4TRIG19_L           (0x0013)
 #define DMA4TSEL__DMA4TRIG20             (0x0014)        /* DMA4TRIG20 */
-#define DMA4TSEL__DMA4TRIG20_L           (0x0014)
 #define DMA4TSEL__DMA4TRIG21             (0x0015)        /* DMA4TRIG21 */
-#define DMA4TSEL__DMA4TRIG21_L           (0x0015)
 #define DMA4TSEL__DMA4TRIG22             (0x0016)        /* DMA4TRIG22 */
-#define DMA4TSEL__DMA4TRIG22_L           (0x0016)
 #define DMA4TSEL__DMA4TRIG23             (0x0017)        /* DMA4TRIG23 */
-#define DMA4TSEL__DMA4TRIG23_L           (0x0017)
 #define DMA4TSEL__DMA4TRIG24             (0x0018)        /* DMA4TRIG24 */
-#define DMA4TSEL__DMA4TRIG24_L           (0x0018)
 #define DMA4TSEL__DMA4TRIG25             (0x0019)        /* DMA4TRIG25 */
-#define DMA4TSEL__DMA4TRIG25_L           (0x0019)
 #define DMA4TSEL__DMA4TRIG26             (0x001a)        /* DMA4TRIG26 */
-#define DMA4TSEL__DMA4TRIG26_L           (0x001a)
 #define DMA4TSEL__DMA4TRIG27             (0x001b)        /* DMA4TRIG27 */
-#define DMA4TSEL__DMA4TRIG27_L           (0x001b)
 #define DMA4TSEL__DMA4TRIG28             (0x001c)        /* DMA4TRIG28 */
-#define DMA4TSEL__DMA4TRIG28_L           (0x001c)
 #define DMA4TSEL__DMA4TRIG29             (0x001d)        /* DMA4TRIG29 */
-#define DMA4TSEL__DMA4TRIG29_L           (0x001d)
 #define DMA4TSEL__DMA4TRIG30             (0x001e)        /* DMA4TRIG30 */
-#define DMA4TSEL__DMA4TRIG30_L           (0x001e)
 #define DMA4TSEL__DMA4TRIG31             (0x001f)        /* DMA4TRIG31 */
-#define DMA4TSEL__DMA4TRIG31_L           (0x001f)
 #define DMA5TSEL                         (0x1f00)        /* DMA trigger select */
-#define DMA5TSEL_H                       (0x001f)
 #define DMA5TSEL0                        (0x0100)        /* DMA trigger select */
-#define DMA5TSEL0_H                      (0x0001)
 #define DMA5TSEL1                        (0x0200)        /* DMA trigger select */
-#define DMA5TSEL1_H                      (0x0002)
 #define DMA5TSEL2                        (0x0400)        /* DMA trigger select */
-#define DMA5TSEL2_H                      (0x0004)
 #define DMA5TSEL3                        (0x0800)        /* DMA trigger select */
-#define DMA5TSEL3_H                      (0x0008)
 #define DMA5TSEL4                        (0x1000)        /* DMA trigger select */
-#define DMA5TSEL4_H                      (0x0010)
 #define DMA5TSEL_0                       (0x0000)        /* DMA5TRIG0 */
 #define DMA5TSEL_1                       (0x0100)        /* DMA5TRIG1 */
-#define DMA5TSEL_1_H                     (0x0001)
 #define DMA5TSEL_2                       (0x0200)        /* DMA5TRIG2 */
-#define DMA5TSEL_2_H                     (0x0002)
 #define DMA5TSEL_3                       (0x0300)        /* DMA5TRIG3 */
-#define DMA5TSEL_3_H                     (0x0003)
 #define DMA5TSEL_4                       (0x0400)        /* DMA5TRIG4 */
-#define DMA5TSEL_4_H                     (0x0004)
 #define DMA5TSEL_5                       (0x0500)        /* DMA5TRIG5 */
-#define DMA5TSEL_5_H                     (0x0005)
 #define DMA5TSEL_6                       (0x0600)        /* DMA5TRIG6 */
-#define DMA5TSEL_6_H                     (0x0006)
 #define DMA5TSEL_7                       (0x0700)        /* DMA5TRIG7 */
-#define DMA5TSEL_7_H                     (0x0007)
 #define DMA5TSEL_8                       (0x0800)        /* DMA5TRIG8 */
-#define DMA5TSEL_8_H                     (0x0008)
 #define DMA5TSEL_9                       (0x0900)        /* DMA5TRIG9 */
-#define DMA5TSEL_9_H                     (0x0009)
 #define DMA5TSEL_10                      (0x0a00)        /* DMA5TRIG10 */
-#define DMA5TSEL_10_H                    (0x000a)
 #define DMA5TSEL_11                      (0x0b00)        /* DMA5TRIG11 */
-#define DMA5TSEL_11_H                    (0x000b)
 #define DMA5TSEL_12                      (0x0c00)        /* DMA5TRIG12 */
-#define DMA5TSEL_12_H                    (0x000c)
 #define DMA5TSEL_13                      (0x0d00)        /* DMA5TRIG13 */
-#define DMA5TSEL_13_H                    (0x000d)
 #define DMA5TSEL_14                      (0x0e00)        /* DMA5TRIG14 */
-#define DMA5TSEL_14_H                    (0x000e)
 #define DMA5TSEL_15                      (0x0f00)        /* DMA5TRIG15 */
-#define DMA5TSEL_15_H                    (0x000f)
 #define DMA5TSEL_16                      (0x1000)        /* DMA5TRIG16 */
-#define DMA5TSEL_16_H                    (0x0010)
 #define DMA5TSEL_17                      (0x1100)        /* DMA5TRIG17 */
-#define DMA5TSEL_17_H                    (0x0011)
 #define DMA5TSEL_18                      (0x1200)        /* DMA5TRIG18 */
-#define DMA5TSEL_18_H                    (0x0012)
 #define DMA5TSEL_19                      (0x1300)        /* DMA5TRIG19 */
-#define DMA5TSEL_19_H                    (0x0013)
 #define DMA5TSEL_20                      (0x1400)        /* DMA5TRIG20 */
-#define DMA5TSEL_20_H                    (0x0014)
 #define DMA5TSEL_21                      (0x1500)        /* DMA5TRIG21 */
-#define DMA5TSEL_21_H                    (0x0015)
 #define DMA5TSEL_22                      (0x1600)        /* DMA5TRIG22 */
-#define DMA5TSEL_22_H                    (0x0016)
 #define DMA5TSEL_23                      (0x1700)        /* DMA5TRIG23 */
-#define DMA5TSEL_23_H                    (0x0017)
 #define DMA5TSEL_24                      (0x1800)        /* DMA5TRIG24 */
-#define DMA5TSEL_24_H                    (0x0018)
 #define DMA5TSEL_25                      (0x1900)        /* DMA5TRIG25 */
-#define DMA5TSEL_25_H                    (0x0019)
 #define DMA5TSEL_26                      (0x1a00)        /* DMA5TRIG26 */
-#define DMA5TSEL_26_H                    (0x001a)
 #define DMA5TSEL_27                      (0x1b00)        /* DMA5TRIG27 */
-#define DMA5TSEL_27_H                    (0x001b)
 #define DMA5TSEL_28                      (0x1c00)        /* DMA5TRIG28 */
-#define DMA5TSEL_28_H                    (0x001c)
 #define DMA5TSEL_29                      (0x1d00)        /* DMA5TRIG29 */
-#define DMA5TSEL_29_H                    (0x001d)
 #define DMA5TSEL_30                      (0x1e00)        /* DMA5TRIG30 */
-#define DMA5TSEL_30_H                    (0x001e)
 #define DMA5TSEL_31                      (0x1f00)        /* DMA5TRIG31 */
-#define DMA5TSEL_31_H                    (0x001f)
 #define DMA5TSEL__DMAREQ                 DMA5TSEL_0
 #define DMA5TSEL__TA0CCR0                DMA5TSEL_1
 #define DMA5TSEL__TA0CCR2                DMA5TSEL_2
@@ -5939,264 +5506,151 @@ sfr_b(DMA5SZ_H);
 #define DMA5TSEL__DMAE0                  DMA5TSEL_31
 #define DMA5TSEL__DMA5TRIG0              (0x0000)        /* DMA5TRIG0 */
 #define DMA5TSEL__DMA5TRIG1              (0x0100)        /* DMA5TRIG1 */
-#define DMA5TSEL__DMA5TRIG1_H            (0x0001)
 #define DMA5TSEL__DMA5TRIG2              (0x0200)        /* DMA5TRIG2 */
-#define DMA5TSEL__DMA5TRIG2_H            (0x0002)
 #define DMA5TSEL__DMA5TRIG3              (0x0300)        /* DMA5TRIG3 */
-#define DMA5TSEL__DMA5TRIG3_H            (0x0003)
 #define DMA5TSEL__DMA5TRIG4              (0x0400)        /* DMA5TRIG4 */
-#define DMA5TSEL__DMA5TRIG4_H            (0x0004)
 #define DMA5TSEL__DMA5TRIG5              (0x0500)        /* DMA5TRIG5 */
-#define DMA5TSEL__DMA5TRIG5_H            (0x0005)
 #define DMA5TSEL__DMA5TRIG6              (0x0600)        /* DMA5TRIG6 */
-#define DMA5TSEL__DMA5TRIG6_H            (0x0006)
 #define DMA5TSEL__DMA5TRIG7              (0x0700)        /* DMA5TRIG7 */
-#define DMA5TSEL__DMA5TRIG7_H            (0x0007)
 #define DMA5TSEL__DMA5TRIG8              (0x0800)        /* DMA5TRIG8 */
-#define DMA5TSEL__DMA5TRIG8_H            (0x0008)
 #define DMA5TSEL__DMA5TRIG9              (0x0900)        /* DMA5TRIG9 */
-#define DMA5TSEL__DMA5TRIG9_H            (0x0009)
 #define DMA5TSEL__DMA5TRIG10             (0x0a00)        /* DMA5TRIG10 */
-#define DMA5TSEL__DMA5TRIG10_H           (0x000a)
 #define DMA5TSEL__DMA5TRIG11             (0x0b00)        /* DMA5TRIG11 */
-#define DMA5TSEL__DMA5TRIG11_H           (0x000b)
 #define DMA5TSEL__DMA5TRIG12             (0x0c00)        /* DMA5TRIG12 */
-#define DMA5TSEL__DMA5TRIG12_H           (0x000c)
 #define DMA5TSEL__DMA5TRIG13             (0x0d00)        /* DMA5TRIG13 */
-#define DMA5TSEL__DMA5TRIG13_H           (0x000d)
 #define DMA5TSEL__DMA5TRIG14             (0x0e00)        /* DMA5TRIG14 */
-#define DMA5TSEL__DMA5TRIG14_H           (0x000e)
 #define DMA5TSEL__DMA5TRIG15             (0x0f00)        /* DMA5TRIG15 */
-#define DMA5TSEL__DMA5TRIG15_H           (0x000f)
 #define DMA5TSEL__DMA5TRIG16             (0x1000)        /* DMA5TRIG16 */
-#define DMA5TSEL__DMA5TRIG16_H           (0x0010)
 #define DMA5TSEL__DMA5TRIG17             (0x1100)        /* DMA5TRIG17 */
-#define DMA5TSEL__DMA5TRIG17_H           (0x0011)
 #define DMA5TSEL__DMA5TRIG18             (0x1200)        /* DMA5TRIG18 */
-#define DMA5TSEL__DMA5TRIG18_H           (0x0012)
 #define DMA5TSEL__DMA5TRIG19             (0x1300)        /* DMA5TRIG19 */
-#define DMA5TSEL__DMA5TRIG19_H           (0x0013)
 #define DMA5TSEL__DMA5TRIG20             (0x1400)        /* DMA5TRIG20 */
-#define DMA5TSEL__DMA5TRIG20_H           (0x0014)
 #define DMA5TSEL__DMA5TRIG21             (0x1500)        /* DMA5TRIG21 */
-#define DMA5TSEL__DMA5TRIG21_H           (0x0015)
 #define DMA5TSEL__DMA5TRIG22             (0x1600)        /* DMA5TRIG22 */
-#define DMA5TSEL__DMA5TRIG22_H           (0x0016)
 #define DMA5TSEL__DMA5TRIG23             (0x1700)        /* DMA5TRIG23 */
-#define DMA5TSEL__DMA5TRIG23_H           (0x0017)
 #define DMA5TSEL__DMA5TRIG24             (0x1800)        /* DMA5TRIG24 */
-#define DMA5TSEL__DMA5TRIG24_H           (0x0018)
 #define DMA5TSEL__DMA5TRIG25             (0x1900)        /* DMA5TRIG25 */
-#define DMA5TSEL__DMA5TRIG25_H           (0x0019)
 #define DMA5TSEL__DMA5TRIG26             (0x1a00)        /* DMA5TRIG26 */
-#define DMA5TSEL__DMA5TRIG26_H           (0x001a)
 #define DMA5TSEL__DMA5TRIG27             (0x1b00)        /* DMA5TRIG27 */
-#define DMA5TSEL__DMA5TRIG27_H           (0x001b)
 #define DMA5TSEL__DMA5TRIG28             (0x1c00)        /* DMA5TRIG28 */
-#define DMA5TSEL__DMA5TRIG28_H           (0x001c)
 #define DMA5TSEL__DMA5TRIG29             (0x1d00)        /* DMA5TRIG29 */
-#define DMA5TSEL__DMA5TRIG29_H           (0x001d)
 #define DMA5TSEL__DMA5TRIG30             (0x1e00)        /* DMA5TRIG30 */
-#define DMA5TSEL__DMA5TRIG30_H           (0x001e)
 #define DMA5TSEL__DMA5TRIG31             (0x1f00)        /* DMA5TRIG31 */
-#define DMA5TSEL__DMA5TRIG31_H           (0x001f)
 
 /* DMACTL4 Control Bits */
 #define ENNMI                            (0x0001)        /* Enable NMI */
-#define ENNMI_L                          (0x0001)
 #define ENNMI_0                          (0x0000)        /* NMI does not interrupt DMA transfer */
 #define ENNMI_1                          (0x0001)        /* NMI interrupts a DMA transfer */
-#define ENNMI_1_L                        (0x0001)
 #define ROUNDROBIN                       (0x0002)        /* Round robin */
-#define ROUNDROBIN_L                     (0x0002)
 #define ROUNDROBIN_0                     (0x0000)        /* DMA channel priority is DMA0-DMA1-DMA2 - ... - DMA7 */
 #define ROUNDROBIN_1                     (0x0002)        /* DMA channel priority changes with each transfer */
-#define ROUNDROBIN_1_L                   (0x0002)
 #define DMARMWDIS                        (0x0004)        /* Read-modify-write disable */
-#define DMARMWDIS_L                      (0x0004)
 #define DMARMWDIS_0                      (0x0000)        /* DMA transfers can occur during read-modify-write CPU 
                                                             operations */
 #define DMARMWDIS_1                      (0x0004)        /* DMA transfers inhibited during read-modify-write CPU 
                                                             operations */
-#define DMARMWDIS_1_L                    (0x0004)
 
 /* DMAIV Control Bits */
 #define DMAIV0                           (0x0001)        /* DMA interrupt vector value */
-#define DMAIV0_L                         (0x0001)
 #define DMAIV1                           (0x0002)        /* DMA interrupt vector value */
-#define DMAIV1_L                         (0x0002)
 #define DMAIV2                           (0x0004)        /* DMA interrupt vector value */
-#define DMAIV2_L                         (0x0004)
 #define DMAIV3                           (0x0008)        /* DMA interrupt vector value */
-#define DMAIV3_L                         (0x0008)
 #define DMAIV4                           (0x0010)        /* DMA interrupt vector value */
-#define DMAIV4_L                         (0x0010)
 #define DMAIV5                           (0x0020)        /* DMA interrupt vector value */
-#define DMAIV5_L                         (0x0020)
 #define DMAIV6                           (0x0040)        /* DMA interrupt vector value */
-#define DMAIV6_L                         (0x0040)
 #define DMAIV7                           (0x0080)        /* DMA interrupt vector value */
-#define DMAIV7_L                         (0x0080)
 #define DMAIV8                           (0x0100)        /* DMA interrupt vector value */
-#define DMAIV8_H                         (0x0001)
 #define DMAIV9                           (0x0200)        /* DMA interrupt vector value */
-#define DMAIV9_H                         (0x0002)
 #define DMAIV10                          (0x0400)        /* DMA interrupt vector value */
-#define DMAIV10_H                        (0x0004)
 #define DMAIV11                          (0x0800)        /* DMA interrupt vector value */
-#define DMAIV11_H                        (0x0008)
 #define DMAIV12                          (0x1000)        /* DMA interrupt vector value */
-#define DMAIV12_H                        (0x0010)
 #define DMAIV13                          (0x2000)        /* DMA interrupt vector value */
-#define DMAIV13_H                        (0x0020)
 #define DMAIV14                          (0x4000)        /* DMA interrupt vector value */
-#define DMAIV14_H                        (0x0040)
 #define DMAIV15                          (0x8000)        /* DMA interrupt vector value */
-#define DMAIV15_H                        (0x0080)
 #define DMAIV_0                          (0x0000)        /* No interrupt pending */
 #define DMAIV_2                          (0x0002)        /* Interrupt Source: DMA channel 0; Interrupt Flag: DMA0IFG; 
                                                             Interrupt Priority: Highest */
-#define DMAIV_2_L                        (0x0002)
 #define DMAIV_4                          (0x0004)        /* Interrupt Source: DMA channel 1; Interrupt Flag: DMA1IFG */
-#define DMAIV_4_L                        (0x0004)
 #define DMAIV_6                          (0x0006)        /* Interrupt Source: DMA channel 2; Interrupt Flag: DMA2IFG */
-#define DMAIV_6_L                        (0x0006)
 #define DMAIV_8                          (0x0008)        /* Interrupt Source: DMA channel 3; Interrupt Flag: DMA3IFG */
-#define DMAIV_8_L                        (0x0008)
 #define DMAIV_10                         (0x000a)        /* Interrupt Source: DMA channel 4; Interrupt Flag: DMA4IFG */
-#define DMAIV_10_L                       (0x000a)
 #define DMAIV_12                         (0x000c)        /* Interrupt Source: DMA channel 5; Interrupt Flag: DMA5IFG */
-#define DMAIV_12_L                       (0x000c)
 #define DMAIV_14                         (0x000e)        /* Interrupt Source: DMA channel 6; Interrupt Flag: DMA6IFG */
-#define DMAIV_14_L                       (0x000e)
 #define DMAIV_16                         (0x0010)        /* Interrupt Source: DMA channel 7; Interrupt Flag: DMA7IFG; 
                                                             Interrupt Priority: Lowest */
-#define DMAIV_16_L                       (0x0010)
 #define DMAIV__NONE                      (0x0000)        /* No interrupt pending */
 #define DMAIV__DMA0IFG                   (0x0002)        /* Interrupt Source: DMA channel 0; Interrupt Flag: DMA0IFG; 
                                                             Interrupt Priority: Highest */
-#define DMAIV__DMA0IFG_L                 (0x0002)
 #define DMAIV__DMA1IFG                   (0x0004)        /* Interrupt Source: DMA channel 1; Interrupt Flag: DMA1IFG */
-#define DMAIV__DMA1IFG_L                 (0x0004)
 #define DMAIV__DMA2IFG                   (0x0006)        /* Interrupt Source: DMA channel 2; Interrupt Flag: DMA2IFG */
-#define DMAIV__DMA2IFG_L                 (0x0006)
 #define DMAIV__DMA3IFG                   (0x0008)        /* Interrupt Source: DMA channel 3; Interrupt Flag: DMA3IFG */
-#define DMAIV__DMA3IFG_L                 (0x0008)
 #define DMAIV__DMA4IFG                   (0x000a)        /* Interrupt Source: DMA channel 4; Interrupt Flag: DMA4IFG */
-#define DMAIV__DMA4IFG_L                 (0x000a)
 #define DMAIV__DMA5IFG                   (0x000c)        /* Interrupt Source: DMA channel 5; Interrupt Flag: DMA5IFG */
-#define DMAIV__DMA5IFG_L                 (0x000c)
 #define DMAIV__DMA6IFG                   (0x000e)        /* Interrupt Source: DMA channel 6; Interrupt Flag: DMA6IFG */
-#define DMAIV__DMA6IFG_L                 (0x000e)
 #define DMAIV__DMA7IFG                   (0x0010)        /* Interrupt Source: DMA channel 7; Interrupt Flag: DMA7IFG; 
                                                             Interrupt Priority: Lowest */
-#define DMAIV__DMA7IFG_L                 (0x0010)
 
 /* DMA0CTL Control Bits */
 #define DMAREQ                           (0x0001)        /* DMA request */
-#define DMAREQ_L                         (0x0001)
 #define DMAREQ_0                         (0x0000)        /* No DMA start */
 #define DMAREQ_1                         (0x0001)        /* Start DMA */
-#define DMAREQ_1_L                       (0x0001)
 #define DMAABORT                         (0x0002)        /* DMA abort */
-#define DMAABORT_L                       (0x0002)
 #define DMAABORT_0                       (0x0000)        /* DMA transfer not interrupted */
 #define DMAABORT_1                       (0x0002)        /* DMA transfer interrupted by NMI */
-#define DMAABORT_1_L                     (0x0002)
 #define DMAIE                            (0x0004)        /* DMA interrupt enable */
-#define DMAIE_L                          (0x0004)
 #define DMAIE_0                          (0x0000)        /* Disabled */
 #define DMAIE_1                          (0x0004)        /* Enabled */
-#define DMAIE_1_L                        (0x0004)
 #define DMAIE__DISABLE                   (0x0000)        /* Disabled */
 #define DMAIE__ENABLE                    (0x0004)        /* Enabled */
-#define DMAIE__ENABLE_L                  (0x0004)
 #define DMAIFG                           (0x0008)        /* DMA interrupt flag */
-#define DMAIFG_L                         (0x0008)
 #define DMAIFG_0                         (0x0000)        /* No interrupt pending */
 #define DMAIFG_1                         (0x0008)        /* Interrupt pending */
-#define DMAIFG_1_L                       (0x0008)
 #define DMAEN                            (0x0010)        /* DMA enable */
-#define DMAEN_L                          (0x0010)
 #define DMAEN_0                          (0x0000)        /* Disabled */
 #define DMAEN_1                          (0x0010)        /* Enabled */
-#define DMAEN_1_L                        (0x0010)
 #define DMAEN__DISABLE                   (0x0000)        /* Disabled */
 #define DMAEN__ENABLE                    (0x0010)        /* Enabled */
-#define DMAEN__ENABLE_L                  (0x0010)
 #define DMALEVEL                         (0x0020)        /* DMA level */
-#define DMALEVEL_L                       (0x0020)
 #define DMALEVEL_0                       (0x0000)        /* Edge sensitive (rising edge) */
 #define DMALEVEL_1                       (0x0020)        /* Level sensitive (high level) */
-#define DMALEVEL_1_L                     (0x0020)
 #define DMALEVEL__EDGE                   (0x0000)        /* Edge sensitive (rising edge) */
 #define DMALEVEL__LEVEL                  (0x0020)        /* Level sensitive (high level) */
-#define DMALEVEL__LEVEL_L                (0x0020)
 #define DMASRCBYTE                       (0x0040)        /* DMA source byte */
-#define DMASRCBYTE_L                     (0x0040)
 #define DMASRCBYTE_0                     (0x0000)        /* Word */
 #define DMASRCBYTE_1                     (0x0040)        /* Byte */
-#define DMASRCBYTE_1_L                   (0x0040)
 #define DMASRCBYTE__WORD                 (0x0000)        /* Word */
 #define DMASRCBYTE__BYTE                 (0x0040)        /* Byte */
-#define DMASRCBYTE__BYTE_L               (0x0040)
 #define DMADSTBYTE                       (0x0080)        /* DMA destination byte */
-#define DMADSTBYTE_L                     (0x0080)
 #define DMADSTBYTE_0                     (0x0000)        /* Word */
 #define DMADSTBYTE_1                     (0x0080)        /* Byte */
-#define DMADSTBYTE_1_L                   (0x0080)
 #define DMADSTBYTE__WORD                 (0x0000)        /* Word */
 #define DMADSTBYTE__BYTE                 (0x0080)        /* Byte */
-#define DMADSTBYTE__BYTE_L               (0x0080)
 #define DMASRCINCR                       (0x0300)        /* DMA source increment */
-#define DMASRCINCR_H                     (0x0003)
 #define DMASRCINCR0                      (0x0100)        /* DMA source increment */
-#define DMASRCINCR0_H                    (0x0001)
 #define DMASRCINCR1                      (0x0200)        /* DMA source increment */
-#define DMASRCINCR1_H                    (0x0002)
 #define DMASRCINCR_0                     (0x0000)        /* Source address is unchanged */
 #define DMASRCINCR_1                     (0x0100)        /* Source address is unchanged */
-#define DMASRCINCR_1_H                   (0x0001)
 #define DMASRCINCR_2                     (0x0200)        /* Source address is decremented */
-#define DMASRCINCR_2_H                   (0x0002)
 #define DMASRCINCR_3                     (0x0300)        /* Source address is incremented */
-#define DMASRCINCR_3_H                   (0x0003)
 #define DMADSTINCR                       (0x0c00)        /* DMA destination increment */
-#define DMADSTINCR_H                     (0x000c)
 #define DMADSTINCR0                      (0x0400)        /* DMA destination increment */
-#define DMADSTINCR0_H                    (0x0004)
 #define DMADSTINCR1                      (0x0800)        /* DMA destination increment */
-#define DMADSTINCR1_H                    (0x0008)
 #define DMADSTINCR_0                     (0x0000)        /* Destination address is unchanged */
 #define DMADSTINCR_1                     (0x0400)        /* Destination address is unchanged */
-#define DMADSTINCR_1_H                   (0x0004)
 #define DMADSTINCR_2                     (0x0800)        /* Destination address is decremented */
-#define DMADSTINCR_2_H                   (0x0008)
 #define DMADSTINCR_3                     (0x0c00)        /* Destination address is incremented */
-#define DMADSTINCR_3_H                   (0x000c)
 #define DMADT                            (0x7000)        /* DMA transfer mode */
-#define DMADT_H                          (0x0070)
 #define DMADT0                           (0x1000)        /* DMA transfer mode */
-#define DMADT0_H                         (0x0010)
 #define DMADT1                           (0x2000)        /* DMA transfer mode */
-#define DMADT1_H                         (0x0020)
 #define DMADT2                           (0x4000)        /* DMA transfer mode */
-#define DMADT2_H                         (0x0040)
 #define DMADT_0                          (0x0000)        /* Single transfer */
 #define DMADT_1                          (0x1000)        /* Block transfer */
-#define DMADT_1_H                        (0x0010)
 #define DMADT_2                          (0x2000)        /* Burst-block transfer */
-#define DMADT_2_H                        (0x0020)
 #define DMADT_3                          (0x3000)        /* Burst-block transfer */
-#define DMADT_3_H                        (0x0030)
 #define DMADT_4                          (0x4000)        /* Repeated single transfer */
-#define DMADT_4_H                        (0x0040)
 #define DMADT_5                          (0x5000)        /* Repeated block transfer */
-#define DMADT_5_H                        (0x0050)
 #define DMADT_6                          (0x6000)        /* Repeated burst-block transfer */
-#define DMADT_6_H                        (0x0060)
 #define DMADT_7                          (0x7000)        /* Repeated burst-block transfer */
-#define DMADT_7_H                        (0x0070)
 
 
 /*****************************************************************************
@@ -6597,6 +6051,54 @@ sfr_b(HSPLLUSSXTLCTL_H);
 #define PLLM4_H                          (0x0040)
 #define PLLM5                            (0x8000)        /* PLL Multiplier */
 #define PLLM5_H                          (0x0080)
+#define PLLM_16                          (0x4000)        /* */
+#define PLLM_16_H                        (0x0040)
+#define PLLM_17                          (0x4400)        /* */
+#define PLLM_17_H                        (0x0044)
+#define PLLM_18                          (0x4800)        /* */
+#define PLLM_18_H                        (0x0048)
+#define PLLM_19                          (0x4c00)        /* */
+#define PLLM_19_H                        (0x004c)
+#define PLLM_20                          (0x5000)        /* */
+#define PLLM_20_H                        (0x0050)
+#define PLLM_21                          (0x5400)        /* */
+#define PLLM_21_H                        (0x0054)
+#define PLLM_22                          (0x5800)        /* */
+#define PLLM_22_H                        (0x0058)
+#define PLLM_23                          (0x5c00)        /* */
+#define PLLM_23_H                        (0x005c)
+#define PLLM_24                          (0x6000)        /* */
+#define PLLM_24_H                        (0x0060)
+#define PLLM_25                          (0x6400)        /* */
+#define PLLM_25_H                        (0x0064)
+#define PLLM_26                          (0x6800)        /* */
+#define PLLM_26_H                        (0x0068)
+#define PLLM_27                          (0x6c00)        /* */
+#define PLLM_27_H                        (0x006c)
+#define PLLM_28                          (0x7000)        /* */
+#define PLLM_28_H                        (0x0070)
+#define PLLM_29                          (0x7400)        /* */
+#define PLLM_29_H                        (0x0074)
+#define PLLM_30                          (0x7800)        /* */
+#define PLLM_30_H                        (0x0078)
+#define PLLM_31                          (0x7c00)        /* */
+#define PLLM_31_H                        (0x007c)
+#define PLLM_32                          (0x8000)        /* */
+#define PLLM_32_H                        (0x0080)
+#define PLLM_33                          (0x8400)        /* */
+#define PLLM_33_H                        (0x0084)
+#define PLLM_34                          (0x8800)        /* */
+#define PLLM_34_H                        (0x0088)
+#define PLLM_35                          (0x8c00)        /* */
+#define PLLM_35_H                        (0x008c)
+#define PLLM_36                          (0x9000)        /* */
+#define PLLM_36_H                        (0x0090)
+#define PLLM_37                          (0x9400)        /* */
+#define PLLM_37_H                        (0x0094)
+#define PLLM_38                          (0x9800)        /* */
+#define PLLM_38_H                        (0x0098)
+#define PLLM_39                          (0x9c00)        /* */
+#define PLLM_39_H                        (0x009c)
 #define PLL_LOCK                         (0x0001)        /* PLL Lock Status */
 #define PLL_LOCK_L                       (0x0001)
 #define PLL_LOCK_0                       (0x0000)        /* PLL is not running or not locked */
@@ -6630,12 +6132,21 @@ sfr_b(HSPLLUSSXTLCTL_H);
                                                             the oscillator clock, so total time can be calculated as Time 
                                                             = 512x 1/Oscillator Clock Frequency. */
 #define OSCTYPE_1_H                      (0x0002)
+#define OSCTYPE__XTAL                    (0x0000)        /* Gating Counter Length: 4096. It is recommended to use this 
+                                                            configuration for crystal resonators.  Note: the counter 
+                                                            counts the oscillator clock, so total time can be calculated 
+                                                            as Time = 4096 x 1/Oscillator Clock Frequency. */
+#define OSCTYPE__CERAMIC                 (0x0200)        /* Gating Counter Length: 512. It is recommended to use this 
+                                                            configuration for ceramic resonators. Note: the counter counts
+                                                            the oscillator clock, so total time can be calculated as Time 
+                                                            = 512x 1/Oscillator Clock Frequency. */
+#define OSCTYPE__CERAMIC_H               (0x0002)
 #define OSCSTATE                         (0x0002)        /* Oscillator Status Bit. */
 #define OSCSTATE_L                       (0x0002)
 #define OSCSTATE_0                       (0x0000)        /* Oscillator is either not enabled or in the middle of start-up 
                                                             transition. */
-#define OSCSTATE_1                       (0x0002)        /* Oscillator is fully stabilized and the start-up time has 
-                                                            passed. */
+#define OSCSTATE_1                       (0x0002)        /* Oscillator has started but is not stable yet. Wait for 
+                                                            sufficient time for stabilization. */
 #define OSCSTATE_1_L                     (0x0002)
 
 
@@ -14762,7 +14273,6 @@ sfr_b(UCB1IV_H);
 ************************************************************/
 
 #define __MSP430_HAS_TLV__                    /* Definition to show that Module is available */
-#define TLV_BASE               __MSP430_BASEADDRESS_TLV__
 
 #define TLV_START              (0x1A08)       /* Start Address of the TLV structure */
 #define TLV_END                (0x1AFF)       /* End Address of the TLV structure */

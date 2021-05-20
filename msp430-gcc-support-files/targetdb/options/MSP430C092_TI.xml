@@ -1,5 +1,5 @@
 <properties XML_version="1.2">
-<property Type="stringfield" Value="1.207" id="TIOptionsVersion"></property>
-<property Type="stringfield" Value="-D=__MSP430C092__   --use_hw_mpy=none --silicon_errata=CPU21 --silicon_errata=CPU22 --silicon_errata=CPU40" id="CompilerBuildOptions"></property>
+<property Type="stringfield" Value="1.210" id="TIOptionsVersion"></property>
+<property Type="stringfield" Value="-D=__MSP430C092__   --use_hw_mpy=none --silicon_errata=CPU18 --silicon_errata=CPU21 --silicon_errata=CPU22 --silicon_errata=CPU23" id="CompilerBuildOptions"></property>
 <property Type="stringfield" Value=" --use_hw_mpy=none" id="LinkerBuildOptions"></property>
 </properties>
