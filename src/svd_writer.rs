@@ -1,5 +1,5 @@
 use std::collections::HashMap;
-use crate::svd::*;
+use crate::svd::svd::*;
 use xmltree::{Element, XMLNode};
 
 fn write_string(name: &str, text: &str) -> Element {
@@ -115,12 +115,12 @@ fn write_interrupt(int: &Interrupt) -> Element {
     el
 }
 
-fn write_registers(per: &[svd::RegisterCluster]) -> Element {
+fn write_registers(per: &[RegisterCluster]) -> Element {
     let mut el = Element::new("registers");
     el.children = vec![];
 
     for r in per {
-        if let svd::RegisterCluster::Register(reg) = r {
+        if let RegisterCluster::Register(reg) = r {
             el.children.push(XMLNode::Element(write_register(reg)));
         } else {
             unimplemented!("Writing register clusters is not implemented.")
@@ -146,19 +146,19 @@ fn write_register(reg: &Register) -> Element {
         &reg.address_offset.to_string(),
     )));
 
-    if let Some(x) = reg.size {
+    if let Some(x) = reg.properties.size {
         el.children.push(XMLNode::Element(write_string("size", &x.to_string())));
     }
 
-    if let Some(x) = reg.access {
+    if let Some(x) = reg.properties.access {
         el.children.push(XMLNode::Element(write_access(&x)));
     }
 
-    if let Some(x) = reg.reset_value {
+    if let Some(x) = reg.properties.reset_value {
         el.children.push(XMLNode::Element(write_string("resetValue", &x.to_string())));
     }
 
-    if let Some(x) = reg.reset_mask {
+    if let Some(x) = reg.properties.reset_mask {
         el.children.push(XMLNode::Element(write_string("resetMask", &x.to_string())));
     }
 

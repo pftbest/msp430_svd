@@ -1,7 +1,7 @@
 use crate::dslite_parser;
 use crate::header_parser;
 use crate::inflector::Inflector;
-use crate::svd;
+use crate::svd::svd;
 
 trait StringEx {
     fn fix_name(&self) -> String;
@@ -68,7 +68,7 @@ pub fn build_svd_device(
                         .description(Some(e.description.clone()))
                         .value(Some(e.value.into()))
                         .is_default(None)
-                        .build().unwrap();
+                        .build(svd::ValidateLevel::Disabled).unwrap();
                     enums.push(ev);
                 }
 
@@ -87,7 +87,7 @@ pub fn build_svd_device(
                     dslite_parser::Access::WriteOnly => svd::Access::WriteOnly,
                 };
 
-                let field_info = svd::fieldinfo::FieldInfoBuilder::default()
+                let field_info = svd::FieldInfoBuilder::default()
                     .name(f.name.clone())
                     .description(Some(f.description.clone()))
                     .bit_range(svd::bitrange::BitRange {
@@ -102,13 +102,13 @@ pub fn build_svd_device(
                             .usage(None)
                             .derived_from(None)
                             .values(enums)
-                            .build().unwrap()]
+                            .build(svd::ValidateLevel::Disabled).unwrap()]
                     } else {
                         vec![]
                     })
                     .write_constraint(field_constraint)
                     .modified_write_values(None)
-                    .build().unwrap();
+                    .build(svd::ValidateLevel::Disabled).unwrap();
 
                 let field = svd::field::Field::Single(field_info);
 
@@ -167,7 +167,7 @@ pub fn build_svd_device(
             props.reset_mask = Some(reset_mask);
             props.access = None;
 
-            let ri = svd::registerinfo::RegisterInfoBuilder::default()
+            let ri = svd::RegisterInfoBuilder::default()
                 .name(reg.name.fix_name())
                 .description(Some(reg.description.clone()))
                 .address_offset(offset)
@@ -179,40 +179,42 @@ pub fn build_svd_device(
                 .properties(props)
                 .write_constraint(reg_constraint)
                 .alternate_register(reg.alternate.clone())
-                .build().unwrap();
+                .build(svd::ValidateLevel::Disabled).unwrap();
             registers.push(svd::RegisterCluster::Register(svd::Register::Single(ri)));
         }
 
-        let p = svd::peripheral::PeripheralBuilder::default()
+        let p = svd::peripheral::PeripheralInfoBuilder::default()
             .name(m.name.fix_name())
             .group_name(None)
             .description(Some(m.description.clone()))
             .base_address(base_address.into())
-            .interrupt(Vec::new())
+            .interrupt(None)
             .registers(Some(registers))
             .derived_from(None)
-            .build().unwrap();
-        peripherals.push(p);
+            .build(svd::ValidateLevel::Disabled).unwrap();
+        peripherals.push(svd::MaybeArray::Single(p));
     }
 
     if !interrupts.vectors.is_empty() {
-        peripherals.push(svd::peripheral::PeripheralBuilder::default()
+        peripherals.push(svd::MaybeArray::Single(svd::peripheral::PeripheralInfoBuilder::default()
             .name("_INTERRUPTS".to_owned())
             .group_name(None)
             .description(None)
             .base_address(interrupts.base_offset.into())
-            .interrupt(interrupts
+            .interrupt(Some(interrupts
                 .vectors
                 .iter()
-                .map(|int| svd::Interrupt {
-                    name: int.name.clone(),
-                    description: Some(int.description.clone()),
-                    value: int.value,
+                .map(|int| {
+                    svd::interrupt::InterruptBuilder::default()
+                        .name(int.name.clone())
+                        .description(Some(int.description.clone()))
+                        .value(int.value)
+                        .build(svd::ValidateLevel::Disabled).unwrap()
                 })
-                .collect())
+                .collect()))
             .registers(None)
             .derived_from(None)
-            .build().unwrap());
+            .build(svd::ValidateLevel::Disabled).unwrap()));
     }
 
     let mut props : svd::RegisterProperties = Default::default();
@@ -225,5 +227,5 @@ pub fn build_svd_device(
         .name(dev.name.fix_name())
         .peripherals(peripherals)
         .default_register_properties(props)
-        .build().unwrap()
+        .build(svd::ValidateLevel::Disabled).unwrap()
 }
