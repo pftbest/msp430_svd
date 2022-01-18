@@ -7,7 +7,7 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 - Add meaningful instructions to README.md.
 
 - Implement patching system using svdtools upstream (before commit 79a57db),
-  then 0.1.13.
+  then 0.1.13, then 0.1.21.
   - Patches exist for msp430fr4133, msp430g2001, msp430g2211, and msp430g2553
     and their corresponding peripherals.
   - Most patches are purely additive to the generated SVDs (therefore
@@ -26,13 +26,15 @@ This project adheres to [Semantic Versioning](http://semver.org/).
     - svdtools after 79a57db introduced a bug where children inside
       `vendorExtensions` would raise an exception. Fixed [just before](https://github.com/stm32-rs/svdtools/pull/53)
       0.1.13.
+  - No significant differences between 0.1.13 and 0.1.21.
 
 - Supply version and git commit information in the generated SVD using
-  the CMSIS-SVD compliant `vendorExtensions` section.
+  the CMSIS-SVD compliant `vendorExtensions` section. Initially vergen 3.1.0
+  was used, but then was updated to 6.0.0.
 
 - Remove local copy of svd-parser and use upstream version 0.9.0
   plus PartialEq derivation [fixes](https://github.com/rust-embedded/svd/pull/117),
-  then version 0.10.1.
+  then version 0.10.1, then version 0.13.1.
 
 ## [v0.2.0] - 2021-04-18
 - Update DSLite DB to version 2019/10/06 01:04:57.

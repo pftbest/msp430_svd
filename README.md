@@ -12,7 +12,7 @@ CPU-neutral; TI even previously used SVD for some of their microcontrollers.
 This repository supplies a copy of TI's C headers and DSLite files for the
 msp430 family. All commands are run from the root directory of this repository.
 
-**You will need `svd2rust` commit [783fbd0](https://github.com/rust-embedded/svd2rust/commit/783fbd0)
+**You will need `svd2rust` version [v0.20.0](https://github.com/rust-embedded/svd2rust/tree/v0.20.0)
 or later to generate PACs for SVD files from `msp430_svd`.**
 
 ## How To Generate An SVD File (Quick Start)
@@ -29,7 +29,9 @@ generate a PAC using `svd2rust`:
 
     $ svd2rust -g -i msp430g2553.svd --target msp430
 
-However, you will probably want to patch your shiny new SVD file later.
+However, you will probably want to patch your shiny new SVD file later (as well
+as [format](https://docs.rs/svd2rust/latest/svd2rust/#target--msp430) the
+generated crate).
 
 ### Patching
 Although the the output from `msp430_svd` in the first step is usable as-is,
@@ -73,8 +75,8 @@ patched output to double-check the results:
 Look at the `overrides/devices` directory for existing examples on how to write
 patches, along with the linked documentation.
 
-**You will need `svdtools` version [`0.1.13`](https://pypi.org/project/svdtools/0.1.13/)
-(or a later [commit](https://github.com/stm32-rs/svdtools/tree/v0.1.13)) to
+**You will need `svdtools` version [`0.1.21`](https://pypi.org/project/svdtools/0.1.21/)
+(or a later [commit](https://github.com/stm32-rs/svdtools/tree/v0.1.21)) to
 generate patches for your SVD file.**
 
 ### Naming Convention
