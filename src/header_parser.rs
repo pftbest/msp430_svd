@@ -1,5 +1,5 @@
 use std::path::Path;
-use utils;
+use crate::utils;
 
 #[derive(Debug)]
 pub struct Interrupts {

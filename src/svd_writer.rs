@@ -1,5 +1,5 @@
 use std::collections::HashMap;
-use svd::*;
+use crate::svd::*;
 use xmltree::{Element, XMLNode};
 
 fn write_string(name: &str, text: &str) -> Element {
@@ -289,8 +289,8 @@ fn write_vendor_extensions() -> Element {
     let mut vendor = Element::new("vendorExtensions");
     let mut msp430_el = Element::new("msp430_svd");
 
-    msp430_el.children.push(XMLNode::Element(write_string("version", env!("VERGEN_SEMVER"))));
-    msp430_el.children.push(XMLNode::Element(write_string("commit_hash", env!("VERGEN_SHA_SHORT"))));
+    msp430_el.children.push(XMLNode::Element(write_string("version", env!("VERGEN_GIT_SEMVER"))));
+    msp430_el.children.push(XMLNode::Element(write_string("commit_hash", env!("VERGEN_GIT_SHA_SHORT"))));
 
     vendor.children.push(XMLNode::Element(msp430_el));
 

@@ -1,7 +1,7 @@
-use dslite_parser;
-use header_parser;
-use inflector::Inflector;
-use svd;
+use crate::dslite_parser;
+use crate::header_parser;
+use crate::inflector::Inflector;
+use crate::svd;
 
 trait StringEx {
     fn fix_name(&self) -> String;

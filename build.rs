@@ -1,13 +1,8 @@
-extern crate vergen;
-use vergen::{ConstantsFlags, generate_cargo_keys};
+use vergen::{Config, vergen, ShaKind};
 
 fn main() {
-    // Setup the flags, toggling off the 'SEMVER_FROM_CARGO_PKG' flag
-    let mut flags = ConstantsFlags::empty();
-    flags.toggle(ConstantsFlags::SHA_SHORT);
-    flags.toggle(ConstantsFlags::SEMVER_FROM_CARGO_PKG);
-    flags.toggle(ConstantsFlags::REBUILD_ON_HEAD_CHANGE);
+    let mut config = Config::default();
+    *config.git_mut().sha_kind_mut() = ShaKind::Short;
 
-    // Generate the 'cargo:' key output
-    generate_cargo_keys(flags).expect("Unable to generate the cargo keys!");
+    vergen(config).unwrap();
 }
