@@ -9,6 +9,7 @@ WATCHDOG_TIMER:
         bitWidth: 8
     _merge:
       - "WDTIS*"
+    WDTIS: [0, 3]
     WDTPW:
       _read:
         PASSWORD: [0x69, "Value always read from the Watchdog Password register"]
