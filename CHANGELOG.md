@@ -4,6 +4,8 @@ All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
+
+## [v0.3.0] - 2022-01-25
 - Add meaningful instructions to README.md.
 
 - Implement patching system using svdtools upstream (before commit 79a57db),
@@ -36,6 +38,8 @@ This project adheres to [Semantic Versioning](http://semver.org/).
   plus PartialEq derivation [fixes](https://github.com/rust-embedded/svd/pull/117),
   then version 0.10.1, then version 0.13.1.
 
+- Use `?` instead of `try!` macro throughout code.
+
 ## [v0.2.0] - 2021-04-18
 - Update DSLite DB to version 2019/10/06 01:04:57.
 
@@ -44,7 +48,6 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 - Update ordermap to indexmap version 1.3.2.
 
 ## v0.1.0 - 2021-04-18
-
 Initial release. Commit was in 2019; CHANGELOG/tagging did not occur until
 2021. Commit was chosen based on a stable period between Nov 2019 and Apr 2020
 where msp430_svd was used to generate multiple SVDs.

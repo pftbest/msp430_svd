@@ -15,6 +15,12 @@ msp430 family. All commands are run from the root directory of this repository.
 **You will need `svd2rust` version [v0.20.0](https://github.com/rust-embedded/svd2rust/tree/v0.20.0)
 or later to generate PACs for SVD files from `msp430_svd`.**
 
+Contrary to `svd2rust` version [v0.20.0](https://github.com/rust-embedded/svd2rust/tree/v0.20.0)
+and [v0.21.0](https://github.com/rust-embedded/svd2rust/tree/v0.21.0) docs, you
+will also need `msp430` and `msp430-rt` v0.3.0; **v0.2.x does not work with
+recent Rust compilers due to the [removal](https://github.com/rust-lang/rust/pull/92816)
+of the `llvm_asm` macro around the same time as the `svd2rust` v0.21.0 release.**
+
 ## How To Generate An SVD File (Quick Start)
 This command will create an SVD file (`out.svd`) for the MSP430G2553 MCU:
 
