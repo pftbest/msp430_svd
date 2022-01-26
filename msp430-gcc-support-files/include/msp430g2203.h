@@ -1,5 +1,5 @@
 /* ============================================================================ */
-/* Copyright (c) 2017, Texas Instruments Incorporated                           */
+/* Copyright (c) 2020, Texas Instruments Incorporated                           */
 /*  All rights reserved.                                                        */
 /*                                                                              */
 /*  Redistribution and use in source and binary forms, with or without          */
@@ -49,7 +49,7 @@
 #ifndef __MSP430G2203
 #define __MSP430G2203
 
-#define __MSP430_HEADER_VERSION__ 1204
+#define __MSP430_HEADER_VERSION__ 1212
 
 #ifdef __cplusplus
 extern "C" {
@@ -771,7 +771,7 @@ sfr_b(TLV_ADC10_1_LEN);                       /* TLV ADC10_1 LEN */
 #define PORT2_VECTOR            ( 4)                     /* 0xFFE6 Port 2 */
 #define USCIAB0TX_VECTOR        ( 7)                     /* 0xFFEC USCI A0/B0 Transmit */
 #define USCIAB0RX_VECTOR        ( 8)                     /* 0xFFEE USCI A0/B0 Receive */
-#define TIMER0_A1_VECTOR        ( 9)                     /* 0xFFF0 Timer0)A CC1, TA0 */
+#define TIMER0_A1_VECTOR        ( 9)                     /* 0xFFF0 Timer0_A CC1, TA0 */
 #define TIMER0_A0_VECTOR        (10)                     /* 0xFFF2 Timer0_A CC0 */
 #define WDT_VECTOR              (11)                     /* 0xFFF4 Watchdog Timer */
 #define TIMER1_A1_VECTOR        (13)                     /* 0xFFF8 Timer1_A CC1-4, TA1 */

@@ -1,5 +1,5 @@
 /* ============================================================================ */
-/* Copyright (c) 2017, Texas Instruments Incorporated                           */
+/* Copyright (c) 2021, Texas Instruments Incorporated                           */
 /*  All rights reserved.                                                        */
 /*                                                                              */
 /*  Redistribution and use in source and binary forms, with or without          */
@@ -32,7 +32,7 @@
 
 /* This file supports MSP430FR5994 devices. */
 
-/* 1.204 */
+/* 1.212 */
 
 /************************************************************
 * PERIPHERAL FILE MAP
@@ -574,6 +574,39 @@ PROVIDE(PDIFG_H            = 0x027D);
 PROVIDE(P8IV               = 0x027E);
 PROVIDE(P8IV_L             = 0x027E);
 PROVIDE(P8IV_H             = 0x027F);
+PROVIDE(PEIN               = 0x0280);
+PROVIDE(PEIN_L             = 0x0280);
+PROVIDE(PEIN_H             = 0x0281);
+PROVIDE(PEOUT              = 0x0282);
+PROVIDE(PEOUT_L            = 0x0282);
+PROVIDE(PEOUT_H            = 0x0283);
+PROVIDE(PEDIR              = 0x0284);
+PROVIDE(PEDIR_L            = 0x0284);
+PROVIDE(PEDIR_H            = 0x0285);
+PROVIDE(PEREN              = 0x0286);
+PROVIDE(PEREN_L            = 0x0286);
+PROVIDE(PEREN_H            = 0x0287);
+PROVIDE(PESEL0             = 0x028A);
+PROVIDE(PESEL0_L           = 0x028A);
+PROVIDE(PESEL0_H           = 0x028B);
+PROVIDE(PESEL1             = 0x028C);
+PROVIDE(PESEL1_L           = 0x028C);
+PROVIDE(PESEL1_H           = 0x028D);
+PROVIDE(P9IV               = 0x028E);
+PROVIDE(P9IV_L             = 0x028E);
+PROVIDE(P9IV_H             = 0x028F);
+PROVIDE(PESELC             = 0x0296);
+PROVIDE(PESELC_L           = 0x0296);
+PROVIDE(PESELC_H           = 0x0297);
+PROVIDE(PEIES              = 0x0298);
+PROVIDE(PEIES_L            = 0x0298);
+PROVIDE(PEIES_H            = 0x0299);
+PROVIDE(PEIE               = 0x029A);
+PROVIDE(PEIE_L             = 0x029A);
+PROVIDE(PEIE_H             = 0x029B);
+PROVIDE(PEIFG              = 0x029C);
+PROVIDE(PEIFG_L            = 0x029C);
+PROVIDE(PEIFG_H            = 0x029D);
 PROVIDE(PJIN               = 0x0320);
 PROVIDE(PJIN_L             = 0x0320);
 PROVIDE(PJIN_H             = 0x0321);
@@ -754,6 +787,26 @@ PROVIDE(P8IE               = 0x027B);
 PROVIDE(P7IFG              = 0x027C);
 
 PROVIDE(P8IFG              = 0x027D);
+
+PROVIDE(P9IN               = 0x0280);
+
+PROVIDE(P9OUT              = 0x0282);
+
+PROVIDE(P9DIR              = 0x0284);
+
+PROVIDE(P9REN              = 0x0286);
+
+PROVIDE(P9SEL0             = 0x028A);
+
+PROVIDE(P9SEL1             = 0x028C);
+
+PROVIDE(P9SELC             = 0x0296);
+
+PROVIDE(P9IES              = 0x0298);
+
+PROVIDE(P9IE               = 0x029A);
+
+PROVIDE(P9IFG              = 0x029C);
 
 
 

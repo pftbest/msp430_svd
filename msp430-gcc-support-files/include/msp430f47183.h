@@ -1,5 +1,5 @@
 /* ============================================================================ */
-/* Copyright (c) 2017, Texas Instruments Incorporated                           */
+/* Copyright (c) 2020, Texas Instruments Incorporated                           */
 /*  All rights reserved.                                                        */
 /*                                                                              */
 /*  Redistribution and use in source and binary forms, with or without          */
@@ -52,7 +52,7 @@
 
 #define __MSP430_HAS_MSP430X_CPU__                /* Definition to show that it has MSP430X CPU */
 
-#define __MSP430_HEADER_VERSION__ 1204
+#define __MSP430_HEADER_VERSION__ 1212
 
 #ifdef __cplusplus
 extern "C" {

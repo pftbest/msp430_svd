@@ -1,5 +1,5 @@
 /* ============================================================================ */
-/* Copyright (c) 2017, Texas Instruments Incorporated                           */
+/* Copyright (c) 2021, Texas Instruments Incorporated                           */
 /*  All rights reserved.                                                        */
 /*                                                                              */
 /*  Redistribution and use in source and binary forms, with or without          */
@@ -32,7 +32,7 @@
 
 /* This file supports MSP430FR6047 devices. */
 
-/* 1.204 */
+/* 1.212 */
 
 /************************************************************
 * PERIPHERAL FILE MAP
@@ -790,41 +790,21 @@ PROVIDE(P8IFG              = 0x027D);
 
 PROVIDE(P9IN               = 0x0280);
 
-PROVIDE(P10IN              = 0x0281);
-
 PROVIDE(P9OUT              = 0x0282);
-
-PROVIDE(P10OUT             = 0x0283);
 
 PROVIDE(P9DIR              = 0x0284);
 
-PROVIDE(P10DIR             = 0x0285);
-
 PROVIDE(P9REN              = 0x0286);
-
-PROVIDE(P10REN             = 0x0287);
 
 PROVIDE(P9SEL0             = 0x028A);
 
-PROVIDE(P10SEL0            = 0x028B);
-
 PROVIDE(P9SEL1             = 0x028C);
-
-PROVIDE(P10SEL1            = 0x028D);
 
 PROVIDE(P9SELC             = 0x0296);
 
-PROVIDE(P10SELC            = 0x0297);
-
 PROVIDE(P9IES              = 0x0298);
 
-PROVIDE(P10IES             = 0x0299);
-
 PROVIDE(P9IE               = 0x029A);
-
-PROVIDE(P10IE              = 0x029B);
-
-PROVIDE(P10IFG             = 0x029D);
 
 PROVIDE(P9IFG              = 0x029C);
 

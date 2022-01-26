@@ -1,3 +1,152 @@
+Build 1.212 (GCC)
+=================
+07/19/2021
+
+New device support:
+------------------
+- None
+
+New features / changes:
+-----------------------
+- None
+
+Bug fixes:
+----------
+- Fix missing lowtext section for GCC linker files
+
+Build 1.211 (GCC)
+=================
+11/16/2020
+
+New device support:
+------------------
+- None
+
+New features / changes:
+-----------------------
+- Aligned GCC linker command file template for MSP430FR and other MSP430 devices
+  to allow for easier diffs
+
+Bug fixes:
+----------
+- Fixed faulty PORT register definition and references for several FR2xx, FR5xx
+  and FR6xx devices
+- Fixed typo in MSP430G2 family device header files
+
+
+Build 1.210 (GCC)
+=================
+05/05/2020
+
+New device support:
+------------------
+- None
+
+New features / changes:
+-----------------------
+- Adjusted high-memory boundaries in default linker command files to fix CPU47
+- Changed lower (<0x10000) memory name from 'ROM' to 'FRAM' in applicable linker
+  command files
+- Removed redundant TLV #defines from header files
+
+Bug fixes:
+----------
+- Removed invalid IO ports from several MSP430FRxx devices
+- Added missing HSPLL #defines for MSP430FR6043 family
+- Fixed FR2XX/4XX family include guard in legacy.h
+
+
+Build 1.209 (GCC)
+=================
+02/03/2020
+
+New device support:
+------------------
+- MSP430FR2673, MSP430FR2672
+- MSP430FR6005, MSP430FR6007
+
+New features / changes:
+-----------------------
+- None
+
+Bug fixes:
+----------
+- None
+
+
+Build 1.208 (GCC)
+=================
+08/29/2019
+
+New device support:
+------------------
+- None
+
+New features / changes:
+-----------------------
+- Added support for blinking LED example
+
+Bug fixes:
+----------
+- Fixed GNU compiler build options
+- Added missing ALIGN directives for .preinit/init/fini_array sections in GCC
+  linker command files
+
+
+Build 1.207 (GCC)
+=================
+02/14/2019
+
+New device support:
+------------------
+- MSP430FR2676, MSP430FR2675, MSP430FR2476, MSP430FR2475
+
+New features / changes:
+-----------------------
+- Updated definition of "__no_init" in in430.h
+
+Bug fixes:
+----------
+- Corrected usage of NOPs in enable/disable interrupt macros in in430.h
+- Removed invalid byte-access #defines (*_L/*_H) for DMA registers which only 
+  allow word access from applicable device header files
+
+
+Build 1.206 (GCC)
+=================
+07/26/2018
+
+New device support:
+------------------
+- None
+
+New features / changes:
+-----------------------
+- None
+
+Bug fixes:
+----------
+- Added missing CPU errata compiler switches for MSP430FR2522, FR2512, FR2422
+- Removed invalid SYSRSTIV_FLLUL #define from MSP430F5/F6 device header files
+
+
+Build 1.205 (GCC)
+=================
+04/23/2018
+
+New device support:
+------------------
+- MSP430FR2355, MSP430FR2353, MSP430FR2155, MSP430FR2153
+
+New features / changes:
+-----------------------
+- None
+
+Bug fixes:
+----------
+- Fixed another issue with .tinyram sections
+
+
 Build 1.204 (GCC)
 =================
 12/21/2017

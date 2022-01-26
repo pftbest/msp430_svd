@@ -1,5 +1,5 @@
 /* ============================================================================ */
-/* Copyright (c) 2017, Texas Instruments Incorporated                           */
+/* Copyright (c) 2021, Texas Instruments Incorporated                           */
 /*  All rights reserved.                                                        */
 /*                                                                              */
 /*  Redistribution and use in source and binary forms, with or without          */
@@ -31,7 +31,7 @@
 /* ============================================================================ */
 
 /* This file supports MSP430FR6987 devices. */
-/* Version: 1.204 */
+/* Version: 1.212 */
 
 /************************************************************
 * STANDARD BITS
@@ -427,42 +427,24 @@ PROVIDE(CSCTL6_H           = 0x016D);
 * DMA_X
 ************************************************************/
 PROVIDE(DMACTL0            = 0x0500);
-PROVIDE(DMACTL0_L          = 0x0500);
-PROVIDE(DMACTL0_H          = 0x0501);
 PROVIDE(DMACTL1            = 0x0502);
-PROVIDE(DMACTL1_L          = 0x0502);
-PROVIDE(DMACTL1_H          = 0x0503);
 PROVIDE(DMACTL2            = 0x0504);
-PROVIDE(DMACTL2_L          = 0x0504);
-PROVIDE(DMACTL2_H          = 0x0505);
 PROVIDE(DMACTL3            = 0x0506);
-PROVIDE(DMACTL3_L          = 0x0506);
-PROVIDE(DMACTL3_H          = 0x0507);
 PROVIDE(DMACTL4            = 0x0508);
-PROVIDE(DMACTL4_L          = 0x0508);
-PROVIDE(DMACTL4_H          = 0x0509);
 PROVIDE(DMAIV              = 0x050E);
-PROVIDE(DMAIV_L            = 0x050E);
-PROVIDE(DMAIV_H            = 0x050F);
 PROVIDE(DMA0CTL            = 0x0510);
-PROVIDE(DMA0CTL_L          = 0x0510);
-PROVIDE(DMA0CTL_H          = 0x0511);
 PROVIDE(DMA0SA             = 0x0512);
 PROVIDE(DMA0SAL            = 0x0512);
 PROVIDE(DMA0DA             = 0x0516);
 PROVIDE(DMA0DAL            = 0x0516);
 PROVIDE(DMA0SZ             = 0x051A);
 PROVIDE(DMA1CTL            = 0x0520);
-PROVIDE(DMA1CTL_L          = 0x0520);
-PROVIDE(DMA1CTL_H          = 0x0521);
 PROVIDE(DMA1SA             = 0x0522);
 PROVIDE(DMA1SAL            = 0x0522);
 PROVIDE(DMA1DA             = 0x0526);
 PROVIDE(DMA1DAL            = 0x0526);
 PROVIDE(DMA1SZ             = 0x052A);
 PROVIDE(DMA2CTL            = 0x0530);
-PROVIDE(DMA2CTL_L          = 0x0530);
-PROVIDE(DMA2CTL_H          = 0x0531);
 PROVIDE(DMA2SA             = 0x0532);
 PROVIDE(DMA2SAL            = 0x0532);
 PROVIDE(DMA2DA             = 0x0536);

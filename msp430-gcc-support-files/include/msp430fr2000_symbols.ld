@@ -1,5 +1,5 @@
 /* ============================================================================ */
-/* Copyright (c) 2017, Texas Instruments Incorporated                           */
+/* Copyright (c) 2021, Texas Instruments Incorporated                           */
 /*  All rights reserved.                                                        */
 /*                                                                              */
 /*  Redistribution and use in source and binary forms, with or without          */
@@ -32,7 +32,7 @@
 
 /* This file supports MSP430FR2000 devices. */
 
-/* 1.204 */
+/* 1.212 */
 
 /************************************************************
 * PERIPHERAL FILE MAP

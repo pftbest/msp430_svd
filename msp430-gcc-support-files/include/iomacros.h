@@ -1,7 +1,7 @@
 /*******************************************************************************
  *  iomacros.h -
  *
- *  Copyright (C) 2003-2017 Texas Instruments Incorporated - http://www.ti.com/
+ *  Copyright (C) 2003-2020 Texas Instruments Incorporated - http://www.ti.com/
  *
  *  Redistribution and use in source and binary forms, with or without
  *  modification, are permitted provided that the following conditions
@@ -33,7 +33,7 @@
  *
  ******************************************************************************/
 
-/* 1.204 */
+/* 1.212 */
 
 #if !defined(_IOMACROS_H_)
 #define _IOMACROS_H_

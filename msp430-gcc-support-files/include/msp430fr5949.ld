@@ -1,5 +1,5 @@
 /* ============================================================================ */
-/* Copyright (c) 2017, Texas Instruments Incorporated                           */
+/* Copyright (c) 2021, Texas Instruments Incorporated                           */
 /*  All rights reserved.                                                        */
 /*                                                                              */
 /*  Redistribution and use in source and binary forms, with or without          */
@@ -31,7 +31,7 @@
 /* ============================================================================ */
 
 /* This file supports MSP430FR5949 devices. */
-/* Version: 1.204 */
+/* Version: 1.212 */
 /* Default linker script, for normal executables */
 
 OUTPUT_ARCH(msp430)
@@ -46,8 +46,8 @@ MEMORY {
   INFOB            : ORIGIN = 0x1900, LENGTH = 0x0080 /* END=0x197F, size 128 */
   INFOC            : ORIGIN = 0x1880, LENGTH = 0x0080 /* END=0x18FF, size 128 */
   INFOD            : ORIGIN = 0x1800, LENGTH = 0x0080 /* END=0x187F, size 128 */
-  ROM (rx)         : ORIGIN = 0x4400, LENGTH = 0xBB80 /* END=0xFF7F, size 48000 */
-  HIFRAM (rxw)     : ORIGIN = 0x00010000, LENGTH = 0x00003FFF
+  FRAM (rx)        : ORIGIN = 0x4400, LENGTH = 0xBB80 /* END=0xFF7F, size 48000 */
+  HIFRAM (rxw)     : ORIGIN = 0x00010000, LENGTH = 0x00003FF7 /* Boundaries changed to fix CPU47 */
   JTAGSIGNATURE    : ORIGIN = 0xFF80, LENGTH = 0x0004
   BSLSIGNATURE     : ORIGIN = 0xFF84, LENGTH = 0x0004
   IPESIGNATURE     : ORIGIN = 0xFF88, LENGTH = 0x0008
@@ -117,7 +117,8 @@ SECTIONS
   {
     KEEP (*(.ipesignature))
     KEEP (*(.jtagpassword))
-  } > IPESIGNATURE  __interrupt_vector_1   : { KEEP (*(__interrupt_vector_1 )) } > VECT1
+  } > IPESIGNATURE
+  __interrupt_vector_1   : { KEEP (*(__interrupt_vector_1 )) } > VECT1
   __interrupt_vector_2   : { KEEP (*(__interrupt_vector_2 )) } > VECT2
   __interrupt_vector_3   : { KEEP (*(__interrupt_vector_3 )) } > VECT3
   __interrupt_vector_4   : { KEEP (*(__interrupt_vector_4 )) } > VECT4
@@ -183,7 +184,7 @@ SECTIONS
   {
     . = ALIGN(2);
     *(.lower.rodata.* .lower.rodata)
-  } > ROM
+  } > FRAM
 
   .rodata :
   {
@@ -192,25 +193,28 @@ SECTIONS
     *(.rodata .rodata.* .gnu.linkonce.r.* .const .const:*)
     *(.rodata1)
     KEEP (*(.gcc_except_table)) *(.gcc_except_table.*)
-    PROVIDE (__preinit_array_start = .);
-    KEEP (*(.preinit_array))
-    PROVIDE (__preinit_array_end = .);
-    PROVIDE (__init_array_start = .);
-    KEEP (*(SORT(.init_array.*)))
-    KEEP (*(.init_array))
-    PROVIDE (__init_array_end = .);
-    PROVIDE (__fini_array_start = .);
-    KEEP (*(.fini_array))
-    KEEP (*(SORT(.fini_array.*)))
-    PROVIDE (__fini_array_end = .);
-  } > ROM
+  } > FRAM
 
   /* Note: This is a separate .rodata section for sections which are
      read only but which older linkers treat as read-write.
      This prevents older linkers from marking the entire .rodata
      section as read-write.  */
-  .rodata2 : 
+  .rodata2 :
   {
+    . = ALIGN(2);
+    PROVIDE (__preinit_array_start = .);
+    KEEP (*(.preinit_array))
+    PROVIDE (__preinit_array_end = .);
+    . = ALIGN(2);
+    PROVIDE (__init_array_start = .);
+    KEEP (*(SORT(.init_array.*)))
+    KEEP (*(.init_array))
+    PROVIDE (__init_array_end = .);
+    . = ALIGN(2);
+    PROVIDE (__fini_array_start = .);
+    KEEP (*(.fini_array))
+    KEEP (*(SORT(.fini_array.*)))
+    PROVIDE (__fini_array_end = .);
     . = ALIGN(2);
     *(.eh_frame_hdr)
     KEEP (*(.eh_frame))
@@ -223,10 +227,10 @@ SECTIONS
        directory crtbegin.o is in.  */
     KEEP (*crtbegin*.o(.ctors))
 
-    /* We don't want to include the .ctor section from from the
-       crtend.o file until after the sorted ctors.  The .ctor section
-       from the crtend file contains the end of ctors marker and it
-       must be last */
+    /* We don't want to include the .ctor section from the crtend.o
+       file until after the sorted ctors.  The .ctor section from
+       the crtend file contains the end of ctors marker and it must
+       be last */
     KEEP (*(EXCLUDE_FILE (*crtend*.o ) .ctors))
     KEEP (*(SORT(.ctors.*)))
     KEEP (*(.ctors))
@@ -235,7 +239,7 @@ SECTIONS
     KEEP (*(EXCLUDE_FILE (*crtend*.o ) .dtors))
     KEEP (*(SORT(.dtors.*)))
     KEEP (*(.dtors))
-  } > ROM
+  } > FRAM
 
   .upper.rodata :
   {
@@ -243,7 +247,7 @@ SECTIONS
   } > HIFRAM
 
   /* This section contains data that is initialised during load
-     but not on application reset.  */  
+     but not on application reset.  */
   .persistent :
   {
     . = ALIGN(2);
@@ -251,14 +255,14 @@ SECTIONS
     *(.persistent)
     . = ALIGN(2);
     PROVIDE (__persistent_end = .);
-  } > ROM
-  
+  } > FRAM
+
   .lower.data :
   {
     . = ALIGN(2);
     PROVIDE (__datastart = .);
     *(.lower.data.* .lower.data)
-  } > RAM AT> ROM
+  } > RAM AT> FRAM
 
   .data :
   {
@@ -285,7 +289,7 @@ SECTIONS
     _edata = .;
     PROVIDE (edata = .);
     PROVIDE (__dataend = .);
-  } > RAM AT> ROM
+  } > RAM AT> FRAM
 
   /* Note that crt0 assumes this is a multiple of two; all the
      start/stop symbols are also assumed word-aligned.  */
@@ -300,7 +304,7 @@ SECTIONS
     __high_datastart = .;
     *(.upper.data.* .upper.data)
     __high_dataend = .;
-  } > HIFRAM AT> ROM
+  } > HIFRAM AT> FRAM
 
   __rom_highdatacopysize = SIZEOF(.upper.data) - 2;
   __rom_highdatastart = LOADADDR(.upper.data) + 2;
@@ -353,7 +357,7 @@ SECTIONS
     . = ALIGN(2);
     __heap_start__ = .;
     _end = __heap_start__;
-    PROVIDE (end = .); 
+    PROVIDE (end = .);
     KEEP (*(.heap))
     _end = .;
     PROVIDE (end = .);
@@ -378,7 +382,7 @@ SECTIONS
   {
     . = ALIGN(2);
     *(.lower.text.* .lower.text)
-  } > ROM
+  } > FRAM
 
   .text :
   {
@@ -404,7 +408,7 @@ SECTIONS
     KEEP (*(.init))
     KEEP (*(.fini))
     KEEP (*(.tm_clone_table))
-  } > ROM
+  } > FRAM
 
   .upper.text :
   {

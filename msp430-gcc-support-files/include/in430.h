@@ -1,7 +1,7 @@
 /*******************************************************************************
  *  in430.h -
  *
- *  Copyright (C) 2003-2017 Texas Instruments Incorporated - http://www.ti.com/ 
+ *  Copyright (C) 2003-2020 Texas Instruments Incorporated - http://www.ti.com/ 
  * 
  *  Redistribution and use in source and binary forms, with or without 
  *  modification, are permitted provided that the following conditions 
@@ -33,7 +33,7 @@
  *
  ******************************************************************************/
 
-/* 1.204 */
+/* 1.212 */
 
 #ifndef __IN430_H__
 #define __IN430_H__
@@ -42,7 +42,7 @@
 #if !defined(__ASSEMBLER__)
 
 /* Definitions of things which are intrinsics with IAR and CCS, but which don't 
-   appear to be intrinsics with the RedHat GCC compiler */
+   appear to be intrinsics with the GCC compiler */
 
 /* The data type used to hold interrupt state */
 typedef unsigned int __istate_t;
@@ -62,7 +62,7 @@ typedef unsigned int __istate_t;
 #if defined(__MSP430_HAS_MSP430XV2_CPU__)  || defined(__MSP430_HAS_MSP430X_CPU__)
 #define _set_interrupt_state(x) \
 ({ \
-    __asm__ __volatile__ ("mov %0, SR { nop" \
+    __asm__ __volatile__ ("nop { mov %0, SR { nop" \
         : : "ri"((unsigned int) x) \
     );\
 })
@@ -70,19 +70,19 @@ typedef unsigned int __istate_t;
 #define _enable_interrupts()                __asm__ __volatile__ ("nop { eint { nop")
 
 #define _bis_SR_register(x) \
-    __asm__ __volatile__ ("bis.w %0, SR { nop" \
+    __asm__ __volatile__ ("nop { bis.w %0, SR { nop" \
         : : "ri"((unsigned int) x) \
     )
 #else
 
 #define _set_interrupt_state(x) \
 ({ \
-    __asm__ __volatile__ ("mov %0, SR" \
+    __asm__ __volatile__ ("mov %0, SR { nop" \
         : : "ri"((unsigned int) x) \
     );\
 })
 
-#define _enable_interrupts()                __asm__ __volatile__ ("eint { nop")
+#define _enable_interrupts()                __asm__ __volatile__ ("eint")
 
 #define _bis_SR_register(x) \
     __asm__ __volatile__ ("bis.w %0, SR" \
@@ -338,7 +338,7 @@ typedef unsigned int __istate_t;
 
 #define _SWAP_BYTES(x)                      _swap_bytes(x)
 
-#define __no_init    __attribute__ ((section (".noinit")))
+#define __no_init    __attribute__((noinit))
 
 #endif /* !defined _GNU_ASSEMBLER_ */
 

@@ -1,5 +1,5 @@
 /* ============================================================================ */
-/* Copyright (c) 2017, Texas Instruments Incorporated                           */
+/* Copyright (c) 2020, Texas Instruments Incorporated                           */
 /*  All rights reserved.                                                        */
 /*                                                                              */
 /*  Redistribution and use in source and binary forms, with or without          */
@@ -51,7 +51,7 @@
 #define __MSP430_HAS_MSP430XV2_CPU__                /* Definition to show that it has MSP430XV2 CPU */
 #define __MSP430FR2XX_4XX_FAMILY__
 
-#define __MSP430_HEADER_VERSION__ 1204
+#define __MSP430_HEADER_VERSION__ 1212
 
 #ifdef __cplusplus
 extern "C" {
@@ -3152,7 +3152,6 @@ sfr_b(WDTCTL_H);                              /* Watchdog Timer Control */
 * TLV Descriptors
 ************************************************************/
 #define __MSP430_HAS_TLV__                    /* Definition to show that Module is available */
-#define TLV_BASE               __MSP430_BASEADDRESS_TLV__
 
 #define TLV_CRC_LENGTH         (0x1A01)       /* CRC length of the TLV structure */
 #define TLV_CRC_VALUE          (0x1A02)       /* CRC value of the TLV structure */

@@ -1,6 +1,6 @@
 //*****************************************************************************
 //
-// Copyright (C) 2017 Texas Instruments Incorporated - http://www.ti.com/
+// Copyright (C) 2021 Texas Instruments Incorporated - http://www.ti.com/
 //
 // Redistribution and use in source and binary forms, with or without
 // modification, are permitted provided that the following conditions
@@ -44,7 +44,7 @@
 #ifndef __MSP430FR2100
 #define __MSP430FR2100
 
-#define __MSP430_HEADER_VERSION__ 1204
+#define __MSP430_HEADER_VERSION__ 1212
 
 #define __MSP430_HAS_MSP430XV2_CPU__  /* CPU type */
 #define __MSP430FR2XX_4XX_FAMILY__
@@ -1569,7 +1569,7 @@ sfr_b(CSCTL8_H);
  DIO Registers
 *****************************************************************************/
 
-#define __MSP430_HAS_DIO__                    /* Definition to show that module is available */
+#define __MSP430_HAS_DIO__ 2                  /* Definition to show that module is available */
 #define __MSP430_BASEADDRESS_DIO__ 0x0200
 #define DIO_BASE               __MSP430_BASEADDRESS_DIO__
 #define __MSP430_HAS_PORTA_R__                /* Definition to show that port is available */
@@ -4700,7 +4700,6 @@ sfr_b(UCA0IV_H);
 ************************************************************/
 
 #define __MSP430_HAS_TLV__                    /* Definition to show that Module is available */
-#define TLV_BASE               __MSP430_BASEADDRESS_TLV__
 
 #define TLV_CRC_LENGTH         (0x1A01)       /* CRC length of the TLV structure */
 #define TLV_CRC_VALUE          (0x1A02)       /* CRC value of the TLV structure */

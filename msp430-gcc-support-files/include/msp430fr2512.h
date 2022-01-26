@@ -1,6 +1,6 @@
 //*****************************************************************************
 //
-// Copyright (C) 2017 Texas Instruments Incorporated - http://www.ti.com/
+// Copyright (C) 2021 Texas Instruments Incorporated - http://www.ti.com/
 //
 // Redistribution and use in source and binary forms, with or without
 // modification, are permitted provided that the following conditions
@@ -44,7 +44,7 @@
 #ifndef __MSP430FR2512
 #define __MSP430FR2512
 
-#define __MSP430_HEADER_VERSION__ 1204
+#define __MSP430_HEADER_VERSION__ 1212
 
 #define __MSP430_HAS_MSP430XV2_CPU__  /* CPU type */
 #define __MSP430FR2XX_4XX_FAMILY__
@@ -1610,18 +1610,6 @@ sfr_b(CSCTL8_H);
 #define __MSP430_HAS_PORTA_R__                /* Definition to show that port is available */
 #define __MSP430_BASEADDRESS_PORTA_R__ 0x200
 #define PA_BASE                __MSP430_BASEADDRESS_PORTA_R__
-#define __MSP430_HAS_PORTB_R__                /* Definition to show that port is available */
-#define __MSP430_BASEADDRESS_PORTB_R__ 0x220
-#define PB_BASE                __MSP430_BASEADDRESS_PORTB_R__
-#define __MSP430_HAS_PORTC_R__                /* Definition to show that port is available */
-#define __MSP430_BASEADDRESS_PORTC_R__ 0x240
-#define PC_BASE                __MSP430_BASEADDRESS_PORTC_R__
-#define __MSP430_HAS_PORTD_R__                /* Definition to show that port is available */
-#define __MSP430_BASEADDRESS_PORTD_R__ 0x260
-#define PD_BASE                __MSP430_BASEADDRESS_PORTD_R__
-#define __MSP430_HAS_PORTE_R__                /* Definition to show that port is available */
-#define __MSP430_BASEADDRESS_PORTE_R__ 0x280
-#define PE_BASE                __MSP430_BASEADDRESS_PORTE_R__
 #define __MSP430_HAS_PORTJ_R__                /* Definition to show that port is available */
 #define __MSP430_BASEADDRESS_PORTJ_R__ 0x320
 #define PJ_BASE                __MSP430_BASEADDRESS_PORTJ_R__
@@ -1631,62 +1619,14 @@ sfr_b(CSCTL8_H);
 #define __MSP430_HAS_PORT2_R__                /* Definition to show that port is available */
 #define __MSP430_BASEADDRESS_PORT2_R__ 0x200
 #define P2_BASE                __MSP430_BASEADDRESS_PORT2_R__
-#define __MSP430_HAS_PORT3_R__                /* Definition to show that port is available */
-#define __MSP430_BASEADDRESS_PORT3_R__ 0x220
-#define P3_BASE                __MSP430_BASEADDRESS_PORT3_R__
-#define __MSP430_HAS_PORT4_R__                /* Definition to show that port is available */
-#define __MSP430_BASEADDRESS_PORT4_R__ 0x220
-#define P4_BASE                __MSP430_BASEADDRESS_PORT4_R__
-#define __MSP430_HAS_PORT5_R__                /* Definition to show that port is available */
-#define __MSP430_BASEADDRESS_PORT5_R__ 0x240
-#define P5_BASE                __MSP430_BASEADDRESS_PORT5_R__
-#define __MSP430_HAS_PORT6_R__                /* Definition to show that port is available */
-#define __MSP430_BASEADDRESS_PORT6_R__ 0x240
-#define P6_BASE                __MSP430_BASEADDRESS_PORT6_R__
-#define __MSP430_HAS_PORT7_R__                /* Definition to show that port is available */
-#define __MSP430_BASEADDRESS_PORT7_R__ 0x260
-#define P7_BASE                __MSP430_BASEADDRESS_PORT7_R__
-#define __MSP430_HAS_PORT8_R__                /* Definition to show that port is available */
-#define __MSP430_BASEADDRESS_PORT8_R__ 0x260
-#define P8_BASE                __MSP430_BASEADDRESS_PORT8_R__
-#define __MSP430_HAS_PORT9_R__                /* Definition to show that port is available */
-#define __MSP430_BASEADDRESS_PORT9_R__ 0x280
-#define P9_BASE                __MSP430_BASEADDRESS_PORT9_R__
-#define __MSP430_HAS_PORT10_R__                /* Definition to show that port is available */
-#define __MSP430_BASEADDRESS_PORT10_R__ 0x280
-#define P10_BASE                __MSP430_BASEADDRESS_PORT10_R__
 #define __MSP430_HAS_PASEL0__                 /* Define for DriverLib */
 #define __MSP430_HAS_PASEL1__                 /* Define for DriverLib */
-#define __MSP430_HAS_PBSEL0__                 /* Define for DriverLib */
-#define __MSP430_HAS_PBSEL1__                 /* Define for DriverLib */
-#define __MSP430_HAS_PCSEL0__                 /* Define for DriverLib */
-#define __MSP430_HAS_PCSEL1__                 /* Define for DriverLib */
-#define __MSP430_HAS_PDSEL0__                 /* Define for DriverLib */
-#define __MSP430_HAS_PDSEL1__                 /* Define for DriverLib */
-#define __MSP430_HAS_PESEL0__                 /* Define for DriverLib */
-#define __MSP430_HAS_PESEL1__                 /* Define for DriverLib */
 #define __MSP430_HAS_PJSEL0__                 /* Define for DriverLib */
 #define __MSP430_HAS_PJSEL1__                 /* Define for DriverLib */
 #define __MSP430_HAS_P1SEL0__                 /* Define for DriverLib */
 #define __MSP430_HAS_P2SEL0__                 /* Define for DriverLib */
 #define __MSP430_HAS_P1SEL1__                 /* Define for DriverLib */
 #define __MSP430_HAS_P2SEL1__                 /* Define for DriverLib */
-#define __MSP430_HAS_P4SEL0__                 /* Define for DriverLib */
-#define __MSP430_HAS_P3SEL0__                 /* Define for DriverLib */
-#define __MSP430_HAS_P3SEL1__                 /* Define for DriverLib */
-#define __MSP430_HAS_P4SEL1__                 /* Define for DriverLib */
-#define __MSP430_HAS_P5SEL0__                 /* Define for DriverLib */
-#define __MSP430_HAS_P6SEL0__                 /* Define for DriverLib */
-#define __MSP430_HAS_P5SEL1__                 /* Define for DriverLib */
-#define __MSP430_HAS_P6SEL1__                 /* Define for DriverLib */
-#define __MSP430_HAS_P7SEL0__                 /* Define for DriverLib */
-#define __MSP430_HAS_P8SEL0__                 /* Define for DriverLib */
-#define __MSP430_HAS_P7SEL1__                 /* Define for DriverLib */
-#define __MSP430_HAS_P8SEL1__                 /* Define for DriverLib */
-#define __MSP430_HAS_P9SEL0__                 /* Define for DriverLib */
-#define __MSP430_HAS_P10SEL0__                 /* Define for DriverLib */
-#define __MSP430_HAS_P9SEL1__                 /* Define for DriverLib */
-#define __MSP430_HAS_P10SEL1__                 /* Define for DriverLib */
 
 sfr_w(PAIN);                                  /* Port A Input */
 sfr_b(PAIN_L);
@@ -1724,126 +1664,6 @@ sfr_b(PAIFG_H);
 sfr_w(P2IV);                                  /* Port 2 Interrupt Vector Register */
 sfr_b(P2IV_L);
 sfr_b(P2IV_H);
-sfr_w(PBIN);                                  /* Port B Input */
-sfr_b(PBIN_L);
-sfr_b(PBIN_H);
-sfr_w(PBOUT);                                 /* Port B Output */
-sfr_b(PBOUT_L);
-sfr_b(PBOUT_H);
-sfr_w(PBDIR);                                 /* Port B Direction */
-sfr_b(PBDIR_L);
-sfr_b(PBDIR_H);
-sfr_w(PBREN);                                 /* Port B Resistor Enable */
-sfr_b(PBREN_L);
-sfr_b(PBREN_H);
-sfr_w(PBSEL0);                                /* Port B Select 0 */
-sfr_b(PBSEL0_L);
-sfr_b(PBSEL0_H);
-sfr_w(PBSEL1);                                /* Port B Select 1 */
-sfr_b(PBSEL1_L);
-sfr_b(PBSEL1_H);
-sfr_w(PBSELC);                                /* Port B Complement Select */
-sfr_b(PBSELC_L);
-sfr_b(PBSELC_H);
-sfr_w(PBIES);                                 /* Port B Interrupt Edge Select */
-sfr_b(PBIES_L);
-sfr_b(PBIES_H);
-sfr_w(PBIE);                                  /* Port B Interrupt Enable */
-sfr_b(PBIE_L);
-sfr_b(PBIE_H);
-sfr_w(PBIFG);                                 /* Port B Interrupt Flag */
-sfr_b(PBIFG_L);
-sfr_b(PBIFG_H);
-sfr_w(PCIN);                                  /* Port C Input */
-sfr_b(PCIN_L);
-sfr_b(PCIN_H);
-sfr_w(PCOUT);                                 /* Port C Output */
-sfr_b(PCOUT_L);
-sfr_b(PCOUT_H);
-sfr_w(PCDIR);                                 /* Port C Direction */
-sfr_b(PCDIR_L);
-sfr_b(PCDIR_H);
-sfr_w(PCREN);                                 /* Port C Resistor Enable */
-sfr_b(PCREN_L);
-sfr_b(PCREN_H);
-sfr_w(PCSEL0);                                /* Port C Select 0 */
-sfr_b(PCSEL0_L);
-sfr_b(PCSEL0_H);
-sfr_w(PCSEL1);                                /* Port C Select 1 */
-sfr_b(PCSEL1_L);
-sfr_b(PCSEL1_H);
-sfr_w(PCSELC);                                /* Port C Complement Select */
-sfr_b(PCSELC_L);
-sfr_b(PCSELC_H);
-sfr_w(PCIES);                                 /* Port C Interrupt Edge Select */
-sfr_b(PCIES_L);
-sfr_b(PCIES_H);
-sfr_w(PCIE);                                  /* Port C Interrupt Enable */
-sfr_b(PCIE_L);
-sfr_b(PCIE_H);
-sfr_w(PCIFG);                                 /* Port C Interrupt Flag */
-sfr_b(PCIFG_L);
-sfr_b(PCIFG_H);
-sfr_w(PDIN);                                  /* Port D Input */
-sfr_b(PDIN_L);
-sfr_b(PDIN_H);
-sfr_w(PDOUT);                                 /* Port D Output */
-sfr_b(PDOUT_L);
-sfr_b(PDOUT_H);
-sfr_w(PDDIR);                                 /* Port D Direction */
-sfr_b(PDDIR_L);
-sfr_b(PDDIR_H);
-sfr_w(PDREN);                                 /* Port D Resistor Enable */
-sfr_b(PDREN_L);
-sfr_b(PDREN_H);
-sfr_w(PDSEL0);                                /* Port D Select 0 */
-sfr_b(PDSEL0_L);
-sfr_b(PDSEL0_H);
-sfr_w(PDSEL1);                                /* Port D Select 1 */
-sfr_b(PDSEL1_L);
-sfr_b(PDSEL1_H);
-sfr_w(PDSELC);                                /* Port D Complement Select */
-sfr_b(PDSELC_L);
-sfr_b(PDSELC_H);
-sfr_w(PDIES);                                 /* Port D Interrupt Edge Select */
-sfr_b(PDIES_L);
-sfr_b(PDIES_H);
-sfr_w(PDIE);                                  /* Port D Interrupt Enable */
-sfr_b(PDIE_L);
-sfr_b(PDIE_H);
-sfr_w(PDIFG);                                 /* Port D Interrupt Flag */
-sfr_b(PDIFG_L);
-sfr_b(PDIFG_H);
-sfr_w(PEIN);                                  /* Port E Input */
-sfr_b(PEIN_L);
-sfr_b(PEIN_H);
-sfr_w(PEOUT);                                 /* Port E Output */
-sfr_b(PEOUT_L);
-sfr_b(PEOUT_H);
-sfr_w(PEDIR);                                 /* Port E Direction */
-sfr_b(PEDIR_L);
-sfr_b(PEDIR_H);
-sfr_w(PEREN);                                 /* Port E Resistor Enable */
-sfr_b(PEREN_L);
-sfr_b(PEREN_H);
-sfr_w(PESEL0);                                /* Port E Select 0 */
-sfr_b(PESEL0_L);
-sfr_b(PESEL0_H);
-sfr_w(PESEL1);                                /* Port E Select 1 */
-sfr_b(PESEL1_L);
-sfr_b(PESEL1_H);
-sfr_w(PESELC);                                /* Port E Complement Select */
-sfr_b(PESELC_L);
-sfr_b(PESELC_H);
-sfr_w(PEIES);                                 /* Port E Interrupt Edge Select */
-sfr_b(PEIES_L);
-sfr_b(PEIES_H);
-sfr_w(PEIE);                                  /* Port E Interrupt Enable */
-sfr_b(PEIE_L);
-sfr_b(PEIE_H);
-sfr_w(PEIFG);                                 /* Port E Interrupt Flag */
-sfr_b(PEIFG_L);
-sfr_b(PEIFG_H);
 sfr_w(PJIN);                                  /* Port J Input */
 sfr_b(PJIN_L);
 sfr_b(PJIN_H);
@@ -1905,166 +1725,6 @@ sfr_b(P1IFG);                                 /* Port 1 Interrupt Flag */
 
 sfr_b(P2IFG);                                 /* Port 2 Interrupt Flag */
 
-sfr_b(P3IN);                                  /* Port 3 Input */
-
-sfr_b(P4IN);                                  /* Port 4 Input */
-
-sfr_b(P3OUT);                                 /* Port 3 Output */
-
-sfr_b(P4OUT);                                 /* Port 4 Output */
-
-sfr_b(P3DIR);                                 /* Port 3 Direction */
-
-sfr_b(P4DIR);                                 /* Port 4 Direction */
-
-sfr_b(P3REN);                                 /* Port 3 Resistor Enable */
-
-sfr_b(P4REN);                                 /* Port 4 Resistor Enable */
-
-sfr_b(P4SEL0);                                /* Port 4 Select 0 */
-
-sfr_b(P3SEL0);                                /* Port 3 Select 0 */
-
-sfr_b(P3SEL1);                                /* Port 3 Select 1 */
-
-sfr_b(P4SEL1);                                /* Port 4 Select 1 */
-
-sfr_b(P3SELC);                                /* Port 3 Complement Select */
-
-sfr_b(P4SELC);                                /* Port 4 Complement Select */
-
-sfr_b(P3IES);                                 /* Port 3 Interrupt Edge Select */
-
-sfr_b(P4IES);                                 /* Port 4 Interrupt Edge Select */
-
-sfr_b(P3IE);                                  /* Port 3 Interrupt Enable */
-
-sfr_b(P4IE);                                  /* Port 4 Interrupt Enable */
-
-sfr_b(P3IFG);                                 /* Port 3 Interrupt Flag */
-
-sfr_b(P4IFG);                                 /* Port 4 Interrupt Flag */
-
-sfr_b(P5IN);                                  /* Port 5 Input */
-
-sfr_b(P6IN);                                  /* Port 6 Input */
-
-sfr_b(P5OUT);                                 /* Port 5 Output */
-
-sfr_b(P6OUT);                                 /* Port 6 Output */
-
-sfr_b(P5DIR);                                 /* Port 5 Direction */
-
-sfr_b(P6DIR);                                 /* Port 6 Direction */
-
-sfr_b(P5REN);                                 /* Port 5 Resistor Enable */
-
-sfr_b(P6REN);                                 /* Port 6 Resistor Enable */
-
-sfr_b(P5SEL0);                                /* Port 5 Select 0 */
-
-sfr_b(P6SEL0);                                /* Port 6 Select 0 */
-
-sfr_b(P5SEL1);                                /* Port 5 Select 1 */
-
-sfr_b(P6SEL1);                                /* Port 6 Select 1 */
-
-sfr_b(P5SELC);                                /* Port 5 Complement Select */
-
-sfr_b(P6SELC);                                /* Port 6 Complement Select */
-
-sfr_b(P5IES);                                 /* Port 5 Interrupt Edge Select */
-
-sfr_b(P6IES);                                 /* Port 6 Interrupt Edge Select */
-
-sfr_b(P5IE);                                  /* Port 5 Interrupt Enable */
-
-sfr_b(P6IE);                                  /* Port 6 Interrupt Enable */
-
-sfr_b(P5IFG);                                 /* Port 5 Interrupt Flag */
-
-sfr_b(P6IFG);                                 /* Port 6 Interrupt Flag */
-
-sfr_b(P7IN);                                  /* Port 7 Input */
-
-sfr_b(P8IN);                                  /* Port 8 Input */
-
-sfr_b(P7OUT);                                 /* Port 7 Output */
-
-sfr_b(P8OUT);                                 /* Port 8 Output */
-
-sfr_b(P7DIR);                                 /* Port 7 Direction */
-
-sfr_b(P8DIR);                                 /* Port 8 Direction */
-
-sfr_b(P7REN);                                 /* Port 7 Resistor Enable */
-
-sfr_b(P8REN);                                 /* Port 8 Resistor Enable */
-
-sfr_b(P7SEL0);                                /* Port 7 Select 0 */
-
-sfr_b(P8SEL0);                                /* Port 8 Select 0 */
-
-sfr_b(P7SEL1);                                /* Port 7 Select 1 */
-
-sfr_b(P8SEL1);                                /* Port 8 Select 1 */
-
-sfr_b(P7SELC);                                /* Port 7 Complement Select */
-
-sfr_b(P8SELC);                                /* Port 8 Complement Select */
-
-sfr_b(P7IES);                                 /* Port 7 Interrupt Edge Select */
-
-sfr_b(P8IES);                                 /* Port 8 Interrupt Edge Select */
-
-sfr_b(P7IE);                                  /* Port 7 Interrupt Enable */
-
-sfr_b(P8IE);                                  /* Port 8 Interrupt Enable */
-
-sfr_b(P7IFG);                                 /* Port 7 Interrupt Flag */
-
-sfr_b(P8IFG);                                 /* Port 8 Interrupt Flag */
-
-sfr_b(P9IN);                                  /* Port 9 Input */
-
-sfr_b(P10IN);                                 /* Port 10 Input */
-
-sfr_b(P9OUT);                                 /* Port 9 Output */
-
-sfr_b(P10OUT);                                /* Port 10 Output */
-
-sfr_b(P9DIR);                                 /* Port 9 Direction */
-
-sfr_b(P10DIR);                                /* Port 10 Direction */
-
-sfr_b(P9REN);                                 /* Port 9 Resistor Enable */
-
-sfr_b(P10REN);                                /* Port 10 Resistor Enable */
-
-sfr_b(P9SEL0);                                /* Port 9 Select 0 */
-
-sfr_b(P10SEL0);                               /* Port 10 Select 0 */
-
-sfr_b(P9SEL1);                                /* Port 9 Select 1 */
-
-sfr_b(P10SEL1);                               /* Port 10 Select 1 */
-
-sfr_b(P9SELC);                                /* Port 9 Complement Select */
-
-sfr_b(P10SELC);                               /* Port 10 Complement Select */
-
-sfr_b(P9IES);                                 /* Port 9 Interrupt Edge Select */
-
-sfr_b(P10IES);                                /* Port 10 Interrupt Edge Select */
-
-sfr_b(P9IE);                                  /* Port 9 Interrupt Enable */
-
-sfr_b(P10IE);                                 /* Port 10 Interrupt Enable */
-
-sfr_b(P9IFG);                                 /* Port 9 Interrupt Flag */
-
-sfr_b(P10IFG);                                /* Port 10 Interrupt Flag */
-
 
 /* DIO Register Offsets */
 #define OFS_PAIN                         (0x0000)
@@ -2103,126 +1763,6 @@ sfr_b(P10IFG);                                /* Port 10 Interrupt Flag */
 #define OFS_P2IV                         (0x001E)
 #define OFS_P2IV_L                       OFS_P2IV
 #define OFS_P2IV_H                       OFS_P2IV+1
-#define OFS_PBIN                         (0x0000)
-#define OFS_PBIN_L                       OFS_PBIN
-#define OFS_PBIN_H                       OFS_PBIN+1
-#define OFS_PBOUT                        (0x0002)
-#define OFS_PBOUT_L                      OFS_PBOUT
-#define OFS_PBOUT_H                      OFS_PBOUT+1
-#define OFS_PBDIR                        (0x0004)
-#define OFS_PBDIR_L                      OFS_PBDIR
-#define OFS_PBDIR_H                      OFS_PBDIR+1
-#define OFS_PBREN                        (0x0006)
-#define OFS_PBREN_L                      OFS_PBREN
-#define OFS_PBREN_H                      OFS_PBREN+1
-#define OFS_PBSEL0                       (0x000A)
-#define OFS_PBSEL0_L                     OFS_PBSEL0
-#define OFS_PBSEL0_H                     OFS_PBSEL0+1
-#define OFS_PBSEL1                       (0x000C)
-#define OFS_PBSEL1_L                     OFS_PBSEL1
-#define OFS_PBSEL1_H                     OFS_PBSEL1+1
-#define OFS_PBSELC                       (0x0016)
-#define OFS_PBSELC_L                     OFS_PBSELC
-#define OFS_PBSELC_H                     OFS_PBSELC+1
-#define OFS_PBIES                        (0x0018)
-#define OFS_PBIES_L                      OFS_PBIES
-#define OFS_PBIES_H                      OFS_PBIES+1
-#define OFS_PBIE                         (0x001A)
-#define OFS_PBIE_L                       OFS_PBIE
-#define OFS_PBIE_H                       OFS_PBIE+1
-#define OFS_PBIFG                        (0x001C)
-#define OFS_PBIFG_L                      OFS_PBIFG
-#define OFS_PBIFG_H                      OFS_PBIFG+1
-#define OFS_PCIN                         (0x0000)
-#define OFS_PCIN_L                       OFS_PCIN
-#define OFS_PCIN_H                       OFS_PCIN+1
-#define OFS_PCOUT                        (0x0002)
-#define OFS_PCOUT_L                      OFS_PCOUT
-#define OFS_PCOUT_H                      OFS_PCOUT+1
-#define OFS_PCDIR                        (0x0004)
-#define OFS_PCDIR_L                      OFS_PCDIR
-#define OFS_PCDIR_H                      OFS_PCDIR+1
-#define OFS_PCREN                        (0x0006)
-#define OFS_PCREN_L                      OFS_PCREN
-#define OFS_PCREN_H                      OFS_PCREN+1
-#define OFS_PCSEL0                       (0x000A)
-#define OFS_PCSEL0_L                     OFS_PCSEL0
-#define OFS_PCSEL0_H                     OFS_PCSEL0+1
-#define OFS_PCSEL1                       (0x000C)
-#define OFS_PCSEL1_L                     OFS_PCSEL1
-#define OFS_PCSEL1_H                     OFS_PCSEL1+1
-#define OFS_PCSELC                       (0x0016)
-#define OFS_PCSELC_L                     OFS_PCSELC
-#define OFS_PCSELC_H                     OFS_PCSELC+1
-#define OFS_PCIES                        (0x0018)
-#define OFS_PCIES_L                      OFS_PCIES
-#define OFS_PCIES_H                      OFS_PCIES+1
-#define OFS_PCIE                         (0x001A)
-#define OFS_PCIE_L                       OFS_PCIE
-#define OFS_PCIE_H                       OFS_PCIE+1
-#define OFS_PCIFG                        (0x001C)
-#define OFS_PCIFG_L                      OFS_PCIFG
-#define OFS_PCIFG_H                      OFS_PCIFG+1
-#define OFS_PDIN                         (0x0000)
-#define OFS_PDIN_L                       OFS_PDIN
-#define OFS_PDIN_H                       OFS_PDIN+1
-#define OFS_PDOUT                        (0x0002)
-#define OFS_PDOUT_L                      OFS_PDOUT
-#define OFS_PDOUT_H                      OFS_PDOUT+1
-#define OFS_PDDIR                        (0x0004)
-#define OFS_PDDIR_L                      OFS_PDDIR
-#define OFS_PDDIR_H                      OFS_PDDIR+1
-#define OFS_PDREN                        (0x0006)
-#define OFS_PDREN_L                      OFS_PDREN
-#define OFS_PDREN_H                      OFS_PDREN+1
-#define OFS_PDSEL0                       (0x000A)
-#define OFS_PDSEL0_L                     OFS_PDSEL0
-#define OFS_PDSEL0_H                     OFS_PDSEL0+1
-#define OFS_PDSEL1                       (0x000C)
-#define OFS_PDSEL1_L                     OFS_PDSEL1
-#define OFS_PDSEL1_H                     OFS_PDSEL1+1
-#define OFS_PDSELC                       (0x0016)
-#define OFS_PDSELC_L                     OFS_PDSELC
-#define OFS_PDSELC_H                     OFS_PDSELC+1
-#define OFS_PDIES                        (0x0018)
-#define OFS_PDIES_L                      OFS_PDIES
-#define OFS_PDIES_H                      OFS_PDIES+1
-#define OFS_PDIE                         (0x001A)
-#define OFS_PDIE_L                       OFS_PDIE
-#define OFS_PDIE_H                       OFS_PDIE+1
-#define OFS_PDIFG                        (0x001C)
-#define OFS_PDIFG_L                      OFS_PDIFG
-#define OFS_PDIFG_H                      OFS_PDIFG+1
-#define OFS_PEIN                         (0x0000)
-#define OFS_PEIN_L                       OFS_PEIN
-#define OFS_PEIN_H                       OFS_PEIN+1
-#define OFS_PEOUT                        (0x0002)
-#define OFS_PEOUT_L                      OFS_PEOUT
-#define OFS_PEOUT_H                      OFS_PEOUT+1
-#define OFS_PEDIR                        (0x0004)
-#define OFS_PEDIR_L                      OFS_PEDIR
-#define OFS_PEDIR_H                      OFS_PEDIR+1
-#define OFS_PEREN                        (0x0006)
-#define OFS_PEREN_L                      OFS_PEREN
-#define OFS_PEREN_H                      OFS_PEREN+1
-#define OFS_PESEL0                       (0x000A)
-#define OFS_PESEL0_L                     OFS_PESEL0
-#define OFS_PESEL0_H                     OFS_PESEL0+1
-#define OFS_PESEL1                       (0x000C)
-#define OFS_PESEL1_L                     OFS_PESEL1
-#define OFS_PESEL1_H                     OFS_PESEL1+1
-#define OFS_PESELC                       (0x0016)
-#define OFS_PESELC_L                     OFS_PESELC
-#define OFS_PESELC_H                     OFS_PESELC+1
-#define OFS_PEIES                        (0x0018)
-#define OFS_PEIES_L                      OFS_PEIES
-#define OFS_PEIES_H                      OFS_PEIES+1
-#define OFS_PEIE                         (0x001A)
-#define OFS_PEIE_L                       OFS_PEIE
-#define OFS_PEIE_H                       OFS_PEIE+1
-#define OFS_PEIFG                        (0x001C)
-#define OFS_PEIFG_L                      OFS_PEIFG
-#define OFS_PEIFG_H                      OFS_PEIFG+1
 #define OFS_PJIN                         (0x0000)
 #define OFS_PJIN_L                       OFS_PJIN
 #define OFS_PJIN_H                       OFS_PJIN+1
@@ -2264,86 +1804,6 @@ sfr_b(P10IFG);                                /* Port 10 Interrupt Flag */
 #define OFS_P2IE                         (0x001B)
 #define OFS_P1IFG                        (0x001C)
 #define OFS_P2IFG                        (0x001D)
-#define OFS_P3IN                         (0x0000)
-#define OFS_P4IN                         (0x0001)
-#define OFS_P3OUT                        (0x0002)
-#define OFS_P4OUT                        (0x0003)
-#define OFS_P3DIR                        (0x0004)
-#define OFS_P4DIR                        (0x0005)
-#define OFS_P3REN                        (0x0006)
-#define OFS_P4REN                        (0x0007)
-#define OFS_P4SEL0                       (0x000B)
-#define OFS_P3SEL0                       (0x000A)
-#define OFS_P3SEL1                       (0x000C)
-#define OFS_P4SEL1                       (0x000D)
-#define OFS_P3SELC                       (0x0016)
-#define OFS_P4SELC                       (0x0017)
-#define OFS_P3IES                        (0x0018)
-#define OFS_P4IES                        (0x0019)
-#define OFS_P3IE                         (0x001A)
-#define OFS_P4IE                         (0x001B)
-#define OFS_P3IFG                        (0x001C)
-#define OFS_P4IFG                        (0x001D)
-#define OFS_P5IN                         (0x0000)
-#define OFS_P6IN                         (0x0001)
-#define OFS_P5OUT                        (0x0002)
-#define OFS_P6OUT                        (0x0003)
-#define OFS_P5DIR                        (0x0004)
-#define OFS_P6DIR                        (0x0005)
-#define OFS_P5REN                        (0x0006)
-#define OFS_P6REN                        (0x0007)
-#define OFS_P5SEL0                       (0x000A)
-#define OFS_P6SEL0                       (0x000B)
-#define OFS_P5SEL1                       (0x000C)
-#define OFS_P6SEL1                       (0x000D)
-#define OFS_P5SELC                       (0x0016)
-#define OFS_P6SELC                       (0x0017)
-#define OFS_P5IES                        (0x0018)
-#define OFS_P6IES                        (0x0019)
-#define OFS_P5IE                         (0x001A)
-#define OFS_P6IE                         (0x001B)
-#define OFS_P5IFG                        (0x001C)
-#define OFS_P6IFG                        (0x001D)
-#define OFS_P7IN                         (0x0000)
-#define OFS_P8IN                         (0x0001)
-#define OFS_P7OUT                        (0x0002)
-#define OFS_P8OUT                        (0x0003)
-#define OFS_P7DIR                        (0x0004)
-#define OFS_P8DIR                        (0x0005)
-#define OFS_P7REN                        (0x0006)
-#define OFS_P8REN                        (0x0007)
-#define OFS_P7SEL0                       (0x000A)
-#define OFS_P8SEL0                       (0x000B)
-#define OFS_P7SEL1                       (0x000C)
-#define OFS_P8SEL1                       (0x000D)
-#define OFS_P7SELC                       (0x0016)
-#define OFS_P8SELC                       (0x0017)
-#define OFS_P7IES                        (0x0018)
-#define OFS_P8IES                        (0x0019)
-#define OFS_P7IE                         (0x001A)
-#define OFS_P8IE                         (0x001B)
-#define OFS_P7IFG                        (0x001C)
-#define OFS_P8IFG                        (0x001D)
-#define OFS_P9IN                         (0x0000)
-#define OFS_P10IN                        (0x0000)
-#define OFS_P9OUT                        (0x0002)
-#define OFS_P10OUT                       (0x0003)
-#define OFS_P9DIR                        (0x0004)
-#define OFS_P10DIR                       (0x0005)
-#define OFS_P9REN                        (0x0006)
-#define OFS_P10REN                       (0x0007)
-#define OFS_P9SEL0                       (0x000A)
-#define OFS_P10SEL0                      (0x000B)
-#define OFS_P9SEL1                       (0x000C)
-#define OFS_P10SEL1                      (0x000D)
-#define OFS_P9SELC                       (0x0016)
-#define OFS_P10SELC                      (0x0017)
-#define OFS_P9IES                        (0x0018)
-#define OFS_P10IES                       (0x0019)
-#define OFS_P9IE                         (0x001A)
-#define OFS_P10IE                        (0x001B)
-#define OFS_P9IFG                        (0x001C)
-#define OFS_P10IFG                       (0x001D)
 
 /* DIO Control Bits */
 
@@ -5948,7 +5408,6 @@ sfr_b(UCB0IV_H);
 ************************************************************/
 
 #define __MSP430_HAS_TLV__                    /* Definition to show that Module is available */
-#define TLV_BASE               __MSP430_BASEADDRESS_TLV__
 
 #define TLV_CRC_LENGTH         (0x1A01)       /* CRC length of the TLV structure */
 #define TLV_CRC_VALUE          (0x1A02)       /* CRC value of the TLV structure */
