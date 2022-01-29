@@ -10,7 +10,7 @@
 <bitfield begin="4" description="A-POOL Latch comparator" end="4" id="LCMP" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
 <bitfield begin="5" description="A-POOL Comparator enable" end="5" id="CMPON" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
 <bitfield begin="6" description="A-POOL DAC buffer enable signal" end="6" id="DBON" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
-<bitfield begin="7" description="A-POOL Enable for convertergnal" end="7" id="CONVON" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="7" description="A-POOL Enable for converter's resistor ladder" end="7" id="CONVON" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
 <bitfield begin="9" description="A-POOL Conversion clock select Bit: 0" end="8" id="CLKSEL" range="" resetval="0" rwaccess="RW" width="2">
 <bitenum description="A-POOL Conversion clock select: 0" id="CLKSEL_0" token="CLKSEL_0" value="0"></bitenum>
 <bitenum description="A-POOL Conversion clock select: 1" id="CLKSEL_1" token="CLKSEL_1" value="1"></bitenum>
@@ -34,7 +34,7 @@
 <bitenum description="A-POOL V- terminal Input Select: Channel 5" id="APNSEL_5" token="APNSEL_5" value="5"></bitenum>
 <bitenum description="A-POOL V- terminal Input Select: Channel 6" id="APNSEL_6" token="APNSEL_6" value="6"></bitenum>
 <bitenum description="A-POOL V- terminal Input Select: Channel 7" id="APNSEL_7" token="APNSEL_7" value="7"></bitenum></bitfield>
-<bitfield begin="8" description="A-POOL Converteral Input Select: Channel 7" end="8" id="RUNSTOP" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
+<bitfield begin="8" description="A-POOL Converter's Run/Stop bit" end="8" id="RUNSTOP" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
 <bitfield begin="9" description="A-POOL Saturation based conversion stop enable" end="9" id="SBSTP" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
 <bitfield begin="10" description="A-POOL Comparator based conversion stop enable" end="10" id="CBSTP" range="" resetval="0" rwaccess="RW" width="1"></bitfield>
 <bitfield begin="11" description="A-POOL Timer based conversion stop enable for TimerA0" end="11" id="TBSTP" range="" resetval="0" rwaccess="RW" width="1"></bitfield>

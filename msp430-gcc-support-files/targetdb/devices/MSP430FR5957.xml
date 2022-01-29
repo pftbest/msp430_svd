@@ -1,8 +1,8 @@
 <device HW_revision="1.0" XML_version="1.0" description="MSP430FR5957" id="MSP430FR5957" partnum="MSP430FR5957">
 
-<include href="../options/MSP430FR5957_TI.xml"></include>
-<include href="../options/MSP430FR5957_GNU.xml"></include>
-<property Type="stringfield" Value="1.207" id="DeviceFileVersion"></property>
+<instance href="../options/MSP430FR5957_TI.xml"></instance>
+<instance href="../options/MSP430FR5957_GNU.xml"></instance>
+<property Type="stringfield" Value="1.212" id="DeviceFileVersion"></property>
 <property Type="stringfield" Value="MSP430FRxxx Family" id="FilterString"></property>
 <property Type="numericfield" Value="160" id="HeapDefaultSize"></property>
 <property Type="stringfield" Value="minimal" id="PrintfDefault_support"></property>
@@ -24,7 +24,7 @@
 <property Type="stringfield" Value="true" id="supportBSLMemory"></property>
 <property Type="stringfield" Value="true" id="supportINFOMemory"></property>
 <property Type="stringfield" Value="MPU_memorySegments(seg_Id_1[Segment 1]{@start=0x8000 @end=0x8400 @access=R[--defineREAD_ACCESS_1]:W[--defineWRITE_ACCESS_1]:X[--defineEXEC_ACCESS_1]:Assert PUC on access rights violation[--definePUC_ACCESS_1] @default=R:W:Assert PUC on access rights violation}, seg_Id_2[Segment 2]{@start=0x8400 @end=0x8800 @access=R[--defineREAD_ACCESS_2]:W[--defineWRITE_ACCESS_2]:X[--defineEXEC_ACCESS_2]:Assert PUC on access rights violation[--definePUC_ACCESS_2] @default=R:Assert PUC on access rights violation}, seg_Id_3[Segment 3]{@start=0x8800 @end=0xFF7F @access=R[--define READ_ACCESS_3]:W[--defineWRITE_ACCESS_3]:X[--defineEXEC_ACCESS_3]:Assert PUC on access rights violation[--definePUC_ACCESS_3] @default=R:X:Assert PUC on access rights violation});MPU_infoMemoryList(mem_info_1[Info Memory]{@access=R[--defineREAD_ACCESS_4]:W[--defineWRITE_ACCESS_4]:X[--defineEXEC_ACCESS_4]:Assert PUC on access rights violation[--definePUC_ACCESS_4] @default=R:Assert PUC on access rights violation});MPU_properties(enable:lock:nmi:initLib=libmpu_init.a);IPE_memorySegments(seg_Id_1[Segment 1]{@start=0x8000 @end=0xFC00 @access=Assert PUC on access rights violation[--definePUC_ACCESS_1] @default=Assert PUC on access rights violation});IPE_properties(lock:initLib=libipe_init.a);" id="AccessManagementOptions"></property>
-<property Type="stringfield" Value="com.ti.ccstudio.project.templates.blink_msp430:templates/msp430fr59xx/blink.c;" id="TemplateFileOverrides"></property>
+<property Type="stringfield" Value="com.ti.ccstudio.project.templates.blink_msp430:templates/msp430fr59xx/blink.c; com.ti.ccstudio.project.templates.blink_gnu_msp430:templates/msp430fr59xx/blink.c" id="TemplateFileOverrides"></property>
 <property Type="stringfield" Value="-romwidth=8 -memwidth=8" id="HexBuildOptions"></property>
 
 

@@ -1,0 +1,13 @@
+<device id ="MSP430F6721(Bootloader)" partnum="MSP430F6721(Bootloader)" HW_revision="1" XML_version="1" description="MSP430F6721(Bootloader)">
+	<property Type="hiddenfield" Value="4" id="ufNumImageSelection" />
+	<property Type="hiddenfield" Value="Password" id="ufImageType0" />
+	<property Type="hiddenfield" Value=".txt,.hex" id="supportedFileExtensions" />
+	<property Type="hiddenfield" Value="Application Image 1" id="ufImageType1" />
+	<property Type="hiddenfield" Value=".txt,.hex" id="supportedFileExtensions1" />
+	<property Type="hiddenfield" Value="Application Image 2" id="ufImageType2" />
+	<property Type="hiddenfield" Value=".txt,.hex" id="supportedFileExtensions2" />
+	<property Type="hiddenfield" Value="Application Image 3" id="ufImageType3" />
+	<property Type="hiddenfield" Value=".txt,.hex" id="supportedFileExtensions3" />
+	<instance desc="MSP430" href="../cpus/MSP430Xv2.xml" id="MSP430" xml="MSP430Xv2.xml" xmlpath="../cpus/"/>
+	<cpu HW_revision="1.0" XML_version="2.0" description="MSP430 CPU" id="MSP430" isa="MSP430Xv2_BSL"/>
+</device>

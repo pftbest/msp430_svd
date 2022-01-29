@@ -1,8 +1,0 @@
-<?xml version="1.0"?>
-<drivers id="ICEPICK_M">
-    <isa Type="ICEPICK_M" ProcID="0x3C003005">
-        <driver file="../../DebugServer/bin/libDataSnapshotDecoder.dylib">
-			<connectionType Type="DataSnapshotViewer"/>
-		</driver>
-    </isa>
-</drivers>

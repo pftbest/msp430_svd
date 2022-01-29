@@ -1,8 +1,8 @@
 <device HW_revision="1.0" XML_version="1.0" description="MSP430FR2100" id="MSP430FR2100" partnum="MSP430FR2100">
 
-<include href="../options/MSP430FR2100_TI.xml" />
-<include href="../options/MSP430FR2100_GNU.xml" />
-<property Type="stringfield" Value="1.207" id="DeviceFileVersion"></property>
+<instance href="../options/MSP430FR2100_TI.xml" />
+<instance href="../options/MSP430FR2100_GNU.xml" />
+<property Type="stringfield" Value="1.212" id="DeviceFileVersion"></property>
 <property Type="stringfield" Value="MSP430FRxxx Family" id="FilterString"></property>
 <property Type="numericfield" Value="160" id="HeapDefaultSize"></property>
 <property Type="stringfield" Value="minimal" id="PrintfDefault_support"></property>
@@ -21,7 +21,7 @@
 <property Type="stringfield" Value="true" id="supportUserCodeErase"></property>
 <property Type="stringfield" Value="0-120" id="Password"></property>
 <property Type="stringfield" Value="true" id="supportLPMx5"></property>
-<property Type="stringfield" Value="com.ti.ccstudio.project.templates.blink_msp430:templates/msp430fr59xx/blink.c;" id="TemplateFileOverrides"></property>
+<property Type="stringfield" Value="com.ti.ccstudio.project.templates.blink_msp430:templates/msp430fr59xx/blink.c; com.ti.ccstudio.project.templates.blink_gnu_msp430:templates/msp430fr59xx/blink.c" id="TemplateFileOverrides"></property>
 <property Type="stringfield" Value="-romwidth=8 -memwidth=8" id="HexBuildOptions"></property>
 
 <instance desc="MSP430" href="../cpus/MSP430Xv2.xml" id="MSP430" xml="MSP430Xv2.xml" xmlpath="../cpus/"></instance>

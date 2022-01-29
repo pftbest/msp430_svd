@@ -1,8 +1,8 @@
 <device HW_revision="1.0" XML_version="1.0" description="MSP430FR6041" id="MSP430FR6041" partnum="MSP430FR6041">
 
-<include href="../options/MSP430FR6041_TI.xml" />
-<include href="../options/MSP430FR6041_GNU.xml" />
-<property Type="stringfield" Value="1.207" id="DeviceFileVersion"></property>
+<instance href="../options/MSP430FR6041_TI.xml" />
+<instance href="../options/MSP430FR6041_GNU.xml" />
+<property Type="stringfield" Value="1.212" id="DeviceFileVersion"></property>
 <property Type="stringfield" Value="MSP430FRxxx Family" id="FilterString"></property>
 <property Type="numericfield" Value="160" id="HeapDefaultSize"></property>
 <property Type="stringfield" Value="minimal" id="PrintfDefault_support"></property>
@@ -23,7 +23,7 @@
 <property Type="stringfield" Value="true" id="supportLPMx5"></property>
 <property Type="stringfield" Value="true" id="supportBSLMemory"></property>
 <property Type="stringfield" Value="MPU_memorySegments(seg_Id_1[Segment 1]{@start=0x4000 @end=0x4400 @access=R[--defineREAD_ACCESS_1]:W[--defineWRITE_ACCESS_1]:X[--defineEXEC_ACCESS_1]:Assert PUC on access rights violation[--definePUC_ACCESS_1] @default=R:W:Assert PUC on access rights violation}, seg_Id_2[Segment 2]{@start=0x4400 @end=0x4800 @access=R[--defineREAD_ACCESS_2]:W[--defineWRITE_ACCESS_2]:X[--defineEXEC_ACCESS_2]:Assert PUC on access rights violation[--definePUC_ACCESS_2] @default=R:Assert PUC on access rights violation}, seg_Id_3[Segment 3]{@start=0x4800 @end=0x43FFF @access=R[--define READ_ACCESS_3]:W[--defineWRITE_ACCESS_3]:X[--defineEXEC_ACCESS_3]:Assert PUC on access rights violation[--definePUC_ACCESS_3] @default=R:X:Assert PUC on access rights violation});MPU_infoMemoryList(mem_info_1[Info Memory]{@access=R[--defineREAD_ACCESS_4]:W[--defineWRITE_ACCESS_4]:X[--defineEXEC_ACCESS_4]:Assert PUC on access rights violation[--definePUC_ACCESS_4] @default=R:Assert PUC on access rights violation});MPU_properties(enable:lock:nmi:initLib=libmpu_init.a);IPE_memorySegments(seg_Id_1[Segment 1]{@start=0x4000 @end=0x8000 @access=Assert PUC on access rights violation[--definePUC_ACCESS_1] @default=Assert PUC on access rights violation});IPE_properties(lock:initLib=libipe_init.a);" id="AccessManagementOptions"></property>
-<property Type="stringfield" Value="com.ti.ccstudio.project.templates.blink_msp430:templates/msp430fr59xx/blink.c;" id="TemplateFileOverrides"></property>
+<property Type="stringfield" Value="com.ti.ccstudio.project.templates.blink_msp430:templates/msp430fr59xx/blink.c; com.ti.ccstudio.project.templates.blink_gnu_msp430:templates/msp430fr59xx/blink.c" id="TemplateFileOverrides"></property>
 <property Type="stringfield" Value="-romwidth=8 -memwidth=8" id="HexBuildOptions"></property>
 
 <instance desc="MSP430" href="../cpus/MSP430Xv2.xml" id="MSP430" xml="MSP430Xv2.xml" xmlpath="../cpus/"></instance>
@@ -51,7 +51,6 @@
 <instance HW_revision="1.0" accessnumbytes="2" baseaddr="0x0200" description="" href="../Modules/msp430/P8_272.0.xml" id="P8" xml="P8_272.0.xml" permissions="p" requestor="MSP430" size="10" xmlpath="../Modules/msp430/"></instance>
 <instance HW_revision="1.0" accessnumbytes="2" baseaddr="0x0200" description="" href="../Modules/msp430/PE_272.0.xml" id="PE" xml="PE_272.0.xml" permissions="p" requestor="MSP430" size="10" xmlpath="../Modules/msp430/"></instance>
 <instance HW_revision="1.0" accessnumbytes="2" baseaddr="0x0200" description="" href="../Modules/msp430/P9_272.0.xml" id="P9" xml="P9_272.0.xml" permissions="p" requestor="MSP430" size="10" xmlpath="../Modules/msp430/"></instance>
-<instance HW_revision="1.0" accessnumbytes="2" baseaddr="0x0200" description="" href="../Modules/msp430/P10_272.0.xml" id="P10" xml="P10_272.0.xml" permissions="p" requestor="MSP430" size="10" xmlpath="../Modules/msp430/"></instance>
 <instance HW_revision="1.0" accessnumbytes="2" baseaddr="0x0200" description="" href="../Modules/msp430/PJ_272.0.xml" id="PJ" xml="PJ_272.0.xml" permissions="p" requestor="MSP430" size="10" xmlpath="../Modules/msp430/"></instance>
 <instance HW_revision="1.0" accessnumbytes="2" baseaddr="0x0500" description="" href="../Modules/msp430/DMA_208.0_inst6.xml" id="DMA" xml="DMA_208.0_inst6.xml" permissions="p" requestor="MSP430" size="10" xmlpath="../Modules/msp430/"></instance>
 <instance HW_revision="1.0" accessnumbytes="2" baseaddr="0x0140" description="" href="../Modules/msp430/FRCTL_A_367.0.xml" id="FRCTL_A" xml="FRCTL_A_367.0.xml" permissions="p" requestor="MSP430" size="10" xmlpath="../Modules/msp430/"></instance>

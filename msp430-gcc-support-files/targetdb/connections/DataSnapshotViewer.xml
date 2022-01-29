@@ -1,6 +1,0 @@
-<?xml version="1.0"?>
-
-<connection id="Data Snapshot Viewer" XML_version="1.2">
-	<connectionType Type="DataSnapshotViewer"/>
-	<property Type="hiddenfield" Value="No" id="dataFileRequired"/>
-</connection>

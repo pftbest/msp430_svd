@@ -1,8 +1,8 @@
 <device HW_revision="1.0" XML_version="1.0" description="RF430FRL154H" id="RF430FRL154H" partnum="RF430FRL154H">
 
-<include href="../options/RF430FRL154H_TI.xml"></include>
-<include href="../options/RF430FRL154H_GNU.xml"></include>
-<property Type="stringfield" Value="1.207" id="DeviceFileVersion"></property>
+<instance href="../options/RF430FRL154H_TI.xml"></instance>
+<instance href="../options/RF430FRL154H_GNU.xml"></instance>
+<property Type="stringfield" Value="1.212" id="DeviceFileVersion"></property>
 <property Type="stringfield" Value="RF430FRxxx Family" id="FilterString"></property>
 <property Type="numericfield" Value="80" id="HeapDefaultSize"></property>
 <property Type="stringfield" Value="minimal" id="PrintfDefault_support"></property>

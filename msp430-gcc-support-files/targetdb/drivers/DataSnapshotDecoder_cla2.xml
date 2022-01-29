@@ -1,8 +1,0 @@
-<?xml version="1.0"?>
-<drivers id="TMS192C2008">
-    <isa id="TMS192C2008" ProcID="0x30008040">
-        <driver file="../../DebugServer/bin/libDataSnapshotDecoder.dylib">
-			<connectionType Type="DataSnapshotViewer"/>
-		</driver>
-    </isa>
-</drivers>

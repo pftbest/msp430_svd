@@ -1,5 +1,5 @@
 <properties XML_version="1.2">
-<property Type="stringfield" Value="1.207" id="TIOptionsVersion"></property>
-<property Type="stringfield" Value="-D=__RF430FRL152H_ROM__   --use_hw_mpy=none --silicon_errata=CPU21 --silicon_errata=CPU22 --silicon_errata=CPU40" id="CompilerBuildOptions"></property>
+<property Type="stringfield" Value="1.212" id="TIOptionsVersion"></property>
+<property Type="stringfield" Value="-D=__RF430FRL152H_ROM__   --use_hw_mpy=none --silicon_errata=CPU21 --silicon_errata=CPU22" id="CompilerBuildOptions"></property>
 <property Type="stringfield" Value=" --use_hw_mpy=none --cinit_hold_wdt=on" id="LinkerBuildOptions"></property>
 </properties>
