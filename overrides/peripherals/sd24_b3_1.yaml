@@ -1,0 +1,34 @@
+SD24_B3:
+  SD24BINCTL0:
+      SD24GAIN:
+        _replace_enum:
+          SD24GAIN_1: [0, "SD24B Input Pre-Amplifier Gain Select *0"]
+          SD24GAIN_2: [1 , "SD24B Input Pre-Amplifier Gain Select *1"]
+          SD24GAIN_4: [2 , "SD24B Input Pre-Amplifier Gain Select *2"]
+          SD24GAIN_8: [3 , "SD24B Input Pre-Amplifier Gain Select *3"]
+          SD24GAIN_16: [4 , "SD24B Input Pre-Amplifier Gain Select *4"]
+          SD24GAIN_32: [5 , "SD24B Input Pre-Amplifier Gain Select *5"]
+          SD24GAIN_64: [6 , "SD24B Input Pre-Amplifier Gain Select *6"]
+          SD24GAIN_128: [7 , "SD24B Input Pre-Amplifier Gain Select *7"]
+  SD24BINCTL1:
+      SD24GAIN:
+        _replace_enum:
+          SD24GAIN_1: [0, "SD24B Input Pre-Amplifier Gain Select *0"]
+          SD24GAIN_2: [1 , "SD24B Input Pre-Amplifier Gain Select *1"]
+          SD24GAIN_4: [2 , "SD24B Input Pre-Amplifier Gain Select *2"]
+          SD24GAIN_8: [3 , "SD24B Input Pre-Amplifier Gain Select *3"]
+          SD24GAIN_16: [4 , "SD24B Input Pre-Amplifier Gain Select *4"]
+          SD24GAIN_32: [5 , "SD24B Input Pre-Amplifier Gain Select *5"]
+          SD24GAIN_64: [6 , "SD24B Input Pre-Amplifier Gain Select *6"]
+          SD24GAIN_128: [7 , "SD24B Input Pre-Amplifier Gain Select *7"]
+  SD24BINCTL2:
+      SD24GAIN:
+        _replace_enum:
+          SD24GAIN_1: [0, "SD24B Input Pre-Amplifier Gain Select *0"]
+          SD24GAIN_2: [1 , "SD24B Input Pre-Amplifier Gain Select *1"]
+          SD24GAIN_4: [2 , "SD24B Input Pre-Amplifier Gain Select *2"]
+          SD24GAIN_8: [3 , "SD24B Input Pre-Amplifier Gain Select *3"]
+          SD24GAIN_16: [4 , "SD24B Input Pre-Amplifier Gain Select *4"]
+          SD24GAIN_32: [5 , "SD24B Input Pre-Amplifier Gain Select *5"]
+          SD24GAIN_64: [6 , "SD24B Input Pre-Amplifier Gain Select *6"]
+          SD24GAIN_128: [7 , "SD24B Input Pre-Amplifier Gain Select *7"]

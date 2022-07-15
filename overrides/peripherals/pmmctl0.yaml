@@ -1,0 +1,13 @@
+PMM:
+  PMMCTL0:
+    _add:
+      PMMPW:
+        description: PMM Password
+        bitOffset: 8
+        bitWidth: 8
+        access: read-write
+    PMMPW:
+      _read:
+        PASSWORD: [0x96, "Values always reads from the PMMCTL0 register"]
+      _write:
+        PASSWORD: [0xA5, "Values which must be written to the PMMCTL0 register"]

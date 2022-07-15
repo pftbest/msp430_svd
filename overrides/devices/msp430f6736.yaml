@@ -1,0 +1,6 @@
+_svd: ../../msp430f6736.svd
+
+_include:
+  - "../peripherals/pmmctl0.yaml"
+  - "../peripherals/sd24_b3_1.yaml"
+  - "../peripherals/watchdog_timer.yaml"
