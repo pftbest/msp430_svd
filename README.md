@@ -68,7 +68,7 @@ to use msp430g2553 as an example):
 The output of the above command will be written to `msp430g2211.svd.patched`
 (hardcoded). You can format the patched portions by running `xmllint`:
 
-    $ xmllint -format msp430g2553.svd.patched --output msp430g2553.svd.patched
+    $ xmllint --format msp430g2553.svd.patched --output msp430g2553.svd.patched
 
 At this point, you may wish to compare the original _formatted_ output to the
 patched output to double-check the results:
