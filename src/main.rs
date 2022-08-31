@@ -2,6 +2,7 @@ extern crate inflector;
 extern crate indexmap;
 extern crate svd_parser as svd;
 extern crate xmltree;
+extern crate svd_encoder;
 
 #[macro_use]
 mod utils;
@@ -42,7 +43,13 @@ fn main() {
     let interrupts = header_parser::parse_header(&header_path);
 
     let svd_dev = dslite_to_svd::build_svd_device(&dslite_dev, &interrupts);
-    let out_svd = svd_writer::write_device(&svd_dev);
+    let out_svd = match svd_writer::write_device(&svd_dev) {
+        Ok(encoded) => encoded,
+        Err(e) => {
+            eprintln!("Encoding output SVD failed: {}", e);
+            return;
+        }
+    };
 
     match svd::parse(&out_svd) {
         Ok(parsed) => { assert_eq!(svd_dev, parsed); },
