@@ -7,9 +7,9 @@ edition = "2018"
 [dependencies]
 #ldscript-parser = "0.1"
 xmltree = "0.10.0"
-svd-parser = "0.13.1"
+svd-parser = "0.14.0"
 indexmap = "1.3.2"
 Inflector = "0.11.1"
 
 [build-dependencies]
-vergen = { version = "6.0.0", default-features = false, features = [ "git" ] }
+vergen = { version = "7.4.0", default-features = false, features = [ "git" ] }
