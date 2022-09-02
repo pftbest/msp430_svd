@@ -218,13 +218,14 @@ pub fn build_svd_device(
     }
 
     let mut props : svd::RegisterProperties = Default::default();
-    props.size = Some(2);
+    props.size = Some(2*8);
     props.reset_value = Some(0);
     props.reset_mask = None;
     props.access = Some(svd::Access::ReadWrite);
 
     svd::device::DeviceBuilder::default()
         .name(dev.name.fix_name())
+        .width(16)
         .peripherals(peripherals)
         .default_register_properties(props)
         .build(svd::ValidateLevel::Disabled).unwrap()
