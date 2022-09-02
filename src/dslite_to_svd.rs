@@ -224,6 +224,8 @@ pub fn build_svd_device(
     props.access = Some(svd::Access::ReadWrite);
 
     svd::device::DeviceBuilder::default()
+        .vendor(Some("msp430gen".into()))
+        .version(env!("VERGEN_GIT_SEMVER_LIGHTWEIGHT").into())
         .name(dev.name.fix_name())
         .width(16)
         .peripherals(peripherals)

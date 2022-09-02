@@ -6,13 +6,14 @@ extern crate svd_encoder;
 
 #[macro_use]
 mod utils;
-mod svd_writer;
 mod dslite_parser;
 mod dslite_to_svd;
 mod header_parser;
 
 use std::env;
 use std::path::PathBuf;
+
+use svd_encoder::{Config, Encode, NumberFormat};
 
 fn main() {
     let mcu_name = match env::args().nth(1) {
@@ -42,11 +43,41 @@ fn main() {
     let dslite_dev = dslite_parser::parse_dslite(&dslite_path);
     let interrupts = header_parser::parse_header(&header_path);
 
+    let config = Config::default()
+        .peripheral_base_address(NumberFormat::Dec)
+        .address_block_offset(NumberFormat::Dec)
+        .address_block_size(NumberFormat::Dec)
+        .cluster_address_offset(NumberFormat::Dec)
+        .register_address_offset(NumberFormat::Dec)
+        .register_size(NumberFormat::Dec)
+        .register_reset_value(NumberFormat::Dec)
+        .register_reset_mask(NumberFormat::Dec)
+        .enumerated_value_value(NumberFormat::Dec)
+        .dim_dim(NumberFormat::Dec)
+        .dim_increment(NumberFormat::Dec);
+
     let svd_dev = dslite_to_svd::build_svd_device(&dslite_dev, &interrupts);
-    let out_svd = match svd_writer::write_device(&svd_dev) {
+    let svd_enc = match svd_dev.encode_with_config(&config) {
         Ok(encoded) => encoded,
         Err(e) => {
             eprintln!("Encoding output SVD failed: {}", e);
+            return;
+        }
+    };
+
+    let mut out = Vec::new();
+    match svd_enc.write(&mut out) {
+        Ok(_) => {},
+        Err(e) => {
+            eprintln!("Converting output SVD to Vec failed: {}", e);
+            return;
+        }
+    };
+
+    let out_svd = match String::from_utf8(out) {
+        Ok(s) => s,
+        Err(e) => {
+            eprintln!("Converting output SVD to String failed: {}", e);
             return;
         }
     };
