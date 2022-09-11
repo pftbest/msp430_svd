@@ -12,23 +12,22 @@ CPU-neutral; TI even previously used SVD for some of their microcontrollers.
 This repository supplies a copy of TI's C headers and DSLite files for the
 msp430 family. All commands are run from the root directory of this repository.
 
-**You will need `svd2rust` version [v0.20.0](https://github.com/rust-embedded/svd2rust/tree/v0.20.0)
-or later to generate PACs for SVD files from `msp430_svd`.**
-
-Contrary to `svd2rust` version [v0.20.0](https://github.com/rust-embedded/svd2rust/tree/v0.20.0)
-and [v0.21.0](https://github.com/rust-embedded/svd2rust/tree/v0.21.0) docs, you
-will also need `msp430` and `msp430-rt` v0.3.0; **v0.2.x does not work with
-recent Rust compilers due to the [removal](https://github.com/rust-lang/rust/pull/92816)
-of the `llvm_asm` macro around the same time as the `svd2rust` v0.21.0 release.**
+To generate Peripheral Access Crates (PACs) for SVD files from `msp430_svd`,
+you will need at a minimum `svd2rust` version [v0.22.1](https://github.com/rust-embedded/svd2rust/tree/v0.22.1).
+_However, `svd2rust` commit [b3457d7](https://github.com/rust-embedded/svd2rust/commit/b3457d7)
+or later is preferred in order to take advantage of the new [`critical_section`](https://github.com/rust-embedded/critical-section)
+crate_. If using commit b3457d7 or later, you will also need `msp430` and
+`msp430-rt` v0.4.0 or later.
 
 ## How To Generate An SVD File (Quick Start)
-This command will create an SVD file (`out.svd`) for the MSP430G2553 MCU:
+This command will create an SVD file (`msp430g2553.svd`) for the MSP430G2553
+MCU:
 
-    $ cargo run -- msp430g2553 > out.svd
+    $ cargo run -- msp430g2553 > msp430g2553.svd
 
 You can reformat the result using `xmllint`:
 
-    $ xmllint -format out.svd > msp430g2553.svd
+    $ xmllint -format msp430g2553.svd --output msp430g2553.svd
 
 If you are interested in just getting started quickly, you can stop here and
 generate a PAC using `svd2rust`:
