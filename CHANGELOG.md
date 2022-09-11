@@ -5,6 +5,26 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 
+## [v0.4.0] - 2022-09-10
+- Update _and prune_ targetdb files using Uniflash 7.0 to only those files
+  believed to be needed by `msp430_svd`. This should help with repo size.
+  Deleted files will be added back on an as-needed basis.
+
+- Update support (include) files to version 1.212 (07/19/2021).
+
+- Add patches for msp430f6736.
+
+- Improve README.md for quickstart and patching.
+
+- Supply version and git commit information in the generated SVD using
+  the CMSIS-SVD compliant `version` element. 
+  - Update vergen to version 7.4.0.
+
+- Use external crate [`svd-encoder`](https://github.com/rust-embedded/svd/tree/master/svd-encoder)
+  to generate SVDs.
+  - This fixes bugs in SVD generation such as missing elements and [wrong units](https://github.com/pftbest/msp430_svd/issues/18)
+    for `size`.
+
 ## [v0.3.0] - 2022-01-25
 - Add meaningful instructions to README.md.
 
@@ -52,6 +72,7 @@ Initial release. Commit was in 2019; CHANGELOG/tagging did not occur until
 2021. Commit was chosen based on a stable period between Nov 2019 and Apr 2020
 where msp430_svd was used to generate multiple SVDs.
 
-[Unreleased]: https://github.com/pftbest/msp430_svd/compare/v0.3.0...HEAD
+[Unreleased]: https://github.com/pftbest/msp430_svd/compare/v0.4.0...HEAD
+[v0.4.0]: https://github.com/pftbest/msp430_svd/compare/v0.3.0...v0.4.0
 [v0.3.0]: https://github.com/pftbest/msp430_svd/compare/v0.2.0...v0.3.0
 [v0.2.0]: https://github.com/pftbest/msp430_svd/compare/v0.1.0...v0.2.0
