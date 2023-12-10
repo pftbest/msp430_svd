@@ -16,7 +16,7 @@ use std::fs::File;
 use std::io::Write;
 use std::path::{Path, PathBuf};
 
-use svd_encoder::{Config, Encode, NumberFormat};
+use svd_encoder::{Config, NumberFormat};
 use svdtools::patch;
 
 fn main() {

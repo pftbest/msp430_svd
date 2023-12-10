@@ -158,7 +158,7 @@ fn parse_dslite_module(file_name: &Path, baseaddr: u32) -> Option<Module> {
 
     // Rest of the code assumes that the offset value of each register includes the base address of
     // the module, so we add it here.
-    for mut reg in &mut registers {
+    for reg in &mut registers {
         reg.offset += baseaddr;
     }
 
