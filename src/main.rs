@@ -103,16 +103,19 @@ fn main() {
 
     let yaml_devices_root = PathBuf::from("overrides/devices");
     let dev_yaml_path = yaml_devices_root.join(format!("{}.yaml", mcu_name.to_lowercase()));
-    match patch::process_file(
-        &dev_yaml_path,
-        None,
-        Some(Path::new("config/encoding.json")),
-        &patch::Config::default(),
-    ) {
-        Ok(_) => {}
-        Err(e) => {
-            eprintln!("Patching SVD file failed: {}", e);
-            return;
+
+    if dev_yaml_path.exists() {
+        match patch::process_file(
+            &dev_yaml_path,
+            None,
+            Some(Path::new("config/encoding.json")),
+            &patch::Config::default(),
+        ) {
+            Ok(_) => {}
+            Err(e) => {
+                eprintln!("Patching SVD file failed: {}", e);
+                return;
+            }
         }
     }
 }
