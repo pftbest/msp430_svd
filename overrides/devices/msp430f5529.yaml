@@ -1,0 +1,13 @@
+_svd: ../../msp430f5529.svd
+
+#
+# USB_OPERATION:
+#   _delete:
+#     - USBOEPCNF_[2-8]
+#
+#   _derive:
+#     USBOEPCNF_2:
+#       _from: USBOEPCNF_1
+
+_include:
+  - "../peripherals/watchdog_timer.yaml"
