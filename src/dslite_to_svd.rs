@@ -238,7 +238,7 @@ pub fn build_svd_device(
 
     svd::device::DeviceBuilder::default()
         .vendor(Some("msp430gen".into()))
-        .version(env!("VERGEN_GIT_SEMVER_LIGHTWEIGHT").into())
+        .version(env!("VERGEN_GIT_DESCRIBE").into())
         .name(dev.name.fix_name())
         .width(16)
         .peripherals(peripherals)

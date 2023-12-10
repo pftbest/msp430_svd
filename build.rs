@@ -1,10 +1,7 @@
-use vergen::{vergen, Config, SemverKind, ShaKind};
+use vergen::EmitBuilder;
 
 fn main() {
-    let mut config = Config::default();
-    *config.git_mut().sha_kind_mut() = ShaKind::Short;
-    *config.git_mut().semver_kind_mut() = SemverKind::Lightweight;
-    *config.git_mut().semver_dirty_mut() = Some("-dirty");
-
-    vergen(config).unwrap();
+    EmitBuilder::builder().git_describe(true, true, None)
+                          .emit()
+                          .unwrap();
 }

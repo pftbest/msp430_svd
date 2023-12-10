@@ -9,9 +9,9 @@ edition = "2018"
 xmltree = "0.10.0"
 svd-encoder = "0.14.1"
 svd-parser = "0.14.0"
-indexmap = "1.3.2"
+indexmap = "2.1.0"
 Inflector = "0.11.1"
 svdtools = "0.3.6"
 
 [build-dependencies]
-vergen = { version = "7.4.0", default-features = false, features = [ "git" ] }
+vergen = { version = "8.2.6", default-features = false, features = [ "git", "gitcl" ] }
