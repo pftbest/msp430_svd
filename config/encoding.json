@@ -1,0 +1,13 @@
+{
+    "peripheral_base_address": "Dec",
+    "address_block_offset": "Dec",
+    "address_block_size": "Dec",
+    "cluster_address_offset": "Dec",
+    "register_address_offset": "Dec",
+    "register_size": "Dec",
+    "register_reset_value": "Dec",
+    "register_reset_mask": "Dec",
+    "enumerated_value_value": "Dec",
+    "dim_dim": "Dec",
+    "dim_increment": "Dec"
+}
