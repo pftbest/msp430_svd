@@ -4,6 +4,15 @@ All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
+- Use external crate [`svdtools`](https://github.com/rust-embedded/svdtools)
+  to _automatically_ patch SVDs. This replaces the manual patching required
+  in the [Python version](https://pypi.org/project/svdtools/).
+- Use `svd-encoder` to format unpatched and patched SVDs, removing the need
+  for `xmllint`.
+- Update vergen to version 8.2.6. _Users now require the `git` binary on their
+  path to compile `msp430_svd`._ This removes the need to compile `libgit2`,
+  and most users will need to interact with `msp430_svd` via the git repo
+  anyway.
 
 ## [v0.4.0] - 2022-09-10
 - Update _and prune_ targetdb files using Uniflash 7.0 to only those files

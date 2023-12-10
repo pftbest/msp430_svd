@@ -20,68 +20,53 @@ crate_. If using commit b3457d7 or later, you will also need `msp430` and
 `msp430-rt` v0.4.0 or later.
 
 ## How To Generate An SVD File (Quick Start)
-This command will create an SVD file (`msp430g2553.svd`) for the MSP430G2553
-MCU:
+**For now, all commands must be run via `cargo run`; running as an installed
+binary is unsupported.**
 
-    $ cargo run -- msp430g2553 > msp430g2553.svd
+This command will create two SVD files (`msp430g2553.svd` and `msp430g2553.svd.patched`)
+for the MSP430G2553 MCU:
 
-You can reformat the result using `xmllint`:
+    $ cargo run -- msp430g2553
 
-    $ xmllint -format msp430g2553.svd --output msp430g2553.svd
-
-If you are interested in just getting started quickly, you can stop here and
-generate a PAC using `svd2rust`:
+If you are interested in just getting started quickly, you can stop here, and
+use the `msp430g2553.svd` to generate a PAC using `svd2rust`:
 
     $ svd2rust -g -i msp430g2553.svd --target msp430
 
-However, you will probably want to patch your shiny new SVD file later (as well
-as [format](https://docs.rs/svd2rust/latest/svd2rust/#target--msp430) the
-generated crate).
+However, you will probably want to patch your shiny new SVD file later; this
+is what the `msp430g2553.svd.patched` file and `overrides` directory are for.
 
 ### Patching
-Although the the output from `msp430_svd` in the first step is usable as-is,
-it is likely some register fields in the TI-provided DSLite files will be wrong
-or missing. To fix these registers, we can leverage the work of the [stm32-rs](https://github.com/stm32-rs)
-team to patch the output of `msp430_svd` using [`svdtools`](https://github.com/stm32-rs/svdtools).
+Although the `msp430g2553.svd` output from `msp430_svd` in the first step is
+usable as-is, it is likely some register fields in the TI-provided DSLite files
+will be wrong or missing. To fix these registers, we can leverage the work of
+the [stm32-rs](https://github.com/stm32-rs) team to patch output SVDs using [`svdtools`](https://github.com/stm32-rs/svdtools).
 
-`svdtools` is written in Python. The stable version can be installed from
-[PyPI](https://pypi.org/project/svdtools):
-
-    $ pip3 install svdtools
-
-Patches are kept under `overrides/devices`. There is one patch file per device,
-named after the device (e.g. `msp430g2211.yaml`). The `overrides/peripherals`
-directory is meant to facilitate code reuse.
+Patches for `svdtools` are kept under `overrides/devices`. There is one patch
+file per device, named after the device (e.g. `msp430g2211.yaml`). The `overrides/peripherals`
+directory is meant to facilitate code reuse. If a file of the name
+`overrides/devices/${MCU}.yaml` exists when `msp430_svd` runs, `msp430_svd`
+will invoke `svdtools` to patch the `${MCU}.svd` file based on the YAML file.
+The results of `${MCU}.svd` patching are saved in `${MCU}.svd.patched`; `msp430_svd`
+will always generate a `${MCU}.svd` file.
 
 If a patch file for your MCU doesn't exist under `overrides/devices`, see the
 [next section](#contributing-patches) for a quick start on finding missing
-register fields and creating your own patch.
+register fields and creating your own patch. The msp430g2553 device is an
+example with a relatively complete patch. You may wish to compare the
+unpatched and patched output to double-check the results:
 
-### How To Patch (Quick Start)
-
-Create a patch by invoking `svd` like the following for your device (continuing
-to use msp430g2553 as an example):
-
-    $ svd patch overrides/devices/msp430g2553.yaml
-
-The output of the above command will be written to `msp430g2211.svd.patched`
-(hardcoded). You can format the patched portions by running `xmllint`:
-
-    $ xmllint --format msp430g2553.svd.patched --output msp430g2553.svd.patched
-
-At this point, you may wish to compare the original _formatted_ output to the
-patched output to double-check the results:
-
-    $ diff -u {{DEVICE}}.svd {{DEVICE}}.svd.patched
+    $ cargo run -- msp430g2553
+    $ diff -u msp430g2553.svd msp430g2553.svd.patched
 
 ## Contributing Patches
-`svdtools` patch files are written in a YAML format described [here](https://pypi.org/project/svdtools/#device-and-peripheral-yaml-format).
+`svdtools` patch files are written in a YAML format described [here](https://github.com/rust-embedded/svdtools#device-and-peripheral-yaml-format).
 Look at the `overrides/devices` directory for existing examples on how to write
 patches, along with the linked documentation.
 
-**You will need `svdtools` version [`0.1.21`](https://pypi.org/project/svdtools/0.1.21/)
-(or a later [commit](https://github.com/stm32-rs/svdtools/tree/v0.1.21)) to
-generate patches for your SVD file.**
+**`msp430_svd` uses `svdtools` version [`0.3.6`](https://crates.io/crates/svdtools/0.3.6)
+(or a later [commit](https://github.com/rust-embedded/svdtools)) to generate
+patches.**
 
 ### Naming Convention
 When possible, I use the MSP430x{1,2,3,4,5,6}xx Family User Guide name for
