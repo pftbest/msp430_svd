@@ -1,7 +1,7 @@
+use crate::utils;
 use indexmap::IndexMap;
 use std::path::Path;
-use crate::utils;
-use xmltree::{XMLNode, Element};
+use xmltree::{Element, XMLNode};
 
 #[derive(Debug)]
 pub struct Device {
@@ -25,12 +25,19 @@ pub fn parse_dslite(file_name: &Path) -> Device {
 
     let name = uw!(el.attributes.get("id")).to_owned();
     let description = uw!(el.attributes.get("description")).to_owned();
-    let cpu = uw!(el.children.iter().find(|i| i.as_element().map_or(false, |e| e.name == "cpu")));
+    let cpu = uw!(el
+        .children
+        .iter()
+        .find(|i| i.as_element().map_or(false, |e| e.name == "cpu")));
 
     let mut cached_modules = IndexMap::new();
     let mut registers = Vec::new();
 
-    for i in &cpu.as_element().expect("The node named CPU wasn't an XML Element!").children {
+    for i in &cpu
+        .as_element()
+        .expect("The node named CPU wasn't an XML Element!")
+        .children
+    {
         if let Some(mut module) = parse_cpu_instance(i, file_name) {
             // Remove all registers from the module before we cache it, since we will fill in the
             // registers after we process duplicates. This two-step caching process also prevents
@@ -114,7 +121,9 @@ pub struct Module {
 }
 
 fn parse_cpu_instance(node: &XMLNode, root_file: &Path) -> Option<Module> {
-    let el = node.as_element().expect("CPU instance was not an XML Element!");
+    let el = node
+        .as_element()
+        .expect("CPU instance was not an XML Element!");
     assert_eq!(el.name, "instance");
     let base = uw!(utils::parse_u32(uw!(el.attributes.get("baseaddr"))));
 
@@ -139,7 +148,12 @@ fn parse_dslite_module(file_name: &Path, baseaddr: u32) -> Option<Module> {
     let mut registers = el
         .children
         .iter()
-        .map(|r| parse_register(r.as_element().expect("Register was not an XML Element!"), &name))
+        .map(|r| {
+            parse_register(
+                r.as_element().expect("Register was not an XML Element!"),
+                &name,
+            )
+        })
         .collect::<Vec<_>>();
 
     // Rest of the code assumes that the offset value of each register includes the base address of

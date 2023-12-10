@@ -1,9 +1,9 @@
-extern crate inflector;
 extern crate indexmap;
-extern crate svd_parser as svd;
-extern crate xmltree;
+extern crate inflector;
 extern crate svd_encoder;
+extern crate svd_parser as svd;
 extern crate svdtools;
+extern crate xmltree;
 
 #[macro_use]
 mod utils;
@@ -74,9 +74,14 @@ fn main() {
     };
 
     match svd::parse(&svd_enc) {
-        Ok(parsed) => { assert_eq!(svd_dev, parsed); },
+        Ok(parsed) => {
+            assert_eq!(svd_dev, parsed);
+        }
         Err(_e) => {
-            eprintln!("Parsing output file {} during round-trip test failed", svd_enc);
+            eprintln!(
+                "Parsing output file {} during round-trip test failed",
+                svd_enc
+            );
             return;
         }
     }
@@ -98,8 +103,13 @@ fn main() {
 
     let yaml_devices_root = PathBuf::from("overrides/devices");
     let dev_yaml_path = yaml_devices_root.join(format!("{}.yaml", mcu_name.to_lowercase()));
-    match patch::process_file(&dev_yaml_path, None, Some(Path::new("config/encoding.json")), &patch::Config::default()) {
-        Ok(_) => {},
+    match patch::process_file(
+        &dev_yaml_path,
+        None,
+        Some(Path::new("config/encoding.json")),
+        &patch::Config::default(),
+    ) {
+        Ok(_) => {}
         Err(e) => {
             eprintln!("Patching SVD file failed: {}", e);
             return;

@@ -1,12 +1,14 @@
-use std::num::ParseIntError;
-use xmltree::Element;
-use std::io::Read;
 use std::fs::File;
+use std::io::Read;
+use std::num::ParseIntError;
 use std::path::Path;
+use xmltree::Element;
 
 /// Macro for unwrapping
 macro_rules! uw {
-    ($e:expr) => ($e.expect(concat!(file!(), ":", line!(), " ", stringify!($e))))
+    ($e:expr) => {
+        $e.expect(concat!(file!(), ":", line!(), " ", stringify!($e)))
+    };
 }
 
 /// Macro for printing to the error output
