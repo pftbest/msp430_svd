@@ -1,0 +1,81 @@
+TIMER0_A5:
+  _modify:
+    TA0CTL:
+      name: TACTL
+    TA0CCTL0:
+      name: TACCTL0
+    TA0CCTL1:
+      name: TACCTL1
+    TA0CCTL2:
+      name: TACCTL2
+    TA0CCTL3:
+      name: TACCTL3
+    TA0CCTL4:
+      name: TACCTL4
+    TA0IV:
+      name: TAIV
+    TA0R:
+      name: TAR
+    TA0CCR0:
+      name: TACCR0
+    TA0CCR1:
+      name: TACCR1
+    TA0CCR2:
+      name: TACCR2
+    TA0CCR3:
+      name: TACCR3
+    TA0CCR4:
+      name: TACCR4
+  TAIV:
+    _add:
+      TAIV:
+        description: Timer A Interrupt Vector value
+        bitOffset: 0
+        bitWidth: 4
+    TAIV:
+      NONE: [0, "No interrupt pending"]
+      TACCR1: [2, "Capture/Compare 1"]
+      TACCR2: [4, "Capture/Compare 2"]
+      TAIFG: [10, "Timer overflow"]
+  TAR:
+    _add:
+      TAR:
+        description: Timer A Counter Register
+        bitOffset: 0
+        bitWidth: 16
+    TAR: [0, 0xffff]
+  TACCR0:
+    _add:
+      TACCR0:
+        description: Timer A Capture/Compare register 0
+        bitOffset: 0
+        bitWidth: 16
+    TACCR0: [0, 0xffff]
+  TACCR1:
+    _add:
+      TACCR1:
+        description: Timer A Capture/Compare register 1
+        bitOffset: 0
+        bitWidth: 16
+    TACCR1: [0, 0xffff]
+  TACCR2:
+    _add:
+      TACCR2:
+        description: Timer A Capture/Compare register 2
+        bitOffset: 0
+        bitWidth: 16
+    TACCR2: [0, 0xffff]
+  TACCR3:
+    _add:
+      TACCR3:
+        description: Timer A Capture/Compare register 3
+        bitOffset: 0
+        bitWidth: 16
+    TACCR3: [0, 0xffff]
+  TACCR4:
+    _add:
+      TACCR4:
+        description: Timer A Capture/Compare register 4
+        bitOffset: 0
+        bitWidth: 16
+    TACCR4: [0, 0xffff]

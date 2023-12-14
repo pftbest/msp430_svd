@@ -1,5 +1,6 @@
 _svd: ../../msp430g2553.svd
 
+# FIXME: I do not remember why I renamed the peripherals at this point
 _modify:
   TIMER_0_A3:
     name: TIMER0_A3

@@ -113,7 +113,7 @@ fn main() {
         ) {
             Ok(_) => {}
             Err(e) => {
-                eprintln!("Patching SVD file failed: {}", e);
+                eprintln!("Patching SVD file failed: {}", e.root_cause());
                 return;
             }
         }

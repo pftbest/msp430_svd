@@ -1,5 +1,21 @@
 _svd: ../../msp430f5529.svd
 
+# FIXME: I do not remember why I renamed the peripherals at this point
+_modify:
+  TIMER_0_A5:
+    name: TIMER0_A5
+    description: "Timer A5"
+  TIMER_1_A3:
+    name: TIMER1_A3
+    description: "Timer A3"
+  TIMER_2_A3:
+    description: "Timer A3"
+    name: TIMER2_A3
+
+# FIXME: _derive confusingly gives Timer2_A3 a type of Timer1_A3.
+_derive:
+ TIMER2_A3: TIMER1_A3
+
 #
 # USB_OPERATION:
 #   _delete:
@@ -10,4 +26,6 @@ _svd: ../../msp430f5529.svd
 #       _from: USBOEPCNF_1
 
 _include:
+  - "../peripherals/timer0_a5.yaml"
+  - "../peripherals/timer1_a3.yaml"
   - "../peripherals/watchdog_timer.yaml"
