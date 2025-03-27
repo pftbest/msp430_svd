@@ -1,0 +1,4 @@
+_svd: ../../msp430fr5994.svd
+
+_include:
+  - "../peripherals/rtc.yaml"
