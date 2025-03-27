@@ -1,0 +1,16 @@
+RTC_C:
+  RTCCTL13:
+    RTCSSEL:
+      _replace_enum:
+        LFXT: [0, "32-kHz crystal oscillator clock"]
+        LFXT_ALT: [1, "32-kHz crystal oscillator clock"]
+        RT1PS: [2, "Output from RT1PS"]
+        RT1PS_ALT: [3, "Output from RT1PS"]
+
+  RTCPS1CTL:
+    RT1SSEL:
+      _replace_enum:
+        RT1SSEL_0: [0, "32-kHz crystal oscillator clock"]
+        RT1SSEL_1: [1, "32-kHz crystal oscillator clock"]
+        RT0PS: [2, "Output from RT0PS"]
+        RT0PS_ALT: [3, "Output from RT0PS"]

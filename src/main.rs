@@ -105,6 +105,7 @@ fn main() {
     let dev_yaml_path = yaml_devices_root.join(format!("{}.yaml", mcu_name.to_lowercase()));
 
     if dev_yaml_path.exists() {
+        println!("Found patch file {:?}. Applying patch", dev_yaml_path);
         match patch::process_file(
             &dev_yaml_path,
             None,
