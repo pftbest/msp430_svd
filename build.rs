@@ -1,7 +1,11 @@
-use vergen::EmitBuilder;
+use anyhow::Result;
 
-fn main() {
-    EmitBuilder::builder().git_describe(true, true, None)
-                          .emit()
-                          .unwrap();
+fn main() -> Result<()> {
+    vergen_gitcl::Emitter::default()
+        .add_instructions(&vergen_gitcl::GitclBuilder::all_git()?)?
+        .emit()?;
+    vergen_git2::Emitter::default()
+        .add_instructions(&vergen_git2::Git2Builder::all_git()?)?
+        .emit()?;
+    Ok(())
 }
