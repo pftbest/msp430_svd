@@ -5,8 +5,7 @@ authors = ["Vadzim Dambrouski <pftbest@gmail.com>"]
 edition = "2018"
 
 [dependencies]
-#ldscript-parser = "0.1"
-xmltree = "0.10.0"
+xmltree = "0.11"
 svd-encoder = "0.14.1"
 svd-parser = "0.14.0"
 indexmap = "2.1.0"
@@ -15,4 +14,6 @@ svdtools = { git = "https://github.com/rust-embedded/svdtools.git", rev = "2732f
 eyre = "0.6"
 
 [build-dependencies]
-vergen = { version = "8.2.6", default-features = false, features = [ "git", "gitcl" ] }
+anyhow = "1"
+vergen-gitcl = { version = "1", features = [ "build" ] }
+vergen-git2 = { version = "1", features = [ "build" ] }
