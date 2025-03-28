@@ -1,4 +1,5 @@
 use crate::utils;
+use eyre::{Context as _, Result};
 use indexmap::IndexMap;
 use std::path::Path;
 use xmltree::{Element, XMLNode};
@@ -6,6 +7,7 @@ use xmltree::{Element, XMLNode};
 #[derive(Debug)]
 pub struct Device {
     pub name: String,
+    #[allow(dead_code)]
     pub description: String,
     pub modules: IndexMap<String, Module>,
 }
@@ -20,7 +22,7 @@ fn get_conflict<'a>(map: &IndexMap<u32, &'a Register>, reg: &Register) -> Option
     None
 }
 
-pub fn parse_dslite(file_name: &Path) -> Device {
+pub fn parse_dslite(file_name: &Path) -> Result<Device> {
     let el = uw!(utils::load_xml(file_name));
 
     let name = uw!(el.attributes.get("id")).to_owned();
@@ -28,7 +30,7 @@ pub fn parse_dslite(file_name: &Path) -> Device {
     let cpu = uw!(el
         .children
         .iter()
-        .find(|i| i.as_element().map_or(false, |e| e.name == "cpu")));
+        .find(|i| i.as_element().is_some_and(|e| e.name == "cpu")));
 
     let mut cached_modules = IndexMap::new();
     let mut registers = Vec::new();
@@ -38,11 +40,11 @@ pub fn parse_dslite(file_name: &Path) -> Device {
         .expect("The node named CPU wasn't an XML Element!")
         .children
     {
-        if let Some(mut module) = parse_cpu_instance(i, file_name) {
+        if let Some(mut module) = parse_cpu_instance(i, file_name)? {
             // Remove all registers from the module before we cache it, since we will fill in the
             // registers after we process duplicates. This two-step caching process also prevents
             // modules with no registers from entering the output list of modules.
-            let module_regs = std::mem::replace(&mut module.registers, Vec::new());
+            let module_regs = std::mem::take(&mut module.registers);
             for r in module_regs {
                 registers.push(r);
             }
@@ -106,11 +108,11 @@ pub fn parse_dslite(file_name: &Path) -> Device {
             .push(r.clone());
     }
 
-    Device {
+    Ok(Device {
         name,
         description,
         modules,
-    }
+    })
 }
 
 #[derive(Debug, Clone)]
@@ -120,7 +122,7 @@ pub struct Module {
     pub registers: Vec<Register>,
 }
 
-fn parse_cpu_instance(node: &XMLNode, root_file: &Path) -> Option<Module> {
+fn parse_cpu_instance(node: &XMLNode, root_file: &Path) -> Result<Option<Module>> {
     let el = node
         .as_element()
         .expect("CPU instance was not an XML Element!");
@@ -132,14 +134,15 @@ fn parse_cpu_instance(node: &XMLNode, root_file: &Path) -> Option<Module> {
     let module_path = root_path.join(href);
 
     parse_dslite_module(&module_path, base)
+        .wrap_err_with(|| format!("failed to parse module for root file {:?}", root_file))
 }
 
-fn parse_dslite_module(file_name: &Path, baseaddr: u32) -> Option<Module> {
+fn parse_dslite_module(file_name: &Path, baseaddr: u32) -> Result<Option<Module>> {
     let el = uw!(utils::load_xml(file_name));
 
     assert_eq!(el.name, "module");
     match el.attributes.get("hidden") {
-        Some(val) if val == "true" => return None,
+        Some(val) if val == "true" => return Ok(None),
         _ => {}
     }
 
@@ -150,11 +153,13 @@ fn parse_dslite_module(file_name: &Path, baseaddr: u32) -> Option<Module> {
         .iter()
         .map(|r| {
             parse_register(
+                file_name,
                 r.as_element().expect("Register was not an XML Element!"),
                 &name,
             )
+            .with_context(|| format!("failed to parse register for file {:?}", file_name))
         })
-        .collect::<Vec<_>>();
+        .collect::<Result<Vec<_>, _>>()?;
 
     // Rest of the code assumes that the offset value of each register includes the base address of
     // the module, so we add it here.
@@ -166,11 +171,11 @@ fn parse_dslite_module(file_name: &Path, baseaddr: u32) -> Option<Module> {
         description = name.clone();
     }
 
-    Some(Module {
+    Ok(Some(Module {
         name,
         description,
         registers,
-    })
+    }))
 }
 
 #[derive(Debug, Clone)]
@@ -184,7 +189,7 @@ pub struct Register {
     pub alternate: Option<String>,
 }
 
-fn parse_register(el: &Element, module: &str) -> Register {
+fn parse_register(path: &Path, el: &Element, module: &str) -> Result<Register> {
     assert_eq!(el.name, "register");
 
     let name = uw!(el.attributes.get("id")).to_owned();
@@ -197,7 +202,12 @@ fn parse_register(el: &Element, module: &str) -> Register {
     }
 
     assert!(offset < (1 << 16));
-    assert!(width == 8 || width == 16 || width == 32);
+    if width != 8 && width != 16 && width != 32 {
+        eprintln!(
+            "register {} in module {} and file {:?} has unexpected width {}",
+            name, module, path, width
+        );
+    }
 
     let fields = el
         .children
@@ -205,7 +215,7 @@ fn parse_register(el: &Element, module: &str) -> Register {
         .map(|f| parse_field(f.as_element().expect("Field was not an XML Element!")))
         .collect::<Vec<_>>();
 
-    Register {
+    Ok(Register {
         name,
         description,
         offset,
@@ -213,7 +223,7 @@ fn parse_register(el: &Element, module: &str) -> Register {
         module: module.to_owned(),
         fields,
         alternate: None,
-    }
+    })
 }
 
 #[derive(Debug, Clone)]

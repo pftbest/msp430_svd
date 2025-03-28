@@ -11,7 +11,8 @@ svd-encoder = "0.14.1"
 svd-parser = "0.14.0"
 indexmap = "2.1.0"
 Inflector = "0.11.1"
-svdtools = "0.3.6"
+svdtools = { git = "https://github.com/rust-embedded/svdtools.git", rev = "2732f60029376fe1d4df0ca4d7d1fafef2adca60", version = "0.4" }
+eyre = "0.6"
 
 [build-dependencies]
 vergen = { version = "8.2.6", default-features = false, features = [ "git", "gitcl" ] }

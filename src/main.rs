@@ -12,6 +12,7 @@ mod dslite_to_svd;
 mod header_parser;
 
 use std::env;
+use eyre::{bail, Result};
 use std::fs::File;
 use std::io::Write;
 use std::path::{Path, PathBuf};
@@ -19,12 +20,11 @@ use std::path::{Path, PathBuf};
 use svd_encoder::{Config, NumberFormat};
 use svdtools::patch;
 
-fn main() {
+fn main() -> Result<()> {
     let mcu_name = match env::args().nth(1) {
         Some(name) => name,
         None => {
-            eprintln!("Please provide MCU name as the first argument");
-            return;
+            bail!("Please provide MCU name as the first argument");
         }
     };
 
@@ -37,16 +37,14 @@ fn main() {
     let svd_raw_path = Path::new(&svd_file);
 
     if !dslite_path.is_file() {
-        eprintln!("Can't find dslite xml file in {:?}", dslite_path);
-        return;
+        bail!("Can't find dslite xml file in {:?}", dslite_path);
     }
 
     if !header_path.is_file() {
-        eprintln!("Can't find header file in {:?}", header_path);
-        return;
+        bail!("Can't find header file in {:?}", header_path);
     }
 
-    let dslite_dev = dslite_parser::parse_dslite(&dslite_path);
+    let dslite_dev = dslite_parser::parse_dslite(&dslite_path)?;
     let interrupts = header_parser::parse_header(&header_path);
 
     // This should match config/encoding.json for patched SVD. When svdtools gets
@@ -68,8 +66,7 @@ fn main() {
     let svd_enc = match svd_encoder::encode_with_config(&svd_dev, &config) {
         Ok(encoded) => encoded,
         Err(e) => {
-            eprintln!("Encoding output SVD failed: {}", e);
-            return;
+            bail!("Encoding output SVD failed: {}", e);
         }
     };
 
@@ -78,25 +75,22 @@ fn main() {
             assert_eq!(svd_dev, parsed);
         }
         Err(_e) => {
-            eprintln!(
+            bail!(
                 "Parsing output file {} during round-trip test failed",
                 svd_enc
             );
-            return;
         }
     }
 
     let mut svd_fp = match File::create(svd_raw_path) {
         Ok(fp) => fp,
         Err(e) => {
-            eprintln!("Creating unpatched SVD file failed: {}", e);
-            return;
+            bail!("Creating unpatched SVD file failed: {}", e);
         }
     };
 
-    if let Err(e) = svd_fp.write_all(&svd_enc.as_bytes()) {
-        eprintln!("Writing unpatched SVD file failed: {}", e);
-        return;
+    if let Err(e) = svd_fp.write_all(svd_enc.as_bytes()) {
+        bail!("Writing unpatched SVD file failed: {}", e);
     }
 
     drop(svd_fp);
@@ -112,11 +106,11 @@ fn main() {
             Some(Path::new("config/encoding.json")),
             &patch::Config::default(),
         ) {
-            Ok(_) => {}
+            Ok(_) => (),
             Err(e) => {
-                eprintln!("Patching SVD file failed: {}", e.root_cause());
-                return;
+                bail!("Patching SVD file failed: {}", e.root_cause());
             }
         }
-    }
+    };
+    Ok(())
 }
