@@ -1,5 +1,5 @@
 use crate::utils;
-use eyre::{eyre, Context as _, Result};
+use eyre::{Context as _, Result};
 use indexmap::IndexMap;
 use std::path::Path;
 use xmltree::{Element, XMLNode};
@@ -153,6 +153,7 @@ fn parse_dslite_module(file_name: &Path, baseaddr: u32) -> Result<Option<Module>
         .iter()
         .map(|r| {
             parse_register(
+                file_name,
                 r.as_element().expect("Register was not an XML Element!"),
                 &name,
             )
@@ -188,7 +189,7 @@ pub struct Register {
     pub alternate: Option<String>,
 }
 
-fn parse_register(el: &Element, module: &str) -> Result<Register> {
+fn parse_register(path: &Path, el: &Element, module: &str) -> Result<Register> {
     assert_eq!(el.name, "register");
 
     let name = uw!(el.attributes.get("id")).to_owned();
@@ -202,7 +203,10 @@ fn parse_register(el: &Element, module: &str) -> Result<Register> {
 
     assert!(offset < (1 << 16));
     if width != 8 && width != 16 && width != 32 {
-        return Err(eyre!("register {} has unexpected width {}", name, width));
+        eprintln!(
+            "register {} in module {} and file {:?} has unexpected width {}",
+            name, module, path, width
+        );
     }
 
     let fields = el
