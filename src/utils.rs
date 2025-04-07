@@ -35,7 +35,7 @@ pub fn parse_u32(input: &str) -> Result<u32, ParseIntError> {
     if input.starts_with("0x") | input.starts_with("0X") {
         u32::from_str_radix(&input[2..], 16)
     } else {
-        u32::from_str_radix(input, 10)
+        input.parse::<u32>()
     }
 }
 
