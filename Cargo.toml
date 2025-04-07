@@ -16,4 +16,3 @@ eyre = "0.6"
 [build-dependencies]
 anyhow = "1"
 vergen-gitcl = { version = "1", features = [ "build" ] }
-vergen-git2 = { version = "1", features = [ "build" ] }
