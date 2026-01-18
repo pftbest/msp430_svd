@@ -1,0 +1,252 @@
+# Add individual 'Port 1' and 'Port 2' register blocks. Uses 2-bit function select PxSELn registers.
+_add:
+  P1:
+    description: Port 1
+    baseAddress: 512
+    registers:
+        P1IN:
+          size: 8
+          addressOffset: 0
+          description: Port 1 Input register
+          fields:
+            P1IN:
+              description: P1IN
+              bitOffset: 0
+              bitWidth: 8
+              _write_constraint: [0, 0xff]
+        P1OUT:
+          size: 8
+          addressOffset: 2
+          description: Port 1 Output register
+          fields:
+            P1OUT:
+              description: P1OUT
+              bitOffset: 0
+              bitWidth: 8
+              _write_constraint: [0, 0xff]
+        P1DIR:
+          size: 8
+          addressOffset: 4
+          description: Port 1 Direction register
+          fields:
+            P1DIR:
+              description: P1DIR
+              bitOffset: 0
+              bitWidth: 8
+              _write_constraint: [0, 0xff]
+        P1REN:
+          size: 8
+          addressOffset: 6
+          description: Port 1 Resistor Enable register
+          fields:
+            P1REN:
+              description: P1REN
+              bitOffset: 0
+              bitWidth: 8
+              _write_constraint: [0, 0xff]
+        P1SEL0:
+          size: 8
+          addressOffset: 10
+          description: Port 1 Selection register bit 0
+          fields:
+            P1SEL0:
+              description: P1SEL0
+              bitOffset: 0
+              bitWidth: 8
+              _write_constraint: [0, 0xff]
+        P1SEL1:
+          size: 8
+          addressOffset: 12
+          description: Port 1 Selection register bit 1
+          fields:
+            P1SEL1:
+              description: P1SEL1
+              bitOffset: 0
+              bitWidth: 8
+              _write_constraint: [0, 0xff]
+        P1SELC:
+          size: 8
+          addressOffset: 22
+          description: Port 1 Complement Select register
+          fields:
+            P1SELC:
+              description: P1SELC
+              bitOffset: 0
+              bitWidth: 8
+              _write_constraint: [0, 0xff]
+        P1IES:
+          size: 8
+          addressOffset: 24
+          description: Port 1 Interrupt Edge Select register
+          fields:
+            P1IES:
+              description: P1IES
+              bitOffset: 0
+              bitWidth: 8
+              _write_constraint: [0, 0xff]
+        P1IE:
+          size: 8
+          addressOffset: 26
+          description: Port 1 Interrupt Enable register
+          fields:
+            P1IE:
+              description: P1IE
+              bitOffset: 0
+              bitWidth: 8
+              _write_constraint: [0, 0xff]
+        P1IFG:
+          size: 8
+          addressOffset: 28
+          description: Port 1 Interrupt Flag register
+          fields:
+            P1IFG:
+              description: P1IFG
+              bitOffset: 0
+              bitWidth: 8
+              _write_constraint: [0, 0xff]
+        P1IV:
+          size: 16
+          addressOffset: 14
+          description: Port 1 Interrupt Vector register
+          fields:
+            P1IV:
+              description: P1IV
+              bitOffset: 0
+              bitWidth: 16
+  P2:
+    description: Port 2
+    baseAddress: 512
+    registers:
+        P2IN:
+          size: 8
+          addressOffset: 1
+          description: Port 2 Input register
+          fields:
+            P2IN:
+                description: P2IN
+                bitOffset: 0
+                bitWidth: 8
+                _write_constraint: [0, 0xff]
+        P2OUT:
+          size: 8
+          addressOffset: 3
+          description: Port 2 Output register
+          fields:
+            P2OUT:
+                description: P2OUT
+                bitOffset: 0
+                bitWidth: 8
+                _write_constraint: [0, 0xff]
+        P2DIR:
+          size: 8
+          addressOffset: 5
+          description: Port 2 Direction register
+          fields:
+            P2DIR:
+                description: P2DIR
+                bitOffset: 0
+                bitWidth: 8
+                _write_constraint: [0, 0xff]
+        P2REN:
+          size: 8
+          addressOffset: 7
+          description: Port 2 Resistor Enable register
+          fields:
+            P2REN:
+                description: P2REN
+                bitOffset: 0
+                bitWidth: 8
+                _write_constraint: [0, 0xff]
+        P2SEL0:
+          size: 8
+          addressOffset: 11
+          description: Port 2 Selection register bit 0
+          fields:
+            P2SEL0:
+                description: P2SEL0
+                bitOffset: 0
+                bitWidth: 8
+                _write_constraint: [0, 0xff]
+        P2SEL1:
+          size: 8
+          addressOffset: 13
+          description: Port 2 Selection register bit 1
+          fields:
+            P2SEL1:
+                description: P2SEL1
+                bitOffset: 0
+                bitWidth: 8
+                _write_constraint: [0, 0xff]
+        P2SELC:
+          size: 8
+          addressOffset: 23
+          description: Port 2 Complement Select register
+          fields:
+            P2SELC:
+                description: P2SELC
+                bitOffset: 0
+                bitWidth: 8
+                _write_constraint: [0, 0xff]
+        P2IES:
+          size: 8
+          addressOffset: 25
+          description: Port 2 Interrupt Edge Select register
+          fields:
+            P2IES:
+                description: P2IES
+                bitOffset: 0
+                bitWidth: 8
+                _write_constraint: [0, 0xff]
+        P2IE:
+          size: 8
+          addressOffset: 27
+          description: Port 2 Interrupt Enable register
+          fields:
+            P2IE:
+                description: P2IE
+                bitOffset: 0
+                bitWidth: 8
+                _write_constraint: [0, 0xff]
+        P2IFG:
+          size: 8
+          addressOffset: 29
+          description: Port 2 Interrupt Flag register
+          fields:
+            P2IFG:
+                description: P2IFG
+                bitOffset: 0
+                bitWidth: 8
+                _write_constraint: [0, 0xff]
+        P2IV:
+          size: 16
+          addressOffset: 30
+          description: Port 2 Interrupt Vector register
+          fields:
+            P2IV:
+                description: P2IV
+                bitOffset: 0
+                bitWidth: 16
+P1:
+    P1IV:
+        P1IV:
+            NONE:   [0,  "No interrupt pending"]
+            P1IFG0: [2,  "Interrupt Source: Port 1.0 interrupt; Interrupt Flag: P1IFG0; Interrupt Priority: Highest"]
+            P1IFG1: [4,  "Interrupt Source: Port 1.1 interrupt; Interrupt Flag: P1IFG1"]
+            P1IFG2: [6,  "Interrupt Source: Port 1.2 interrupt; Interrupt Flag: P1IFG2"]
+            P1IFG3: [8,  "Interrupt Source: Port 1.3 interrupt; Interrupt Flag: P1IFG3"]
+            P1IFG4: [10, "Interrupt Source: Port 1.4 interrupt; Interrupt Flag: P1IFG4"]
+            P1IFG5: [12, "Interrupt Source: Port 1.5 interrupt; Interrupt Flag: P1IFG5"]
+            P1IFG6: [14, "Interrupt Source: Port 1.6 interrupt; Interrupt Flag: P1IFG6"]
+            P1IFG7: [16, "Interrupt Source: Port 1.7 interrupt; Interrupt Flag: P1IFG7; Interrupt Priority: Lowest"]
+P2:
+    P2IV:
+        P2IV:
+            NONE:   [0,  "No interrupt pending"]
+            P2IFG0: [2,  "Interrupt Source: Port 2.0 interrupt; Interrupt Flag: P2IFG0; Interrupt Priority: Highest"]
+            P2IFG1: [4,  "Interrupt Source: Port 2.1 interrupt; Interrupt Flag: P2IFG1"]
+            P2IFG2: [6,  "Interrupt Source: Port 2.2 interrupt; Interrupt Flag: P2IFG2"]
+            P2IFG3: [8,  "Interrupt Source: Port 2.3 interrupt; Interrupt Flag: P2IFG3"]
+            P2IFG4: [10, "Interrupt Source: Port 2.4 interrupt; Interrupt Flag: P2IFG4"]
+            P2IFG5: [12, "Interrupt Source: Port 2.5 interrupt; Interrupt Flag: P2IFG5"]
+            P2IFG6: [14, "Interrupt Source: Port 2.6 interrupt; Interrupt Flag: P2IFG6"]
+            P2IFG7: [16, "Interrupt Source: Port 2.7 interrupt; Interrupt Flag: P2IFG7; Interrupt Priority: Lowest"]
