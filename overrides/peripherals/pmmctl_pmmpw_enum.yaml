@@ -1,0 +1,7 @@
+PMM:
+  PMMCTL0:
+    PMMPW:
+      _read:
+        PASSWORD: [0x96, "Values always reads from the PMMCTL0 register"]
+      _write:
+        PASSWORD: [0xA5, "Values which must be written to the PMMCTL0 register"]

@@ -1,0 +1,11 @@
+E_USCI_A1:
+  UCA1STATW_SPI:
+    _add:
+      UCBUSY:
+        description: eUSCI_A1 busy
+        bitOffset: 0
+        bitWidth: 1
+        access: read-only
+    UCBUSY: 
+      IDLE: [0, "eUSCI_A1 inactive"]
+      BUSY: [1, "eUSCI_A1 transmitting or receiving"]

@@ -1,0 +1,8 @@
+_svd: ../../msp430fr2353.svd
+
+_include:
+   - "../peripherals/usci_a0_spi_ucbusy.yaml"
+   - "../peripherals/usci_a1_spi_ucbusy.yaml"
+   - "../peripherals/usci_b0_spi_ucbusy.yaml"
+   - "../peripherals/usci_b1_spi_ucbusy.yaml"
+   - "../peripherals/pmmctl_pmmpw_enum.yaml"

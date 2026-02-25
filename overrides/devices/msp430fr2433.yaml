@@ -1,0 +1,804 @@
+_svd: ../../msp430fr2433.svd
+
+_include:
+   - "../peripherals/port_1_2_pxseln.yaml"
+   - "../peripherals/pmmctl.yaml"
+   - "../peripherals/fram.yaml"
+
+WATCHDOG_TIMER:
+    WDTCTL:
+        # Add missing password field
+        _add:
+            WDTPW:
+                description: Watchdog Timer Password
+                bitOffset: 8
+                bitWidth: 8
+        WDTPW:
+            _read:
+                PASSWORD: [0x69, "Value always read from the Watchdog Password field"]
+            _write:
+                PASSWORD: [0x5A, "Value which must be written to the Watchdog Password field"]
+        # More descriptive enum variants
+        WDTSSEL:
+            _replace_enum:
+                SMCLK:  [0, "WDT - Timer Clock Source Select: SMCLK"]
+                ACLK:   [1, "WDT - Timer Clock Source Select: ACLK"]
+                VLOCLK: [2, "WDT - Timer Clock Source Select: VLOCLK"]
+                X_CLK:  [3, "WDT - Timer Clock Source Select: Reserved"]
+        WDTHOLD:
+            UNHOLD: [0, "Watchdog timer is not stopped"]
+            HOLD:   [1, "Watchdog timer is stopped"]
+        WDTIS:
+            _replace_enum:
+                /2048M: [0, "WDT - Timer Interval Select: Watchdog clock source /2048M"]
+                /128M:  [1, "WDT - Timer Interval Select: Watchdog clock source /128M"]
+                /8192K: [2, "WDT - Timer Interval Select: Watchdog clock source /8192K"]
+                /512K:  [3, "WDT - Timer Interval Select: Watchdog clock source /512K"]
+                /32K:   [4, "WDT - Timer Interval Select: Watchdog clock source /32K"]
+                /8192:  [5, "WDT - Timer Interval Select: Watchdog clock source /8192K"]
+                /512:   [6, "WDT - Timer Interval Select: Watchdog clock source /512"]
+                /64:    [7, "WDT - Timer Interval Select: Watchdog clock source /64"]
+
+REAL_TIME_CLOCK:
+    RTCCTL:
+        RTCSS:
+            _replace_enum:
+                DISABLED: [0, "Low-Power-Counter Clock Source Select: Disabled"]
+                SMCLK:    [1, "Low-Power-Counter Clock Source Select: SMCLK"]
+                XT1CLK:   [2, "Low-Power-Counter Clock Source Select: XT1CLK"]
+                VLOCLK:   [3, "Low-Power-Counter Clock Source Select: VLOCLK"]
+        RTCPS:
+            _replace_enum:
+                /1:    [0, "RTC Predivider /1"]
+                /10:   [1, "RTC Predivider /10"]
+                /100:  [2, "RTC Predivider /100"]
+                /1000: [3, "RTC Predivider /1000"]
+                /16:   [4, "RTC Predivider /16"]
+                /64:   [5, "RTC Predivider /64"]
+                /256:  [6, "RTC Predivider /256"]
+                /1024: [7, "RTC Predivider /1024"]
+        _modify:
+            RTCIF:
+                name: RTCIFG  # Match user guide name
+
+CS:
+    CSCTL2:
+        _merge:
+          - "FLLN*"
+        FLLD:
+            _replace_enum:
+                /1:  [0, "Multiply selected loop frequency by 1"]
+                /2:  [1, "Multiply selected loop frequency by 2"]
+                /4:  [2, "Multiply selected loop frequency by 4"]
+                /8:  [3, "Multiply selected loop frequency by 8"]
+                /16: [4, "Multiply selected loop frequency by 16"]
+                /32: [5, "Multiply selected loop frequency by 32"]
+    CSCTL3:
+        SELREF:
+            _replace_enum:
+                XT1CLK:  [0, "XT1CLK"]
+                REFOCLK: [1, "REFOCLK"]
+    CSCTL4:
+        SELMS:
+            _replace_enum:
+                DCOCLKDIV: [0, "DCO CLKDIV"]
+                REFOCLK:   [1, "REFOCLK"]
+                XT1CLK:    [2, "XT1CLK"]
+                VLOCLK:    [3, "VLOCLK"]
+        SELA:
+            XT1CLK:  [0, "Source ACLK from XT1CLK with divider (no more than 40kHz)"]
+            REFOCLK: [1, "Source ACLK from the internal 32kHz clock source"]
+    CSCTL5:
+        DIVM:
+            _replace_enum:
+                /1:   [0, "MCLK = Clock source /1"]
+                /2:   [1, "MCLK = Clock source /2"]
+                /4:   [2, "MCLK = Clock source /4"]
+                /8:   [3, "MCLK = Clock source /8"]
+                /16:  [4, "MCLK = Clock source /16"]
+                /32:  [5, "MCLK = Clock source /32"]
+                /64:  [6, "MCLK = Clock source /64"]
+                /128: [7, "MCLK = Clock source /128"]
+        DIVS:
+            _replace_enum:
+                /1:   [0, "SMCLK = MCLK /1"]
+                /2:   [1, "SMCLK = MCLK /2"]
+                /4:   [2, "SMCLK = MCLK /4"]
+                /8:   [3, "SMCLK = MCLK /8"]
+
+PMM:
+    PMMCTL0:
+        SVSHE:
+            DISABLED: [0, "High-side SVS (SVSH) is disabled in LPM2, LPM3, LPM4, LPM3.5, and LPM4.5. SVSH is always enabled in active mode, LPM0, and LPM1."]
+            ENABLED:  [1, "SVSH is always enabled."]
+
+# Rename to match user guide
+_modify:
+    PORT_1_2:
+        name: PA
+        description: Port A
+    PORT_3:
+        name: P3
+P3:
+    _add:
+        P3SELC:
+          size: 8
+          addressOffset: 22
+          description: Port 3 Complement Select register
+          fields:
+            P3SELC:
+              description: P3SELC
+              bitOffset: 0
+              bitWidth: 8
+              _write_constraint: [0, 0xff]
+
+# Combine UCAxCTL0/1 into UCAxCTLW0, UCA1BR0 and UCA1BR1 into UCA1BRW.
+USCI_A0_UART_MODE:
+    _delete:
+        - UCA1CTL0
+        - UCA1CTL1
+        - UCA1BR0
+        - UCA1BR1
+    UCA0MCTLW:
+        _merge:
+            - "UCBRS*"
+    _add:
+        UCA0CTLW0:
+            description: eUSCI_Ax Control Word Register 0
+            addressOffset: 0
+            size: 16
+            fields:
+                UCSWRST:
+                    description: Software reset enable
+                    bitOffset: 0
+                    bitWidth: 1
+                    access: read-write
+                UCTXBRK:
+                    description: Transmit break
+                    bitOffset: 1
+                    bitWidth: 1
+                    access: read-write
+                UCTXADDR:
+                    description: Transmit address
+                    bitOffset: 2
+                    bitWidth: 1
+                    access: read-write
+                UCDORM:
+                    description: Dormant
+                    bitOffset: 3
+                    bitWidth: 1
+                    access: read-write
+                UCBRKIE:
+                    description: Receive break character interrupt enable
+                    bitOffset: 4
+                    bitWidth: 1
+                    access: read-write
+                UCRXEIE:
+                    description: Receive erroneous-character interrupt enable
+                    bitOffset: 5
+                    bitWidth: 1
+                    access: read-write
+                UCSSEL:
+                    description: eUSCI_A clock source select
+                    bitOffset: 6
+                    bitWidth: 2
+                    access: read-write
+                UCSYNC:
+                    description: Synchronous mode enable
+                    bitOffset: 8
+                    bitWidth: 1
+                    access: read-write
+                UCMODE:
+                    description: eUSCI_A mode
+                    bitOffset: 9
+                    bitWidth: 2
+                    access: read-write
+                UCSPB:
+                    description: Stop bit select
+                    bitOffset: 11
+                    bitWidth: 1
+                    access: read-write
+                UC7BIT:
+                    description: Character length
+                    bitOffset: 12
+                    bitWidth: 1
+                    access: read-write
+                UCMSB:
+                    description: MSB first select
+                    bitOffset: 13
+                    bitWidth: 1
+                    access: read-write
+                UCPAR:
+                    description: Parity select
+                    bitOffset: 14
+                    bitWidth: 1
+                    access: read-write
+                UCPEN:
+                    description: Parity enable
+                    bitOffset: 15
+                    bitWidth: 1
+                    access: read-write
+        UCA0BRW:
+            description: eUSCI_Ax Baud Rate Register 0
+            addressOffset: 6
+            size: 16
+        # Add missing registers (sometimes only present in one mode or the other)
+        UCA0IE:
+            size: 16
+            addressOffset: 26
+            description: eUSCI_A0 Interrupt Enable Register
+            fields:
+                UCRXIE:
+                    bitOffset: 0
+                    bitWidth: 1
+                    access: read-write
+                UCTXIE:
+                    bitOffset: 1
+                    bitWidth: 1
+                    access: read-write
+        UCA0IFG:
+            size: 16
+            addressOffset: 28
+            description: eUSCI_A0 Interrupt Flag Register
+            fields:
+                UCRXIFG:
+                    bitOffset: 0
+                    bitWidth: 1
+                    access: read-write
+                    description: Receive interrupt flag. Is set when RXBUF has received a complete character
+                UCTXIFG:
+                    bitOffset: 1
+                    bitWidth: 1
+                    access: read-write
+                    description: Transmit interrupt flag. Is set when TXBUF is empty.
+    # Add RXBUF, TXBUF fields
+    UCA0RXBUF:
+        _add:
+            UCRXBUF:
+                description: Receive data buffer
+                bitOffset: 0
+                bitWidth: 8
+                access: read-write
+    UCA0TXBUF:
+        _add:
+            UCTXBUF:
+                description: Transmit data buffer
+                bitOffset: 0
+                bitWidth: 8
+                access: read-write
+# Same as above, but for A1
+USCI_A1_UART_MODE:
+    _delete:
+        - UCA1CTL0
+        - UCA1CTL1
+        - UCA1BR0
+        - UCA1BR1
+    UCA1MCTLW:
+        _merge:
+            - "UCBRS*"
+    _add:
+        UCA1CTLW0:
+            description: eUSCI_Ax Control Word Register 0
+            addressOffset: 0
+            size: 16
+            fields:
+                UCSWRST:
+                    description: Software reset enable
+                    bitOffset: 0
+                    bitWidth: 1
+                    access: read-write
+                UCTXBRK:
+                    description: Transmit break
+                    bitOffset: 1
+                    bitWidth: 1
+                    access: read-write
+                UCTXADDR:
+                    description: Transmit address
+                    bitOffset: 2
+                    bitWidth: 1
+                    access: read-write
+                UCDORM:
+                    description: Dormant
+                    bitOffset: 3
+                    bitWidth: 1
+                    access: read-write
+                UCBRKIE:
+                    description: Receive break character interrupt enable
+                    bitOffset: 4
+                    bitWidth: 1
+                    access: read-write
+                UCRXEIE:
+                    description: Receive erroneous-character interrupt enable
+                    bitOffset: 5
+                    bitWidth: 1
+                    access: read-write
+                UCSSEL:
+                    description: eUSCI_A clock source select
+                    bitOffset: 6
+                    bitWidth: 2
+                    access: read-write
+                UCSYNC:
+                    description: Synchronous mode enable
+                    bitOffset: 8
+                    bitWidth: 1
+                    access: read-write
+                UCMODE:
+                    description: eUSCI_A mode
+                    bitOffset: 9
+                    bitWidth: 2
+                    access: read-write
+                UCSPB:
+                    description: Stop bit select
+                    bitOffset: 11
+                    bitWidth: 1
+                    access: read-write
+                UC7BIT:
+                    description: Character length
+                    bitOffset: 12
+                    bitWidth: 1
+                    access: read-write
+                UCMSB:
+                    description: MSB first select
+                    bitOffset: 13
+                    bitWidth: 1
+                    access: read-write
+                UCPAR:
+                    description: Parity select
+                    bitOffset: 14
+                    bitWidth: 1
+                    access: read-write
+                UCPEN:
+                    description: Parity enable
+                    bitOffset: 15
+                    bitWidth: 1
+                    access: read-write
+        UCA1BRW:
+            description: eUSCI_Ax Baud Rate Register 0
+            addressOffset: 6
+            size: 16
+        UCA1IE:
+            size: 16
+            addressOffset: 26
+            description: eUSCI_A1 Interrupt Enable Register
+            fields:
+                UCRXIE:
+                    bitOffset: 0
+                    bitWidth: 1
+                    access: read-write
+                UCTXIE:
+                    bitOffset: 1
+                    bitWidth: 1
+                    access: read-write
+        UCA1IFG:
+            size: 16
+            addressOffset: 28
+            description: eUSCI_A1 Interrupt Flag Register
+            fields:
+                UCRXIFG:
+                    bitOffset: 0
+                    bitWidth: 1
+                    access: read-write
+                    description: Receive interrupt flag. Is set when RXBUF has received a complete character
+                UCTXIFG:
+                    bitOffset: 1
+                    bitWidth: 1
+                    access: read-write
+                    description: Transmit interrupt flag. Is set when TXBUF is empty.
+    UCA1RXBUF:
+        _add:
+            UCRXBUF:
+                description: Receive data buffer
+                bitOffset: 0
+                bitWidth: 8
+                access: read-write
+    UCA1TXBUF:
+        _add:
+            UCTXBUF:
+                description: Transmit data buffer
+                bitOffset: 0
+                bitWidth: 8
+                access: read-write
+USCI_A0_SPI_MODE:
+    _delete:
+        - UCA0CTL0_SPI
+        - UCA0CTL1_SPI
+        - UCA0BR0_SPI
+        - UCA0BR1_SPI
+    _modify:
+        UCA0IE_SPI:
+            size: 16
+            resetMask: 65535
+        UCA0STATW_SPI:
+            size: 16
+            resetMask: 65535
+    _add:
+        UCA0CTLW0_SPI:
+            description: eUSCI_A0 Control Word Register 0
+            addressOffset: 0
+            size: 16
+            fields:
+                UCSWRST:
+                    description: Software reset enable
+                    bitOffset: 0
+                    bitWidth: 1
+                    access: read-write
+                UCSTEM:
+                    description: STE mode select in master mode.
+                    bitOffset: 1
+                    bitWidth: 1
+                    access: read-write
+                UCSSEL:
+                    description: eUSCI_A clock source select
+                    bitOffset: 6
+                    bitWidth: 2
+                    access: read-write
+                UCSYNC:
+                    description: Synchronous mode enable
+                    bitOffset: 8
+                    bitWidth: 1
+                    access: read-write
+                UCMODE:
+                    description: eUSCI_A mode
+                    bitOffset: 9
+                    bitWidth: 2
+                    access: read-write
+                UCMST:
+                    description: Master mode select
+                    bitOffset: 11
+                    bitWidth: 1
+                    access: read-write
+                UC7BIT:
+                    description: Character length
+                    bitOffset: 12
+                    bitWidth: 1
+                    access: read-write
+                UCMSB:
+                    description: MSB first select
+                    bitOffset: 13
+                    bitWidth: 1
+                    access: read-write
+                UCCKPL:
+                    description: Clock polarity select
+                    bitOffset: 14
+                    bitWidth: 1
+                    access: read-write
+                UCCKPH:
+                    description: Clock phase select
+                    bitOffset: 15
+                    bitWidth: 1
+                    access: read-write
+        UCA0BRW_SPI:
+            description: eUSCI_A0 Bit Rate Control Register
+            addressOffset: 6
+            size: 16
+    UCA0RXBUF_SPI:
+        _add:
+            UCRXBUF:
+                description: Receive data buffer
+                bitOffset: 0
+                bitWidth: 8
+                access: read-write
+    UCA0TXBUF_SPI:
+        _add:
+            UCTXBUF:
+                description: Transmit data buffer
+                bitOffset: 0
+                bitWidth: 8
+                access: read-write
+USCI_A1_SPI_MODE:
+    _delete:
+        - UCA1CTL0_SPI
+        - UCA1CTL1_SPI
+        - UCA1BR0_SPI
+        - UCA1BR1_SPI
+    _modify:
+        UCA1IE_SPI:
+            size: 16
+            resetMask: 65535
+        UCA1STATW_SPI:
+            size: 16
+            resetMask: 65535
+    _add:
+        UCA1CTLW0_SPI:
+            description: eUSCI_A1 Control Word Register 0
+            addressOffset: 0
+            size: 16
+            fields:
+                UCSWRST:
+                    description: Software reset enable
+                    bitOffset: 0
+                    bitWidth: 1
+                    access: read-write
+                UCSTEM:
+                    description: STE mode select in master mode.
+                    bitOffset: 1
+                    bitWidth: 1
+                    access: read-write
+                UCSSEL:
+                    description: eUSCI_A clock source select
+                    bitOffset: 6
+                    bitWidth: 2
+                    access: read-write
+                UCSYNC:
+                    description: Synchronous mode enable
+                    bitOffset: 8
+                    bitWidth: 1
+                    access: read-write
+                UCMODE:
+                    description: eUSCI_A mode
+                    bitOffset: 9
+                    bitWidth: 2
+                    access: read-write
+                UCMST:
+                    description: Master mode select
+                    bitOffset: 11
+                    bitWidth: 1
+                    access: read-write
+                UC7BIT:
+                    description: Character length
+                    bitOffset: 12
+                    bitWidth: 1
+                    access: read-write
+                UCMSB:
+                    description: MSB first select
+                    bitOffset: 13
+                    bitWidth: 1
+                    access: read-write
+                UCCKPL:
+                    description: Clock polarity select
+                    bitOffset: 14
+                    bitWidth: 1
+                    access: read-write
+                UCCKPH:
+                    description: Clock phase select
+                    bitOffset: 15
+                    bitWidth: 1
+                    access: read-write
+        UCA1BRW_SPI:
+            description: eUSCI_A1 Bit Rate Control Register 
+            addressOffset: 6
+            size: 16
+    UCA1RXBUF_SPI:
+        _add:
+            UCRXBUF:
+                description: Receive data buffer
+                bitOffset: 0
+                bitWidth: 8
+                access: read-write
+    UCA1TXBUF_SPI:
+        _add:
+            UCTXBUF:
+                description: Transmit data buffer
+                bitOffset: 0
+                bitWidth: 8
+                access: read-write
+USCI_B0_SPI_MODE:
+    _delete:
+        - UCB0CTL0_SPI
+        - UCB0CTL1_SPI
+        - UCB0BR0_SPI
+        - UCB0BR1_SPI
+    _add:
+        UCB0CTLW0_SPI:
+            description: eUSCI_B0 Control Word Register 0
+            addressOffset: 0
+            size: 16
+            fields:
+                UCSWRST:
+                    description: Software reset enable
+                    bitOffset: 0
+                    bitWidth: 1
+                    access: read-write
+                UCSTEM:
+                    description: STE mode select in master mode.
+                    bitOffset: 1
+                    bitWidth: 1
+                    access: read-write
+                UCSSEL:
+                    description: eUSCI_A clock source select
+                    bitOffset: 6
+                    bitWidth: 2
+                    access: read-write
+                UCSYNC:
+                    description: Synchronous mode enable
+                    bitOffset: 8
+                    bitWidth: 1
+                    access: read-write
+                UCMODE:
+                    description: eUSCI_A mode
+                    bitOffset: 9
+                    bitWidth: 2
+                    access: read-write
+                UCMST:
+                    description: Master mode select
+                    bitOffset: 11
+                    bitWidth: 1
+                    access: read-write
+                UC7BIT:
+                    description: Character length
+                    bitOffset: 12
+                    bitWidth: 1
+                    access: read-write
+                UCMSB:
+                    description: MSB first select
+                    bitOffset: 13
+                    bitWidth: 1
+                    access: read-write
+                UCCKPL:
+                    description: Clock polarity select
+                    bitOffset: 14
+                    bitWidth: 1
+                    access: read-write
+                UCCKPH:
+                    description: Clock phase select
+                    bitOffset: 15
+                    bitWidth: 1
+                    access: read-write
+        UCB0BRW_SPI:
+            description: eUSCI_B0 Bit Rate Control Register
+            addressOffset: 6
+            size: 16
+        UCB0STATW_SPI:
+            description: eUSCI_B0 Status Register
+            addressOffset: 8
+            size: 16
+            fields:
+                UCBUSY:
+                    description: USCI Busy Flag
+                    bitOffset: 0
+                    bitWidth: 1
+                    access: read-write
+                UCOE:
+                    description: USCI Overrun Error Flag
+                    bitOffset: 5
+                    bitWidth: 1
+                    access: read-write
+                UCFE:
+                    description: USCI Frame Error Flag
+                    bitOffset: 6
+                    bitWidth: 1
+                    access: read-write
+                UCLISTEN:
+                    description: USCI Listen mode
+                    bitOffset: 7
+                    bitWidth: 1
+                    access: read-write
+    UCB0RXBUF_SPI:
+        _add:
+            UCRXBUF:
+                description: Receive data buffer
+                bitOffset: 0
+                bitWidth: 8
+                access: read-write
+    UCB0TXBUF_SPI:
+        _add:
+            UCTXBUF:
+                description: Transmit data buffer
+                bitOffset: 0
+                bitWidth: 8
+                access: read-write
+
+USCI_B0_I2C_MODE:
+    _delete:
+        - UCB0CTL0
+        - UCB0CTL1
+        - UCB0BR0
+        - UCB0BR1
+    _add:
+        UCB0BRW:
+            description: eUSCI_B0 Bit Rate Control Register
+            addressOffset: 6
+            size: 16
+        UCB0CTLW0:
+            description: eUSCI_B0 Control Word Register 0
+            addressOffset: 0
+            size: 16
+    UCB0I2COA0:
+        _merge:
+            I2COA0: [UCOA0, UCOA1, UCOA2, UCOA3, UCOA4, UCOA5, UCOA6, UCOA7, UCOA8, UCOA9]
+    UCB0I2COA1:
+        _merge:
+            I2COA1: [UCOA0, UCOA1, UCOA2, UCOA3, UCOA4, UCOA5, UCOA6, UCOA7, UCOA8, UCOA9]
+    UCB0I2COA2:
+        _merge:
+            I2COA2: [UCOA0, UCOA1, UCOA2, UCOA3, UCOA4, UCOA5, UCOA6, UCOA7, UCOA8, UCOA9]
+    UCB0I2COA3:
+        _merge:
+            I2COA3: [UCOA0, UCOA1, UCOA2, UCOA3, UCOA4, UCOA5, UCOA6, UCOA7, UCOA8, UCOA9]
+    UCB0STAT_I2C:
+        _add:
+            UCBCNT:
+                description: Hardware byte counter value.
+                bitOffset: 8
+                bitWidth: 8
+                access: read-only
+    _modify:
+        UCB0STAT_I2C:
+            size: 16
+    UCB0CTLW0:
+        _add:
+            UCSWRST:
+                description: Software reset enable
+                bitOffset: 0
+                bitWidth: 1
+                access: read-write
+            UCTXSTT:
+                description: Transmit START condition in master mode
+                bitOffset: 1
+                bitWidth: 1
+                access: read-write
+            UCTXSTP:
+                description: Transmit STOP condition in master mode
+                bitOffset: 2
+                bitWidth: 1
+                access: read-write
+            UCTXNACK:
+                description: Transmit a NACK
+                bitOffset: 3
+                bitWidth: 1
+                access: read-write
+            UCTR:
+                description: Transmitter / receiver select
+                bitOffset: 4
+                bitWidth: 1
+                access: read-write
+            UCTXACK:
+                description: Transmit ACK condition in slave mode
+                bitOffset: 5
+                bitWidth: 1
+                access: read-write
+            UCSSEL:
+                description: eUSCI_A clock source select
+                bitOffset: 6
+                bitWidth: 2
+                access: read-write
+            UCSYNC:
+                description: Synchronous mode enable
+                bitOffset: 8
+                bitWidth: 1
+                access: read-write
+            UCMODE:
+                description: eUSCI_A mode
+                bitOffset: 9
+                bitWidth: 2
+                access: read-write
+            UCMST:
+                description: Master mode select
+                bitOffset: 11
+                bitWidth: 1
+                access: read-write
+            UCMM:
+                description: Multi-master environment select
+                bitOffset: 13
+                bitWidth: 1
+                access: read-write
+            UCSLA10:
+                description: Slave addressing mode select
+                bitOffset: 14
+                bitWidth: 1
+                access: read-write
+            UCA10:
+                description: Own addressing mode select
+                bitOffset: 15
+                bitWidth: 1
+                access: read-write
+
+# Add missing password field
+SYS:
+    SYSCFG0:
+        _add:
+            FRWPPW:
+                description: FRAM protection password
+                bitOffset: 8
+                bitWidth: 8
+                access: read-write
+            FRWPOA:
+                description: Program FRAM Write Protection Offset
+                bitOffset: 2
+                bitWidth: 6
+                access: read-write
+        FRWPPW:
+            _read:
+                PASSWORD: [0x96, "Value always read from the SYSCFG0 password field"]
+            _write:
+                PASSWORD: [0xA5, "Value which must be written to the SYSCFG0 password field"]
