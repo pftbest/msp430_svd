@@ -1,0 +1,26 @@
+_svd: ../../msp430fr2475.svd
+
+_include:
+  - "../peripherals/usci_a0_spi_ucbusy.yaml"
+  - "../peripherals/usci_a1_spi_ucbusy.yaml"
+  - "../peripherals/usci_b0_spi_ucbusy.yaml"
+  - "../peripherals/usci_b1_spi_ucbusy.yaml"
+  - "../peripherals/pmmctl_pmmpw_enum.yaml"
+
+SYS:
+  SYSSNIV:
+    SYSSNIV:
+      _replace_enum:
+        NONE: [0, "No interrupt pending"]
+        SVSLIFG: [2, "SVS low-power reset entry"]
+        UBDIFG: [4, "Uncorrectable FRAM bit error detection"]
+        ACCTEIFG: [6, "FRAM Access Time Error"]
+        SYSSNIV_8: [8, "Reserved"]
+        SYSSNIV_10: [10, "Reserved"]
+        SYSSNIV_12: [12, "Reserved"]
+        SYSSNIV_14: [14, "Reserved"]
+        SYSSNIV_16: [16, "Reserved"]
+        VMAIFG: [18, "VMAIFG Vacant memory access"]
+        JMBINIFG: [20, "JMBINIFG JTAG mailbox input"]
+        JMBOUTIFG: [22, "JMBOUTIFG JTAG mailbox output"]
+        CBDIFG: [24, "Correctable FRAM bit error detection"]
