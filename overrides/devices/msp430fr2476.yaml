@@ -24,3 +24,59 @@ SYS:
         JMBINIFG: [20, "JMBINIFG JTAG mailbox input"]
         JMBOUTIFG: [22, "JMBOUTIFG JTAG mailbox output"]
         CBDIFG: [24, "Correctable FRAM bit error detection"]
+
+"_INTERRUPTS":
+  _modify:
+    _interrupts:
+      ECOMP0:
+          value: 37
+      PORT6:
+          value: 38
+      PORT5:
+          value: 39
+      PORT4:
+          value: 40
+      PORT3:
+          value: 41
+      PORT2:
+          value: 42
+      PORT1:
+          value: 43
+      ADC:
+          value: 44
+      EUSCI_B1:
+          value: 45
+      EUSCI_B0:
+          value: 46
+      EUSCI_A1:
+          value: 47
+      EUSCI_A0:
+          value: 48
+      WDT:
+          value: 49
+      RTC:
+          value: 50
+      TIMER0_B1:
+          value: 51
+      TIMER0_B0:
+          value: 52
+      TIMER3_A1:
+          value: 53
+      TIMER3_A0:
+          value: 54
+      TIMER2_A1:
+          value: 55
+      TIMER2_A0:
+          value: 56
+      TIMER1_A1:
+          value: 57
+      TIMER1_A0:
+          value: 58
+      TIMER0_A1:
+          value: 59
+      TIMER0_A0:
+          value: 60
+      UNMI:
+          value: 61
+      SYSNMI:
+          value: 62
