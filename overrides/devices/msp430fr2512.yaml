@@ -1,0 +1,38 @@
+_svd: ../../msp430fr2512.svd
+
+_include:
+  - "../peripherals/usci_a0_spi_ucbusy.yaml"
+  - "../peripherals/usci_b0_spi_ucbusy.yaml"
+  - "../peripherals/pmmctl_pmmpw_enum.yaml"
+
+"_INTERRUPTS":
+  _modify:
+    _interrupts:
+      CAPTIVATE:
+          value: 49
+      PORT2:
+          value: 50
+      PORT1:
+          value: 51
+      ADC:
+          value: 52
+      EUSCI_B0:
+          value: 53
+      EUSCI_A0:
+          value: 54
+      WDT:
+          value: 55
+      RTC:
+          value: 56
+      TIMER1_A1:
+          value: 57
+      TIMER1_A0:
+          value: 58
+      TIMER0_A1:
+          value: 59
+      TIMER0_A0:
+          value: 60
+      UNMI:
+          value: 61
+      SYSNMI:
+          value: 62
