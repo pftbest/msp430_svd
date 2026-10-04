@@ -1,0 +1,36 @@
+# Interrupt Compare Controller of the MSP430FR2x5x (SLAU445I Table 5-1 to Table 5-4). The four
+# interrupt level registers become an array of eight 2-bit levels each, so source n is ICCILSR[n / 8]
+# ILSR[n % 8], and the levels get names.
+ICC:
+  _delete:
+    - ICCILSR0
+    - ICCILSR1
+    - ICCILSR2
+    - ICCILSR3
+  _add:
+    ICCILSR[%s]:
+      description: Interrupt Compare Controller Interrupt Level Setting Register
+      addressOffset: 0x04
+      size: 16
+      dim: 4
+      dimIncrement: 2
+      fields:
+        ILSR[%s]:
+          description: Interrupt level of interrupt source 8 x (register index) + (field index)
+          bitOffset: 0
+          bitWidth: 2
+          access: read-write
+          dim: 8
+          dimIncrement: 2
+  "ICCILSR*":
+    "ILSR*":
+      HIGHEST: [0, "Level 0, the highest priority"]
+      HIGH: [1, "Level 1"]
+      LOW: [2, "Level 2"]
+      LOWEST: [3, "Level 3, the lowest priority"]
+  ICCSC:
+    ICMC:
+      HIGHEST: [0, "Level 0, the highest priority"]
+      HIGH: [1, "Level 1"]
+      LOW: [2, "Level 2"]
+      LOWEST: [3, "Level 3, the lowest priority"]

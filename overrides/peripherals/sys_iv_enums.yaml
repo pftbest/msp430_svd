@@ -1,0 +1,42 @@
+# The reset and NMI sources of the SYS interrupt vector registers. The user's guide refers to the data
+# sheets for the values (SLAU445I Table 1-20, p. 71; SLAU445I Table 1-21, p. 71; SLAU445I Table 1-22,
+# p. 72: "See the device-specific data sheet for a list of values"), which agree on them: SLASEC4D
+# Table 6-12, p. 70 (MSP430FR215x, MSP430FR235x); SLASE59F Table 6-9, p. 48 (MSP430FR2433); SLASEO7C
+# Table 9-10, p. 52 to p. 53 (MSP430FR247x); SLASEE4C Table 6-10, p. 52 (MSP430FR25x2). The descriptions
+# are the data sheets' interrupt events.
+#
+# Only the sources have variants. 00h, "No interrupt pending", and the reserved values have none, so
+# `variant()` returns `None` once every pending source has been read: each read clears the source it
+# returns (SLAU445I 1.3.7, p. 36).
+SYS:
+  SYSRSTIV:
+    SYSRSTIV:
+      _replace_enum:
+        BROWNOUT: [0x02, "Brownout (BOR)"]
+        RESET_PIN: [0x04, "RSTIFG RST/NMI (BOR)"]
+        SOFTWARE_BOR: [0x06, "PMMSWBOR software BOR (BOR)"]
+        LPMX5_WAKE_UP: [0x08, "LPMx.5 wakeup (BOR)"]
+        SECURITY_VIOLATION: [0x0A, "Security violation (BOR)"]
+        SVSH: [0x0E, "SVSHIFG SVSH event (BOR)"]
+        SOFTWARE_POR: [0x14, "PMMSWPOR software POR (POR)"]
+        WATCHDOG_TIMEOUT: [0x16, "WDTIFG watchdog time-out (PUC)"]
+        WATCHDOG_PASSWORD: [0x18, "WDTPW password violation (PUC)"]
+        FRAM_PASSWORD: [0x1A, "FRCTLPW password violation (PUC)"]
+        FRAM_BIT_ERROR: [0x1C, "Uncorrectable FRAM bit error detection"]
+        PERIPHERAL_AREA_FETCH: [0x1E, "Peripheral area fetch (PUC)"]
+        PMM_PASSWORD: [0x20, "PMMPW PMM password violation (PUC)"]
+        FLL_UNLOCK: [0x24, "FLL unlock (PUC)"]
+  SYSSNIV:
+    SYSSNIV:
+      _replace_enum:
+        SVS_LOW_POWER_RESET_ENTRY: [0x02, "SVS low-power reset entry"]
+        FRAM_UNCORRECTABLE_BIT_ERROR: [0x04, "Uncorrectable FRAM bit error detection"]
+        VACANT_MEMORY_ACCESS: [0x12, "VMAIFG vacant memory access"]
+        JTAG_MAILBOX_IN: [0x14, "JMBINIFG JTAG mailbox input"]
+        JTAG_MAILBOX_OUT: [0x16, "JMBOUTIFG JTAG mailbox output"]
+        FRAM_CORRECTABLE_BIT_ERROR: [0x18, "Correctable FRAM bit error detection"]
+  SYSUNIV:
+    SYSUNIV:
+      _replace_enum:
+        NMI_PIN: [0x02, "NMIIFG NMI pin or SVSH event"]
+        OSCILLATOR_FAULT: [0x04, "OFIFG oscillator fault"]

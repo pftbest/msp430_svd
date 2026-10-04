@@ -1,0 +1,9 @@
+# The 24 MHz DCO tap setting of the devices with the enhanced clock system, MSP430FR2x5x (SLASEC4D
+# Table 6-70). Include after tlv_enhanced_ref.yaml.
+TLV:
+  _add:
+    DCO_TAP_24MHZ:
+      description: DCO tap setting for 24 MHz
+      addressOffset: 0x30
+      size: 16
+      access: read-only

@@ -1,0 +1,9 @@
+# The resolutions of the 12-bit ADC, of the MSP430FR215x, MSP430FR235x and MSP430FR247x (SLASEC4D 1, p. 1;
+# SLASEO7C 1, p. 1: "12-bit analog-to-digital converter"). 11b is reserved (SLAU445I Table 21-5, p. 565).
+ADC:
+  ADCCTL2:
+    ADCRES:
+      _replace_enum:
+        BITS_8: [0, "8 bit (10 clock cycle conversion time)"]
+        BITS_10: [1, "10 bit (12 clock cycle conversion time)"]
+        BITS_12: [2, "12 bit (14 clock cycle conversion time)"]

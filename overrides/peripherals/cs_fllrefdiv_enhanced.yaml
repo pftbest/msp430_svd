@@ -1,0 +1,14 @@
+# The FLL reference dividers of the enhanced clock system, with /640 and /768 (SLAU445I Table 3-7). On the
+# other devices 110b and 111b aren't available.
+CS:
+  CSCTL3:
+    FLLREFDIV:
+      _replace_enum:
+        "/1": [0, "fFLLREFCLK / 1"]
+        "/32": [1, "fFLLREFCLK / 32"]
+        "/64": [2, "fFLLREFCLK / 64"]
+        "/128": [3, "fFLLREFCLK / 128"]
+        "/256": [4, "fFLLREFCLK / 256"]
+        "/512": [5, "fFLLREFCLK / 512"]
+        "/640": [6, "fFLLREFCLK / 640"]
+        "/768": [7, "fFLLREFCLK / 768"]

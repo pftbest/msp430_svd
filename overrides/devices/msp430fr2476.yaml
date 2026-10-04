@@ -6,24 +6,71 @@ _include:
   - "../peripherals/usci_b0_spi_ucbusy.yaml"
   - "../peripherals/usci_b1_spi_ucbusy.yaml"
   - "../peripherals/pmmctl_pmmpw_enum.yaml"
+  - "../peripherals/pmmctl0_h.yaml"
+  - "../peripherals/pmmctl0_svshe_enum.yaml"
+  - "../peripherals/frctl.yaml"
+  - "../peripherals/wdt_a_wdtpw_enum.yaml"
+  - "../peripherals/sys_frwppw_enum.yaml"
+  - "../peripherals/crc.yaml"
+  - "../peripherals/cs_write_constraints.yaml"
+  - "../peripherals/tlv_enhanced_ref.yaml"
+  - "../peripherals/adc_enums.yaml"
+  - "../peripherals/sys_irmsel_enum.yaml"
+  - "../peripherals/cs_fll_enums.yaml"
+  - "../peripherals/sys_sysctl_sysbslc_enums.yaml"
+  - "../peripherals/undocumented_fields.yaml"
+  - "../peripherals/sys_iv_enums.yaml"
+  - "../peripherals/adc_adcres_12bit.yaml"
+  - "../peripherals/cs_dcorsel_basic.yaml"
+  - "../peripherals/pmm_refvsel_enhanced_ref.yaml"
+
+# The device file has port J, which the data sheet doesn't list (SLASEO7C Table 9-40 to Table 9-42, p. 75
+# to p. 77: ports P1 to P6)
+_delete:
+  - PJ
+
+# The backup memory is BAKMEM in the user's guide (SLAU445I 7, p. 309; SLAU445I Table 7-1, p. 310) and in
+# the data sheet (SLASEO7C Table 9-54, p. 81)
+_modify:
+  BKMEM:
+    name: BAKMEM
+    description: BAKMEM
+
+# The PxIV interrupt vector fields cover the whole register, and their values have the same names on every
+# port (SLAU445I Table 8-5 to Table 8-8, p. 332 to p. 333)
+"P1,P2,P3,P4,P5,P6":
+  "P?IV":
+    _modify:
+      "P?IV":
+        bitWidth: 16
+    "P?IV":
+      _replace_enum:
+        NONE: [0x00, "No interrupt pending"]
+        IFG0: [0x02, "Interrupt Source: Port x.0 interrupt; Interrupt Flag: PxIFG.0; Interrupt Priority: Highest"]
+        IFG1: [0x04, "Interrupt Source: Port x.1 interrupt; Interrupt Flag: PxIFG.1"]
+        IFG2: [0x06, "Interrupt Source: Port x.2 interrupt; Interrupt Flag: PxIFG.2"]
+        IFG3: [0x08, "Interrupt Source: Port x.3 interrupt; Interrupt Flag: PxIFG.3"]
+        IFG4: [0x0A, "Interrupt Source: Port x.4 interrupt; Interrupt Flag: PxIFG.4"]
+        IFG5: [0x0C, "Interrupt Source: Port x.5 interrupt; Interrupt Flag: PxIFG.5"]
+        IFG6: [0x0E, "Interrupt Source: Port x.6 interrupt; Interrupt Flag: PxIFG.6"]
+        IFG7: [0x10, "Interrupt Source: Port x.7 interrupt; Interrupt Flag: PxIFG.7; Interrupt Priority: Lowest"]
 
 SYS:
-  SYSSNIV:
-    SYSSNIV:
+  # SYNCSEL, the CapTIvate trigger selection of SLAU445I Table 1-30, p. 81, isn't on this device: the data
+  # sheet doesn't name it, and the device has no CapTIvate
+  SYSCFG1:
+    _delete:
+      - SYNCSEL
+
+ADC:
+  ADCCTL1:
+    # The trigger sources of ADCSHS (ADC Trigger Signal Connections: SLASEO7C Table 9-20, p. 62)
+    ADCSHS:
       _replace_enum:
-        NONE: [0, "No interrupt pending"]
-        SVSLIFG: [2, "SVS low-power reset entry"]
-        UBDIFG: [4, "Uncorrectable FRAM bit error detection"]
-        ACCTEIFG: [6, "FRAM Access Time Error"]
-        SYSSNIV_8: [8, "Reserved"]
-        SYSSNIV_10: [10, "Reserved"]
-        SYSSNIV_12: [12, "Reserved"]
-        SYSSNIV_14: [14, "Reserved"]
-        SYSSNIV_16: [16, "Reserved"]
-        VMAIFG: [18, "VMAIFG Vacant memory access"]
-        JMBINIFG: [20, "JMBINIFG JTAG mailbox input"]
-        JMBOUTIFG: [22, "JMBOUTIFG JTAG mailbox output"]
-        CBDIFG: [24, "Correctable FRAM bit error detection"]
+        SOFTWARE: [0, "ADCSC bit (software trigger)"]
+        RTC: [1, "RTC event"]
+        TIMER: [2, "TA1.1B"]
+        COMPARATOR: [3, "eCOMP0 COUT"]
 
 "_INTERRUPTS":
   _modify:
@@ -80,3 +127,19 @@ SYS:
           value: 61
       SYSNMI:
           value: 62
+
+# The LPM3.5 switch is only on other devices (LPM5SM, LPM5SW: "Only available in the FR203x, FR211x, FR2100,
+# FR2000, FR231x, FR2433, FR2422, FR263x, FR253x, FR252x, and FR413x devices", SLAU445I Table 2-7), and
+# FRLPMPWR "always reads as 0 after reset" on devices not in that list (SLAU445I Table 6-3). On an
+# MSP430FR2476 neither LPM5SM nor FRLPMPWR can be set.
+PMM:
+  PM5CTL0:
+    _delete:
+      - LPM5SM
+      - LPM5SW
+
+FRCTL:
+  GCCTL0:
+    _modify:
+      FRLPMPWR:
+        access: read-only

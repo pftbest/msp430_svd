@@ -1,0 +1,87 @@
+# Named variants for the ADC fields that are the same on every device (SLAU445I 21.3, p. 560). The names
+# follow the user's guide descriptions, which are quoted. Values a field has twice or reserves have no
+# variant.
+ADC:
+  ADCCTL0:
+    # 1101b to 1111b are 1024 ADCCLK cycles too (SLAU445I Table 21-3, p. 561)
+    ADCSHT:
+      _replace_enum:
+        CYCLES_4: [0, "4 ADCCLK cycles"]
+        CYCLES_8: [1, "8 ADCCLK cycles"]
+        CYCLES_16: [2, "16 ADCCLK cycles"]
+        CYCLES_32: [3, "32 ADCCLK cycles"]
+        CYCLES_64: [4, "64 ADCCLK cycles"]
+        CYCLES_96: [5, "96 ADCCLK cycles"]
+        CYCLES_128: [6, "128 ADCCLK cycles"]
+        CYCLES_192: [7, "192 ADCCLK cycles"]
+        CYCLES_256: [8, "256 ADCCLK cycles"]
+        CYCLES_384: [9, "384 ADCCLK cycles"]
+        CYCLES_512: [10, "512 ADCCLK cycles"]
+        CYCLES_768: [11, "768 ADCCLK cycles"]
+        CYCLES_1024: [12, "1024 ADCCLK cycles"]
+  ADCCTL1:
+    # SLAU445I Table 21-4, p. 563
+    ADCDIV:
+      _replace_enum:
+        "/1": [0, "Divide by 1"]
+        "/2": [1, "Divide by 2"]
+        "/3": [2, "Divide by 3"]
+        "/4": [3, "Divide by 4"]
+        "/5": [4, "Divide by 5"]
+        "/6": [5, "Divide by 6"]
+        "/7": [6, "Divide by 7"]
+        "/8": [7, "Divide by 8"]
+    # 11b is SMCLK too (SLAU445I Table 21-4, p. 564)
+    ADCSSEL:
+      _replace_enum:
+        MODCLK: [0, "MODCLK"]
+        ACLK: [1, "ACLK"]
+        SMCLK: [2, "SMCLK"]
+    # SLAU445I Table 21-1, p. 546; SLAU445I Table 21-4, p. 564
+    ADCCONSEQ:
+      _replace_enum:
+        SINGLE: [0, "Single-channel, single-conversion: a single channel is converted once"]
+        SEQUENCE: [1, "Sequence-of-channels: a sequence of channels is converted once"]
+        REPEAT_SINGLE: [2, "Repeat-single-channel: a single channel is converted repeatedly"]
+        REPEAT_SEQUENCE: [3, "Repeat-sequence-of-channels: a sequence of channels is converted repeatedly"]
+  ADCCTL2:
+    # 11b is reserved (SLAU445I Table 21-5, p. 565)
+    ADCPDIV:
+      _replace_enum:
+        "/1": [0, "Predivide by 1"]
+        "/4": [1, "Predivide by 4"]
+        "/64": [2, "Predivide by 64"]
+    # SLAU445I Table 21-5, p. 565
+    ADCDF:
+      _replace_enum:
+        UNSIGNED: [0, "Binary unsigned. Theoretically, the analog input voltage -VREF results in 0000h, and the analog input voltage +VREF results in 03FFh."]
+        SIGNED: [1, "Signed binary (2s complement), left aligned. Theoretically, the analog input voltage -VREF results in 8000h, and the analog input voltage +VREF results in 7FC0h."]
+    # SLAU445I Table 21-5, p. 565
+    ADCSR:
+      _replace_enum:
+        MAX_200KSPS: [0, "ADC buffer supports up to approximately 200 ksps"]
+        MAX_50KSPS: [1, "ADC buffer supports up to approximately 50 ksps"]
+  ADCMCTL0:
+    # SLAU445I Table 21-8, p. 567
+    ADCSREF:
+      _replace_enum:
+        AVCC_AVSS: [0, "VR+ = AVCC and VR- = AVSS"]
+        VREF_AVSS: [1, "VR+ = VREF and VR- = AVSS"]
+        VEREF_PLUS_BUFFERED_AVSS: [2, "VR+ = VEREF+ buffered and VR- = AVSS"]
+        VEREF_PLUS_AVSS: [3, "VR+ = VEREF+ and VR- = AVSS"]
+        AVCC_VEREF_MINUS: [4, "VR+ = AVCC and VR- = VEREF-"]
+        VREF_VEREF_MINUS: [5, "VR+ = VREF and VR- = VEREF-"]
+        VEREF_PLUS_BUFFERED_VEREF_MINUS: [6, "VR+ = VEREF+ buffered and VR- = VEREF-"]
+        VEREF_PLUS_VEREF_MINUS: [7, "VR+ = VEREF+ and VR- = VEREF-"]
+  ADCIV:
+    # The names are those of the interrupt flags' meanings (SLAU445I 21.2.7.10, p. 558; ADCIFG: SLAU445I
+    # Table 21-14, p. 571)
+    ADCIV:
+      _replace_enum:
+        NONE: [0x00, "No interrupt pending"]
+        OVERFLOW: [0x02, "Interrupt Source: ADCMEM0 overflow; Interrupt Flag: ADCOVIFG; Interrupt Priority: Highest"]
+        TIME_OVERFLOW: [0x04, "Interrupt Source: Conversion time overflow; Interrupt Flag: ADCTOVIFG"]
+        ABOVE_WINDOW: [0x06, "Interrupt Source: ADCHI Interrupt flag; Interrupt Flag: ADCHIIFG"]
+        BELOW_WINDOW: [0x08, "Interrupt Source: ADCLO Interrupt flag; Interrupt Flag: ADCLOIFG"]
+        INSIDE_WINDOW: [0x0A, "Interrupt Source: ADCIN Interrupt flag; Interrupt Flag: ADCINIFG"]
+        RESULT_READY: [0x0C, "Interrupt Source: ADC memory Interrupt flag; Interrupt Flag: ADCIFG0; Interrupt Priority: Lowest"]

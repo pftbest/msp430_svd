@@ -1,0 +1,10 @@
+# The levels of the enhanced shared reference, of the MSP430FR215x, MSP430FR235x and MSP430FR247x
+# (REFVSEL: SLAU445I Table 2-4, p. 93; SLASEC4D 1, p. 1; SLASEO7C 1, p. 1: "Internal shared reference (1.5,
+# 2.0, or 2.5 V)"). 11b is reserved.
+PMM:
+  PMMCTL2:
+    REFVSEL:
+      _replace_enum:
+        V1_5: [0, "1.5 V"]
+        V2_0: [1, "2.0 V"]
+        V2_5: [2, "2.5 V"]

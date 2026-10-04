@@ -1,0 +1,23 @@
+# PMMCTL0_H, the upper byte of PMMCTL0 (SLAU445I Table 2-1). A byte write of a value other than the
+# password locks the PMM registers again, while a word write of a wrong password causes a PUC (SLAU445I
+# 2.3); TI's LPMx.5 entry locks them with "MOV.B #000h, &PMMCTL0_H" (SLAU445I 1.4.3.1, step 9d).
+PMM:
+  _add:
+    PMMCTL0_H:
+      description: Power Management Module Control Register 0, upper byte
+      alternateRegister: PMMCTL0
+      addressOffset: 0x01
+      size: 8
+      fields:
+        PMMPW:
+          description: PMM password
+          bitOffset: 0
+          bitWidth: 8
+          access: read-write
+  PMMCTL0_H:
+    PMMPW:
+      _read:
+        PASSWORD: [0x96, "Value always read from the PMM password"]
+      _write:
+        PASSWORD: [0xA5, "Unlocks the PMM registers"]
+        LOCK: [0x00, "Locks the PMM registers again"]

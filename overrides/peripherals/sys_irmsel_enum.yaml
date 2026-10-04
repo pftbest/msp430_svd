@@ -1,0 +1,8 @@
+# Infrared mode select: 0 = ASK, 1 = FSK (SLAU445I Table 1-25 and Table 1-30). Some device files have the
+# two swapped.
+SYS:
+  SYSCFG1:
+    IRMSEL:
+      _replace_enum:
+        ASK: [0, "ASK mode"]
+        FSK: [1, "FSK mode"]

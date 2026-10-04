@@ -1,0 +1,14 @@
+# The DCO ranges of the enhanced clock system, up to 24 MHz (DCORSEL: SLAU445I Table 3-5, p. 114; SLASEC4D
+# Table 5-6, p. 37)
+CS:
+  CSCTL1:
+    DCORSEL:
+      _replace_enum:
+        RANGE_1MHZ: [0, "1 MHz"]
+        RANGE_2MHZ: [1, "2 MHz"]
+        RANGE_4MHZ: [2, "4 MHz"]
+        RANGE_8MHZ: [3, "8 MHz"]
+        RANGE_12MHZ: [4, "12 MHz"]
+        RANGE_16MHZ: [5, "16 MHz"]
+        RANGE_20MHZ: [6, "20 MHz"]
+        RANGE_24MHZ: [7, "24 MHz"]

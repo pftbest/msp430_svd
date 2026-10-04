@@ -1,0 +1,8 @@
+# FRAM protection password in SYSCFG0 (SLAU445I Table 1-24), as on the MSP430FR2433
+SYS:
+  SYSCFG0:
+    FRWPPW:
+      _read:
+        PASSWORD: [0x96, "Value always read from the SYSCFG0 password field"]
+      _write:
+        PASSWORD: [0xA5, "Value which must be written to the SYSCFG0 password field"]

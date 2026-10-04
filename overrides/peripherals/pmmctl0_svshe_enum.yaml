@@ -1,0 +1,7 @@
+# Descriptive SVSHE variants, as on the MSP430FR2433 (SLAU445I Table 2-2)
+PMM:
+  PMMCTL0:
+    SVSHE:
+      _replace_enum:
+        DISABLED: [0, "High-side SVS (SVSH) is disabled in LPM2, LPM3, LPM4, LPM3.5, and LPM4.5. SVSH is always enabled in active mode, LPM0, and LPM1."]
+        ENABLED: [1, "SVSH is always enabled."]

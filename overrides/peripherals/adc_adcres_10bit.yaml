@@ -1,0 +1,9 @@
+# The resolutions of the 10-bit ADC, of the MSP430FR2433 and MSP430FR25x2 (SLASE59F 1, p. 1; SLASEE4C 1,
+# p. 1: "10-bit analog-to-digital converter"). "Only the LSB is valid on devices that support only 10-bit
+# mode" (SLAU445I Table 21-5, p. 565).
+ADC:
+  ADCCTL2:
+    ADCRES:
+      _replace_enum:
+        BITS_8: [0, "8 bit (10 clock cycle conversion time)"]
+        BITS_10: [1, "10 bit (12 clock cycle conversion time)"]
