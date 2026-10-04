@@ -1,0 +1,19 @@
+# Named variants for the FLL unlock status, its history and the warning enable (SLAU445I Table 3-11)
+CS:
+  CSCTL7:
+    FLLUNLOCK:
+      _replace_enum:
+        LOCKED: [0, "FLL is locked. No unlock condition currently active."]
+        TOO_SLOW: [1, "DCOCLK is currently too slow."]
+        TOO_FAST: [2, "DCOCLK is currently too fast."]
+        OUT_OF_RANGE: [3, "DCOERROR. DCO out of range."]
+    FLLUNLOCKHIS:
+      _replace_enum:
+        LOCKED: [0, "FLL is locked. No unlock situation has been detected since the last reset of these bits."]
+        TOO_SLOW: [1, "DCOCLK has been too slow since the bits were cleared."]
+        TOO_FAST: [2, "DCOCLK has been too fast since the bits were cleared."]
+        TOO_SLOW_AND_FAST: [3, "DCOCLK has been both too fast and too slow since the bits were cleared."]
+    FLLWARNEN:
+      _replace_enum:
+        DISABLED: [0, "FLLUNLOCKHIS status cannot set OFIFG."]
+        ENABLED: [1, "FLLUNLOCKHIS status can set OFIFG."]

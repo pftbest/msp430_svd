@@ -1,0 +1,62 @@
+# CRC16 (SLAU445I Table 11-1, Table 11-2 to Table 11-5): fields named after their registers, so the data
+# can be written without unsafe, and the byte registers CRCDI_L and CRCDIRB_L: a byte write adds one byte
+# to the checksum, a word write two (SLAU445I 11.2).
+CRC:
+  CRCDI:
+    _add:
+      CRCDI:
+        description: CRC data in
+        bitOffset: 0
+        bitWidth: 16
+        access: read-write
+    CRCDI: [0, 0xFFFF]
+  CRCDIRB:
+    _add:
+      CRCDIRB:
+        description: CRC data in, bits reversed
+        bitOffset: 0
+        bitWidth: 16
+        access: read-write
+    CRCDIRB: [0, 0xFFFF]
+  CRCINIRES:
+    _add:
+      CRCINIRES:
+        description: CRC initialization (on write) and result (on read)
+        bitOffset: 0
+        bitWidth: 16
+        access: read-write
+    CRCINIRES: [0, 0xFFFF]
+  CRCRESR:
+    _add:
+      CRCRESR:
+        description: CRC result, bits reversed
+        bitOffset: 0
+        bitWidth: 16
+        access: read-only
+  _add:
+    CRCDI_L:
+      description: CRC Data In Register, lower byte
+      alternateRegister: CRCDI
+      addressOffset: 0x00
+      size: 8
+      fields:
+        CRCDI:
+          description: CRC data in, one byte
+          bitOffset: 0
+          bitWidth: 8
+          access: read-write
+    CRCDIRB_L:
+      description: CRC Data In Reverse Byte Register, lower byte
+      alternateRegister: CRCDIRB
+      addressOffset: 0x02
+      size: 8
+      fields:
+        CRCDIRB:
+          description: CRC data in, one byte, bits reversed
+          bitOffset: 0
+          bitWidth: 8
+          access: read-write
+  CRCDI_L:
+    CRCDI: [0, 0xFF]
+  CRCDIRB_L:
+    CRCDIRB: [0, 0xFF]

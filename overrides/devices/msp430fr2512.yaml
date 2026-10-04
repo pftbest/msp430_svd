@@ -1,0 +1,239 @@
+_svd: ../../msp430fr2512.svd
+
+_include:
+  - "../peripherals/usci_a0_spi_ucbusy.yaml"
+  - "../peripherals/usci_b0_spi_ucbusy.yaml"
+  - "../peripherals/pmmctl_pmmpw_enum.yaml"
+  - "../peripherals/pmmctl0_h.yaml"
+  - "../peripherals/pmmctl0_svshe_enum.yaml"
+  - "../peripherals/frctl.yaml"
+  - "../peripherals/wdt_a_wdtpw_enum.yaml"
+  - "../peripherals/sys_frwppw_enum.yaml"
+  - "../peripherals/sfr_sysflte.yaml"
+  - "../peripherals/crc.yaml"
+  - "../peripherals/cs_write_constraints.yaml"
+  - "../peripherals/tlv_basic_ref.yaml"
+  - "../peripherals/adc_enums.yaml"
+  - "../peripherals/sys_irmsel_enum.yaml"
+  - "../peripherals/cs_fll_enums.yaml"
+  - "../peripherals/sys_sysctl_sysbslc_enums.yaml"
+  - "../peripherals/pmm_lpm5_switch_enums.yaml"
+  - "../peripherals/undocumented_fields.yaml"
+  - "../peripherals/sys_iv_enums.yaml"
+  - "../peripherals/adc_adcres_10bit.yaml"
+  - "../peripherals/cs_dcorsel_basic.yaml"
+  - "../peripherals/pmm_refvsel_basic_ref.yaml"
+
+# The device file has port J, which the data sheet doesn't list (SLASEE4C Table 6-28, p. 65: ports P1 and
+# P2)
+_delete:
+  - PJ
+
+# The backup memory is BAKMEM in the user's guide (SLAU445I 7, p. 309; SLAU445I Table 7-1, p. 310) and in
+# the data sheet (SLASEE4C Table 6-35, p. 69)
+_modify:
+  BKMEM:
+    name: BAKMEM
+    description: BAKMEM
+
+# The PxIV interrupt vector fields cover the whole register, and their values have the same names on every
+# port (SLAU445I Table 8-5 and Table 8-6, p. 332)
+"P1,P2":
+  "P?IV":
+    _modify:
+      "P?IV":
+        bitWidth: 16
+    "P?IV":
+      _replace_enum:
+        NONE: [0x00, "No interrupt pending"]
+        IFG0: [0x02, "Interrupt Source: Port x.0 interrupt; Interrupt Flag: PxIFG.0; Interrupt Priority: Highest"]
+        IFG1: [0x04, "Interrupt Source: Port x.1 interrupt; Interrupt Flag: PxIFG.1"]
+        IFG2: [0x06, "Interrupt Source: Port x.2 interrupt; Interrupt Flag: PxIFG.2"]
+        IFG3: [0x08, "Interrupt Source: Port x.3 interrupt; Interrupt Flag: PxIFG.3"]
+        IFG4: [0x0A, "Interrupt Source: Port x.4 interrupt; Interrupt Flag: PxIFG.4"]
+        IFG5: [0x0C, "Interrupt Source: Port x.5 interrupt; Interrupt Flag: PxIFG.5"]
+        IFG6: [0x0E, "Interrupt Source: Port x.6 interrupt; Interrupt Flag: PxIFG.6"]
+        IFG7: [0x10, "Interrupt Source: Port x.7 interrupt; Interrupt Flag: PxIFG.7; Interrupt Priority: Lowest"]
+
+# The remap bits are named as in the user's guide for the devices without Smart Analog Combo: USCIB0RMP in
+# SYSCFG2 and USCIA0RMP in SYSCFG3 (SLAU445I Table 1-31, p. 82; SLAU445I Table 1-32, p. 83), as on the
+# MSP430FR247x. The data sheet calls them USCIBRMP and USCIARMP (SLASEE4C Table 6-11, p. 53).
+SYS:
+  SYSCFG2:
+    _modify:
+      USCIBRMP:
+        name: USCIB0RMP
+    USCIB0RMP:
+      _replace_enum:
+        USCIB0RMP_0: [0, "Default function. See the device-specific data sheet for details."]
+        USCIB0RMP_1: [1, "Remapped function. See the device-specific data sheet for details."]
+  SYSCFG3:
+    _modify:
+      USCIARMP:
+        name: USCIA0RMP
+    USCIA0RMP:
+      _replace_enum:
+        USCIA0RMP_0: [0, "Default function. See the device-specific data sheet for details."]
+        USCIA0RMP_1: [1, "Remapped function. See the device-specific data sheet for details."]
+
+ADC:
+  ADCCTL1:
+    # The trigger sources of ADCSHS (ADC Trigger Signal Connections: SLASEE4C Table 6-14, p. 56; 11b is reserved)
+    ADCSHS:
+      _replace_enum:
+        SOFTWARE: [0, "ADCSC bit (software trigger)"]
+        RTC: [1, "RTC event"]
+        TIMER: [2, "TA1.1B"]
+
+# Interrupt vector numbers: the vector table ends at FFFEh (SLASEE4C Table 6-2)
+"_INTERRUPTS":
+  _modify:
+    _interrupts:
+      CAPTIVATE:
+          value: 49
+      PORT2:
+          value: 50
+      PORT1:
+          value: 51
+      ADC:
+          value: 52
+      EUSCI_B0:
+          value: 53
+      EUSCI_A0:
+          value: 54
+      WDT:
+          value: 55
+      RTC:
+          value: 56
+      TIMER1_A1:
+          value: 57
+      TIMER1_A0:
+          value: 58
+      TIMER0_A1:
+          value: 59
+      TIMER0_A0:
+          value: 60
+      UNMI:
+          value: 61
+      SYSNMI:
+          value: 62
+
+# The DSLite file lists the CAPTIVATE interrupt registers twice, the second time as an alternate of
+# itself, which svd2rust turns into duplicate accessors. Keep one of each.
+CAPTIVATE:
+  _delete:
+    - CAPIE
+    - CAPIFG
+    - CAPIV
+  _add:
+    CAPIE:
+      description: Captivate Interrupt Enable Register
+      addressOffset: 0x00
+      size: 16
+      fields:
+        EOCIEN:
+          description: End of conversion interrupt enable
+          bitOffset: 0
+          bitWidth: 1
+          access: read-write
+        CAPDTCTIEN:
+          description: Captivate detection interrupt enable
+          bitOffset: 1
+          bitWidth: 1
+          access: read-write
+        CAPTIEN:
+          description: Captivate Timer interrupt enable
+          bitOffset: 2
+          bitWidth: 1
+          access: read-write
+        CAPCNTRIEN:
+          description: Captivate Conversion Counter interrupt enable
+          bitOffset: 3
+          bitWidth: 1
+          access: read-write
+        CAPMAXIEN:
+          description: Captivate maximum count interrupt enable
+          bitOffset: 8
+          bitWidth: 1
+          access: read-write
+    CAPIFG:
+      description: Captivate Interrupt Flag Register
+      addressOffset: 0x02
+      size: 16
+      fields:
+        EOCIFG:
+          description: End of conversion interrupt flag
+          bitOffset: 0
+          bitWidth: 1
+          access: read-write
+        CAPDTCTIFG:
+          description: Captivate detection interrupt flag
+          bitOffset: 1
+          bitWidth: 1
+          access: read-write
+        CAPTIFG:
+          description: Captivate timer interrupt flag
+          bitOffset: 2
+          bitWidth: 1
+          access: read-write
+        CAPCNTRIFG:
+          description: Captivate conversion counter interrupt flag
+          bitOffset: 3
+          bitWidth: 1
+          access: read-write
+        CAPMAXIFG:
+          description: Captivate maximum count interrupt flag
+          bitOffset: 8
+          bitWidth: 1
+          access: read-write
+    CAPIV:
+      description: Captivate Interrupt Vector Register
+      addressOffset: 0x04
+      size: 16
+      fields:
+        CAPIV:
+          description: Captivate interrupt vector value. Reading clears the highest priority interrupt, writing clears all pending interrupts
+          bitOffset: 0
+          bitWidth: 16
+          access: read-only
+  # The enums of the registers above, as in the device file
+  CAPIE:
+    EOCIEN:
+      EOCIEN_0: [0, "Interrupt disabled"]
+      EOCIEN_1: [1, "Interrupt enabled"]
+    CAPDTCTIEN:
+      CAPDTCTIEN_0: [0, "Interrupt disabled"]
+      CAPDTCTIEN_1: [1, "Interrupt enabled"]
+    CAPTIEN:
+      CAPTIEN_0: [0, "Interrupt disabled"]
+      CAPTIEN_1: [1, "Interrupt enabled"]
+    CAPCNTRIEN:
+      CAPCNTRIEN_0: [0, "Interrupt disabled"]
+      CAPCNTRIEN_1: [1, "Interrupt enabled"]
+    CAPMAXIEN:
+      CAPMAXIEN_0: [0, "Interrupt disabled"]
+      CAPMAXIEN_1: [1, "Interrupt enabled"]
+  CAPIFG:
+    EOCIFG:
+      EOCIFG_0: [0, "No end of conversion has occurred"]
+      EOCIFG_1: [1, "End of conversion has occurred"]
+    CAPDTCTIFG:
+      CAPDTCTIFG_0: [0, "No interrupt pending"]
+      CAPDTCTIFG_1: [1, "Interrupt pending"]
+    CAPTIFG:
+      CAPTIFG_0: [0, "No interrupt pending"]
+      CAPTIFG_1: [1, "Interrupt pending"]
+    CAPCNTRIFG:
+      CAPCNTRIFG_0: [0, "No interrupt pending"]
+      CAPCNTRIFG_1: [1, "Interrupt pending"]
+    CAPMAXIFG:
+      CAPMAXIFG_0: [0, "Maximum count not reached"]
+      CAPMAXIFG_1: [1, "Maximum count reached"]
+  CAPIV:
+    CAPIV:
+      CAPIV_0: [0, "No interrupt pending"]
+      CAPIV_2: [2, "Interrupt source: End of conversion interrupt, Flag = EOCIFG"]
+      CAPIV_4: [4, "Interrupt source: Detection interrupt, Flag = CAPDTCTIFG"]
+      CAPIV_6: [6, "Interrupt source: Captivate Timer interrupt, Flag = CAPTIFG"]
+      CAPIV_8: [8, "Interrupt source: Captivate Counter interrupt, Flag = CAPCNTRIFG"]
+      CAPIV_10: [10, "Interrupt source: max count value reached, Flag = CAPMAXIFG"]

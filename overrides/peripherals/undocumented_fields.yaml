@@ -1,0 +1,24 @@
+# Fields of TI's device files that neither the family user's guide (SLAU445I) nor the data sheets name
+# (SLASEC4D, SLASEO7C, SLASEE4C), removed so the PACs only have the user's guide's names.
+ADC:
+  # ADCMCTL0 has ADCSREFx and ADCINCHx only (SLAU445I Table 21-8, p. 567)
+  ADCMCTL0:
+    _delete:
+      - EXPCHEN
+PMM:
+  # PMMCTL2 has no PWRMODE (SLAU445I Table 2-4, p. 93)
+  PMMCTL2:
+    _delete:
+      - PWRMODE
+  # PMMIFG has PMMLPM5IFG, SVSHIFG, PMMPORIFG, PMMRSTIFG and PMMBORIFG only (SLAU445I Table 2-6, p. 96)
+  PMMIFG:
+    _delete:
+      - PMMSPSIFG
+      - SPWRIFG
+      - PPWRIFG
+MPY32:
+  # MACS32H is a 16-bit register like MAC32H, without a field (SLAU445I Table 16-7, p. 438); the device files
+  # give it an 8-bit field, MACS32H, at bits 15 to 8
+  MACS32H:
+    _delete:
+      - MACS32H

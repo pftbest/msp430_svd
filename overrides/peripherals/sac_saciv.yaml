@@ -1,0 +1,12 @@
+# The SACxIV interrupt vector field is SACIV (SLAU445I Table 20-11, p. 537: "SACIVx", where x marks a
+# multi-bit field, as in UCIVx and ADCIVx), not SACIV0 to SACIV3 after the instance. Its values are in the
+# same table; 02h and the values above 04h are reserved.
+"SAC?":
+  "SAC?IV":
+    _modify:
+      "SACIV?":
+        name: SACIV
+    SACIV:
+      _replace_enum:
+        NONE: [0x00, "No interrupt pending"]
+        DACIFG: [0x04, "DAC channel update interrupt flag"]

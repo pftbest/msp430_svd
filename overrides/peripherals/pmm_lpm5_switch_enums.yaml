@@ -1,0 +1,11 @@
+# Named variants for the LPM3.5 switch (SLAU445I Table 2-7), on the devices that have it
+PMM:
+  PM5CTL0:
+    LPM5SM:
+      _replace_enum:
+        AUTOMATIC: [0, "Automatic mode. The LPM3.5 switch is fully handled by the circuitry during mode switch."]
+        MANUAL: [1, "Manual mode. The LPM3.5 switch is specified by LPM5SW bit setting in software."]
+    LPM5SW:
+      _replace_enum:
+        DISCONNECTED: [0, "LPMx.5 switch disconnected"]
+        CONNECTED: [1, "LPMx.5 switch connected"]

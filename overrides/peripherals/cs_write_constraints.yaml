@@ -1,0 +1,10 @@
+# Numeric clock system fields that take any value (SLAU445I Table 3-4 to Table 3-6), so they can be
+# written without unsafe
+CS:
+  CSCTL0:
+    DCO: [0, 511]
+    MOD: [0, 31]
+  CSCTL1:
+    DCOFTRIM: [0, 7]
+  CSCTL2:
+    FLLN: [0, 1023]

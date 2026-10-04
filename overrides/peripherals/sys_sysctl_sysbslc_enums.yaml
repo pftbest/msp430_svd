@@ -1,0 +1,36 @@
+# Named variants for SYSCTL and SYSBSLC, as on the MSP430FR247x (SLAU445I Table 1-13 and Table 1-14).
+# SYSBSLIND is read/write (SLAU445I Table 1-13).
+SYS:
+  SYSCTL:
+    _modify:
+      SYSBSLIND:
+        access: read-write
+    SYSRIVECT:
+      _replace_enum:
+        FRAM: [0, "Interrupt vectors generated with end address TOP of lower 64KB of FRAM FFFFh"]
+        RAM: [1, "Interrupt vectors generated with end address TOP of RAM"]
+    SYSPMMPE:
+      _replace_enum:
+        DIS: [0, "Access from anywhere in memory"]
+        EN: [1, "Access only from the protected BSL segments"]
+    SYSBSLIND:
+      _replace_enum:
+        CLR: [0, "No BSL entry sequence detected"]
+        SET: [1, "BSL entry sequence detected"]
+    SYSJTAGPIN:
+      _replace_enum:
+        SHARED: [0, "Shared JTAG pins (JTAG mode selectable by JTAG/SBW sequence)"]
+        DEDICATED: [1, "Dedicated JTAG pins (explicit 4-wire JTAG mode selection)"]
+  SYSBSLC:
+    SYSBSLR:
+      _replace_enum:
+        NORAM: [0, "No RAM assigned to BSL area"]
+        RAM: [1, "Lowest 16 bytes of RAM assigned to BSL"]
+    SYSBSLOFF:
+      _replace_enum:
+        ON: [0, "BSL memory is addressed when this area is read."]
+        OFF: [1, "BSL memory behaves like vacant memory. Reads cause 3FFFh to be read. Fetches cause JMP $ to be executed."]
+    SYSBSLPE:
+      _replace_enum:
+        NOTPROT: [0, "Area not protected. Read, program, and erase of BSL memory is possible."]
+        PROT: [1, "Area protected"]

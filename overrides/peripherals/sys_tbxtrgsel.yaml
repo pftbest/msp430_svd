@@ -1,0 +1,38 @@
+# TB0TRGSEL to TB3TRGSEL, SYSCFG2 bits 15 to 12 of the MSP430FR2x5x (SLAU445I Table 1-26): the TBxOUTH
+# trigger, 0 = internal source (eCOMP), 1 = external source (the TBxTRG pin). Named as TB0TRGSEL on the
+# MSP430FR247x.
+SYS:
+  SYSCFG2:
+    _add:
+      TB0TRGSEL:
+        description: TB0OUTH trigger select
+        bitOffset: 15
+        bitWidth: 1
+        access: read-write
+      TB1TRGSEL:
+        description: TB1OUTH trigger select
+        bitOffset: 14
+        bitWidth: 1
+        access: read-write
+      TB2TRGSEL:
+        description: TB2OUTH trigger select
+        bitOffset: 13
+        bitWidth: 1
+        access: read-write
+      TB3TRGSEL:
+        description: TB3OUTH trigger select
+        bitOffset: 12
+        bitWidth: 1
+        access: read-write
+    TB0TRGSEL:
+      TB0TRGSEL_0: [0, "Internal source selected (eCOMP0)"]
+      TB0TRGSEL_1: [1, "External source selected (TB0TRG pin)"]
+    TB1TRGSEL:
+      TB1TRGSEL_0: [0, "Internal source selected (eCOMP0)"]
+      TB1TRGSEL_1: [1, "External source selected (TB1TRG pin)"]
+    TB2TRGSEL:
+      TB2TRGSEL_0: [0, "Internal source selected (eCOMP1)"]
+      TB2TRGSEL_1: [1, "External source selected (TB2TRG pin)"]
+    TB3TRGSEL:
+      TB3TRGSEL_0: [0, "Internal source selected (eCOMP1)"]
+      TB3TRGSEL_1: [1, "External source selected (not available)"]

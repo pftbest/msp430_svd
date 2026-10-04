@@ -1,0 +1,12 @@
+# Reset pin filter enable, SFRRPCR bit 4 (SLAU445I Table 1-11), as on the MSP430FR247x
+SFR:
+  SFRRPCR:
+    _add:
+      SYSFLTE:
+        description: Reset pin filter enable
+        bitOffset: 4
+        bitWidth: 1
+        access: read-write
+    SYSFLTE:
+      DISABLED: [0, "Reset pin filter disabled"]
+      ENABLED: [1, "Reset pin filter enabled"]

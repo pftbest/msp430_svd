@@ -1,0 +1,45 @@
+# FRAM controller (SLAU445I Table 6-1, Table 6-2): the FRCTL0 password, FRCTL0_H to lock the registers
+# again with a byte write (a word write of a wrong password causes a PUC: SLAU445I 6.10), and named wait
+# states. The FRCTLPW field itself is missing from some DSLite files; add it in the device file first.
+FRCTL:
+  FRCTL0:
+    FRCTLPW:
+      _read:
+        PASSWORD: [0x96, "Value always read from the FRCTL0 password"]
+      _write:
+        PASSWORD: [0xA5, "Value which must be written to the FRCTL0 password"]
+    NWAITS:
+      _replace_enum:
+        WAIT0: [0, "No wait state"]
+        WAIT1: [1, "1 wait state"]
+        WAIT2: [2, "2 wait states"]
+        WAIT3: [3, "3 wait states"]
+        WAIT4: [4, "4 wait states"]
+        WAIT5: [5, "5 wait states"]
+        WAIT6: [6, "6 wait states"]
+        WAIT7: [7, "7 wait states"]
+  _add:
+    FRCTL0_H:
+      description: FRAM Controller Control Register 0, upper byte
+      alternateRegister: FRCTL0
+      addressOffset: 0x01
+      size: 8
+      fields:
+        FRCTLPW:
+          description: FRAM controller password
+          bitOffset: 0
+          bitWidth: 8
+          access: read-write
+  FRCTL0_H:
+    FRCTLPW:
+      _read:
+        PASSWORD: [0x96, "Value always read from the FRCTL0 password"]
+      _write:
+        PASSWORD: [0xA5, "Unlocks the FRAM controller registers"]
+        LOCK: [0x00, "Locks the FRAM controller registers again"]
+  # FRAM power control (SLAU445I 6.8 and Table 6-3)
+  GCCTL0:
+    FRPWR:
+      _replace_enum:
+        DISABLED: [0, "FRAM power supply disabled"]
+        ENABLED: [1, "FRAM power supply enabled"]

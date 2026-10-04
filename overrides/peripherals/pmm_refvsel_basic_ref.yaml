@@ -1,0 +1,8 @@
+# The level of the 1.5-V reference of the MSP430FR2433 and MSP430FR25x2 (SLASE59F 1, p. 1; SLASEE4C 1, p. 1:
+# "Internal 1.5-V reference"). 2.0 V and 2.5 V are for "Enhanced shared reference systems only" (REFVSEL:
+# SLAU445I Table 2-4, p. 93).
+PMM:
+  PMMCTL2:
+    REFVSEL:
+      _replace_enum:
+        V1_5: [0, "1.5 V"]

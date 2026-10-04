@@ -1,0 +1,8 @@
+# Watchdog password (SLAU445I Table 12-2), as on the MSP430FR2433
+WDT_A:
+  WDTCTL:
+    WDTPW:
+      _read:
+        PASSWORD: [0x69, "Value always read from the Watchdog Password field"]
+      _write:
+        PASSWORD: [0x5A, "Value which must be written to the Watchdog Password field"]

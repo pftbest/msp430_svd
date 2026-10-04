@@ -1,0 +1,144 @@
+# Device descriptors (TLV) of the devices with three reference levels, MSP430FR2x5x and MSP430FR247x:
+# SLASEC4D Table 6-70 and SLASEO7C Table 9-30. The ADC and REF calibration have an entry per level:
+# index 0, 1 and 2 are 1.5 V, 2.0 V and 2.5 V.
+_add:
+  TLV:
+    description: Device descriptors (TLV)
+    groupName: TLV
+    baseAddress: 0x1A00
+    addressBlock:
+      offset: 0x0
+      size: 0x100
+      usage: registers
+    registers:
+      INFO_LENGTH:
+        description: Info length
+        addressOffset: 0x00
+        size: 8
+        access: read-only
+      CRC_LENGTH:
+        description: CRC length
+        addressOffset: 0x01
+        size: 8
+        access: read-only
+      CRC_VALUE:
+        description: CRC value of the descriptors from 1A04h to 1AF7h (CRC-CCITT)
+        addressOffset: 0x02
+        size: 16
+        access: read-only
+      DEVICE_ID:
+        description: Device ID
+        addressOffset: 0x04
+        size: 16
+        access: read-only
+      HW_REVISION:
+        description: Hardware revision
+        addressOffset: 0x06
+        size: 8
+        access: read-only
+      FW_REVISION:
+        description: Firmware revision
+        addressOffset: 0x07
+        size: 8
+        access: read-only
+      DIE_RECORD_TAG:
+        description: Die record tag
+        addressOffset: 0x08
+        size: 8
+        access: read-only
+      DIE_RECORD_LENGTH:
+        description: Die record length
+        addressOffset: 0x09
+        size: 8
+        access: read-only
+      LOT_WAFER_ID:
+        description: Lot/wafer ID
+        addressOffset: 0x0A
+        size: 32
+        access: read-only
+      DIE_X_POSITION:
+        description: Die X position
+        addressOffset: 0x0E
+        size: 16
+        access: read-only
+      DIE_Y_POSITION:
+        description: Die Y position
+        addressOffset: 0x10
+        size: 16
+        access: read-only
+      TEST_RESULT:
+        description: Test result
+        addressOffset: 0x12
+        size: 16
+        access: read-only
+      ADC_CAL_TAG:
+        description: ADC calibration tag
+        addressOffset: 0x14
+        size: 8
+        access: read-only
+      ADC_CAL_LENGTH:
+        description: ADC calibration length
+        addressOffset: 0x15
+        size: 8
+        access: read-only
+      ADC_GAIN_FACTOR:
+        description: ADC gain factor
+        addressOffset: 0x16
+        size: 16
+        access: read-only
+      ADC_OFFSET:
+        description: ADC offset
+        addressOffset: 0x18
+        size: 16
+        access: read-only
+      REF_CAL_TAG:
+        description: REF calibration tag
+        addressOffset: 0x26
+        size: 8
+        access: read-only
+      REF_CAL_LENGTH:
+        description: REF calibration length
+        addressOffset: 0x27
+        size: 8
+        access: read-only
+      REF_FACTOR[%s]:
+        description: Factor of the 1.5 V, 2.0 V or 2.5 V reference (index 0, 1 or 2)
+        addressOffset: 0x28
+        size: 16
+        access: read-only
+        dim: 3
+        dimIncrement: 2
+      DCO_TAP_16MHZ:
+        description: DCO tap setting for 16 MHz
+        addressOffset: 0x2E
+        size: 16
+        access: read-only
+      CRC_DATA[%s]:
+        description: Bytes 1A04h to 1AF7h, the range the CRC value covers
+        addressOffset: 0x04
+        size: 8
+        access: read-only
+        dim: 244
+        dimIncrement: 1
+
+# The temperature calibration as one cluster per reference level: two interleaved register arrays,
+# inside the range CRC_DATA overlaps, make svd2rust compute a negative padding.
+TLV:
+  _add:
+    _clusters:
+      ADC_TEMP_CAL[%s]:
+        description: Temperature sensor calibration with the 1.5 V, 2.0 V or 2.5 V reference (index 0, 1 or 2)
+        addressOffset: 0x1A
+        dim: 3
+        dimIncrement: 4
+        registers:
+          TEMP_30C:
+            description: Temperature sensor ADC result at 30 degrees C
+            addressOffset: 0x0
+            size: 16
+            access: read-only
+          TEMP_HIGH:
+            description: Temperature sensor ADC result at 105 degrees C
+            addressOffset: 0x2
+            size: 16
+            access: read-only

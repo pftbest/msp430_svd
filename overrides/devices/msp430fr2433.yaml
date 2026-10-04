@@ -3,9 +3,81 @@ _svd: ../../msp430fr2433.svd
 _include:
    - "../peripherals/port_1_2_pxseln.yaml"
    - "../peripherals/pmmctl.yaml"
-   - "../peripherals/fram.yaml"
+   - "../peripherals/pmmctl0_h.yaml"
+   - "../peripherals/frctl.yaml"
+   - "../peripherals/sfr_sysflte.yaml"
+   - "../peripherals/crc.yaml"
+   - "../peripherals/cs_write_constraints.yaml"
+   - "../peripherals/tlv_basic_ref.yaml"
+   - "../peripherals/adc_enums.yaml"
+   - "../peripherals/sys_irmsel_enum.yaml"
+   - "../peripherals/cs_fll_enums.yaml"
+   - "../peripherals/sys_sysctl_sysbslc_enums.yaml"
+   - "../peripherals/pmm_lpm5_switch_enums.yaml"
+   - "../peripherals/sys_iv_enums.yaml"
+   - "../peripherals/adc_adcres_10bit.yaml"
+   - "../peripherals/cs_dcorsel_basic.yaml"
+   - "../peripherals/pmm_refvsel_basic_ref.yaml"
 
-WATCHDOG_TIMER:
+# The SPI mode registers move into the eUSCI peripherals below, as on the other devices. PORT_1_2 has the
+# registers of P1 and P2 (from port_1_2_pxseln.yaml) again, with a field per bit, which the user's guide
+# doesn't have (PxIN and so on are one field: SLAU445I Table 8-9 to Table 8-18, p. 334 to p. 337), and
+# MPY_32's registers move into MPY32 below.
+_delete:
+   - USCI_A0_SPI_MODE
+   - USCI_A1_SPI_MODE
+   - USCI_B0_SPI_MODE
+   - PORT_1_2
+   - MPY_32
+
+# Rename to match user guide, and the peripheral names of the other MSP430FR2xx devices
+_modify:
+    PORT_3:
+        name: P3
+    FRAM:
+        name: FRCTL
+        description: FRCTL
+    CRC16:
+        name: CRC
+        description: CRC
+    WATCHDOG_TIMER:
+        name: WDT_A
+        description: WDT_A
+    REAL_TIME_CLOCK:
+        name: RTC
+        description: RTC
+    # BAKMEM: SLAU445I 7, p. 309; SLAU445I Table 7-1, p. 310; SLASE59F Table 6-43, p. 68
+    BACKUP_MEMORY:
+        name: BAKMEM
+        description: BAKMEM
+    # One MPY32, as in the user's guide (SLAU445I Table 16-7, p. 438) and the data sheet (SLASE59F
+    # Table 6-39, p. 66: "MPY32 Registers (Base Address: 04C0h)"), instead of MPY_16 and MPY_32
+    MPY_16:
+        name: MPY32
+        description: MPY32
+    TIMER_0_A3:
+        name: TA0
+        description: TA0
+    TIMER_1_A3:
+        name: TA1
+        description: TA1
+    TIMER_2_A2:
+        name: TA2
+        description: TA2
+    TIMER_3_A2:
+        name: TA3
+        description: TA3
+    USCI_A0_UART_MODE:
+        name: E_USCI_A0
+        description: eUSCI_A0
+    USCI_A1_UART_MODE:
+        name: E_USCI_A1
+        description: eUSCI_A1
+    USCI_B0_I2C_MODE:
+        name: E_USCI_B0
+        description: eUSCI_B0
+
+WDT_A:
     WDTCTL:
         # Add missing password field
         _add:
@@ -24,22 +96,23 @@ WATCHDOG_TIMER:
                 SMCLK:  [0, "WDT - Timer Clock Source Select: SMCLK"]
                 ACLK:   [1, "WDT - Timer Clock Source Select: ACLK"]
                 VLOCLK: [2, "WDT - Timer Clock Source Select: VLOCLK"]
-                X_CLK:  [3, "WDT - Timer Clock Source Select: Reserved"]
+                BCLK:   [3, "WDT - Timer Clock Source Select: Reserved"]
         WDTHOLD:
             UNHOLD: [0, "Watchdog timer is not stopped"]
             HOLD:   [1, "Watchdog timer is stopped"]
+        # Named as on the other devices
         WDTIS:
-            _replace_enum:
-                /2048M: [0, "WDT - Timer Interval Select: Watchdog clock source /2048M"]
-                /128M:  [1, "WDT - Timer Interval Select: Watchdog clock source /128M"]
-                /8192K: [2, "WDT - Timer Interval Select: Watchdog clock source /8192K"]
-                /512K:  [3, "WDT - Timer Interval Select: Watchdog clock source /512K"]
-                /32K:   [4, "WDT - Timer Interval Select: Watchdog clock source /32K"]
-                /8192:  [5, "WDT - Timer Interval Select: Watchdog clock source /8192K"]
-                /512:   [6, "WDT - Timer Interval Select: Watchdog clock source /512"]
-                /64:    [7, "WDT - Timer Interval Select: Watchdog clock source /64"]
+          _replace_enum:
+            "/2G": [0, "Watchdog clock source / (2^(31)) (18:12:16 at 32.768 kHz)"]
+            "/128M": [1, "Watchdog clock source /(2^(27)) (01:08:16 at 32.768 kHz)"]
+            "/8192K": [2, "Watchdog clock source /(2^(23)) (00:04:16 at 32.768 kHz)"]
+            "/512K": [3, "Watchdog clock source /(2^(19)) (00:00:16 at 32.768 kHz)"]
+            "/32K": [4, "Watchdog clock source /(2^(15)) (1 s at 32.768 kHz)"]
+            "/8192": [5, "Watchdog clock source / (2^(13)) (250 ms at 32.768 kHz)"]
+            "/512": [6, "Watchdog clock source / (2^(9)) (15.625 ms at 32.768 kHz)"]
+            "/64": [7, "Watchdog clock source / (2^(6)) (1.95 ms at 32.768 kHz)"]
 
-REAL_TIME_CLOCK:
+RTC:
     RTCCTL:
         RTCSS:
             _replace_enum:
@@ -62,22 +135,44 @@ REAL_TIME_CLOCK:
                 name: RTCIFG  # Match user guide name
 
 CS:
+    # One DCO tap and one modulation field, as on the other devices
+    CSCTL0:
+        _merge:
+            - "DCO*"
+            - "MOD*"
+    CSCTL1:
+        _clear:
+            - DCOFTRIM
     CSCTL2:
         _merge:
           - "FLLN*"
         FLLD:
-            _replace_enum:
-                /1:  [0, "Multiply selected loop frequency by 1"]
-                /2:  [1, "Multiply selected loop frequency by 2"]
-                /4:  [2, "Multiply selected loop frequency by 4"]
-                /8:  [3, "Multiply selected loop frequency by 8"]
-                /16: [4, "Multiply selected loop frequency by 16"]
-                /32: [5, "Multiply selected loop frequency by 32"]
+          _replace_enum:
+            "/1": [0, "fDCOCLK / 1"]
+            "/2": [1, "fDCOCLK / 2"]
+            "/4": [2, "fDCOCLK / 4"]
+            "/8": [3, "fDCOCLK / 8"]
+            "/16": [4, "fDCOCLK / 16"]
+            "/32": [5, "fDCOCLK / 32"]
+            "FLLD_6": [6, "fDCOCLK / 40(Only avaliable in 24MHz clock system)"]
+            "FLLD_7": [7, "fDCOCLK / 48(Only avaliable in 24MHz clock system)"]
     CSCTL3:
         SELREF:
             _replace_enum:
-                XT1CLK:  [0, "XT1CLK"]
-                REFOCLK: [1, "REFOCLK"]
+                XT1CLK:   [0, "XT1CLK"]
+                REFOCLK:  [1, "REFOCLK"]
+                SELREF_2: [2, "Reserved"]
+                SELREF_3: [3, "Reserved"]
+        FLLREFDIV:
+          _replace_enum:
+            "/1": [0, "fFLLREFCLK / 1"]
+            "/32": [1, "fFLLREFCLK / 32"]
+            "/64": [2, "fFLLREFCLK / 64"]
+            "/128": [3, "fFLLREFCLK / 128"]
+            "/256": [4, "fFLLREFCLK / 256"]
+            "/512": [5, "fFLLREFCLK / 512"]
+            "FLLREFDIV_6": [6, "fFLLREFCLK / 640 (only available in 24MHz clock system)"]
+            "FLLREFDIV_7": [7, "fFLLREFCLK / 768(only available in 24MHz clock system)"]
     CSCTL4:
         SELMS:
             _replace_enum:
@@ -112,14 +207,40 @@ PMM:
             DISABLED: [0, "High-side SVS (SVSH) is disabled in LPM2, LPM3, LPM4, LPM3.5, and LPM4.5. SVSH is always enabled in active mode, LPM0, and LPM1."]
             ENABLED:  [1, "SVSH is always enabled."]
 
-# Rename to match user guide
-_modify:
-    PORT_1_2:
-        name: PA
-        description: Port A
-    PORT_3:
-        name: P3
+FRCTL:
+    # ACCTEIE isn't in GCCTL0 (SLAU445I Table 6-3, p. 307), and the data sheet doesn't name it
+    GCCTL0:
+        _delete:
+            - ACCTEIE
+    FRCTL0:
+        # Add missing password field (its values are in frctl.yaml)
+        _add:
+            FRCTLPW:
+                description: FRCTLPW Password
+                bitOffset: 8
+                bitWidth: 8
+
 P3:
+    # One field per register, named as in the user's guide (PxIN, PxOUT, PxDIR, PxREN, PxSEL0 and PxSEL1:
+    # SLAU445I Table 8-9 to Table 8-14, p. 334 to p. 335), as P1 and P2 have, instead of one per bit
+    P3IN:
+        _merge:
+            P3IN: "P3IN?"
+    P3OUT:
+        _merge:
+            P3OUT: "P3OUT?"
+    P3DIR:
+        _merge:
+            P3DIR: "P3DIR?"
+    P3REN:
+        _merge:
+            P3REN: "P3REN?"
+    P3SEL0:
+        _merge:
+            P3SEL0: "P3SEL0_?"
+    P3SEL1:
+        _merge:
+            P3SEL1: "P3SEL1_?"
     _add:
         P3SELC:
           size: 8
@@ -132,16 +253,191 @@ P3:
               bitWidth: 8
               _write_constraint: [0, 0xff]
 
-# Combine UCAxCTL0/1 into UCAxCTLW0, UCA1BR0 and UCA1BR1 into UCA1BRW.
-USCI_A0_UART_MODE:
+# Named as on the other devices
+"TA?":
+    "TA?CTL":
+        ID:
+          _replace_enum:
+            "/1": [0, "/1"]
+            "/2": [1, "/2"]
+            "/4": [2, "/4"]
+            "/8": [3, "/8"]
+        MC:
+          _replace_enum:
+            "STOP": [0, "Stop mode: Timer is halted"]
+            "UP": [1, "Up mode: Timer counts up to TAxCCR0"]
+            "CONTINUOUS": [2, "Continuous mode: Timer counts up to 0FFFFh"]
+            "UPDOWN": [3, "Up/down mode: Timer counts up to TAxCCR0 then down to 0000h"]
+        TASSEL:
+          _replace_enum:
+            "TACLK": [0, "TAxCLK"]
+            "ACLK": [1, "ACLK"]
+            "SMCLK": [2, "SMCLK"]
+            "INCLK": [3, "INCLK"]
+    "TA?CCTL?":
+        CCIS:
+          _replace_enum:
+            "CCIA": [0, "CCIxA"]
+            "CCIB": [1, "CCIxB"]
+            "GND": [2, "GND"]
+            "VCC": [3, "VCC"]
+        CM:
+          _replace_enum:
+            "NONE": [0, "No capture"]
+            "RISING": [1, "Capture on rising edge"]
+            "FALLING": [2, "Capture on falling edge"]
+            "BOTH": [3, "Capture on both rising and falling edges"]
+    # The device file's TAxIV registers have no field (TAIV: SLAU445I Table 13-8, p. 388)
+    "TA?IV":
+        _add:
+            TAIV:
+                description: Timer_A interrupt vector value
+                bitOffset: 0
+                bitWidth: 16
+                access: read-only
+        TAIV:
+          _replace_enum:
+            NONE: [0x00, "No interrupt pending"]
+            TACCR1: [0x02, "Interrupt Source: Capture/compare 1; Interrupt Flag: TAxCCR1 CCIFG; Interrupt Priority: Highest"]
+            TACCR2: [0x04, "Interrupt Source: Capture/compare 2; Interrupt Flag: TAxCCR2 CCIFG"]
+            TACCR3: [0x06, "Interrupt Source: Capture/compare 3; Interrupt Flag: TAxCCR3 CCIFG"]
+            TACCR4: [0x08, "Interrupt Source: Capture/compare 4; Interrupt Flag: TAxCCR4 CCIFG"]
+            TACCR5: [0x0A, "Interrupt Source: Capture/compare 5; Interrupt Flag: TAxCCR5 CCIFG"]
+            TACCR6: [0x0C, "Interrupt Source: Capture/compare 6; Interrupt Flag: TAxCCR6 CCIFG"]
+            TAIFG: [0x0E, "Interrupt Source: Timer overflow; Interrupt Flag: TAxCTL TAIFG; Interrupt Priority: Lowest"]
+    "TA?EX0":
+        TAIDEX:
+          _replace_enum:
+            "/1": [0, "Divide by 1"]
+            "/2": [1, "Divide by 2"]
+            "/3": [2, "Divide by 3"]
+            "/4": [3, "Divide by 4"]
+            "/5": [4, "Divide by 5"]
+            "/6": [5, "Divide by 6"]
+            "/7": [6, "Divide by 7"]
+            "/8": [7, "Divide by 8"]
+
+ADC:
+    ADCCTL1:
+        # The trigger sources of ADCSHS (ADC Trigger Signal Connections: SLASE59F Table 6-16, p. 53; 11b
+        # isn't connected)
+        ADCSHS:
+          _replace_enum:
+            SOFTWARE: [0, "ADCSC bit (software trigger)"]
+            RTC: [1, "RTC event"]
+            TIMER: [2, "TA1.1B"]
+    # The device file's ADCIV register has no field (ADCIV: SLAU445I Table 21-15, p. 572)
+    ADCIV:
+        _add:
+            ADCIV:
+                description: ADC interrupt vector value
+                bitOffset: 0
+                bitWidth: 16
+                access: read-write
+
+# The registers of the device file's MPY_32, at their offsets from 04C0h (SLAU445I Table 16-7, p. 438)
+MPY32:
+    _add:
+        MPY32L:
+            description: 32-bit operand 1 - multiply - low word
+            addressOffset: 0x10
+            size: 16
+        MPY32H:
+            description: 32-bit operand 1 - multiply - high word
+            addressOffset: 0x12
+            size: 16
+        MPYS32L:
+            description: 32-bit operand 1 - signed multiply - low word
+            addressOffset: 0x14
+            size: 16
+        MPYS32H:
+            description: 32-bit operand 1 - signed multiply - high word
+            addressOffset: 0x16
+            size: 16
+        MAC32L:
+            description: 32-bit operand 1 - multiply accumulate - low word
+            addressOffset: 0x18
+            size: 16
+        MAC32H:
+            description: 32-bit operand 1 - multiply accumulate - high word
+            addressOffset: 0x1A
+            size: 16
+        MACS32L:
+            description: 32-bit operand 1 - signed multiply accumulate - low word
+            addressOffset: 0x1C
+            size: 16
+        MACS32H:
+            description: 32-bit operand 1 - signed multiply accumulate - high word
+            addressOffset: 0x1E
+            size: 16
+        OP2L:
+            description: 32-bit operand 2 - low word
+            addressOffset: 0x20
+            size: 16
+        OP2H:
+            description: 32-bit operand 2 - high word
+            addressOffset: 0x22
+            size: 16
+        RES0:
+            description: 32x32-bit result 0 - least significant word
+            addressOffset: 0x24
+            size: 16
+        RES1:
+            description: 32x32-bit result 1
+            addressOffset: 0x26
+            size: 16
+        RES2:
+            description: 32x32-bit result 2
+            addressOffset: 0x28
+            size: 16
+        RES3:
+            description: 32x32-bit result 3 - most significant word
+            addressOffset: 0x2A
+            size: 16
+    MPY32CTL0:
+        # MPYOP1_32 and MPYOP2_32 (SLAU445I Table 16-9, p. 440)
+        _modify:
+            OP1_32:
+                name: MPYOP1_32
+            OP2_32:
+                name: MPYOP2_32
+        MPYM:
+          _replace_enum:
+            "MPY": [0, "MPY  Multiply"]
+            "MPYS": [1, "MPYS  Signed multiply"]
+            "MAC": [2, "MAC  Multiply accumulate"]
+            "MACS": [3, "MACS  Signed multiply accumulate"]
+
+# Combine UCAxCTL0/1 into UCAxCTLW0 and UCAxBR0/1 into UCAxBRW, and merge the UART and SPI mode
+# peripherals into one, as on the other devices
+E_USCI_A0:
+    # The byte views of the word registers, and the two IrDA control bytes, which are UCA0IRCTL on the
+    # other devices
     _delete:
-        - UCA1CTL0
-        - UCA1CTL1
-        - UCA1BR0
-        - UCA1BR1
+        - UCA0CTL0
+        - UCA0CTL1
+        - UCA0BR0
+        - UCA0BR1
+        - UCA0IRTCTL
+        - UCA0IRRCTL
+    _modify:
+        UCA0STATW:
+            size: 16
+            resetMask: 65535
+        UCA0ABCTL:
+            size: 16
+            resetMask: 65535
     UCA0MCTLW:
         _merge:
             - "UCBRS*"
+    UCA0STATW:
+        _modify:
+            UCADDR:
+                name: UCADDR_UCIDLE
+                description: Address received / Idle line detected
+    UCA0ABCTL:
+        _merge:
+            UCDELIM: [UCDELIM0, UCDELIM1]
     _add:
         UCA0CTLW0:
             description: eUSCI_Ax Control Word Register 0
@@ -219,7 +515,7 @@ USCI_A0_UART_MODE:
                     bitWidth: 1
                     access: read-write
         UCA0BRW:
-            description: eUSCI_Ax Baud Rate Register 0
+            description: eUSCI_Ax Baud Rate Control Word Register
             addressOffset: 6
             size: 16
         # Add missing registers (sometimes only present in one mode or the other)
@@ -229,11 +525,23 @@ USCI_A0_UART_MODE:
             description: eUSCI_A0 Interrupt Enable Register
             fields:
                 UCRXIE:
+                    description: Receive interrupt enable
                     bitOffset: 0
                     bitWidth: 1
                     access: read-write
                 UCTXIE:
+                    description: Transmit interrupt enable
                     bitOffset: 1
+                    bitWidth: 1
+                    access: read-write
+                UCSTTIE:
+                    description: Start bit interrupt enable
+                    bitOffset: 2
+                    bitWidth: 1
+                    access: read-write
+                UCTXCPTIE:
+                    description: Transmit complete interrupt enable
+                    bitOffset: 3
                     bitWidth: 1
                     access: read-write
         UCA0IFG:
@@ -251,6 +559,190 @@ USCI_A0_UART_MODE:
                     bitWidth: 1
                     access: read-write
                     description: Transmit interrupt flag. Is set when TXBUF is empty.
+                UCSTTIFG:
+                    bitOffset: 2
+                    bitWidth: 1
+                    access: read-write
+                    description: Start bit interrupt flag
+                UCTXCPTIFG:
+                    bitOffset: 3
+                    bitWidth: 1
+                    access: read-write
+                    description: Transmit complete interrupt flag
+        UCA0IRCTL:
+          description: "eUSCI_Ax IrDA Control Word Register"
+          addressOffset: 18
+          size: 16
+          fields:
+            UCIREN:
+              description: "IrDA encoder/decoder enable"
+              bitOffset: 0
+              bitWidth: 1
+              access: read-write
+            UCIRTXCLK:
+              description: "IrDA transmit pulse clock select"
+              bitOffset: 1
+              bitWidth: 1
+              access: read-write
+            UCIRTXPL:
+              description: "Transmit pulse length"
+              bitOffset: 2
+              bitWidth: 6
+              access: read-write
+            UCIRRXFE:
+              description: "IrDA receive filter enabled"
+              bitOffset: 8
+              bitWidth: 1
+              access: read-write
+            UCIRRXPL:
+              description: "IrDA receive input UCAxRXD polarity"
+              bitOffset: 9
+              bitWidth: 1
+              access: read-write
+            UCIRRXFL:
+              description: "Receive filter length"
+              bitOffset: 10
+              bitWidth: 6
+              access: read-write
+        # The SPI mode registers, from the former USCI_A0_SPI_MODE peripheral
+        UCA0CTLW0_SPI:
+          description: "eUSCI_A0 Control Word Register 0"
+          addressOffset: 0
+          size: 16
+          fields:
+            UCSWRST:
+              description: "Software reset enable"
+              bitOffset: 0
+              bitWidth: 1
+              access: read-write
+            UCSTEM:
+              description: "STE mode select in master mode."
+              bitOffset: 1
+              bitWidth: 1
+              access: read-write
+            UCSSEL:
+              description: "eUSCI_A clock source select"
+              bitOffset: 6
+              bitWidth: 2
+              access: read-write
+            UCSYNC:
+              description: "Synchronous mode enable"
+              bitOffset: 8
+              bitWidth: 1
+              access: read-write
+            UCMODE:
+              description: "eUSCI_A mode"
+              bitOffset: 9
+              bitWidth: 2
+              access: read-write
+            UCMST:
+              description: "Master mode select"
+              bitOffset: 11
+              bitWidth: 1
+              access: read-write
+            UC7BIT:
+              description: "Character length"
+              bitOffset: 12
+              bitWidth: 1
+              access: read-write
+            UCMSB:
+              description: "MSB first select"
+              bitOffset: 13
+              bitWidth: 1
+              access: read-write
+            UCCKPL:
+              description: "Clock polarity select"
+              bitOffset: 14
+              bitWidth: 1
+              access: read-write
+            UCCKPH:
+              description: "Clock phase select"
+              bitOffset: 15
+              bitWidth: 1
+              access: read-write
+        UCA0BRW_SPI:
+          description: "eUSCI_A0 Bit Rate Control Register"
+          addressOffset: 6
+          size: 16
+        UCA0STATW_SPI:
+          description: "USCI A0 Status Register"
+          addressOffset: 10
+          size: 16
+          fields:
+            UCBUSY:
+              description: "USCI Busy Flag"
+              bitOffset: 0
+              bitWidth: 1
+              access: read-write
+            UCOE:
+              description: "USCI Overrun Error Flag"
+              bitOffset: 5
+              bitWidth: 1
+              access: read-write
+            UCFE:
+              description: "USCI Frame Error Flag"
+              bitOffset: 6
+              bitWidth: 1
+              access: read-write
+            UCLISTEN:
+              description: "USCI Listen mode"
+              bitOffset: 7
+              bitWidth: 1
+              access: read-write
+        UCA0RXBUF_SPI:
+          description: "USCI A0 Receive Buffer"
+          addressOffset: 12
+          size: 16
+          fields:
+            UCRXBUF:
+              description: "Receive data buffer"
+              bitOffset: 0
+              bitWidth: 8
+              access: read-write
+        UCA0TXBUF_SPI:
+          description: "USCI A0 Transmit Buffer"
+          addressOffset: 14
+          size: 16
+          fields:
+            UCTXBUF:
+              description: "Transmit data buffer"
+              bitOffset: 0
+              bitWidth: 8
+              access: read-write
+        UCA0IE_SPI:
+          description: "USCI A0 Interrupt Enable Register"
+          addressOffset: 26
+          size: 16
+          fields:
+            UCRXIE:
+              description: "USCI Receive Interrupt Enable"
+              bitOffset: 0
+              bitWidth: 1
+              access: read-write
+            UCTXIE:
+              description: "USCI Transmit Interrupt Enable"
+              bitOffset: 1
+              bitWidth: 1
+              access: read-write
+        UCA0IFG_SPI:
+          description: "USCI A0 Interrupt Flags Register"
+          addressOffset: 28
+          size: 16
+          fields:
+            UCRXIFG:
+              description: "SPI Receive Interrupt Flag"
+              bitOffset: 0
+              bitWidth: 1
+              access: read-write
+            UCTXIFG:
+              description: "SPI Transmit Interrupt Flag"
+              bitOffset: 1
+              bitWidth: 1
+              access: read-write
+        UCA0IV_SPI:
+          description: "USCI A0 Interrupt Vector Register"
+          addressOffset: 30
+          size: 16
     # Add RXBUF, TXBUF fields
     UCA0RXBUF:
         _add:
@@ -266,16 +758,35 @@ USCI_A0_UART_MODE:
                 bitOffset: 0
                 bitWidth: 8
                 access: read-write
-# Same as above, but for A1
-USCI_A1_UART_MODE:
+
+E_USCI_A1:
+    # The byte views of the word registers, and the two IrDA control bytes, which are UCA1IRCTL on the
+    # other devices
     _delete:
         - UCA1CTL0
         - UCA1CTL1
         - UCA1BR0
         - UCA1BR1
+        - UCA1IRTCTL
+        - UCA1IRRCTL
+    _modify:
+        UCA1STATW:
+            size: 16
+            resetMask: 65535
+        UCA1ABCTL:
+            size: 16
+            resetMask: 65535
     UCA1MCTLW:
         _merge:
             - "UCBRS*"
+    UCA1STATW:
+        _modify:
+            UCADDR:
+                name: UCADDR_UCIDLE
+                description: Address received / Idle line detected
+    UCA1ABCTL:
+        _merge:
+            UCDELIM: [UCDELIM0, UCDELIM1]
     _add:
         UCA1CTLW0:
             description: eUSCI_Ax Control Word Register 0
@@ -353,20 +864,33 @@ USCI_A1_UART_MODE:
                     bitWidth: 1
                     access: read-write
         UCA1BRW:
-            description: eUSCI_Ax Baud Rate Register 0
+            description: eUSCI_Ax Baud Rate Control Word Register
             addressOffset: 6
             size: 16
+        # Add missing registers (sometimes only present in one mode or the other)
         UCA1IE:
             size: 16
             addressOffset: 26
             description: eUSCI_A1 Interrupt Enable Register
             fields:
                 UCRXIE:
+                    description: Receive interrupt enable
                     bitOffset: 0
                     bitWidth: 1
                     access: read-write
                 UCTXIE:
+                    description: Transmit interrupt enable
                     bitOffset: 1
+                    bitWidth: 1
+                    access: read-write
+                UCSTTIE:
+                    description: Start bit interrupt enable
+                    bitOffset: 2
+                    bitWidth: 1
+                    access: read-write
+                UCTXCPTIE:
+                    description: Transmit complete interrupt enable
+                    bitOffset: 3
                     bitWidth: 1
                     access: read-write
         UCA1IFG:
@@ -384,6 +908,191 @@ USCI_A1_UART_MODE:
                     bitWidth: 1
                     access: read-write
                     description: Transmit interrupt flag. Is set when TXBUF is empty.
+                UCSTTIFG:
+                    bitOffset: 2
+                    bitWidth: 1
+                    access: read-write
+                    description: Start bit interrupt flag
+                UCTXCPTIFG:
+                    bitOffset: 3
+                    bitWidth: 1
+                    access: read-write
+                    description: Transmit complete interrupt flag
+        UCA1IRCTL:
+          description: "eUSCI_Ax IrDA Control Word Register"
+          addressOffset: 18
+          size: 16
+          fields:
+            UCIREN:
+              description: "IrDA encoder/decoder enable"
+              bitOffset: 0
+              bitWidth: 1
+              access: read-write
+            UCIRTXCLK:
+              description: "IrDA transmit pulse clock select"
+              bitOffset: 1
+              bitWidth: 1
+              access: read-write
+            UCIRTXPL:
+              description: "Transmit pulse length"
+              bitOffset: 2
+              bitWidth: 6
+              access: read-write
+            UCIRRXFE:
+              description: "IrDA receive filter enabled"
+              bitOffset: 8
+              bitWidth: 1
+              access: read-write
+            UCIRRXPL:
+              description: "IrDA receive input UCAxRXD polarity"
+              bitOffset: 9
+              bitWidth: 1
+              access: read-write
+            UCIRRXFL:
+              description: "Receive filter length"
+              bitOffset: 10
+              bitWidth: 6
+              access: read-write
+        # The SPI mode registers, from the former USCI_A1_SPI_MODE peripheral
+        UCA1CTLW0_SPI:
+          description: "eUSCI_A1 Control Word Register 0"
+          addressOffset: 0
+          size: 16
+          fields:
+            UCSWRST:
+              description: "Software reset enable"
+              bitOffset: 0
+              bitWidth: 1
+              access: read-write
+            UCSTEM:
+              description: "STE mode select in master mode."
+              bitOffset: 1
+              bitWidth: 1
+              access: read-write
+            UCSSEL:
+              description: "eUSCI_A clock source select"
+              bitOffset: 6
+              bitWidth: 2
+              access: read-write
+            UCSYNC:
+              description: "Synchronous mode enable"
+              bitOffset: 8
+              bitWidth: 1
+              access: read-write
+            UCMODE:
+              description: "eUSCI_A mode"
+              bitOffset: 9
+              bitWidth: 2
+              access: read-write
+            UCMST:
+              description: "Master mode select"
+              bitOffset: 11
+              bitWidth: 1
+              access: read-write
+            UC7BIT:
+              description: "Character length"
+              bitOffset: 12
+              bitWidth: 1
+              access: read-write
+            UCMSB:
+              description: "MSB first select"
+              bitOffset: 13
+              bitWidth: 1
+              access: read-write
+            UCCKPL:
+              description: "Clock polarity select"
+              bitOffset: 14
+              bitWidth: 1
+              access: read-write
+            UCCKPH:
+              description: "Clock phase select"
+              bitOffset: 15
+              bitWidth: 1
+              access: read-write
+        UCA1BRW_SPI:
+          description: "eUSCI_A1 Bit Rate Control Register"
+          addressOffset: 6
+          size: 16
+        UCA1STATW_SPI:
+          description: "USCI A1 Status Register"
+          addressOffset: 10
+          size: 16
+          fields:
+            UCBUSY:
+              description: "USCI Busy Flag"
+              bitOffset: 0
+              bitWidth: 1
+              access: read-write
+            UCOE:
+              description: "USCI Overrun Error Flag"
+              bitOffset: 5
+              bitWidth: 1
+              access: read-write
+            UCFE:
+              description: "USCI Frame Error Flag"
+              bitOffset: 6
+              bitWidth: 1
+              access: read-write
+            UCLISTEN:
+              description: "USCI Listen mode"
+              bitOffset: 7
+              bitWidth: 1
+              access: read-write
+        UCA1RXBUF_SPI:
+          description: "USCI A1 Receive Buffer"
+          addressOffset: 12
+          size: 16
+          fields:
+            UCRXBUF:
+              description: "Receive data buffer"
+              bitOffset: 0
+              bitWidth: 8
+              access: read-write
+        UCA1TXBUF_SPI:
+          description: "USCI A1 Transmit Buffer"
+          addressOffset: 14
+          size: 16
+          fields:
+            UCTXBUF:
+              description: "Transmit data buffer"
+              bitOffset: 0
+              bitWidth: 8
+              access: read-write
+        UCA1IE_SPI:
+          description: "USCI A1 Interrupt Enable Register"
+          addressOffset: 26
+          size: 16
+          fields:
+            UCRXIE:
+              description: "USCI Receive Interrupt Enable"
+              bitOffset: 0
+              bitWidth: 1
+              access: read-write
+            UCTXIE:
+              description: "USCI Transmit Interrupt Enable"
+              bitOffset: 1
+              bitWidth: 1
+              access: read-write
+        UCA1IFG_SPI:
+          description: "USCI A1 Interrupt Flags Register"
+          addressOffset: 28
+          size: 16
+          fields:
+            UCRXIFG:
+              description: "SPI Receive Interrupt Flag"
+              bitOffset: 0
+              bitWidth: 1
+              access: read-write
+            UCTXIFG:
+              description: "SPI Transmit Interrupt Flag"
+              bitOffset: 1
+              bitWidth: 1
+              access: read-write
+        UCA1IV_SPI:
+          description: "USCI A1 Interrupt Vector Register"
+          addressOffset: 30
+          size: 16
+    # Add RXBUF, TXBUF fields
     UCA1RXBUF:
         _add:
             UCRXBUF:
@@ -398,292 +1107,25 @@ USCI_A1_UART_MODE:
                 bitOffset: 0
                 bitWidth: 8
                 access: read-write
-USCI_A0_SPI_MODE:
-    _delete:
-        - UCA0CTL0_SPI
-        - UCA0CTL1_SPI
-        - UCA0BR0_SPI
-        - UCA0BR1_SPI
-    _modify:
-        UCA0IE_SPI:
-            size: 16
-            resetMask: 65535
-        UCA0STATW_SPI:
-            size: 16
-            resetMask: 65535
-    _add:
-        UCA0CTLW0_SPI:
-            description: eUSCI_A0 Control Word Register 0
-            addressOffset: 0
-            size: 16
-            fields:
-                UCSWRST:
-                    description: Software reset enable
-                    bitOffset: 0
-                    bitWidth: 1
-                    access: read-write
-                UCSTEM:
-                    description: STE mode select in master mode.
-                    bitOffset: 1
-                    bitWidth: 1
-                    access: read-write
-                UCSSEL:
-                    description: eUSCI_A clock source select
-                    bitOffset: 6
-                    bitWidth: 2
-                    access: read-write
-                UCSYNC:
-                    description: Synchronous mode enable
-                    bitOffset: 8
-                    bitWidth: 1
-                    access: read-write
-                UCMODE:
-                    description: eUSCI_A mode
-                    bitOffset: 9
-                    bitWidth: 2
-                    access: read-write
-                UCMST:
-                    description: Master mode select
-                    bitOffset: 11
-                    bitWidth: 1
-                    access: read-write
-                UC7BIT:
-                    description: Character length
-                    bitOffset: 12
-                    bitWidth: 1
-                    access: read-write
-                UCMSB:
-                    description: MSB first select
-                    bitOffset: 13
-                    bitWidth: 1
-                    access: read-write
-                UCCKPL:
-                    description: Clock polarity select
-                    bitOffset: 14
-                    bitWidth: 1
-                    access: read-write
-                UCCKPH:
-                    description: Clock phase select
-                    bitOffset: 15
-                    bitWidth: 1
-                    access: read-write
-        UCA0BRW_SPI:
-            description: eUSCI_A0 Bit Rate Control Register
-            addressOffset: 6
-            size: 16
-    UCA0RXBUF_SPI:
-        _add:
-            UCRXBUF:
-                description: Receive data buffer
-                bitOffset: 0
-                bitWidth: 8
-                access: read-write
-    UCA0TXBUF_SPI:
-        _add:
-            UCTXBUF:
-                description: Transmit data buffer
-                bitOffset: 0
-                bitWidth: 8
-                access: read-write
-USCI_A1_SPI_MODE:
-    _delete:
-        - UCA1CTL0_SPI
-        - UCA1CTL1_SPI
-        - UCA1BR0_SPI
-        - UCA1BR1_SPI
-    _modify:
-        UCA1IE_SPI:
-            size: 16
-            resetMask: 65535
-        UCA1STATW_SPI:
-            size: 16
-            resetMask: 65535
-    _add:
-        UCA1CTLW0_SPI:
-            description: eUSCI_A1 Control Word Register 0
-            addressOffset: 0
-            size: 16
-            fields:
-                UCSWRST:
-                    description: Software reset enable
-                    bitOffset: 0
-                    bitWidth: 1
-                    access: read-write
-                UCSTEM:
-                    description: STE mode select in master mode.
-                    bitOffset: 1
-                    bitWidth: 1
-                    access: read-write
-                UCSSEL:
-                    description: eUSCI_A clock source select
-                    bitOffset: 6
-                    bitWidth: 2
-                    access: read-write
-                UCSYNC:
-                    description: Synchronous mode enable
-                    bitOffset: 8
-                    bitWidth: 1
-                    access: read-write
-                UCMODE:
-                    description: eUSCI_A mode
-                    bitOffset: 9
-                    bitWidth: 2
-                    access: read-write
-                UCMST:
-                    description: Master mode select
-                    bitOffset: 11
-                    bitWidth: 1
-                    access: read-write
-                UC7BIT:
-                    description: Character length
-                    bitOffset: 12
-                    bitWidth: 1
-                    access: read-write
-                UCMSB:
-                    description: MSB first select
-                    bitOffset: 13
-                    bitWidth: 1
-                    access: read-write
-                UCCKPL:
-                    description: Clock polarity select
-                    bitOffset: 14
-                    bitWidth: 1
-                    access: read-write
-                UCCKPH:
-                    description: Clock phase select
-                    bitOffset: 15
-                    bitWidth: 1
-                    access: read-write
-        UCA1BRW_SPI:
-            description: eUSCI_A1 Bit Rate Control Register 
-            addressOffset: 6
-            size: 16
-    UCA1RXBUF_SPI:
-        _add:
-            UCRXBUF:
-                description: Receive data buffer
-                bitOffset: 0
-                bitWidth: 8
-                access: read-write
-    UCA1TXBUF_SPI:
-        _add:
-            UCTXBUF:
-                description: Transmit data buffer
-                bitOffset: 0
-                bitWidth: 8
-                access: read-write
-USCI_B0_SPI_MODE:
-    _delete:
-        - UCB0CTL0_SPI
-        - UCB0CTL1_SPI
-        - UCB0BR0_SPI
-        - UCB0BR1_SPI
-    _add:
-        UCB0CTLW0_SPI:
-            description: eUSCI_B0 Control Word Register 0
-            addressOffset: 0
-            size: 16
-            fields:
-                UCSWRST:
-                    description: Software reset enable
-                    bitOffset: 0
-                    bitWidth: 1
-                    access: read-write
-                UCSTEM:
-                    description: STE mode select in master mode.
-                    bitOffset: 1
-                    bitWidth: 1
-                    access: read-write
-                UCSSEL:
-                    description: eUSCI_A clock source select
-                    bitOffset: 6
-                    bitWidth: 2
-                    access: read-write
-                UCSYNC:
-                    description: Synchronous mode enable
-                    bitOffset: 8
-                    bitWidth: 1
-                    access: read-write
-                UCMODE:
-                    description: eUSCI_A mode
-                    bitOffset: 9
-                    bitWidth: 2
-                    access: read-write
-                UCMST:
-                    description: Master mode select
-                    bitOffset: 11
-                    bitWidth: 1
-                    access: read-write
-                UC7BIT:
-                    description: Character length
-                    bitOffset: 12
-                    bitWidth: 1
-                    access: read-write
-                UCMSB:
-                    description: MSB first select
-                    bitOffset: 13
-                    bitWidth: 1
-                    access: read-write
-                UCCKPL:
-                    description: Clock polarity select
-                    bitOffset: 14
-                    bitWidth: 1
-                    access: read-write
-                UCCKPH:
-                    description: Clock phase select
-                    bitOffset: 15
-                    bitWidth: 1
-                    access: read-write
-        UCB0BRW_SPI:
-            description: eUSCI_B0 Bit Rate Control Register
-            addressOffset: 6
-            size: 16
-        UCB0STATW_SPI:
-            description: eUSCI_B0 Status Register
-            addressOffset: 8
-            size: 16
-            fields:
-                UCBUSY:
-                    description: USCI Busy Flag
-                    bitOffset: 0
-                    bitWidth: 1
-                    access: read-write
-                UCOE:
-                    description: USCI Overrun Error Flag
-                    bitOffset: 5
-                    bitWidth: 1
-                    access: read-write
-                UCFE:
-                    description: USCI Frame Error Flag
-                    bitOffset: 6
-                    bitWidth: 1
-                    access: read-write
-                UCLISTEN:
-                    description: USCI Listen mode
-                    bitOffset: 7
-                    bitWidth: 1
-                    access: read-write
-    UCB0RXBUF_SPI:
-        _add:
-            UCRXBUF:
-                description: Receive data buffer
-                bitOffset: 0
-                bitWidth: 8
-                access: read-write
-    UCB0TXBUF_SPI:
-        _add:
-            UCTXBUF:
-                description: Transmit data buffer
-                bitOffset: 0
-                bitWidth: 8
-                access: read-write
 
-USCI_B0_I2C_MODE:
+E_USCI_B0:
+    # The byte views of the word registers, and the I2C mode registers named as on the other devices
     _delete:
         - UCB0CTL0
         - UCB0CTL1
         - UCB0BR0
         - UCB0BR1
+        - UCB0BCNT_I2C
+        - UCB0IE
+        - UCB0IFG
+    _modify:
+        UCB0STAT_I2C:
+            name: UCB0STATW
+            size: 16
+        UCB0IE_I2C:
+            name: UCB0IE
+        UCB0IFG_I2C:
+            name: UCB0IFG
     _add:
         UCB0BRW:
             description: eUSCI_B0 Bit Rate Control Register
@@ -693,6 +1135,145 @@ USCI_B0_I2C_MODE:
             description: eUSCI_B0 Control Word Register 0
             addressOffset: 0
             size: 16
+        # The SPI mode registers, from the former USCI_B0_SPI_MODE peripheral
+        UCB0CTLW0_SPI:
+          description: "eUSCI_B0 Control Word Register 0"
+          addressOffset: 0
+          size: 16
+          fields:
+            UCSWRST:
+              description: "Software reset enable"
+              bitOffset: 0
+              bitWidth: 1
+              access: read-write
+            UCSTEM:
+              description: "STE mode select in master mode."
+              bitOffset: 1
+              bitWidth: 1
+              access: read-write
+            UCSSEL:
+              description: "eUSCI_A clock source select"
+              bitOffset: 6
+              bitWidth: 2
+              access: read-write
+            UCSYNC:
+              description: "Synchronous mode enable"
+              bitOffset: 8
+              bitWidth: 1
+              access: read-write
+            UCMODE:
+              description: "eUSCI_A mode"
+              bitOffset: 9
+              bitWidth: 2
+              access: read-write
+            UCMST:
+              description: "Master mode select"
+              bitOffset: 11
+              bitWidth: 1
+              access: read-write
+            UC7BIT:
+              description: "Character length"
+              bitOffset: 12
+              bitWidth: 1
+              access: read-write
+            UCMSB:
+              description: "MSB first select"
+              bitOffset: 13
+              bitWidth: 1
+              access: read-write
+            UCCKPL:
+              description: "Clock polarity select"
+              bitOffset: 14
+              bitWidth: 1
+              access: read-write
+            UCCKPH:
+              description: "Clock phase select"
+              bitOffset: 15
+              bitWidth: 1
+              access: read-write
+        UCB0BRW_SPI:
+          description: "eUSCI_B0 Bit Rate Control Register"
+          addressOffset: 6
+          size: 16
+        UCB0STATW_SPI:
+          description: "eUSCI_B0 Status Register"
+          addressOffset: 8
+          size: 16
+          fields:
+            UCBUSY:
+              description: "USCI Busy Flag"
+              bitOffset: 0
+              bitWidth: 1
+              access: read-write
+            UCOE:
+              description: "USCI Overrun Error Flag"
+              bitOffset: 5
+              bitWidth: 1
+              access: read-write
+            UCFE:
+              description: "USCI Frame Error Flag"
+              bitOffset: 6
+              bitWidth: 1
+              access: read-write
+            UCLISTEN:
+              description: "USCI Listen mode"
+              bitOffset: 7
+              bitWidth: 1
+              access: read-write
+        UCB0RXBUF_SPI:
+          description: "USCI B0 Receive Buffer"
+          addressOffset: 12
+          size: 16
+          fields:
+            UCRXBUF:
+              description: "Receive data buffer"
+              bitOffset: 0
+              bitWidth: 8
+              access: read-write
+        UCB0TXBUF_SPI:
+          description: "USCI B0 Transmit Buffer"
+          addressOffset: 14
+          size: 16
+          fields:
+            UCTXBUF:
+              description: "Transmit data buffer"
+              bitOffset: 0
+              bitWidth: 8
+              access: read-write
+        UCB0IE_SPI:
+          description: "USCI B0 Interrupt Enable Register"
+          addressOffset: 42
+          size: 16
+          fields:
+            UCRXIE:
+              description: "USCI Receive Interrupt Enable"
+              bitOffset: 0
+              bitWidth: 1
+              access: read-write
+            UCTXIE:
+              description: "USCI Transmit Interrupt Enable"
+              bitOffset: 1
+              bitWidth: 1
+              access: read-write
+        UCB0IFG_SPI:
+          description: "USCI B0 Interrupt Flags Register"
+          addressOffset: 44
+          size: 16
+          fields:
+            UCRXIFG:
+              description: "SPI Receive Interrupt Flag"
+              bitOffset: 0
+              bitWidth: 1
+              access: read-write
+            UCTXIFG:
+              description: "SPI Transmit Interrupt Flag"
+              bitOffset: 1
+              bitWidth: 1
+              access: read-write
+        UCB0IV_SPI:
+          description: "USCI B0 Interrupt Vector Register"
+          addressOffset: 46
+          size: 16
     UCB0I2COA0:
         _merge:
             I2COA0: [UCOA0, UCOA1, UCOA2, UCOA3, UCOA4, UCOA5, UCOA6, UCOA7, UCOA8, UCOA9]
@@ -705,16 +1286,22 @@ USCI_B0_I2C_MODE:
     UCB0I2COA3:
         _merge:
             I2COA3: [UCOA0, UCOA1, UCOA2, UCOA3, UCOA4, UCOA5, UCOA6, UCOA7, UCOA8, UCOA9]
-    UCB0STAT_I2C:
+    UCB0ADDRX:
+        _merge:
+            ADDRX: "UCADDRX*"
+    UCB0ADDMASK:
+        _merge:
+            ADDMASK: "UCADDMASK*"
+    UCB0I2CSA:
+        _merge:
+            I2CSA: "UCSA*"
+    UCB0STATW:
         _add:
             UCBCNT:
                 description: Hardware byte counter value.
                 bitOffset: 8
                 bitWidth: 8
                 access: read-only
-    _modify:
-        UCB0STAT_I2C:
-            size: 16
     UCB0CTLW0:
         _add:
             UCSWRST:
@@ -783,8 +1370,739 @@ USCI_B0_I2C_MODE:
                 bitWidth: 1
                 access: read-write
 
-# Add missing password field
+# Enums, read-only fields and the missing fields of the eUSCI registers, as on the other devices
+"E_USCI_A?":
+    "UCA?CTLW0":
+        UCSWRST:
+          _replace_enum:
+            "DISABLE": [0, "Disabled. eUSCI_A reset released for operation"]
+            "ENABLE": [1, "Enabled. eUSCI_A logic held in reset state"]
+        UCTXBRK:
+          _replace_enum:
+            "UCTXBRK_0": [0, "Next frame transmitted is not a break"]
+            "UCTXBRK_1": [1, "Next frame transmitted is a break or a break/synch"]
+        UCTXADDR:
+          _replace_enum:
+            "UCTXADDR_0": [0, "Next frame transmitted is data"]
+            "UCTXADDR_1": [1, "Next frame transmitted is an address"]
+        UCDORM:
+          _replace_enum:
+            "UCDORM_0": [0, "Not dormant. All received characters set UCRXIFG."]
+            "UCDORM_1": [1, "Dormant. Only characters that are preceded by an idle-line or with address bit set UCRXIFG. In UART mode with automatic baud-rate detection, only the combination of a break and synch field sets UCRXIFG."]
+        UCBRKIE:
+          _replace_enum:
+            "UCBRKIE_0": [0, "Received break characters do not set UCRXIFG"]
+            "UCBRKIE_1": [1, "Received break characters set UCRXIFG"]
+        UCRXEIE:
+          _replace_enum:
+            "UCRXEIE_0": [0, "Erroneous characters rejected and UCRXIFG is not set"]
+            "UCRXEIE_1": [1, "Erroneous characters received set UCRXIFG"]
+        UCSSEL:
+          _replace_enum:
+            "UCLK": [0, "UCLK"]
+            "ACLK": [1, "ACLK"]
+            "SMCLK": [2, "SMCLK"]
+            "UCSSEL_3": [3, "SMCLK"]
+        UCSYNC:
+          _replace_enum:
+            "ASYNC": [0, "Asynchronous mode"]
+            "SYNC": [1, "Synchronous mode"]
+        UCMODE:
+          _replace_enum:
+            "UCMODE_0": [0, "UART mode"]
+            "UCMODE_1": [1, "Idle-line multiprocessor mode"]
+            "UCMODE_2": [2, "Address-bit multiprocessor mode"]
+            "UCMODE_3": [3, "UART mode with automatic baud-rate detection"]
+        UCSPB:
+          _replace_enum:
+            "UCSPB_0": [0, "One stop bit"]
+            "UCSPB_1": [1, "Two stop bits"]
+        UC7BIT:
+          _replace_enum:
+            "/8BIT": [0, "8-bit data"]
+            "/7BIT": [1, "7-bit data"]
+        UCMSB:
+          _replace_enum:
+            "UCMSB_0": [0, "LSB first"]
+            "UCMSB_1": [1, "MSB first"]
+        UCPAR:
+          _replace_enum:
+            "ODD": [0, "Odd parity"]
+            "EVEN": [1, "Even parity"]
+        UCPEN:
+          _replace_enum:
+            "UCPEN_0": [0, "Parity disabled"]
+            "UCPEN_1": [1, "Parity enabled. Parity bit is generated (UCAxTXD) and expected (UCAxRXD). In address-bit multiprocessor mode, the address bit is included in the parity calculation."]
+    "UCA?CTLW0_SPI":
+        UCSWRST:
+          _replace_enum:
+            "DISABLE": [0, "Disabled. eUSCI_A reset released for operation"]
+            "ENABLE": [1, "Enabled. eUSCI_A logic held in reset state"]
+        UCSTEM:
+          _replace_enum:
+            "UCSTEM_0": [0, "STE pin is used to prevent conflicts with other masters"]
+            "UCSTEM_1": [1, "STE pin is used to generate the enable signal for a 4-wire slave"]
+        UCSSEL:
+          _replace_enum:
+            "UCSSEL_0": [0, "Reserved"]
+            "ACLK": [1, "ACLK"]
+            "SMCLK": [2, "SMCLK"]
+            "UCSSEL_3": [3, "SMCLK"]
+        UCSYNC:
+          _replace_enum:
+            "ASYNC": [0, "Asynchronous mode"]
+            "SYNC": [1, "Synchronous mode"]
+        UCMODE:
+          _replace_enum:
+            "UCMODE_0": [0, "3-pin SPI"]
+            "UCMODE_1": [1, "4-pin SPI with UCxSTE active high: Slave enabled when UCxSTE = 1"]
+            "UCMODE_2": [2, "4-pin SPI with UCxSTE active low: Slave enabled when UCxSTE = 0"]
+            "UCMODE_3": [3, "I2C mode"]
+        UCMST:
+          _replace_enum:
+            "SLAVE": [0, "Slave mode"]
+            "MASTER": [1, "Master mode"]
+        UC7BIT:
+          _replace_enum:
+            "/8BIT": [0, "8-bit data"]
+            "/7BIT": [1, "7-bit data"]
+        UCMSB:
+          _replace_enum:
+            "UCMSB_0": [0, "LSB first"]
+            "UCMSB_1": [1, "MSB first"]
+        UCCKPL:
+          _replace_enum:
+            "LOW": [0, "The inactive state is low"]
+            "HIGH": [1, "The inactive state is high"]
+        UCCKPH:
+          _replace_enum:
+            "UCCKPH_0": [0, "Data is changed on the first UCLK edge and captured on the following edge."]
+            "UCCKPH_1": [1, "Data is captured on the first UCLK edge and changed on the following edge."]
+    "UCA?CTLW1":
+        UCGLIT:
+          _replace_enum:
+            "UCGLIT_0": [0, "Approximately 2 ns (equivalent of 1 delay element)"]
+            "UCGLIT_1": [1, "Approximately 50 ns"]
+            "UCGLIT_2": [2, "Approximately 100 ns"]
+            "UCGLIT_3": [3, "Approximately 200 ns"]
+    "UCA?MCTLW":
+        _clear:
+            - UCBRF
+        UCOS16:
+          _replace_enum:
+            "UCOS16_0": [0, "Disabled"]
+            "UCOS16_1": [1, "Enabled"]
+    "UCA?STATW":
+        _modify:
+            UCBUSY:
+                access: read-only
+        UCBUSY:
+          _replace_enum:
+            "IDLE": [0, "eUSCI_A inactive"]
+            "BUSY": [1, "eUSCI_A transmitting or receiving"]
+        UCADDR_UCIDLE:
+          _replace_enum:
+            "UCADDR_UCIDLE_0": [0, "UCADDR: Received character is data. UCIDLE: No idle line detected"]
+            "UCADDR_UCIDLE_1": [1, "UCADDR: Received character is an address. UCIDLE: Idle line detected"]
+        UCRXERR:
+          _replace_enum:
+            "UCRXERR_0": [0, "No receive errors detected"]
+            "UCRXERR_1": [1, "Receive error detected"]
+        UCBRK:
+          _replace_enum:
+            "UCBRK_0": [0, "No break condition"]
+            "UCBRK_1": [1, "Break condition occurred"]
+        UCPE:
+          _replace_enum:
+            "UCPE_0": [0, "No error"]
+            "UCPE_1": [1, "Character received with parity error"]
+        UCOE:
+          _replace_enum:
+            "UCOE_0": [0, "No error"]
+            "UCOE_1": [1, "Overrun error occurred"]
+        UCFE:
+          _replace_enum:
+            "UCFE_0": [0, "No error"]
+            "UCFE_1": [1, "Character received with low stop bit"]
+        UCLISTEN:
+          _replace_enum:
+            "UCLISTEN_0": [0, "Disabled"]
+            "UCLISTEN_1": [1, "Enabled. UCAxTXD is internally fed back to the receiver"]
+    "UCA?STATW_SPI":
+        _modify:
+            UCBUSY:
+                access: read-only
+        UCOE:
+          _replace_enum:
+            "UCOE_0": [0, "No error"]
+            "UCOE_1": [1, "Overrun error occurred"]
+        UCFE:
+          _replace_enum:
+            "UCFE_0": [0, "No error"]
+            "UCFE_1": [1, "Bus conflict occurred"]
+        UCLISTEN:
+          _replace_enum:
+            "UCLISTEN_0": [0, "Disabled"]
+            "UCLISTEN_1": [1, "Enabled. UCAxTXD is internally fed back to the receiver"]
+        UCBUSY:
+          _replace_enum:
+            "IDLE": [0, "eUSCI_A0 inactive"]
+            "BUSY": [1, "eUSCI_A0 transmitting or receiving"]
+    "UCA?RXBUF":
+        _modify:
+            UCRXBUF:
+                access: read-only
+    "UCA?RXBUF_SPI":
+        _modify:
+            UCRXBUF:
+                access: read-only
+    "UCA?ABCTL":
+        UCABDEN:
+          _replace_enum:
+            "UCABDEN_0": [0, "Baud-rate detection disabled. Length of break and synch field is not measured."]
+            "UCABDEN_1": [1, "Baud-rate detection enabled. Length of break and synch field is measured and baud-rate settings are changed accordingly."]
+        UCBTOE:
+          _replace_enum:
+            "UCBTOE_0": [0, "No error"]
+            "UCBTOE_1": [1, "Length of break field exceeded 22 bit times"]
+        UCSTOE:
+          _replace_enum:
+            "UCSTOE_0": [0, "No error"]
+            "UCSTOE_1": [1, "Length of synch field exceeded measurable time"]
+        UCDELIM:
+          _replace_enum:
+            "UCDELIM_0": [0, "1 bit time"]
+            "UCDELIM_1": [1, "2 bit times"]
+            "UCDELIM_2": [2, "3 bit times"]
+            "UCDELIM_3": [3, "4 bit times"]
+    "UCA?IRCTL":
+        UCIREN:
+          _replace_enum:
+            "UCIREN_0": [0, "IrDA encoder/decoder disabled"]
+            "UCIREN_1": [1, "IrDA encoder/decoder enabled"]
+        UCIRTXCLK:
+          _replace_enum:
+            "UCIRTXCLK_0": [0, "BRCLK"]
+            "UCIRTXCLK_1": [1, "BITCLK16 when UCOS16 = 1. Otherwise, BRCLK."]
+        UCIRRXFE:
+          _replace_enum:
+            "UCIRRXFE_0": [0, "Receive filter disabled"]
+            "UCIRRXFE_1": [1, "Receive filter enabled"]
+        UCIRRXPL:
+          _replace_enum:
+            "HIGH": [0, "IrDA transceiver delivers a high pulse when a light pulse is seen"]
+            "LOW": [1, "IrDA transceiver delivers a low pulse when a light pulse is seen"]
+    "UCA?IE":
+        UCRXIE:
+          _replace_enum:
+            "UCRXIE_0": [0, "Interrupt disabled"]
+            "UCRXIE_1": [1, "Interrupt enabled"]
+        UCTXIE:
+          _replace_enum:
+            "UCTXIE_0": [0, "Interrupt disabled"]
+            "UCTXIE_1": [1, "Interrupt enabled"]
+        UCSTTIE:
+          _replace_enum:
+            "UCSTTIE_0": [0, "Interrupt disabled"]
+            "UCSTTIE_1": [1, "Interrupt enabled"]
+        UCTXCPTIE:
+          _replace_enum:
+            "UCTXCPTIE_0": [0, "Interrupt disabled"]
+            "UCTXCPTIE_1": [1, "Interrupt enabled"]
+    "UCA?IE_SPI":
+        UCRXIE:
+          _replace_enum:
+            "UCRXIE_0": [0, "Interrupt disabled"]
+            "UCRXIE_1": [1, "Interrupt enabled"]
+        UCTXIE:
+          _replace_enum:
+            "UCTXIE_0": [0, "Interrupt disabled"]
+            "UCTXIE_1": [1, "Interrupt enabled"]
+    "UCA?IFG":
+        UCRXIFG:
+          _replace_enum:
+            "UCRXIFG_0": [0, "No interrupt pending"]
+            "UCRXIFG_1": [1, "Interrupt pending"]
+        UCTXIFG:
+          _replace_enum:
+            "UCTXIFG_0": [0, "No interrupt pending"]
+            "UCTXIFG_1": [1, "Interrupt pending"]
+        UCSTTIFG:
+          _replace_enum:
+            "UCSTTIFG_0": [0, "No interrupt pending"]
+            "UCSTTIFG_1": [1, "Interrupt pending"]
+        UCTXCPTIFG:
+          _replace_enum:
+            "UCTXCPTIFG_0": [0, "No interrupt pending"]
+            "UCTXCPTIFG_1": [1, "Interrupt pending"]
+    "UCA?IFG_SPI":
+        UCRXIFG:
+          _replace_enum:
+            "UCRXIFG_0": [0, "No interrupt pending"]
+            "UCRXIFG_1": [1, "Interrupt pending"]
+        UCTXIFG:
+          _replace_enum:
+            "UCTXIFG_0": [0, "No interrupt pending"]
+            "UCTXIFG_1": [1, "Interrupt pending"]
+    "UCA?IV":
+        _add:
+            UCIV:
+              description: "eUSCI_A interrupt vector value"
+              bitOffset: 0
+              bitWidth: 16
+              access: read-only
+        UCIV:
+          _replace_enum:
+            "NONE": [0, "No interrupt pending"]
+            "UCRXIFG": [2, "Interrupt Source: Receive buffer full; Interrupt Flag: UCRXIFG; Interrupt Priority: Highest"]
+            "UCTXIFG": [4, "Interrupt Source: Transmit buffer empty; Interrupt Flag: UCTXIFG"]
+            "UCSTTIFG": [6, "Interrupt Source: Start bit received; Interrupt Flag: UCSTTIFG"]
+            "UCTXCPTIFG": [8, "Interrupt Source: Transmit complete; Interrupt Flag: UCTXCPTIFG; Interrupt Priority: Lowest"]
+    "UCA?IV_SPI":
+        _add:
+            UCIV:
+              description: "eUSCI_A interrupt vector value"
+              bitOffset: 0
+              bitWidth: 16
+              access: read-only
+        UCIV:
+          _replace_enum:
+            "NONE": [0, "No interrupt pending"]
+            "UCRXIFG": [2, "Interrupt Source: Data received; Interrupt Flag: UCRXIFG; Interrupt Priority: Highest"]
+            "UCTXIFG": [4, "Interrupt Source: Transmit buffer empty; Interrupt Flag: UCTXIFG; Interrupt Priority: Lowest"]
+
+"E_USCI_B?":
+    "UCB?CTLW0":
+        UCSWRST:
+          _replace_enum:
+            "DISABLE": [0, "Disabled. eUSCI_B reset released for operation"]
+            "ENABLE": [1, "Enabled. eUSCI_B logic held in reset state"]
+        UCTXSTT:
+          _replace_enum:
+            "UCTXSTT_0": [0, "Do not generate START condition"]
+            "UCTXSTT_1": [1, "Generate START condition"]
+        UCTXSTP:
+          _replace_enum:
+            "UCTXSTP_0": [0, "No STOP generated"]
+            "UCTXSTP_1": [1, "Generate STOP"]
+        UCTXNACK:
+          _replace_enum:
+            "UCTXNACK_0": [0, "Acknowledge normally"]
+            "UCTXNACK_1": [1, "Generate NACK"]
+        UCTR:
+          _replace_enum:
+            "RX": [0, "Receiver"]
+            "TX": [1, "Transmitter"]
+        UCTXACK:
+          _replace_enum:
+            "UCTXACK_0": [0, "Do not acknowledge the slave address"]
+            "UCTXACK_1": [1, "Acknowledge the slave address"]
+        UCSSEL:
+          _replace_enum:
+            "UCLKI": [0, "UCLKI"]
+            "ACLK": [1, "ACLK"]
+            "SMCLK": [2, "SMCLK"]
+            "UCSSEL_3": [3, "SMCLK"]
+        UCSYNC:
+          _replace_enum:
+            "ASYNC": [0, "Asynchronous mode"]
+            "SYNC": [1, "Synchronous mode"]
+        UCMODE:
+          _replace_enum:
+            "UCMODE_0": [0, "3-pin SPI"]
+            "UCMODE_1": [1, "4-pin SPI (master or slave enabled if STE = 1)"]
+            "UCMODE_2": [2, "4-pin SPI (master or slave enabled if STE = 0)"]
+            "UCMODE_3": [3, "I2C mode"]
+        UCMST:
+          _replace_enum:
+            "SLAVE": [0, "Slave mode"]
+            "MASTER": [1, "Master mode"]
+        UCMM:
+          _replace_enum:
+            "SINGLE": [0, "Single master environment. There is no other master in the system. The address compare unit is disabled."]
+            "MULTI": [1, "Multi-master environment"]
+        UCSLA10:
+          _replace_enum:
+            "/7BIT": [0, "Address slave with 7-bit address"]
+            "/10BIT": [1, "Address slave with 10-bit address"]
+        UCA10:
+          _replace_enum:
+            "UCA10_0": [0, "Own address is a 7-bit address"]
+            "UCA10_1": [1, "Own address is a 10-bit address"]
+    "UCB?CTLW0_SPI":
+        UCSWRST:
+          _replace_enum:
+            "DISABLE": [0, "Disabled. eUSCI_B reset released for operation"]
+            "ENABLE": [1, "Enabled. eUSCI_B logic held in reset state"]
+        UCSTEM:
+          _replace_enum:
+            "UCSTEM_0": [0, "STE pin is used to prevent conflicts with other masters"]
+            "UCSTEM_1": [1, "STE pin is used to generate the enable signal for a 4-wire slave"]
+        UCSSEL:
+          _replace_enum:
+            "UCSSEL_0": [0, "Reserved"]
+            "ACLK": [1, "ACLK"]
+            "SMCLK": [2, "SMCLK"]
+            "UCSSEL_3": [3, "SMCLK"]
+        UCSYNC:
+          _replace_enum:
+            "ASYNC": [0, "Asynchronous mode"]
+            "SYNC": [1, "Synchronous mode"]
+        UCMODE:
+          _replace_enum:
+            "UCMODE_0": [0, "3-pin SPI"]
+            "UCMODE_1": [1, "4-pin SPI with UCxSTE active high: Slave enabled when UCxSTE = 1"]
+            "UCMODE_2": [2, "4-pin SPI with UCxSTE active low: Slave enabled when UCxSTE = 0"]
+            "UCMODE_3": [3, "I2C mode"]
+        UCMST:
+          _replace_enum:
+            "SLAVE": [0, "Slave mode"]
+            "MASTER": [1, "Master mode"]
+        UC7BIT:
+          _replace_enum:
+            "/8BIT": [0, "8-bit data"]
+            "/7BIT": [1, "7-bit data"]
+        UCMSB:
+          _replace_enum:
+            "UCMSB_0": [0, "LSB first"]
+            "UCMSB_1": [1, "MSB first"]
+        UCCKPL:
+          _replace_enum:
+            "LOW": [0, "The inactive state is low"]
+            "HIGH": [1, "The inactive state is high"]
+        UCCKPH:
+          _replace_enum:
+            "UCCKPH_0": [0, "Data is changed on the first UCLK edge and captured on the following edge."]
+            "UCCKPH_1": [1, "Data is captured on the first UCLK edge and changed on the following edge."]
+    "UCB?CTLW1":
+        UCGLIT:
+          _replace_enum:
+            "UCGLIT_0": [0, "50 ns"]
+            "UCGLIT_1": [1, "25 ns"]
+            "UCGLIT_2": [2, "12.5 ns"]
+            "UCGLIT_3": [3, "6.25 ns"]
+        UCASTP:
+          _replace_enum:
+            "UCASTP_0": [0, "No automatic STOP generation. The STOP condition is generated after the user sets the UCTXSTP bit. The value in UCBxTBCNT is a don't care."]
+            "UCASTP_1": [1, "UCBCNTIFG is set with the byte counter reaches the threshold defined in UCBxTBCNT"]
+            "UCASTP_2": [2, "A STOP condition is generated automatically after the byte counter value reached UCBxTBCNT. UCBCNTIFG is set with the byte counter reaching the threshold"]
+            "UCASTP_3": [3, "Reserved"]
+        UCSWACK:
+          _replace_enum:
+            "UCSWACK_0": [0, "The address acknowledge of the slave is controlled by the eUSCI_B module"]
+            "UCSWACK_1": [1, "The user needs to trigger the sending of the address ACK by issuing UCTXACK"]
+        UCSTPNACK:
+          _replace_enum:
+            "UCSTPNACK_0": [0, "Send a non-acknowledge before the STOP condition as a master receiver (conform to I2C standard)"]
+            "UCSTPNACK_1": [1, "All bytes are acknowledged by the eUSCI_B when configured as master receiver"]
+        UCCLTO:
+          _replace_enum:
+            "UCCLTO_0": [0, "Disable clock low timeout counter"]
+            "UCCLTO_1": [1, "135 000 SYSCLK cycles (approximately 28 ms)"]
+            "UCCLTO_2": [2, "150 000 SYSCLK cycles (approximately 31 ms)"]
+            "UCCLTO_3": [3, "165 000 SYSCLK cycles (approximately 34 ms)"]
+        UCETXINT:
+          _replace_enum:
+            "UCETXINT_0": [0, "UCTXIFGx is set after an address match with UCxI2COAx and the direction bit indicating slave transmit"]
+            "UCETXINT_1": [1, "UCTXIFG0 is set for each START condition"]
+    "UCB?STATW":
+        _modify:
+            UCBBUSY:
+                access: read-only
+            UCGC:
+                access: read-only
+            UCSCLLOW:
+                access: read-only
+            UCBCNT:
+                access: read-only
+        UCBBUSY:
+          _replace_enum:
+            "IDLE": [0, "Bus inactive"]
+            "BUSY": [1, "Bus busy"]
+        UCGC:
+          _replace_enum:
+            "UCGC_0": [0, "No general call address received"]
+            "UCGC_1": [1, "General call address received"]
+        UCSCLLOW:
+          _replace_enum:
+            "UCSCLLOW_0": [0, "SCL is not held low"]
+            "UCSCLLOW_1": [1, "SCL is held low"]
+    "UCB?STATW_SPI":
+        _modify:
+            UCBUSY:
+                access: read-only
+        UCOE:
+          _replace_enum:
+            "UCOE_0": [0, "No error"]
+            "UCOE_1": [1, "Overrun error occurred"]
+        UCFE:
+          _replace_enum:
+            "UCFE_0": [0, "No error"]
+            "UCFE_1": [1, "Bus conflict occurred"]
+        UCLISTEN:
+          _replace_enum:
+            "UCLISTEN_0": [0, "Disabled"]
+            "UCLISTEN_1": [1, "Enabled. UCBxTXD is internally fed back to the receiver"]
+        UCBUSY:
+          _replace_enum:
+            "IDLE": [0, "eUSCI_B0 inactive"]
+            "BUSY": [1, "eUSCI_B0 transmitting or receiving"]
+    "UCB?TBCNT":
+        _add:
+            UCTBCNT:
+              description: "Byte counter threshold value"
+              bitOffset: 0
+              bitWidth: 8
+              access: read-write
+    "UCB?RXBUF":
+        _add:
+            UCRXBUF:
+              description: "Receive data buffer"
+              bitOffset: 0
+              bitWidth: 8
+              access: read-only
+    "UCB?RXBUF_SPI":
+        _modify:
+            UCRXBUF:
+                access: read-only
+    "UCB?TXBUF":
+        _add:
+            UCTXBUF:
+              description: "Transmit data buffer"
+              bitOffset: 0
+              bitWidth: 8
+              access: read-write
+    "UCB?I2COA0":
+        UCOAEN:
+          _replace_enum:
+            "DISABLE": [0, "The slave address defined in I2COA0 is disabled"]
+            "ENABLE": [1, "The slave address defined in I2COA0 is enabled"]
+        UCGCEN:
+          _replace_enum:
+            "UCGCEN_0": [0, "Do not respond to a general call"]
+            "UCGCEN_1": [1, "Respond to a general call"]
+    "UCB?I2COA1":
+        UCOAEN:
+          _replace_enum:
+            "DISABLE": [0, "The slave address defined in I2COA1 is disabled"]
+            "ENABLE": [1, "The slave address defined in I2COA1 is enabled"]
+    "UCB?I2COA2":
+        UCOAEN:
+          _replace_enum:
+            "DISABLE": [0, "The slave address defined in I2COA2 is disabled"]
+            "ENABLE": [1, "The slave address defined in I2COA2 is enabled"]
+    "UCB?I2COA3":
+        UCOAEN:
+          _replace_enum:
+            "DISABLE": [0, "The slave address defined in I2COA3 is disabled"]
+            "ENABLE": [1, "The slave address defined in I2COA3 is enabled"]
+    "UCB?ADDRX":
+        _modify:
+            ADDRX:
+                access: read-only
+    "UCB?IE":
+        UCRXIE0:
+          _replace_enum:
+            "UCRXIE0_0": [0, "Interrupt disabled"]
+            "UCRXIE0_1": [1, "Interrupt enabled"]
+        UCTXIE0:
+          _replace_enum:
+            "UCTXIE0_0": [0, "Interrupt disabled"]
+            "UCTXIE0_1": [1, "Interrupt enabled"]
+        UCSTTIE:
+          _replace_enum:
+            "UCSTTIE_0": [0, "Interrupt disabled"]
+            "UCSTTIE_1": [1, "Interrupt enabled"]
+        UCSTPIE:
+          _replace_enum:
+            "UCSTPIE_0": [0, "Interrupt disabled"]
+            "UCSTPIE_1": [1, "Interrupt enabled"]
+        UCALIE:
+          _replace_enum:
+            "UCALIE_0": [0, "Interrupt disabled"]
+            "UCALIE_1": [1, "Interrupt enabled"]
+        UCNACKIE:
+          _replace_enum:
+            "UCNACKIE_0": [0, "Interrupt disabled"]
+            "UCNACKIE_1": [1, "Interrupt enabled"]
+        UCBCNTIE:
+          _replace_enum:
+            "UCBCNTIE_0": [0, "Interrupt disabled"]
+            "UCBCNTIE_1": [1, "Interrupt enabled"]
+        UCCLTOIE:
+          _replace_enum:
+            "UCCLTOIE_0": [0, "Interrupt disabled"]
+            "UCCLTOIE_1": [1, "Interrupt enabled"]
+        UCRXIE1:
+          _replace_enum:
+            "UCRXIE1_0": [0, "Interrupt disabled"]
+            "UCRXIE1_1": [1, "Interrupt enabled"]
+        UCTXIE1:
+          _replace_enum:
+            "UCTXIE1_0": [0, "Interrupt disabled"]
+            "UCTXIE1_1": [1, "Interrupt enabled"]
+        UCRXIE2:
+          _replace_enum:
+            "UCRXIE2_0": [0, "Interrupt disabled"]
+            "UCRXIE2_1": [1, "Interrupt enabled"]
+        UCTXIE2:
+          _replace_enum:
+            "UCTXIE2_0": [0, "Interrupt disabled"]
+            "UCTXIE2_1": [1, "Interrupt enabled"]
+        UCRXIE3:
+          _replace_enum:
+            "UCRXIE3_0": [0, "Interrupt disabled"]
+            "UCRXIE3_1": [1, "Interrupt enabled"]
+        UCTXIE3:
+          _replace_enum:
+            "UCTXIE3_0": [0, "Interrupt disabled"]
+            "UCTXIE3_1": [1, "Interrupt enabled"]
+        UCBIT9IE:
+          _replace_enum:
+            "UCBIT9IE_0": [0, "Interrupt disabled"]
+            "UCBIT9IE_1": [1, "Interrupt enabled"]
+    "UCB?IE_SPI":
+        UCRXIE:
+          _replace_enum:
+            "UCRXIE_0": [0, "Interrupt disabled"]
+            "UCRXIE_1": [1, "Interrupt enabled"]
+        UCTXIE:
+          _replace_enum:
+            "UCTXIE_0": [0, "Interrupt disabled"]
+            "UCTXIE_1": [1, "Interrupt enabled"]
+    "UCB?IFG":
+        UCRXIFG0:
+          _replace_enum:
+            "UCRXIFG0_0": [0, "No interrupt pending"]
+            "UCRXIFG0_1": [1, "Interrupt pending"]
+        UCTXIFG0:
+          _replace_enum:
+            "UCTXIFG0_0": [0, "No interrupt pending"]
+            "UCTXIFG0_1": [1, "Interrupt pending"]
+        UCSTTIFG:
+          _replace_enum:
+            "UCSTTIFG_0": [0, "No interrupt pending"]
+            "UCSTTIFG_1": [1, "Interrupt pending"]
+        UCSTPIFG:
+          _replace_enum:
+            "UCSTPIFG_0": [0, "No interrupt pending"]
+            "UCSTPIFG_1": [1, "Interrupt pending"]
+        UCALIFG:
+          _replace_enum:
+            "UCALIFG_0": [0, "No interrupt pending"]
+            "UCALIFG_1": [1, "Interrupt pending"]
+        UCNACKIFG:
+          _replace_enum:
+            "UCNACKIFG_0": [0, "No interrupt pending"]
+            "UCNACKIFG_1": [1, "Interrupt pending"]
+        UCBCNTIFG:
+          _replace_enum:
+            "UCBCNTIFG_0": [0, "No interrupt pending"]
+            "UCBCNTIFG_1": [1, "Interrupt pending"]
+        UCCLTOIFG:
+          _replace_enum:
+            "UCCLTOIFG_0": [0, "No interrupt pending"]
+            "UCCLTOIFG_1": [1, "Interrupt pending"]
+        UCRXIFG1:
+          _replace_enum:
+            "UCRXIFG1_0": [0, "No interrupt pending"]
+            "UCRXIFG1_1": [1, "Interrupt pending"]
+        UCTXIFG1:
+          _replace_enum:
+            "UCTXIFG1_0": [0, "No interrupt pending"]
+            "UCTXIFG1_1": [1, "Interrupt pending"]
+        UCRXIFG2:
+          _replace_enum:
+            "UCRXIFG2_0": [0, "No interrupt pending"]
+            "UCRXIFG2_1": [1, "Interrupt pending"]
+        UCTXIFG2:
+          _replace_enum:
+            "UCTXIFG2_0": [0, "No interrupt pending"]
+            "UCTXIFG2_1": [1, "Interrupt pending"]
+        UCRXIFG3:
+          _replace_enum:
+            "UCRXIFG3_0": [0, "No interrupt pending"]
+            "UCRXIFG3_1": [1, "Interrupt pending"]
+        UCTXIFG3:
+          _replace_enum:
+            "UCTXIFG3_0": [0, "No interrupt pending"]
+            "UCTXIFG3_1": [1, "Interrupt pending"]
+        UCBIT9IFG:
+          _replace_enum:
+            "UCBIT9IFG_0": [0, "No interrupt pending"]
+            "UCBIT9IFG_1": [1, "Interrupt pending"]
+    "UCB?IFG_SPI":
+        UCRXIFG:
+          _replace_enum:
+            "UCRXIFG_0": [0, "No interrupt pending"]
+            "UCRXIFG_1": [1, "Interrupt pending"]
+        UCTXIFG:
+          _replace_enum:
+            "UCTXIFG_0": [0, "No interrupt pending"]
+            "UCTXIFG_1": [1, "Interrupt pending"]
+    "UCB?IV":
+        _add:
+            UCIV:
+              description: "eUSCI_B interrupt vector value"
+              bitOffset: 0
+              bitWidth: 16
+              access: read-only
+        UCIV:
+          _replace_enum:
+            "NONE": [0, "No interrupt pending"]
+            "UCALIFG": [2, "Interrupt Source: Arbitration lost; Interrupt Flag: UCALIFG; Interrupt Priority: Highest"]
+            "UCNACKIFG": [4, "Interrupt Source: Not acknowledgment; Interrupt Flag: UCNACKIFG"]
+            "UCSTTIFG": [6, "Interrupt Source: Start condition received; Interrupt Flag: UCSTTIFG"]
+            "UCSTPIFG": [8, "Interrupt Source: Stop condition received; Interrupt Flag: UCSTPIFG"]
+            "UCRXIFG3": [10, "Interrupt Source: Slave 3 Data received; Interrupt Flag: UCRXIFG3"]
+            "UCTXIFG3": [12, "Interrupt Source: Slave 3 Transmit buffer empty; Interrupt Flag: UCTXIFG3"]
+            "UCRXIFG2": [14, "Interrupt Source: Slave 2 Data received; Interrupt Flag: UCRXIFG2"]
+            "UCTXIFG2": [16, "Interrupt Source: Slave 2 Transmit buffer empty; Interrupt Flag: UCTXIFG2"]
+            "UCRXIFG1": [18, "Interrupt Source: Slave 1 Data received; Interrupt Flag: UCRXIFG1"]
+            "UCTXIFG1": [20, "Interrupt Source: Slave 1 Transmit buffer empty; Interrupt Flag: UCTXIFG1"]
+            "UCRXIFG0": [22, "Interrupt Source: Data received; Interrupt Flag: UCRXIFG0"]
+            "UCTXIFG0": [24, "Interrupt Source: Transmit buffer empty; Interrupt Flag: UCTXIFG0"]
+            "UCBCNTIFG": [26, "Interrupt Source: Byte counter zero; Interrupt Flag: UCBCNTIFG"]
+            "UCCLTOIFG": [28, "Interrupt Source: Clock low timeout; Interrupt Flag: UCCLTOIFG"]
+            "UCBIT9IFG": [30, "Interrupt Source: Nineth bit position; Interrupt Flag: UCBIT9IFG; Priority: Lowest"]
+    "UCB?IV_SPI":
+        _add:
+            UCIV:
+              description: "eUSCI_B interrupt vector value"
+              bitOffset: 0
+              bitWidth: 16
+              access: read-only
+        UCIV:
+          _replace_enum:
+            "NONE": [0, "No interrupt pending"]
+            "UCRXIFG": [2, "Interrupt Source: Data received; Interrupt Flag: UCRXIFG; Interrupt Priority: Highest"]
+            "UCTXIFG": [4, "Interrupt Source: Transmit buffer empty; Interrupt Flag: UCTXIFG; Interrupt Priority: Lowest"]
+
+# Add missing password field, and the fields of the interrupt vector registers, which the device file's
+# registers lack (SYSUNIV, SYSSNIV, SYSRSTIV: SLAU445I Table 1-20, p. 71; SLAU445I Table 1-21, p. 71;
+# SLAU445I Table 1-22, p. 72)
 SYS:
+    SYSUNIV:
+        _add:
+            SYSUNIV:
+                description: User NMI vector
+                bitOffset: 0
+                bitWidth: 16
+                access: read-only
+    SYSSNIV:
+        _add:
+            SYSSNIV:
+                description: System NMI vector
+                bitOffset: 0
+                bitWidth: 16
+                access: read-only
+    SYSRSTIV:
+        _add:
+            SYSRSTIV:
+                description: Reset interrupt vector
+                bitOffset: 0
+                bitWidth: 16
+                access: read-only
     SYSCFG0:
         _add:
             FRWPPW:
@@ -802,3 +2120,28 @@ SYS:
                 PASSWORD: [0x96, "Value always read from the SYSCFG0 password field"]
             _write:
                 PASSWORD: [0xA5, "Value which must be written to the SYSCFG0 password field"]
+
+SFR:
+    SFRIFG1:
+        OFIFG:
+            _replace_enum:
+                OFIFG_0: [0, "No interrupt pending"]
+                OFIFG_1: [1, "Interrupt pending"]
+    # Named as on the other devices
+    SFRRPCR:
+        SYSNMI:
+          _replace_enum:
+            "RESET": [0, "Reset function"]
+            "NMI": [1, "NMI function"]
+        SYSNMIIES:
+          _replace_enum:
+            "RISING": [0, "NMI on rising edge"]
+            "FALLING": [1, "NMI on falling edge"]
+        SYSRSTUP:
+          _replace_enum:
+            "PULLDOWN": [0, "Pulldown is selected"]
+            "PULLUP": [1, "Pullup is selected"]
+        SYSRSTRE:
+          _replace_enum:
+            "DISABLE": [0, "Pullup or pulldown resistor at the RST/NMI pin is disabled"]
+            "ENABLE": [1, "Pullup or pulldown resistor at the RST/NMI pin is enabled"]
