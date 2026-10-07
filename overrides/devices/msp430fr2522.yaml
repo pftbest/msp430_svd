@@ -237,3 +237,9 @@ CAPTIVATE:
       CAPIV_6: [6, "Interrupt source: Captivate Timer interrupt, Flag = CAPTIFG"]
       CAPIV_8: [8, "Interrupt source: Captivate Counter interrupt, Flag = CAPCNTRIFG"]
       CAPIV_10: [10, "Interrupt source: max count value reached, Flag = CAPMAXIFG"]
+
+# The data sheet lists the hardware revision at 1A06h (SLASEE4C Table 6-18, p. 61), but "This device does
+# not support reading the hardware revision from memory" (SLAZ705H 5.3, p. 4)
+TLV:
+  _delete:
+    - HW_REVISION
