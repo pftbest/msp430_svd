@@ -69,7 +69,16 @@ pub fn parse_dslite(file_name: &Path) -> Result<Device> {
             if r.width == 2 && old.width == 1 {
                 if !memory.contains_key(&r.offset) || !memory.contains_key(&(r.offset + 1)) {
                     eprintln!(
-                        "warning: register {} ({}) has missing parts",
+                        "warning: register {} ({}) has missing parts (byte)",
+                        old.name, r.name
+                    );
+                }
+                eprintln!("erasing {} (keeping {})", r.name, old.name);
+                continue;
+            } else if r.width == 4 && old.width == 2 {
+                if !memory.contains_key(&r.offset) || !memory.contains_key(&(r.offset + 2)) {
+                    eprintln!(
+                        "warning: register {} ({}) has missing parts (word)",
                         old.name, r.name
                     );
                 }
