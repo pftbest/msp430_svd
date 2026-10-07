@@ -143,3 +143,9 @@ FRCTL:
     _modify:
       FRLPMPWR:
         access: read-only
+
+# The data sheet lists the hardware revision at 1A06h (SLASEO7C Table 9-30, p. 71), but "This device does
+# not support reading the hardware revision from memory" (SLAZ727B 5.3, p. 4)
+TLV:
+  _delete:
+    - HW_REVISION

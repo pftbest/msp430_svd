@@ -318,6 +318,13 @@ P3:
             "/8": [7, "Divide by 8"]
 
 ADC:
+    # The device file describes ADCLO as the high threshold (ADCHI: SLAU445I 21.3.7, p. 568; ADCLO: SLAU445I
+    # 21.3.9, p. 569)
+    _modify:
+        ADCLO:
+            description: ADC Window Comparator Low Threshold Register
+        ADCHI:
+            description: ADC Window Comparator High Threshold Register
     ADCCTL1:
         # The trigger sources of ADCSHS (ADC Trigger Signal Connections: SLASE59F Table 6-16, p. 53; 11b
         # isn't connected)
